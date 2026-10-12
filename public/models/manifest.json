@@ -28,7 +28,7 @@
     },
     "ieyasu": {
       "triangles": 41280,
-      "bytes": 3140328,
+      "bytes": 3142428,
       "source_parts": 600,
       "materials": 1,
       "textures": 3,
@@ -36,16 +36,16 @@
     }
   },
   "shared_textures": {
-    "shared/7faafb607ab74359.png": 3588403,
-    "shared/5501796fb4290ee6.png": 2457904,
-    "shared/ca2f72d826f535c2.png": 2211646,
+    "shared/223df5e4885b4f8c.png": 3588531,
+    "shared/313ddcc4b5b28311.png": 2457923,
+    "shared/4a3f30e1b16442c0.png": 2211624,
     "shared/0845c79e3d7909d4.png": 72753,
     "shared/b033bec590993e64.png": 1459001,
     "shared/a3beead67d295d1c.png": 54127,
-    "shared/396ec030658e0031.png": 1278861,
-    "shared/82f606b8823640a9.png": 892558,
-    "shared/418a2dd03803807c.png": 874505
+    "shared/54b4d353e0b837cb.png": 1293284,
+    "shared/86baeaecfcb52ded.png": 890389,
+    "shared/5cdcde1152c24830.png": 885452
   },
-  "shared_texture_bytes": 12889758,
+  "shared_texture_bytes": 12913084,
   "paid_api_calls": 0
 }

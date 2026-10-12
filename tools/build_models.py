@@ -17,7 +17,7 @@ from samurai_rig import bind_hero, bone_for_part, weapon_point
 from gltf_assets import share_images
 from refine_hero import refine_hero, hero_parts, HERO_COLORS
 from hero_highpoly import bake_hero
-from refine_ieyasu import commander_parts, refine_ieyasu, IEYASU_COLORS
+from refine_ieyasu import commander_parts, refine_ieyasu, IEYASU_COLORS, commander_silhouette
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = Path(os.environ.get('MODEL_OUTPUT', ROOT / 'public/models'))
@@ -356,8 +356,9 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     actor_parts=[]
     for name in names:
         src=parts[name];o=src.copy();o.data=src.data;c.objects.link(o);o.parent=root
-        if src['palette_role']=='armor':o.material_slots[0].link='OBJECT';o.material_slots[0].material=armor
-        if src['palette_role'] in hero_materials:o.material_slots[0].link='OBJECT';o.material_slots[0].material=hero_materials[src['palette_role']]
+        if kind=='ieyasu':commander_silhouette(o)
+        if o['palette_role']=='armor':o.material_slots[0].link='OBJECT';o.material_slots[0].material=armor
+        if o['palette_role'] in hero_materials:o.material_slots[0].link='OBJECT';o.material_slots[0].material=hero_materials[o['palette_role']]
         actor_parts.append(o)
     source_roots.append(root)
     # Bake only the export copy. Source parts retain shared geometry and materials.

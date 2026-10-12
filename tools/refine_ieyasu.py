@@ -2,9 +2,31 @@
 The fern frontlet and stylised aoi are game designs, not a museum reconstruction.
 """
 import math
-IEYASU_COLORS={'armor':(.028,.041,.032,1),'gold':(.58,.39,.14,1),
-              'cloth':(.027,.025,.022,1),'cape':(.095,.079,.045,1),
-              'lace':(.56,.47,.30,1),'skin':(.15,.085,.045,1),'steel':(.62,.69,.72,1)}
+IEYASU_COLORS={'armor':(.009,.013,.019,1),'gold':(.88,.51,.12,1),
+              'cloth':(.018,.021,.028,1),'cape':(.024,.019,.027,1),
+              'lace':(.68,.39,.10,1),'skin':(.15,.085,.045,1),'steel':(.62,.69,.72,1)}
+
+def commander_silhouette(obj):
+    """Variant-local edits: preserve the shared hero geometry and the 18-bone rig."""
+    name=obj['part_name']
+    shoulder=name.startswith('sode.hero.')
+    if shoulder or name.startswith(('kabuto.ieyasu.fern.','kabuto.ieyasu.stem.','cape.hero.drape')):
+        obj.data=obj.data.copy()
+        for vertex in obj.data.vertices:
+            p=vertex.co+obj.location
+            if shoulder:
+                # Flared, overlapping plates remain attached at the upper arm.
+                side=-1 if p.x<0 else 1
+                p.x=side*.23+(p.x-side*.23)*1.42;p.y*=1.18
+                p.z=1.72+(p.z-1.72)*1.10
+            elif name.startswith('kabuto.ieyasu.'):
+                p.x*=1.9;p.z=2.08+(p.z-2.08)*1.40
+            else:p.x*=1.28
+            vertex.co=p-obj.location
+        obj.data.update()
+    # Large gold planes read from the gameplay camera; black remains dominant.
+    if name.startswith('sode.hero.crown.') or (shoulder and name.split('.')[-1] in ('0','4') and len(name.split('.'))==4) or name=='kabuto.hero.peak':
+        obj['palette_role']='gold'
 
 def commander_parts(hero_details):
     return [n for n in hero_details if not n.startswith(('antler.','helmet.coin.','yari.')) and '.coin.' not in n]

@@ -31,3 +31,11 @@ v10 共 19 張環境貼圖、8,766,781 bytes，比 v8／v9 增加 555,171 bytes�
 PostProcess 的尺寸參數控制「輸入目標」，不是最後輸出大小。桌面的第一個場景輸入保持完整尺寸，最終調色同時讀取該原圖及小尺寸模糊圖，避免把整個遊戲降成四分之一解析度。實際檢查在 `docs/screenshots/lighting-budget.json`：1066×666 原始場景，三個 266×166 中間目標。這是渲染配置證據，**不是增加 18.75% GPU 時間或真機 FPS 的測量**。
 
 `tools/capture-look.mjs` 保存同一鏡頭／人物姿勢的 `lighting-after.png`、`material-after.png`；`*-before.png` 是 `0ff0bef` 原版的實際引擎截圖。環境風雪和火舌相位會不同，沒有替換模型、合成插畫或宣稱已達完整 3A 資產品質。完整重建 `npm run models` 會同步更新漆甲遮罩；單獨更換烘焙貼圖後也須執行 `npm run look`，測試會檢查來源雜湊。
+
+## v12：黑金家康的 Boss 輪廓
+
+家康的遊戲模型倍率由 1.13 提至 1.65（小兵為 1，幸村為 1.15），再以 Blender 修改家康專用的部件副本：肩甲向外展開、金色羊齒兜飾加寬加高、披風加寬。肩甲冠部及首尾甲片、兜帽前緣改為金色大面；其餘維持冷黑漆甲、暗色布料和披風。這是修羅世界的誇張武將造型，不是家康真實體型或甲冑的考據復原。
+
+`tools/refine_ieyasu.py` 的 `commander_silhouette` 只修改家康組裝副本，不改幸村和小兵的共用原件。`npm run models` 重建可編輯 Blender 來源、遊戲 GLB、烘焙貼圖、GPU 動畫 palette 與漆甲遮罩。沿用 18 骨架、現有六組動畫、單一材質與既有照明，沒有新增即時光源或渲染步驟。放大的是角色 body instance；邏輯根節點保持原尺寸，4.8 公尺攻擊半徑與預警圈不會跟著放大。
+
+`node tools/capture-boss.mjs` 保存 `boss-battle-after.png` 和 `boss-close-after.png`。比較圖使用同一個本陣前方位置、鏡頭、idle 姿勢及兩名小兵；`before` 為 v11 原模型與 1.13 倍率。這些是開發檢視鏡頭的實際遊戲輸出，環境粒子相位可以不同。

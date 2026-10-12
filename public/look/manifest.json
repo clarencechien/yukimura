@@ -4,15 +4,15 @@
     "size": 512,
     "bytes": 65880,
     "sha256": "76b8b8335c45eb4bf82b4515f9b00195fc7e39d600b2030f192f3e082e2bb04a",
-    "source": "shared/ca2f72d826f535c2.png",
-    "source_sha256": "ca2f72d826f535c21b691ce09e503eb6459bd550819415ee9085f38a4ca91111"
+    "source": "shared/4a3f30e1b16442c0.png",
+    "source_sha256": "4a3f30e1b16442c0e2bd99ebad2ed61af457350e67fae72387c2e73d229549a3"
   },
   "ieyasu": {
     "uri": "ieyasu-coat.png",
     "size": 256,
-    "bytes": 33859,
-    "sha256": "bc70b0e809205ac80530d29e8b2e1aac41e06558ce63f3134a389c4a918d6d3e",
-    "source": "shared/418a2dd03803807c.png",
-    "source_sha256": "418a2dd03803807c67f26c7390f9d25875a2ba4ba8fd9876a3db1c98b561e085"
+    "bytes": 33235,
+    "sha256": "5f604d8e51828cccad87706a6c1f5619b3a403c75dca012d0540dc2120f7e305",
+    "source": "shared/5cdcde1152c24830.png",
+    "source_sha256": "5cdcde1152c248302fe0d3aa81b43be09a8648a2c3a265903577bf121d8a1f4a"
   }
 }

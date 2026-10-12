@@ -25,7 +25,7 @@ winterReflections(scene);const ink=illustrationPass(scene,camera);
 const shadows=new ShadowGenerator(1024,sun);shadows.usePoissonSampling=true;shadows.normalBias=.012;shadows.darkness=.25;
 const ground=MeshBuilder.CreateGround('ground',{width:100,height:100},scene);ground.receiveShadows=true;const mat=new StandardMaterial('ash',scene);mat.diffuseColor=new Color3(.18,.21,.21);mat.specularColor=Color3.Black();ground.material=mat;
 const requested=new URLSearchParams(location.search).get('model')||'yukimura';const kind=['yukimura','ashigaru','tokugawa','ieyasu'].includes(requested)?requested:'yukimura';
-const loaded=await SceneLoader.ImportMeshAsync('','/models/',kind+'.glb?rev=storm-9',scene);
+const loaded=await SceneLoader.ImportMeshAsync('','/models/',kind+'.glb?rev=commander-12',scene);
 finishMaterials(scene,loaded.meshes,kind);
 document.querySelector('h1')!.textContent=({yukimura:'真田幸村',ashigaru:'赤備足輕',tokugawa:'德川足輕',ieyasu:'家康・修羅之影'} as Record<string,string>)[kind];
 loaded.meshes.forEach(m=>{m.receiveShadows=true;shadows.addShadowCaster(m)});

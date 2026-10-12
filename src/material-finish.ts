@@ -11,7 +11,7 @@ export function finishMaterials(scene:Scene,meshes:AbstractMesh[],kind:string){
   material.maxSimultaneousLights=4;material.environmentIntensity=.95;material.enableSpecularAntiAliasing=true;
   material.ambientTexture=material.metallicTexture;material.useAmbientInGrayScale=true;material.ambientTextureStrength=.42;material.ambientTextureImpactOnAnalyticalLights=0;
   if(kind==='yukimura'||kind==='ieyasu'){
-   const coat=new Texture(`${import.meta.env.BASE_URL}look/${kind}-coat.png?rev=light-11`,scene,false,false);coat.gammaSpace=false;
+   const coat=new Texture(`${import.meta.env.BASE_URL}look/${kind}-coat.png?rev=commander-12`,scene,false,false);coat.gammaSpace=false;
    material.clearCoat.isEnabled=true;material.clearCoat.intensity=.55;material.clearCoat.roughness=1;material.clearCoat.texture=coat;
   }
  }
