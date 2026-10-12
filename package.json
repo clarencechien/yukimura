@@ -14,7 +14,8 @@
     "build:pages": "npm run build -- --base=/yukimura/",
     "test:pages": "npm run build:pages && playwright test --config playwright.pages.config.mjs",
     "models:high-preview": "blender --background assets/source/samurai-kit.blend --threads 2 --python-exit-code 1 --python tools/render_highpoly.py",
-    "environment": "blender --background --threads 2 --python-exit-code 1 --python tools/build_environment.py"
+    "environment": "blender --background --threads 2 --python-exit-code 1 --python tools/build_environment.py",
+    "models:animations": "blender --background --threads 2 --python-exit-code 1 --python tools/rebuild_animations.py && node tools/bake-crowd.mjs"
   },
   "dependencies": {
     "@babylonjs/core": "^8.0.0",

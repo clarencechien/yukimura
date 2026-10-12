@@ -67,7 +67,7 @@ export function battlefield(scene:Scene,m:Palette){
   for(let row=0;row<8;row++)for(let col=0;col<4;col++)positions.push(col*.34, -row*.30+(row===7?(col%2)*.18:0),Math.sin(col*.9+row*.65)*.10);
   for(let r=0;r<7;r++)for(let c=0;c<3;c++){const n=r*4+c;indices.push(n,n+4,n+1,n+1,n+4,n+5);}
   const data=new VertexData();data.positions=positions;data.indices=indices;data.uvs=[];for(let row=0;row<8;row++)for(let col=0;col<4;col++)data.uvs.push(col/3,1-row/7);const ns:number[]=[];VertexData.ComputeNormals(positions,indices,ns);data.normals=ns;
-  const flag=new Mesh('war torn sashimono',scene);data.applyToMesh(flag);flag.position.set(x,h-.12,z);flag.material=i<8?m.crimson:m.gold;flag.rotation.y=-.25;flags.push(flag);
+  const flag=new Mesh('war torn sashimono',scene);data.applyToMesh(flag,true);flag.metadata={keepDynamic:i%3===0,rest:[...positions],phase:i*.73};flag.position.set(x,h-.12,z);flag.material=i<8?m.crimson:m.gold;flag.rotation.y=-.25;if(i%3===0)flags.push(flag);
  }
  m.crimson.backFaceCulling=false;m.gold.backFaceCulling=false;
  // Soft smoke with an irregular painted edge. No expensive fluid simulation.
@@ -80,5 +80,6 @@ export function battlefield(scene:Scene,m:Palette){
  const smokeMat=new StandardMaterial('smoke pigment',scene);smokeMat.diffuseTexture=smokeTex;smokeMat.useAlphaFromDiffuseTexture=true;smokeMat.disableLighting=true;smokeMat.emissiveColor=new Color3(.6,.64,.64);smokeMat.alpha=.52;smokeMat.backFaceCulling=false;
  const smoke:Mesh[]=[];
  for(let i=0;i<20;i++){const plane=MeshBuilder.CreatePlane('drifting gunsmoke',{size:1},scene);plane.position.set((i%2?1:-1)*(10+random()*15),2+random()*5,i*9-5);plane.scaling.set(12+random()*10,8+random()*5,1);plane.billboardMode=Mesh.BILLBOARDMODE_ALL;plane.material=smokeMat;plane.metadata={keepDynamic:true,originX:plane.position.x,phase:random()*6.28};plane.isPickable=false;smoke.push(plane);}
- return (t:number)=>{for(const cloud of smoke){cloud.position.x=cloud.metadata.originX+Math.sin(t*.08+cloud.metadata.phase)*1.7;cloud.visibility=.7+Math.sin(t*.15+cloud.metadata.phase)*.2;}};
+ let lastCloth=0;
+ return (t:number)=>{if(t-lastCloth>1/24){lastCloth=t;for(const flag of flags){const pos=flag.metadata.rest.slice();for(let i=0;i<pos.length;i+=3){const loose=pos[i]/1.02;pos[i+2]+=loose*(.15*Math.sin(t*3.4+pos[i]*2.5+pos[i+1]*1.8+flag.metadata.phase)+.05*Math.sin(t*7+pos[i+1]*3));}flag.updateVerticesData(VertexBuffer.PositionKind,pos);const n:number[]=[];VertexData.ComputeNormals(pos,flag.getIndices()!,n);flag.updateVerticesData(VertexBuffer.NormalKind,n);}}for(const cloud of smoke){cloud.position.x=cloud.metadata.originX+Math.sin(t*.08+cloud.metadata.phase)*1.7;cloud.visibility=.7+Math.sin(t*.15+cloud.metadata.phase)*.2;}};
 }

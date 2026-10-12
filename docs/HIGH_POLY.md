@@ -18,7 +18,7 @@ v8 把幸村從共用小塊貼圖改為專用高模／低模流程：高模 1,32
 
 Cycles CPU 以 2 執行緒、16 samples 執行四個 2048² pass：無照明的基礎色、tangent-space normal、roughness/metallic、ambient occlusion。局部 AO 輕量合入基礎色，組裝縫隙沿用頂點遮蔭；顏色不重複乘上紅色頂點色，也不把固定光照烘焙到角色上。最後輸出三張專用貼圖，法線使用 glTF／OpenGL 慣例。
 
-其他三個 NPC 繼續共用原三張 atlas 與一份群兵動畫 palette。高模、灰模預覽和 Blender 源檔不進網站部署。
+v9 家康也使用共用甲冑和獨立 1K 烘焙；兩種足輕繼續共用原三張 atlas 與一份群兵動畫 palette，家康另用刀柄握距的 palette。高模、灰模預覽和 Blender 源檔不進網站部署。
 
 ```sh
 npm run models

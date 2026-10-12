@@ -9,7 +9,7 @@ import {BakedVertexAnimationManager} from '@babylonjs/core/BakedVertexAnimation/
 import {BoundingInfo} from '@babylonjs/core/Culling/boundingInfo';
 import '@babylonjs/core/Meshes/instancedMesh';
 
-export type CrowdClip='idle'|'run'|'thrust'|'hurt'|'fall';
+export type CrowdClip='idle'|'run'|'thrust'|'hurt'|'fall'|'fall_back';
 type Clip={start:number,end:number,duration:number};
 type Palette={uri:string,bytes:number,width:number,height:number,joints:number,clips:Record<CrowdClip,Clip>};
 export type CrowdManifest={fps:number,models:Record<string,Palette>};
@@ -24,7 +24,7 @@ export class CrowdModel {
   source.instancedBuffers[attribute]=new Vector4(0,0,0,0);
   // The spear can extend beyond the rest bounds. Conservative bounds prevent
   // animated troops disappearing at a screen edge without per-frame CPU skinning.
-  source.setBoundingInfo(new BoundingInfo(new Vector3(-3,-.5,-3),new Vector3(3,3.6,3)));
+  source.setBoundingInfo(new BoundingInfo(new Vector3(-4,-.5,-4),new Vector3(4,3.6,4)));
  }
  create(root:TransformNode,scale:number,phase:number){
   const mesh=this.source.createInstance(root.name+'-body');mesh.parent=root;

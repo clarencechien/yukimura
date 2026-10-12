@@ -7,6 +7,7 @@ import { BattleAudio } from './battle-audio';
 import { illustrationPass } from './illustration';
 import { battlefield } from './battlefield';
 import { winterReflections } from './lighting';
+import {winterWeather} from './winter-weather';
 import {weatheredMaterials} from './environment-materials';
 import {Material} from '@babylonjs/core/Materials/material';
 import { ShadowGenerator } from '@babylonjs/core/Lights/Shadows/shadowGenerator';
@@ -96,17 +97,15 @@ for(const z of [6,43,88,138])for(const x of [-8.6,8.6]){
  // Four local lights rather than a point light per soldier.
  if(x<0){const glow=new PointLight('brazier glow',new Vector3(x,2.5,z),scene);glow.diffuse=new Color3(1,.3,.07);glow.intensity=3;glow.range=7;fireLights.push(glow);}
 }
-const snowflakes:AbstractMesh[]=[];
-const snowSource=MeshBuilder.CreateSphere('snow template',{diameter:.07,segments:3},scene);snowSource.material=snow;snowSource.isVisible=false;
-for(let i=0;i<100;i++){const s=snowSource.createInstance('snow');s.position.set(Math.random()*65-32,Math.random()*25,Math.random()*70-20);snowflakes.push(s);}
 // Merge static scenery by material to reduce draw calls on mobile.
 const groups=new Map<Material,Mesh[]>();const staticCasters:AbstractMesh[]=[];
-for(const mesh of [...scene.meshes]){if(mesh instanceof Mesh&&mesh!==snowSource&&!snowflakes.includes(mesh)&&!flames.includes(mesh)&&!mesh.metadata?.keepDynamic&&mesh.material instanceof Material){const list=groups.get(mesh.material)||[];list.push(mesh);groups.set(mesh.material,list);}}
+for(const mesh of [...scene.meshes]){if(mesh instanceof Mesh&&!flames.includes(mesh)&&!mesh.metadata?.keepDynamic&&mesh.material instanceof Material){const list=groups.get(mesh.material)||[];list.push(mesh);groups.set(mesh.material,list);}}
 for(const [mat,group] of groups){const merged=Mesh.MergeMeshes(group,true,true);if(merged){merged.freezeWorldMatrix();merged.isPickable=false;merged.receiveShadows=true;if([wood,stone,paper,dark,roofMaterial,snow,crimson,gold].includes(mat as typeof wood))staticCasters.push(merged);}}
+const weather=winterWeather(scene,sun,reducedMotion);
 // Ground silhouettes reinforce readable actor placement without costly dynamic shadows.
 const shadowMat=material('contact shadow','#35444b');shadowMat.alpha=.28;
 function shadow(parent:TransformNode,r=.5){const m=MeshBuilder.CreateDisc('contact',{radius:r,tessellation:12},scene);m.rotation.x=Math.PI/2;m.position.y=.035;m.material=shadowMat;m.parent=parent;return m;}
-type Actor={root:TransformNode,hp:number,maxHp:number,cooldown:number,boss:boolean,dead:boolean,phase:number,velocity:Vector3,stun:number,deathTime:number,dashHit:number,windup:number,warning:Mesh|null,attackTime:number,hitAge:number,deathAge:number,moving:number};
+type Actor={root:TransformNode,hp:number,maxHp:number,cooldown:number,boss:boolean,dead:boolean,phase:number,velocity:Vector3,stun:number,deathTime:number,dashHit:number,windup:number,warning:Mesh|null,attackTime:number,hitAge:number,deathAge:number,deathDuration:number,deathClip:'fall'|'fall_back',landed:boolean,moving:number};
 let hero:TransformNode;let heroMotion:HeroMotion;let heroMoving=false;const templates:Record<string,AbstractMesh>={};const allies:TransformNode[]=[];const foes:Actor[]=[];
 const crowdModels:Record<string,CrowdModel>={};const crowdMotions=new Map<TransformNode,CrowdMotion>();
 const support=new Map<TransformNode,{cooldown:number,attack:number,target:Actor|null,hit:boolean}>();
@@ -132,7 +131,7 @@ function moveJoy(e:PointerEvent){if(e.pointerId!==joyId)return;const r=joystick.
 joystick.addEventListener('pointerdown',e=>{joyId=e.pointerId;joystick.setPointerCapture(e.pointerId);moveJoy(e);});joystick.addEventListener('pointermove',moveJoy);for(const ev of ['pointerup','pointercancel','lostpointercapture'])joystick.addEventListener(ev,()=>{joyId=null;joy={x:0,z:0};$('stick').style.transform='';});
 function announce(t:string){$('announcement').textContent=t;announceTime=2.6;}
 function actor(kind:string,name:string,x:number,z:number,scale=1){const root=new TransformNode(name,scene);const motion=crowdModels[kind].create(root,scale,crowdMotions.size*.618);crowdMotions.set(root,motion);root.position.set(x,0,z);shadow(root,.48*scale);if(kind==='ashigaru')support.set(root,{cooldown:.2+support.size*.073,attack:-1,target:null,hit:false});return root;}
-function spawn(x:number,z:number,boss=false){const root=actor(boss?'ieyasu':'tokugawa',boss?'ieyasu':'enemy',x,z,boss?1.4:1);const life=boss?cfg.bossHealth:cfg.enemyHealth;const a={root,hp:life,maxHp:life,cooldown:Math.random(),boss,dead:false,phase:Math.random()*6.28,velocity:Vector3.Zero(),stun:0,deathTime:0,dashHit:-1,windup:0,warning:null,attackTime:-1,hitAge:0,deathAge:0,moving:0};foes.push(a);if(boss){root.getChildMeshes().forEach(m=>{if(m.name.includes('contact'))return;m.outlineColor=new Color3(.7,.5,.2);});}}
+function spawn(x:number,z:number,boss=false){const root=actor(boss?'ieyasu':'tokugawa',boss?'ieyasu':'enemy',x,z,boss?1.13:1);const life=boss?cfg.bossHealth:cfg.enemyHealth;const a={root,hp:life,maxHp:life,cooldown:Math.random(),boss,dead:false,phase:Math.random()*6.28,velocity:Vector3.Zero(),stun:0,deathTime:0,dashHit:-1,windup:0,warning:null,attackTime:-1,hitAge:0,deathAge:0,deathDuration:1,deathClip:'fall' as const,landed:false,moving:0};foes.push(a);if(boss){root.getChildMeshes().forEach(m=>{if(m.name.includes('contact'))return;m.outlineColor=new Color3(.7,.5,.2);});}}
 function clearBattle(){combatFX.clear();chain.reset();musouTime=-1;musouPulse=0;hitStop=0;hurtFlash=0;impactZoom=0;hitReadoutTime=0;totalHits=0;lastStrike=-1;lastStrikeHits=0;attackHistory.length=0;$('strikeReadout').textContent='';$('app').classList.remove('musou-active');for(const f of foes)disposeActor(f.root);foes.length=0;for(const a of allies)disposeActor(a);allies.length=0;}
 function start(){if(!hero)return;audio.unlock();audio.pause(false);heroMotion.reset();heroMoving=false;clearInput();clearBattle();cfg=tuning($<HTMLSelectElement>('difficulty').value,Number($<HTMLSelectElement>('cycle').value));hp=cfg.health;rage=35;kills=0;combo=0;elapsed=0;spawnClock=0;dashCD=0;dashTime=0;invuln=1;hitTimer=0;allyCD=0;bossSpawned=false;pendingVictory=false;formation='guard';lastStage=-1;hero.position.set(0,0,0);hero.rotation.y=0;direction.set(0,0,1);for(let i=0;i<10;i++)allies.push(actor('ashigaru','red-guard', (i%5-2)*1.35,-2-Math.floor(i/5)*1.8));for(let i=0;i<40;i++){const a=(i%10)/10*Math.PI*2,r=6+Math.floor(i/10)*3;spawn(Math.sin(a)*r,5+Math.cos(a)*r);}state='playing';$('app').classList.add('playing');$('menu').hidden=true;$('result').hidden=true;$('pausePanel').hidden=true;$('hud').hidden=false;$('combat').hidden=false;$('loading').textContent='';announce('夏火已冷，冬雪重來。');updateHUD();}
 function menu(){state='menu';audio.pause(false);chain.reset();musouTime=-1;$('app').classList.remove('musou-active');$('bossHud').hidden=true;clearInput();$('app').classList.remove('playing');$('menu').hidden=false;$('result').hidden=true;$('pausePanel').hidden=true;$('hud').hidden=true;$('combat').hidden=true;$('announcement').textContent='';}
@@ -145,7 +144,7 @@ function damageEnemy(f:Actor,dmg:number,push:number,lift=0,player=false){
  const resistance=f.boss?.18:1;f.velocity.x=v.x*push*resistance;f.velocity.z=v.z*push*resistance;
  f.velocity.y=Math.max(f.velocity.y,lift*resistance);f.stun=f.boss?.12:.24+lift*.055;if(!f.boss||push>=12){f.attackTime=-1;f.windup=0;f.warning?.dispose();f.warning=null;}
  if(player){totalHits++;combo++;comboTime=3.5;rage=Math.min(100,rage+1.5);}
- if(f.hp===0){f.warning?.dispose();f.warning=null;f.dead=true;f.deathTime=.85+(lift>3?.35:0);f.velocity.y=Math.max(f.velocity.y,3.2);kills++;rage=Math.min(100,rage+3);hp=Math.min(cfg.health,hp+(kills%8===0?4:0));if(f.boss)pendingVictory=true;}
+ if(f.hp===0){f.warning?.dispose();f.warning=null;f.dead=true;f.deathDuration=1.08+(f.phase/6.28)*.20;f.deathTime=f.deathDuration+.45;f.deathClip=Math.sin(f.phase)>0?'fall':'fall_back';f.root.rotation.z=0;f.root.rotation.x=0;kills++;rage=Math.min(100,rage+3);hp=Math.min(cfg.health,hp+(kills%8===0?4:0));if(f.boss)pendingVictory=true;}
 }
 function attack(){if(state!=='playing'||musouTime>=0||dashTime>0)return;chain.press();}
 function aimStrike(){
@@ -164,12 +163,12 @@ function impactStrike(index:number){
  if(index===3)combatFX.dustKick(hero.position,10);
 }
 function dash(){if(state!=='playing'||dashCD>0||musouTime>=0)return;chain.reset();dashSerial++;dashCD=1.15;dashTime=.26;invuln=.42;audio.dash();combatFX.thrust(hero.position,Math.atan2(direction.x,direction.z),3.5);combatFX.dustKick(hero.position);}
-function musou(){if(state!=='playing'||rage<100||musouTime>=0)return;chain.reset();dashTime=0;rage=0;musouTime=0;musouPulse=0;invuln=MUSOU_DURATION+.3;audio.ultimate();announce('奥義 · 六文赤蓮');$('app').classList.add('musou-active');combatFX.dustKick(hero.position,12);}
+function musou(){if(state!=='playing'||rage<100||musouTime>=0)return;chain.reset();dashTime=0;rage=0;musouTime=0;musouPulse=0;invuln=MUSOU_DURATION+.3;audio.ultimate();announce('奥義 · 六文赤蓮');$('app').classList.add('musou-active');combatFX.charge(hero.position);}
 function updateMusou(dt:number){
  if(musouTime<0)return;musouTime+=dt;
  while(musouPulse<MUSOU_PULSES.length&&musouTime>=MUSOU_PULSES[musouPulse]){
   const final=musouPulse===MUSOU_PULSES.length-1;const radius=final?12:8+musouPulse*.5;let count=0;
-  combatFX.burst(hero.position,radius);audio.ultimate(final);shake=final?.45:.16;impactZoom=final?.13:.045;hitStop=final?.09:.025;
+  combatFX.burst(hero.position,radius,final);audio.ultimate(final);shake=final?.45:.16;impactZoom=final?.13:.045;hitStop=final?.09:.025;
   for(const f of foes){if(!f.dead&&inRange(hero.position,f.root.position,radius)){damageEnemy(f,final?12:4,final?17:7,final?8:3,true);if(count<5)combatFX.impact(f.root.position,true);count++;}}
   lastStrikeHits=count;musouPulse++;
  }
@@ -187,7 +186,7 @@ function update(dt:number){elapsed+=dt;dashCD-=dt;dashTime-=dt;invuln-=dt;hitTim
  hero.position.addInPlace(move.scale(dt*6.4));hero.position.x=Math.max(-19,Math.min(19,hero.position.x));hero.position.z=Math.max(-5,Math.min(151,hero.position.z));hero.position.y=move.length()>.1?Math.sin(elapsed*15)*.018:0;if(!chain.active&&musouTime<0)hero.rotation.y=Math.atan2(direction.x,direction.z);
  if(musouTime<0&&dashTime<=0){
   for(const event of chain.step(dt,keys.has('j')||attackHeld)){
-   if(event.type==='begin'){aimStrike();lastStrike=event.index;attackHistory.push(event.index);if(attackHistory.length>16)attackHistory.shift();$('strikeReadout').textContent=STRIKES[event.index].name;hitReadoutTime=.8;}
+   if(event.type==='begin'){aimStrike();combatFX.windup(hero.position,Math.atan2(strikeFacing.x,strikeFacing.z));lastStrike=event.index;attackHistory.push(event.index);if(attackHistory.length>16)attackHistory.shift();$('strikeReadout').textContent=STRIKES[event.index].name;hitReadoutTime=.8;}
    else impactStrike(event.index);
   }
   if(chain.active){const strike=STRIKES[chain.active.index],t=chain.active.time;
@@ -204,7 +203,11 @@ function update(dt:number){elapsed+=dt;dashCD-=dt;dashTime-=dt;invuln-=dt;hitTim
  for(let i=foes.length-1;i>=0;i--){
   const f=foes[i],p=f.root.position;f.moving=0;f.hitAge+=dt;if(f.attackTime>=0){f.attackTime+=dt;if(f.attackTime>(f.boss?1.97:.79))f.attackTime=-1;}
   if(f.dead){
-   f.deathAge+=dt;f.deathTime-=dt;p.addInPlace(f.velocity.scale(dt));f.velocity.y-=dt*16;f.velocity.x*=Math.exp(-dt*2);f.velocity.z*=Math.exp(-dt*2);p.y=Math.max(.12,p.y);f.root.rotation.z=Math.min(1.45,f.root.rotation.z+dt*4);if(f.deathTime<.25)f.root.scaling.setAll(Math.max(.01,f.deathTime/.25));
+   f.deathAge+=dt;f.deathTime-=dt;p.addInPlace(f.velocity.scale(dt));f.velocity.y-=dt*16;
+   const grounded=p.y<=0;if(grounded){p.y=0;f.velocity.y=0;}
+   f.velocity.x*=Math.exp(-dt*(grounded?8:2));f.velocity.z*=Math.exp(-dt*(grounded?8:2));
+   if(grounded&&!f.landed&&f.deathAge>f.deathDuration*.68){f.landed=true;combatFX.dustKick(p,4);}
+   if(f.deathTime<.18)p.y-=.18-f.deathTime;
    if(f.deathTime<=0){disposeActor(f.root);foes.splice(i,1);}continue;
   }
   f.cooldown-=dt;f.stun=Math.max(0,f.stun-dt);
@@ -226,7 +229,7 @@ function update(dt:number){elapsed+=dt;dashCD-=dt;dashTime-=dt;invuln-=dt;hitTim
  }
  // Keep defeated silhouettes bounded even during a large musou burst.
  const corpses=foes.filter(f=>f.dead);for(const f of corpses.slice(0,Math.max(0,corpses.length-28))){f.deathTime=0;}
- for(const f of foes){const motion=crowdMotions.get(f.root)!;if(f.dead)motion.sample('fall',Math.min(1,f.deathAge/.55));else if(f.stun>0||f.root.position.y>.1)motion.sample('hurt',Math.min(.65,f.hitAge/.4));else if(f.attackTime>=0)motion.sample('thrust',f.boss?Math.min(1,f.attackTime/1.97):f.attackTime/.79);else motion.loop(dt,f.moving>.1,Math.max(.8,f.moving/3.8));}
+ for(const f of foes){const motion=crowdMotions.get(f.root)!;if(f.dead)motion.sample(f.deathClip,Math.min(f.root.position.y>.1?.70:1,f.deathAge/f.deathDuration));else if(f.stun>0||f.root.position.y>.1)motion.sample('hurt',Math.min(.65,f.hitAge/.4));else if(f.attackTime>=0)motion.sample('thrust',f.boss?Math.min(1,f.attackTime/1.97):f.attackTime/.79);else motion.loop(dt,f.moving>.1,Math.max(.8,f.moving/3.8));}
  allies.forEach((a,i)=>{
   const data=support.get(a)!,motion=crowdMotions.get(a)!;data.cooldown-=dt;
   if(data.attack>=0){
@@ -255,10 +258,10 @@ function visual(dt:number){
  const now=performance.now()*.001;animateBattlefield(now);for(let i=0;i<flames.length;i++)flames[i].scaling.y=.78+Math.sin(now*8+i)*.11;
 
  const target=state==='menu'?new Vector3(0,0,8):hero?.position||Vector3.Zero();const zoom=musouTime>=0&&!reducedMotion?(musouTime<.3?.82:.93):1;const desired=target.add(new Vector3(8*zoom,11*zoom,-16*zoom));camera.fov+=(.76-(reducedMotion?0:impactZoom)-camera.fov)*Math.min(1,dt*9);camera.position=Vector3.Lerp(camera.position,desired,Math.min(1,dt*4));camera.setTarget(target.add(new Vector3(state==='menu'?-7:0,0,6)));if(shake>0&&!reducedMotion){camera.position.x+=(Math.random()-.5)*shake;camera.position.z+=(Math.random()-.5)*shake;}
- for(const s of snowflakes){s.position.y-=dt*(1+s.uniqueId%3*.2);s.position.x+=dt*.3;if(s.position.y<0){s.position.y=24;s.position.z=target.z+Math.random()*70-25;s.position.x=target.x+Math.random()*60-30;}}
+ weather.update(dt,target);
  if(announceTime>0){announceTime-=dt;$('announcement').style.opacity=String(Math.min(1,announceTime));}else $('announcement').style.opacity='0';
 }
-async function init(){try{const response=await fetch(`${import.meta.env.BASE_URL}models/crowd-animation.json?rev=high-8`);if(!response.ok)throw Error('Crowd manifest unavailable');const crowdManifest: CrowdManifest=await response.json();const palettes=await loadPalettes(scene,crowdManifest,`${import.meta.env.BASE_URL}models/`);for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=high-8',scene);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
+async function init(){try{const response=await fetch(`${import.meta.env.BASE_URL}models/crowd-animation.json?rev=storm-9`);if(!response.ok)throw Error('Crowd manifest unavailable');const crowdManifest: CrowdManifest=await response.json();const palettes=await loadPalettes(scene,crowdManifest,`${import.meta.env.BASE_URL}models/`);for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=storm-9',scene);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
  if(name==='yukimura'){
   // Use the loaded skinned mesh directly so clips target the visible rig.
   hero=new TransformNode('yukimura',scene);templates[name].parent=hero;
@@ -279,8 +282,8 @@ function tick(realDt:number){
  }
  if(state!=='paused')visual(realDt);
 }
-engine.runRenderLoop(()=>{if(!manualTestClock)tick(Math.min(engine.getDeltaTime()/1000,.05));scene.render();});window.addEventListener('resize',()=>engine.resize());init();
+engine.runRenderLoop(()=>{weather.pause(state==='paused'||manualTestClock);if(!manualTestClock)tick(Math.min(engine.getDeltaTime()/1000,.05));scene.render();});window.addEventListener('resize',()=>engine.resize());init();
 // Read-only diagnostics are useful for automated smoke tests and performance inspection.
-Object.defineProperty(window,'__sanada',{get:()=>({state,hp,rage,kills,cycle:cfg.cycle,position:hero?{x:hero.position.x,z:hero.position.z}:null,enemies:foes.filter(f=>!f.dead).length,allies:allies.length,models:Object.keys(templates),fps:engine.getFps(),formation,heroAnimation:heroMotion?.state,animationClips:heroMotion?.names,environment:{terrain:scene.getMaterialByName('churned snow and mud')?.getClassName(),staticCasters:staticCasters.length},crowd:{actors:crowdMotions.size,instances:[...crowdMotions.values()].filter(m=>m.mesh.getClassName()==='InstancedMesh').length,allies:allies.map(a=>({state:crowdMotions.get(a)?.state,frame:crowdMotions.get(a)?.frame})),enemies:foes.map(f=>({state:crowdMotions.get(f.root)?.state,frame:crowdMotions.get(f.root)?.frame})),palettes:Object.keys(crowdModels).length},attackIndex:chain.active?.index??-1,attackHistory:[...attackHistory],totalHits,lastStrikeHits,hitStop,musouActive:musouTime>=0,musouPulse,airborne:foes.filter(f=>!f.dead&&f.root.position.y>.2).length,corpses:foes.filter(f=>f.dead).length,effects:combatFX.count,muted:audio.muted})});
+Object.defineProperty(window,'__sanada',{get:()=>({state,hp,rage,kills,cycle:cfg.cycle,position:hero?{x:hero.position.x,z:hero.position.z}:null,enemies:foes.filter(f=>!f.dead).length,allies:allies.length,models:Object.keys(templates),fps:engine.getFps(),formation,heroAnimation:heroMotion?.state,animationClips:heroMotion?.names,environment:{terrain:scene.getMaterialByName('churned snow and mud')?.getClassName(),staticCasters:staticCasters.length,weatherCapacity:weather.capacity,weatherActive:weather.active},crowd:{actors:crowdMotions.size,instances:[...crowdMotions.values()].filter(m=>m.mesh.getClassName()==='InstancedMesh').length,allies:allies.map(a=>({state:crowdMotions.get(a)?.state,frame:crowdMotions.get(a)?.frame})),enemies:foes.map(f=>({state:crowdMotions.get(f.root)?.state,frame:crowdMotions.get(f.root)?.frame})),palettes:Object.keys(crowdModels).length},attackIndex:chain.active?.index??-1,attackHistory:[...attackHistory],totalHits,lastStrikeHits,hitStop,musouActive:musouTime>=0,musouPulse,airborne:foes.filter(f=>!f.dead&&f.root.position.y>.2).length,corpses:foes.filter(f=>f.dead).length,effects:combatFX.count,muted:audio.muted})});
 
-if(import.meta.env.DEV && new URLSearchParams(location.search).has('test')){Object.defineProperty(window,'__sanadaTest',{value:{step:(seconds:number)=>{for(let t=0;t<seconds;t+=1/60){tick(1/60);}},setupCombat:(health=30)=>{manualTestClock=true;clearBattle();heroMotion.reset();dashCD=0;dashTime=0;invuln=0;hp=cfg.health;rage=100;hero.position.set(0,0,0);direction.set(0,0,1);spawnClock=60;allyCD=60;for(let i=0;i<12;i++){const a=(i-5.5)*.22;spawn(Math.sin(a)*3,Math.cos(a)*3);}for(const f of foes){f.hp=health;f.maxHp=health;f.cooldown=30;}},setupArmy:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<10;i++)allies.push(actor('ashigaru','red-guard',(i%5-2)*1.5,-5-Math.floor(i/5)*2));for(let i=0;i<100;i++){const a=i*Math.PI*2/25,r=8+Math.floor(i/25)*2;spawn(Math.sin(a)*r,Math.cos(a)*r);}updateHUD();},snapshot:()=>({bossSpawned,bossHP:foes.find(f=>f.boss)?.hp,enemyCount:foes.length,enemyHP:foes.map(f=>f.hp),heights:foes.map(f=>f.root.position.y),musouTime,attackTime:chain.active?.time??null})}});}
+if(import.meta.env.DEV && new URLSearchParams(location.search).has('test')){Object.defineProperty(window,'__sanadaTest',{value:{step:(seconds:number)=>{for(let t=0;t<seconds;t+=1/60){tick(1/60);}},setupCombat:(health=30)=>{manualTestClock=true;clearBattle();heroMotion.reset();dashCD=0;dashTime=0;invuln=0;hp=cfg.health;rage=100;hero.position.set(0,0,0);direction.set(0,0,1);spawnClock=60;allyCD=60;for(let i=0;i<12;i++){const a=(i-5.5)*.22;spawn(Math.sin(a)*3,Math.cos(a)*3);}for(const f of foes){f.hp=health;f.maxHp=health;f.cooldown=30;}},setupArmy:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<10;i++)allies.push(actor('ashigaru','red-guard',(i%5-2)*1.5,-5-Math.floor(i/5)*2));for(let i=0;i<100;i++){const a=i*Math.PI*2/25,r=8+Math.floor(i/25)*2;spawn(Math.sin(a)*r,Math.cos(a)*r);}updateHUD();},setupFalls:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<6;i++){spawn((i%3-1)*3,4+Math.floor(i/3)*3);const f=foes[foes.length-1];f.phase=.4+i;damageEnemy(f,999,2,i%2?2:0);}},snapshot:()=>({falls:foes.filter(f=>f.dead).map(f=>({clip:f.deathClip,age:f.deathAge,duration:f.deathDuration,rootZ:f.root.rotation.z,scale:f.root.scaling.x,landed:f.landed})),bossSpawned,bossHP:foes.find(f=>f.boss)?.hp,enemyCount:foes.length,enemyHP:foes.map(f=>f.hp),heights:foes.map(f=>f.root.position.y),musouTime,attackTime:chain.active?.time??null})}});}

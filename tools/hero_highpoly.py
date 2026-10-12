@@ -9,8 +9,6 @@ import time
 import numpy as np
 from mathutils import Vector
 
-SIZE = 2048
-
 def activate(obj):
     bpy.ops.object.select_all(action='DESELECT')
     obj.select_set(True);bpy.context.view_layer.objects.active=obj
@@ -98,10 +96,10 @@ def high_material(role,color):
     emission=node('ShaderNodeEmission');emission.name='BAKE_EMIT';ls.new(packed.outputs[0],emission.inputs[0])
     return mat
 
-def bake_hero(low,parts,colors,output):
+def bake_hero(low,parts,colors,output,kind="yukimura",size=2048):
     started=time.time();scene=bpy.context.scene
     print('HIGH MASTER: sculpting',len(parts),'parts',flush=True)
-    collection=bpy.data.collections.new('20_YUKIMURA_HIGH — sculpt master / not exported')
+    collection=bpy.data.collections.new('20_'+kind.upper()+'_HIGH — sculpt master / not exported')
     scene.collection.children.link(collection)
     materials={role:high_material(role,color) for role,color in colors.items()}
     offsets=[Vector(((i%24)*4,(i//24)*4,0)) for i in range(len(parts))]
@@ -145,24 +143,24 @@ def bake_hero(low,parts,colors,output):
     low.data.materials.clear();low.data.materials.append(target)
     target_node=target.node_tree.nodes.new('ShaderNodeTexImage');target.node_tree.nodes.active=target_node
     images={}
-    for label,kind,space in [('pigment','DIFFUSE','sRGB'),('normal','NORMAL','Non-Color'),('surface','EMIT','Non-Color'),('ao','AO','Non-Color')]:
-        image=bpy.data.images.new('hero_baked_'+label,SIZE,SIZE,alpha=False);image.colorspace_settings.name=space
-        image.generated_color=(.5,.5,1,1) if kind=='NORMAL' else (0,0,0,1)
+    for label,bake_type,space in [('pigment','DIFFUSE','sRGB'),('normal','NORMAL','Non-Color'),('surface','EMIT','Non-Color'),('ao','AO','Non-Color')]:
+        image=bpy.data.images.new(kind+'_baked_'+label,size,size,alpha=False);image.colorspace_settings.name=space
+        image.generated_color=(.5,.5,1,1) if bake_type=='NORMAL' else (0,0,0,1)
         target_node.image=image
-        if kind=='EMIT':
+        if bake_type=='EMIT':
             for m in materials.values():m.node_tree.links.new(m.node_tree.nodes['BAKE_EMIT'].outputs[0],m.node_tree.nodes.get('Material Output').inputs['Surface'])
-        if kind=='AO':
+        if bake_type=='AO':
             for m in materials.values():m.node_tree.links.new(m.node_tree.nodes.get('Principled BSDF').outputs[0],m.node_tree.nodes.get('Material Output').inputs['Surface'])
         activate(low);high.select_set(True)
         print('HIGH BAKE',label,'triangles',high_triangles,flush=True)
-        bpy.ops.object.bake(type=kind,pass_filter={'COLOR'} if kind=='DIFFUSE' else set())
+        bpy.ops.object.bake(type=bake_type,pass_filter={'COLOR'} if bake_type=='DIFFUSE' else set())
         images[label]=image
     # Multiply local baked occlusion into albedo; assembly AO stays in vertex color.
-    pigment=np.empty(SIZE*SIZE*4,dtype=np.float32);images['pigment'].pixels.foreach_get(pigment)
+    pigment=np.empty(size*size*4,dtype=np.float32);images['pigment'].pixels.foreach_get(pigment)
     ao=np.empty_like(pigment);images['ao'].pixels.foreach_get(ao)
     pigment= pigment.reshape(-1,4);ao=ao.reshape(-1,4)
     pigment[:,:3]*=(.7+.3*ao[:,:1]);images['pigment'].pixels.foreach_set(pigment.ravel())
-    surface=np.empty(SIZE*SIZE*4,dtype=np.float32);images['surface'].pixels.foreach_get(surface);surface=surface.reshape(-1,4)
+    surface=np.empty(size*size*4,dtype=np.float32);images['surface'].pixels.foreach_get(surface);surface=surface.reshape(-1,4)
     surface[:,0]=ao[:,0];images['surface'].pixels.foreach_set(surface.ravel())
     for label in ('pigment','normal','surface'):images[label].pack()
     bpy.data.images.remove(images['ao'])
@@ -179,7 +177,7 @@ def bake_hero(low,parts,colors,output):
     for loop in low.data.loops:
         value=occlusion.data[loop.vertex_index].value;attr.data[loop.index].color=(value,value,value,1)
     low.data.attributes.remove(occlusion)
-    mat=bpy.data.materials.new('runtime/hero high bake');mat.use_nodes=True;mat.use_backface_culling=False
+    mat=bpy.data.materials.new('runtime/'+kind+' high bake');mat.use_nodes=True;mat.use_backface_culling=False
     ns=mat.node_tree.nodes;ls=mat.node_tree.links;bs=ns.get('Principled BSDF')
     tex=ns.new('ShaderNodeTexImage');tex.image=images['pigment']
     vc=ns.new('ShaderNodeVertexColor');vc.layer_name='Color'
@@ -191,9 +189,12 @@ def bake_hero(low,parts,colors,output):
     ls.new(tex.outputs[0],separate.inputs[0]);ls.new(separate.outputs['Green'],bs.inputs['Roughness']);ls.new(separate.outputs['Blue'],bs.inputs['Metallic'])
     low.data.materials.clear();low.data.materials.append(mat)
     low.data.calc_loop_triangles()
-    report={'method':'Cycles selected-to-active / exploded matching parts','high_triangles':high_triangles,'high_parts':len(high_parts),'low_triangles':len(low.data.loop_triangles),'resolution':SIZE,'samples':16,'cpu_threads':2,'max_sculpt_relief_m':max_relief,'bake_seconds':round(time.time()-started,1),'passes':['diffuse_color','tangent_normal','roughness_metallic','ambient_occlusion'],'paid_api_calls':0}
+    report={'method':'Cycles selected-to-active / exploded matching parts','high_triangles':high_triangles,'high_parts':len(high_parts),'low_triangles':len(low.data.loop_triangles),'resolution':size,'samples':16,'cpu_threads':2,'max_sculpt_relief_m':max_relief,'bake_seconds':round(time.time()-started,1),'passes':['diffuse_color','tangent_normal','roughness_metallic','ambient_occlusion'],'paid_api_calls':0}
     import json
-    (output/'hero-bake.json').write_text(json.dumps(report,indent=2)+'\n')
-    collection['README']='Editable sculpt masters. Unhide to inspect; rest pose at origin. Excluded from runtime GLB. HeroBake UV and Cycles maps live on yukimura_runtime.'
+    (output/('hero-bake.json' if kind=='yukimura' else kind+'-bake.json')).write_text(json.dumps(report,indent=2)+'\n')
+    collection['README']='Editable sculpt masters. Unhide to inspect; rest pose at origin. Excluded from runtime GLB. HeroBake UV and Cycles maps live on '+kind+'_runtime.'
+    # Exclude finished masters from subsequent dependency-graph updates.
+    # Their editable meshes remain in the source; the generator restores access at save.
+    bpy.context.view_layer.layer_collection.children[collection.name].exclude=True
     print('HIGH BAKE COMPLETE',json.dumps(report),flush=True)
     return report

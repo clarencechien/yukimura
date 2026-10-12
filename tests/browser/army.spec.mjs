@@ -35,3 +35,20 @@ test('100 enemies and ten allies animate independently, pause and clear on resta
  await page.keyboard.press('p');await page.click('#returnMenu');await page.click('#start');
  expect((await page.evaluate(()=>window.__sanada.crowd)).actors).toBe(50);expect(errors).toEqual([]);
 });
+
+test('soldiers collapse through two articulated poses without rotating or shrinking the actor root',async({page})=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:5175/?test');await expect(page.locator('#start')).toBeEnabled({timeout:60000});await page.click('#start');
+ await page.evaluate(()=>window.__sanadaTest.setupFalls());await page.evaluate(()=>window.__sanadaTest.step(.38));
+ const early=await page.evaluate(()=>({falls:window.__sanadaTest.snapshot().falls,states:window.__sanada.crowd.enemies}));
+ expect(early.falls).toHaveLength(6);expect(new Set(early.states.map(a=>a.state))).toEqual(new Set(['fall','fall_back']));
+ expect(new Set(early.falls.map(f=>f.duration)).size).toBeGreaterThan(3);
+ for(const f of early.falls){expect(f.rootZ).toBe(0);expect(f.scale).toBe(1);}
+ await page.screenshot({path:'test-results/fall-kneel.png'});
+ await page.evaluate(()=>window.__sanadaTest.step(.93));
+ const settled=await page.evaluate(()=>window.__sanadaTest.snapshot().falls);
+ expect(settled).toHaveLength(6);expect(settled.every(f=>f.landed&&f.scale===1&&f.rootZ===0)).toBe(true);
+ await page.screenshot({path:'test-results/fall-settled.png'});
+ await page.keyboard.press('p');const before=await page.evaluate(()=>window.__sanadaTest.snapshot().falls);await page.evaluate(()=>window.__sanadaTest.step(.5));expect(await page.evaluate(()=>window.__sanadaTest.snapshot().falls)).toEqual(before);
+ await page.click('#resume');await page.evaluate(()=>window.__sanadaTest.step(1));expect((await page.evaluate(()=>window.__sanada)).corpses).toBe(0);expect(errors).toEqual([]);
+});

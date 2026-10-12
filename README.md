@@ -21,7 +21,7 @@ npm run dev
 
 遊戲已上線：[真田・赤冬](https://clarencechien.github.io/yukimura/)。`main` 的 push 會觸發部署 workflow；此 repository 已設定 Pages Source 為 GitHub Actions。
 
-部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。v8 已加入幸村高模母版、獨立 UV 與 Cycles 高模烘焙；保留全軍骨架動畫與雙手握槍；實際近景及仍待完成的手工雕修／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
+部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。v9 加入沿用主角甲冑的黑金家康、兩種分段倒地、風雪粒子與赤蓮技能特效；保留幸村高模烘焙、全軍骨架動畫與雙手握槍；實際近景及仍待完成的手工雕修／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
 
 實際引擎錄影：[幸村八組動作](docs/art/hero-motion.webm)・[隊友與敵軍實戰](docs/art/army-motion.webm)。
 
@@ -70,6 +70,7 @@ Playwright 預設使用 `/usr/bin/chromium`；其他機器可設定 `CHROMIUM_PA
 
 ## 文件
 
+- [家康、倒地與風雪特效](docs/STORM_AND_COMMANDERS.md)
 - [戰鬥操作與手感](docs/COMBAT.md)
 - [開發計畫](docs/PLAN.md)
 - [完整世界觀與文案](docs/NARRATIVE.md)

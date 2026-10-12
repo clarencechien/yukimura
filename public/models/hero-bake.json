@@ -7,7 +7,7 @@
   "samples": 16,
   "cpu_threads": 2,
   "max_sculpt_relief_m": 0.003192634776778843,
-  "bake_seconds": 286.2,
+  "bake_seconds": 309.0,
   "passes": [
     "diffuse_color",
     "tangent_normal",

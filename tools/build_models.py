@@ -17,6 +17,7 @@ from samurai_rig import bind_hero, bone_for_part, weapon_point
 from gltf_assets import share_images
 from refine_hero import refine_hero, hero_parts, HERO_COLORS
 from hero_highpoly import bake_hero
+from refine_ieyasu import commander_parts, refine_ieyasu, IEYASU_COLORS
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = Path(os.environ.get('MODEL_OUTPUT', ROOT / 'public/models'))
@@ -298,6 +299,7 @@ for side in [-1,1]:
 
 # Hero-specific authored plates reuse the same material atlas and rest-space rig.
 hero_details=refine_hero(parts,mesh,rod,sphere,cube)
+ieyasu_details=refine_ieyasu(mesh,rod,sphere)
 images=make_atlas()
 for role,color in COLORS.items():
     materials[role]=painted_material('painted/'+role,images,color)
@@ -346,8 +348,11 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     if variant.get('cape'):names+=[cape]+details
     if variant.get('banner'):names+=banner+(banner_coins if kind=='ashigaru' else enemy_marks)
     if kind=='yukimura':names=hero_parts(names)+hero_details
-    armor=painted_material(kind+'/painted armor',images,HERO_COLORS['armor'] if kind=='yukimura' else variant['armor'])
-    hero_materials={role:painted_material('hero/'+role,images,color) for role,color in HERO_COLORS.items()} if kind=='yukimura' else {}
+    if kind=='ieyasu':names=[n for n in hero_parts(names) if not n.startswith(('gold_fan','katana.blade'))]+commander_parts(hero_details)+ieyasu_details
+    detailed=kind in ('yukimura','ieyasu')
+    palette=HERO_COLORS if kind=='yukimura' else IEYASU_COLORS
+    armor=painted_material(kind+'/painted armor',images,palette['armor'] if detailed else variant['armor'])
+    hero_materials={role:painted_material('hero/'+role,images,color) for role,color in palette.items()} if detailed else {}
     actor_parts=[]
     for name in names:
         src=parts[name];o=src.copy();o.data=src.data;c.objects.link(o);o.parent=root
@@ -361,11 +366,11 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     for part_index,source in enumerate(actor_parts):
         o=source.copy();o.data=source.data.copy();bpy.context.collection.objects.link(o)
         o.parent=None # local coordinates: actor exported at origin
-        if kind=='yukimura':
+        if detailed:
             ids=o.data.attributes.new('BakePart','INT','POINT')
             for item in ids.data:item.value=part_index
         role=source['palette_role'];color=variant['armor'] if role=='armor' else COLORS[role]
-        if kind=='yukimura':color=HERO_COLORS.get(role,color)
+        if detailed:color=palette.get(role,color)
         colors=o.data.color_attributes.new(name='Color',type='BYTE_COLOR',domain='CORNER')
         for i,color_data in enumerate(colors.data):
             wear=o.data.color_attributes['Wear'].data[i].color[0]
@@ -403,10 +408,10 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     attr=joined.data.color_attributes['Color']
     for i,loop in enumerate(joined.data.loops):
         col=attr.data[i].color;f=factors[loop.vertex_index];attr.data[i].color=(col[0]*f,col[1]*f,col[2]*f,1)
-    if kind=='yukimura':
+    if detailed:
         occlusion=joined.data.attributes.new('HeroOcclusion','FLOAT','POINT')
         for i,item in enumerate(occlusion.data):item.value=factors[i]
-        bake_hero(joined,actor_parts,{**COLORS,**HERO_COLORS},OUT)
+        bake_hero(joined,actor_parts,{**COLORS,**palette},OUT,kind,2048 if kind=='yukimura' else 1024)
     joined.data.color_attributes.active_color_index=0
     joined.data.color_attributes.render_color_index=0
     joined.data.calc_loop_triangles()
@@ -444,8 +449,10 @@ if reference.exists():
     board.data=bpy.data.images.load(str(reference));board.data.pack()
     board.rotation_euler=(math.pi/2,0,0);board.location=(0,2.2,1.5)
     board.color[3]=.65;board.hide_render=True;board.hide_viewport=True
+for layer in bpy.context.view_layer.layer_collection.children:
+    if layer.name.startswith('20_'):layer.exclude=False
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE),compress=True)
-report={'generator':'Blender local CPU / modular-samurai-v8-high-bake','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
+report={'generator':'Blender local CPU / modular-samurai-v9-commanders-storm','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
 (OUT/'manifest.json').write_text(json.dumps(report,indent=2)+'\n')
 # Only generated, content-addressed images can be retired. Keep hand-added files.
 for path in (OUT/'shared').glob('*.png'):

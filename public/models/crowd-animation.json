@@ -2,10 +2,10 @@
   "fps": 60,
   "models": {
     "ashigaru": {
-      "uri": "shared/b21cdccfe2d78540.bin",
-      "bytes": 356288,
+      "uri": "shared/8292219aa282d3b4.bin",
+      "bytes": 503424,
       "width": 76,
-      "height": 293,
+      "height": 414,
       "joints": 18,
       "clips": {
         "idle": {
@@ -30,16 +30,21 @@
         },
         "fall": {
           "start": 244,
-          "end": 292,
-          "duration": 0.800000011920929
+          "end": 328,
+          "duration": 1.399999976158142
+        },
+        "fall_back": {
+          "start": 329,
+          "end": 413,
+          "duration": 1.399999976158142
         }
       }
     },
     "tokugawa": {
-      "uri": "shared/b21cdccfe2d78540.bin",
-      "bytes": 356288,
+      "uri": "shared/8292219aa282d3b4.bin",
+      "bytes": 503424,
       "width": 76,
-      "height": 293,
+      "height": 414,
       "joints": 18,
       "clips": {
         "idle": {
@@ -64,16 +69,21 @@
         },
         "fall": {
           "start": 244,
-          "end": 292,
-          "duration": 0.800000011920929
+          "end": 328,
+          "duration": 1.399999976158142
+        },
+        "fall_back": {
+          "start": 329,
+          "end": 413,
+          "duration": 1.399999976158142
         }
       }
     },
     "ieyasu": {
-      "uri": "shared/b21cdccfe2d78540.bin",
-      "bytes": 356288,
+      "uri": "shared/b2fc368505cc0982.bin",
+      "bytes": 503424,
       "width": 76,
-      "height": 293,
+      "height": 414,
       "joints": 18,
       "clips": {
         "idle": {
@@ -98,8 +108,13 @@
         },
         "fall": {
           "start": 244,
-          "end": 292,
-          "duration": 0.800000011920929
+          "end": 328,
+          "duration": 1.399999976158142
+        },
+        "fall_back": {
+          "start": 329,
+          "end": 413,
+          "duration": 1.399999976158142
         }
       }
     }

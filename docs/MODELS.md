@@ -1,15 +1,16 @@
-# 共用武士模型套件 v8・幸村高模烘焙與全軍動畫
+# 共用武士模型套件 v9・雙統帥甲冑、分段倒地與全軍動畫
 
 本版由本機 Blender 4.3.2 CPU 產生並接入 Babylon.js。未呼叫 Modal 或付費 3D 生成服務。此前的 image gen 人物／戰場圖是美術目標，**目前模型仍未達到那兩張插畫的造型與細節品質**。
 
 ## 可編輯資產與重建
 
-- `assets/source/samurai-kit.blend`：806 個具名零件（共用套件＋幸村專用）、四個組裝角色、四套角色骨架、542 個高模母版零件及封裝的 2D 參考圖。
+- `assets/source/samurai-kit.blend`：915 個具名零件（共用套件＋統帥專用）、四個組裝角色、四套角色骨架、幸村 542 個／家康 600 個高模母版零件及封裝的 2D 參考圖。
 - `tools/build_models.py`：幾何、配色、縫隙遮蔭與匯出。
 - `tools/refine_hero.py`：幸村專用胸甲、兜、鹿角、面甲、肩甲、草摺、袴褲、足袋、槍刃及披風。
-- `tools/hero_highpoly.py`：幸村 1,321,960 三角形的程序高模、獨立 UV 與 Cycles 四種烘焙。
+- `tools/refine_ieyasu.py`：沿用主角甲冑，改製黑金家康的前立、葵紋與刀身。
+- `tools/hero_highpoly.py`：幸村 1,321,960／家康 1,373,864 三角形的程序高模、獨立 UV 與 Cycles 四種烘焙。
 - `tools/painted_surfaces.py`：可重複產生的筆觸、繫繩、磨損、布紋與 PBR 圖集。
-- `tools/samurai_rig.py`：18 根骨骼；幸村八組動作，其他角色五組動作；雙手與雙腿以離線 IK 編排，硬甲剛性綁定，雙節披風及草摺混合權重。
+- `tools/samurai_rig.py`：18 根骨骼；幸村八組動作，其他角色六組動作；雙手與雙腿以離線 IK 編排，硬甲剛性綁定，雙節披風及草摺混合權重。
 - `tools/gltf_assets.py`：將 GLB 內重複貼圖抽成共用檔案，重新排列二進位 buffer views。
 - `tools/bake-crowd.mjs`：以 Babylon.js 離線計算 60fps 骨骼矩陣，寫出共用 GPU palette。
 - `src/crowd-motion.ts`：Babylon.js 原生 BakedVertexAnimationManager，每個實例獨立選擇動作與影格。
@@ -31,13 +32,13 @@ Blender Outliner 的 `00_SHARED_PARTS` 預設隱藏，內含 linked mesh 零件�
 | 角色 | 三角形 | GLB 幾何／動畫大小 | 骨架 |
 |---|---:|---:|---|
 | 幸村 | 44,130 | 3.24 MiB | 18 骨、8 動作 |
-| 赤備足輕 | 3,010 | 412 KiB | 18 骨、5 動作 |
-| 德川足輕 | 2,866 | 382 KiB | 18 骨、5 動作 |
-| 家康・修羅之影 | 8,520 | 824 KiB | 18 骨、5 動作 |
+| 赤備足輕 | 3,010 | 439 KiB | 18 骨、6 動作 |
+| 德川足輕 | 2,866 | 409 KiB | 18 骨、6 動作 |
+| 家康・修羅之影 | 41,280 | 3.00 MiB | 18 骨、6 動作 |
 
-每個角色一個 primitive／一個 PBR 材質。幸村改用三張 2048² 專用高模烘焙貼圖；其他三個 NPC 繼續共用 1024² pigment、512² normal、512² roughness/metalness。全套六張 PNG 約 9.37 MiB，三種 NPC 共用的 Float32 動畫 palette 仍為 356,288 bytes。模型、貼圖與動畫 palette 合計約 **14.5 MiB**；精確大小以 `manifest.json` 與 `crowd-animation.json` 為準。
+每個角色一個 primitive／一個 PBR 材質。幸村使用三張 2048² 專用高模烘焙貼圖，家康使用三張 1024² 專用烘焙；兩種足輕共用 1024² pigment、512² normal、512² roughness/metalness。全套九張 PNG 約 12.29 MiB；足輕與家康各一份 Float32 動畫 palette。模型、貼圖與動畫 palette 合計約 **20.3 MiB**；精確大小以 `manifest.json` 與 `crowd-animation.json` 為準。
 
-獨立 UV 在接縫處需要額外頂點，因此幸村 GLB 由 2.60 MiB 增為約 3.24 MiB，面數仍為 44,130。高模 132 萬面只保留於 Blender，不部署到網站。與 v7 相比，這版主要增加一次性的主角貼圖下載與 GPU 紋理記憶體；尚未量測真機效能，不能把低模面數不變當作手機效能保證。
+獨立 UV 在接縫處需要額外頂點，因此幸村 GLB 由 2.60 MiB 增為約 3.24 MiB，面數仍為 44,130。幸村 132 萬面及家康 137 萬面的高模只保留於 Blender，不部署到網站。與 v7 相比，這版主要增加一次性的主角貼圖下載與 GPU 紋理記憶體；尚未量測真機效能，不能把低模面數不變當作手機效能保證。
 
 部署時需一併保留 `public/models/shared/`（貼圖及動畫 .bin）與 `crowd-animation.json`，不能只搬四個 GLB。資產沒有遠端 CDN 或前端憑證依賴。
 
@@ -54,13 +55,15 @@ Blender Outliner 的 `00_SHARED_PARTS` 預設隱藏，內含 linked mesh 零件�
 - 曲面甲片使用連續法線；新手甲與彎曲手指改善握槍形狀，修正右手錯綁胸骨。槍桿與槍刃共用剛性變換，避免原比例調整使兵器彎折。
 - 降低過重黑邊、細化繫繩，保留朱紅彩度；戰場加強暖主光與冷色陰影，減輕霧遮蔽。
 
-主角資產檢查上限為 45k 三角形、3.6 MB 幾何／動畫；足輕仍各不超過 3,200 三角形。這是專案下載與幾何預算，不是實體手機效能保證。每個角色仍是一個 primitive／材質，主角八組動畫使用 18 骨架；沒有為大量敵兵套用主角模型。
+主角資產檢查上限為 45k 三角形、3.6 MB 幾何／動畫；家康為 45k／3.8 MB；足輕仍各不超過 3,200 三角形。這是專案下載與幾何預算，不是實體手機效能保證。每個角色仍是一個 primitive／材質，主角八組動畫使用 18 骨架；沒有為大量敵兵套用主角模型。
 
-v8 已完成第一版程序高模到遊戲網格的真實烘焙，包括細部幾何、法線與 AO；詳見 [高模流程](HIGH_POLY.md)。材質仍由程序配方產生，尚未達到設定插畫品質，也没有完成雕刻師手工雕修、新的手工重拓樸、專用手繪貼圖或 LOD。本機 Blender CPU 即可生成，未使用付費建模呼叫。
+v8 起已完成第一版程序高模到遊戲網格的真實烘焙，包括細部幾何、法線與 AO；詳見 [高模流程](HIGH_POLY.md)。材質仍由程序配方產生，尚未達到設定插畫品質，也没有完成雕刻師手工雕修、新的手工重拓樸、專用手繪貼圖或 LOD。本機 Blender CPU 即可生成，未使用付費建模呼叫。
 
 ## 如何看實際結果
 
-- `docs/art/models-lineup.png`：Blender Cycles 組装預覽（共用零件材質）。
+- `docs/art/models-lineup.png`：v7 Blender Cycles 組裝預覽，保留作為先前版本比較。
+- `docs/art/ieyasu-idle-pose.png`、`ieyasu-thrust-pose.png`：v9 黑金家康的實際 GLB 預覽。
+- `docs/art/soldier-falls.webm`、`winter-skills.webm`：v9 倒地與風雪技能引擎錄影。
 - `docs/art/hero-highpoly.png`、`hero-highpoly-clay.png`：高模母版彩色／灰模預覽；與遊戲網格分開標示。
 - `docs/art/hero-runtime-front.png`、`hero-runtime-back.png`、`hero-runtime-side.png`、`hero-runtime-slash.png`：實際 GLB 在 Babylon.js 的近景與動作。
 - `docs/art/hero-runtime-detail.png`：頭肩近景；`hero-runtime-pbr.png`：同模型不套墨線／紙色後處理的 PBR 近景。

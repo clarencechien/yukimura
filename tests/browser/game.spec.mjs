@@ -12,6 +12,8 @@ test('production desktop: GLB, narrative, movement, combat, pause and formations
  expect((await page.evaluate(()=>window.__sanada)).models).toHaveLength(4);
  expect((await page.evaluate(()=>window.__sanada)).environment.terrain).toBe('PBRMaterial');
  expect((await page.evaluate(()=>window.__sanada)).environment.staticCasters).toBeGreaterThanOrEqual(5);
+ expect((await page.evaluate(()=>window.__sanada)).environment.weatherActive).toBeGreaterThan(0);
+ expect((await page.evaluate(()=>window.__sanada)).environment.weatherCapacity).toBeLessThanOrEqual(724);
  expect((await page.evaluate(()=>window.__sanada)).animationClips).toEqual(['idle','run','slash','reverse','thrust','spin','dash','hurt']);
  await page.keyboard.down('w');await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('run');await page.keyboard.up('w');
  await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('idle');
@@ -55,6 +57,7 @@ test('combat timing: four strikes launch enemies, dash hits once, musou pulses a
  await page.evaluate(()=>window.__sanadaTest.step(.35));expect((await page.evaluate(()=>window.__sanada)).musouPulse).toBe(1);
  await page.keyboard.press('p');const before=await page.evaluate(()=>window.__sanadaTest.snapshot().musouTime);await page.evaluate(()=>window.__sanadaTest.step(1));expect(await page.evaluate(()=>window.__sanadaTest.snapshot().musouTime)).toBe(before);await page.click('#resume');
  await page.evaluate(()=>window.__sanadaTest.step(.30));expect((await page.evaluate(()=>window.__sanada)).corpses).toBeGreaterThan(0);await page.screenshot({path:'test-results/musou-combat.png'});
- await page.evaluate(()=>window.__sanadaTest.step(2));const after=await page.evaluate(()=>window.__sanada);expect(after.musouActive).toBe(false);expect(after.musouPulse).toBe(5);expect(after.corpses).toBe(0);
+ await page.evaluate(()=>window.__sanadaTest.step(.95));await page.screenshot({path:'test-results/musou-finisher.png'});
+ await page.evaluate(()=>window.__sanadaTest.step(1.05));const after=await page.evaluate(()=>window.__sanada);expect(after.musouActive).toBe(false);expect(after.musouPulse).toBe(5);expect(after.corpses).toBe(0);
  await page.click('#sound');expect((await page.evaluate(()=>window.__sanada)).muted).toBe(true);expect(errors).toEqual([]);
 });

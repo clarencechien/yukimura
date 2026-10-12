@@ -1,10 +1,10 @@
 {
-  "generator": "Blender local CPU / modular-samurai-v8-high-bake",
-  "unique_source_parts": 806,
+  "generator": "Blender local CPU / modular-samurai-v9-commanders-storm",
+  "unique_source_parts": 915,
   "variants": {
     "yukimura": {
       "triangles": 44130,
-      "bytes": 3393732,
+      "bytes": 3393748,
       "source_parts": 542,
       "materials": 1,
       "textures": 3,
@@ -12,7 +12,7 @@
     },
     "ashigaru": {
       "triangles": 3010,
-      "bytes": 421944,
+      "bytes": 449248,
       "source_parts": 82,
       "materials": 1,
       "textures": 3,
@@ -20,29 +20,32 @@
     },
     "tokugawa": {
       "triangles": 2866,
-      "bytes": 391200,
+      "bytes": 418504,
       "source_parts": 79,
       "materials": 1,
       "textures": 3,
       "rigged": true
     },
     "ieyasu": {
-      "triangles": 8520,
-      "bytes": 843688,
-      "source_parts": 334,
+      "triangles": 41280,
+      "bytes": 3140328,
+      "source_parts": 600,
       "materials": 1,
       "textures": 3,
       "rigged": true
     }
   },
   "shared_textures": {
-    "shared/1250226b9bb8af85.png": 3588414,
-    "shared/47dac9b53875a03f.png": 2457909,
-    "shared/3508937477eb0ea8.png": 2211636,
+    "shared/7faafb607ab74359.png": 3588403,
+    "shared/5501796fb4290ee6.png": 2457904,
+    "shared/ca2f72d826f535c2.png": 2211646,
     "shared/0845c79e3d7909d4.png": 72753,
     "shared/b033bec590993e64.png": 1459001,
-    "shared/a3beead67d295d1c.png": 54127
+    "shared/a3beead67d295d1c.png": 54127,
+    "shared/396ec030658e0031.png": 1278861,
+    "shared/82f606b8823640a9.png": 892558,
+    "shared/418a2dd03803807c.png": 874505
   },
-  "shared_texture_bytes": 9843840,
+  "shared_texture_bytes": 12889758,
   "paid_api_calls": 0
 }
