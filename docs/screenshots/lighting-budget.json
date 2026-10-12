@@ -1,0 +1,36 @@
+{
+  "toneMapping": true,
+  "reflectionSize": 64,
+  "renderWidth": 1066,
+  "renderHeight": 666,
+  "passes": [
+    {
+      "name": "winter highlights",
+      "width": 1066,
+      "height": 666,
+      "type": 0
+    },
+    {
+      "name": "winter bloom horizontal",
+      "width": 266,
+      "height": 166,
+      "type": 0
+    },
+    {
+      "name": "winter bloom vertical",
+      "width": 266,
+      "height": 166,
+      "type": 0
+    },
+    {
+      "name": "winter film grade",
+      "width": 266,
+      "height": 166,
+      "type": 0
+    }
+  ],
+  "coats": [
+    "runtime/yukimura high bake",
+    "runtime/ieyasu high bake"
+  ]
+}

@@ -14,6 +14,7 @@ import '@babylonjs/loaders/glTF/glTFFileLoader';
 import '@babylonjs/loaders/glTF/2.0/glTFLoader';
 import {winterReflections} from '../src/lighting';
 import {illustrationPass} from '../src/illustration';
+import {finishMaterials} from '../src/material-finish';
 const canvas=document.querySelector('canvas')!;
 const engine=new Engine(canvas,true,{preserveDrawingBuffer:true});
 const scene=new Scene(engine);scene.clearColor=new Color4(.12,.17,.19,1);
@@ -25,6 +26,7 @@ const shadows=new ShadowGenerator(1024,sun);shadows.usePoissonSampling=true;shad
 const ground=MeshBuilder.CreateGround('ground',{width:100,height:100},scene);ground.receiveShadows=true;const mat=new StandardMaterial('ash',scene);mat.diffuseColor=new Color3(.18,.21,.21);mat.specularColor=Color3.Black();ground.material=mat;
 const requested=new URLSearchParams(location.search).get('model')||'yukimura';const kind=['yukimura','ashigaru','tokugawa','ieyasu'].includes(requested)?requested:'yukimura';
 const loaded=await SceneLoader.ImportMeshAsync('','/models/',kind+'.glb?rev=storm-9',scene);
+finishMaterials(scene,loaded.meshes,kind);
 document.querySelector('h1')!.textContent=({yukimura:'真田幸村',ashigaru:'赤備足輕',tokugawa:'德川足輕',ieyasu:'家康・修羅之影'} as Record<string,string>)[kind];
 loaded.meshes.forEach(m=>{m.receiveShadows=true;shadows.addShadowCaster(m)});
 function play(name:string){for(const g of loaded.animationGroups)g.stop();loaded.animationGroups.find(g=>g.name===name)!.start(true);}

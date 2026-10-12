@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 const dev='http://127.0.0.1:5175/?test',prod='http://127.0.0.1:4173';
-function errorsOn(page){const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});return errors;}
+function errorsOn(page){const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});return errors;}
 async function ready(page,url){await page.goto(url);await expect(page.locator('#start')).toBeEnabled({timeout:60000});}
 test('merged ground surfaces face upward and retain soft transparent margins',async({page})=>{
  const errors=errorsOn(page);page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
@@ -25,6 +25,10 @@ test('production desktop: GLB, narrative, movement, combat, pause and formations
  expect((await page.evaluate(()=>window.__sanada)).environment.terrainDetail).toBe(true);
  expect((await page.evaluate(()=>window.__sanada)).environment.fireActive).toBeGreaterThan(0);
  expect((await page.evaluate(()=>window.__sanada)).environment.fireCapacity).toBeLessThanOrEqual(192);
+ const look=await page.evaluate(()=>window.__sanada.look);
+ expect(look.toneMapping).toBe(true);expect(look.reflectionSize).toBe(64);expect(look.coats).toHaveLength(2);
+ expect(look.passes).toHaveLength(4);expect(look.passes[0].width).toBe(look.renderWidth);expect(look.passes[0].height).toBe(look.renderHeight);
+ for(const pass of look.passes.slice(1)){expect(pass.width).toBeLessThanOrEqual(Math.ceil(look.renderWidth/4));expect(pass.height).toBeLessThanOrEqual(Math.ceil(look.renderHeight/4));expect(pass.type).toBe(0);}
  expect((await page.evaluate(()=>window.__sanada)).animationClips).toEqual(['idle','run','slash','reverse','thrust','spin','dash','hurt']);
  await page.keyboard.down('w');await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('run');await page.keyboard.up('w');
  await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('idle');
@@ -48,6 +52,7 @@ test('full combat loop wins, unlocks next cycle, and defeat restarts cleanly',as
 test('mobile portrait and landscape: touch joystick, skills, readable menu',async({browser})=>{
  const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});const page=await context.newPage();const errors=errorsOn(page);await ready(page,prod);
  await page.screenshot({path:'test-results/mobile-menu.png'});await page.tap('#start');await expect(page.locator('#joystick')).toBeVisible();
+ const look=await page.evaluate(()=>window.__sanada.look);expect(look.passes).toHaveLength(1);expect(look.passes[0].width).toBe(look.renderWidth);expect(look.passes[0].type).toBe(0);expect(look.toneMapping).toBe(true);
  const r=await page.locator('#joystick').boundingBox();const client=await context.newCDPSession(page);const x=r.x+r.width/2,y=r.y+r.height/2;
  await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:y-35}]});await page.waitForTimeout(1300);await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});expect((await page.evaluate(()=>window.__sanada)).position.z).toBeGreaterThan(.2);
  await page.tap('#formation');expect((await page.evaluate(()=>window.__sanada)).formation).toBe('charge');await page.tap('#dash');await page.tap('#attack');await page.screenshot({path:'test-results/mobile-battle.png'});

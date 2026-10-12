@@ -30,7 +30,7 @@ export class CrowdModel {
   const mesh=this.source.createInstance(root.name+'-body');mesh.parent=root;
   const s=Vector3.One(),q=Quaternion.Identity(),p=Vector3.Zero();this.source.computeWorldMatrix(true).decompose(s,q,p);
   mesh.scaling.copyFrom(s.scale(scale));mesh.rotationQuaternion=q;mesh.position.copyFrom(p);
-  mesh.instancedBuffers[attribute]=new Vector4(0,0,0,0);mesh.isPickable=false;
+  mesh.instancedBuffers[attribute]=new Vector4(0,0,0,0);mesh.isPickable=false;mesh.receiveShadows=true;
   return new CrowdMotion(mesh,this.palette,phase);
  }
 }

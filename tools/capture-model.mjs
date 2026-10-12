@@ -20,7 +20,7 @@ try{
  await page.waitForTimeout(500);await page.screenshot({path:'docs/art/hero-runtime-detail.png'});
  await page.evaluate(()=>{const p=window.modelPreview;p.camera.radius=4.8;p.camera.target.y=1.38;p.play('slash');const g=p.loaded.animationGroups.find(g=>g.name==='slash');g.pause();g.goToFrame(g.from+(g.to-g.from)*.34);});
  await page.waitForTimeout(500);await page.screenshot({path:'docs/art/hero-runtime-slash.png'});
- await page.evaluate(()=>{const p=window.modelPreview;p.play('idle');const g=p.loaded.animationGroups.find(g=>g.name==='idle');g.pause();g.goToFrame(g.from);p.camera.detachPostProcess(p.ink);p.camera.radius=2.45;p.camera.target.y=2.05;document.querySelector('aside p').textContent='實際 GLB · PBR 材質 · 無墨線／紙色濾鏡';});
+ await page.evaluate(()=>{const p=window.modelPreview;p.play('idle');const g=p.loaded.animationGroups.find(g=>g.name==='idle');g.pause();g.goToFrame(g.from);[...p.camera._postProcesses].filter(Boolean).forEach(pass=>p.camera.detachPostProcess(pass));p.camera.radius=2.45;p.camera.target.y=2.05;document.querySelector('aside p').textContent='實際 GLB · PBR 材質 · 無後製調色／光暈';});
  await page.waitForTimeout(500);await page.screenshot({path:'docs/art/hero-runtime-pbr.png'});
  if(errors.length)throw new Error(errors.join('\n'));
  console.log('Captured front, back, side, detail, slash and unfiltered PBR from the actual Babylon.js GLB.');

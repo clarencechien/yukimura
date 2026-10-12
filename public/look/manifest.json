@@ -1,0 +1,18 @@
+{
+  "yukimura": {
+    "uri": "yukimura-coat.png",
+    "size": 512,
+    "bytes": 65880,
+    "sha256": "76b8b8335c45eb4bf82b4515f9b00195fc7e39d600b2030f192f3e082e2bb04a",
+    "source": "shared/ca2f72d826f535c2.png",
+    "source_sha256": "ca2f72d826f535c21b691ce09e503eb6459bd550819415ee9085f38a4ca91111"
+  },
+  "ieyasu": {
+    "uri": "ieyasu-coat.png",
+    "size": 256,
+    "bytes": 33859,
+    "sha256": "bc70b0e809205ac80530d29e8b2e1aac41e06558ce63f3134a389c4a918d6d3e",
+    "source": "shared/418a2dd03803807c.png",
+    "source_sha256": "418a2dd03803807c67f26c7390f9d25875a2ba4ba8fd9876a3db1c98b561e085"
+  }
+}
