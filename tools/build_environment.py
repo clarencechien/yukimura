@@ -8,8 +8,9 @@ from pathlib import Path
 OUT=Path(__file__).resolve().parent.parent/'public/environment';OUT.mkdir(exist_ok=True)
 rng=np.random.default_rng(1614);report={}
 def save(name,data,space):
-    h,w=data.shape[:2];rgba=np.ones((h,w,4),np.float32);rgba[:,:,:3]=np.clip(data,0,1)
-    im=bpy.data.images.new(name,w,h,alpha=False);im.colorspace_settings.name=space;im.pixels.foreach_set(rgba.ravel())
+    h,w=data.shape[:2];rgba=np.ones((h,w,4),np.float32);rgba[:,:,:3]=np.clip(data[:,:,:3],0,1)
+    if data.shape[2]==4:rgba[:]=np.clip(data,0,1)
+    im=bpy.data.images.new(name,w,h,alpha=data.shape[2]==4);im.colorspace_settings.name=space;im.pixels.foreach_set(rgba.ravel())
     path=OUT/(name+'.png');im.filepath_raw=str(path);im.file_format='PNG';im.save();bpy.data.images.remove(im)
     raw=path.read_bytes();report[path.name]={'bytes':len(raw),'width':w,'height':h,'sha256':hashlib.sha256(raw).hexdigest()}
 def normals(height,dx,dy):
@@ -18,26 +19,35 @@ def emit(name,color,height,rough,metal=0,scale=(1,1)):
     h,w=height.shape;save(name+'-color',color,'sRGB');save(name+'-normal',normals(height,scale[0]/w,scale[1]/h),'Non-Color')
     surface=np.zeros((h,w,3));surface[:,:,0]=1;surface[:,:,1]=rough;surface[:,:,2]=metal;save(name+'-surface',surface,'Non-Color')
 def wash(x,y):return .48+.20*np.sin(x*.61+np.sin(y*.47)*1.8)+.14*np.sin(y*1.31-x*.87)+.09*np.sin(x*3.7+y*2.8)
+def value_noise(x,y,period=256):
+    """Seeded, periodic smooth noise; no grid seams in the detail texture."""
+    grid=rng.random((period,period),dtype=np.float32)
+    ix=np.floor(x).astype(int);iy=np.floor(y).astype(int);fx=x-ix;fy=y-iy
+    fx=fx*fx*(3-2*fx);fy=fy*fy*(3-2*fy)
+    return (grid[iy%period,ix%period]*(1-fx)+grid[iy%period,(ix+1)%period]*fx)*(1-fy)+(grid[(iy+1)%period,ix%period]*(1-fx)+grid[(iy+1)%period,(ix+1)%period]*fx)*fy
+def fractal(x,y):
+    return sum(value_noise(x*scale,y*scale)*weight for scale,weight in ((1,.50),(2,.27),(4,.15),(8,.08)))
 # Ground UV covers exactly x=-50..50 and z=-25..185, without repeated road tiles.
 n=2048;v,u=np.mgrid[0:n,0:n].astype(np.float32)/(n-1);x=(u-.5)*100;z=v*210-25
-noise=wash(x,z);fine=rng.random((n,n),dtype=np.float32)
-center=1.9*np.sin(z*.08);road=np.exp(-((x-center)/(3.7+noise*1.8))**2)
-ruts=np.maximum(np.exp(-((x-center-1.25)/.25)**2),np.exp(-((x-center+1.25)/.25)**2))
-trampled=np.clip((road+noise*.47-.39)*1.7,0,1)
+noise=fractal(x*.42,z*.42);fine=rng.random((n,n),dtype=np.float32)
+flecks=fractal(x*3.1,z*3.1);warp=(noise-.5)*2.8+(flecks-.5)*.45
+center=1.9*np.sin(z*.08);road=np.exp(-((x-center+warp)/(3.6+noise*1.7))**2)
+ruts=np.maximum(np.exp(-((x-center-1.25+warp*.10)/.19)**2),np.exp(-((x-center+1.25+warp*.10)/.19)**2))
+trampled=np.clip((road+noise*.38+flecks*.25-.57)*2.6,0,1)
 scorch=np.zeros_like(u)
 for zz in (6,43,88,138):
     for xx in (-8.6,8.6):scorch=np.maximum(scorch,np.exp(-((x-xx)**2+(z-zz)**2)/5))
 # Irregular dirty snow collects around the defensive lines, with dark thawed feet.
 defence=np.exp(-((abs(x)-15.2)/3.2)**2)*(.28+.22*np.sin(z*.48)**2)
-packed_snow=np.clip((noise-.57)*2.5,0,.34)*road
-dirty=np.clip(trampled+defence*.5+scorch*.7+ruts*.5-packed_snow,0,.94)
-wet=np.clip((noise-.44)*2.7,0,1)*trampled*.85
-snow=np.stack((.65+noise*.16,.71+noise*.15,.75+noise*.13),axis=-1)
-mud=np.stack((.22+noise*.11,.16+noise*.09,.105+noise*.065),axis=-1)
+packed_snow=np.clip((noise+flecks*.32-.68)*4.5,0,.67)*road
+dirty=np.clip(trampled+defence*.5+scorch*.7+ruts*.5-packed_snow,0,.97)
+wet=np.clip((noise-.44)*3.5,0,1)*trampled*.85
+snow=np.stack((.68+noise*.17,.73+noise*.17,.76+noise*.16),axis=-1)
+mud=np.stack((.15+noise*.16,.12+noise*.13,.085+noise*.10),axis=-1)
 color=snow*(1-dirty[:,:,None])+mud*dirty[:,:,None]
 color*=1-scorch[:,:,None]*.30;color*=1-wet[:,:,None]*.10
-color+=(fine[:,:,None]-.5)*.025
-height=.07*(1-dirty)+noise*.019-ruts*.025+(fine-.5)*.0015
+color+=(flecks[:,:,None]-.5)*.10+(fine[:,:,None]-.5)*.016
+height=.07*(1-dirty)+noise*.025+flecks*.012-ruts*.025+(fine-.5)*.0015
 rough=.96-dirty*.19-wet*.48
 # Alternating boot impressions along the road and flanking troop approaches.
 for lane in (-5,-2.9,3.2,6.1):
@@ -47,13 +57,22 @@ for lane in (-5,-2.9,3.2,6.1):
         zz+=rng.uniform(-.18,.18)
         cx=int((xx/100+.5)*(n-1));cy=int((zz+25)/210*(n-1));rx=3;ry=2
         ys=slice(max(0,cy-ry),min(n,cy+ry+1));xs=slice(max(0,cx-rx),min(n,cx+rx+1))
-        yy,xxi=np.mgrid[ys,xs];mask=np.exp(-((xxi-cx)/1.35)**4-((yy-cy)/1.35)**4)
-        color[ys,xs]*=1-mask[:,:,None]*rng.uniform(.24,.43);height[ys,xs]-=mask*.015;rough[ys,xs]-=mask*.12
+        yy,xxi=np.mgrid[ys,xs];mask=np.exp(-((xxi-cx)/.95)**4-((yy-cy)/1.35)**4)
+        color[ys,xs]*=1-mask[:,:,None]*rng.uniform(.13,.28);height[ys,xs]-=mask*.015;rough[ys,xs]-=mask*.12
 save('terrain-color',color,'sRGB')
 # Surface maps need less resolution than the painted route and boot marks.
 save('terrain-normal',normals(height[::2,::2],100/1024,210/1024),'Non-Color')
 surface=np.zeros((1024,1024,3));surface[:,:,0]=1;surface[:,:,1]=rough[::2,::2];save('terrain-surface',surface,'Non-Color')
-del u,v,x,z,color,height,snow,mud,fine,noise,road,ruts,trampled,scorch,defence,dirty,wet,rough
+del u,v,x,z,color,height,snow,mud,fine,noise,road,ruts,trampled,scorch,defence,dirty,wet,rough,flecks,warp
+# One 512 RGBA detail map represents four metres, shared by snow and ground.
+# Babylon detail packing: R=neutral grey albedo, G=normal Y, B=roughness,
+# A=normal X. Keep it linear; alpha is data, not transparency.
+n=512;v,u=np.mgrid[0:n,0:n].astype(np.float32)/n
+grit=value_noise(u*64,v*64,64);clods=value_noise(u*16,v*16,16);ridges=value_noise(u*8,v*32,8)
+micro=clods*.013+grit*.004+ridges*.007
+normal=normals(micro,4/n,4/n)
+detail=np.stack((.5+(clods-.5)*.25+(grit-.5)*.12,normal[:,:,1],.5+(ridges-.5)*.18,normal[:,:,0]),axis=-1)
+save('ground-detail',detail,'Non-Color')
 n=512;v,u=np.mgrid[0:n,0:n].astype(np.float32)/(n-1);noise=wash(u*23,v*23);grain=rng.random((n,n),dtype=np.float32)-.5
 for kind in ('wood','stone','plaster','roof','snow'):
     h=np.zeros((n,n));metal=0
@@ -82,5 +101,5 @@ for kind in ('wood','stone','plaster','roof','snow'):
     else:
         shade=.86+noise*.12+grain*.025;color=shade[:,:,None]*np.array([.72,.78,.82]);h=noise*.004+grain*.0005;rough=.98
     emit(kind,color,h,rough,metal)
-(OUT/'manifest.json').write_text(json.dumps({'generator':'Blender NumPy / weathered winter v1','files':report,'bytes':sum(v['bytes'] for v in report.values())},indent=2)+'\n')
+(OUT/'manifest.json').write_text(json.dumps({'generator':'Blender NumPy / weathered winter v2','files':report,'bytes':sum(v['bytes'] for v in report.values())},indent=2)+'\n')
 print('Environment maps:',len(report),'bytes',sum(v['bytes'] for v in report.values()))

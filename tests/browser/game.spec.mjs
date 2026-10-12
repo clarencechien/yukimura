@@ -2,6 +2,14 @@ import {test,expect} from '@playwright/test';
 const dev='http://127.0.0.1:5175/?test',prod='http://127.0.0.1:4173';
 function errorsOn(page){const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});return errors;}
 async function ready(page,url){await page.goto(url);await expect(page.locator('#start')).toBeEnabled({timeout:60000});}
+test('merged ground surfaces face upward and retain soft transparent margins',async({page})=>{
+ const errors=errorsOn(page);page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+ await ready(page,dev);await page.click('#start');
+ const surfaces=await page.evaluate(()=>window.__sanadaTest.inspectEnvironment(36,true));
+ expect(surfaces.map(s=>s.name).sort()).toEqual(['dark meltwater in wheel ruts','thawed earth at object feet']);
+ for(const surface of surfaces){expect(surface.vertices).toBeGreaterThan(0);expect(surface.upward).toBe(true);expect(surface.vertexAlpha).toBe(true);}
+ await page.waitForTimeout(500);expect(errors).toEqual([]);
+});
 test('production desktop: GLB, narrative, movement, combat, pause and formations',async({page})=>{
  const errors=errorsOn(page);await page.setViewportSize({width:1440,height:900});await ready(page,prod);
  await page.click('#readLore');await expect(page.locator('#lore')).toBeVisible();await expect(page.locator('#lore')).toContainText('猿飛佐助');await page.click('#closeLore');
@@ -14,6 +22,9 @@ test('production desktop: GLB, narrative, movement, combat, pause and formations
  expect((await page.evaluate(()=>window.__sanada)).environment.staticCasters).toBeGreaterThanOrEqual(5);
  expect((await page.evaluate(()=>window.__sanada)).environment.weatherActive).toBeGreaterThan(0);
  expect((await page.evaluate(()=>window.__sanada)).environment.weatherCapacity).toBeLessThanOrEqual(724);
+ expect((await page.evaluate(()=>window.__sanada)).environment.terrainDetail).toBe(true);
+ expect((await page.evaluate(()=>window.__sanada)).environment.fireActive).toBeGreaterThan(0);
+ expect((await page.evaluate(()=>window.__sanada)).environment.fireCapacity).toBeLessThanOrEqual(192);
  expect((await page.evaluate(()=>window.__sanada)).animationClips).toEqual(['idle','run','slash','reverse','thrust','spin','dash','hurt']);
  await page.keyboard.down('w');await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('run');await page.keyboard.up('w');
  await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('idle');

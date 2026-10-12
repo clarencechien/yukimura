@@ -1,23 +1,29 @@
 {
-  "generator": "Blender NumPy / weathered winter v1",
+  "generator": "Blender NumPy / weathered winter v2",
   "files": {
     "terrain-color.png": {
-      "bytes": 5156480,
+      "bytes": 5196971,
       "width": 2048,
       "height": 2048,
-      "sha256": "db5c967c17aa1354deddff967fc53f65fe03e9fd4c3ef23e6c8e72da8c3cca18"
+      "sha256": "a296759b27fbc45660fea5d601df2df363b5abbcb6af13455c5a5463008f386e"
     },
     "terrain-normal.png": {
-      "bytes": 865846,
+      "bytes": 1120500,
       "width": 1024,
       "height": 1024,
-      "sha256": "bdaa944057032f11dab86d78893130a1cf05f1c2dbb463bb6c1fea302fe7ad56"
+      "sha256": "c752e4f908c5ba60933e5df5b354d50939783dcad117963a03b2495097141bf1"
     },
     "terrain-surface.png": {
-      "bytes": 269709,
+      "bytes": 221335,
       "width": 1024,
       "height": 1024,
-      "sha256": "840abf1c843f39ac724d8d216d67cc5f981cf827ab8498322d073e787a9e6a60"
+      "sha256": "0a7b62142c113984599856bbcd533df553cfb170bd60650872958158a83d23c1"
+    },
+    "ground-detail.png": {
+      "bytes": 308528,
+      "width": 512,
+      "height": 512,
+      "sha256": "a3e5a6f895f4015a6a118e172b7675656ef1446cd0f64d7206e91e6d85b425a7"
     },
     "wood-color.png": {
       "bytes": 139187,
@@ -92,16 +98,16 @@
       "sha256": "47f057419b26c7bc0fca43fda8aa637cb75c4bf01aa041eaee2fcfeff84d2090"
     },
     "snow-color.png": {
-      "bytes": 302718,
+      "bytes": 302578,
       "width": 512,
       "height": 512,
-      "sha256": "3affa5e9703fc4c78886585a37e1fa1ebdf4c73069fece35846daddfb84fa0a0"
+      "sha256": "8fe18432da75a39b8756bfea5ccbd5f8b8d57695d67a8c7aaa5fae67086ebc1a"
     },
     "snow-normal.png": {
-      "bytes": 497946,
+      "bytes": 497958,
       "width": 512,
       "height": 512,
-      "sha256": "6296b374f3f246616bf01ce6db5d8a21473e5149fa943d52c9abdd11aeafd401"
+      "sha256": "6c6e437c6411dcc16afa9da0f3059410f7ed28f38aadecea292f828c8c047ff6"
     },
     "snow-surface.png": {
       "bytes": 4515,
@@ -110,5 +116,5 @@
       "sha256": "c6fdd8a5623fff8255015151407985fe3a43ce49deea2274d9cc12d3fcd85f8f"
     }
   },
-  "bytes": 8211610
+  "bytes": 8766781
 }

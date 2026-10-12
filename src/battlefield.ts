@@ -4,6 +4,7 @@ import {MeshBuilder} from '@babylonjs/core/Meshes/meshBuilder';
 import {StandardMaterial} from '@babylonjs/core/Materials/standardMaterial';
 import {Material} from '@babylonjs/core/Materials/material';
 import {weatheredMaterial} from './environment-materials';
+import {groundDressing} from './ground-dressing';
 import {DynamicTexture} from '@babylonjs/core/Materials/Textures/dynamicTexture';
 import {Vector3} from '@babylonjs/core/Maths/math.vector';
 import {Color3} from '@babylonjs/core/Maths/math.color';
@@ -18,19 +19,18 @@ export function battlefield(scene:Scene,m:Palette){
  const soil=weatheredMaterial(scene,'terrain','churned snow and mud');
  const ground=MeshBuilder.CreateGround('churned battlefield',{width:100,height:210,subdivisions:96,updatable:true},scene);ground.position.z=80;ground.material=soil;
  const pos=ground.getVerticesData(VertexBuffer.PositionKind)!;
- for(let i=0;i<pos.length;i+=3){const x=pos[i],z=pos[i+2]+80;const outside=Math.max(0,Math.abs(x)-19)/12;pos[i+1]=-.035+Math.min(2,outside)*(.6+Math.sin(z*.21+x*.14)*.4)+Math.sin(x*1.13+z*.84)*.023;}
+ for(let i=0;i<pos.length;i+=3){const x=pos[i],z=pos[i+2]+80;const outside=Math.max(0,Math.abs(x)-19)/12;pos[i+1]=-.035+Math.min(2,outside)*(.6+Math.sin(z*.21+x*.14)*.4)+Math.sin(x*1.13+z*.84)*.009;}
  ground.updateVerticesData(VertexBuffer.PositionKind,pos);const normals:number[]=[];VertexData.ComputeNormals(pos,ground.getIndices()!,normals);ground.updateVerticesData(VertexBuffer.NormalKind,normals);
- // Wind pushes rough snow lips against the defensive line; dirty ground remains visible between them.
+ const {soilFoot,snowLip}=groundDressing(scene,m.snow,m.stone);
+ // Wind pushes rounded, dirty snow lips against the defensive line.
  for(const side of [-1,1])for(let i=0;i<14;i++){
-  const cx=side*(13+random()*5),cz=i*12-7,positions=[cx,.16+random()*.16,cz],indices:number[]=[],uvs=[.5,.5];
-  for(let j=0;j<=16;j++){const a=j*Math.PI*2/16,r=1.3+random()*.85;positions.push(cx+Math.cos(a)*r,.008,cz+Math.sin(a)*r*.52);uvs.push(.5+Math.cos(a)*.5,.5+Math.sin(a)*.5);if(j<16)indices.push(0,j+2,j+1);}
-  const data=new VertexData();data.positions=positions;data.indices=indices;data.uvs=uvs;data.normals=[];VertexData.ComputeNormals(positions,indices,data.normals);
-  const drift=new Mesh('ragged snow bank',scene);data.applyToMesh(drift);drift.material=m.snow;
+  const cx=side*(13+random()*5),cz=i*12-7;snowLip(cx,cz,1.8+random(),.9+random()*.5,.18+random()*.2);
  }
  // Broken forward defenses: close silhouettes, irregular spacing, traversable central path.
  for(const side of [-1,1]){
   for(let section=0;section<13;section++){
    const z=section*13-8,x=side*(12+random()*5);
+   soilFoot(x+side*1.6,z,3,.9);snowLip(x+side*1.4,z+.40,2.1,.6,.17);
    for(let j=0;j<9;j++){
     const px=x+side*j*.40,pz=z+random()*.28,h=1.2+random()*2.1;
     timber(new Vector3(px,0,pz),new Vector3(px+random()*.30-.15,h,pz+.12),.09+random()*.025);
@@ -40,8 +40,11 @@ export function battlefield(scene:Scene,m:Palette){
   }
   // Dense but cheap distant spear lines read as an army through the fog.
   for(let i=0;i<160;i++){
-   const x=side*(24+random()*16),z=random()*185-8,h=1.3+random()*.9;
-   box('distant soldier',new Vector3(x,h*.5,z),new Vector3(.30,h,.25),m.dark);
+   const x=side*(24+random()*16),z=random()*185-8,h=1.4+random()*.25;
+   box('distant armour',new Vector3(x,h*.61,z),new Vector3(.42,h*.33,.28),m.dark);
+   for(const leg of [-1,1])box('distant greave',new Vector3(x+leg*.13,h*.20,z),new Vector3(.13,h*.4,.16),m.dark);
+   const hat=MeshBuilder.CreateCylinder('distant jingasa',{diameterTop:.05,diameterBottom:.52,height:.17,tessellation:6},scene);hat.position.set(x,h,z);hat.material=m.dark;
+   box('distant face',new Vector3(x,h-.18,z-.02),new Vector3(.19,.22,.18),m.gold);
    timber(new Vector3(x+.25,0,z),new Vector3(x+.25,2.4+random(),z),.025);
   }
   // Skeletal trees instead of cones that resemble model-kit pines.
@@ -54,10 +57,13 @@ export function battlefield(scene:Scene,m:Palette){
  // Destroyed cart wheels, abandoned shields, splintered spars and embedded spears.
  for(let i=0;i<65;i++){
   const z=random()*171-9,x=(i%2?1:-1)*(7+random()*13),angle=random()*6.28;
+  soilFoot(x,z,.9,1.4);
   const beam=box('broken plank',new Vector3(x,.055,z),new Vector3(.16,.11,1+random()*2),m.wood);beam.rotation.y=angle;
   if(i%5===0){const wheel=MeshBuilder.CreateTorus('abandoned cart wheel',{diameter:1.25,thickness:.09,tessellation:12},scene);wheel.material=m.wood;wheel.position.set(x,.35,z);wheel.rotation.z=.75;for(let j=0;j<3;j++){const spoke=box('cart spoke',new Vector3(x,.35,z),new Vector3(1.12,.05,.05),m.wood);spoke.rotation.z=.75;spoke.rotation.y=j*Math.PI/3;}}
   if(i%3===0)timber(new Vector3(x,0,z),new Vector3(x+.35,1.7,z-.2),.026);
  }
+ for(const z of [6,43,88,138])for(const x of [-8.6,8.6])soilFoot(x,z,1.8,1.5);
+ for(const z of [43,88,137])for(const x of [-7.8,7.8]){soilFoot(x,z,1.6,1.4);snowLip(x+.4,z+.4,.8,.6,.14);}
  // Cloth silhouettes with actual torn hems, not rectangular signs.
  const flags:Mesh[]=[];
  for(let i=0;i<28;i++){

@@ -8,7 +8,9 @@ import { illustrationPass } from './illustration';
 import { battlefield } from './battlefield';
 import { winterReflections } from './lighting';
 import {winterWeather} from './winter-weather';
+import {battleFires} from './battle-fires';
 import {weatheredMaterials} from './environment-materials';
+import {PBRMaterial} from '@babylonjs/core/Materials/PBR/pbrMaterial';
 import {Material} from '@babylonjs/core/Materials/material';
 import { ShadowGenerator } from '@babylonjs/core/Lights/Shadows/shadowGenerator';
 import '@babylonjs/core/Lights/Shadows/shadowGeneratorSceneComponent';
@@ -22,10 +24,12 @@ import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
 import { DirectionalLight } from '@babylonjs/core/Lights/directionalLight';
 import { MeshBuilder } from '@babylonjs/core/Meshes/meshBuilder';
 import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial';
+import { DynamicTexture } from '@babylonjs/core/Materials/Textures/dynamicTexture';
 import { TransformNode } from '@babylonjs/core/Meshes/transformNode';
 import { SceneLoader } from '@babylonjs/core/Loading/sceneLoader';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
 import { AbstractMesh } from '@babylonjs/core/Meshes/abstractMesh';
+import {VertexBuffer} from '@babylonjs/core/Buffers/buffer';
 import '@babylonjs/core/Meshes/instancedMesh';
 import '@babylonjs/loaders/glTF/glTFFileLoader';
 import '@babylonjs/loaders/glTF/2.0/glTFLoader';
@@ -38,7 +42,7 @@ engine.setHardwareScalingLevel(softwareRenderer?1.35:(matchMedia('(pointer:coars
 const scene=new Scene(engine);scene.clearColor=new Color4(.20,.28,.34,1);scene.fogMode=Scene.FOGMODE_EXP2;scene.fogDensity=.011;scene.fogColor=new Color3(.33,.38,.40);
 const camera=new FreeCamera('battle-camera',new Vector3(16,27,-22),scene);camera.fov=.74;camera.minZ=.1;camera.maxZ=240;
 illustrationPass(scene,camera);
-const skyLight=new HemisphericLight('winter-sky',new Vector3(.3,1,-.2),scene);skyLight.intensity=.46;skyLight.diffuse=new Color3(.64,.77,.94);skyLight.groundColor=new Color3(.17,.22,.29);
+const skyLight=new HemisphericLight('winter-sky',new Vector3(.3,1,-.2),scene);skyLight.intensity=.38;skyLight.diffuse=new Color3(.64,.77,.94);skyLight.groundColor=new Color3(.17,.22,.29);
 const sun=new DirectionalLight('winter-sun',new Vector3(-.7,-1,.4),scene);sun.intensity=1.75;sun.diffuse=new Color3(1,.83,.62);
 scene.requireLightSorting=true;sun.renderPriority=100;skyLight.renderPriority=90;
 winterReflections(scene);
@@ -88,22 +92,29 @@ box('command tent rear',0,3,155,17,6,.4,paper);
 for(const x of [-8,8])box('command tent side',x,2.5,150,.4,5,10,paper);
 box('black gold banner',0,3.5,154.7,4,4,.1,dark);
 const crest=MeshBuilder.CreateDisc('Tokugawa crest',{radius:1.1,tessellation:24},scene);crest.position.set(0,3.6,154.6);crest.material=gold;
-const flames:Mesh[]=[];const fireLights:PointLight[]=[];
-const ember=material('embers','#ff692c',true);const fireCore=material('fire core','#ffe1a3',true);
+const fireLights:PointLight[]=[];
+const firePositions=[6,43,88,138].flatMap(z=>[-8.6,8.6].map(x=>new Vector3(x,2.2,z)));
 for(const z of [6,43,88,138])for(const x of [-8.6,8.6]){
  cylinder('brazier post',x,.8,z,.16,1.6,wood);cylinder('iron brazier',x,1.62,z,.38,.28,dark,.48);
- const flame=MeshBuilder.CreateSphere('fire',{diameter:1,segments:5},scene);flame.position.set(x,2.02,z);flame.scaling.set(.48,.83,.42);flame.material=ember;flames.push(flame);
- const core=MeshBuilder.CreateSphere('flame heart',{diameter:.3,segments:4},scene);core.position.set(x,1.89,z-.1);core.scaling.y=1.8;core.material=fireCore;
  // Four local lights rather than a point light per soldier.
- if(x<0){const glow=new PointLight('brazier glow',new Vector3(x,2.5,z),scene);glow.diffuse=new Color3(1,.3,.07);glow.intensity=3;glow.range=7;fireLights.push(glow);}
+ if(x<0){const glow=new PointLight('brazier glow',new Vector3(x,2.2,z),scene);glow.diffuse=new Color3(1,.43,.14);glow.intensity=4.5;glow.range=8;fireLights.push(glow);}
 }
 // Merge static scenery by material to reduce draw calls on mobile.
 const groups=new Map<Material,Mesh[]>();const staticCasters:AbstractMesh[]=[];
-for(const mesh of [...scene.meshes]){if(mesh instanceof Mesh&&!flames.includes(mesh)&&!mesh.metadata?.keepDynamic&&mesh.material instanceof Material){const list=groups.get(mesh.material)||[];list.push(mesh);groups.set(mesh.material,list);}}
-for(const [mat,group] of groups){const merged=Mesh.MergeMeshes(group,true,true);if(merged){merged.freezeWorldMatrix();merged.isPickable=false;merged.receiveShadows=true;if([wood,stone,paper,dark,roofMaterial,snow,crimson,gold].includes(mat as typeof wood))staticCasters.push(merged);}}
+for(const mesh of [...scene.meshes]){if(mesh instanceof Mesh&&!mesh.metadata?.keepDynamic&&mesh.material instanceof Material){const list=groups.get(mesh.material)||[];list.push(mesh);groups.set(mesh.material,list);}}
+for(const [mat,group] of groups){
+ // Tinted snow lips share their material with untinted architecture. Babylon
+ // requires identical vertex attributes when merging; white preserves both.
+ if(group.some(mesh=>mesh.isVerticesDataPresent(VertexBuffer.ColorKind)))for(const mesh of group)if(!mesh.isVerticesDataPresent(VertexBuffer.ColorKind))mesh.setVerticesData(VertexBuffer.ColorKind,new Float32Array(mesh.getTotalVertices()*4).fill(1));
+ const vertexAlpha=group.some(mesh=>mesh.hasVertexAlpha);
+ const merged=Mesh.MergeMeshes(group,true,true);if(merged){merged.hasVertexAlpha=vertexAlpha;merged.freezeWorldMatrix();merged.isPickable=false;merged.receiveShadows=true;if([wood,stone,paper,dark,roofMaterial,snow,crimson,gold].includes(mat as typeof wood))staticCasters.push(merged);}
+}
 const weather=winterWeather(scene,sun,reducedMotion);
+const fires=battleFires(scene,reducedMotion);
 // Ground silhouettes reinforce readable actor placement without costly dynamic shadows.
-const shadowMat=material('contact shadow','#35444b');shadowMat.alpha=.28;
+const shadowMat=material('contact shadow','#202b2e');shadowMat.alpha=.42;
+const contactTexture=new DynamicTexture('soft foot contact',64,scene,false),contactContext=contactTexture.getContext();
+const contactGradient=contactContext.createRadialGradient(32,32,3,32,32,31);contactGradient.addColorStop(0,'rgba(255,255,255,.8)');contactGradient.addColorStop(.5,'rgba(255,255,255,.45)');contactGradient.addColorStop(1,'rgba(255,255,255,0)');contactContext.fillStyle=contactGradient;contactContext.fillRect(0,0,64,64);contactTexture.hasAlpha=true;contactTexture.update();shadowMat.diffuseTexture=contactTexture;shadowMat.useAlphaFromDiffuseTexture=true;
 function shadow(parent:TransformNode,r=.5){const m=MeshBuilder.CreateDisc('contact',{radius:r,tessellation:12},scene);m.rotation.x=Math.PI/2;m.position.y=.035;m.material=shadowMat;m.parent=parent;return m;}
 type Actor={root:TransformNode,hp:number,maxHp:number,cooldown:number,boss:boolean,dead:boolean,phase:number,velocity:Vector3,stun:number,deathTime:number,dashHit:number,windup:number,warning:Mesh|null,attackTime:number,hitAge:number,deathAge:number,deathDuration:number,deathClip:'fall'|'fall_back',landed:boolean,moving:number};
 let hero:TransformNode;let heroMotion:HeroMotion;let heroMoving=false;const templates:Record<string,AbstractMesh>={};const allies:TransformNode[]=[];const foes:Actor[]=[];
@@ -254,8 +265,8 @@ function visual(dt:number){
  impactZoom=Math.max(0,impactZoom-dt*.2);
  shadowClock-=dt;
  if(hero){sun.position.copyFrom(hero.position.add(new Vector3(22,32,-20)));sun.direction.copyFrom(new Vector3(-22,-32,20).normalize());
- if(shadowClock<=0){shadowClock=.3;for(const light of fireLights)light.renderPriority=10-Math.floor(Math.abs(light.position.z-hero.position.z)/10);const casters=[hero,...allies,...foes.filter(f=>!f.dead&&inRange(hero.position,f.root.position,15)).slice(0,20).map(f=>f.root)];shadows.getShadowMap()!.renderList=[...staticCasters,...casters.flatMap(root=>root.getChildMeshes()).filter(m=>!m.name.includes('contact')&&!m.name.includes('warning'))];}}
- const now=performance.now()*.001;animateBattlefield(now);for(let i=0;i<flames.length;i++)flames[i].scaling.y=.78+Math.sin(now*8+i)*.11;
+ if(shadowClock<=0){shadowClock=.3;const nearestFires=[...firePositions].sort((a,b)=>Vector3.DistanceSquared(a,hero.position)-Vector3.DistanceSquared(b,hero.position));fireLights.forEach((light,i)=>{light.position.copyFrom(nearestFires[i]);light.renderPriority=10-i;});const casters=[hero,...allies,...foes.filter(f=>!f.dead&&inRange(hero.position,f.root.position,15)).slice(0,20).map(f=>f.root)];shadows.getShadowMap()!.renderList=[...staticCasters,...casters.flatMap(root=>root.getChildMeshes()).filter(m=>!m.name.includes('contact')&&!m.name.includes('warning'))];}}
+ const now=performance.now()*.001;animateBattlefield(now);fires.update(now);for(let i=0;i<fireLights.length;i++)fireLights[i].intensity=4.2+Math.sin(now*5.3+i)*.35+Math.sin(now*11.1+i)*.18;
 
  const target=state==='menu'?new Vector3(0,0,8):hero?.position||Vector3.Zero();const zoom=musouTime>=0&&!reducedMotion?(musouTime<.3?.82:.93):1;const desired=target.add(new Vector3(8*zoom,11*zoom,-16*zoom));camera.fov+=(.76-(reducedMotion?0:impactZoom)-camera.fov)*Math.min(1,dt*9);camera.position=Vector3.Lerp(camera.position,desired,Math.min(1,dt*4));camera.setTarget(target.add(new Vector3(state==='menu'?-7:0,0,6)));if(shake>0&&!reducedMotion){camera.position.x+=(Math.random()-.5)*shake;camera.position.z+=(Math.random()-.5)*shake;}
  weather.update(dt,target);
@@ -282,8 +293,8 @@ function tick(realDt:number){
  }
  if(state!=='paused')visual(realDt);
 }
-engine.runRenderLoop(()=>{weather.pause(state==='paused'||manualTestClock);if(!manualTestClock)tick(Math.min(engine.getDeltaTime()/1000,.05));scene.render();});window.addEventListener('resize',()=>engine.resize());init();
+engine.runRenderLoop(()=>{weather.pause(state==='paused'||manualTestClock);fires.pause(state==='paused'||manualTestClock);if(!manualTestClock)tick(Math.min(engine.getDeltaTime()/1000,.05));scene.render();});window.addEventListener('resize',()=>engine.resize());init();
 // Read-only diagnostics are useful for automated smoke tests and performance inspection.
-Object.defineProperty(window,'__sanada',{get:()=>({state,hp,rage,kills,cycle:cfg.cycle,position:hero?{x:hero.position.x,z:hero.position.z}:null,enemies:foes.filter(f=>!f.dead).length,allies:allies.length,models:Object.keys(templates),fps:engine.getFps(),formation,heroAnimation:heroMotion?.state,animationClips:heroMotion?.names,environment:{terrain:scene.getMaterialByName('churned snow and mud')?.getClassName(),staticCasters:staticCasters.length,weatherCapacity:weather.capacity,weatherActive:weather.active},crowd:{actors:crowdMotions.size,instances:[...crowdMotions.values()].filter(m=>m.mesh.getClassName()==='InstancedMesh').length,allies:allies.map(a=>({state:crowdMotions.get(a)?.state,frame:crowdMotions.get(a)?.frame})),enemies:foes.map(f=>({state:crowdMotions.get(f.root)?.state,frame:crowdMotions.get(f.root)?.frame})),palettes:Object.keys(crowdModels).length},attackIndex:chain.active?.index??-1,attackHistory:[...attackHistory],totalHits,lastStrikeHits,hitStop,musouActive:musouTime>=0,musouPulse,airborne:foes.filter(f=>!f.dead&&f.root.position.y>.2).length,corpses:foes.filter(f=>f.dead).length,effects:combatFX.count,muted:audio.muted})});
+Object.defineProperty(window,'__sanada',{get:()=>({state,hp,rage,kills,cycle:cfg.cycle,position:hero?{x:hero.position.x,z:hero.position.z}:null,enemies:foes.filter(f=>!f.dead).length,allies:allies.length,models:Object.keys(templates),fps:engine.getFps(),formation,heroAnimation:heroMotion?.state,animationClips:heroMotion?.names,environment:{terrain:scene.getMaterialByName('churned snow and mud')?.getClassName(),staticCasters:staticCasters.length,weatherCapacity:weather.capacity,weatherActive:weather.active,terrainDetail:(scene.getMaterialByName('churned snow and mud') as PBRMaterial)?.detailMap.isEnabled,fireCapacity:fires.capacity,fireActive:fires.active},crowd:{actors:crowdMotions.size,instances:[...crowdMotions.values()].filter(m=>m.mesh.getClassName()==='InstancedMesh').length,allies:allies.map(a=>({state:crowdMotions.get(a)?.state,frame:crowdMotions.get(a)?.frame})),enemies:foes.map(f=>({state:crowdMotions.get(f.root)?.state,frame:crowdMotions.get(f.root)?.frame})),palettes:Object.keys(crowdModels).length},attackIndex:chain.active?.index??-1,attackHistory:[...attackHistory],totalHits,lastStrikeHits,hitStop,musouActive:musouTime>=0,musouPulse,airborne:foes.filter(f=>!f.dead&&f.root.position.y>.2).length,corpses:foes.filter(f=>f.dead).length,effects:combatFX.count,muted:audio.muted})});
 
-if(import.meta.env.DEV && new URLSearchParams(location.search).has('test')){Object.defineProperty(window,'__sanadaTest',{value:{step:(seconds:number)=>{for(let t=0;t<seconds;t+=1/60){tick(1/60);}},setupCombat:(health=30)=>{manualTestClock=true;clearBattle();heroMotion.reset();dashCD=0;dashTime=0;invuln=0;hp=cfg.health;rage=100;hero.position.set(0,0,0);direction.set(0,0,1);spawnClock=60;allyCD=60;for(let i=0;i<12;i++){const a=(i-5.5)*.22;spawn(Math.sin(a)*3,Math.cos(a)*3);}for(const f of foes){f.hp=health;f.maxHp=health;f.cooldown=30;}},setupArmy:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<10;i++)allies.push(actor('ashigaru','red-guard',(i%5-2)*1.5,-5-Math.floor(i/5)*2));for(let i=0;i<100;i++){const a=i*Math.PI*2/25,r=8+Math.floor(i/25)*2;spawn(Math.sin(a)*r,Math.cos(a)*r);}updateHUD();},setupFalls:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<6;i++){spawn((i%3-1)*3,4+Math.floor(i/3)*3);const f=foes[foes.length-1];f.phase=.4+i;damageEnemy(f,999,2,i%2?2:0);}},snapshot:()=>({falls:foes.filter(f=>f.dead).map(f=>({clip:f.deathClip,age:f.deathAge,duration:f.deathDuration,rootZ:f.root.rotation.z,scale:f.root.scaling.x,landed:f.landed})),bossSpawned,bossHP:foes.find(f=>f.boss)?.hp,enemyCount:foes.length,enemyHP:foes.map(f=>f.hp),heights:foes.map(f=>f.root.position.y),musouTime,attackTime:chain.active?.time??null})}});}
+if(import.meta.env.DEV && new URLSearchParams(location.search).has('test')){Object.defineProperty(window,'__sanadaTest',{value:{step:(seconds:number)=>{for(let t=0;t<seconds;t+=1/60){tick(1/60);}},setupCombat:(health=30)=>{manualTestClock=true;clearBattle();heroMotion.reset();dashCD=0;dashTime=0;invuln=0;hp=cfg.health;rage=100;hero.position.set(0,0,0);direction.set(0,0,1);spawnClock=60;allyCD=60;for(let i=0;i<12;i++){const a=(i-5.5)*.22;spawn(Math.sin(a)*3,Math.cos(a)*3);}for(const f of foes){f.hp=health;f.maxHp=health;f.cooldown=30;}},setupArmy:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<10;i++)allies.push(actor('ashigaru','red-guard',(i%5-2)*1.5,-5-Math.floor(i/5)*2));for(let i=0;i<100;i++){const a=i*Math.PI*2/25,r=8+Math.floor(i/25)*2;spawn(Math.sin(a)*r,Math.cos(a)*r);}updateHUD();},setupFalls:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<6;i++){spawn((i%3-1)*3,4+Math.floor(i/3)*3);const f=foes[foes.length-1];f.phase=.4+i;damageEnemy(f,999,2,i%2?2:0);}},inspectEnvironment:(z=0,close=false)=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,z);shadowClock=0;visual(0);camera.position.set(close?10:17,close?7:14,z+(close?-8:-18));camera.setTarget(new Vector3(close?3:0,0,z+5));return scene.meshes.filter(m=>['dark meltwater in wheel ruts','thawed earth at object feet'].includes(m.material?.name??'')).map(m=>({name:m.material!.name,vertexAlpha:m.hasVertexAlpha,upward:m.getVerticesData(VertexBuffer.NormalKind)!.filter((_,i)=>i%3===1).every(y=>y>.99),vertices:m.getTotalVertices()}));},snapshot:()=>({falls:foes.filter(f=>f.dead).map(f=>({clip:f.deathClip,age:f.deathAge,duration:f.deathDuration,rootZ:f.root.rotation.z,scale:f.root.scaling.x,landed:f.landed})),bossSpawned,bossHP:foes.find(f=>f.boss)?.hp,enemyCount:foes.length,enemyHP:foes.map(f=>f.hp),heights:foes.map(f=>f.root.position.y),musouTime,attackTime:chain.active?.time??null})}});}

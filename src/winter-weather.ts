@@ -28,7 +28,7 @@ export function winterWeather(scene:Scene,sun:DirectionalLight,reduced:boolean){
   (drift.emitter as Vector3).copyFrom(target).addInPlaceFromFloats(-5,.18,8);
   snow.direction1.set(1.2+gust,-1.9,.18);snow.direction2.set(2.5+gust*1.2,-1.1,.65);
   drift.direction1.set(1.8+gust,0,.25);drift.direction2.set(3.8+gust,0,.65);
-  sun.intensity=1.62+.18*Math.sin(clock*.19);scene.fogDensity=.013+gust*.002;
+  sun.intensity=1.72+.14*Math.sin(clock*.19);scene.fogDensity=.0105+gust*.0018;
   scene.fogColor=Color3.Lerp(new Color3(.28,.35,.40),new Color3(.34,.41,.46),gust*.35);
  },get active(){return snow.getActiveCount()+drift.getActiveCount();},capacity:snow.getCapacity()+drift.getCapacity()};
 }

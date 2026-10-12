@@ -7,6 +7,7 @@ test('Pages subpath loads background, four models and shared textures, and start
  await expect(page.locator('#start')).toBeEnabled({timeout:60000});
  expect(assets.has('/yukimura/art/concept.png')).toBe(true);
  for(const kind of ['terrain','wood','stone','plaster','roof','snow'])for(const map of ['color','normal','surface'])expect(assets.has(`/yukimura/environment/${kind}-${map}.png`)).toBe(true);
+ expect(assets.has('/yukimura/environment/ground-detail.png')).toBe(true);
  for(const name of ['yukimura','ashigaru','tokugawa','ieyasu'])expect(assets.has(`/yukimura/models/${name}.glb`)).toBe(true);
  expect([...assets].filter(p=>p.startsWith('/yukimura/models/shared/')&&p.endsWith('.png'))).toHaveLength(9);
  expect(assets.has('/yukimura/models/crowd-animation.json')).toBe(true);
