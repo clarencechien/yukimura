@@ -1,6 +1,8 @@
 # GitHub Pages 部署
 
-目標：`https://clarencechien.github.io/yukimura/`。
+公開遊戲：[真田・赤冬](https://clarencechien.github.io/yukimura/)。
+
+2026-10-12 已啟用 GitHub Actions Source，首次部署成功。部署版本 `ba87470`，Actions run `38198847112`；公開站 HTTP 200，105 個檔案經 HTTPS 下載及 SHA-256 比對，與通過瀏覽器測試的建置相同。
 
 ## 自動部署
 

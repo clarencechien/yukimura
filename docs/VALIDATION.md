@@ -56,3 +56,11 @@
 - `npm run test:pages`：1/1 通過，以 production build 驗證 `/yukimura/` 背景、四 GLB、三共用貼圖、開始戰鬥與移動，無頁面例外或 HTTP 資產錯誤。
 - 初次測試的預覽服務未設定 base，造成 JS 路徑被當成 HTML；已將 preview 服務同步指定 `/yukimura/`，重跑通過。
 - GitHub API 和公開站的遠端驗證受網路政策限制；雲端設定草稿已增加 `api.github.com` 與 `clarencechien.github.io`。本機測試通過不代表 Pages 已啟用。
+
+### 公開部署結果
+
+`main` 已推送 GitHub；repository 管理者將 Pages Source 設為 GitHub Actions 後，重跑失敗的部署 job 成功。Actions run `38198847112` 的 build/deploy 均成功，部署程式版本 `ba87470`。
+
+公開網址 `https://clarencechien.github.io/yukimura/` 回覆 HTTP 200。以環境既有的 TLS 信任鏈取得全部 105 個公開檔案（9,778,641 bytes），SHA-256 全部與本機已測試的 Pages 建置相符，包含 HTML、JS/CSS、背景、四 GLB 和共用貼圖。
+
+直接以雲端 Chromium 開啟 HTTPS 網站遇到環境代理 CA 信任問題；新增持久瀏覽器信任的操作被自動審核拒絕，因此未修改信任庫，也未停用 HTTPS 驗證。公開檔案使用既有系統信任鏈驗證；互動測試在相同內容的本機部署版本完成，不能宣稱已用此雲端瀏覽器直接操作公開 HTTPS 站。

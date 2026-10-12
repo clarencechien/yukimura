@@ -19,7 +19,7 @@ npm run dev
 
 ## GitHub Pages
 
-目標網址：`https://clarencechien.github.io/yukimura/`。`main` 的 push 會觸發部署 workflow；首次在 repository **Settings → Pages → Source 選 GitHub Actions**。公開站是否已上線請以 Actions deploy 結果為準。
+遊戲已上線：[真田・赤冬](https://clarencechien.github.io/yukimura/)。`main` 的 push 會觸發部署 workflow；此 repository 已設定 Pages Source 為 GitHub Actions。
 
 部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。下一階段將先精修幸村，通過設定圖對照後才製作遊戲網格、烘焙和手機最佳化，見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
 
