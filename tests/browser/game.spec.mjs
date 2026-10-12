@@ -10,7 +10,7 @@ test('production desktop: GLB, narrative, movement, combat, pause and formations
  await expect(page.locator('#menuBackdrop')).toBeHidden();
  expect((await page.evaluate(()=>window.__sanada)).allies).toBe(10);
  expect((await page.evaluate(()=>window.__sanada)).models).toHaveLength(4);
- expect((await page.evaluate(()=>window.__sanada)).animationClips).toEqual(['idle','run','slash']);
+ expect((await page.evaluate(()=>window.__sanada)).animationClips).toEqual(['idle','run','slash','reverse','thrust','spin']);
  await page.keyboard.down('w');await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('run');await page.keyboard.up('w');
  await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('idle');
  await page.keyboard.down('w');await page.keyboard.down('j');await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('slash');await page.waitForTimeout(2300);await page.keyboard.up('w');await page.keyboard.up('j');
@@ -37,4 +37,22 @@ test('mobile portrait and landscape: touch joystick, skills, readable menu',asyn
  await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:y-35}]});await page.waitForTimeout(1300);await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});expect((await page.evaluate(()=>window.__sanada)).position.z).toBeGreaterThan(.2);
  await page.tap('#formation');expect((await page.evaluate(()=>window.__sanada)).formation).toBe('charge');await page.tap('#dash');await page.tap('#attack');await page.screenshot({path:'test-results/mobile-battle.png'});
  await page.tap('#pause');await page.tap('#returnMenu');await page.setViewportSize({width:844,height:390});await page.screenshot({path:'test-results/mobile-landscape.png'});const button=await page.locator('#start').boundingBox();expect(button.y+button.height).toBeLessThan(390);expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(844);expect(errors).toEqual([]);await context.close();
+});
+test('combat timing: four strikes launch enemies, dash hits once, musou pulses and pauses',async({page})=>{
+ const errors=errorsOn(page);await ready(page,dev);await page.click('#start');await page.evaluate(()=>window.__sanadaTest.setupCombat());
+ await page.keyboard.down('j');await page.evaluate(()=>window.__sanadaTest.step(.06));expect((await page.evaluate(()=>window.__sanada)).totalHits).toBe(0);
+ await page.evaluate(()=>window.__sanadaTest.step(.06));expect((await page.evaluate(()=>window.__sanada)).hitStop).toBeGreaterThan(0);
+ const impactTime=await page.evaluate(()=>window.__sanadaTest.snapshot().attackTime);await page.evaluate(()=>window.__sanadaTest.step(.016));expect(await page.evaluate(()=>window.__sanadaTest.snapshot().attackTime)).toBe(impactTime);
+ await page.screenshot({path:'test-results/spear-impact.png'});
+ await page.evaluate(()=>window.__sanadaTest.step(1.75));await page.keyboard.up('j');
+ const combo=await page.evaluate(()=>window.__sanada);expect(combo.attackHistory.slice(0,4)).toEqual([0,1,2,3]);expect(combo.totalHits).toBeGreaterThan(8);expect(combo.effects).toBeLessThanOrEqual(96);
+ await page.screenshot({path:'test-results/chain-combat.png'});
+ await page.evaluate(()=>window.__sanadaTest.setupCombat());await page.keyboard.press(' ');await page.evaluate(()=>window.__sanadaTest.step(.26));
+ const hp=await page.evaluate(()=>window.__sanadaTest.snapshot().enemyHP);expect(Math.min(...hp)).toBe(28);
+ await page.evaluate(()=>window.__sanadaTest.setupCombat(8));await page.keyboard.press('k');
+ await page.evaluate(()=>window.__sanadaTest.step(.35));expect((await page.evaluate(()=>window.__sanada)).musouPulse).toBe(1);
+ await page.keyboard.press('p');const before=await page.evaluate(()=>window.__sanadaTest.snapshot().musouTime);await page.evaluate(()=>window.__sanadaTest.step(1));expect(await page.evaluate(()=>window.__sanadaTest.snapshot().musouTime)).toBe(before);await page.click('#resume');
+ await page.evaluate(()=>window.__sanadaTest.step(.30));expect((await page.evaluate(()=>window.__sanada)).corpses).toBeGreaterThan(0);await page.screenshot({path:'test-results/musou-combat.png'});
+ await page.evaluate(()=>window.__sanadaTest.step(2));const after=await page.evaluate(()=>window.__sanada);expect(after.musouActive).toBe(false);expect(after.musouPulse).toBe(5);expect(after.corpses).toBe(0);
+ await page.click('#sound');expect((await page.evaluate(()=>window.__sanada)).muted).toBe(true);expect(errors).toEqual([]);
 });

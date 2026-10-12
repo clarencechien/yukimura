@@ -55,7 +55,7 @@ def bind_hero(mesh):
                 w=max(0,min(1,(1.68-v.co.z)/.72))
                 cape.add([v.index],w,'REPLACE');chest.add([v.index],1-w,'REPLACE')
     rig.animation_data_create()
-    for name,frames in [('idle',60),('run',24),('slash',12)]:
+    for name,frames in [('idle',60),('run',24),('slash',12),('reverse',14),('thrust',16),('spin',24)]:
         action=bpy.data.actions.new(name);rig.animation_data.action=action
         for frame in range(0,frames+1,2):
             phase=frame/frames*math.tau
@@ -77,17 +77,34 @@ def bind_hero(mesh):
                 pose['cape'].rotation_euler.x=.16+.10*math.sin(phase*2)
                 pose['pelvis'].location.y=.016*(1-math.cos(phase*2))
             else:
-                # Windup -> broad cross-body spear sweep -> recovery.
-                t=frame/frames;pulse=math.sin(t*math.pi)
-                sweep=math.sin(t*math.tau)*.65
-                pose['chest'].rotation_euler.y=sweep*.60
-                pose['arm.R'].rotation_euler.x=-pulse*.95
-                pose['arm.R'].rotation_euler.z=sweep
-                pose['forearm.R'].rotation_euler.x=-pulse*.42
-                pose['arm.L'].rotation_euler.x=-pulse*.48
-                pose['arm.L'].rotation_euler.z=pulse*.30
-                pose['cape'].rotation_euler.x=pulse*.30
-                pose['head'].rotation_euler.y=-sweep*.30
+                # Separate silhouettes with the strike at roughly 1/3 of each clip.
+                t=frame/frames
+                pulse=math.sin(min(1,t/.68)*math.pi) if t<.68 else 0
+                sweep=math.sin((t-.10)*math.tau)*.68*math.sin(t*math.pi)
+                sign=-1 if name=='reverse' else 1
+                pose['chest'].rotation_euler.y=sweep*.8*sign
+                pose['arm.R'].rotation_euler.x=-pulse*.65
+                pose['arm.R'].rotation_euler.z=sweep*sign
+                pose['forearm.R'].rotation_euler.x=-pulse*.24
+                pose['arm.L'].rotation_euler.x=-pulse*.40
+                pose['arm.L'].rotation_euler.z=pulse*.26
+                pose['cape'].rotation_euler.x=pulse*.28
+                pose['head'].rotation_euler.y=-sweep*.30*sign
+                if name=='thrust':
+                    pose['chest'].rotation_euler.x=pulse*.18
+                    pose['chest'].rotation_euler.y=0
+                    pose['arm.R'].rotation_euler.x=-pulse*1.10
+                    pose['arm.R'].rotation_euler.z=-pulse*.18
+                    pose['hand.R'].rotation_euler.x=-pulse*.40
+                    pose['arm.L'].rotation_euler.x=-pulse*.80
+                    pose['thigh.L'].rotation_euler.x=-pulse*.22
+                    pose['shin.L'].rotation_euler.x=-pulse*.25
+                if name=='spin':
+                    pose['arm.R'].rotation_euler.x=-pulse*.65
+                    pose['arm.R'].rotation_euler.z=pulse*.85
+                    pose['arm.L'].rotation_euler.z=-pulse*.7
+                    pose['chest'].rotation_euler.y=sweep
+                    pose['cape'].rotation_euler.x=pulse*.45
             for pb in pose:
                 pb.keyframe_insert('rotation_euler',frame=frame,group=pb.name)
                 pb.keyframe_insert('location',frame=frame,group=pb.name)

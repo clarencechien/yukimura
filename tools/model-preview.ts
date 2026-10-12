@@ -23,7 +23,7 @@ const sun=new DirectionalLight('sun',new Vector3(-.5,-1,-.4),scene);sun.position
 winterReflections(scene);illustrationPass(scene,camera);
 const shadows=new ShadowGenerator(1024,sun);shadows.usePoissonSampling=true;shadows.normalBias=.012;shadows.darkness=.25;
 const ground=MeshBuilder.CreateGround('ground',{width:100,height:100},scene);ground.receiveShadows=true;const mat=new StandardMaterial('ash',scene);mat.diffuseColor=new Color3(.18,.21,.21);mat.specularColor=Color3.Black();ground.material=mat;
-const loaded=await SceneLoader.ImportMeshAsync('','/models/','yukimura.glb',scene);
+const loaded=await SceneLoader.ImportMeshAsync('','/models/','yukimura.glb?rev=combo-1',scene);
 loaded.meshes.forEach(m=>{m.receiveShadows=true;shadows.addShadowCaster(m)});
 function play(name:string){for(const g of loaded.animationGroups)g.stop();loaded.animationGroups.find(g=>g.name===name)!.start(true);}
 play('idle');

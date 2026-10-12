@@ -26,11 +26,11 @@ for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){
  });
 }
 test('all variants reuse exactly three atlas files',()=>assert.equal(shared.size,3));
-test('hero skin has valid weights and three non-static bone animation clips',()=>{
+test('hero skin has valid weights and six non-static bone animation clips',()=>{
  const {gltf:g,binary}=readGLB('yukimura');const p=g.meshes[0].primitives[0];assert.equal(g.skins.length,1);assert.equal(g.skins[0].joints.length,14);assert.ok('JOINTS_0' in p.attributes);assert.ok('WEIGHTS_0' in p.attributes);
  function values(index){const a=g.accessors[index],v=g.bufferViews[a.bufferView];assert.equal(a.componentType,5126);const n={SCALAR:1,VEC3:3,VEC4:4}[a.type];const offset=(v.byteOffset||0)+(a.byteOffset||0);return Array.from({length:a.count*n},(_,i)=>binary.readFloatLE(offset+i*4));}
  const weights=values(p.attributes.WEIGHTS_0);for(let i=0;i<weights.length;i+=4){const sum=weights.slice(i,i+4).reduce((a,b)=>a+b,0);assert.ok(Math.abs(sum-1)<.001,'unbound vertex');}
- assert.deepEqual(g.animations.map(a=>a.name).sort(),['idle','run','slash']);
+ assert.deepEqual(g.animations.map(a=>a.name).sort(),['idle','reverse','run','slash','spin','thrust']);
  for(const clip of g.animations){
   assert.ok(clip.channels.length>10);
   const changing=clip.samplers.some(s=>{const data=values(s.output),n={VEC3:3,VEC4:4}[g.accessors[s.output].type];return data.some((v,i)=>Math.abs(v-data[i%n])>.001)});
