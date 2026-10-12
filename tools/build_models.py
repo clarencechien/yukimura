@@ -7,6 +7,7 @@ import math
 import os
 import json
 import sys
+import re
 from pathlib import Path
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
@@ -14,6 +15,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from painted_surfaces import make_atlas, map_uv, painted_material
 from samurai_rig import bind_hero, bone_for_part
 from gltf_assets import share_images
+from refine_hero import refine_hero, hero_parts, HERO_COLORS
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = Path(os.environ.get('MODEL_OUTPUT', ROOT / 'public/models'))
@@ -293,6 +295,8 @@ for side in [-1,1]:
         x=side*.145+(c-1)*.045
         details.append(rod(f'shin.inlay.{side}.{c}',(x,-.100,.18),(x,-.100,.42),.004,'gold',sides=5).name)
 
+# Hero-specific authored plates reuse the same material atlas and rest-space rig.
+hero_details=refine_hero(parts,mesh,rod,sphere,cube)
 images=make_atlas()
 for role,color in COLORS.items():
     materials[role]=painted_material('painted/'+role,images,color)
@@ -305,7 +309,7 @@ for name,obj in parts.items():
 # Bake transforms once into library geometry; attachments remain aligned.
 for name,obj in parts.items():
     mat=obj.matrix_world.copy()
-    is_leg=name.startswith(('thigh.','shin.','boot.','shin_plate.','shin_tie.','knee.guard.','haidate.'))
+    is_leg=name.startswith(('thigh.','shin.','boot.','shin_plate.','shin_tie.','knee.guard.','haidate.','sandal.'))
     side=-1 if '.-1' in name else 1
     for v in obj.data.vertices:
         p=mat@v.co
@@ -342,11 +346,14 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     if variant.get('crest'):names+=crest
     if variant.get('cape'):names+=[cape]+details
     if variant.get('banner'):names+=banner+(banner_coins if kind=='ashigaru' else enemy_marks)
-    armor=painted_material(kind+'/painted armor',images,variant['armor'])
+    if kind=='yukimura':names=hero_parts(names)+hero_details
+    armor=painted_material(kind+'/painted armor',images,HERO_COLORS['armor'] if kind=='yukimura' else variant['armor'])
+    hero_materials={role:painted_material('hero/'+role,images,color) for role,color in HERO_COLORS.items()} if kind=='yukimura' else {}
     actor_parts=[]
     for name in names:
         src=parts[name];o=src.copy();o.data=src.data;c.objects.link(o);o.parent=root
         if src['palette_role']=='armor':o.material_slots[0].link='OBJECT';o.material_slots[0].material=armor
+        if src['palette_role'] in hero_materials:o.material_slots[0].link='OBJECT';o.material_slots[0].material=hero_materials[src['palette_role']]
         actor_parts.append(o)
     source_roots.append(root)
     # Bake only the export copy. Source parts retain shared geometry and materials.
@@ -356,6 +363,7 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
         o=source.copy();o.data=source.data.copy();bpy.context.collection.objects.link(o)
         o.parent=None # local coordinates: actor exported at origin
         role=source['palette_role'];color=variant['armor'] if role=='armor' else COLORS[role]
+        if kind=='yukimura':color=HERO_COLORS.get(role,color)
         colors=o.data.color_attributes.new(name='Color',type='BYTE_COLOR',domain='CORNER')
         for i,color_data in enumerate(colors.data):
             wear=o.data.color_attributes['Wear'].data[i].color[0]
@@ -430,6 +438,10 @@ if reference.exists():
     board.rotation_euler=(math.pi/2,0,0);board.location=(0,2.2,1.5)
     board.color[3]=.65;board.hide_render=True;board.hide_viewport=True
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE),compress=True)
-report={'generator':'Blender local CPU / modular-samurai-v5-painted-rig','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
+report={'generator':'Blender local CPU / modular-samurai-v6-forged-hero','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
 (OUT/'manifest.json').write_text(json.dumps(report,indent=2)+'\n')
+# Only generated, content-addressed images can be retired. Keep hand-added files.
+for path in (OUT/'shared').glob('*.png'):
+    if re.fullmatch(r'[a-f0-9]{16}\.png',path.name) and 'shared/'+path.name not in shared_images:
+        path.unlink()
 print(json.dumps(report,indent=2))

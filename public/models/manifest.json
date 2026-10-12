@@ -1,11 +1,11 @@
 {
-  "generator": "Blender local CPU / modular-samurai-v5-painted-rig",
-  "unique_source_parts": 393,
+  "generator": "Blender local CPU / modular-samurai-v6-forged-hero",
+  "unique_source_parts": 792,
   "variants": {
     "yukimura": {
-      "triangles": 9886,
-      "bytes": 932288,
-      "source_parts": 369,
+      "triangles": 43290,
+      "bytes": 2618704,
+      "source_parts": 538,
       "materials": 1,
       "textures": 3,
       "rigged": true
@@ -36,10 +36,10 @@
     }
   },
   "shared_textures": {
-    "shared/4f98cea3e12649e8.png": 82622,
-    "shared/1bb5bd8d20d07d60.png": 1574988,
-    "shared/d497a97c00516fc8.png": 11887
+    "shared/9a38aabbeb815c13.png": 75213,
+    "shared/6510f8cbd9d08fa6.png": 1451863,
+    "shared/4f52c50425de0de5.png": 50075
   },
-  "shared_texture_bytes": 1669497,
+  "shared_texture_bytes": 1577151,
   "paid_api_calls": 0
 }

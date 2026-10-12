@@ -20,13 +20,13 @@ const scene=new Scene(engine);scene.clearColor=new Color4(.12,.17,.19,1);
 const camera=new ArcRotateCamera('model camera',1.20,1.34,4.8,new Vector3(0,1.38,0),scene);camera.attachControl(canvas,true);camera.lowerRadiusLimit=2;camera.upperRadiusLimit=7;camera.minZ=.05;camera.wheelPrecision=60;
 const sky=new HemisphericLight('sky',new Vector3(.3,1,0),scene);sky.intensity=.7;sky.diffuse=new Color3(.70,.80,.9);sky.groundColor=new Color3(.16,.18,.21);
 const sun=new DirectionalLight('sun',new Vector3(-.5,-1,-.4),scene);sun.position.set(3,6,4);sun.diffuse=new Color3(1,.81,.61);sun.intensity=1.8;
-winterReflections(scene);illustrationPass(scene,camera);
+winterReflections(scene);const ink=illustrationPass(scene,camera);
 const shadows=new ShadowGenerator(1024,sun);shadows.usePoissonSampling=true;shadows.normalBias=.012;shadows.darkness=.25;
 const ground=MeshBuilder.CreateGround('ground',{width:100,height:100},scene);ground.receiveShadows=true;const mat=new StandardMaterial('ash',scene);mat.diffuseColor=new Color3(.18,.21,.21);mat.specularColor=Color3.Black();ground.material=mat;
-const loaded=await SceneLoader.ImportMeshAsync('','/models/','yukimura.glb?rev=combo-1',scene);
+const loaded=await SceneLoader.ImportMeshAsync('','/models/','yukimura.glb?rev=forged-6',scene);
 loaded.meshes.forEach(m=>{m.receiveShadows=true;shadows.addShadowCaster(m)});
 function play(name:string){for(const g of loaded.animationGroups)g.stop();loaded.animationGroups.find(g=>g.name===name)!.start(true);}
 play('idle');
 document.querySelectorAll<HTMLButtonElement>('[data-clip]').forEach(button=>button.onclick=()=>play(button.dataset.clip!));document.getElementById('back')!.onclick=()=>{camera.alpha+=Math.PI;};
-Object.assign(window,{modelPreview:{ready:true,scene,camera,loaded,play}});
+Object.assign(window,{modelPreview:{ready:true,scene,camera,loaded,play,ink}});
 engine.runRenderLoop(()=>scene.render());window.addEventListener('resize',()=>engine.resize());

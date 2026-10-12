@@ -22,7 +22,8 @@ for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){
   assert.ok([5121,5123].includes(color.componentType));const step=color.componentType===5123?2:1;const offset=(colorView.byteOffset||0)+(color.byteOffset||0);const rgba=Array.from({length:color.count*4},(_,i)=>step===2?binary.readUInt16LE(offset+i*2):binary.readUInt8(offset+i));
   assert.ok(rgba.some((v,i)=>i%4===0&&v!==rgba[i+1]),'team palette was replaced by white');
   const pos=g.accessors[p.attributes.POSITION];assert.ok(Math.abs(pos.min[1])<.025);assert.ok(pos.max[1]>1.8&&pos.max[1]<3.5);
-  const triangles=g.accessors[p.indices].count/3;assert.ok(triangles>1000&&triangles<=(name==='yukimura'?12000:name==='ieyasu'?10000:3200));assert.ok(bytes.length<(name==='yukimura'?1500000:name==='ieyasu'?900000:350000));
+  // One detailed hero; the crowd keeps its original per-instance budget.
+  const triangles=g.accessors[p.indices].count/3;assert.ok(triangles>1000&&triangles<=(name==='yukimura'?45000:name==='ieyasu'?10000:3200));assert.ok(bytes.length<(name==='yukimura'?3000000:name==='ieyasu'?900000:350000));
  });
 }
 test('all variants reuse exactly three atlas files',()=>assert.equal(shared.size,3));

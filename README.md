@@ -21,7 +21,7 @@ npm run dev
 
 遊戲已上線：[真田・赤冬](https://clarencechien.github.io/yukimura/)。`main` 的 push 會觸發部署 workflow；此 repository 已設定 Pages Source 為 GitHub Actions。
 
-部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。下一階段將先精修幸村，通過設定圖對照後才製作遊戲網格、烘焙和手機最佳化，見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
+部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。幸村 v6 已加入專用曲面甲冑、面甲、鹿角與垂墜披風；實際近景及仍待完成的高模烘焙／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
 
 ## 操作與目標
 
@@ -36,7 +36,7 @@ npm run dev
 
 Babylon.js 處理 WebGL 場景、相機、GLB、材質與實例化。TypeScript + Vite 處理應用與建置，遊戲規則自訂。靜態物件依材質合併、士兵模型實例化，軟體繪圖環境自動降低內部解析度。
 
-`public/art/concept.png` 是原創 2D 方向板；主選單只顯示其左側戰場裁切，右側設定集不進入遊戲 UI。`public/models/*.glb` 是本機 Blender 匯出的四個遊戲資產（含共用貼圖合計約 3.32 MiB；須一併部署 `public/models/shared/`）。可重用零件、編輯流程與預算見 [模型套件](docs/MODELS.md)。
+`public/art/concept.png` 是原創 2D 方向板；主選單只顯示其左側戰場裁切，右側設定集不進入遊戲 UI。`public/models/*.glb` 是本機 Blender 匯出的四個遊戲資產，須一併部署 `public/models/shared/`。幸村使用較高細節的單一骨架模型，大量足輕保留約三千面的實例；可重用零件、編輯流程與實際下載預算見 [模型套件](docs/MODELS.md)。
 
 ```sh
 npm run models # 需要 Blender；此環境使用 4.3.2

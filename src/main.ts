@@ -238,7 +238,7 @@ function visual(dt:number){
  for(const s of snowflakes){s.position.y-=dt*(1+s.uniqueId%3*.2);s.position.x+=dt*.3;if(s.position.y<0){s.position.y=24;s.position.z=target.z+Math.random()*70-25;s.position.x=target.x+Math.random()*60-30;}}
  if(announceTime>0){announceTime-=dt;$('announcement').style.opacity=String(Math.min(1,announceTime));}else $('announcement').style.opacity='0';
 }
-async function init(){try{for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=combo-1',scene);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
+async function init(){try{for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=forged-6',scene);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
  if(name==='yukimura'){
   // Use the loaded skinned mesh directly so clips target the visible rig.
   hero=new TransformNode('yukimura',scene);templates[name].parent=hero;

@@ -17,8 +17,8 @@ def make_atlas():
     pigment=np.zeros((SIZE,SIZE,4),dtype=np.float32)
     orm=np.zeros_like(pigment);normal=np.zeros_like(pigment)
     for name,i in TILES.items():
-        grain=rng.normal(0,.026,(n,n))
-        brush=.060*np.sin(u*83+np.sin(v*14)*3)*np.sin(v*27+u*13)
+        grain=rng.normal(0,.012,(n,n))
+        brush=.035*np.sin(u*83+np.sin(v*14)*3)*np.sin(v*27+u*13)
         # Broad rubbed pigment patches plus fine dry-brush grain, not uniform plastic.
         blotch=.07*np.sin(u*18+np.sin(v*11)*2)*np.sin(v*23+np.sin(u*13))
         shade=np.clip(.80+brush+grain+blotch,.48,1)
@@ -48,7 +48,8 @@ def make_atlas():
                 sx,sy=rng.random(2);length=rng.uniform(.015,.12)
                 scratch=(np.abs(u-sx-(v-sy)*.22)<.0018)&(v>sy)&(v<sy+length)
                 shade=np.where(scratch,1.05,shade);height-=scratch*.08
-            rough[:]=.68;rough+=seam*.18;metal[:]=.14;metal[chips]=.40
+            # Lacquer gets broad, broken highlights; exposed chips are metallic.
+            rough[:]=.43;rough+=seam*.25+blotch*.65;metal[:]=.08;metal[chips]=.58
         elif name in ('cloth','cape','banner','boot','leather'):
             folds=(np.sin(u*math.pi*8+np.sin(v*5)*.7)+1)*.5
             shade*=.76+.24*folds
@@ -61,9 +62,9 @@ def make_atlas():
             shade+=((np.sin(u*490+v*19)>.97)&(rng.random((n,n))>.6))*.09
             rough[:]=.95
         elif name=='gold':
-            shade*=.8+.2*np.sin(u*25+v*9)**2
+            shade=.92+brush*.6+grain
             filigree=np.exp(-(np.sin(u*36+np.sin(v*22)*2)/.20)**2)
-            shade*=1-filigree*.5;height+=filigree*.12;metal[:]=.65;rough[:]=.58
+            shade*=1-filigree*.16;height+=filigree*.05;metal[:]=.52;rough[:]=.40
         elif name=='steel':
             shade*=.65+.35*np.abs(u-.5)*2
             shade+=.08*np.sin(u*260+v*2);metal[:]=.82;rough[:]=.40
@@ -94,6 +95,9 @@ def make_atlas():
     return result
 
 def surface_for(name,role):
+    if role=='gold':return 'gold'
+    if name.startswith('kusazuri.hero.') and role=='armor':return 'lamella'
+    if name.startswith('cuirass.hero.') and role=='armor':return 'mask'
     if name.startswith('cape'):return 'cape'
     if name.startswith('sashimono.cloth'):return 'banner'
     if name.startswith('kusazuri'):return 'skirt'
@@ -109,6 +113,11 @@ def map_uv(obj,name,role):
     uv=obj.data.uv_layers.active or obj.data.uv_layers.new(name='PaintedAtlas')
     uv.name='PaintedAtlas'
     tile=TILES[surface_for(name,role)]
+    if obj.get('authored_uv'):
+        for loop in uv.data:
+            u,v=loop.uv
+            loop.uv=((tile%4+.02+.96*u)/4,(tile//4+.02+.96*v)/4)
+        return
     coords=[v.co for v in obj.data.vertices]
     lo=[min(p[a] for p in coords) for a in range(3)];hi=[max(p[a] for p in coords) for a in range(3)]
     # Largest two dimensions are a safe default for straps, weapons and sheets.
