@@ -18,7 +18,10 @@ def build():
  return {str(p.relative_to('/tmp/models')):p.read_bytes() for p in Path('/tmp/models').rglob('*') if p.is_file() and p.suffix in ('.glb','.png','.json')}
 @app.local_entrypoint()
 def main():
+ import subprocess
  target=Path(__file__).resolve().parent.parent/'public/models';target.mkdir(parents=True,exist_ok=True)
  for name,data in build.remote().items():
   path=target/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
   print('Saved',name,len(data),'bytes')
+ # The lightweight palette bake runs locally with the project's Babylon dependency.
+ subprocess.run(['node','tools/bake-crowd.mjs'],cwd=target.parent.parent,check=True)

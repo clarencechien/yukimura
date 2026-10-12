@@ -20,7 +20,7 @@ def make_atlas():
         grain=rng.normal(0,.012,(n,n))
         brush=.035*np.sin(u*83+np.sin(v*14)*3)*np.sin(v*27+u*13)
         # Broad rubbed pigment patches plus fine dry-brush grain, not uniform plastic.
-        blotch=.07*np.sin(u*18+np.sin(v*11)*2)*np.sin(v*23+np.sin(u*13))
+        blotch=.10*np.sin(u*18+np.sin(v*11)*2)*np.sin(v*23+np.sin(u*13))
         shade=np.clip(.80+brush+grain+blotch,.48,1)
         rough=np.full((n,n),.78);metal=np.zeros((n,n));height=np.zeros((n,n))
         if name in ('lamella','skirt','helmet','bracer','mask'):
@@ -34,8 +34,8 @@ def make_atlas():
             # Punched lamellar plates, paired dark silk lacing and rubbed gilt edges.
             col=(u*6)%1
             for pos in ((.26,.40,.76,.90) if name in ('lamella','skirt','bracer') else ()):
-                stitch=np.exp(-((col-pos)/.050)**2)*((row>.24)&(row<.69))
-                shade*=1-stitch*.69;height+=stitch*.14
+                stitch=np.exp(-((col-pos)/.034)**2)*((row>.24)&(row<.69))
+                shade*=1-stitch*.48;height+=stitch*.10
                 hole=np.exp(-((col-pos)/.085)**2-((row-.22)/.065)**2)
                 shade*=1-hole*.7
             border=np.exp(-np.minimum(u,1-u)*110)
@@ -149,6 +149,6 @@ def painted_material(name,images,color=(1,1,1,1),vertex=False):
     t=nodes.new('ShaderNodeTexImage');t.image=orm
     split=nodes.new('ShaderNodeSeparateColor');links.new(t.outputs['Color'],split.inputs[0]);links.new(split.outputs['Green'],bs.inputs['Roughness']);links.new(split.outputs['Blue'],bs.inputs['Metallic'])
     t=nodes.new('ShaderNodeTexImage');t.image=normal
-    bump=nodes.new('ShaderNodeNormalMap');bump.inputs['Strength'].default_value=.55
+    bump=nodes.new('ShaderNodeNormalMap');bump.inputs['Strength'].default_value=.38
     links.new(t.outputs['Color'],bump.inputs['Color']);links.new(bump.outputs['Normal'],bs.inputs['Normal'])
     return m

@@ -1,18 +1,19 @@
-"""Lightweight rigid armour rig with deforming cape, authored locally in Blender."""
+"""Two-hand spear poses and planted gait, solved offline and baked to glTF bones."""
 import bpy
 import math
-from mathutils import Vector
+from mathutils import Vector, Matrix
 
 def bone_for_part(name):
     side='L' if '.-1' in name else 'R'
-    if name.startswith(('antler','kabuto','helmet.coin','face','eye','menpo','mask','gold_fan','neck')):return 'head'
+    if name.startswith(('antler','kabuto','helmet.coin','face','eye','menpo','mask','gold_fan','neck','jingasa')):return 'head'
     if name.startswith('cape'):return 'cape'
-    if name.startswith(('yari','katana','glove.1','finger.1')):return 'hand.R'
-    if name.startswith(('glove.-1','finger.-1')):return 'hand.L'
+    if name.startswith(('yari','katana')):return 'weapon'
+    if name.startswith(('glove','finger')):return 'hand.'+side
     if name.startswith(('forearm','bracer','kote')):return 'forearm.'+side
     if name.startswith(('upper_arm','elbow','sode')):return 'arm.'+side
     if name.startswith(('thigh','haidate','knee')):return 'thigh.'+side
-    if name.startswith(('shin','boot','sandal')):return 'shin.'+side
+    if name.startswith(('boot','sandal')):return 'foot.'+side
+    if name.startswith('shin'):return 'shin.'+side
     if name.startswith(('kusazuri','waist','obi','wakizashi')):return 'pelvis'
     return 'chest'
 
@@ -23,97 +24,128 @@ def point(x,y,z,leg=False):
     if z>1.40:x*=.86;y*=.92;z=1.75+(z-1.40)*.88
     else:z*=1.25
     y-=max(0,z-1.05)*.10
-    return (x,y,z)
+    return Vector((x,y,z))
 
-def bind_hero(mesh):
+def weapon_point(p):
+    # One rigid transform keeps shafts, collars and blades aligned at all heights.
+    return point(.47,-.16,.91)+Matrix.Rotation(.28,3,'X') @ Vector(((p.x-.47)*.90,(p.y+.16)*.90,(p.z-.91)*1.10))
+
+def smooth(t):
+    t=max(0,min(1,t));return t*t*(3-2*t)
+
+def sample(keys,t):
+    for (a,x),(b,y) in zip(keys,keys[1:]):
+        if t<=b:return x+(y-x)*smooth((t-a)/(b-a))
+    return keys[-1][1]
+
+def bind_hero(mesh,kind='yukimura'):
+    hero=kind=='yukimura'
     bpy.ops.object.select_all(action='DESELECT')
-    data=bpy.data.armatures.new('Sanada articulated armour')
-    rig=bpy.data.objects.new('SanadaRig',data);bpy.context.collection.objects.link(rig)
-    rig.select_set(True);bpy.context.view_layer.objects.active=rig
-    bpy.ops.object.mode_set(mode='EDIT')
+    data=bpy.data.armatures.new(kind+' articulated armour')
+    rig=bpy.data.objects.new(kind+'_Rig',data);bpy.context.collection.objects.link(rig)
+    rig.select_set(True);bpy.context.view_layer.objects.active=rig;bpy.ops.object.mode_set(mode='EDIT')
     def bone(name,a,b,parent=None):
         eb=data.edit_bones.new(name);eb.head=a;eb.tail=b
         if parent:eb.parent=data.edit_bones[parent]
     bone('pelvis',point(0,0,.88),point(0,0,1.03))
     bone('chest',point(0,0,1.03),point(0,0,1.38),'pelvis')
     bone('head',point(0,0,1.40),point(0,0,1.80),'chest')
-    bone('cape',point(0,.17,1.36),point(0,.45,.75),'chest')
+    bone('cape',point(0,.17,1.36),point(0,.32,.90),'chest')
+    bone('cape_tip',point(0,.32,.90),point(0,.57,.35),'cape')
+    origin=point(.47,-.16,.91);axis=(weapon_point(Vector((.47,-.16,1.91)))-origin).normalized()
+    bone('weapon',origin,origin+axis*.35,'chest')
     for side,sign in [('L',-1),('R',1)]:
         bone('arm.'+side,point(sign*.31,0,1.32),point(sign*.43,-.025,1.10),'chest')
         bone('forearm.'+side,point(sign*.43,-.025,1.10),point(sign*.47,-.16,.94),'arm.'+side)
         bone('hand.'+side,point(sign*.47,-.16,.94),point(sign*.47,-.16,.86),'forearm.'+side)
         bone('thigh.'+side,point(sign*.145,0,.85,True),point(sign*.145,.015,.45,True),'pelvis')
-        bone('shin.'+side,point(sign*.145,.015,.45,True),point(sign*.145,-.015,.10,True),'thigh.'+side)
-    bpy.ops.object.mode_set(mode='OBJECT')
-    mesh.parent=rig
+        bone('shin.'+side,point(sign*.145,.015,.45,True),point(sign*.145,-.015,.13,True),'thigh.'+side)
+        bone('foot.'+side,point(sign*.145,-.015,.13,True),point(sign*.145,-.21,.07,True),'shin.'+side)
+    bpy.ops.object.mode_set(mode='OBJECT');mesh.parent=rig
     mod=mesh.modifiers.new('articulated armour','ARMATURE');mod.object=rig
-    # Blend the cape attachment into the torso: its collar stays secured while the hem moves.
-    cape=mesh.vertex_groups.get('cape');chest=mesh.vertex_groups.get('chest')
+    cape=mesh.vertex_groups.get('cape');chest=mesh.vertex_groups.get('chest');tip=mesh.vertex_groups.new(name='cape_tip')
     if cape and chest:
         for v in mesh.data.vertices:
             if any(g.group==cape.index for g in v.groups):
-                w=max(0,min(1,(1.68-v.co.z)/.72))
-                cape.add([v.index],w,'REPLACE');chest.add([v.index],1-w,'REPLACE')
-    rig.animation_data_create()
-    for name,frames in [('idle',60),('run',24),('slash',12),('reverse',14),('thrust',16),('spin',24)]:
+                root=max(0,min(1,(v.co.z-1.25)/.45));hem=max(0,min(1,(1.18-v.co.z)/.55))
+                cape.add([v.index],1-root-hem,'REPLACE');chest.add([v.index],root,'REPLACE');tip.add([v.index],hem,'REPLACE')
+    pelvis=mesh.vertex_groups.get('pelvis')
+    if pelvis:
+        for v in mesh.data.vertices:
+            if v.co.z<1.1 and abs(v.co.x)>.10 and any(g.group==pelvis.index for g in v.groups):
+                w=max(0,min(.75,(1.12-v.co.z)*1.7));side='L' if v.co.x<0 else 'R';leg=mesh.vertex_groups.get('thigh.'+side)
+                if leg:pelvis.add([v.index],1-w,'REPLACE');leg.add([v.index],w,'REPLACE')
+    pose=rig.pose.bones;rest={b.name:b.matrix_local.copy() for b in data.bones}
+    rig.animation_data_create();max_error=0
+    def orient(name,head,tail):
+        b=data.bones[name];q=(b.tail_local-b.head_local).rotation_difference(tail-head)
+        pose[name].matrix=Matrix.Translation(head) @ q.to_matrix().to_4x4() @ rest[name].to_3x3().to_4x4()
+        bpy.context.view_layer.update()
+    def ik(first,second,target,pole):
+        b=data.bones[first];parent=pose[first].parent
+        head=(parent.matrix @ parent.bone.matrix_local.inverted()) @ b.head_local
+        l1=b.length;l2=data.bones[second].length;delta=target-head
+        d=max(.02,min(delta.length,(l1+l2)*.998));axis=delta.normalized()
+        bend=Vector(pole)-head;bend-=axis*bend.dot(axis);bend.normalize()
+        along=(l1*l1-l2*l2+d*d)/(2*d)
+        elbow=head+axis*along+bend*math.sqrt(max(0,l1*l1-along*along))
+        end=head+axis*d;orient(first,head,elbow);orient(second,elbow,end)
+        return end,(end-target).length
+    clips=[('idle',48),('run',24),('slash',30),('reverse',30),('thrust',30),('spin',36),('dash',18),('hurt',18)] if hero else [('idle',48),('run',24),('thrust',30),('hurt',18),('fall',24)]
+    for name,frames in clips:
         action=bpy.data.actions.new(name);rig.animation_data.action=action
-        for frame in range(0,frames+1,2):
-            phase=frame/frames*math.tau
-            for pb in rig.pose.bones:pb.rotation_mode='XYZ';pb.rotation_euler=(0,0,0);pb.location=(0,0,0)
-            pose=rig.pose.bones
-            if name=='idle':
-                pose['chest'].rotation_euler.x=.022*math.sin(phase)
-                pose['head'].rotation_euler.y=.018*math.sin(phase)
-                pose['cape'].rotation_euler.x=.065*math.sin(phase+.6)
+        for frame in range(frames+1):
+            t=frame/frames;phase=t*math.tau
+            for pb in pose:pb.rotation_mode='QUATERNION';pb.rotation_quaternion=(1,0,0,0);pb.location=(0,0,0);pb.scale=(1,1,1)
+            twist=0;lean=.06;drop=.045;stride=0;grip=Vector((.22,-.23,1.38));axis=Vector((-.78,-.24,.58));spacing=.42
+            if name=='idle':drop+=.008*math.sin(phase);lean+=.012*math.sin(phase)
             elif name=='run':
-                for side,sign in [('L',1),('R',-1)]:
-                    gait=math.sin(phase)*sign
-                    pose['thigh.'+side].rotation_euler.x=gait*.55
-                    pose['shin.'+side].rotation_euler.x=-max(0,-gait)*.65
-                    pose['arm.'+side].rotation_euler.x=-gait*.24-.13
-                    pose['forearm.'+side].rotation_euler.x=-.18
-                pose['chest'].rotation_euler.x=.06
-                pose['chest'].rotation_euler.y=.055*math.sin(phase)
-                pose['cape'].rotation_euler.x=.16+.10*math.sin(phase*2)
-                pose['pelvis'].location.y=.016*(1-math.cos(phase*2))
-            else:
-                # Separate silhouettes with the strike at roughly 1/3 of each clip.
-                t=frame/frames
-                pulse=math.sin(min(1,t/.68)*math.pi) if t<.68 else 0
-                sweep=math.sin((t-.10)*math.tau)*.68*math.sin(t*math.pi)
-                sign=-1 if name=='reverse' else 1
-                pose['chest'].rotation_euler.y=sweep*.8*sign
-                pose['arm.R'].rotation_euler.x=-pulse*.65
-                pose['arm.R'].rotation_euler.z=sweep*sign
-                pose['forearm.R'].rotation_euler.x=-pulse*.24
-                pose['arm.L'].rotation_euler.x=-pulse*.40
-                pose['arm.L'].rotation_euler.z=pulse*.26
-                pose['cape'].rotation_euler.x=pulse*.28
-                pose['head'].rotation_euler.y=-sweep*.30*sign
-                if name=='thrust':
-                    pose['chest'].rotation_euler.x=pulse*.18
-                    pose['chest'].rotation_euler.y=0
-                    pose['arm.R'].rotation_euler.x=-pulse*1.10
-                    pose['arm.R'].rotation_euler.z=-pulse*.18
-                    pose['hand.R'].rotation_euler.x=-pulse*.40
-                    pose['arm.L'].rotation_euler.x=-pulse*.80
-                    pose['thigh.L'].rotation_euler.x=-pulse*.22
-                    pose['shin.L'].rotation_euler.x=-pulse*.25
-                if name=='spin':
-                    pose['arm.R'].rotation_euler.x=-pulse*.65
-                    pose['arm.R'].rotation_euler.z=pulse*.85
-                    pose['arm.L'].rotation_euler.z=-pulse*.7
-                    pose['chest'].rotation_euler.y=sweep
-                    pose['cape'].rotation_euler.x=pulse*.45
+                drop=.06+.025*math.cos(phase*2);lean=.15;twist=.10*math.sin(phase)
+                grip=Vector((.24,-.24,1.39));axis=Vector((-.79,-.33,.52))
+            elif name in ('slash','reverse','spin'):
+                impact=.44 if name=='spin' else .34;sign=-1 if name=='reverse' else 1
+                twist=sign*sample([(0,0),(.19,-.58),(impact,.48),(.66,.73),(1,0)],t)
+                height=sample([(0,.58),(.18,.82),(impact,.10),(.65,-.22),(1,.58)],t)
+                axis=Vector((-.80,-.32,height));grip.z+=.065*math.sin(t*math.pi)
+                stride=math.sin(t*math.pi)*.20;drop+=.075*math.sin(t*math.pi);lean=.09
+            elif name=='thrust':
+                push=sample([(0,0),(.23,-.05),(.38,.17),(.59,.17),(1,0)],t)
+                grip=Vector((.04,.045-push,1.40));axis=Vector((-.12,-.98,.13));spacing=.30
+                stride=.25*math.sin(t*math.pi);drop+=.08*math.sin(t*math.pi);lean=.15*math.sin(t*math.pi)+.06
+            elif name=='dash':lean=.28;drop=.18;stride=.24;axis=Vector((-.78,-.5,.05));grip.z=1.35
+            elif name in ('hurt','fall'):
+                recoil=math.sin(min(1,t/.7)*math.pi) if name=='hurt' else smooth(t)
+                lean=-recoil*.28;drop+=recoil*.18;twist=recoil*.18;axis=Vector((-.78,.1,.55));grip.z-=recoil*.08
+            pose['pelvis'].matrix=Matrix.Translation((.015*math.sin(phase) if name=='run' else 0,0,-drop)) @ rest['pelvis']
+            pose['chest'].rotation_quaternion=(Matrix.Rotation(lean,4,'X') @ Matrix.Rotation(twist,4,'Y')).to_quaternion()
+            pose['head'].rotation_quaternion=Matrix.Rotation(-twist*.35,4,'Y').to_quaternion()
+            pose['cape'].rotation_quaternion=Matrix.Rotation(.12+(.16 if name in ('run','dash') else .04)*math.sin(phase+.5),4,'X').to_quaternion()
+            pose['cape_tip'].rotation_quaternion=(Matrix.Rotation(.13*math.sin(phase-1),4,'X') @ Matrix.Rotation(.09*math.sin(phase),4,'Y')).to_quaternion()
+            bpy.context.view_layer.update()
+            for side,sign in [('L',-1),('R',1)]:
+                ankle=point(sign*.145,-.015,.13,True)
+                if name=='run':
+                    u=(t+(0 if side=='L' else .5))%1
+                    if u<.6:ankle.y+=-.36+.72*u/.6
+                    else:q=(u-.6)/.4;ankle.y+=.36-.72*smooth(q);ankle.z+=.17*math.sin(q*math.pi)
+                else:ankle.y+=sign*stride
+                end,_=ik('thigh.'+side,'shin.'+side,ankle,(sign*.18,-1,.55))
+                direction=data.bones['foot.'+side].tail_local-data.bones['foot.'+side].head_local
+                orient('foot.'+side,end,end+direction)
+            body=pose['chest'].matrix @ rest['chest'].inverted()
+            world_grip=body@grip;world_axis=(body.to_3x3()@axis).normalized()
+            orient('weapon',world_grip,world_grip+world_axis*.35)
+            for side,sign in [('L',-1),('R',1)]:
+                target=world_grip+(world_axis*spacing if side=='L' else Vector((0,0,0)))
+                end,error=ik('arm.'+side,'forearm.'+side,target+Vector((0,0,.038)),body@Vector((sign*.65,-.05,1.12)))
+                max_error=max(max_error,error);orient('hand.'+side,end,end+Vector((0,0,-.1)))
             for pb in pose:
-                pb.keyframe_insert('rotation_euler',frame=frame,group=pb.name)
-                pb.keyframe_insert('location',frame=frame,group=pb.name)
+                pb.keyframe_insert('rotation_quaternion',frame=frame,group=pb.name);pb.keyframe_insert('location',frame=frame,group=pb.name)
+        for fcurve in action.fcurves:
+            for key in fcurve.keyframe_points:key.interpolation='LINEAR'
         rig.animation_data.action=None
-        track=rig.animation_data.nla_tracks.new();track.name=name
-        strip=track.strips.new(name,0,action);strip.action_frame_start=0;strip.action_frame_end=frames
-        track.mute=True
-    # Reset the exported rest state; NLA tracks still export as independent clips.
-    for pb in rig.pose.bones:pb.rotation_euler=(0,0,0);pb.location=(0,0,0)
-    mesh.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=mesh
-    bpy.context.scene.render.fps=30
+        track=rig.animation_data.nla_tracks.new();track.name=name;strip=track.strips.new(name,0,action);strip.action_frame_start=0;strip.action_frame_end=frames;track.mute=True
+    for pb in pose:pb.rotation_quaternion=(1,0,0,0);pb.location=(0,0,0)
+    mesh.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=mesh;bpy.context.scene.render.fps=30
+    rig['max_hand_target_error']=max_error;print(f'{kind}: maximum authoring hand IK residual {max_error:.4f} m')
     return rig

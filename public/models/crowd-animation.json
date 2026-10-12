@@ -1,0 +1,107 @@
+{
+  "fps": 60,
+  "models": {
+    "ashigaru": {
+      "uri": "shared/b21cdccfe2d78540.bin",
+      "bytes": 356288,
+      "width": 76,
+      "height": 293,
+      "joints": 18,
+      "clips": {
+        "idle": {
+          "start": 0,
+          "end": 96,
+          "duration": 1.600000023841858
+        },
+        "run": {
+          "start": 97,
+          "end": 145,
+          "duration": 0.800000011920929
+        },
+        "thrust": {
+          "start": 146,
+          "end": 206,
+          "duration": 1
+        },
+        "hurt": {
+          "start": 207,
+          "end": 243,
+          "duration": 0.6000000238418579
+        },
+        "fall": {
+          "start": 244,
+          "end": 292,
+          "duration": 0.800000011920929
+        }
+      }
+    },
+    "tokugawa": {
+      "uri": "shared/b21cdccfe2d78540.bin",
+      "bytes": 356288,
+      "width": 76,
+      "height": 293,
+      "joints": 18,
+      "clips": {
+        "idle": {
+          "start": 0,
+          "end": 96,
+          "duration": 1.600000023841858
+        },
+        "run": {
+          "start": 97,
+          "end": 145,
+          "duration": 0.800000011920929
+        },
+        "thrust": {
+          "start": 146,
+          "end": 206,
+          "duration": 1
+        },
+        "hurt": {
+          "start": 207,
+          "end": 243,
+          "duration": 0.6000000238418579
+        },
+        "fall": {
+          "start": 244,
+          "end": 292,
+          "duration": 0.800000011920929
+        }
+      }
+    },
+    "ieyasu": {
+      "uri": "shared/b21cdccfe2d78540.bin",
+      "bytes": 356288,
+      "width": 76,
+      "height": 293,
+      "joints": 18,
+      "clips": {
+        "idle": {
+          "start": 0,
+          "end": 96,
+          "duration": 1.600000023841858
+        },
+        "run": {
+          "start": 97,
+          "end": 145,
+          "duration": 0.800000011920929
+        },
+        "thrust": {
+          "start": 146,
+          "end": 206,
+          "duration": 1
+        },
+        "hurt": {
+          "start": 207,
+          "end": 243,
+          "duration": 0.6000000238418579
+        },
+        "fall": {
+          "start": 244,
+          "end": 292,
+          "duration": 0.800000011920929
+        }
+      }
+    }
+  }
+}

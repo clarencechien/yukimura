@@ -1,45 +1,45 @@
 {
-  "generator": "Blender local CPU / modular-samurai-v6-forged-hero",
-  "unique_source_parts": 792,
+  "generator": "Blender local CPU / modular-samurai-v7-animated-army",
+  "unique_source_parts": 806,
   "variants": {
     "yukimura": {
-      "triangles": 43290,
-      "bytes": 2618704,
-      "source_parts": 538,
+      "triangles": 44130,
+      "bytes": 2731128,
+      "source_parts": 542,
       "materials": 1,
       "textures": 3,
       "rigged": true
     },
     "ashigaru": {
       "triangles": 3010,
-      "bytes": 213432,
+      "bytes": 421944,
       "source_parts": 82,
       "materials": 1,
       "textures": 3,
-      "rigged": false
+      "rigged": true
     },
     "tokugawa": {
       "triangles": 2866,
-      "bytes": 192648,
+      "bytes": 391200,
       "source_parts": 79,
       "materials": 1,
       "textures": 3,
-      "rigged": false
+      "rigged": true
     },
     "ieyasu": {
       "triangles": 8520,
-      "bytes": 505620,
+      "bytes": 843688,
       "source_parts": 334,
       "materials": 1,
       "textures": 3,
-      "rigged": false
+      "rigged": true
     }
   },
   "shared_textures": {
-    "shared/9a38aabbeb815c13.png": 75213,
-    "shared/6510f8cbd9d08fa6.png": 1451863,
-    "shared/4f52c50425de0de5.png": 50075
+    "shared/0845c79e3d7909d4.png": 72753,
+    "shared/b033bec590993e64.png": 1459001,
+    "shared/a3beead67d295d1c.png": 54127
   },
-  "shared_texture_bytes": 1577151,
+  "shared_texture_bytes": 1585881,
   "paid_api_calls": 0
 }

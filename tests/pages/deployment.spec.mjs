@@ -7,8 +7,11 @@ test('Pages subpath loads background, four models and shared textures, and start
  await expect(page.locator('#start')).toBeEnabled({timeout:60000});
  expect(assets.has('/yukimura/art/concept.png')).toBe(true);
  for(const name of ['yukimura','ashigaru','tokugawa','ieyasu'])expect(assets.has(`/yukimura/models/${name}.glb`)).toBe(true);
- expect([...assets].filter(p=>p.startsWith('/yukimura/models/shared/'))).toHaveLength(3);
+ expect([...assets].filter(p=>p.startsWith('/yukimura/models/shared/')&&p.endsWith('.png'))).toHaveLength(3);
+ expect(assets.has('/yukimura/models/crowd-animation.json')).toBe(true);
+ expect([...assets].filter(p=>p.startsWith('/yukimura/models/shared/')&&p.endsWith('.bin'))).toHaveLength(1);
  await page.click('#start');await page.keyboard.down('w');await page.waitForTimeout(1500);await page.keyboard.up('w');
  const status=await page.evaluate(()=>window.__sanada);
- expect(status.state).toBe('playing');expect(status.position.z).toBeGreaterThan(.2);expect(status.allies).toBe(10);expect(errors).toEqual([]);
+ expect(status.state).toBe('playing');expect(status.position.z).toBeGreaterThan(.2);expect(status.allies).toBe(10);
+ expect(status.crowd.instances).toBeGreaterThanOrEqual(50);expect(status.crowd.allies).toHaveLength(10);expect(errors).toEqual([]);
 });

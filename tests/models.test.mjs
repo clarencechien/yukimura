@@ -23,15 +23,15 @@ for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){
   assert.ok(rgba.some((v,i)=>i%4===0&&v!==rgba[i+1]),'team palette was replaced by white');
   const pos=g.accessors[p.attributes.POSITION];assert.ok(Math.abs(pos.min[1])<.025);assert.ok(pos.max[1]>1.8&&pos.max[1]<3.5);
   // One detailed hero; the crowd keeps its original per-instance budget.
-  const triangles=g.accessors[p.indices].count/3;assert.ok(triangles>1000&&triangles<=(name==='yukimura'?45000:name==='ieyasu'?10000:3200));assert.ok(bytes.length<(name==='yukimura'?3000000:name==='ieyasu'?900000:350000));
+  const triangles=g.accessors[p.indices].count/3;assert.ok(triangles>1000&&triangles<=(name==='yukimura'?45000:name==='ieyasu'?10000:3200));assert.ok(bytes.length<(name==='yukimura'?3000000:name==='ieyasu'?1000000:550000));
  });
 }
 test('all variants reuse exactly three atlas files',()=>assert.equal(shared.size,3));
-test('hero skin has valid weights and six non-static bone animation clips',()=>{
- const {gltf:g,binary}=readGLB('yukimura');const p=g.meshes[0].primitives[0];assert.equal(g.skins.length,1);assert.equal(g.skins[0].joints.length,14);assert.ok('JOINTS_0' in p.attributes);assert.ok('WEIGHTS_0' in p.attributes);
+for(const name of ['yukimura','ashigaru','tokugawa','ieyasu'])test(`${name}: valid skin weights and authored animation clips`,()=>{
+ const {gltf:g,binary}=readGLB(name);const p=g.meshes[0].primitives[0];assert.equal(g.skins.length,1);assert.equal(g.skins[0].joints.length,18);assert.ok('JOINTS_0' in p.attributes);assert.ok('WEIGHTS_0' in p.attributes);
  function values(index){const a=g.accessors[index],v=g.bufferViews[a.bufferView];assert.equal(a.componentType,5126);const n={SCALAR:1,VEC3:3,VEC4:4}[a.type];const offset=(v.byteOffset||0)+(a.byteOffset||0);return Array.from({length:a.count*n},(_,i)=>binary.readFloatLE(offset+i*4));}
  const weights=values(p.attributes.WEIGHTS_0);for(let i=0;i<weights.length;i+=4){const sum=weights.slice(i,i+4).reduce((a,b)=>a+b,0);assert.ok(Math.abs(sum-1)<.001,'unbound vertex');}
- assert.deepEqual(g.animations.map(a=>a.name).sort(),['idle','reverse','run','slash','spin','thrust']);
+ assert.deepEqual(g.animations.map(a=>a.name).sort(),name==='yukimura'?['dash','hurt','idle','reverse','run','slash','spin','thrust']:['fall','hurt','idle','run','thrust']);
  for(const clip of g.animations){
   assert.ok(clip.channels.length>10);
   const changing=clip.samplers.some(s=>{const data=values(s.output),n={VEC3:3,VEC4:4}[g.accessors[s.output].type];return data.some((v,i)=>Math.abs(v-data[i%n])>.001)});

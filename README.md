@@ -21,7 +21,9 @@ npm run dev
 
 遊戲已上線：[真田・赤冬](https://clarencechien.github.io/yukimura/)。`main` 的 push 會觸發部署 workflow；此 repository 已設定 Pages Source 為 GitHub Actions。
 
-部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。幸村 v6 已加入專用曲面甲冑、面甲、鹿角與垂墜披風；實際近景及仍待完成的高模烘焙／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
+部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。v7 已加入全軍骨架動畫、幸村雙手握槍與甲冑材質精修；實際近景及仍待完成的高模烘焙／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
+
+實際引擎錄影：[幸村八組動作](docs/art/hero-motion.webm)・[隊友與敵軍實戰](docs/art/army-motion.webm)。
 
 ## 操作與目標
 
@@ -52,7 +54,7 @@ python -m venv /workspace/yukimura-tools
 /workspace/yukimura-tools/bin/modal run tools/modal_models.py
 ```
 
-SDK 支援從安全環境中的 `modal_token_id` / `modal_token_secret` 對應至 `MODAL_TOKEN_ID` / `MODAL_TOKEN_SECRET`。不將它們放進任何 `VITE_*` 變數、前端檔案、Git 或聊天。此流程呼叫 Modal CPU 工作來執行 Blender，會使用 Modal 帳戶資源。遠端程式收到成功結果才會覆寫本機 GLB。
+SDK 支援從安全環境中的 `modal_token_id` / `modal_token_secret` 對應至 `MODAL_TOKEN_ID` / `MODAL_TOKEN_SECRET`。不將它們放進任何 `VITE_*` 變數、前端檔案、Git 或聊天。此流程呼叫 Modal CPU 工作來執行 Blender，會使用 Modal 帳戶資源。遠端程式收到成功結果才會覆寫本機 GLB，再以本機 Node.js／Babylon.js 烘焙共用群兵動畫資料；請先執行 npm ci。
 
 目前：憑證變數已注入，但 Modal 連線失敗；代理對 `api.modal.com` 回覆 CONNECT 403。**模型已由本機 Blender 生成，未宣稱由 Modal 成功生成。**
 
@@ -79,6 +81,6 @@ Playwright 預設使用 `/usr/bin/chromium`；其他機器可設定 `CHROMIUM_PA
 
 ## 原型範圍
 
-已做：具待機／跑動／四段槍擊骨架動作的幸村、十名隨行角色、四向生成敵軍、攻擊與擊退、衝刺、無雙、陣形、連擊、家康戰、勝敗、周目、手機觸控與敘事。
-尚未做：十勇士各自的模型／忍術、全軍骨架動畫與 LOD、配樂與角色配音、更多關卡、實體手機效能基準。場景是低多邊形原型，不能把概念圖當作實機畫質承諾。
+已做：具八組骨架動作及動作銜接的幸村、各自跑動／刺擊的十名隨行角色、具跑動／攻擊／受擊／倒地動畫的敵軍、四向生成敵軍、攻擊與擊退、衝刺、無雙、陣形、連擊、家康戰、勝敗、周目、手機觸控與敘事。
+尚未做：十勇士各自的模型／忍術、角色 LOD、配樂與角色配音、更多關卡、實體手機效能基準。場景是低多邊形原型，不能把概念圖當作實機畫質承諾。
 史料來源仍受網路政策限制，背景文件標示為待核對；十勇士為傳說角色，修羅輪迴為創作設定。

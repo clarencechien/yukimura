@@ -13,7 +13,7 @@ from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from painted_surfaces import make_atlas, map_uv, painted_material
-from samurai_rig import bind_hero, bone_for_part
+from samurai_rig import bind_hero, bone_for_part, weapon_point
 from gltf_assets import share_images
 from refine_hero import refine_hero, hero_parts, HERO_COLORS
 
@@ -56,7 +56,7 @@ def register(name, obj, role):
     for c in list(obj.users_collection): c.objects.unlink(obj)
     lib.objects.link(obj)
     obj.data.materials.clear();obj.data.materials.append(materials[role])
-    obj['palette_role']=role;parts[name]=obj
+    obj['palette_role']=role;obj['part_name']=name;parts[name]=obj
     return obj
 
 def cube(name, loc, scale, role, bevel=0):
@@ -313,10 +313,8 @@ for name,obj in parts.items():
     side=-1 if '.-1' in name else 1
     for v in obj.data.vertices:
         p=mat@v.co
-        if name.startswith('yari.'):
-            y,z=p.y+.16,p.z-.91
-            p.y=-.16+y*math.cos(.28)-z*math.sin(.28)
-            p.z=.91+y*math.sin(.28)+z*math.cos(.28)
+        if name.startswith(('yari.','katana.')):
+            v.co=weapon_point(p);continue
         p.x*=.82;p.y*=.90
         if is_leg:
             p.x+=side*.055;p.y+=side*.075
@@ -333,7 +331,7 @@ for name,obj in parts.items():
         for li in poly.loop_indices:
             p=obj.data.vertices[obj.data.loops[li].vertex_index].co
             noise=math.sin(p.x*53+p.y*37+p.z*91)*math.sin(p.z*41-p.y*79)
-            value=.94+.035*noise
+            value=.94+.018*noise
             if p.z<.55:value*=.74
             wear.data[li].color=(value,value,value,1)
 # Linked source assemblies retain editable part names, proportions and materials.
@@ -369,9 +367,10 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
             wear=o.data.color_attributes['Wear'].data[i].color[0]
             color_data.color=(*(c*wear for c in color[:3]),1)
         o.data.color_attributes.remove(o.data.color_attributes['Wear'])
-        if kind=='yukimura':
-            bone=bone_for_part(source.name.split('.00')[0])
-            group=o.vertex_groups.new(name=bone);group.add(list(range(len(o.data.vertices))),1,'REPLACE')
+        # Blender renumbers trailing numeric suffixes on copies (glove.1 ->
+        # glove.001). Use the authored identifier, never a guessed object name.
+        bone=bone_for_part(source['part_name'])
+        group=o.vertex_groups.new(name=bone);group.add(list(range(len(o.data.vertices))),1,'REPLACE')
         # Strip source materials after baking to guarantee one material/submesh.
         o.data.materials.clear();o.data.materials.append(materials['cloth'])
         o.select_set(True);copies.append(o)
@@ -404,7 +403,7 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     joined.data.color_attributes.render_color_index=0
     joined.data.calc_loop_triangles()
     path=OUT/(kind+'.glb')
-    rig=bind_hero(joined) if kind=='yukimura' else None
+    rig=bind_hero(joined,kind)
     bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',use_selection=True,export_yup=True,export_animations=bool(rig),export_animation_mode='NLA_TRACKS',export_force_sampling=True,export_vertex_color='ACTIVE',export_all_vertex_colors=False)
 
     shared_images.update(share_images(path))
@@ -438,7 +437,7 @@ if reference.exists():
     board.rotation_euler=(math.pi/2,0,0);board.location=(0,2.2,1.5)
     board.color[3]=.65;board.hide_render=True;board.hide_viewport=True
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE),compress=True)
-report={'generator':'Blender local CPU / modular-samurai-v6-forged-hero','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
+report={'generator':'Blender local CPU / modular-samurai-v7-animated-army','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
 (OUT/'manifest.json').write_text(json.dumps(report,indent=2)+'\n')
 # Only generated, content-addressed images can be retired. Keep hand-added files.
 for path in (OUT/'shared').glob('*.png'):

@@ -10,7 +10,7 @@ test('production desktop: GLB, narrative, movement, combat, pause and formations
  await expect(page.locator('#menuBackdrop')).toBeHidden();
  expect((await page.evaluate(()=>window.__sanada)).allies).toBe(10);
  expect((await page.evaluate(()=>window.__sanada)).models).toHaveLength(4);
- expect((await page.evaluate(()=>window.__sanada)).animationClips).toEqual(['idle','run','slash','reverse','thrust','spin']);
+ expect((await page.evaluate(()=>window.__sanada)).animationClips).toEqual(['idle','run','slash','reverse','thrust','spin','dash','hurt']);
  await page.keyboard.down('w');await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('run');await page.keyboard.up('w');
  await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('idle');
  await page.keyboard.down('w');await page.keyboard.down('j');await expect.poll(()=>page.evaluate(()=>window.__sanada.heroAnimation)).toBe('slash');await page.waitForTimeout(2300);await page.keyboard.up('w');await page.keyboard.up('j');

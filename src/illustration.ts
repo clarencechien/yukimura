@@ -19,13 +19,14 @@ export function illustrationPass(scene:Scene,camera:Camera){
   float b=lum(texture2D(textureSampler,vUV-vec2(texel.x,0.)).rgb);
   float d=lum(texture2D(textureSampler,vUV+vec2(0.,texel.y)).rgb);
   float e=lum(texture2D(textureSampler,vUV-vec2(0.,texel.y)).rgb);
-  float edge=smoothstep(.045,.20,length(vec2(a-b,d-e)));
-  vec3 ink=vec3(.055,.085,.105),paper=vec3(.86,.85,.77);
-  vec3 toned=mix(ink,c,smoothstep(.0,.25,l));
-  toned=mix(toned,paper,smoothstep(.60,1.,l)*.28);
-  toned=mix(vec3(l),toned,.89);
-  toned*=1.-edge*.42;
-  float fiber=(grain(floor(gl_FragCoord.xy))-.5)*.024;
+  float edge=smoothstep(.07,.28,length(vec2(a-b,d-e)));
+  vec3 ink=vec3(.035,.060,.083),paper=vec3(.94,.89,.77);
+  vec3 toned=mix(ink,c,smoothstep(.0,.22,l));
+  toned=mix(toned,paper,smoothstep(.68,1.,l)*.20);
+  // Preserve vermilion and the warm key/cool shadow separation. A light ink
+  // accent should not turn distant, animated armour into black cardboard.
+  toned*=1.-edge*.17;
+  float fiber=(grain(floor(gl_FragCoord.xy))-.5)*.010;
   float vignette=smoothstep(.20,.77,length(vUV-.5));
   gl_FragColor=vec4(toned*(1.-vignette*.17)+fiber,1.);
  }`;

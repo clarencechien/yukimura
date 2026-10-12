@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test tests/*.test.mjs",
-    "models": "blender --background --python-exit-code 1 --python tools/build_models.py",
+    "models": "blender --background --python-exit-code 1 --python tools/build_models.py && node tools/bake-crowd.mjs",
     "test:e2e": "npm run build && playwright test",
     "models:preview": "blender --background assets/source/samurai-kit.blend --threads 2 --python-exit-code 1 --python tools/render_models.py",
     "build:pages": "npm run build -- --base=/yukimura/",
