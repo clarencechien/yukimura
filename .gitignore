@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env*
+!.env.example
+.modal.toml
+__pycache__/
+test-results/
+playwright-report/

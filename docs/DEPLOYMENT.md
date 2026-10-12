@@ -1,0 +1,27 @@
+# GitHub Pages 部署
+
+目標：`https://clarencechien.github.io/yukimura/`。
+
+## 自動部署
+
+`.github/workflows/pages.yml` 在 `main` push 或手動 workflow_dispatch 時：
+
+1. Node 22、`npm ci`。
+2. 資產／規則測試。
+3. 安裝 Chromium，執行 `npm run test:pages`：以 `/yukimura/` 建置並透過瀏覽器實際載入背景、四個 GLB、三張共用貼圖和開始戰鬥。
+4. 上傳 `dist`，透過 GitHub 官方 Pages Actions 部署。
+
+**第一次需在 repo Settings → Pages → Build and deployment → Source 選 GitHub Actions。** 有可用的 repository 管理 API 時可自動設定；若 API 被雲端網路阻擋，repository 管理者需在 GitHub 完成這個一次性設定，然後重新執行 workflow。若 repository 為 private，還須符合帳戶方案對 Pages 的支援；部署不會自動修改 repository 可見性。
+
+部署是否成功以 Actions 的 `deploy` job 和公開網址實際回應為準，不以 Git push 成功代替。啟用後，每次推送 `main` 自動更新。
+
+## 本機重現
+
+```sh
+npm test
+npm run test:pages
+```
+
+普通開發使用 `npm run dev`；`npm run build` 仍採網站根路徑。Pages 使用 `npm run build:pages` 指定 Vite base；Babylon GLB 路徑使用 `import.meta.env.BASE_URL`，HTML 背景使用 `%BASE_URL%`。
+
+部署輸出只包含遊戲需要的 `dist`，不會上傳 Blender 源檔、美術設定文件或環境憑證。GLB 依賴 `models/shared/` 中的貼圖，不能漏掉這個目錄。

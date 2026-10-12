@@ -1,0 +1,45 @@
+{
+  "generator": "Blender local CPU / modular-samurai-v5-painted-rig",
+  "unique_source_parts": 393,
+  "variants": {
+    "yukimura": {
+      "triangles": 9886,
+      "bytes": 895160,
+      "source_parts": 369,
+      "materials": 1,
+      "textures": 3,
+      "rigged": true
+    },
+    "ashigaru": {
+      "triangles": 3010,
+      "bytes": 213432,
+      "source_parts": 82,
+      "materials": 1,
+      "textures": 3,
+      "rigged": false
+    },
+    "tokugawa": {
+      "triangles": 2866,
+      "bytes": 192648,
+      "source_parts": 79,
+      "materials": 1,
+      "textures": 3,
+      "rigged": false
+    },
+    "ieyasu": {
+      "triangles": 8520,
+      "bytes": 505620,
+      "source_parts": 334,
+      "materials": 1,
+      "textures": 3,
+      "rigged": false
+    }
+  },
+  "shared_textures": {
+    "shared/4f98cea3e12649e8.png": 82622,
+    "shared/1bb5bd8d20d07d60.png": 1574988,
+    "shared/d497a97c00516fc8.png": 11887
+  },
+  "shared_texture_bytes": 1669497,
+  "paid_api_calls": 0
+}
