@@ -2,34 +2,31 @@ import {Scene} from '@babylonjs/core/scene';
 import {Mesh} from '@babylonjs/core/Meshes/mesh';
 import {MeshBuilder} from '@babylonjs/core/Meshes/meshBuilder';
 import {StandardMaterial} from '@babylonjs/core/Materials/standardMaterial';
+import {Material} from '@babylonjs/core/Materials/material';
+import {weatheredMaterial} from './environment-materials';
 import {DynamicTexture} from '@babylonjs/core/Materials/Textures/dynamicTexture';
 import {Vector3} from '@babylonjs/core/Maths/math.vector';
 import {Color3} from '@babylonjs/core/Maths/math.color';
 import {VertexBuffer} from '@babylonjs/core/Buffers/buffer';
 import {VertexData} from '@babylonjs/core/Meshes/mesh.vertexData';
-type Palette=Record<'snow'|'dirt'|'wood'|'dark'|'stone'|'crimson'|'gold',StandardMaterial>;
+type Palette=Record<'snow'|'dirt'|'wood'|'dark'|'stone'|'crimson'|'gold',Material>;
 export function battlefield(scene:Scene,m:Palette){
  let seed=1614;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
- const box=(n:string,p:Vector3,s:Vector3,mat:StandardMaterial)=>{const o=MeshBuilder.CreateBox(n,{size:1},scene);o.position=p;o.scaling=s;o.material=mat;return o;};
+ const box=(n:string,p:Vector3,s:Vector3,mat:Material)=>{const o=MeshBuilder.CreateBox(n,{size:1},scene);o.position=p;o.scaling=s;o.material=mat;return o;};
  function timber(a:Vector3,b:Vector3,r=.08){const d=b.subtract(a);const o=MeshBuilder.CreateCylinder('splintered timber',{height:d.length(),diameterBottom:r*2,diameterTop:r*1.4,tessellation:5},scene);o.position=a.add(b).scale(.5);const axis=Vector3.Cross(Vector3.Up(),d.normalize());const angle=Math.acos(Vector3.Dot(Vector3.Up(),d));if(axis.length()>.001)o.rotate(axis.normalize(),angle);o.material=m.wood;return o;}
- // One shared painted ground map: broad snow washes, muddy scumbles and wheel scars.
- const tex=new DynamicTexture('painted battlefield',{width:1024,height:1024},scene,false);
- const ctx=tex.getContext() as CanvasRenderingContext2D;ctx.fillStyle='#7b8586';ctx.fillRect(0,0,1024,1024);
- for(let i=0;i<18000;i++){
-  const x=random()*1024,y=random()*1024,center=512+Math.sin(y*.018)*24;
-  const route=Math.exp(-(((x-center)/140)**2));
-  ctx.globalAlpha=.045+random()*.20;ctx.fillStyle=random()<route*.83?'#403b37':random()<.48?'#b6bab0':'#56676d';
-  ctx.fillRect(x,y,2+random()*11,1+random()*3);
- }
- for(let i=0;i<25;i++){
-  const x=420+random()*184;ctx.globalAlpha=.05;ctx.strokeStyle='#1e292d';ctx.lineWidth=.8+random()*2;ctx.beginPath();ctx.moveTo(x,0);ctx.bezierCurveTo(x-14,330,x+12,700,x+5,1024);ctx.stroke();
- }
- ctx.globalAlpha=1;tex.update();tex.uScale=1;tex.vScale=2;
- const soil=new StandardMaterial('ink washed snow and earth',scene);soil.diffuseColor=new Color3(.77,.79,.77);soil.diffuseTexture=tex;soil.specularColor=Color3.Black();
+ // Offline painted albedo + height normals + spatial roughness for wet tracks.
+ const soil=weatheredMaterial(scene,'terrain','churned snow and mud');
  const ground=MeshBuilder.CreateGround('churned battlefield',{width:100,height:210,subdivisions:96,updatable:true},scene);ground.position.z=80;ground.material=soil;
  const pos=ground.getVerticesData(VertexBuffer.PositionKind)!;
  for(let i=0;i<pos.length;i+=3){const x=pos[i],z=pos[i+2]+80;const outside=Math.max(0,Math.abs(x)-19)/12;pos[i+1]=-.035+Math.min(2,outside)*(.6+Math.sin(z*.21+x*.14)*.4)+Math.sin(x*1.13+z*.84)*.023;}
  ground.updateVerticesData(VertexBuffer.PositionKind,pos);const normals:number[]=[];VertexData.ComputeNormals(pos,ground.getIndices()!,normals);ground.updateVerticesData(VertexBuffer.NormalKind,normals);
+ // Wind pushes rough snow lips against the defensive line; dirty ground remains visible between them.
+ for(const side of [-1,1])for(let i=0;i<14;i++){
+  const cx=side*(13+random()*5),cz=i*12-7,positions=[cx,.16+random()*.16,cz],indices:number[]=[],uvs=[.5,.5];
+  for(let j=0;j<=16;j++){const a=j*Math.PI*2/16,r=1.3+random()*.85;positions.push(cx+Math.cos(a)*r,.008,cz+Math.sin(a)*r*.52);uvs.push(.5+Math.cos(a)*.5,.5+Math.sin(a)*.5);if(j<16)indices.push(0,j+2,j+1);}
+  const data=new VertexData();data.positions=positions;data.indices=indices;data.uvs=uvs;data.normals=[];VertexData.ComputeNormals(positions,indices,data.normals);
+  const drift=new Mesh('ragged snow bank',scene);data.applyToMesh(drift);drift.material=m.snow;
+ }
  // Broken forward defenses: close silhouettes, irregular spacing, traversable central path.
  for(const side of [-1,1]){
   for(let section=0;section<13;section++){

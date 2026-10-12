@@ -1,0 +1,114 @@
+{
+  "generator": "Blender NumPy / weathered winter v1",
+  "files": {
+    "terrain-color.png": {
+      "bytes": 5156480,
+      "width": 2048,
+      "height": 2048,
+      "sha256": "db5c967c17aa1354deddff967fc53f65fe03e9fd4c3ef23e6c8e72da8c3cca18"
+    },
+    "terrain-normal.png": {
+      "bytes": 865846,
+      "width": 1024,
+      "height": 1024,
+      "sha256": "bdaa944057032f11dab86d78893130a1cf05f1c2dbb463bb6c1fea302fe7ad56"
+    },
+    "terrain-surface.png": {
+      "bytes": 269709,
+      "width": 1024,
+      "height": 1024,
+      "sha256": "840abf1c843f39ac724d8d216d67cc5f981cf827ab8498322d073e787a9e6a60"
+    },
+    "wood-color.png": {
+      "bytes": 139187,
+      "width": 512,
+      "height": 512,
+      "sha256": "028bb39d5c243bd26a028b309be954511dd349f15c6469372906f60e94c60eec"
+    },
+    "wood-normal.png": {
+      "bytes": 142984,
+      "width": 512,
+      "height": 512,
+      "sha256": "5c80637c21c5910b623d0e7cffb669d37d3925a890b1c80420288ae02136ec5d"
+    },
+    "wood-surface.png": {
+      "bytes": 4970,
+      "width": 512,
+      "height": 512,
+      "sha256": "38196b68622b59e446201599378cdd80010eef21cee088b4c8bf67c693a140bb"
+    },
+    "stone-color.png": {
+      "bytes": 164623,
+      "width": 512,
+      "height": 512,
+      "sha256": "4b6a7eeac6c3e29d7a8f488ff207275e407e20cee6f6e2ef59bf00741c7675bf"
+    },
+    "stone-normal.png": {
+      "bytes": 135798,
+      "width": 512,
+      "height": 512,
+      "sha256": "0a12511aabe44950fd36f2104b470b582b0080622dbd65e9773ff903467c2585"
+    },
+    "stone-surface.png": {
+      "bytes": 4515,
+      "width": 512,
+      "height": 512,
+      "sha256": "e46c1faf875751c94b53c01a13ac1d01f91603ebd9dfde383049c481afe8dc7c"
+    },
+    "plaster-color.png": {
+      "bytes": 188520,
+      "width": 512,
+      "height": 512,
+      "sha256": "50dfc73b865c212c426d69d8af0a4e90b73d05cf99e5d56c414902c686298d1a"
+    },
+    "plaster-normal.png": {
+      "bytes": 157394,
+      "width": 512,
+      "height": 512,
+      "sha256": "59308628641a9a1a2feaec5721ba31cf0fda40e70dfdae8ce66bb99b72b8b13d"
+    },
+    "plaster-surface.png": {
+      "bytes": 4515,
+      "width": 512,
+      "height": 512,
+      "sha256": "d2503c48e5da53c6af97bef29830ac8d05f8c8ee7d4049a6aa8288ac1a7fa6f8"
+    },
+    "roof-color.png": {
+      "bytes": 105331,
+      "width": 512,
+      "height": 512,
+      "sha256": "b8b43a88597e9bf3ac54335b99dacfc02c3a9b7954fbffdcfa1da1e181393c2d"
+    },
+    "roof-normal.png": {
+      "bytes": 10261,
+      "width": 512,
+      "height": 512,
+      "sha256": "2a91d4f956b94d31d50e87ac859c5df0e6e1315c743f58219de8a77e34a9e1fa"
+    },
+    "roof-surface.png": {
+      "bytes": 56298,
+      "width": 512,
+      "height": 512,
+      "sha256": "47f057419b26c7bc0fca43fda8aa637cb75c4bf01aa041eaee2fcfeff84d2090"
+    },
+    "snow-color.png": {
+      "bytes": 302718,
+      "width": 512,
+      "height": 512,
+      "sha256": "3affa5e9703fc4c78886585a37e1fa1ebdf4c73069fece35846daddfb84fa0a0"
+    },
+    "snow-normal.png": {
+      "bytes": 497946,
+      "width": 512,
+      "height": 512,
+      "sha256": "6296b374f3f246616bf01ce6db5d8a21473e5149fa943d52c9abdd11aeafd401"
+    },
+    "snow-surface.png": {
+      "bytes": 4515,
+      "width": 512,
+      "height": 512,
+      "sha256": "c6fdd8a5623fff8255015151407985fe3a43ce49deea2274d9cc12d3fcd85f8f"
+    }
+  },
+  "bytes": 8211610
+}

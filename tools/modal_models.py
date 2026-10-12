@@ -10,11 +10,11 @@ import modal
 app=modal.App('yukimura-model-builder')
 image=(modal.Image.debian_slim(python_version='3.11').apt_install('blender')
        .add_local_dir(Path(__file__).resolve().parent,'/opt/yukimura/tools',ignore=['__pycache__']))
-@app.function(image=image,timeout=600,cpu=2,memory=4096)
+@app.function(image=image,timeout=1800,cpu=2,memory=8192)
 def build():
  import subprocess,os
  from pathlib import Path
- subprocess.run(['blender','--background','--python-exit-code','1','--python','/opt/yukimura/tools/build_models.py'],env={**os.environ,'MODEL_OUTPUT':'/tmp/models','MODEL_SOURCE':'/tmp/samurai-kit.blend'},check=True)
+ subprocess.run(['blender','--background','--threads','2','--python-exit-code','1','--python','/opt/yukimura/tools/build_models.py'],env={**os.environ,'MODEL_OUTPUT':'/tmp/models','MODEL_SOURCE':'/tmp/samurai-kit.blend'},check=True)
  return {str(p.relative_to('/tmp/models')):p.read_bytes() for p in Path('/tmp/models').rglob('*') if p.is_file() and p.suffix in ('.glb','.png','.json')}
 @app.local_entrypoint()
 def main():

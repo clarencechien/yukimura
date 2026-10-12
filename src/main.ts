@@ -7,10 +7,11 @@ import { BattleAudio } from './battle-audio';
 import { illustrationPass } from './illustration';
 import { battlefield } from './battlefield';
 import { winterReflections } from './lighting';
+import {weatheredMaterials} from './environment-materials';
+import {Material} from '@babylonjs/core/Materials/material';
 import { ShadowGenerator } from '@babylonjs/core/Lights/Shadows/shadowGenerator';
 import '@babylonjs/core/Lights/Shadows/shadowGeneratorSceneComponent';
 import { PointLight } from '@babylonjs/core/Lights/pointLight';
-import { DynamicTexture } from '@babylonjs/core/Materials/Textures/dynamicTexture';
 import { Engine } from '@babylonjs/core/Engines/engine';
 import { Scene } from '@babylonjs/core/scene';
 import { Vector3 } from '@babylonjs/core/Maths/math.vector';
@@ -38,6 +39,7 @@ const camera=new FreeCamera('battle-camera',new Vector3(16,27,-22),scene);camera
 illustrationPass(scene,camera);
 const skyLight=new HemisphericLight('winter-sky',new Vector3(.3,1,-.2),scene);skyLight.intensity=.46;skyLight.diffuse=new Color3(.64,.77,.94);skyLight.groundColor=new Color3(.17,.22,.29);
 const sun=new DirectionalLight('winter-sun',new Vector3(-.7,-1,.4),scene);sun.intensity=1.75;sun.diffuse=new Color3(1,.83,.62);
+scene.requireLightSorting=true;sun.renderPriority=100;skyLight.renderPriority=90;
 winterReflections(scene);
 sun.shadowMinZ=1;sun.shadowMaxZ=95;sun.orthoLeft=-25;sun.orthoRight=25;sun.orthoTop=30;sun.orthoBottom=-30;sun.autoUpdateExtends=false;
 const shadows=new ShadowGenerator(matchMedia('(pointer:coarse)').matches?512:1024,sun);shadows.usePoissonSampling=true;shadows.bias=.001;shadows.normalBias=.025;shadows.darkness=.23;
@@ -49,17 +51,10 @@ let hitStop=0,musouTime=-1,musouPulse=0,hitReadoutTime=0,hurtFlash=0,impactZoom=
 let totalHits=0,lastStrike=-1,lastStrikeHits=0;
 const attackHistory:number[]=[];
 function material(name:string,hex:string,glow=false){const m=new StandardMaterial(name,scene);m.diffuseColor=Color3.FromHexString(hex);m.specularColor=Color3.Black();if(glow)m.emissiveColor=m.diffuseColor.scale(.65);return m;}
-const snow=material('warm snow','#a8b6c0'), dirt=material('mud','#75695f'), wood=material('palisade','#443b37'), dark=material('roof','#243540'), stone=material('stone','#6c7e83'), paper=material('plaster','#d0c8ac'), crimson=material('crimson','#79242c'), gold=material('gold','#918166'), slashMat=material('slash','#ffd29b',true), redFx=material('musou','#fa4c4b',true);
-function box(name:string,x:number,y:number,z:number,w:number,h:number,d:number,m:StandardMaterial){const o=MeshBuilder.CreateBox(name,{width:w,height:h,depth:d},scene);o.position.set(x,y,z);o.material=m;return o;}
-function cylinder(name:string,x:number,y:number,z:number,r:number,h:number,m:StandardMaterial,top=r){const o=MeshBuilder.CreateCylinder(name,{diameter:r*2,diameterTop:top*2,height:h,tessellation:6},scene);o.position.set(x,y,z);o.material=m;return o;}
-// Shared, generated surface grain: brushlike snow specks and dark timber fibers.
-function surfaceGrain(name:string,base:string,mark:string,woodGrain=false){
- const tex=new DynamicTexture(name,{width:128,height:128},scene,false);const ctx=tex.getContext();ctx.fillStyle=base;ctx.fillRect(0,0,128,128);
- let seed=7;const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};
- for(let i=0;i<1000;i++){ctx.globalAlpha=.06+rand()*.14;ctx.fillStyle=mark;ctx.fillRect(rand()*128,rand()*128,woodGrain?1:1+rand()*5,woodGrain?4+rand()*28:1+rand()*2);}ctx.globalAlpha=1;tex.update();return tex;
-}
-const snowGrain=surfaceGrain('snow grain','#d6dce0','#5b6b78');snowGrain.uScale=26;snowGrain.vScale=40;snow.diffuseTexture=snowGrain;
-wood.diffuseTexture=surfaceGrain('wood fibers','#8f8074','#151d25',true);const mudGrain=surfaceGrain('mud grain','#b2aba2','#303842');mudGrain.uScale=3;mudGrain.vScale=23;dirt.diffuseTexture=mudGrain;
+const {snow,wood,dark:roofMaterial,stone,paper}=weatheredMaterials(scene);
+const dark=material('charcoal iron and banners','#243540'), dirt=material('mud','#75695f'), crimson=material('crimson','#79242c'), gold=material('gold','#918166'), slashMat=material('slash','#ffd29b',true), redFx=material('musou','#fa4c4b',true);
+function box(name:string,x:number,y:number,z:number,w:number,h:number,d:number,m:Material){const o=MeshBuilder.CreateBox(name,{width:w,height:h,depth:d},scene);o.position.set(x,y,z);o.material=m;return o;}
+function cylinder(name:string,x:number,y:number,z:number,r:number,h:number,m:Material,top=r){const o=MeshBuilder.CreateCylinder(name,{diameter:r*2,diameterTop:top*2,height:h,tessellation:6},scene);o.position.set(x,y,z);o.material=m;return o;}
 const animateBattlefield=battlefield(scene,{snow,dirt,wood,dark,stone,crimson,gold});
 // Fortified departure point, layered castle and distant mountains.
 for(const x of [-1,1]){
@@ -72,10 +67,13 @@ for(const x of [-1,1]){
  }
 
 }
+box('castle stone plinth',-26,1.1,64,21,3.2,17,stone);
 for(let t=0;t<5;t++){
  const size=18-t*2.8,y=3+t*3.4;
  box('Osaka castle',-26,y,64,size,3,size*.8,paper);
- const roof=MeshBuilder.CreateCylinder('hip roof',{diameterTop:(size-4)*1.4,diameterBottom:(size+3)*1.4,height:1.7,tessellation:4},scene);roof.rotation.y=Math.PI/4;roof.position.set(-26,y+2,64);roof.material=dark;
+ for(const side of [-1,1]){box('weathered castle corner',-26+side*(size*.5-.1),y,64-size*.4-.06,.16,3,.14,wood);}
+ box('castle lower timber',-26,y-1.4,64-size*.4-.06,size,.18,.15,wood);
+ const roof=MeshBuilder.CreateCylinder('hip roof',{diameterTop:(size-4)*1.4,diameterBottom:(size+3)*1.4,height:1.7,tessellation:4},scene);roof.rotation.y=Math.PI/4;roof.position.set(-26,y+2,64);roof.material=roofMaterial;
  for(let q=-2;q<=2;q++)box('castle window',-26+q*size/6,y+.4,64-size*.4-.02,.5,.9,.03,dark);
 }
 for(let i=0;i<16;i++){const m=cylinder('mist mountain',-90+i*12,8+(i%4)*3,225+(i%2)*25,22,32+(i%4)*8,stone,0);m.rotation.y=i;}
@@ -89,22 +87,22 @@ box('command tent rear',0,3,155,17,6,.4,paper);
 for(const x of [-8,8])box('command tent side',x,2.5,150,.4,5,10,paper);
 box('black gold banner',0,3.5,154.7,4,4,.1,dark);
 const crest=MeshBuilder.CreateDisc('Tokugawa crest',{radius:1.1,tessellation:24},scene);crest.position.set(0,3.6,154.6);crest.material=gold;
-const flames:Mesh[]=[];
+const flames:Mesh[]=[];const fireLights:PointLight[]=[];
 const ember=material('embers','#ff692c',true);const fireCore=material('fire core','#ffe1a3',true);
 for(const z of [6,43,88,138])for(const x of [-8.6,8.6]){
  cylinder('brazier post',x,.8,z,.16,1.6,wood);cylinder('iron brazier',x,1.62,z,.38,.28,dark,.48);
  const flame=MeshBuilder.CreateSphere('fire',{diameter:1,segments:5},scene);flame.position.set(x,2.02,z);flame.scaling.set(.48,.83,.42);flame.material=ember;flames.push(flame);
  const core=MeshBuilder.CreateSphere('flame heart',{diameter:.3,segments:4},scene);core.position.set(x,1.89,z-.1);core.scaling.y=1.8;core.material=fireCore;
  // Four local lights rather than a point light per soldier.
- if(x<0){const glow=new PointLight('brazier glow',new Vector3(x,2.5,z),scene);glow.diffuse=new Color3(1,.3,.07);glow.intensity=2;glow.range=7;}
+ if(x<0){const glow=new PointLight('brazier glow',new Vector3(x,2.5,z),scene);glow.diffuse=new Color3(1,.3,.07);glow.intensity=3;glow.range=7;fireLights.push(glow);}
 }
 const snowflakes:AbstractMesh[]=[];
-const snowSource=MeshBuilder.CreateSphere('snow template',{diameter:.07,segments:3},scene);snowSource.material=paper;snowSource.isVisible=false;
+const snowSource=MeshBuilder.CreateSphere('snow template',{diameter:.07,segments:3},scene);snowSource.material=snow;snowSource.isVisible=false;
 for(let i=0;i<100;i++){const s=snowSource.createInstance('snow');s.position.set(Math.random()*65-32,Math.random()*25,Math.random()*70-20);snowflakes.push(s);}
 // Merge static scenery by material to reduce draw calls on mobile.
-const groups=new Map<StandardMaterial,Mesh[]>();
-for(const mesh of [...scene.meshes]){if(mesh instanceof Mesh&&mesh!==snowSource&&!snowflakes.includes(mesh)&&!flames.includes(mesh)&&!mesh.metadata?.keepDynamic&&mesh.material instanceof StandardMaterial){const list=groups.get(mesh.material)||[];list.push(mesh);groups.set(mesh.material,list);}}
-for(const group of groups.values()){const merged=Mesh.MergeMeshes(group,true,true);if(merged){merged.freezeWorldMatrix();merged.isPickable=false;merged.receiveShadows=true;}}
+const groups=new Map<Material,Mesh[]>();const staticCasters:AbstractMesh[]=[];
+for(const mesh of [...scene.meshes]){if(mesh instanceof Mesh&&mesh!==snowSource&&!snowflakes.includes(mesh)&&!flames.includes(mesh)&&!mesh.metadata?.keepDynamic&&mesh.material instanceof Material){const list=groups.get(mesh.material)||[];list.push(mesh);groups.set(mesh.material,list);}}
+for(const [mat,group] of groups){const merged=Mesh.MergeMeshes(group,true,true);if(merged){merged.freezeWorldMatrix();merged.isPickable=false;merged.receiveShadows=true;if([wood,stone,paper,dark,roofMaterial,snow,crimson,gold].includes(mat as typeof wood))staticCasters.push(merged);}}
 // Ground silhouettes reinforce readable actor placement without costly dynamic shadows.
 const shadowMat=material('contact shadow','#35444b');shadowMat.alpha=.28;
 function shadow(parent:TransformNode,r=.5){const m=MeshBuilder.CreateDisc('contact',{radius:r,tessellation:12},scene);m.rotation.x=Math.PI/2;m.position.y=.035;m.material=shadowMat;m.parent=parent;return m;}
@@ -253,14 +251,14 @@ function visual(dt:number){
  impactZoom=Math.max(0,impactZoom-dt*.2);
  shadowClock-=dt;
  if(hero){sun.position.copyFrom(hero.position.add(new Vector3(22,32,-20)));sun.direction.copyFrom(new Vector3(-22,-32,20).normalize());
- if(shadowClock<=0){shadowClock=.3;const casters=[hero,...allies,...foes.filter(f=>!f.dead&&inRange(hero.position,f.root.position,15)).slice(0,20).map(f=>f.root)];shadows.getShadowMap()!.renderList=casters.flatMap(root=>root.getChildMeshes()).filter(m=>!m.name.includes('contact')&&!m.name.includes('warning'));}}
+ if(shadowClock<=0){shadowClock=.3;for(const light of fireLights)light.renderPriority=10-Math.floor(Math.abs(light.position.z-hero.position.z)/10);const casters=[hero,...allies,...foes.filter(f=>!f.dead&&inRange(hero.position,f.root.position,15)).slice(0,20).map(f=>f.root)];shadows.getShadowMap()!.renderList=[...staticCasters,...casters.flatMap(root=>root.getChildMeshes()).filter(m=>!m.name.includes('contact')&&!m.name.includes('warning'))];}}
  const now=performance.now()*.001;animateBattlefield(now);for(let i=0;i<flames.length;i++)flames[i].scaling.y=.78+Math.sin(now*8+i)*.11;
 
  const target=state==='menu'?new Vector3(0,0,8):hero?.position||Vector3.Zero();const zoom=musouTime>=0&&!reducedMotion?(musouTime<.3?.82:.93):1;const desired=target.add(new Vector3(8*zoom,11*zoom,-16*zoom));camera.fov+=(.76-(reducedMotion?0:impactZoom)-camera.fov)*Math.min(1,dt*9);camera.position=Vector3.Lerp(camera.position,desired,Math.min(1,dt*4));camera.setTarget(target.add(new Vector3(state==='menu'?-7:0,0,6)));if(shake>0&&!reducedMotion){camera.position.x+=(Math.random()-.5)*shake;camera.position.z+=(Math.random()-.5)*shake;}
  for(const s of snowflakes){s.position.y-=dt*(1+s.uniqueId%3*.2);s.position.x+=dt*.3;if(s.position.y<0){s.position.y=24;s.position.z=target.z+Math.random()*70-25;s.position.x=target.x+Math.random()*60-30;}}
  if(announceTime>0){announceTime-=dt;$('announcement').style.opacity=String(Math.min(1,announceTime));}else $('announcement').style.opacity='0';
 }
-async function init(){try{const response=await fetch(`${import.meta.env.BASE_URL}models/crowd-animation.json?rev=army-7`);if(!response.ok)throw Error('Crowd manifest unavailable');const crowdManifest: CrowdManifest=await response.json();const palettes=await loadPalettes(scene,crowdManifest,`${import.meta.env.BASE_URL}models/`);for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=army-7',scene);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
+async function init(){try{const response=await fetch(`${import.meta.env.BASE_URL}models/crowd-animation.json?rev=high-8`);if(!response.ok)throw Error('Crowd manifest unavailable');const crowdManifest: CrowdManifest=await response.json();const palettes=await loadPalettes(scene,crowdManifest,`${import.meta.env.BASE_URL}models/`);for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=high-8',scene);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
  if(name==='yukimura'){
   // Use the loaded skinned mesh directly so clips target the visible rig.
   hero=new TransformNode('yukimura',scene);templates[name].parent=hero;
@@ -283,6 +281,6 @@ function tick(realDt:number){
 }
 engine.runRenderLoop(()=>{if(!manualTestClock)tick(Math.min(engine.getDeltaTime()/1000,.05));scene.render();});window.addEventListener('resize',()=>engine.resize());init();
 // Read-only diagnostics are useful for automated smoke tests and performance inspection.
-Object.defineProperty(window,'__sanada',{get:()=>({state,hp,rage,kills,cycle:cfg.cycle,position:hero?{x:hero.position.x,z:hero.position.z}:null,enemies:foes.filter(f=>!f.dead).length,allies:allies.length,models:Object.keys(templates),fps:engine.getFps(),formation,heroAnimation:heroMotion?.state,animationClips:heroMotion?.names,crowd:{actors:crowdMotions.size,instances:[...crowdMotions.values()].filter(m=>m.mesh.getClassName()==='InstancedMesh').length,allies:allies.map(a=>({state:crowdMotions.get(a)?.state,frame:crowdMotions.get(a)?.frame})),enemies:foes.map(f=>({state:crowdMotions.get(f.root)?.state,frame:crowdMotions.get(f.root)?.frame})),palettes:Object.keys(crowdModels).length},attackIndex:chain.active?.index??-1,attackHistory:[...attackHistory],totalHits,lastStrikeHits,hitStop,musouActive:musouTime>=0,musouPulse,airborne:foes.filter(f=>!f.dead&&f.root.position.y>.2).length,corpses:foes.filter(f=>f.dead).length,effects:combatFX.count,muted:audio.muted})});
+Object.defineProperty(window,'__sanada',{get:()=>({state,hp,rage,kills,cycle:cfg.cycle,position:hero?{x:hero.position.x,z:hero.position.z}:null,enemies:foes.filter(f=>!f.dead).length,allies:allies.length,models:Object.keys(templates),fps:engine.getFps(),formation,heroAnimation:heroMotion?.state,animationClips:heroMotion?.names,environment:{terrain:scene.getMaterialByName('churned snow and mud')?.getClassName(),staticCasters:staticCasters.length},crowd:{actors:crowdMotions.size,instances:[...crowdMotions.values()].filter(m=>m.mesh.getClassName()==='InstancedMesh').length,allies:allies.map(a=>({state:crowdMotions.get(a)?.state,frame:crowdMotions.get(a)?.frame})),enemies:foes.map(f=>({state:crowdMotions.get(f.root)?.state,frame:crowdMotions.get(f.root)?.frame})),palettes:Object.keys(crowdModels).length},attackIndex:chain.active?.index??-1,attackHistory:[...attackHistory],totalHits,lastStrikeHits,hitStop,musouActive:musouTime>=0,musouPulse,airborne:foes.filter(f=>!f.dead&&f.root.position.y>.2).length,corpses:foes.filter(f=>f.dead).length,effects:combatFX.count,muted:audio.muted})});
 
 if(import.meta.env.DEV && new URLSearchParams(location.search).has('test')){Object.defineProperty(window,'__sanadaTest',{value:{step:(seconds:number)=>{for(let t=0;t<seconds;t+=1/60){tick(1/60);}},setupCombat:(health=30)=>{manualTestClock=true;clearBattle();heroMotion.reset();dashCD=0;dashTime=0;invuln=0;hp=cfg.health;rage=100;hero.position.set(0,0,0);direction.set(0,0,1);spawnClock=60;allyCD=60;for(let i=0;i<12;i++){const a=(i-5.5)*.22;spawn(Math.sin(a)*3,Math.cos(a)*3);}for(const f of foes){f.hp=health;f.maxHp=health;f.cooldown=30;}},setupArmy:()=>{manualTestClock=true;clearBattle();heroMotion.reset();hero.position.set(0,0,0);spawnClock=60;invuln=999;for(let i=0;i<10;i++)allies.push(actor('ashigaru','red-guard',(i%5-2)*1.5,-5-Math.floor(i/5)*2));for(let i=0;i<100;i++){const a=i*Math.PI*2/25,r=8+Math.floor(i/25)*2;spawn(Math.sin(a)*r,Math.cos(a)*r);}updateHUD();},snapshot:()=>({bossSpawned,bossHP:foes.find(f=>f.boss)?.hp,enemyCount:foes.length,enemyHP:foes.map(f=>f.hp),heights:foes.map(f=>f.root.position.y),musouTime,attackTime:chain.active?.time??null})}});}

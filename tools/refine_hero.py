@@ -1,7 +1,7 @@
 """Hero-only armour kit. Authored in the same rest space as the shared soldiers.
 
 Closed curved plates, continuous antlers and shaped cloth replace coarse kit parts.
-All details share the palette atlas and existing 14-bone rig; no paid service.
+Low-poly parts feed the dedicated high-poly bake and 18-bone rig; no paid service.
 """
 import math
 import bpy
@@ -80,7 +80,9 @@ def refine_hero(parts, mesh, rod, sphere, cube):
             j = (i+1)%n
             faces += [(i,j,n+j,n+i), (2*n+i,3*n+i,3*n+j,2*n+j),
                       (i,2*n+i,2*n+j,j), (n+i,n+j,3*n+j,3*n+i)]
-        return keep(mesh(name, verts, faces, 'gold'))
+        # Extrusion is toward -Y. The original winding pointed into the solid,
+        # which double-sided rendering hid but selected-to-active baking exposed.
+        return keep(mesh(name, verts, [tuple(reversed(face)) for face in faces], 'gold'))
 
     # A fitted do: broad upper chest and distinct waist. Four forged horizontal
     # sections instead of ten equally spaced rings around a cylindrical body.

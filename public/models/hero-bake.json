@@ -1,0 +1,18 @@
+{
+  "method": "Cycles selected-to-active / exploded matching parts",
+  "high_triangles": 1321960,
+  "high_parts": 542,
+  "low_triangles": 44130,
+  "resolution": 2048,
+  "samples": 16,
+  "cpu_threads": 2,
+  "max_sculpt_relief_m": 0.003192634776778843,
+  "bake_seconds": 286.2,
+  "passes": [
+    "diffuse_color",
+    "tangent_normal",
+    "roughness_metallic",
+    "ambient_occlusion"
+  ],
+  "paid_api_calls": 0
+}

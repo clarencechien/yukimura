@@ -21,7 +21,7 @@ npm run dev
 
 遊戲已上線：[真田・赤冬](https://clarencechien.github.io/yukimura/)。`main` 的 push 會觸發部署 workflow；此 repository 已設定 Pages Source 為 GitHub Actions。
 
-部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。v7 已加入全軍骨架動畫、幸村雙手握槍與甲冑材質精修；實際近景及仍待完成的高模烘焙／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
+部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。v8 已加入幸村高模母版、獨立 UV 與 Cycles 高模烘焙；保留全軍骨架動畫與雙手握槍；實際近景及仍待完成的手工雕修／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
 
 實際引擎錄影：[幸村八組動作](docs/art/hero-motion.webm)・[隊友與敵軍實戰](docs/art/army-motion.webm)。
 
@@ -36,9 +36,9 @@ npm run dev
 
 ## 引擎與美術
 
-Babylon.js 處理 WebGL 場景、相機、GLB、材質與實例化。TypeScript + Vite 處理應用與建置，遊戲規則自訂。靜態物件依材質合併、士兵模型實例化，軟體繪圖環境自動降低內部解析度。
+Babylon.js 處理 WebGL 場景、相機、GLB、材質與實例化。TypeScript + Vite 處理應用與建置，遊戲規則自訂。場景使用髒雪／泥水／風化木石的 PBR 材質；靜態物件依材質合併並投影、士兵模型實例化，軟體繪圖環境自動降低內部解析度。
 
-`public/art/concept.png` 是原創 2D 方向板；主選單只顯示其左側戰場裁切，右側設定集不進入遊戲 UI。`public/models/*.glb` 是本機 Blender 匯出的四個遊戲資產，須一併部署 `public/models/shared/`。幸村使用較高細節的單一骨架模型，大量足輕保留約三千面的實例；可重用零件、編輯流程與實際下載預算見 [模型套件](docs/MODELS.md)。
+`public/art/concept.png` 是原創 2D 方向板；主選單只顯示其左側戰場裁切，右側設定集不進入遊戲 UI。`public/models/*.glb` 是本機 Blender 匯出的四個遊戲資產，須一併部署 `public/models/shared/`。幸村使用專用 2K 高模烘焙貼圖與單一骨架模型，大量足輕保留約三千面的實例；可重用零件、編輯流程與實際下載預算見 [模型套件](docs/MODELS.md)。
 
 ```sh
 npm run models # 需要 Blender；此環境使用 4.3.2
@@ -76,6 +76,8 @@ Playwright 預設使用 `/usr/bin/chromium`；其他機器可設定 `CHROMIUM_PA
 - [歷史與架空界線](docs/HISTORY.md)
 - [美術規格](docs/ART.md)
 - [共用模型與成本](docs/MODELS.md)
+- [幸村高模與烘焙流程](docs/HIGH_POLY.md)
+- [髒雪、建物與障礙物材質](docs/ENVIRONMENT.md)
 - [插畫風格與 2D→3D 流程](docs/ILLUSTRATION_DIRECTION.md)
 - [驗證紀錄與限制](docs/VALIDATION.md)
 

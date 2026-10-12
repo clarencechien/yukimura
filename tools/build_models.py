@@ -16,6 +16,7 @@ from painted_surfaces import make_atlas, map_uv, painted_material
 from samurai_rig import bind_hero, bone_for_part, weapon_point
 from gltf_assets import share_images
 from refine_hero import refine_hero, hero_parts, HERO_COLORS
+from hero_highpoly import bake_hero
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = Path(os.environ.get('MODEL_OUTPUT', ROOT / 'public/models'))
@@ -357,9 +358,12 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     # Bake only the export copy. Source parts retain shared geometry and materials.
     bpy.ops.object.select_all(action='DESELECT')
     copies=[]
-    for source in actor_parts:
+    for part_index,source in enumerate(actor_parts):
         o=source.copy();o.data=source.data.copy();bpy.context.collection.objects.link(o)
         o.parent=None # local coordinates: actor exported at origin
+        if kind=='yukimura':
+            ids=o.data.attributes.new('BakePart','INT','POINT')
+            for item in ids.data:item.value=part_index
         role=source['palette_role'];color=variant['armor'] if role=='armor' else COLORS[role]
         if kind=='yukimura':color=HERO_COLORS.get(role,color)
         colors=o.data.color_attributes.new(name='Color',type='BYTE_COLOR',domain='CORNER')
@@ -399,6 +403,10 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     attr=joined.data.color_attributes['Color']
     for i,loop in enumerate(joined.data.loops):
         col=attr.data[i].color;f=factors[loop.vertex_index];attr.data[i].color=(col[0]*f,col[1]*f,col[2]*f,1)
+    if kind=='yukimura':
+        occlusion=joined.data.attributes.new('HeroOcclusion','FLOAT','POINT')
+        for i,item in enumerate(occlusion.data):item.value=factors[i]
+        bake_hero(joined,actor_parts,{**COLORS,**HERO_COLORS},OUT)
     joined.data.color_attributes.active_color_index=0
     joined.data.color_attributes.render_color_index=0
     joined.data.calc_loop_triangles()
@@ -437,7 +445,7 @@ if reference.exists():
     board.rotation_euler=(math.pi/2,0,0);board.location=(0,2.2,1.5)
     board.color[3]=.65;board.hide_render=True;board.hide_viewport=True
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE),compress=True)
-report={'generator':'Blender local CPU / modular-samurai-v7-animated-army','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
+report={'generator':'Blender local CPU / modular-samurai-v8-high-bake','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
 (OUT/'manifest.json').write_text(json.dumps(report,indent=2)+'\n')
 # Only generated, content-addressed images can be retired. Keep hand-added files.
 for path in (OUT/'shared').glob('*.png'):
