@@ -1,0 +1,280 @@
+{
+  "gallery": [
+    {
+      "width": 1280,
+      "images": [
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "images": [
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        },
+        {
+          "width": 2560,
+          "height": 2048,
+          "embedded": true
+        }
+      ],
+      "overflow": false
+    }
+  ],
+  "models": [
+    {
+      "width": 1280,
+      "lod": 0,
+      "meshes": [
+        {
+          "vertices": 24523,
+          "triangles": 23990,
+          "skinned": true
+        }
+      ],
+      "skeletons": [
+        22
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "ready": true,
+          "size": {
+            "width": 256,
+            "height": 256
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 92,
+            "height": 1
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "lod": 1,
+      "meshes": [
+        {
+          "vertices": 14713,
+          "triangles": 10795,
+          "skinned": true
+        }
+      ],
+      "skeletons": [
+        22
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "ready": true,
+          "size": {
+            "width": 256,
+            "height": 256
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 92,
+            "height": 1
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lod": 0,
+      "meshes": [
+        {
+          "vertices": 24523,
+          "triangles": 23990,
+          "skinned": true
+        }
+      ],
+      "skeletons": [
+        22
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "ready": true,
+          "size": {
+            "width": 256,
+            "height": 256
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 92,
+            "height": 1
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "lod": 1,
+      "meshes": [
+        {
+          "vertices": 14713,
+          "triangles": 10795,
+          "skinned": true
+        }
+      ],
+      "skeletons": [
+        22
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "ready": true,
+          "size": {
+            "width": 256,
+            "height": 256
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 92,
+            "height": 1
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "ready": true,
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        }
+      ],
+      "overflow": false
+    }
+  ]
+}

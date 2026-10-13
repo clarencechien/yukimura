@@ -1,18 +1,22 @@
 import {test,expect} from '@playwright/test';
 
-test('baked GPU palette matches the imported glTF skeleton at an attack frame',async({page})=>{
- await page.goto('http://127.0.0.1:5175/tools/model-preview.html?model=ashigaru');
+for(const kind of ['ashigaru','ieyasu'])test(`${kind}: baked GPU palette matches the imported glTF skeleton at three attack times`,async({page})=>{
+ await page.goto('http://127.0.0.1:5175/tools/model-preview.html?model='+kind);
  await page.waitForFunction(()=>window.modelPreview?.ready,{},{timeout:60000});
- const comparison=await page.evaluate(async()=>{
-  const p=window.modelPreview,manifest=await(await fetch('/models/crowd-animation.json')).json(),asset=manifest.models.ashigaru;
+ const comparison=await page.evaluate(async(kind)=>{
+  const p=window.modelPreview,manifest=await(await fetch('/models/crowd-animation.json')).json(),asset=manifest.models[kind];
   const data=new Float32Array(await(await fetch('/models/'+asset.uri)).arrayBuffer());
   p.loaded.animationGroups.forEach(g=>g.stop());const g=p.loaded.animationGroups.find(g=>g.name==='thrust');g.start(true);g.pause();
-  const range=asset.clips.thrust,frame=range.start+24;g.goToFrame(g.from+(g.to-g.from)*24/(range.end-range.start));p.scene.render();
-  const mesh=p.loaded.meshes.find(m=>m.skeleton),skeleton=mesh.skeleton;skeleton.prepare(true);
-  const cpu=skeleton.getTransformMatrices(mesh),gpu=data.slice(frame*asset.width*4,(frame+1)*asset.width*4);
-  return {maxError:Math.max(...gpu.slice(0,asset.joints*16).map((v,i)=>Math.abs(v-cpu[i]))),joints:asset.joints};
- });
- expect(comparison.joints).toBe(18);expect(comparison.maxError).toBeLessThan(.002);
+  const range=asset.clips.thrust,errors=[];
+  const mesh=p.loaded.meshes.find(m=>m.skeleton),skeleton=mesh.skeleton;
+  for(const sample of [7,24,41]){
+   const frame=range.start+sample;g.goToFrame(g.from+(g.to-g.from)*sample/(range.end-range.start));p.scene.render();skeleton.prepare(true);
+   const cpu=skeleton.getTransformMatrices(mesh),gpu=data.slice(frame*asset.width*4,(frame+1)*asset.width*4);
+   errors.push(Math.max(...gpu.slice(0,asset.joints*16).map((v,i)=>Math.abs(v-cpu[i]))));
+  }
+  return {maxError:Math.max(...errors),joints:asset.joints};
+ },kind);
+ expect(comparison.joints).toBe(kind==='ieyasu'?92:18);expect(comparison.maxError).toBeLessThan(.002);
 });
 
 test('100 enemies and ten allies animate independently, pause and clear on restart',async({page})=>{
@@ -51,4 +55,12 @@ test('soldiers collapse through two articulated poses without rotating or shrink
  await page.screenshot({path:'test-results/fall-settled.png'});
  await page.keyboard.press('p');const before=await page.evaluate(()=>window.__sanadaTest.snapshot().falls);await page.evaluate(()=>window.__sanadaTest.step(.5));expect(await page.evaluate(()=>window.__sanadaTest.snapshot().falls)).toEqual(before);
  await page.click('#resume');await page.evaluate(()=>window.__sanadaTest.step(1));expect((await page.evaluate(()=>window.__sanada)).corpses).toBe(0);expect(errors).toEqual([]);
+});
+
+test('Ieyasu instances all four material sections on the same GPU animation frame',async({page})=>{
+ await page.goto('http://127.0.0.1:5175/?test');await expect(page.locator('#start')).toBeEnabled({timeout:60000});await page.click('#start');
+ await page.evaluate(()=>{window.__sanadaTest.inspectBoss(true);window.__sanadaTest.step(.3)});
+ const parts=await page.evaluate(()=>window.__sanadaTest.snapshot().bossParts);
+ expect(parts).toHaveLength(4);expect(new Set(parts.map(p=>p.frame)).size).toBe(1);expect(parts.every(p=>p.enabled&&p.vertices>0)).toBe(true);
+ expect(parts.map(p=>p.material)).toEqual(expect.arrayContaining(['runtime/ieyasu high bake','commander deerskin and cloth','fitted black iron kote','samurai woven cords and fittings']));
 });

@@ -1,51 +1,140 @@
 {
-  "generator": "Blender local CPU / modular-samurai-v9-commanders-storm",
-  "unique_source_parts": 915,
+  "generator": "modular-samurai-v16-shared-fittings",
+  "unique_source_parts": 905,
   "variants": {
     "yukimura": {
-      "triangles": 44130,
-      "bytes": 3393748,
-      "source_parts": 542,
-      "materials": 1,
-      "textures": 3,
-      "rigged": true
+      "triangles": 76625,
+      "bytes": 5890804,
+      "source_parts": 532,
+      "materials": 4,
+      "textures": 5,
+      "rigged": true,
+      "animation_fps": 90,
+      "anatomical_hands": true,
+      "bones": 92,
+      "source_bones": 163,
+      "rig": "mpfb-body-v14",
+      "continuous_wrists": true,
+      "physique": {
+        "changed_vertices": 34580,
+        "vertices": 57931,
+        "max_displacement_m": 0.04026882335369085,
+        "unchanged_finger_vertices": 4118,
+        "topology_changed": false,
+        "bind_pose_changed": false,
+        "extra_textures": 0,
+        "source": "v14 fullbody .blend",
+        "upper_arm_peak_radius_multiplier": 1.7,
+        "forearm_peak_radius_multiplier": 1.6400000000000001
+      },
+      "shared_fittings": "v16",
+      "fittings_lod": "commander",
+      "wrists_vs_v15": {
+        "L": {
+          "samples": 117,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.0834868008338833,
+          "diameter_after_m": 0.1669736016677666
+        },
+        "R": {
+          "samples": 119,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.08348678898134737,
+          "diameter_after_m": 0.16697357796269474
+        }
+      }
     },
     "ashigaru": {
-      "triangles": 3010,
-      "bytes": 449248,
+      "triangles": 3650,
+      "bytes": 511636,
       "source_parts": 82,
       "materials": 1,
       "textures": 3,
-      "rigged": true
+      "rigged": true,
+      "bones": 18,
+      "shared_fittings": "v16",
+      "fittings_lod": "crowd"
     },
     "tokugawa": {
-      "triangles": 2866,
-      "bytes": 418504,
+      "triangles": 3506,
+      "bytes": 475060,
       "source_parts": 79,
       "materials": 1,
       "textures": 3,
-      "rigged": true
+      "rigged": true,
+      "bones": 18,
+      "shared_fittings": "v16",
+      "fittings_lod": "crowd"
     },
     "ieyasu": {
-      "triangles": 41280,
-      "bytes": 3142428,
-      "source_parts": 600,
-      "materials": 1,
-      "textures": 3,
-      "rigged": true
+      "triangles": 73775,
+      "bytes": 5629336,
+      "source_parts": 590,
+      "materials": 4,
+      "textures": 5,
+      "rigged": true,
+      "animation_fps": 90,
+      "anatomical_hands": true,
+      "bones": 92,
+      "source_bones": 163,
+      "rig": "mpfb-body-v14",
+      "continuous_wrists": true,
+      "physique": {
+        "changed_vertices": 33437,
+        "vertices": 54334,
+        "max_displacement_m": 0.04510106099060168,
+        "unchanged_finger_vertices": 4118,
+        "topology_changed": false,
+        "bind_pose_changed": false,
+        "extra_textures": 0,
+        "source": "v14 fullbody .blend",
+        "upper_arm_peak_radius_multiplier": 1.784,
+        "forearm_peak_radius_multiplier": 1.7168
+      },
+      "shared_fittings": "v16",
+      "fittings_lod": "commander",
+      "wrists_vs_v15": {
+        "L": {
+          "samples": 117,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.08451588921784209,
+          "diameter_after_m": 0.16903177843568418
+        },
+        "R": {
+          "samples": 119,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.08451588921784209,
+          "diameter_after_m": 0.16903177843568418
+        }
+      }
     }
   },
   "shared_textures": {
-    "shared/223df5e4885b4f8c.png": 3588531,
-    "shared/313ddcc4b5b28311.png": 2457923,
-    "shared/4a3f30e1b16442c0.png": 2211624,
+    "shared/3f18fb5ef08fc666.png": 3599061,
+    "shared/51556055f4d59f62.png": 2477336,
+    "shared/12517fdcd06fdcb2.png": 2232923,
+    "shared/3ff0a81211d42119.png": 367567,
+    "shared/f4868c39ab18a8e6.png": 161223,
     "shared/0845c79e3d7909d4.png": 72753,
     "shared/b033bec590993e64.png": 1459001,
     "shared/a3beead67d295d1c.png": 54127,
-    "shared/54b4d353e0b837cb.png": 1293284,
-    "shared/86baeaecfcb52ded.png": 890389,
-    "shared/5cdcde1152c24830.png": 885452
+    "shared/47b71e723f59644e.png": 1260027,
+    "shared/dd52f7b6de222d4c.png": 870976,
+    "shared/a9fb7ac1d84d1457.png": 872270
   },
-  "shared_texture_bytes": 12913084,
-  "paid_api_calls": 0
+  "shared_texture_bytes": 13427264,
+  "paid_api_calls": 0,
+  "shared_fittings_source": "tools/detail_commanders.py",
+  "shared_fittings_lods": {
+    "commander": {
+      "material_sections": 4
+    },
+    "crowd": {
+      "material_sections": 1
+    }
+  }
 }

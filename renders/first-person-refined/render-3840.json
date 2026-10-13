@@ -1,0 +1,25 @@
+{
+  "renderer": "Blender 4.3.0 / Cycles CPU",
+  "resolution": [
+    3840,
+    2160
+  ],
+  "samples": 32,
+  "threads": 4,
+  "png_bits_per_channel": 16,
+  "preparation_seconds": 17.37,
+  "added_mesh_triangles": 978358,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "pov-001-3840.png",
+      "seconds": 419.41
+    },
+    {
+      "frame": 240,
+      "file": "pov-240-3840.png",
+      "seconds": 515.6
+    }
+  ],
+  "note": "Actual editable geometry and shader pass. Three blocking poses; not final animation or game optimisation."
+}

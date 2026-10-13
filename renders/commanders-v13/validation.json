@@ -1,0 +1,52 @@
+{
+  "models": {
+    "yukimura": {
+      "triangles": 49602,
+      "bytes": 3772616,
+      "source_parts": 532,
+      "materials": 1,
+      "textures": 3,
+      "rigged": true,
+      "animation_fps": 90,
+      "anatomical_hands": true,
+      "sha256": "5a7464404d4739e2657c37c41c8eb1eca63c9307b46ab68e2fd56f079b058e6c"
+    },
+    "ieyasu": {
+      "triangles": 46752,
+      "bytes": 3486672,
+      "source_parts": 590,
+      "materials": 1,
+      "textures": 3,
+      "rigged": true,
+      "animation_fps": 90,
+      "anatomical_hands": true,
+      "sha256": "66f2d9bb4dab2b3245cdbc5af8912dcd2519ea6cb35f35d37af53598097b7479"
+    }
+  },
+  "validation": {
+    "unit_and_asset_tests": 24,
+    "browser_full_suite": 9,
+    "affected_browser_recheck_after_final_boss_fix": 3,
+    "pages_subpath_tests": 1,
+    "grip_samples": 2352,
+    "max_grip_error_m": {
+      "yukimura": 0.0012750968186994178,
+      "ieyasu": 0.0003106486889228865
+    },
+    "gallery": [
+      {
+        "width": 1280,
+        "images": 20,
+        "allEmbedded": true,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "images": 20,
+        "allEmbedded": true,
+        "overflow": false
+      }
+    ]
+  },
+  "deployed": false
+}

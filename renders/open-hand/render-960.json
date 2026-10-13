@@ -1,0 +1,45 @@
+{
+  "source": "MPFB CC0",
+  "source_vertices_used": 1821,
+  "source_faces_used": 1808,
+  "bones": 22,
+  "finger_angles_deg": {
+    "2": [
+      1.6,
+      44.1,
+      59.4
+    ],
+    "3": [
+      7.3,
+      74.0,
+      52.0
+    ],
+    "4": [
+      8.4,
+      58.8,
+      52.3
+    ],
+    "5": [
+      -4.7,
+      36.7,
+      44.3
+    ]
+  },
+  "shaft_radius_m": 0.014,
+  "shaft_yz": [
+    0.1071336001008749,
+    0.023
+  ],
+  "frames": [
+    {
+      "view": "beauty",
+      "file": "beauty-960.png",
+      "seconds": 6.77
+    }
+  ],
+  "grip_vertex_clearance_m": {
+    "before_contact": -0.0012479785877617527,
+    "after_contact": -1.2883250463148477e-07
+  },
+  "shaft_slope_y_over_x": 0.25
+}

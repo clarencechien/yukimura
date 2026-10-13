@@ -1,0 +1,302 @@
+[
+  {
+    "kind": "yukimura",
+    "clip": "idle",
+    "close": false,
+    "file": "yukimura-idle-full.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "yukimura",
+    "clip": "idle",
+    "close": true,
+    "file": "yukimura-idle-hands.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "yukimura",
+    "clip": "slash",
+    "close": false,
+    "file": "yukimura-slash-full.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "yukimura",
+    "clip": "slash",
+    "close": true,
+    "file": "yukimura-slash-hands.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "yukimura",
+    "clip": "thrust",
+    "close": false,
+    "file": "yukimura-thrust-full.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "yukimura",
+    "clip": "thrust",
+    "close": true,
+    "file": "yukimura-thrust-hands.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "yukimura",
+    "clip": "dash",
+    "close": false,
+    "file": "yukimura-dash-full.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "yukimura",
+    "clip": "dash",
+    "close": true,
+    "file": "yukimura-dash-hands.png",
+    "bones": 92,
+    "triangles": 63193,
+    "sections": [
+      {
+        "name": "yukimura_runtime_primitive0",
+        "mat": "runtime/yukimura high bake",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "yukimura_runtime_primitive2",
+        "mat": "fitted crimson kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "ieyasu",
+    "clip": "idle",
+    "close": false,
+    "file": "ieyasu-idle-full.png",
+    "bones": 92,
+    "triangles": 60343,
+    "sections": [
+      {
+        "name": "ieyasu_runtime_primitive0",
+        "mat": "runtime/ieyasu high bake",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive2",
+        "mat": "fitted black iron kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "ieyasu",
+    "clip": "idle",
+    "close": true,
+    "file": "ieyasu-idle-hands.png",
+    "bones": 92,
+    "triangles": 60343,
+    "sections": [
+      {
+        "name": "ieyasu_runtime_primitive0",
+        "mat": "runtime/ieyasu high bake",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive2",
+        "mat": "fitted black iron kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "ieyasu",
+    "clip": "thrust",
+    "close": false,
+    "file": "ieyasu-thrust-full.png",
+    "bones": 92,
+    "triangles": 60343,
+    "sections": [
+      {
+        "name": "ieyasu_runtime_primitive0",
+        "mat": "runtime/ieyasu high bake",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive2",
+        "mat": "fitted black iron kote",
+        "bones": 92
+      }
+    ]
+  },
+  {
+    "kind": "ieyasu",
+    "clip": "thrust",
+    "close": true,
+    "file": "ieyasu-thrust-hands.png",
+    "bones": 92,
+    "triangles": 60343,
+    "sections": [
+      {
+        "name": "ieyasu_runtime_primitive0",
+        "mat": "runtime/ieyasu high bake",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive1",
+        "mat": "commander deerskin and cloth",
+        "bones": 92
+      },
+      {
+        "name": "ieyasu_runtime_primitive2",
+        "mat": "fitted black iron kote",
+        "bones": 92
+      }
+    ]
+  }
+]

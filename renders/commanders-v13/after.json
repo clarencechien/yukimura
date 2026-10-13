@@ -1,0 +1,82 @@
+[
+  {
+    "kind": "yukimura_runtime",
+    "clip": "idle",
+    "close": false,
+    "triangles": 49602,
+    "bones": 18,
+    "file": "after-yukimura-idle-full.png"
+  },
+  {
+    "kind": "yukimura_runtime",
+    "clip": "idle",
+    "close": true,
+    "triangles": 49602,
+    "bones": 18,
+    "file": "after-yukimura-idle-hands.png"
+  },
+  {
+    "kind": "yukimura_runtime",
+    "clip": "slash",
+    "close": false,
+    "triangles": 49602,
+    "bones": 18,
+    "file": "after-yukimura-slash-full.png"
+  },
+  {
+    "kind": "yukimura_runtime",
+    "clip": "slash",
+    "close": true,
+    "triangles": 49602,
+    "bones": 18,
+    "file": "after-yukimura-slash-hands.png"
+  },
+  {
+    "kind": "yukimura_runtime",
+    "clip": "thrust",
+    "close": false,
+    "triangles": 49602,
+    "bones": 18,
+    "file": "after-yukimura-thrust-full.png"
+  },
+  {
+    "kind": "yukimura_runtime",
+    "clip": "thrust",
+    "close": true,
+    "triangles": 49602,
+    "bones": 18,
+    "file": "after-yukimura-thrust-hands.png"
+  },
+  {
+    "kind": "ieyasu_runtime",
+    "clip": "idle",
+    "close": false,
+    "triangles": 46752,
+    "bones": 18,
+    "file": "after-ieyasu-idle-full.png"
+  },
+  {
+    "kind": "ieyasu_runtime",
+    "clip": "idle",
+    "close": true,
+    "triangles": 46752,
+    "bones": 18,
+    "file": "after-ieyasu-idle-hands.png"
+  },
+  {
+    "kind": "ieyasu_runtime",
+    "clip": "thrust",
+    "close": false,
+    "triangles": 46752,
+    "bones": 18,
+    "file": "after-ieyasu-thrust-full.png"
+  },
+  {
+    "kind": "ieyasu_runtime",
+    "clip": "thrust",
+    "close": true,
+    "triangles": 46752,
+    "bones": 18,
+    "file": "after-ieyasu-thrust-hands.png"
+  }
+]

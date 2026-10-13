@@ -1,0 +1,23 @@
+{
+  "source": "tools/detail_commanders.py",
+  "maps": {
+    "forged-detail.png": {
+      "bytes": 253293,
+      "sha256": "f741a0bffd9e56a2809312df674ef7f8b57f8fee94c99dc89e60ab96ce2c4069",
+      "resolution": 512
+    },
+    "woven-detail.png": {
+      "bytes": 11330,
+      "sha256": "3232e673ba01f11dce1c4746c8d9b2880d1970656980e4623360fe8c65975629",
+      "resolution": 512
+    }
+  },
+  "channels": "R albedo, G normal Y, B roughness, A normal X",
+  "shared_by": [
+    "yukimura",
+    "ieyasu",
+    "ashigaru",
+    "tokugawa"
+  ],
+  "runtime_distance_lod": false
+}

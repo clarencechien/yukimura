@@ -1,0 +1,45 @@
+{
+  "frames": [
+    {
+      "frame": 1,
+      "shot": "ready",
+      "seconds": 408.37,
+      "file": "pov-001-3840.png",
+      "caption": "持槍・赤備手甲",
+      "bytes": 34316957,
+      "sha256": "ef2aeca8c0aac94ec23533458c2752389bc29b0e294e259d5e35e83d83e2d9d4"
+    },
+    {
+      "frame": 120,
+      "shot": "advance",
+      "seconds": 458.8,
+      "file": "pov-120-3840.png",
+      "caption": "推進・雪中軍勢",
+      "bytes": 34939072,
+      "sha256": "413d2931ce2ff672f9e1fe731f47f279c686affdcbc9337b05a51049c58afc21"
+    },
+    {
+      "frame": 240,
+      "shot": "ieyasu",
+      "seconds": 518.09,
+      "file": "pov-240-3840.png",
+      "caption": "對峙・黑金家康",
+      "bytes": 34498110,
+      "sha256": "af0f97d1a528a38a4aa8f51e6bf92f49a211bd76aaa0d9ef5d91cd36a42833b5"
+    }
+  ],
+  "resolution": [
+    3840,
+    2160
+  ],
+  "png_bits_per_channel": 16,
+  "cpu_threads": 4,
+  "seconds_per_frame_range": [
+    408.37,
+    518.09
+  ],
+  "estimate_240_similar_frames_hours": 30.78,
+  "estimate_scope": "Linear estimate from three CPU stills; excludes added animation, motion blur and new simulations. Not a Modal GPU measurement or quote.",
+  "scene": "../../assets/cinema/first-person-lookdev.blend",
+  "scene_sha256": "47b11825b351aec9ac9431ad817e26cce10e5aaa3793812879cfd7d70d20a21a"
+}

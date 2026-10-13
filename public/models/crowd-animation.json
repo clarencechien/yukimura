@@ -2,89 +2,89 @@
   "fps": 60,
   "models": {
     "ashigaru": {
-      "uri": "shared/8292219aa282d3b4.bin",
+      "uri": "shared/a1e1a2cc50ebb85a.bin",
       "bytes": 503424,
       "width": 76,
       "height": 414,
       "joints": 18,
       "clips": {
-        "idle": {
+        "fall_back": {
           "start": 0,
-          "end": 96,
-          "duration": 1.600000023841858
-        },
-        "run": {
-          "start": 97,
-          "end": 145,
-          "duration": 0.800000011920929
-        },
-        "thrust": {
-          "start": 146,
-          "end": 206,
-          "duration": 1
-        },
-        "hurt": {
-          "start": 207,
-          "end": 243,
-          "duration": 0.6000000238418579
+          "end": 84,
+          "duration": 1.399999976158142
         },
         "fall": {
-          "start": 244,
-          "end": 328,
+          "start": 85,
+          "end": 169,
           "duration": 1.399999976158142
         },
-        "fall_back": {
-          "start": 329,
+        "hurt": {
+          "start": 170,
+          "end": 206,
+          "duration": 0.6000000238418579
+        },
+        "thrust": {
+          "start": 207,
+          "end": 267,
+          "duration": 1
+        },
+        "run": {
+          "start": 268,
+          "end": 316,
+          "duration": 0.800000011920929
+        },
+        "idle": {
+          "start": 317,
           "end": 413,
-          "duration": 1.399999976158142
+          "duration": 1.600000023841858
         }
       }
     },
     "tokugawa": {
-      "uri": "shared/8292219aa282d3b4.bin",
+      "uri": "shared/a1e1a2cc50ebb85a.bin",
       "bytes": 503424,
       "width": 76,
       "height": 414,
       "joints": 18,
       "clips": {
-        "idle": {
+        "fall_back": {
           "start": 0,
-          "end": 96,
-          "duration": 1.600000023841858
-        },
-        "run": {
-          "start": 97,
-          "end": 145,
-          "duration": 0.800000011920929
-        },
-        "thrust": {
-          "start": 146,
-          "end": 206,
-          "duration": 1
-        },
-        "hurt": {
-          "start": 207,
-          "end": 243,
-          "duration": 0.6000000238418579
+          "end": 84,
+          "duration": 1.399999976158142
         },
         "fall": {
-          "start": 244,
-          "end": 328,
+          "start": 85,
+          "end": 169,
           "duration": 1.399999976158142
         },
-        "fall_back": {
-          "start": 329,
+        "hurt": {
+          "start": 170,
+          "end": 206,
+          "duration": 0.6000000238418579
+        },
+        "thrust": {
+          "start": 207,
+          "end": 267,
+          "duration": 1
+        },
+        "run": {
+          "start": 268,
+          "end": 316,
+          "duration": 0.800000011920929
+        },
+        "idle": {
+          "start": 317,
           "end": 413,
-          "duration": 1.399999976158142
+          "duration": 1.600000023841858
         }
       }
     },
     "ieyasu": {
-      "uri": "shared/1eb6dddc9216989c.bin",
-      "bytes": 503424,
-      "width": 76,
+      "uri": "shared/836b96320ccd30f3.bin",
+      "bytes": 2464128,
+      "width": 372,
       "height": 414,
-      "joints": 18,
+      "joints": 92,
       "clips": {
         "idle": {
           "start": 0,

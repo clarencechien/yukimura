@@ -1,0 +1,35 @@
+{
+  "desktop_viewport": [
+    1440,
+    1000
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "images": [
+    {
+      "file": "pov-001-3840.png",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "../first-person/pov-001-3840.png",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "pov-240-3840.png",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "../first-person/pov-240-3840.png",
+      "width": 3840,
+      "height": 2160
+    }
+  ],
+  "keyboard_slider_passed": true,
+  "mobile_overflow": false,
+  "page_errors": []
+}

@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-10-13T14:12:00.822114+08:00",
+  "assets": {
+    "yukimura": {
+      "sha256": "ecac3f81dcfbe43267b43c47b154011e43718c084f8d2f32dda39f04f57c8fde",
+      "bytes": 5271036,
+      "triangles": 63193,
+      "bones": 92,
+      "materials": 3,
+      "max_grip_error_m": 0.0004851191853996316,
+      "max_forearm_palm_axis_angle_deg": 34.866489712665675
+    },
+    "ieyasu": {
+      "sha256": "02dd09366beff189d676fb68391c38296545af2b4d88e95c54c9e38181e7e391",
+      "bytes": 4999912,
+      "triangles": 60343,
+      "bones": 92,
+      "materials": 3,
+      "max_grip_error_m": 0.0005428368063155482,
+      "max_forearm_palm_axis_angle_deg": 45.264147758570026
+    }
+  },
+  "unit_tests": {
+    "passed": 26,
+    "failed": 0
+  },
+  "browser_tests": {
+    "initial_run": {
+      "passed": 9,
+      "failed": 1
+    },
+    "failure": "Boss inspection fixture spawned a second boss on its first update. Set bossSpawned in the fixture.",
+    "affected_rerun": {
+      "passed": 1,
+      "failed": 0
+    },
+    "unique_cases_passed": 10
+  },
+  "pages_test": {
+    "passed": 1,
+    "failed": 0
+  },
+  "gallery": [
+    {
+      "width": 1280,
+      "images": 14,
+      "embedded": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "images": 14,
+      "embedded": true,
+      "overflow": false
+    }
+  ],
+  "source_rebuild": "Fresh authoring-kit extraction verified: 18 bones, 49602 triangles, 8 clips and valid texture paths.",
+  "limitations": [
+    "No actual-phone performance measurement",
+    "Grip markers and wrist-axis tests do not prove all finger/armor surfaces are collision-free",
+    "No GitHub push or deployment"
+  ]
+}

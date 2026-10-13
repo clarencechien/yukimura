@@ -1,0 +1,123 @@
+{
+  "completed_at": "2026-10-13T15:13:44.163813+08:00",
+  "models": {
+    "yukimura": {
+      "sha256": "b7144374805245ee34744e891bbc108b3967342890023c418a66685be8e3e2fa",
+      "triangles": 76625,
+      "bones": 92,
+      "source_bones": 163,
+      "materials": 4,
+      "bytes": 5890804,
+      "textures": {
+        "shared/3f18fb5ef08fc666.png": 3599061,
+        "shared/51556055f4d59f62.png": 2477336,
+        "shared/12517fdcd06fdcb2.png": 2232923,
+        "shared/3ff0a81211d42119.png": 367567,
+        "shared/f4868c39ab18a8e6.png": 161223
+      },
+      "wrists_vs_v15": {
+        "L": {
+          "samples": 117,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.0834868008338833,
+          "diameter_after_m": 0.1669736016677666
+        },
+        "R": {
+          "samples": 119,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.08348678898134737,
+          "diameter_after_m": 0.16697357796269474
+        }
+      },
+      "fittings": {
+        "pieces": 288,
+        "vertices": 7592,
+        "missed_paths": []
+      }
+    },
+    "ieyasu": {
+      "sha256": "557191fe8c990e429e6bf0412e9fc2a088faa3bf6c4bff384e25931145177ffd",
+      "triangles": 73775,
+      "bones": 92,
+      "source_bones": 163,
+      "materials": 4,
+      "bytes": 5629336,
+      "textures": {
+        "shared/47b71e723f59644e.png": 1260027,
+        "shared/dd52f7b6de222d4c.png": 870976,
+        "shared/a9fb7ac1d84d1457.png": 872270,
+        "shared/3ff0a81211d42119.png": 367567,
+        "shared/f4868c39ab18a8e6.png": 161223
+      },
+      "wrists_vs_v15": {
+        "L": {
+          "samples": 117,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.08451588921784209,
+          "diameter_after_m": 0.16903177843568418
+        },
+        "R": {
+          "samples": 119,
+          "min_radius_ratio": 2.0,
+          "max_radius_ratio": 2.0,
+          "diameter_before_m": 0.08451588921784209,
+          "diameter_after_m": 0.16903177843568418
+        }
+      },
+      "fittings": {
+        "pieces": 288,
+        "vertices": 7592,
+        "missed_paths": []
+      }
+    },
+    "ashigaru": {
+      "sha256": "835093498b1d30e9e1f381fba579c220378d176df761b48a3050fc73236a6c9a",
+      "triangles": 3650,
+      "bones": 18,
+      "materials": 1,
+      "bytes": 511636,
+      "textures": {
+        "shared/0845c79e3d7909d4.png": 72753,
+        "shared/b033bec590993e64.png": 1459001,
+        "shared/a3beead67d295d1c.png": 54127
+      },
+      "shared_fittings_lod": "crowd",
+      "pieces": 18
+    },
+    "tokugawa": {
+      "sha256": "19d23d15cb78dc8dcbddf40ac2e8cadb63aa2227f85352fbb31905a17f11538b",
+      "triangles": 3506,
+      "bones": 18,
+      "materials": 1,
+      "bytes": 475060,
+      "textures": {
+        "shared/0845c79e3d7909d4.png": 72753,
+        "shared/b033bec590993e64.png": 1459001,
+        "shared/a3beead67d295d1c.png": 54127
+      },
+      "shared_fittings_lod": "crowd",
+      "pieces": 18
+    }
+  },
+  "tests": {
+    "unit": {
+      "passed": 26,
+      "failed": 0
+    },
+    "browser_army": {
+      "passed": 5,
+      "failed": 0
+    },
+    "production_build": "passed",
+    "pages": "not rerun"
+  },
+  "cpu_model_generation": true,
+  "modal_jobs": 0,
+  "paid_api_calls": 0,
+  "browser_backend": "SwiftShader software GPU",
+  "real_phone_performance_measured": false,
+  "deployed": false
+}

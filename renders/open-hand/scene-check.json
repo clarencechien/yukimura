@@ -1,0 +1,26 @@
+{
+  "upstream_hashes_verified": true,
+  "scene_reopened": true,
+  "source_asset_license": "CC0-1.0",
+  "bones": 22,
+  "finger_bones": 15,
+  "weighted_base_vertices": 1809,
+  "base_faces": 1798,
+  "maximum_weight_sum_error": 4.470348358154297e-08,
+  "poses": [
+    {
+      "frame": 1,
+      "evaluated_vertices": 28809,
+      "minimum_vertex_shaft_clearance_m": -0.0009540298451253069
+    },
+    {
+      "frame": 24,
+      "evaluated_vertices": 28809,
+      "minimum_vertex_shaft_clearance_m": -1.2883250463148477e-07
+    }
+  ],
+  "bone_attached_armor_and_stitch_objects": 345,
+  "splints": 7,
+  "attachment_holes": 14,
+  "limitations": "Grip clearance checks evaluated vertices, not every face interior or finger-to-finger collision. Contact correction is Blender-specific and not yet baked for a game engine. Frames 1 and 24 are test poses, not an approved grasp animation."
+}

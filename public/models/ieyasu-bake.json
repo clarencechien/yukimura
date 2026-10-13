@@ -1,18 +1,20 @@
 {
   "method": "Cycles selected-to-active / exploded matching parts",
-  "high_triangles": 1370768,
-  "high_parts": 600,
-  "low_triangles": 41280,
+  "high_triangles": 1488104,
+  "high_parts": 590,
+  "low_triangles": 46752,
   "resolution": 1024,
   "samples": 16,
   "cpu_threads": 2,
   "max_sculpt_relief_m": 0.003192634776778843,
-  "bake_seconds": 506.8,
+  "bake_seconds": 712.4,
   "passes": [
     "diffuse_color",
     "tangent_normal",
     "roughness_metallic",
     "ambient_occlusion"
   ],
-  "paid_api_calls": 0
+  "paid_api_calls": 0,
+  "runtime_triangles": 73775,
+  "runtime_note": "Original painted armor bake retained; continuous MPFB arms and fitted kote use separate material sections."
 }

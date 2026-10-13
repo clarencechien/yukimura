@@ -1,0 +1,132 @@
+{
+  "source": "MPFB CC0",
+  "source_vertices_used": 1821,
+  "source_faces_used": 1808,
+  "bones": 22,
+  "finger_angles_deg": {
+    "2": [
+      1.6,
+      44.1,
+      59.4
+    ],
+    "3": [
+      7.3,
+      74.0,
+      52.0
+    ],
+    "4": [
+      8.4,
+      58.8,
+      52.3
+    ],
+    "5": [
+      -4.7,
+      36.7,
+      44.3
+    ]
+  },
+  "shaft_radius_m": 0.014,
+  "shaft_yz": [
+    0.1071336001008749,
+    0.023
+  ],
+  "frames": [
+    {
+      "view": "open",
+      "file": "open-2560.png",
+      "seconds": 56.69,
+      "resolution": [
+        2560,
+        2048
+      ],
+      "bits_per_channel": 16,
+      "png_color_type": 6,
+      "bytes": 3832020,
+      "sha256": "5d738a114c4f5592d344036116c62bc0bdb6edb4d469a5bc5c7f6a201ce29d2d"
+    },
+    {
+      "view": "grip",
+      "file": "grip-2560.png",
+      "seconds": 69.05,
+      "resolution": [
+        2560,
+        2048
+      ],
+      "bits_per_channel": 16,
+      "png_color_type": 6,
+      "bytes": 5418857,
+      "sha256": "633c4132aa35a87361fee865aec700dd84a239d57c4e7f41c917beba4ac433a3"
+    },
+    {
+      "view": "palm",
+      "file": "palm-2560.png",
+      "seconds": 69.81,
+      "resolution": [
+        2560,
+        2048
+      ],
+      "bits_per_channel": 16,
+      "png_color_type": 6,
+      "bytes": 5975528,
+      "sha256": "0edc8d2c1fa683384b337d2a684dd93beef26e8a01335a789f3cf69f38cbae85"
+    },
+    {
+      "view": "beauty",
+      "file": "beauty-2560.png",
+      "seconds": 75.45,
+      "resolution": [
+        2560,
+        2048
+      ],
+      "bits_per_channel": 16,
+      "png_color_type": 6,
+      "bytes": 6458027,
+      "sha256": "636a3f54f10a05c2518d6a03286bc4ae0ba4bcd6cc2de755aa599a0e710bdd1c"
+    },
+    {
+      "view": "beauty-palm",
+      "file": "beauty-palm-2560.png",
+      "seconds": 74.06,
+      "resolution": [
+        2560,
+        2048
+      ],
+      "bits_per_channel": 16,
+      "png_color_type": 6,
+      "bytes": 6774574,
+      "sha256": "d0f2e06ae5f5021595158c45d6e76b8524e7595201a65ab89849ce129e3a40ea"
+    }
+  ],
+  "grip_vertex_clearance_m": {
+    "before_contact": -0.0012479785877617527,
+    "after_contact": -1.2883250463148477e-07
+  },
+  "shaft_slope_y_over_x": 0.25,
+  "scene_check": {
+    "upstream_hashes_verified": true,
+    "scene_reopened": true,
+    "source_asset_license": "CC0-1.0",
+    "bones": 22,
+    "finger_bones": 15,
+    "weighted_base_vertices": 1809,
+    "base_faces": 1798,
+    "maximum_weight_sum_error": 4.470348358154297e-08,
+    "poses": [
+      {
+        "frame": 1,
+        "evaluated_vertices": 28809,
+        "minimum_vertex_shaft_clearance_m": -0.0009540298451253069
+      },
+      {
+        "frame": 24,
+        "evaluated_vertices": 28809,
+        "minimum_vertex_shaft_clearance_m": -1.2883250463148477e-07
+      }
+    ],
+    "bone_attached_armor_and_stitch_objects": 345,
+    "splints": 7,
+    "attachment_holes": 14,
+    "limitations": "Grip clearance checks evaluated vertices, not every face interior or finger-to-finger collision. Contact correction is Blender-specific and not yet baked for a game engine. Frames 1 and 24 are test poses, not an approved grasp animation."
+  },
+  "scene_sha256": "a1b1c220504a9b62268dc92472c06c33371f0cf35bd3991bf7105b9e793c3442"
+}

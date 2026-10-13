@@ -38,8 +38,13 @@ def sample(keys,t):
         if t<=b:return x+(y-x)*smooth((t-a)/(b-a))
     return keys[-1][1]
 
-def bind_hero(mesh,kind='yukimura',reweight=True):
+def bind_hero(mesh,kind='yukimura',reweight=True,natural_wrists=False):
     hero=kind=='yukimura'
+    anatomical=kind in ('yukimura','ieyasu')
+    if anatomical:
+        from commander_hands import rest_attachment,grip_frame
+        attachments={side:rest_attachment(side) for side in ('L','R')}
+    grip_errors=[]
     bpy.ops.object.select_all(action='DESELECT')
     data=bpy.data.armatures.new(kind+' articulated armour')
     rig=bpy.data.objects.new(kind+'_Rig',data);bpy.context.collection.objects.link(rig)
@@ -81,18 +86,47 @@ def bind_hero(mesh,kind='yukimura',reweight=True):
         b=data.bones[name];q=(b.tail_local-b.head_local).rotation_difference(tail-head)
         pose[name].matrix=Matrix.Translation(head) @ q.to_matrix().to_4x4() @ rest[name].to_3x3().to_4x4()
         bpy.context.view_layer.update()
+    ik_bends={}
     def ik(first,second,target,pole):
         b=data.bones[first];parent=pose[first].parent
         head=(parent.matrix @ parent.bone.matrix_local.inverted()) @ b.head_local
         l1=b.length;l2=data.bones[second].length;delta=target-head
         d=max(.02,min(delta.length,(l1+l2)*.998));axis=delta.normalized()
-        bend=Vector(pole)-head;bend-=axis*bend.dot(axis);bend.normalize()
+        bend=Vector(pole)-head;bend-=axis*bend.dot(axis)
+        if anatomical and first.startswith('arm.'):
+            previous=ik_bends.get(first)
+            if previous is not None:
+                projected=previous-axis*previous.dot(axis)
+                if bend.length<.015:bend=projected
+                elif not natural_wrists and bend.dot(projected)<0:bend.negate()
+            if bend.length<1e-6:bend=axis.cross(Vector((0,0,1)))
+            ik_bends[first]=bend.normalized()
+        bend.normalize()
         along=(l1*l1-l2*l2+d*d)/(2*d)
         elbow=head+axis*along+bend*math.sqrt(max(0,l1*l1-along*along))
-        end=head+axis*d;orient(first,head,elbow);orient(second,elbow,end)
+        end=head+axis*d
+        if anatomical and first.startswith('arm.'):
+            # Use the elbow plane to carry roll continuously. A shortest-arc
+            # rotation from the rest direction flips near antiparallel forearms,
+            # making local hand/forearm interpolation drift off the shaft.
+            plane=(elbow-head).cross(end-elbow).normalized()
+            a=data.bones[first];b=data.bones[second]
+            rest_plane=(a.tail_local-a.head_local).cross(b.tail_local-b.head_local).normalized()
+            def frame(y,x):
+                y=y.normalized();x=(x-y*x.dot(y)).normalized();z=x.cross(y)
+                return Matrix((x,y,z)).transposed()
+            for name,h,tail in ((first,head,elbow),(second,elbow,end)):
+                bone=data.bones[name]
+                rotation=frame(tail-h,plane) @ frame(bone.tail_local-bone.head_local,rest_plane).transposed()
+                pose[name].matrix=Matrix.Translation(h) @ (rotation @ rest[name].to_3x3()).to_4x4()
+                bpy.context.view_layer.update()
+        else:
+            orient(first,head,elbow);orient(second,elbow,end)
         return end,(end-target).length
     clips=[('idle',48),('run',24),('slash',30),('reverse',30),('thrust',30),('spin',36),('dash',18),('hurt',18)] if hero else [('idle',48),('run',24),('thrust',30),('hurt',18),('fall',42),('fall_back',42)]
     for name,frames in clips:
+        ik_bends.clear();grip_rolls={}
+        if anatomical:frames*=3
         action=bpy.data.actions.new(name);rig.animation_data.action=action
         for frame in range(frames+1):
             t=frame/frames;phase=t*math.tau
@@ -116,6 +150,8 @@ def bind_hero(mesh,kind='yukimura',reweight=True):
             elif name in ('hurt','fall','fall_back'):
                 recoil=math.sin(min(1,t/.7)*math.pi) if name=='hurt' else smooth(t)
                 lean=-recoil*.28;drop+=recoil*.18;twist=recoil*.18;axis=Vector((-.78,.1,.55));grip.z-=recoil*.08
+            if natural_wrists and name=='dash':
+                grip=Vector((.04,-.22,1.40));axis=Vector((-.12,-.98,.13));spacing=.30
             pose['pelvis'].matrix=Matrix.Translation((.015*math.sin(phase) if name=='run' else 0,0,-drop)) @ rest['pelvis']
             pose['chest'].rotation_quaternion=(Matrix.Rotation(lean,4,'X') @ Matrix.Rotation(twist,4,'Y')).to_quaternion()
             pose['head'].rotation_quaternion=Matrix.Rotation(-twist*.35,4,'Y').to_quaternion()
@@ -132,14 +168,72 @@ def bind_hero(mesh,kind='yukimura',reweight=True):
                 end,_=ik('thigh.'+side,'shin.'+side,ankle,(sign*.18,-1,.55))
                 direction=data.bones['foot.'+side].tail_local-data.bones['foot.'+side].head_local
                 orient('foot.'+side,end,end+direction)
-            if kind=='ieyasu':spacing=.10
+            if kind=='ieyasu':
+                spacing=-.15
+                if name!='thrust':
+                    # A centred two-handed tachi guard, rather than the spear's
+                    # wide cross-body carry that overextended the left wrist.
+                    grip=Vector((.04,-.34,1.42))
+                    axis=Vector((-.18,-.35,.92))
             body=pose['chest'].matrix @ rest['chest'].inverted()
             world_grip=body@grip;world_axis=(body.to_3x3()@axis).normalized()
             orient('weapon',world_grip,world_grip+world_axis*.35)
             for side,sign in [('L',-1),('R',1)]:
                 target=world_grip+(world_axis*spacing if side=='L' else Vector((0,0,0)))
-                end,error=ik('arm.'+side,'forearm.'+side,target+Vector((0,0,.038)),body@Vector((sign*.65,-.05,1.12)))
-                max_error=max(max_error,error);orient('hand.'+side,end,end+Vector((0,0,-.1)))
+                if anatomical:
+                    weapon_delta=pose['weapon'].matrix @ rest['weapon'].inverted()
+                    hand_delta=Matrix.Translation(world_axis*spacing if side=='L' else Vector()) @ weapon_delta @ attachments[side]
+                    if natural_wrists:
+                        # A grip fixes the shaft center/axis, but leaves roll around
+                        # the shaft free. Use that freedom to avoid a bent-back wrist.
+                        from commander_hands import basis
+                        shoulder=body@data.bones['arm.'+side].head_local
+                        l1=data.bones['arm.'+side].length;l2=data.bones['forearm.'+side].length
+                        pole=body@Vector((sign*.65,-.05,1.12))
+                        center=target
+                        def wrist_score(angle):
+                            candidate=Matrix.Translation(center)@Matrix.Rotation(angle,4,world_axis)@Matrix.Translation(-center)@hand_delta
+                            w=candidate@data.bones['hand.'+side].head_local
+                            delta=w-shoulder;length=delta.length;direction=delta.normalized();d=max(.02,min(length,(l1+l2)*.998))
+                            bend=pole-shoulder;bend-=direction*bend.dot(direction)
+                            if bend.length<1e-6:bend=direction.cross(Vector((0,0,1)))
+                            bend.normalize();preferred=bend.copy()
+                            palm=(candidate.to_3x3()@basis(sign)@Vector((0,1,0))).normalized()
+                            desired=-palm+direction*palm.dot(direction)
+                            if desired.length>1e-6:bend=(preferred*.15+desired.normalized()*.85).normalized()
+                            along=(l1*l1-l2*l2+d*d)/(2*d)
+                            elbow=shoulder+direction*along+bend*math.sqrt(max(0,l1*l1-along*along))
+                            forearm=(w-elbow).normalized()
+                            bend_angle=math.acos(max(-1,min(1,forearm.dot(palm))))
+                            return bend_angle*bend_angle+max(0,length-(l1+l2)*.998)**2*400+angle*angle*.006+.08*(1-preferred.dot(bend)),candidate,shoulder+bend*.6
+                        roll_center=grip_rolls[side][0] if side in grip_rolls else 0
+                        candidates=(roll_center+i*math.pi/90 for i in range(-12,13)) if side in grip_rolls else (i*math.pi/36 for i in range(-36,37))
+                        angle=min(candidates,key=lambda a:wrist_score(a)[0])
+                        low=angle-math.pi/36;high=angle+math.pi/36
+                        for _ in range(12):
+                            a=low+(high-low)/3;b=high-(high-low)/3
+                            if wrist_score(a)[0]<wrist_score(b)[0]:high=b
+                            else:low=a
+                        angle=(low+high)/2
+                        if side in grip_rolls:
+                            previous,initial=grip_rolls[side]
+                            angle=previous+(angle-previous+math.pi)%math.tau-math.pi
+                            angle=previous+max(-math.radians(8),min(math.radians(8),angle-previous))
+                            initial_near=angle+(initial-angle+math.pi)%math.tau-math.pi
+                            angle=angle+(initial_near-angle)*smooth((t-.75)/.25)
+                        else:initial=angle
+                        grip_rolls[side]=(angle,initial)
+                        _,hand_delta,natural_pole=wrist_score(angle)
+                    wrist=hand_delta @ data.bones['hand.'+side].head_local
+                    end,error=ik('arm.'+side,'forearm.'+side,wrist,natural_pole if natural_wrists else body@Vector((sign*.65,-.05,1.12)))
+                    # Keep the anatomical wrist attached even at the IK reach limit.
+                    pose['hand.'+side].matrix=Matrix.Translation(end-wrist) @ hand_delta @ rest['hand.'+side]
+                    bpy.context.view_layer.update()
+                    grip_errors.append({'clip':name,'frame':frame,'side':side,'error_m':error})
+                else:
+                    end,error=ik('arm.'+side,'forearm.'+side,target+Vector((0,0,.038)),body@Vector((sign*.65,-.05,1.12)))
+                    orient('hand.'+side,end,end+Vector((0,0,-.1)))
+                max_error=max(max_error,error)
             if name in ('fall','fall_back'):
                 # An articulated collapse: recoil, one knee gives way, hand contact,
                 # hip/shoulder impact and a small settle. The actor root stays upright.
@@ -190,6 +284,10 @@ def bind_hero(mesh,kind='yukimura',reweight=True):
         rig.animation_data.action=None
         track=rig.animation_data.nla_tracks.new();track.name=name;strip=track.strips.new(name,0,action);strip.action_frame_start=0;strip.action_frame_end=frames;track.mute=True
     for pb in pose:pb.rotation_quaternion=(1,0,0,0);pb.location=(0,0,0)
-    mesh.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=mesh;bpy.context.scene.render.fps=30
+    mesh.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=mesh;bpy.context.scene.render.fps=90 if anatomical else 30
+    rig['animation_fps']=bpy.context.scene.render.fps
+    if anatomical:
+        import json
+        rig['grip_validation']=json.dumps(grip_errors)
     rig['max_hand_target_error']=max_error;print(f'{kind}: maximum authoring hand IK residual {max_error:.4f} m')
     return rig

@@ -1,0 +1,254 @@
+[
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "idle",
+    "close": false,
+    "file": "yukimura-fullbody-idle-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "idle",
+    "close": true,
+    "file": "yukimura-fullbody-idle-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "thrust",
+    "close": false,
+    "file": "yukimura-fullbody-thrust-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "thrust",
+    "close": true,
+    "file": "yukimura-fullbody-thrust-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "slash",
+    "close": false,
+    "file": "yukimura-fullbody-slash-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "slash",
+    "close": true,
+    "file": "yukimura-fullbody-slash-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "dash",
+    "close": false,
+    "file": "yukimura-fullbody-dash-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "fullbody",
+    "clip": "dash",
+    "close": true,
+    "file": "yukimura-fullbody-dash-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "idle",
+    "close": false,
+    "file": "yukimura-physique-idle-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "idle",
+    "close": true,
+    "file": "yukimura-physique-idle-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "thrust",
+    "close": false,
+    "file": "yukimura-physique-thrust-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "thrust",
+    "close": true,
+    "file": "yukimura-physique-thrust-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "slash",
+    "close": false,
+    "file": "yukimura-physique-slash-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "slash",
+    "close": true,
+    "file": "yukimura-physique-slash-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "dash",
+    "close": false,
+    "file": "yukimura-physique-dash-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "dash",
+    "close": true,
+    "file": "yukimura-physique-dash-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "fullbody",
+    "clip": "idle",
+    "close": false,
+    "file": "ieyasu-fullbody-idle-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "fullbody",
+    "clip": "idle",
+    "close": true,
+    "file": "ieyasu-fullbody-idle-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "fullbody",
+    "clip": "thrust",
+    "close": false,
+    "file": "ieyasu-fullbody-thrust-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "fullbody",
+    "clip": "thrust",
+    "close": true,
+    "file": "ieyasu-fullbody-thrust-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "fullbody",
+    "clip": "fall",
+    "close": false,
+    "file": "ieyasu-fullbody-fall-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "fullbody",
+    "clip": "fall",
+    "close": true,
+    "file": "ieyasu-fullbody-fall-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "idle",
+    "close": false,
+    "file": "ieyasu-physique-idle-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "idle",
+    "close": true,
+    "file": "ieyasu-physique-idle-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "thrust",
+    "close": false,
+    "file": "ieyasu-physique-thrust-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "thrust",
+    "close": true,
+    "file": "ieyasu-physique-thrust-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "fall",
+    "close": false,
+    "file": "ieyasu-physique-fall-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "fall",
+    "close": true,
+    "file": "ieyasu-physique-fall-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "renderer": "Blender 4.3.0 / Cycles CPU",
+  "threads": 4,
+  "resolution": [
+    3840,
+    2160
+  ],
+  "samples": 32,
+  "png_bits_per_channel": 16,
+  "denoising": true,
+  "hero_sculpt_triangles": 36460,
+  "boss_sculpt_triangles": 1370768,
+  "preparation_seconds": 9.47,
+  "frames": [
+    {
+      "frame": 1,
+      "shot": "ready",
+      "seconds": 408.37,
+      "file": "pov-001-3840.png"
+    },
+    {
+      "frame": 120,
+      "shot": "advance",
+      "seconds": 458.8,
+      "file": "pov-120-3840.png"
+    },
+    {
+      "frame": 240,
+      "shot": "ieyasu",
+      "seconds": 518.09,
+      "file": "pov-240-3840.png"
+    }
+  ],
+  "note": "Three blocking poses; POV-only sleeves and inherited sculpted hands/weapon. No final animation, motion blur, Modal GPU timing or GPU cost measurement."
+}

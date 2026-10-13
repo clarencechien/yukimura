@@ -1,0 +1,38 @@
+{
+  "scene_reopened": true,
+  "missing_external_images": [],
+  "camera_positions": [
+    [
+      0.0,
+      0.07999999821186066,
+      2.049999952316284
+    ],
+    [
+      0.0,
+      -6.920000076293945,
+      2.049999952316284
+    ],
+    [
+      0.0,
+      -12.920000076293945,
+      2.049999952316284
+    ]
+  ],
+  "frame_markers": [
+    [
+      "ready",
+      1
+    ],
+    [
+      "advance",
+      120
+    ],
+    [
+      "ieyasu",
+      240
+    ]
+  ],
+  "objects": 1678,
+  "packed_images": 3,
+  "three_blocking_poses": true
+}

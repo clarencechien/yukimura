@@ -219,7 +219,7 @@ cross=[]
 for side in [-1,1]:
     cross.append(mesh(f'yari.cross.{side}',[(.47,-.16,2.76),(.47+side*.11,-.16,2.77),(.47+side*.28,-.16,2.81),(.47+side*.23,-.16,2.705),(.47,-.16,2.705),(.47+side*.105,-.19,2.735)],[(0,1,5),(1,2,5),(2,3,5),(3,4,5),(4,0,5),(0,4,3,2,1)],'steel').name)
 
-katana=[rod('katana.hilt',(.47,-.16,.79),(.47,-.16,1.05),.027,'cloth').name,cube('katana.tsuba',(.47,-.16,1.06),(.13,.105,.027),'gold').name,rod('katana.blade',(.47,-.16,1.08),(.55,-.16,1.89),.028,'steel',tip=.002).name]
+katana=[rod('katana.hilt',(.47,-.16,.70),(.47,-.16,1.05),.022,'cloth').name,cube('katana.tsuba',(.47,-.16,1.06),(.13,.105,.027),'gold').name,rod('katana.blade',(.47,-.16,1.08),(.55,-.16,1.89),.028,'steel',tip=.002).name]
 weapons={'yari':yari,'cross_yari':yari+cross,'katana':katana}
 banner=[rod('sashimono.pole',(0,.22,.83),(0,.22,2.33),.017,'wood').name,rod('sashimono.cross',(0,.22,2.33),(.39,.22,2.33),.015,'wood').name,mesh('sashimono.cloth',[(.02,.23,2.31),(.38,.23,2.31),(.02,.24,2.03),(.38,.27,2.03),(.02,.24,1.76),(.38,.30,1.79)],[(0,1,3,2),(2,3,5,4)],'armor').name]
 banner_coins=[coin(f'banner.coin.{i}.{j}',.10+i*.087,.21,2.08+j*.10,.022).name for i in range(3) for j in range(2)]
@@ -417,11 +417,15 @@ for index,(kind,variant) in enumerate(VARIANTS.items()):
     joined.data.color_attributes.render_color_index=0
     joined.data.calc_loop_triangles()
     path=OUT/(kind+'.glb')
+    # Dense sculpt masters are not involved in animation authoring. Excluding
+    # their layer avoids reevaluating millions of hidden vertices for every IK step.
+    for layer in bpy.context.view_layer.layer_collection.children:
+        if layer.name.startswith('20_'):layer.exclude=True
     rig=bind_hero(joined,kind)
     bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',use_selection=True,export_yup=True,export_animations=bool(rig),export_animation_mode='NLA_TRACKS',export_force_sampling=True,export_vertex_color='ACTIVE',export_all_vertex_colors=False)
 
     shared_images.update(share_images(path))
-    stats[kind]={'triangles':len(joined.data.loop_triangles),'bytes':path.stat().st_size,'source_parts':len(names),'materials':1,'textures':3,'rigged':bool(rig)}
+    stats[kind]={'triangles':len(joined.data.loop_triangles),'bytes':path.stat().st_size,'source_parts':len(names),'materials':1,'textures':3,'rigged':bool(rig),'animation_fps':int(rig.get('animation_fps',30)) if rig else None,'anatomical_hands':detailed}
     if rig:
         # Keep a playable rig in source; modular static assemblies remain separately editable.
         rig.location=(0,3.5,0);joined.location=(0,0,0)
@@ -453,7 +457,7 @@ if reference.exists():
 for layer in bpy.context.view_layer.layer_collection.children:
     if layer.name.startswith('20_'):layer.exclude=False
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE),compress=True)
-report={'generator':'Blender local CPU / modular-samurai-v9-commanders-storm','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
+report={'generator':'Blender local CPU / modular-samurai-v10-anatomical-commanders','unique_source_parts':len(parts),'variants':stats,'shared_textures':shared_images,'shared_texture_bytes':sum(shared_images.values()),'paid_api_calls':0}
 (OUT/'manifest.json').write_text(json.dumps(report,indent=2)+'\n')
 # Only generated, content-addressed images can be retired. Keep hand-added files.
 for path in (OUT/'shared').glob('*.png'):

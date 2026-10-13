@@ -1,0 +1,23 @@
+{
+  "source_bones": 163,
+  "source_body_vertices": 13380,
+  "weights": "top four, normalized; linear skinning matches game export",
+  "frames": [
+    {
+      "frame": 0,
+      "file": "body-neutral.png"
+    },
+    {
+      "frame": 24,
+      "file": "body-elbow.png"
+    },
+    {
+      "frame": 48,
+      "file": "body-roll.png"
+    },
+    {
+      "frame": 72,
+      "file": "body-wrist.png"
+    }
+  ]
+}

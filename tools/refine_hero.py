@@ -287,15 +287,9 @@ def refine_hero(parts, mesh, rod, sphere, cube):
         tube(f'neck.hero.fold.{side}',[(side*.18,.09,1.37),(side*.137,-.105,1.381),(0,-.151,1.367)], [.027,.024,.018],'cape',10)
         keep(sphere(f'cuirass.hero.clasp.{side}',(side*.19,-.16,1.354),(.029,.011,.028),'gold',12,6))
 
-    # Higher quality shaft bindings and faceted, ridged jumonji blades.
-    # Compact closed gauntlets, articulated fingers around the grip and a thumb.
-    for side in [-1,1]:
-        keep(sphere(f'glove.hero.{side}',(side*.47,-.16,.91),(.061,.063,.071),'cloth',12,8))
-        plate(f'glove.hero.plate.{side}',[[(side*.47+u*.048,-.204,1.0-t*.062) for u in [-1,0,1]] for t in [0,.5,1]],'armor',.006,.002)
-        for j in range(4):
-            x=side*.47+(j-1.5)*.021
-            tube(f'finger.hero.{side}.{j}',[(x,-.209,.935),(x,-.221,.915),(x,-.198,.887),(x,-.175,.891)], [.010,.011,.010,.008],'cloth',6)
-        tube(f'finger.hero.thumb.{side}',[(side*.515,-.178,.948),(side*.512,-.217,.927),(side*.495,-.211,.906)],[.015,.013,.009],'cloth',8)
+    # Continuous CC0 anatomical gloves replace separate sphere/tube fingers.
+    from commander_hands import add_anatomical_hands
+    added.extend(add_anatomical_hands(mesh))
     keep(mesh('yari.hero.blade',[(.47,-.16,3.02),(.52,-.16,2.72),(.47,-.188,2.65),(.42,-.16,2.72),(.47,-.132,2.65)],[(0,1,2),(0,2,3),(0,3,4),(0,4,1),(1,4,3,2)],'steel'))
     for side in [-1,1]:
         keep(mesh(f'yari.hero.cross.{side}',[(.47,-.16,2.776),(.47+side*.225,-.16,2.77),(.47+side*.30,-.16,2.733),(.47+side*.225,-.16,2.697),(.47,-.16,2.69),(.47+side*.12,-.181,2.733),(.47+side*.12,-.139,2.733)],[(0,1,5),(1,2,5),(2,3,5),(3,4,5),(4,0,5),(1,0,6),(2,1,6),(3,2,6),(4,3,6),(0,4,6)],'steel'))

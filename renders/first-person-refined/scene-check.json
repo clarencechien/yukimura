@@ -1,0 +1,75 @@
+{
+  "scene_reopened": true,
+  "resolution": [
+    3840,
+    2160
+  ],
+  "bits_per_channel": 16,
+  "missing_external_images": [],
+  "packed_images": 6,
+  "troops": 50,
+  "shared_troop_pose_meshes": 4,
+  "poses": [
+    {
+      "frame": 1,
+      "camera": [
+        0.0,
+        0.07999999821186066,
+        2.049999952316284
+      ],
+      "joints": [
+        {
+          "side": "L",
+          "wrist_gap_m": 6.664001874625056e-08,
+          "forearm_length_m": 0.33999997143797894
+        },
+        {
+          "side": "R",
+          "wrist_gap_m": 2.9802322387695312e-08,
+          "forearm_length_m": 0.33999998376430796
+        }
+      ]
+    },
+    {
+      "frame": 120,
+      "camera": [
+        0.0,
+        -6.920000076293945,
+        2.049999952316284
+      ],
+      "joints": [
+        {
+          "side": "L",
+          "wrist_gap_m": 1.2489448945403256e-07,
+          "forearm_length_m": 0.339999963220426
+        },
+        {
+          "side": "R",
+          "wrist_gap_m": 1.2013700229374393e-07,
+          "forearm_length_m": 0.34000001937370034
+        }
+      ]
+    },
+    {
+      "frame": 240,
+      "camera": [
+        0.0,
+        -12.920000076293945,
+        2.049999952316284
+      ],
+      "joints": [
+        {
+          "side": "L",
+          "wrist_gap_m": 1.228781230931777e-07,
+          "forearm_length_m": 0.34000009744043214
+        },
+        {
+          "side": "R",
+          "wrist_gap_m": 1.6340398937062404e-07,
+          "forearm_length_m": 0.3400000892228823
+        }
+      ]
+    }
+  ],
+  "note": "Checks connectivity and saved scene integrity; visual anatomy still requires artistic review."
+}

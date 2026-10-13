@@ -1,0 +1,24 @@
+{
+  "source_triangles": 124240,
+  "source_objects": 346,
+  "bones": 22,
+  "atlas_resolution": 1024,
+  "texture_count": 3,
+  "bind_pose": "grip",
+  "animation_clips": 0,
+  "lods": [
+    {
+      "file": "kote-lod0.glb",
+      "triangles": 23990,
+      "vertices": 13094,
+      "bytes": 3875892
+    },
+    {
+      "file": "kote-lod1.glb",
+      "triangles": 10795,
+      "vertices": 6441,
+      "bytes": 3129640
+    }
+  ],
+  "seconds": 5.38
+}

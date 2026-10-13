@@ -11,8 +11,11 @@ bpy.ops.wm.open_mainfile(filepath=str(source))
 high_layers=[layer for layer in bpy.context.view_layer.layer_collection.children if layer.name.startswith('20_')]
 for layer in high_layers:layer.exclude=True
 report=json.loads((out/'manifest.json').read_text())
-shared={}
+selected=set(os.environ.get('MODEL_VARIANTS',','.join(report['variants'])).split(','))
+assert selected <= set(report['variants']), 'Unknown model variant'
+shared=dict(report['shared_textures']) if selected != set(report['variants']) else {}
 for kind in report['variants']:
+    if kind not in selected:continue
     mesh=bpy.data.objects[kind+'_runtime']
     old=mesh.parent;mesh.parent=None;mesh.location=(0,0,0)
     for mod in list(mesh.modifiers):
@@ -24,6 +27,8 @@ for kind in report['variants']:
     path=out/(kind+'.glb')
     bpy.ops.export_scene.gltf(filepath=str(path),export_format='GLB',use_selection=True,export_yup=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_force_sampling=True,export_vertex_color='ACTIVE',export_all_vertex_colors=False)
     shared.update(share_images(path));report['variants'][kind]['bytes']=path.stat().st_size
+    report['variants'][kind]['animation_fps']=int(rig.get('animation_fps',30))
+    report['variants'][kind]['anatomical_hands']=kind in ('yukimura','ieyasu')
     rig.location=(0,3.5,0);rig.hide_render=True;mesh.hide_render=True
 for layer in high_layers:layer.exclude=False
 bpy.context.preferences.filepaths.save_version=0

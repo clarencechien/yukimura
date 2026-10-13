@@ -18,20 +18,24 @@ const attribute='bakedVertexAnimationSettingsInstanced';
 /** All soldiers share a palette and geometry; only one vec4 is updated per actor. */
 export class CrowdModel {
  readonly manager:BakedVertexAnimationManager;
- constructor(readonly source:Mesh,readonly palette:Palette,texture:RawTexture,scene:Scene){
+ constructor(readonly sources:Mesh[],readonly palette:Palette,texture:RawTexture,scene:Scene){
   this.manager=new BakedVertexAnimationManager(scene);this.manager.texture=texture;this.manager.time=0;
-  source.bakedVertexAnimationManager=this.manager;source.registerInstancedBuffer(attribute,4);
-  source.instancedBuffers[attribute]=new Vector4(0,0,0,0);
-  // The spear can extend beyond the rest bounds. Conservative bounds prevent
-  // animated troops disappearing at a screen edge without per-frame CPU skinning.
-  source.setBoundingInfo(new BoundingInfo(new Vector3(-4,-.5,-4),new Vector3(4,3.6,4)));
+  for(const source of sources){
+   source.bakedVertexAnimationManager=this.manager;source.registerInstancedBuffer(attribute,4);
+   source.instancedBuffers[attribute]=new Vector4(0,0,0,0);
+   // Shared bounds cover animated weapons and every material section.
+   source.setBoundingInfo(new BoundingInfo(new Vector3(-4,-.5,-4),new Vector3(4,3.6,4)));
+  }
  }
  create(root:TransformNode,scale:number,phase:number){
-  const mesh=this.source.createInstance(root.name+'-body');mesh.parent=root;
-  const s=Vector3.One(),q=Quaternion.Identity(),p=Vector3.Zero();this.source.computeWorldMatrix(true).decompose(s,q,p);
-  mesh.scaling.copyFrom(s.scale(scale));mesh.rotationQuaternion=q;mesh.position.copyFrom(p);
-  mesh.instancedBuffers[attribute]=new Vector4(0,0,0,0);mesh.isPickable=false;mesh.receiveShadows=true;
-  return new CrowdMotion(mesh,this.palette,phase);
+  const meshes=this.sources.map((source,index)=>{
+   const mesh=source.createInstance(root.name+'-body-'+index);mesh.parent=root;
+   const s=Vector3.One(),q=Quaternion.Identity(),p=Vector3.Zero();source.computeWorldMatrix(true).decompose(s,q,p);
+   mesh.scaling.copyFrom(s.scale(scale));mesh.rotationQuaternion=q;mesh.position.copyFrom(p);
+   mesh.instancedBuffers[attribute]=new Vector4(0,0,0,0);mesh.isPickable=false;mesh.receiveShadows=true;
+   return mesh;
+  });
+  return new CrowdMotion(meshes,this.palette,phase);
  }
 }
 export async function loadPalettes(scene:Scene,manifest:CrowdManifest,base:string){
@@ -46,11 +50,12 @@ export async function loadPalettes(scene:Scene,manifest:CrowdManifest,base:strin
 }
 export class CrowdMotion {
  state:CrowdClip='idle';time=0;frame=0;private loopClock:number;
- constructor(readonly mesh:InstancedMesh,private palette:Palette,phase:number){this.loopClock=phase;this.sample('idle',phase%1);}
+ get mesh(){return this.meshes[0];}
+ constructor(readonly meshes:InstancedMesh[],private palette:Palette,phase:number){this.loopClock=phase;this.sample('idle',phase%1);}
  sample(clip:CrowdClip,progress:number){
   this.state=clip;const range=this.palette.clips[clip];
   this.frame=range.start+Math.round(Math.max(0,Math.min(1,progress))*(range.end-range.start));
-  (this.mesh.instancedBuffers[attribute] as Vector4).set(this.frame,this.frame,0,0);
+  for(const mesh of this.meshes)(mesh.instancedBuffers[attribute] as Vector4).set(this.frame,this.frame,0,0);
  }
  loop(dt:number,moving:boolean,speed=1){
   this.loopClock+=dt*speed;const clip=moving?'run':'idle';const duration=this.palette.clips[clip].duration;

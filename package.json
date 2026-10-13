@@ -8,15 +8,18 @@
     "build": "tsc && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test tests/*.test.mjs",
-    "models": "blender --background --threads 2 --python-exit-code 1 --python tools/build_models.py && node tools/bake-crowd.mjs && npm run look",
+    "models": "blender --background --threads 2 --python-exit-code 1 --python tools/build_models.py && npm run models:rigs && npm run look",
     "test:e2e": "npm run build && playwright test",
     "models:preview": "blender --background assets/source/samurai-kit.blend --threads 2 --python-exit-code 1 --python tools/render_models.py",
     "build:pages": "npm run build -- --base=/yukimura/",
     "test:pages": "npm run build:pages && playwright test --config playwright.pages.config.mjs",
     "models:high-preview": "blender --background assets/source/samurai-kit.blend --threads 2 --python-exit-code 1 --python tools/render_highpoly.py",
     "environment": "blender --background --threads 2 --python-exit-code 1 --python tools/build_environment.py",
-    "models:animations": "blender --background --threads 2 --python-exit-code 1 --python tools/rebuild_animations.py && node tools/bake-crowd.mjs",
-    "look": "blender --background --threads 2 --python-exit-code 1 --python tools/build_finish.py"
+    "models:animations": "blender --background --threads 2 --python-exit-code 1 --python tools/rebuild_animations.py && npm run models:rigs",
+    "look": "blender --background --threads 2 --python-exit-code 1 --python tools/build_finish.py",
+    "models:rigs": "blender --background --threads 2 --python-exit-code 1 --python tools/upgrade_commander_rigs.py && npm run models:physique",
+    "models:physique": "blender --background --threads 2 --python-exit-code 1 --python tools/refine_commander_physique.py && npm run models:details",
+    "models:details": "blender --background --threads 2 --python-exit-code 1 --python tools/detail_commanders.py && python3 tools/promote_fullbody.py --detail && node tools/bake-crowd.mjs"
   },
   "dependencies": {
     "@babylonjs/core": "^8.0.0",

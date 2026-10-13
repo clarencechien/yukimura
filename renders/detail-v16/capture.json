@@ -1,0 +1,290 @@
+[
+  {
+    "kind": "yukimura",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "full",
+    "file": "yukimura-detail-idle-full.png",
+    "bones": 92,
+    "triangles": 76625
+  },
+  {
+    "kind": "yukimura",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "arms",
+    "file": "yukimura-detail-idle-arms.png",
+    "bones": 92,
+    "triangles": 76625
+  },
+  {
+    "kind": "yukimura",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "armor",
+    "file": "yukimura-detail-idle-armor.png",
+    "bones": 92,
+    "triangles": 76625
+  },
+  {
+    "kind": "yukimura",
+    "rig": "detail",
+    "clip": "thrust",
+    "view": "full",
+    "file": "yukimura-detail-thrust-full.png",
+    "bones": 92,
+    "triangles": 76625
+  },
+  {
+    "kind": "yukimura",
+    "rig": "detail",
+    "clip": "thrust",
+    "view": "arms",
+    "file": "yukimura-detail-thrust-arms.png",
+    "bones": 92,
+    "triangles": 76625
+  },
+  {
+    "kind": "yukimura",
+    "rig": "detail",
+    "clip": "thrust",
+    "view": "armor",
+    "file": "yukimura-detail-thrust-armor.png",
+    "bones": 92,
+    "triangles": 76625
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "idle",
+    "view": "full",
+    "file": "yukimura-physique-idle-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "idle",
+    "view": "arms",
+    "file": "yukimura-physique-idle-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "idle",
+    "view": "armor",
+    "file": "yukimura-physique-idle-armor.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "thrust",
+    "view": "full",
+    "file": "yukimura-physique-thrust-full.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "thrust",
+    "view": "arms",
+    "file": "yukimura-physique-thrust-arms.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "yukimura",
+    "rig": "physique",
+    "clip": "thrust",
+    "view": "armor",
+    "file": "yukimura-physique-thrust-armor.png",
+    "bones": 92,
+    "triangles": 63193
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "full",
+    "file": "ieyasu-detail-idle-full.png",
+    "bones": 92,
+    "triangles": 73775
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "arms",
+    "file": "ieyasu-detail-idle-arms.png",
+    "bones": 92,
+    "triangles": 73775
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "armor",
+    "file": "ieyasu-detail-idle-armor.png",
+    "bones": 92,
+    "triangles": 73775
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "detail",
+    "clip": "thrust",
+    "view": "full",
+    "file": "ieyasu-detail-thrust-full.png",
+    "bones": 92,
+    "triangles": 73775
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "detail",
+    "clip": "thrust",
+    "view": "arms",
+    "file": "ieyasu-detail-thrust-arms.png",
+    "bones": 92,
+    "triangles": 73775
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "detail",
+    "clip": "thrust",
+    "view": "armor",
+    "file": "ieyasu-detail-thrust-armor.png",
+    "bones": 92,
+    "triangles": 73775
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "idle",
+    "view": "full",
+    "file": "ieyasu-physique-idle-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "idle",
+    "view": "arms",
+    "file": "ieyasu-physique-idle-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "idle",
+    "view": "armor",
+    "file": "ieyasu-physique-idle-armor.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "thrust",
+    "view": "full",
+    "file": "ieyasu-physique-thrust-full.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "thrust",
+    "view": "arms",
+    "file": "ieyasu-physique-thrust-arms.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ieyasu",
+    "rig": "physique",
+    "clip": "thrust",
+    "view": "armor",
+    "file": "ieyasu-physique-thrust-armor.png",
+    "bones": 92,
+    "triangles": 60343
+  },
+  {
+    "kind": "ashigaru",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "full",
+    "file": "ashigaru-detail-idle-full.png",
+    "bones": 18,
+    "triangles": 3650
+  },
+  {
+    "kind": "ashigaru",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "armor",
+    "file": "ashigaru-detail-idle-armor.png",
+    "bones": 18,
+    "triangles": 3650
+  },
+  {
+    "kind": "ashigaru",
+    "rig": "detail-base",
+    "clip": "idle",
+    "view": "full",
+    "file": "ashigaru-detail-base-idle-full.png",
+    "bones": 18,
+    "triangles": 3010
+  },
+  {
+    "kind": "ashigaru",
+    "rig": "detail-base",
+    "clip": "idle",
+    "view": "armor",
+    "file": "ashigaru-detail-base-idle-armor.png",
+    "bones": 18,
+    "triangles": 3010
+  },
+  {
+    "kind": "tokugawa",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "full",
+    "file": "tokugawa-detail-idle-full.png",
+    "bones": 18,
+    "triangles": 3506
+  },
+  {
+    "kind": "tokugawa",
+    "rig": "detail",
+    "clip": "idle",
+    "view": "armor",
+    "file": "tokugawa-detail-idle-armor.png",
+    "bones": 18,
+    "triangles": 3506
+  },
+  {
+    "kind": "tokugawa",
+    "rig": "detail-base",
+    "clip": "idle",
+    "view": "full",
+    "file": "tokugawa-detail-base-idle-full.png",
+    "bones": 18,
+    "triangles": 2866
+  },
+  {
+    "kind": "tokugawa",
+    "rig": "detail-base",
+    "clip": "idle",
+    "view": "armor",
+    "file": "tokugawa-detail-base-idle-armor.png",
+    "bones": 18,
+    "triangles": 2866
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "lod": 0,
+    "glb_bytes": 3875892,
+    "mesh_primitives": 1,
+    "materials": 1,
+    "embedded_images": 3,
+    "bones": 22,
+    "reimported_vertices": 24523,
+    "weight_sum_max_error": 1.2665987014770508e-07,
+    "bone_deformation_max_m": 0.013192477367956567
+  },
+  {
+    "lod": 1,
+    "glb_bytes": 3129640,
+    "mesh_primitives": 1,
+    "materials": 1,
+    "embedded_images": 3,
+    "bones": 22,
+    "reimported_vertices": 14713,
+    "weight_sum_max_error": 1.1175870895385742e-07,
+    "bone_deformation_max_m": 0.013209909874875003
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "scope": "v15 physique morphology; no new bones or triangles",
+  "tests": {
+    "unit": {
+      "passed": 26,
+      "failed": 0
+    },
+    "browser": {
+      "passed": 2,
+      "failed": 0,
+      "scope": "Ieyasu GPU palette parity and all three material sections"
+    },
+    "typescript_and_vite_build": "passed"
+  },
+  "paid_api_calls": 0,
+  "modal_jobs": 0,
+  "deployed": false,
+  "real_phone_performance_measured": false,
+  "models": {
+    "yukimura": {
+      "sha256": "9e3933d071dacd90aed10d4cb0f558a0801fd2a97781dcde3b8a6f95453797ae",
+      "triangles": 63193,
+      "bones": 92,
+      "source_bones": 163,
+      "materials": 3,
+      "bytes": 5322684,
+      "textures": {
+        "shared/3f18fb5ef08fc666.png": 3599061,
+        "shared/51556055f4d59f62.png": 2477336,
+        "shared/12517fdcd06fdcb2.png": 2232923
+      },
+      "physique": {
+        "changed_vertices": 34580,
+        "vertices": 57931,
+        "max_displacement_m": 0.04026882335369085,
+        "unchanged_finger_vertices": 4118,
+        "topology_changed": false,
+        "bind_pose_changed": false,
+        "extra_textures": 0,
+        "source": "v14 fullbody .blend",
+        "upper_arm_peak_radius_multiplier": 1.7,
+        "forearm_peak_radius_multiplier": 1.6400000000000001
+      }
+    },
+    "ieyasu": {
+      "sha256": "65c6a47b6aa56abdc0b3e0f4147036b5833951bf22e9907e175762c357f9ca07",
+      "triangles": 60343,
+      "bones": 92,
+      "source_bones": 163,
+      "materials": 3,
+      "bytes": 5061224,
+      "textures": {
+        "shared/47b71e723f59644e.png": 1260027,
+        "shared/dd52f7b6de222d4c.png": 870976,
+        "shared/a9fb7ac1d84d1457.png": 872270
+      },
+      "physique": {
+        "changed_vertices": 33437,
+        "vertices": 54334,
+        "max_displacement_m": 0.04510106099060168,
+        "unchanged_finger_vertices": 4118,
+        "topology_changed": false,
+        "bind_pose_changed": false,
+        "extra_textures": 0,
+        "source": "v14 fullbody .blend",
+        "upper_arm_peak_radius_multiplier": 1.784,
+        "forearm_peak_radius_multiplier": 1.7168
+      }
+    }
+  }
+}
