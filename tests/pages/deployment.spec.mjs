@@ -1,4 +1,26 @@
 import {test,expect} from '@playwright/test';
+test('Candidate study resolves images, licensed models and provenance under Pages subpath',async({page,request})=>{
+ const errors=[];
+ page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
+ const base='http://127.0.0.1:4174/yukimura/review/candidates/';
+ const response=await page.goto(base);
+ expect(response.status()).toBe(200);
+ await expect(page).toHaveTitle('赤冬 · 寫實人物素材試載');
+ await expect(page.locator('img')).toHaveCount(5);
+ await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
+ for(const width of [1280,390]){
+  await page.setViewportSize({width,height:900});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+ }
+ for(const file of ['rocketbox-LICENSE.txt','cyber-samurai-LICENSE.txt','sources.json','validation.json','browser-check.json']){
+  expect((await request.get(base+file)).status()).toBe(200);
+ }
+ for(const name of ['rocketbox','cyber-samurai']){
+  const model=await request.get(base+name+'.glb');expect(model.status()).toBe(200);
+  expect((await model.body()).subarray(0,4).toString()).toBe('glTF');
+ }
+ expect(errors).toEqual([]);
+});
 test('Pages subpath loads background, four models and shared textures, and starts combat',async({page})=>{
  const errors=[],assets=new Set();
  page.on('pageerror',e=>errors.push(e.message));

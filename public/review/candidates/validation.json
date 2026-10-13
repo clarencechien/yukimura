@@ -1,0 +1,316 @@
+[
+  {
+    "id": "rocketbox",
+    "triangles": 6732,
+    "bones": 80,
+    "morph_targets": 175,
+    "materials": 3,
+    "textures": [
+      {
+        "name": "Bitmaptexture",
+        "source_size": [
+          2048,
+          2048
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Bitmaptexture.001",
+        "source_size": [
+          2048,
+          2048
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Map #0",
+        "source_size": [
+          2048,
+          2048
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Map #2",
+        "source_size": [
+          2048,
+          2048
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Map #4",
+        "source_size": [
+          2048,
+          2048
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Map #6",
+        "source_size": [
+          2048,
+          2048
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Map #8",
+        "source_size": [
+          1024,
+          1024
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Map #8.001",
+        "source_size": [
+          1024,
+          1024
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      }
+    ],
+    "source_actions": 1,
+    "glb_bytes": 7495676,
+    "export_triangles": 6732,
+    "export_animations": 0,
+    "export_morph_targets": 5
+  },
+  {
+    "id": "cyber-samurai",
+    "triangles": 208808,
+    "bones": 0,
+    "morph_targets": 0,
+    "materials": 5,
+    "textures": [
+      {
+        "name": "LowSet1_baseColor.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet1_emissive.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet1_metallicRoughness.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet1_normal.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet2_baseColor.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet2_emissive.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet2_metallicRoughness.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet2_normal.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet3_baseColor.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet3_metallicRoughness.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "LowSet3_normal.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Robe2_baseColor.jpeg",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Robe2_metallicRoughness.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Robe2_normal.jpeg",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Robe_baseColor.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Robe_metallicRoughness.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Robe_normal.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "name": "Robe_transmission.png",
+        "source_size": [
+          4096,
+          4096
+        ],
+        "preview_size": [
+          1024,
+          1024
+        ]
+      }
+    ],
+    "source_actions": 0,
+    "glb_bytes": 20161736,
+    "export_triangles": 208808,
+    "export_animations": 0,
+    "export_morph_targets": 0
+  }
+]

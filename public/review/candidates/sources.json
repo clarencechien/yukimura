@@ -1,0 +1,210 @@
+[
+  {
+    "id": "rocketbox",
+    "repository": "microsoft/Microsoft-Rocketbox",
+    "commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "Export/Male_Adult_10.fbx",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Export/Male_Adult_10.fbx",
+        "bytes": 541104,
+        "sha256": "6a7a693d9a7ea6c866037f0cc8e45c5243bbcff008665b2ae505f72a6648ae00"
+      },
+      {
+        "path": "Export/Male_Adult_10_facial.fbx",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Export/Male_Adult_10_facial.fbx",
+        "bytes": 1877232,
+        "sha256": "e62c3c1345150d4cfebf454fbcb906d3cc8f4c846f4ee63e06d6928438b409a3"
+      },
+      {
+        "path": "Male_Adult_10.png",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Male_Adult_10.png",
+        "bytes": 457608,
+        "sha256": "7963b9cc195cbd65b8f70d813bee5a22dc59cade1d08241a56cb6b949ea0c71f"
+      },
+      {
+        "path": "Textures/m024_body_color.tga",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Textures/m024_body_color.tga",
+        "bytes": 12582956,
+        "sha256": "5424cf19d81306897f005a94e104cfff08dd0d75cba57734cc056baab85e12cb"
+      },
+      {
+        "path": "Textures/m024_body_normal.tga",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Textures/m024_body_normal.tga",
+        "bytes": 12582956,
+        "sha256": "7a9e4d43aa92d9eaf9d85d81a6554dea6ade8196f7416b325bf8107da45ccb66"
+      },
+      {
+        "path": "Textures/m024_body_specular.tga",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Textures/m024_body_specular.tga",
+        "bytes": 12582956,
+        "sha256": "afb52fb44863182a26362309a867f22003401c28f21f6b88085f4af9442080cf"
+      },
+      {
+        "path": "Textures/m024_head_color.tga",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Textures/m024_head_color.tga",
+        "bytes": 12582956,
+        "sha256": "60e12ea8f638ddeb99f315a805b907c7ddbb5ea048234b0b1e58c5bfb8bc1dd3"
+      },
+      {
+        "path": "Textures/m024_head_normal.tga",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Textures/m024_head_normal.tga",
+        "bytes": 12582956,
+        "sha256": "42a8eeecd5c552b1052e5a9d2f4ced23b67fa78df4c6854ad95f21cb5e490393"
+      },
+      {
+        "path": "Textures/m024_head_specular.tga",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Textures/m024_head_specular.tga",
+        "bytes": 12582956,
+        "sha256": "0160159b16d6a5b565b1d8155f4f8614d7202c1c8e6e10ba21360cb60c81f82b"
+      },
+      {
+        "path": "Textures/m024_opacity_color.tga",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_10/Textures/m024_opacity_color.tga",
+        "bytes": 4194348,
+        "sha256": "801be5b63549f6ca46c405a4d86c723735a7c4edcbb042c453bdb6fed31bfbdb"
+      },
+      {
+        "path": "LICENSE.md",
+        "source": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/LICENSE.md",
+        "bytes": 1066,
+        "sha256": "17474e386e0b9e1a700cc3d06b2b0882a2c376d9c6b49c7f8274409b8f8d2352"
+      }
+    ]
+  },
+  {
+    "id": "cyber-samurai",
+    "repository": "Tresjs/assets",
+    "commit": "2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f",
+    "license": "CC-BY-4.0",
+    "files": [
+      {
+        "path": "license.txt",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/license.txt",
+        "bytes": 688,
+        "sha256": "25273f11b70a5fc928048e11185124beaa5c55410d21508abaa1e6ebe9c3c69e"
+      },
+      {
+        "path": "scene.bin",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/scene.bin",
+        "bytes": 10388832,
+        "sha256": "caf9ad11cf1e9695e6df73b125578aba47483550e3efac6bdc306e17ba6badfb"
+      },
+      {
+        "path": "scene.gltf",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/scene.gltf",
+        "bytes": 40861,
+        "sha256": "44724d8e0b62ca8b6a08ce37bbd5a70f20b17dfd22fa707dbb5d4b5044b79b14"
+      },
+      {
+        "path": "textures/LowSet1_baseColor.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet1_baseColor.png",
+        "bytes": 10321756,
+        "sha256": "5b22bf6fb543d445c464fe85e8ebaab67008081690b0ee239b071ac4b9dcd630"
+      },
+      {
+        "path": "textures/LowSet1_emissive.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet1_emissive.png",
+        "bytes": 61580,
+        "sha256": "3e2efd10b9c2670bc98b2db21b351516c33abc957b7bb465c1a16a14343971f3"
+      },
+      {
+        "path": "textures/LowSet1_metallicRoughness.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet1_metallicRoughness.png",
+        "bytes": 9210885,
+        "sha256": "44b756a986a37edd480e8f282551df749b2d92b083d2aff0135055f776eaef67"
+      },
+      {
+        "path": "textures/LowSet1_normal.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet1_normal.png",
+        "bytes": 10721471,
+        "sha256": "aac5023e2527f99794e82bc1285133c7710d40ec6b2d573a4438e80c6c9a0de2"
+      },
+      {
+        "path": "textures/LowSet2_baseColor.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet2_baseColor.png",
+        "bytes": 10526711,
+        "sha256": "2430041d7641e859eca037e74ced8990059a8163f3dca52d0a288a876aa972b8"
+      },
+      {
+        "path": "textures/LowSet2_emissive.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet2_emissive.png",
+        "bytes": 24162,
+        "sha256": "ab809f928be80c7a5c617f0c0c75176ea569c19a077a2115fb8ac6782e44c5b6"
+      },
+      {
+        "path": "textures/LowSet2_metallicRoughness.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet2_metallicRoughness.png",
+        "bytes": 8252066,
+        "sha256": "6140d7ec37375b33cc4bafb8f077d2746f5120ff83e28adf1149b4ffff9eaec8"
+      },
+      {
+        "path": "textures/LowSet2_normal.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet2_normal.png",
+        "bytes": 8690341,
+        "sha256": "5cde1b272d81c00731e43157293babfe7030ee633c1ad8cb5b1db52334e26970"
+      },
+      {
+        "path": "textures/LowSet3_baseColor.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet3_baseColor.png",
+        "bytes": 7474933,
+        "sha256": "81bb64b9a02db82a5e4c14e7cbdb62b5e4d86ee92879ec5aaea75c4812dc423a"
+      },
+      {
+        "path": "textures/LowSet3_metallicRoughness.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet3_metallicRoughness.png",
+        "bytes": 3088133,
+        "sha256": "409fd60fe8fbd4fe540a757932a8c608f6106e706e9af684c2d3f091d4611c3f"
+      },
+      {
+        "path": "textures/LowSet3_normal.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/LowSet3_normal.png",
+        "bytes": 9829213,
+        "sha256": "64967b93d5020c64a305a8bcb37eb070912f00e67bef5e255fb3d66c9e38f19b"
+      },
+      {
+        "path": "textures/Robe2_baseColor.jpeg",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/Robe2_baseColor.jpeg",
+        "bytes": 10847021,
+        "sha256": "9ee95d2b84466e7a20043bc93931ca5782cc2201bf782cb7f8a2a36893fde236"
+      },
+      {
+        "path": "textures/Robe2_metallicRoughness.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/Robe2_metallicRoughness.png",
+        "bytes": 2131,
+        "sha256": "33be64e1cdc4add550fad06fa25721d5ac0e33503220dca7415268e53a04da4e"
+      },
+      {
+        "path": "textures/Robe2_normal.jpeg",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/Robe2_normal.jpeg",
+        "bytes": 25521449,
+        "sha256": "efd378fc6a8f93998e9e3bbbf329e632a5fc89afcf1983061a2b852f3748b45a"
+      },
+      {
+        "path": "textures/Robe_baseColor.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/Robe_baseColor.png",
+        "bytes": 3788666,
+        "sha256": "f402786526ceedd327d6e9138883c951b455c01f8b31185550ac13978b2b6636"
+      },
+      {
+        "path": "textures/Robe_metallicRoughness.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/Robe_metallicRoughness.png",
+        "bytes": 2756787,
+        "sha256": "0825220361a7441c1a37c0cd570ef40587834bdb2121e08042e8fdaadf2030e4"
+      },
+      {
+        "path": "textures/Robe_normal.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/Robe_normal.png",
+        "bytes": 7729060,
+        "sha256": "8102eb19abfac3e156038ad4589462e3c3938228d7a8fc33e42e34ad0cbc8851"
+      },
+      {
+        "path": "textures/Robe_transmission.png",
+        "source": "https://raw.githubusercontent.com/Tresjs/assets/2e771aed0124c3af8fb2449a4c59b4ad08d0cc5f/models/gltf/cyber-samurai/textures/Robe_transmission.png",
+        "bytes": 319630,
+        "sha256": "bf2f3fa3ffa3b8dc7b8070cc8a4d4340c144db796357aa3b5d6fb53674962135"
+      }
+    ]
+  }
+]

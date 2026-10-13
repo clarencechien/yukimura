@@ -1,0 +1,42 @@
+{
+  "renderer": "Chromium / SwiftShader (software; not a phone performance test)",
+  "results": [
+    {
+      "kind": "rocketbox",
+      "meshes": 3,
+      "triangles": 6732,
+      "skeletons": 1,
+      "bones": [
+        80
+      ],
+      "morphTargets": [
+        5,
+        5,
+        5
+      ],
+      "textures": 13,
+      "missingTextures": [],
+      "nonFiniteMeshes": []
+    },
+    {
+      "kind": "cyber-samurai",
+      "meshes": 18,
+      "triangles": 208808,
+      "skeletons": 0,
+      "bones": [],
+      "morphTargets": [],
+      "textures": 21,
+      "missingTextures": [],
+      "nonFiniteMeshes": []
+    }
+  ],
+  "errors": [],
+  "gallery": {
+    "images": 5,
+    "widths": [
+      1280,
+      390
+    ],
+    "passed": true
+  }
+}
