@@ -2,6 +2,7 @@
   "fps": 60,
   "models": {
     "ashigaru": {
+      "source_sha256": "835093498b1d30e9e1f381fba579c220378d176df761b48a3050fc73236a6c9a",
       "uri": "shared/a1e1a2cc50ebb85a.bin",
       "bytes": 503424,
       "width": 76,
@@ -41,6 +42,7 @@
       }
     },
     "tokugawa": {
+      "source_sha256": "19d23d15cb78dc8dcbddf40ac2e8cadb63aa2227f85352fbb31905a17f11538b",
       "uri": "shared/a1e1a2cc50ebb85a.bin",
       "bytes": 503424,
       "width": 76,
@@ -80,7 +82,8 @@
       }
     },
     "ieyasu": {
-      "uri": "shared/836b96320ccd30f3.bin",
+      "source_sha256": "99cc65980cf2c397a7a424938b175b921161f40cecb9dba3beac6c64131cc6a1",
+      "uri": "shared/3cb9a17153148daa.bin",
       "bytes": 2464128,
       "width": 372,
       "height": 414,

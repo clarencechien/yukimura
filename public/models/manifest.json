@@ -1,10 +1,10 @@
 {
-  "generator": "modular-samurai-v20-embossed-menpo",
+  "generator": "modular-samurai-v22-authored-weapon-grips",
   "unique_source_parts": 905,
   "variants": {
     "yukimura": {
       "triangles": 87087,
-      "bytes": 6352092,
+      "bytes": 6202652,
       "source_parts": 532,
       "materials": 5,
       "textures": 7,
@@ -65,7 +65,7 @@
         "minimum_authored_front_clearance_m": 0.01,
         "mouth_opening": true,
         "eye_openings": 0,
-        "reference_form": "embossed menpo: continuous lip, alar sockets, cheek bosses, rounded chin",
+        "reference_form": "v21 trial: v19 silhouette, restrained cheeks and thin mouth rim",
         "shared_material": "samurai woven cords and fittings",
         "bone": "body.head",
         "new_textures": 0,
@@ -96,6 +96,19 @@
           "runtime_morph_targets": 0,
           "sculpt": "inner brow compression, raised brow ridge and glabella furrows"
         }
+      },
+      "grip_study": {
+        "version": "v22",
+        "authored_clips": [
+          "idle",
+          "thrust"
+        ],
+        "spacing_m": {
+          "idle": 0.32,
+          "thrust": 0.32
+        },
+        "runtime_ik": false,
+        "source_sha256": "eea112345490b939d0f52606209df403f98a6a103c95336a1cea2243432ec524"
       }
     },
     "ashigaru": {
@@ -121,8 +134,8 @@
       "fittings_lod": "crowd"
     },
     "ieyasu": {
-      "triangles": 85503,
-      "bytes": 6129180,
+      "triangles": 84831,
+      "bytes": 5961236,
       "source_parts": 590,
       "materials": 5,
       "textures": 7,
@@ -178,12 +191,12 @@
       },
       "menpo": {
         "shell_vertices": 3040,
-        "vertices": 5287,
+        "vertices": 4903,
         "shell_thickness_m": 0.002,
         "minimum_authored_front_clearance_m": 0.01,
         "mouth_opening": true,
         "eye_openings": 0,
-        "reference_form": "embossed menpo: continuous lip, alar sockets, cheek bosses, rounded chin",
+        "reference_form": "v21 trial: v19 silhouette, restrained cheeks and thin mouth rim",
         "shared_material": "samurai woven cords and fittings",
         "bone": "body.head",
         "new_textures": 0,
@@ -214,6 +227,19 @@
           "runtime_morph_targets": 0,
           "sculpt": "inner brow compression, raised brow ridge and glabella furrows"
         }
+      },
+      "grip_study": {
+        "version": "v22",
+        "authored_clips": [
+          "idle",
+          "thrust"
+        ],
+        "spacing_m": {
+          "idle": -0.15,
+          "thrust": -0.15
+        },
+        "runtime_ik": false,
+        "source_sha256": "99cc65980cf2c397a7a424938b175b921161f40cecb9dba3beac6c64131cc6a1"
       }
     }
   },

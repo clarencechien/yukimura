@@ -7,7 +7,7 @@ test('v21 face and weapon-grip trials show candidates first with valid evidence'
   await expect(page).toHaveTitle(title);await expect(page.locator('img')).toHaveCount(count);
   await expect(page.locator('figcaption').first()).toHaveText('v21 試作');
   await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
-  await expect(page.locator('.tag')).toContainText('尚未替換遊戲');
+  await expect(page.locator('.tag')).toContainText('v22');
   for(const width of [1280,390]){
    await page.setViewportSize({width,height:900});
    expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
@@ -131,7 +131,7 @@ test('v22 wrist study links from the open trial and loads comparison images and 
  await page.goto(base+'menpo/trial/');
  await page.getByRole('link',{name:'最新 v22 手腕與握姿試作 ↗'}).click();
  await expect(page).toHaveTitle('赤冬 · 手腕與握姿試作 v22');
- await expect(page.locator('.tag')).toContainText('尚未替換遊戲');
+ await expect(page.locator('.tag')).toContainText('已套用至遊戲');
  await expect(page.locator('img')).toHaveCount(32);
  await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>{i.loading='eager';return i.decode()})));
  await expect(page.locator('figcaption').first()).toContainText('穿甲');

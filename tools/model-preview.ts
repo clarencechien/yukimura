@@ -27,7 +27,7 @@ const ground=MeshBuilder.CreateGround('ground',{width:100,height:100},scene);gro
 const requested=new URLSearchParams(location.search).get('model')||'yukimura';const kind=['yukimura','ashigaru','tokugawa','ieyasu'].includes(requested)?requested:'yukimura';
 const study=new URLSearchParams(location.search).get('rig');
 const modelRoot=study==='wrist'?'/.tmp/wrist-v22/models/':study==='trial'?'/.tmp/menpo-v21/models/':study==='trial-before'?'/.tmp/menpo-v21/before/':study==='sculpt'?'/.tmp/menpo-v20/models/':study==='sculpt-before'?'/.tmp/menpo-v20/before/':study==='visor'?'/.tmp/menpo-v19/models/':study==='visor-before'?'/.tmp/menpo-v19/before/':study==='menpo'?'/.tmp/menpo-v18/models/':study==='menpo-before'?'/.tmp/menpo-v18/before/':study==='face'?'/.tmp/face-v17/models/':study==='face-before'?'/.tmp/face-v17/before/':study==='fullbody'?'/.tmp/fullbody-v14/models/':study==='physique'?'/.tmp/physique-v15/models/':study==='detail'?'/.tmp/detail-v16/models/':study==='detail-base'?'/.tmp/detail-v16/base/':'/models/';
-const loaded=await SceneLoader.ImportMeshAsync('',modelRoot,kind+(study==='detail-base'?'-base':'')+'.glb?rev=commander-20',scene);
+const loaded=await SceneLoader.ImportMeshAsync('',modelRoot,kind+(study==='detail-base'?'-base':'')+'.glb?rev=commander-22',scene);
 finishMaterials(scene,loaded.meshes,kind,study!=='fullbody'&&study!=='physique'&&study!=='detail-base');
 document.querySelector('h1')!.textContent=({yukimura:'真田幸村',ashigaru:'赤備足輕',tokugawa:'德川足輕',ieyasu:'家康・修羅之影'} as Record<string,string>)[kind];
 loaded.meshes.forEach(m=>{m.receiveShadows=true;shadows.addShadowCaster(m)});

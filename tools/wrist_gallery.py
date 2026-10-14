@@ -40,8 +40,8 @@ for kind,title in [('yukimura','幸村 · 長槍'),('ieyasu','家康 · 雙手�
             for view in ['side','top']:sections.append(figure(kind,clip,look,view))
         sections.append('</div></details>')
     sections.append('</section>')
-intro='''<nav><a href="../menpo/trial/">面具試作</a> · <a href="../technique/">上一輪握姿</a> · <a href="../../">遊戲</a></nav><p class="tag">V22 · 握姿試作，尚未替換遊戲動作</p><h1>讓手肘、手腕與握柄一起就位</h1><p>幸村後手移近身體中線，槍尖朝前；家康將雙手提到胸前，保留手肘彎曲空間。拇指轉向對握，分別調整指節包覆，避免把手腕硬扭成看似筆直。</p><p>左側／手機第一張是新試作，右側／下一張是 v21。卸甲視圖保留同一套手臂與手指網格，以單色查看握姿；肩部開口是原本藏在鎧甲內的模型裁切。點圖可放大，動畫可暫停。</p>'''
-footer='''<p>本轮完成持槍、持刀與突刺試作。沿用同一套 92 骨架與貼圖，已烘焙為遊戲可載入的 GLB；沒有新增手機即時 IK。這些是參考姿勢的遊戲動畫，並非特定流派的標準術式。</p><p>檢查涵蓋握點連續性與手指對名義握柄圓柱的頂點接觸；仍不等於完整人體關節限制、逐三角形或鎧甲碰撞驗證，也尚未處理其他招式與滑握。</p><a href="validation.json">接觸檢查與模型雜湊</a> · <a href="capture.json">引擎截圖記錄</a> · <a href="https://github.com/clarencechien/yukimura/blob/main/docs/WRIST_STUDY_V22.md">製作／重建記錄</a>'''.replace('本轮','本輪')
+intro='''<nav><a href="../menpo/trial/">面具試作</a> · <a href="../technique/">上一輪握姿</a> · <a href="../../">遊戲</a></nav><p class="tag">V22 · 已套用至遊戲</p><h1>讓手肘、手腕與握柄一起就位</h1><p>幸村後手移近身體中線，槍尖朝前；家康將雙手提到胸前，保留手肘彎曲空間。拇指轉向對握，分別調整指節包覆，避免把手腕硬扭成看似筆直。</p><p>左側／手機第一張是新試作，右側／下一張是 v21。卸甲視圖保留同一套手臂與手指網格，以單色查看握姿；肩部開口是原本藏在鎧甲內的模型裁切。點圖可放大，動畫可暫停。</p>'''
+footer='''<p>本輪持槍、持刀與突刺姿勢已套用至遊戲；其他招式沿用既有動作。沿用同一套 92 骨架與貼圖，已烘焙為遊戲可載入的 GLB；沒有新增手機即時 IK。這些是參考姿勢的遊戲動畫，並非特定流派的標準術式。</p><p>檢查涵蓋握點連續性與手指對名義握柄圓柱的頂點接觸；仍不等於完整人體關節限制、逐三角形或鎧甲碰撞驗證，也尚未處理其他招式與滑握。</p><a href="validation.json">接觸檢查與模型雜湊</a> · <a href="capture.json">引擎截圖記錄</a> · <a href="https://github.com/clarencechien/yukimura/blob/main/docs/WRIST_STUDY_V22.md">製作／重建記錄</a>'''.replace('本轮','本輪')
 (OUT/'index.html').write_text(f'<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>赤冬 · 手腕與握姿試作 v22</title><style>{css}</style><main>{intro}{"".join(sections)}<footer>{footer}</footer></main></html>')
 # Keep earlier trials intact while making the new result reachable from the
 # page the user already has open. The original gallery generator has this link too.

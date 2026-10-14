@@ -1,11 +1,12 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
+import {readFileSync,mkdirSync,writeFileSync,existsSync} from 'node:fs';
 import {join} from 'node:path';
 import {Matrix,Quaternion,Vector3} from '@babylonjs/core/Maths/math.vector.js';
 const source=JSON.parse(readFileSync(new URL('../assets/vendor/mpfb/commander-grip.json',import.meta.url)));
-const poseConfig=process.env.GRIP_POSE_CONFIG?JSON.parse(readFileSync(process.env.GRIP_POSE_CONFIG)):null;
 const modelsRoot=new URL(process.env.MODEL_TEST_ROOT||'../public/models/',import.meta.url);
+const configPath=process.env.GRIP_POSE_CONFIG||new URL('weapon-grips.json',modelsRoot);
+const poseConfig=existsSync(configPath)?JSON.parse(readFileSync(configPath)):null;
 const gltfPoint=p=>new Vector3(p[0],p[2],-p[1]);
 for(const kind of ['yukimura','ieyasu'])test(`${kind}: exported hands stay aligned to their weapon throughout combat clips`,()=>{
  const bytes=readFileSync(new URL(`${kind}.glb`,modelsRoot)),n=bytes.readUInt32LE(12),g=JSON.parse(bytes.toString('utf8',20,20+n)),bin=bytes.subarray(28+n);

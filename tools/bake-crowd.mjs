@@ -35,7 +35,7 @@ for(const name of ['ashigaru','tokugawa','ieyasu']){
  }
  const data=new Float32Array(frames.flat());if(!data.every(Number.isFinite))throw Error('Non-finite bone palette');
  const raw=Buffer.from(data.buffer),uri='shared/'+createHash('sha256').update(raw).digest('hex').slice(0,16)+'.bin';writeFileSync(new URL(uri,root),raw);used.add(uri.slice(7));
- report.models[name]={uri,bytes:raw.length,width:(skin.joints.length+1)*4,height:frames.length,joints:skin.joints.length,clips};
+ report.models[name]={source_sha256:createHash('sha256').update(bytes).digest('hex'),uri,bytes:raw.length,width:(skin.joints.length+1)*4,height:frames.length,joints:skin.joints.length,clips};
 }
 for(const file of readdirSync(new URL('shared/',root)))if(/^[a-f0-9]{16}\.bin$/.test(file)&&!used.has(file))unlinkSync(new URL('shared/'+file,root));
 writeFileSync(new URL('crowd-animation.json',root),JSON.stringify(report,null,2)+'\n');

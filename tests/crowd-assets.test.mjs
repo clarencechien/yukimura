@@ -9,6 +9,7 @@ test('shared crowd palette has bounded, finite, genuinely animated bone matrices
  const unique=new Set();
  for(const [kind,p] of Object.entries(manifest.models)){
   const bytes=readFileSync(new URL(p.uri,root));unique.add(p.uri);
+  assert.equal(p.source_sha256,createHash('sha256').update(readFileSync(new URL(kind+'.glb',root))).digest('hex'),'palette was not rebuilt for the installed model');
   assert.equal(createHash('sha256').update(bytes).digest('hex').slice(0,16),p.uri.slice(7,23));
   assert.equal(bytes.length,p.width*p.height*16);assert.equal(p.width,(p.joints+1)*4);assert.equal(p.joints,kind==='ieyasu'?92:18);assert.ok(bytes.length<(kind==='ieyasu'?2700000:550000));
   const values=Array.from({length:bytes.length/4},(_,i)=>bytes.readFloatLE(i*4));assert.ok(values.every(Number.isFinite));
