@@ -1,0 +1,878 @@
+{
+  "shaft_radius_m": 0.0198,
+  "allowed_surface_compression_m": 0.002,
+  "sampled_frames_per_clip": 11,
+  "scope": "finger vertices with >60% weight in that digit, cylinder proxy; not full triangle or armor collision",
+  "models": {
+    "yukimura": {
+      "before": {
+        "blend_sha256": "06083fb1c99f6c1c0df3719e61e342ad1d25d40c26fa48aad830bfa997b6456b",
+        "clips": {
+          "idle": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.03809527964806895,
+              "max_q05_radius_m": 0.04082899710927111,
+              "max_compression_m": 0.0
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.01926555878807101,
+              "max_q05_radius_m": 0.02175653009924191,
+              "max_compression_m": 0.0005344412119289918
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.018412296349543864,
+              "max_q05_radius_m": 0.02297447882519087,
+              "max_compression_m": 0.0013877036504561374
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.021121655974368724,
+              "max_q05_radius_m": 0.02321528629735198,
+              "max_compression_m": 0.0
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.022193203990057433,
+              "max_q05_radius_m": 0.024937393877257047,
+              "max_compression_m": 0.0
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.038095623283661145,
+              "max_q05_radius_m": 0.04083841097106494,
+              "max_compression_m": 0.0
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.019201162873838752,
+              "max_q05_radius_m": 0.02174899853286863,
+              "max_compression_m": 0.0005988371261612495
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.018259471737703384,
+              "max_q05_radius_m": 0.02295325432668604,
+              "max_compression_m": 0.0015405282622966178
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.02113742879325797,
+              "max_q05_radius_m": 0.02320873568917262,
+              "max_compression_m": 0.0
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.022192867283587093,
+              "max_q05_radius_m": 0.02496239013584421,
+              "max_compression_m": 0.0
+            }
+          },
+          "thrust": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.038095583429058985,
+              "max_q05_radius_m": 0.04082919063543012,
+              "max_compression_m": 0.0
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.01926525949284656,
+              "max_q05_radius_m": 0.021756323455269774,
+              "max_compression_m": 0.0005347405071534431
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.01841184835093204,
+              "max_q05_radius_m": 0.022974423233517928,
+              "max_compression_m": 0.0013881516490679632
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.02112133782830319,
+              "max_q05_radius_m": 0.02321503888096534,
+              "max_compression_m": 0.0
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.02219318119718284,
+              "max_q05_radius_m": 0.024937195116669163,
+              "max_compression_m": 0.0
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.03809559360055445,
+              "max_q05_radius_m": 0.04083844976590664,
+              "max_compression_m": 0.0
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.019201345521900483,
+              "max_q05_radius_m": 0.021748992859595827,
+              "max_compression_m": 0.0005986544780995189
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.018259310704898852,
+              "max_q05_radius_m": 0.02295319308586921,
+              "max_compression_m": 0.0015406892951011497
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.021137229119210985,
+              "max_q05_radius_m": 0.023208519065641812,
+              "max_compression_m": 0.0
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.022193164333576983,
+              "max_q05_radius_m": 0.02496260896594378,
+              "max_compression_m": 0.0
+            }
+          }
+        }
+      },
+      "after": {
+        "blend_sha256": "1664bedfa960bbe750959c317d8afbb24a977a0c2038adbb3bd361fc62bc1d00",
+        "clips": {
+          "idle": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.019122345418481915,
+              "max_q05_radius_m": 0.022005251226829836,
+              "max_compression_m": 0.0006776545815180869
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.01923159173856455,
+              "max_q05_radius_m": 0.022002794248202562,
+              "max_compression_m": 0.0005684082614354526
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.018818515202845117,
+              "max_q05_radius_m": 0.023086291577383157,
+              "max_compression_m": 0.000981484797154885
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.019557644402189545,
+              "max_q05_radius_m": 0.021582863309319734,
+              "max_compression_m": 0.00024235559781045704
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.0195931561057039,
+              "max_q05_radius_m": 0.02233632527694872,
+              "max_compression_m": 0.00020684389429610067
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.019122198990707964,
+              "max_q05_radius_m": 0.021858616432352904,
+              "max_compression_m": 0.0006778010092920381
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.01923144100407024,
+              "max_q05_radius_m": 0.02188803510859233,
+              "max_compression_m": 0.0005685589959297625
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.019301094470073943,
+              "max_q05_radius_m": 0.023064863257171553,
+              "max_compression_m": 0.0004989055299260588
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.0195574988516455,
+              "max_q05_radius_m": 0.021583047950155476,
+              "max_compression_m": 0.00024250114835450143
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.01959279419303476,
+              "max_q05_radius_m": 0.022403716951556962,
+              "max_compression_m": 0.00020720580696524313
+            }
+          },
+          "thrust": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.01912251929619132,
+              "max_q05_radius_m": 0.022005552767530925,
+              "max_compression_m": 0.0006774807038086826
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.019231388500025072,
+              "max_q05_radius_m": 0.02200270614622491,
+              "max_compression_m": 0.0005686114999749296
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.018818410792725733,
+              "max_q05_radius_m": 0.023086179536296804,
+              "max_compression_m": 0.0009815892072742687
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.019557585657353754,
+              "max_q05_radius_m": 0.02158271965123029,
+              "max_compression_m": 0.000242414342646248
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.019592987901122356,
+              "max_q05_radius_m": 0.02233618681722244,
+              "max_compression_m": 0.00020701209887764513
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.019122496801227996,
+              "max_q05_radius_m": 0.021858454748702374,
+              "max_compression_m": 0.0006775031987720052
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.01923138062251235,
+              "max_q05_radius_m": 0.02188801818852456,
+              "max_compression_m": 0.0005686193774876516
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.01930119628541555,
+              "max_q05_radius_m": 0.023064897487553093,
+              "max_compression_m": 0.0004988037145844532
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.01955754921786062,
+              "max_q05_radius_m": 0.021583064409113794,
+              "max_compression_m": 0.00024245078213938273
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.019592928316373378,
+              "max_q05_radius_m": 0.022403662238600665,
+              "max_compression_m": 0.0002070716836266237
+            }
+          }
+        }
+      },
+      "exported": {
+        "blend_sha256": "1664bedfa960bbe750959c317d8afbb24a977a0c2038adbb3bd361fc62bc1d00",
+        "clips": {
+          "idle": {
+            "L1": {
+              "vertices": 463,
+              "min_radius_m": 0.019121846322360993,
+              "max_q05_radius_m": 0.021146832279829855,
+              "max_compression_m": 0.0006781536776390082
+            },
+            "L2": {
+              "vertices": 572,
+              "min_radius_m": 0.01923228554456254,
+              "max_q05_radius_m": 0.021547083641546158,
+              "max_compression_m": 0.0005677144554374625
+            },
+            "L3": {
+              "vertices": 594,
+              "min_radius_m": 0.01881860146871409,
+              "max_q05_radius_m": 0.023517619561484394,
+              "max_compression_m": 0.0009813985312859125
+            },
+            "L4": {
+              "vertices": 581,
+              "min_radius_m": 0.019557856800917425,
+              "max_q05_radius_m": 0.0217241069815435,
+              "max_compression_m": 0.00024214319908257703
+            },
+            "L5": {
+              "vertices": 456,
+              "min_radius_m": 0.019593707749209238,
+              "max_q05_radius_m": 0.02235520307231526,
+              "max_compression_m": 0.00020629225079076344
+            },
+            "R1": {
+              "vertices": 465,
+              "min_radius_m": 0.019121447306449078,
+              "max_q05_radius_m": 0.021170280001567114,
+              "max_compression_m": 0.000678552693550924
+            },
+            "R2": {
+              "vertices": 577,
+              "min_radius_m": 0.019232078792424022,
+              "max_q05_radius_m": 0.021677725874892,
+              "max_compression_m": 0.0005679212075759797
+            },
+            "R3": {
+              "vertices": 593,
+              "min_radius_m": 0.019301456465456494,
+              "max_q05_radius_m": 0.023368072041424572,
+              "max_compression_m": 0.0004985435345435073
+            },
+            "R4": {
+              "vertices": 582,
+              "min_radius_m": 0.01955761118578261,
+              "max_q05_radius_m": 0.021647677342301056,
+              "max_compression_m": 0.00024238881421739106
+            },
+            "R5": {
+              "vertices": 464,
+              "min_radius_m": 0.019593707538746185,
+              "max_q05_radius_m": 0.022575272179325798,
+              "max_compression_m": 0.00020629246125381667
+            }
+          },
+          "thrust": {
+            "L1": {
+              "vertices": 463,
+              "min_radius_m": 0.019117519721186686,
+              "max_q05_radius_m": 0.021147337857895517,
+              "max_compression_m": 0.0006824802788133154
+            },
+            "L2": {
+              "vertices": 572,
+              "min_radius_m": 0.01923195625967733,
+              "max_q05_radius_m": 0.0215489548523926,
+              "max_compression_m": 0.0005680437403226719
+            },
+            "L3": {
+              "vertices": 594,
+              "min_radius_m": 0.018817591892099632,
+              "max_q05_radius_m": 0.023517879778722352,
+              "max_compression_m": 0.0009824081079003698
+            },
+            "L4": {
+              "vertices": 581,
+              "min_radius_m": 0.01954895654334675,
+              "max_q05_radius_m": 0.021731474168385674,
+              "max_compression_m": 0.0002510434566532528
+            },
+            "L5": {
+              "vertices": 456,
+              "min_radius_m": 0.01959351511438285,
+              "max_q05_radius_m": 0.022355748756372924,
+              "max_compression_m": 0.00020648488561715236
+            },
+            "R1": {
+              "vertices": 465,
+              "min_radius_m": 0.019121793448460198,
+              "max_q05_radius_m": 0.021170632594352312,
+              "max_compression_m": 0.000678206551539804
+            },
+            "R2": {
+              "vertices": 577,
+              "min_radius_m": 0.01923204247996029,
+              "max_q05_radius_m": 0.02167785994196336,
+              "max_compression_m": 0.0005679575200397101
+            },
+            "R3": {
+              "vertices": 593,
+              "min_radius_m": 0.019301087084713748,
+              "max_q05_radius_m": 0.023367895025954797,
+              "max_compression_m": 0.0004989129152862537
+            },
+            "R4": {
+              "vertices": 582,
+              "min_radius_m": 0.019557673962359384,
+              "max_q05_radius_m": 0.021647872245655606,
+              "max_compression_m": 0.00024232603764061736
+            },
+            "R5": {
+              "vertices": 464,
+              "min_radius_m": 0.01959335113481687,
+              "max_q05_radius_m": 0.02257504988533067,
+              "max_compression_m": 0.00020664886518313025
+            }
+          }
+        }
+      },
+      "glb_sha256": "eea112345490b939d0f52606209df403f98a6a103c95336a1cea2243432ec524",
+      "grip_check": {
+        "kind": "yukimura",
+        "samples": 1568,
+        "maxGripErrorM": 0.0004851191853996316,
+        "minAxisDot": 0.9999991502227743,
+        "maxWristAngle": 34.866489712665675,
+        "worstPose": {
+          "clip": "hurt",
+          "side": "L",
+          "t": 0.21030928670745536
+        },
+        "clips": {
+          "idle": {
+            "maxWristAngle": 20.428556320075444,
+            "maxGripErrorM": 8.416119092735524e-07,
+            "minAxisDot": 0.9999999999990041
+          },
+          "run": {
+            "maxWristAngle": 9.452144952587208,
+            "maxGripErrorM": 7.526696660089983e-05,
+            "minAxisDot": 0.9999999999785135
+          },
+          "slash": {
+            "maxWristAngle": 11.832334357241796,
+            "maxGripErrorM": 0.00012447479815140173,
+            "minAxisDot": 0.9999997606921327
+          },
+          "reverse": {
+            "maxWristAngle": 21.57257642913995,
+            "maxGripErrorM": 0.0004851191853996316,
+            "minAxisDot": 0.9999991502227743
+          },
+          "thrust": {
+            "maxWristAngle": 29.55724910777237,
+            "maxGripErrorM": 4.995363449177972e-05,
+            "minAxisDot": 0.9999999995234722
+          },
+          "spin": {
+            "maxWristAngle": 11.829461792367264,
+            "maxGripErrorM": 4.3538496101732485e-05,
+            "minAxisDot": 0.9999999617121846
+          },
+          "dash": {
+            "maxWristAngle": 8.230018701458633,
+            "maxGripErrorM": 5.819727238081061e-05,
+            "minAxisDot": 0.99999998343149
+          },
+          "hurt": {
+            "maxWristAngle": 34.866489712665675,
+            "maxGripErrorM": 8.151042013631655e-05,
+            "minAxisDot": 0.999999997543683
+          }
+        }
+      }
+    },
+    "ieyasu": {
+      "before": {
+        "blend_sha256": "230f5e23d3caa970c12442d709401db62b2a6e13f799301f3c2799e1afc5348b",
+        "clips": {
+          "idle": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.0380954919870843,
+              "max_q05_radius_m": 0.04082885830240159,
+              "max_compression_m": 0.0
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.019265880649110303,
+              "max_q05_radius_m": 0.021756353863043212,
+              "max_compression_m": 0.0005341193508896988
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.01841249400843608,
+              "max_q05_radius_m": 0.02297450822640456,
+              "max_compression_m": 0.001387505991563922
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.02112203738160496,
+              "max_q05_radius_m": 0.023214954067686516,
+              "max_compression_m": 0.0
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.022193506666452176,
+              "max_q05_radius_m": 0.02493711474857319,
+              "max_compression_m": 0.0
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.03809563833262391,
+              "max_q05_radius_m": 0.040838403539704485,
+              "max_compression_m": 0.0
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.01920141177357379,
+              "max_q05_radius_m": 0.021748847270107296,
+              "max_compression_m": 0.0005985882264262117
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.018259353965103874,
+              "max_q05_radius_m": 0.02295315470008817,
+              "max_compression_m": 0.0015406460348961273
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.02113728930095703,
+              "max_q05_radius_m": 0.02320846843930445,
+              "max_compression_m": 0.0
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.022193107872453596,
+              "max_q05_radius_m": 0.02496234003009973,
+              "max_compression_m": 0.0
+            }
+          },
+          "thrust": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.03809546133627429,
+              "max_q05_radius_m": 0.04082900617748859,
+              "max_compression_m": 0.0
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.019265683878494207,
+              "max_q05_radius_m": 0.02175650365952129,
+              "max_compression_m": 0.000534316121505795
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.018412095312165082,
+              "max_q05_radius_m": 0.02297441087948042,
+              "max_compression_m": 0.0013879046878349198
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.021121810809392204,
+              "max_q05_radius_m": 0.02321501458215048,
+              "max_compression_m": 0.0
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.022193276622078383,
+              "max_q05_radius_m": 0.024937363179898104,
+              "max_compression_m": 0.0
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.038095644426971505,
+              "max_q05_radius_m": 0.04083865062938672,
+              "max_compression_m": 0.0
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.019201322980073626,
+              "max_q05_radius_m": 0.02174897621535185,
+              "max_compression_m": 0.0005986770199263754
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.018259322010803335,
+              "max_q05_radius_m": 0.022953302103052686,
+              "max_compression_m": 0.0015406779891966663
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.02113730650665529,
+              "max_q05_radius_m": 0.02320840612572912,
+              "max_compression_m": 0.0
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.022193139229404257,
+              "max_q05_radius_m": 0.02496238509622684,
+              "max_compression_m": 0.0
+            }
+          }
+        }
+      },
+      "after": {
+        "blend_sha256": "75ada3f0a5cbc7b3ba24d81cf08b846e8788a12a5a10784bc60a00740b1a5654",
+        "clips": {
+          "idle": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.019122538557168566,
+              "max_q05_radius_m": 0.022005453314006544,
+              "max_compression_m": 0.0006774614428314354
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.019231550671249324,
+              "max_q05_radius_m": 0.0220024793540019,
+              "max_compression_m": 0.0005684493287506781
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.018818383581615285,
+              "max_q05_radius_m": 0.023086307950832163,
+              "max_compression_m": 0.0009816164183847169
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.019557619957024003,
+              "max_q05_radius_m": 0.021582861989845235,
+              "max_compression_m": 0.00024238004297599813
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.019593094845161852,
+              "max_q05_radius_m": 0.022336279555494786,
+              "max_compression_m": 0.00020690515483814953
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.019122370979430488,
+              "max_q05_radius_m": 0.021858341719672335,
+              "max_compression_m": 0.0006776290205695139
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.019231546529524503,
+              "max_q05_radius_m": 0.0218879454164451,
+              "max_compression_m": 0.0005684534704754989
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.019301226346751847,
+              "max_q05_radius_m": 0.023065144385903288,
+              "max_compression_m": 0.0004987736532481545
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.01955772997719722,
+              "max_q05_radius_m": 0.021583179741147422,
+              "max_compression_m": 0.00024227002280278326
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.019592930388676513,
+              "max_q05_radius_m": 0.02240352365066013,
+              "max_compression_m": 0.00020706961132348906
+            }
+          },
+          "thrust": {
+            "L1": {
+              "vertices": 418,
+              "min_radius_m": 0.019122641925571702,
+              "max_q05_radius_m": 0.022005483830704387,
+              "max_compression_m": 0.0006773580744282998
+            },
+            "L2": {
+              "vertices": 529,
+              "min_radius_m": 0.01923145096034591,
+              "max_q05_radius_m": 0.022002627674554832,
+              "max_compression_m": 0.0005685490396540906
+            },
+            "L3": {
+              "vertices": 555,
+              "min_radius_m": 0.01881825247749164,
+              "max_q05_radius_m": 0.02308627686749072,
+              "max_compression_m": 0.000981747522508361
+            },
+            "L4": {
+              "vertices": 542,
+              "min_radius_m": 0.01955770362988928,
+              "max_q05_radius_m": 0.02158264023555744,
+              "max_compression_m": 0.0002422963701107228
+            },
+            "L5": {
+              "vertices": 438,
+              "min_radius_m": 0.01959288909498145,
+              "max_q05_radius_m": 0.022336076938123922,
+              "max_compression_m": 0.0002071109050185531
+            },
+            "R1": {
+              "vertices": 420,
+              "min_radius_m": 0.019122333497079886,
+              "max_q05_radius_m": 0.021858658793126193,
+              "max_compression_m": 0.0006776665029201157
+            },
+            "R2": {
+              "vertices": 536,
+              "min_radius_m": 0.01923141613645844,
+              "max_q05_radius_m": 0.02188813310143476,
+              "max_compression_m": 0.0005685838635415622
+            },
+            "R3": {
+              "vertices": 554,
+              "min_radius_m": 0.019301177591163156,
+              "max_q05_radius_m": 0.023065043451246856,
+              "max_compression_m": 0.0004988224088368458
+            },
+            "R4": {
+              "vertices": 542,
+              "min_radius_m": 0.019557748398260938,
+              "max_q05_radius_m": 0.021582944008712274,
+              "max_compression_m": 0.0002422516017390637
+            },
+            "R5": {
+              "vertices": 445,
+              "min_radius_m": 0.019592848302686372,
+              "max_q05_radius_m": 0.022403471260038787,
+              "max_compression_m": 0.00020715169731362962
+            }
+          }
+        }
+      },
+      "exported": {
+        "blend_sha256": "75ada3f0a5cbc7b3ba24d81cf08b846e8788a12a5a10784bc60a00740b1a5654",
+        "clips": {
+          "idle": {
+            "L1": {
+              "vertices": 463,
+              "min_radius_m": 0.019122245362288477,
+              "max_q05_radius_m": 0.021147227550525383,
+              "max_compression_m": 0.0006777546377115251
+            },
+            "L2": {
+              "vertices": 572,
+              "min_radius_m": 0.019231935822900916,
+              "max_q05_radius_m": 0.02154649932697831,
+              "max_compression_m": 0.0005680641770990855
+            },
+            "L3": {
+              "vertices": 594,
+              "min_radius_m": 0.018818338715365254,
+              "max_q05_radius_m": 0.02351748870708649,
+              "max_compression_m": 0.000981661284634748
+            },
+            "L4": {
+              "vertices": 581,
+              "min_radius_m": 0.01955800209760456,
+              "max_q05_radius_m": 0.021723887947641643,
+              "max_compression_m": 0.00024199790239544036
+            },
+            "L5": {
+              "vertices": 456,
+              "min_radius_m": 0.019593512558350793,
+              "max_q05_radius_m": 0.022354948842918027,
+              "max_compression_m": 0.00020648744164920851
+            },
+            "R1": {
+              "vertices": 465,
+              "min_radius_m": 0.01912175478679047,
+              "max_q05_radius_m": 0.02117005910535676,
+              "max_compression_m": 0.0006782452132095308
+            },
+            "R2": {
+              "vertices": 577,
+              "min_radius_m": 0.0192324338915783,
+              "max_q05_radius_m": 0.02167786033335281,
+              "max_compression_m": 0.0005675661084217007
+            },
+            "R3": {
+              "vertices": 593,
+              "min_radius_m": 0.019301519166957798,
+              "max_q05_radius_m": 0.02336815010143142,
+              "max_compression_m": 0.0004984808330422037
+            },
+            "R4": {
+              "vertices": 582,
+              "min_radius_m": 0.019557792991357143,
+              "max_q05_radius_m": 0.02164793402336085,
+              "max_compression_m": 0.0002422070086428585
+            },
+            "R5": {
+              "vertices": 464,
+              "min_radius_m": 0.019593741616327175,
+              "max_q05_radius_m": 0.02257540137093807,
+              "max_compression_m": 0.00020625838367282698
+            }
+          },
+          "thrust": {
+            "L1": {
+              "vertices": 463,
+              "min_radius_m": 0.019122046956675597,
+              "max_q05_radius_m": 0.02114734966858148,
+              "max_compression_m": 0.0006779530433244051
+            },
+            "L2": {
+              "vertices": 572,
+              "min_radius_m": 0.019231899231709405,
+              "max_q05_radius_m": 0.02154696940420082,
+              "max_compression_m": 0.0005681007682905963
+            },
+            "L3": {
+              "vertices": 594,
+              "min_radius_m": 0.018818325604015144,
+              "max_q05_radius_m": 0.02351769391513008,
+              "max_compression_m": 0.0009816743959848578
+            },
+            "L4": {
+              "vertices": 581,
+              "min_radius_m": 0.019557766012107996,
+              "max_q05_radius_m": 0.021724158330321815,
+              "max_compression_m": 0.00024223398789200573
+            },
+            "L5": {
+              "vertices": 456,
+              "min_radius_m": 0.01959337165823534,
+              "max_q05_radius_m": 0.022355224612330006,
+              "max_compression_m": 0.00020662834176466208
+            },
+            "R1": {
+              "vertices": 465,
+              "min_radius_m": 0.019122092598666946,
+              "max_q05_radius_m": 0.021170988636655154,
+              "max_compression_m": 0.0006779074013330555
+            },
+            "R2": {
+              "vertices": 577,
+              "min_radius_m": 0.019231623790970077,
+              "max_q05_radius_m": 0.021677649843340058,
+              "max_compression_m": 0.0005683762090299242
+            },
+            "R3": {
+              "vertices": 593,
+              "min_radius_m": 0.019300740097467326,
+              "max_q05_radius_m": 0.023367761030897417,
+              "max_compression_m": 0.0004992599025326755
+            },
+            "R4": {
+              "vertices": 582,
+              "min_radius_m": 0.019557811995953203,
+              "max_q05_radius_m": 0.02164811273521266,
+              "max_compression_m": 0.00024218800404679844
+            },
+            "R5": {
+              "vertices": 464,
+              "min_radius_m": 0.019592733210441558,
+              "max_q05_radius_m": 0.02257430355518892,
+              "max_compression_m": 0.00020726678955844402
+            }
+          }
+        }
+      },
+      "glb_sha256": "99cc65980cf2c397a7a424938b175b921161f40cecb9dba3beac6c64131cc6a1",
+      "grip_check": {
+        "kind": "ieyasu",
+        "samples": 784,
+        "maxGripErrorM": 8.442160711628076e-05,
+        "minAxisDot": 0.9999999984507696,
+        "maxWristAngle": 32.79721482509608,
+        "worstPose": {
+          "clip": "thrust",
+          "side": "L",
+          "t": 0.21649484536082475
+        },
+        "clips": {
+          "idle": {
+            "maxWristAngle": 27.579486174869288,
+            "maxGripErrorM": 1.1609923494665325e-06,
+            "minAxisDot": 0.999999999999871
+          },
+          "run": {
+            "maxWristAngle": 32.62744222433242,
+            "maxGripErrorM": 8.442160711628076e-05,
+            "minAxisDot": 0.9999999999809007
+          },
+          "thrust": {
+            "maxWristAngle": 32.79721482509608,
+            "maxGripErrorM": 3.872025003487001e-05,
+            "minAxisDot": 0.9999999984507696
+          },
+          "hurt": {
+            "maxWristAngle": 32.43859164522155,
+            "maxGripErrorM": 8.106326869888519e-06,
+            "minAxisDot": 0.999999999999313
+          }
+        }
+      }
+    }
+  },
+  "passed": true,
+  "config_sha256": "9e427808d864bfb6fe17e5a5bf46bfd7507996f98fa76b51723996d33bdaaf6d"
+}

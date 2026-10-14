@@ -22,7 +22,8 @@
     "models:details": "blender --background --threads 2 --python-exit-code 1 --python tools/detail_commanders.py && python3 tools/promote_fullbody.py --detail && npm run models:faces",
     "models:faces": "blender --background --threads 2 --python-exit-code 1 --python tools/refine_commander_faces.py && python3 tools/promote_faces.py && npm run models:menpo",
     "models:menpo": "blender --background --threads 2 --python-exit-code 1 --python tools/build_commander_menpo.py --sculpt && python3 tools/promote_menpo.py --sculpt && node tools/bake-crowd.mjs",
-    "models:trial": "blender --background --threads 2 --python-exit-code 1 --python tools/build_commander_menpo.py --trial"
+    "models:trial": "blender --background --threads 2 --python-exit-code 1 --python tools/build_commander_menpo.py --trial",
+    "models:wrists": "blender --background --threads 2 --python-exit-code 1 --python tools/wrist_study.py"
   },
   "dependencies": {
     "@babylonjs/core": "^8.0.0",

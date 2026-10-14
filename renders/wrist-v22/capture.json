@@ -1,0 +1,677 @@
+{
+  "results": [
+    {
+      "kind": "yukimura",
+      "version": "trial",
+      "clip": "idle",
+      "look": "armor",
+      "view": "oblique",
+      "file": "yukimura-trial-idle-armor-oblique.png",
+      "hands": [
+        [
+          0.15614032745361328,
+          1.4163275957107544,
+          0.3538273274898529
+        ],
+        [
+          -0.31544438004493713,
+          1.3687782287597656,
+          0.26921921968460083
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "trial",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "oblique",
+      "file": "yukimura-trial-thrust-armor-oblique.png",
+      "hands": [
+        [
+          0.1356603354215622,
+          1.2744718790054321,
+          0.39229995012283325
+        ],
+        [
+          -0.19177329540252686,
+          1.2791852951049805,
+          0.12943929433822632
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "trial",
+      "clip": "idle",
+      "look": "bare",
+      "view": "oblique",
+      "file": "yukimura-trial-idle-bare-oblique.png",
+      "hands": [
+        [
+          0.15614032745361328,
+          1.4163275957107544,
+          0.3538273274898529
+        ],
+        [
+          -0.31544438004493713,
+          1.3687782287597656,
+          0.26921921968460083
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "trial",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "oblique",
+      "file": "yukimura-trial-thrust-bare-oblique.png",
+      "hands": [
+        [
+          0.1356603354215622,
+          1.2744718790054321,
+          0.39229995012283325
+        ],
+        [
+          -0.19177329540252686,
+          1.2791852951049805,
+          0.12943929433822632
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "armor",
+      "view": "oblique",
+      "file": "yukimura-wrist-idle-armor-oblique.png",
+      "hands": [
+        [
+          0.19314128160476685,
+          1.480546236038208,
+          0.4249924421310425
+        ],
+        [
+          -0.1804174929857254,
+          1.4875174760818481,
+          0.2125193029642105
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "armor",
+      "view": "side",
+      "file": "yukimura-wrist-idle-armor-side.png",
+      "hands": [
+        [
+          0.19314128160476685,
+          1.480546236038208,
+          0.4249924421310425
+        ],
+        [
+          -0.1804174929857254,
+          1.4875174760818481,
+          0.2125193029642105
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "armor",
+      "view": "top",
+      "file": "yukimura-wrist-idle-armor-top.png",
+      "hands": [
+        [
+          0.19314128160476685,
+          1.480546236038208,
+          0.4249924421310425
+        ],
+        [
+          -0.1804174929857254,
+          1.4875174760818481,
+          0.2125193029642105
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "oblique",
+      "file": "yukimura-wrist-thrust-armor-oblique.png",
+      "hands": [
+        [
+          0.1931411623954773,
+          1.3313658237457275,
+          0.514136016368866
+        ],
+        [
+          -0.18041765689849854,
+          1.368843674659729,
+          0.3048781752586365
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "side",
+      "file": "yukimura-wrist-thrust-armor-side.png",
+      "hands": [
+        [
+          0.1931411623954773,
+          1.3313658237457275,
+          0.514136016368866
+        ],
+        [
+          -0.18041765689849854,
+          1.368843674659729,
+          0.3048781752586365
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "top",
+      "file": "yukimura-wrist-thrust-armor-top.png",
+      "hands": [
+        [
+          0.1931411623954773,
+          1.3313658237457275,
+          0.514136016368866
+        ],
+        [
+          -0.18041765689849854,
+          1.368843674659729,
+          0.3048781752586365
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "bare",
+      "view": "oblique",
+      "file": "yukimura-wrist-idle-bare-oblique.png",
+      "hands": [
+        [
+          0.19314128160476685,
+          1.480546236038208,
+          0.4249924421310425
+        ],
+        [
+          -0.1804174929857254,
+          1.4875174760818481,
+          0.2125193029642105
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "bare",
+      "view": "side",
+      "file": "yukimura-wrist-idle-bare-side.png",
+      "hands": [
+        [
+          0.19314128160476685,
+          1.480546236038208,
+          0.4249924421310425
+        ],
+        [
+          -0.1804174929857254,
+          1.4875174760818481,
+          0.2125193029642105
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "bare",
+      "view": "top",
+      "file": "yukimura-wrist-idle-bare-top.png",
+      "hands": [
+        [
+          0.19314128160476685,
+          1.480546236038208,
+          0.4249924421310425
+        ],
+        [
+          -0.1804174929857254,
+          1.4875174760818481,
+          0.2125193029642105
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "oblique",
+      "file": "yukimura-wrist-thrust-bare-oblique.png",
+      "hands": [
+        [
+          0.1931411623954773,
+          1.3313658237457275,
+          0.514136016368866
+        ],
+        [
+          -0.18041765689849854,
+          1.368843674659729,
+          0.3048781752586365
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "side",
+      "file": "yukimura-wrist-thrust-bare-side.png",
+      "hands": [
+        [
+          0.1931411623954773,
+          1.3313658237457275,
+          0.514136016368866
+        ],
+        [
+          -0.18041765689849854,
+          1.368843674659729,
+          0.3048781752586365
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "top",
+      "file": "yukimura-wrist-thrust-bare-top.png",
+      "hands": [
+        [
+          0.1931411623954773,
+          1.3313658237457275,
+          0.514136016368866
+        ],
+        [
+          -0.18041765689849854,
+          1.368843674659729,
+          0.3048781752586365
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "trial",
+      "clip": "idle",
+      "look": "armor",
+      "view": "oblique",
+      "file": "ieyasu-trial-idle-armor-oblique.png",
+      "hands": [
+        [
+          0.007646636106073856,
+          1.2235769033432007,
+          0.15096308290958405
+        ],
+        [
+          -0.17620164155960083,
+          1.3709867000579834,
+          0.27631691098213196
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "trial",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "oblique",
+      "file": "ieyasu-trial-thrust-armor-oblique.png",
+      "hands": [
+        [
+          0.10402844846248627,
+          1.2129933834075928,
+          0.2589672803878784
+        ],
+        [
+          -0.15520302951335907,
+          1.268132209777832,
+          0.41401800513267517
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "trial",
+      "clip": "idle",
+      "look": "bare",
+      "view": "oblique",
+      "file": "ieyasu-trial-idle-bare-oblique.png",
+      "hands": [
+        [
+          0.007646636106073856,
+          1.2235769033432007,
+          0.15096308290958405
+        ],
+        [
+          -0.17620164155960083,
+          1.3709867000579834,
+          0.27631691098213196
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "trial",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "oblique",
+      "file": "ieyasu-trial-thrust-bare-oblique.png",
+      "hands": [
+        [
+          0.10402844846248627,
+          1.2129933834075928,
+          0.2589672803878784
+        ],
+        [
+          -0.15520302951335907,
+          1.268132209777832,
+          0.41401800513267517
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "armor",
+      "view": "oblique",
+      "file": "ieyasu-wrist-idle-armor-oblique.png",
+      "hands": [
+        [
+          0.12863922119140625,
+          1.338671326637268,
+          0.1468346118927002
+        ],
+        [
+          -0.16863921284675598,
+          1.4162718057632446,
+          0.2752019166946411
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "armor",
+      "view": "side",
+      "file": "ieyasu-wrist-idle-armor-side.png",
+      "hands": [
+        [
+          0.12863922119140625,
+          1.338671326637268,
+          0.1468346118927002
+        ],
+        [
+          -0.16863921284675598,
+          1.4162718057632446,
+          0.2752019166946411
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "armor",
+      "view": "top",
+      "file": "ieyasu-wrist-idle-armor-top.png",
+      "hands": [
+        [
+          0.12863922119140625,
+          1.338671326637268,
+          0.1468346118927002
+        ],
+        [
+          -0.16863921284675598,
+          1.4162718057632446,
+          0.2752019166946411
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "oblique",
+      "file": "ieyasu-wrist-thrust-armor-oblique.png",
+      "hands": [
+        [
+          0.12231598049402237,
+          1.258535623550415,
+          0.20015208423137665
+        ],
+        [
+          -0.16231608390808105,
+          1.2731748819351196,
+          0.34943610429763794
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "side",
+      "file": "ieyasu-wrist-thrust-armor-side.png",
+      "hands": [
+        [
+          0.12231598049402237,
+          1.258535623550415,
+          0.20015208423137665
+        ],
+        [
+          -0.16231608390808105,
+          1.2731748819351196,
+          0.34943610429763794
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "armor",
+      "view": "top",
+      "file": "ieyasu-wrist-thrust-armor-top.png",
+      "hands": [
+        [
+          0.12231598049402237,
+          1.258535623550415,
+          0.20015208423137665
+        ],
+        [
+          -0.16231608390808105,
+          1.2731748819351196,
+          0.34943610429763794
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "bare",
+      "view": "oblique",
+      "file": "ieyasu-wrist-idle-bare-oblique.png",
+      "hands": [
+        [
+          0.12863922119140625,
+          1.338671326637268,
+          0.1468346118927002
+        ],
+        [
+          -0.16863921284675598,
+          1.4162718057632446,
+          0.2752019166946411
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "bare",
+      "view": "side",
+      "file": "ieyasu-wrist-idle-bare-side.png",
+      "hands": [
+        [
+          0.12863922119140625,
+          1.338671326637268,
+          0.1468346118927002
+        ],
+        [
+          -0.16863921284675598,
+          1.4162718057632446,
+          0.2752019166946411
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "idle",
+      "look": "bare",
+      "view": "top",
+      "file": "ieyasu-wrist-idle-bare-top.png",
+      "hands": [
+        [
+          0.12863922119140625,
+          1.338671326637268,
+          0.1468346118927002
+        ],
+        [
+          -0.16863921284675598,
+          1.4162718057632446,
+          0.2752019166946411
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "oblique",
+      "file": "ieyasu-wrist-thrust-bare-oblique.png",
+      "hands": [
+        [
+          0.12231598049402237,
+          1.258535623550415,
+          0.20015208423137665
+        ],
+        [
+          -0.16231608390808105,
+          1.2731748819351196,
+          0.34943610429763794
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "side",
+      "file": "ieyasu-wrist-thrust-bare-side.png",
+      "hands": [
+        [
+          0.12231598049402237,
+          1.258535623550415,
+          0.20015208423137665
+        ],
+        [
+          -0.16231608390808105,
+          1.2731748819351196,
+          0.34943610429763794
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "version": "wrist",
+      "clip": "thrust",
+      "look": "bare",
+      "view": "top",
+      "file": "ieyasu-wrist-thrust-bare-top.png",
+      "hands": [
+        [
+          0.12231598049402237,
+          1.258535623550415,
+          0.20015208423137665
+        ],
+        [
+          -0.16231608390808105,
+          1.2731748819351196,
+          0.34943610429763794
+        ]
+      ],
+      "bones": 92
+    }
+  ],
+  "errors": []
+}

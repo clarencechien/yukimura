@@ -123,3 +123,37 @@ test('Pages review opens with all twenty embedded comparison images without Java
   expect(errors).toEqual([]);
  }finally{await context.close()}
 });
+
+
+test('v22 wrist study links from the open trial and loads comparison images and motion',async({page,request})=>{
+ const base='http://127.0.0.1:4174/yukimura/review/';
+ const errors=[];page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
+ await page.goto(base+'menpo/trial/');
+ await page.getByRole('link',{name:'最新 v22 手腕與握姿試作 ↗'}).click();
+ await expect(page).toHaveTitle('赤冬 · 手腕與握姿試作 v22');
+ await expect(page.locator('.tag')).toContainText('尚未替換遊戲');
+ await expect(page.locator('img')).toHaveCount(32);
+ await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>{i.loading='eager';return i.decode()})));
+ await expect(page.locator('figcaption').first()).toContainText('穿甲');
+ await expect(page.locator('video')).toHaveCount(4);
+ const motion=await page.locator('video').evaluateAll(videos=>Promise.all(videos.map(v=>new Promise((resolve,reject)=>{
+  v.onloadedmetadata=()=>resolve({duration:v.duration,width:v.videoWidth,height:v.videoHeight});
+  v.onerror=()=>reject(Error('Video failed to load'));v.preload='metadata';v.load();
+ }))));
+ for(const v of motion){expect(v.duration).toBeCloseTo(1,1);expect(v.width).toBe(720);expect(v.height).toBe(600)}
+ const response=await request.get(base+'wrists/validation.json');expect(response.ok()).toBe(true);
+ const report=await response.json();expect(report.passed).toBe(true);
+ for(const model of Object.values(report.models)){
+  expect(model.grip_check.maxGripErrorM).toBeLessThan(.0005);
+  for(const digits of Object.values(model.exported.clips))for(const [name,digit] of Object.entries(digits)){
+   expect(digit.max_compression_m).toBeLessThan(.002);
+   if(name.endsWith('1'))expect(digit.max_q05_radius_m).toBeLessThan(.025);
+  }
+ }
+ for(const width of [1280,390]){
+  await page.setViewportSize({width,height:900});
+  await page.locator('details').evaluateAll(nodes=>nodes.forEach(n=>n.open=true));
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+ }
+ expect(errors).toEqual([]);
+});

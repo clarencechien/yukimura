@@ -4,6 +4,7 @@ import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {Matrix,Quaternion,Vector3} from '@babylonjs/core/Maths/math.vector.js';
 const source=JSON.parse(readFileSync(new URL('../assets/vendor/mpfb/commander-grip.json',import.meta.url)));
+const poseConfig=process.env.GRIP_POSE_CONFIG?JSON.parse(readFileSync(process.env.GRIP_POSE_CONFIG)):null;
 const modelsRoot=new URL(process.env.MODEL_TEST_ROOT||'../public/models/',import.meta.url);
 const gltfPoint=p=>new Vector3(p[0],p[2],-p[1]);
 for(const kind of ['yukimura','ieyasu'])test(`${kind}: exported hands stay aligned to their weapon throughout combat clips`,()=>{
@@ -49,7 +50,8 @@ for(const kind of ['yukimura','ieyasu'])test(`${kind}: exported hands stay align
     const center=gltfPoint([sign*.47*.82-sign*c[0]*scale,-.16*.9-(.94*1.25-1.05)*.1-c[2]*scale,.94*1.25-c[1]*scale]);
     const deformWrist=joint('body.wrist.'+side);
     const hd=delta(deformWrist>=0?deformWrist:joint('hand.'+side)),actual=Vector3.TransformCoordinates(center,hd);
-    const spacing=side==='R'?0:kind==='ieyasu'?-.15:['thrust','dash'].includes(clip.name)?.30:.42;
+    const authoredSpacing=poseConfig?.[kind]?.clips?.[clip.name]?.spacing;
+    const spacing=side==='R'?0:authoredSpacing??(kind==='ieyasu'?-.15:['thrust','dash'].includes(clip.name)?.30:.42);
     const elbow=Vector3.TransformCoordinates(Vector3.Zero(),world(skin.joints[joint('forearm.'+side)]));
     const wrist=Vector3.TransformCoordinates(Vector3.Zero(),world(skin.joints[joint('hand.'+side)]));
     const palm=Vector3.TransformNormal(gltfPoint([0,0,-1]),hd).normalize();
