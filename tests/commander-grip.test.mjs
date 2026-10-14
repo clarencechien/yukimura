@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,mkdirSync,writeFileSync} from 'node:fs';
+import {join} from 'node:path';
 import {Matrix,Quaternion,Vector3} from '@babylonjs/core/Maths/math.vector.js';
 const source=JSON.parse(readFileSync(new URL('../assets/vendor/mpfb/commander-grip.json',import.meta.url)));
 const modelsRoot=new URL(process.env.MODEL_TEST_ROOT||'../public/models/',import.meta.url);
@@ -25,8 +26,9 @@ for(const kind of ['yukimura','ieyasu'])test(`${kind}: exported hands stay align
   }
   assert.ok(axial.length>=12&&Math.min(...axial)<-.225&&Math.max(...axial)>.15,'tachi hilt must extend beneath the lower hand');
  }
- let samples=0,maxError=0,minDot=1,maxWristAngle=0,worstPose=null;
+ let samples=0,maxError=0,minDot=1,maxWristAngle=0,worstPose=null;const clipMetrics={};
  for(const clip of g.animations.filter(c=>!c.name.startsWith('fall'))){
+  const measured=clipMetrics[clip.name]={maxWristAngle:0,maxGripErrorM:0,minAxisDot:1};
   const channels=clip.channels.map(c=>{const s=clip.samplers[c.sampler];return {node:c.target.node,path:c.target.path,times:read(s.input).flat(),values:read(s.output)}});
   const duration=Math.max(...channels.map(c=>c.times.at(-1)));
   const expected={idle:1.6,run:.8,slash:1,reverse:1,thrust:1,spin:1.2,dash:.6,hurt:.6}[clip.name];
@@ -52,15 +54,17 @@ for(const kind of ['yukimura','ieyasu'])test(`${kind}: exported hands stay align
     const wrist=Vector3.TransformCoordinates(Vector3.Zero(),world(skin.joints[joint('hand.'+side)]));
     const palm=Vector3.TransformNormal(gltfPoint([0,0,-1]),hd).normalize();
     const bend=Math.acos(Math.max(-1,Math.min(1,Vector3.Dot(wrist.subtract(elbow).normalize(),palm))))*180/Math.PI;
+    measured.maxWristAngle=Math.max(measured.maxWristAngle,bend);
     if(bend>maxWristAngle){maxWristAngle=bend;worstPose={clip:clip.name,side,t};}
     const error=Vector3.Distance(actual,origin.add(axis.scale(spacing)));maxError=Math.max(maxError,error);
     const a=source.shaft_axis,gripAxis=Vector3.TransformNormal(gltfPoint([-sign*a[0],-a[2],-a[1]]),hd).normalize();
-    const dot=Vector3.Dot(gripAxis,axis);minDot=Math.min(minDot,dot);samples++;
+    const dot=Vector3.Dot(gripAxis,axis);minDot=Math.min(minDot,dot);samples++;measured.maxGripErrorM=Math.max(measured.maxGripErrorM,error);measured.minAxisDot=Math.min(measured.minAxisDot,dot);
     assert.ok(error<.004,`${clip.name} ${side} t=${t}: grip error ${error} m`);
     assert.ok(dot>.999,`${clip.name} ${side}: grip axis not aligned`);
    }
   }
  }
- assert.ok(maxWristAngle<50,`${kind}: wrist bends back excessively (${maxWristAngle} degrees)`);
+ assert.ok(maxWristAngle<Number(process.env.GRIP_MAX_WRIST_ANGLE||50),`${kind}: wrist bends back excessively (${maxWristAngle} degrees)`);
+ if(process.env.GRIP_REPORT_DIR){mkdirSync(process.env.GRIP_REPORT_DIR,{recursive:true});writeFileSync(join(process.env.GRIP_REPORT_DIR,kind+'.json'),JSON.stringify({kind,samples,maxGripErrorM:maxError,minAxisDot:minDot,maxWristAngle,worstPose,clips:clipMetrics},null,2)+'\n')}
  console.log(kind,{samples,maxGripErrorM:maxError,minAxisDot:minDot,maxWristAngle,worstPose});
 });

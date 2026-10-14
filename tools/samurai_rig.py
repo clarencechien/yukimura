@@ -38,7 +38,7 @@ def sample(keys,t):
         if t<=b:return x+(y-x)*smooth((t-a)/(b-a))
     return keys[-1][1]
 
-def bind_hero(mesh,kind='yukimura',reweight=True,natural_wrists=False):
+def bind_hero(mesh,kind='yukimura',reweight=True,natural_wrists=False,technique_trial=False,clip_filter=None):
     hero=kind=='yukimura'
     anatomical=kind in ('yukimura','ieyasu')
     if anatomical:
@@ -124,6 +124,7 @@ def bind_hero(mesh,kind='yukimura',reweight=True,natural_wrists=False):
             orient(first,head,elbow);orient(second,elbow,end)
         return end,(end-target).length
     clips=[('idle',48),('run',24),('slash',30),('reverse',30),('thrust',30),('spin',36),('dash',18),('hurt',18)] if hero else [('idle',48),('run',24),('thrust',30),('hurt',18),('fall',42),('fall_back',42)]
+    if clip_filter is not None:clips=[(name,frames) for name,frames in clips if name in clip_filter]
     for name,frames in clips:
         ik_bends.clear();grip_rolls={}
         if anatomical:frames*=3
@@ -175,6 +176,17 @@ def bind_hero(mesh,kind='yukimura',reweight=True,natural_wrists=False):
                     # wide cross-body carry that overextended the left wrist.
                     grip=Vector((.04,-.34,1.42))
                     axis=Vector((-.18,-.35,.92))
+            if technique_trial:
+                if hero and name in ('idle','run'):
+                    # Carry with the rear grip lower and the front hand away
+                    # from the chest, leaving room for bent elbows and wrist roll.
+                    grip=Vector((.22,-.31,1.32))
+                    axis=Vector((-.76,-.40,.50))
+                elif not hero and name=='thrust':
+                    # The old sword wind-up pulled the hands into the torso;
+                    # keep the short two-hand grip in front of the centre line.
+                    grip=Vector((.03,-.34-push*.60,1.40))
+                    axis=Vector((-.04,-.92,.32))
             body=pose['chest'].matrix @ rest['chest'].inverted()
             world_grip=body@grip;world_axis=(body.to_3x3()@axis).normalized()
             orient('weapon',world_grip,world_grip+world_axis*.35)

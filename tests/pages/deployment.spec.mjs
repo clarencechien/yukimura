@@ -1,4 +1,29 @@
 import {test,expect} from '@playwright/test';
+test('v21 face and weapon-grip trials show candidates first with valid evidence',async({page,request})=>{
+ const errors=[];page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
+ const root='http://127.0.0.1:4174/yukimura/review/';
+ for(const [path,title,count] of [['menpo/trial/','赤冬 · 面具試作 v21',20],['technique/','赤冬 · 槍術與劍術握持試作',24]]){
+  expect((await page.goto(root+path)).status()).toBe(200);
+  await expect(page).toHaveTitle(title);await expect(page.locator('img')).toHaveCount(count);
+  await expect(page.locator('figcaption').first()).toHaveText('v21 試作');
+  await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
+  await expect(page.locator('.tag')).toContainText('尚未替換遊戲');
+  for(const width of [1280,390]){
+   await page.setViewportSize({width,height:900});
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+  }
+ }
+ const response=await request.get(root+'technique/grip-check.json');expect(response.status()).toBe(200);
+ const report=await response.json();
+ for(const kind of ['yukimura','ieyasu']){
+  expect(report[kind].after.maxGripErrorM).toBeLessThan(.0005);
+  expect(report[kind].after.minAxisDot).toBeGreaterThan(.999);
+ }
+ expect(report.ieyasu.after.clips.thrust.maxWristAngle).toBeLessThan(10);
+ expect(report.ieyasu.before.clips.thrust.maxWristAngle).toBeGreaterThan(40);
+ await page.goto(root+'menpo/');await page.getByRole('link',{name:'查看較俐落的 v21 面具試作 ↗'}).click();
+ await expect(page).toHaveTitle('赤冬 · 面具試作 v21');expect(errors).toEqual([]);
+});
 test('Menpo review loads all before/after images and motion evidence under Pages',async({page,request})=>{
  const errors=[];
  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});

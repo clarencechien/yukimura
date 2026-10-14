@@ -1,0 +1,182 @@
+{
+  "yukimura": {
+    "before": {
+      "kind": "yukimura",
+      "samples": 1568,
+      "maxGripErrorM": 0.0004851191853996316,
+      "minAxisDot": 0.9999991502227743,
+      "maxWristAngle": 34.866489712665675,
+      "worstPose": {
+        "clip": "hurt",
+        "side": "L",
+        "t": 0.21030928670745536
+      },
+      "clips": {
+        "idle": {
+          "maxWristAngle": 9.53741793870997,
+          "maxGripErrorM": 5.394552850355609e-06,
+          "minAxisDot": 0.9999999999992223
+        },
+        "run": {
+          "maxWristAngle": 10.747131900079216,
+          "maxGripErrorM": 5.473424618303972e-05,
+          "minAxisDot": 0.999999999975967
+        },
+        "slash": {
+          "maxWristAngle": 11.832334357241796,
+          "maxGripErrorM": 0.00012447479815140173,
+          "minAxisDot": 0.9999997606921327
+        },
+        "reverse": {
+          "maxWristAngle": 21.57257642913995,
+          "maxGripErrorM": 0.0004851191853996316,
+          "minAxisDot": 0.9999991502227743
+        },
+        "thrust": {
+          "maxWristAngle": 7.10777835442507,
+          "maxGripErrorM": 0.0002852037272516974,
+          "minAxisDot": 0.9999998443928261
+        },
+        "spin": {
+          "maxWristAngle": 11.829461792367264,
+          "maxGripErrorM": 4.3538496101732485e-05,
+          "minAxisDot": 0.9999999617121846
+        },
+        "dash": {
+          "maxWristAngle": 8.230018701458633,
+          "maxGripErrorM": 5.819727238081061e-05,
+          "minAxisDot": 0.99999998343149
+        },
+        "hurt": {
+          "maxWristAngle": 34.866489712665675,
+          "maxGripErrorM": 8.151042013631655e-05,
+          "minAxisDot": 0.999999997543683
+        }
+      }
+    },
+    "after": {
+      "kind": "yukimura",
+      "samples": 1568,
+      "maxGripErrorM": 0.0004851191853996316,
+      "minAxisDot": 0.9999991502227743,
+      "maxWristAngle": 34.866489712665675,
+      "worstPose": {
+        "clip": "hurt",
+        "side": "L",
+        "t": 0.21030928670745536
+      },
+      "clips": {
+        "idle": {
+          "maxWristAngle": 8.464839251577299,
+          "maxGripErrorM": 4.362645963688072e-06,
+          "minAxisDot": 0.9999999999991201
+        },
+        "run": {
+          "maxWristAngle": 9.452144952587208,
+          "maxGripErrorM": 7.526696660089983e-05,
+          "minAxisDot": 0.9999999999785135
+        },
+        "slash": {
+          "maxWristAngle": 11.832334357241796,
+          "maxGripErrorM": 0.00012447479815140173,
+          "minAxisDot": 0.9999997606921327
+        },
+        "reverse": {
+          "maxWristAngle": 21.57257642913995,
+          "maxGripErrorM": 0.0004851191853996316,
+          "minAxisDot": 0.9999991502227743
+        },
+        "thrust": {
+          "maxWristAngle": 7.10777835442507,
+          "maxGripErrorM": 0.0002852037272516974,
+          "minAxisDot": 0.9999998443928261
+        },
+        "spin": {
+          "maxWristAngle": 11.829461792367264,
+          "maxGripErrorM": 4.3538496101732485e-05,
+          "minAxisDot": 0.9999999617121846
+        },
+        "dash": {
+          "maxWristAngle": 8.230018701458633,
+          "maxGripErrorM": 5.819727238081061e-05,
+          "minAxisDot": 0.99999998343149
+        },
+        "hurt": {
+          "maxWristAngle": 34.866489712665675,
+          "maxGripErrorM": 8.151042013631655e-05,
+          "minAxisDot": 0.999999997543683
+        }
+      }
+    }
+  },
+  "ieyasu": {
+    "before": {
+      "kind": "ieyasu",
+      "samples": 784,
+      "maxGripErrorM": 0.0005428368063155482,
+      "minAxisDot": 0.9999993331223729,
+      "maxWristAngle": 45.264147758570026,
+      "worstPose": {
+        "clip": "thrust",
+        "side": "L",
+        "t": 0.2268041237113402
+      },
+      "clips": {
+        "idle": {
+          "maxWristAngle": 32.44211754757105,
+          "maxGripErrorM": 1.8685809030268275e-06,
+          "minAxisDot": 0.9999999999993121
+        },
+        "run": {
+          "maxWristAngle": 32.62744222433242,
+          "maxGripErrorM": 8.442160711628076e-05,
+          "minAxisDot": 0.9999999999809007
+        },
+        "thrust": {
+          "maxWristAngle": 45.264147758570026,
+          "maxGripErrorM": 0.0005428368063155482,
+          "minAxisDot": 0.9999993331223729
+        },
+        "hurt": {
+          "maxWristAngle": 32.43859164522155,
+          "maxGripErrorM": 8.106326869888519e-06,
+          "minAxisDot": 0.999999999999313
+        }
+      }
+    },
+    "after": {
+      "kind": "ieyasu",
+      "samples": 784,
+      "maxGripErrorM": 0.00011187049724081775,
+      "minAxisDot": 0.999999968670481,
+      "maxWristAngle": 32.62744222433242,
+      "worstPose": {
+        "clip": "run",
+        "side": "L",
+        "t": 0.7175257838878435
+      },
+      "clips": {
+        "idle": {
+          "maxWristAngle": 32.44211754757105,
+          "maxGripErrorM": 1.8685809030268275e-06,
+          "minAxisDot": 0.9999999999993121
+        },
+        "run": {
+          "maxWristAngle": 32.62744222433242,
+          "maxGripErrorM": 8.442160711628076e-05,
+          "minAxisDot": 0.9999999999809007
+        },
+        "thrust": {
+          "maxWristAngle": 5.781776318651971,
+          "maxGripErrorM": 0.00011187049724081775,
+          "minAxisDot": 0.999999968670481
+        },
+        "hurt": {
+          "maxWristAngle": 32.43859164522155,
+          "maxGripErrorM": 8.106326869888519e-06,
+          "minAxisDot": 0.999999999999313
+        }
+      }
+    }
+  }
+}

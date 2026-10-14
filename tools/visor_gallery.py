@@ -42,7 +42,7 @@ page='''<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="vi
 <p><a href="capture.json">引擎截圖紀錄</a> · <a href="motion-check.json">動作與皮膚間隙檢查</a> · <a href="https://github.com/clarencechien/yukimura/blob/main/docs/COMMANDER_VISOR.md">製作與重建紀錄</a></p></footer></main></html>'''
 if SCULPT:
     start=page.index('<p class="tag">');end=page.index('<section',start)
-    page=page[:start]+"""<p class="tag">V20 / 新版模型已接入遊戲</p><h1>重新塑形的武士面頬</h1>
+    page=page[:start]+"""<p class="tag">V20 / 新版模型已接入遊戲</p><p><a href="trial/">查看較俐落的 v21 面具試作 ↗</a> · <a href="../technique/">槍術與劍術握持試作 ↗</a></p><h1>重新塑形的武士面頬</h1>
 <div class="intro"><p><strong>新版在左邊；手機版先顯示新版。</strong>右邊／下方是上一版 v19，方便直接比較。</p>
 <p>上一版仍像平滑面殼。這次重建鼻頭、立體鼻翼、鼓頰與鼻唇溝，使用連續曲面包圍嘴部，加厚唇框並塑出圓下巴；家康的鬚飾也增加厚度。</p>
 <p>以下均為 Babylon.js 實際模型截圖，兩版相機、光線及動作時間相同。仍沿用 92 骨、5 材質區塊與全部既有貼圖。只增加主將面具的幾何密度，小兵未增加面數。</p>

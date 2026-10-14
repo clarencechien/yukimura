@@ -8,7 +8,7 @@ from mathutils.bvhtree import BVHTree
 from detail_commanders import Fittings
 
 
-def sculpted_menpo(mesh, kind):
+def sculpted_menpo(mesh, kind, slim=False):
     skin = next(i for i, m in enumerate(mesh.data.materials) if m.name.startswith('human skin /'))
     polys = [list(p.vertices) for p in mesh.data.polygons if p.material_index == skin]
     skin_tree = BVHTree.FromPolygons([v.co for v in mesh.data.vertices], polys)
@@ -17,6 +17,28 @@ def sculpted_menpo(mesh, kind):
     weight = {'body.head': 1.0}
     segments, rings = 80, 18
     scale = 1.025 if kind == 'ieyasu' else 1
+
+    # v21 trial follows v19's notched top edge and tapered jaw instead of the
+    # broad oval outline of v20. Intersect radial topology rays with this outline.
+    right=[(0,1.931),(.025,1.901),(.040,1.889),(.080,1.893),(.119,1.902),
+           (.120,1.884),(.117,1.868),(.115,1.850),(.108,1.831),(.102,1.820),
+           (.093,1.785),(.080,1.766),(.065,1.752),(.050,1.748),(0,1.739)]
+    contour=right+[(-x,z) for x,z in reversed(right[1:-1])]
+
+    def old_outline(c,s):
+        # 2D ray / segment intersection about the mouth, inside the contour.
+        origin=Vector((0,1.793));direction=Vector((c,s))
+        cross=lambda a,b:a.x*b.y-a.y*b.x
+        hits=[]
+        for i in range(len(contour)):
+            a=Vector(contour[i]);b=Vector(contour[(i+1)%len(contour)])
+            edge=b-a;den=cross(direction,edge)
+            if abs(den)<1e-9:continue
+            distance=cross(a-origin,edge)/den;t=cross(a-origin,direction)/den
+            if distance>0 and 0<=t<=1:hits.append(distance)
+        assert hits, 'No intersection with v19 mask outline'
+        p=origin+direction*min(hits)
+        return p.x,p.y
 
     def sculpt(x, z):
         # Embossed facial masses, not a radial offset of the human skin.
@@ -33,6 +55,14 @@ def sculpted_menpo(mesh, kind):
         crease = 1.869 - (ax-.05)*.35
         y += .005 * math.exp(-((z-crease)/.0035)**2 - ((ax-.075)/.024)**4)
         hit, _, _, _ = skin_tree.ray_cast(Vector((x,-1,z)),Vector((0,1,0)),2)
+        if slim:
+            nasal=math.exp(-(x/.025)**4-((z-1.883)/.045)**2)
+            tip=math.exp(-(x/.016)**2-((z-1.856)/.014)**2)
+            wing=math.exp(-((ax-.027)/.011)**2-((z-1.852)/.012)**2)
+            cheek=math.exp(-((ax-.074)/.018)**2-((z-1.846)/.027)**2)
+            jaw=math.exp(-(x/.056)**4-((z-1.751)/.017)**2)
+            y=-.257+.085*(ax/.120)**2
+            y-=.010+.040*nasal+.017*tip+.012*wing+.008*cheek+.009*jaw
         if hit is not None:
             y = min(y, hit.y-.012)
         return y
@@ -47,6 +77,10 @@ def sculpted_menpo(mesh, kind):
             iz = 1.794+.020*s-.011*math.exp(-(c/.38)**2)*max(s,0)
             ox = .123*c*(1-.25*max(-s,0))
             oz = 1.812+.088*s+.036*math.exp(-(c/.20)**2)*max(s,0)+.018*abs(c)**1.5*max(s,0)
+            if slim:
+                ix=.050*math.copysign(abs(c)**.55,c)
+                iz=1.793+.015*math.copysign(abs(s)**.65,s)-.004*math.exp(-(c/.35)**2)*max(s,0)
+                ox,oz=old_outline(c,s)
             x = (ix+(ox-ix)*t)*scale
             z = iz+(oz-iz)*t
             vertices.append(Vector((x,sculpt(x,z),z)))
@@ -113,11 +147,14 @@ def sculpted_menpo(mesh, kind):
     dark_ids=set();hair_ids=set()
 
     # Thick rolled mouth lip and lower/outer rim are actual rounded geometry.
-    for row,radius in [(0,.0045),(rings,.0018)]:
+    for row,radius in ([(0,.0015),(rings,.0012)] if slim else [(0,.0045),(rings,.0018)]):
         points=[vertices[row*segments+c]+Vector((0,-.001,0)) for c in range(segments)]
         out.tube([(p,weight) for p in points+[points[0]]],radius,role,6)
     # Recessed interior with a continuous mouth perimeter, no quad-shaped hole.
     opening=[vertices[c]+Vector((0,.004,0)) for c in range(segments)]
+    if slim:
+        cavity_y=min(p.y for p in opening)-.002
+        opening=[Vector((p.x,cavity_y,p.z)) for p in opening]
     center=sum(opening,Vector())/segments
     start=len(out.v)
     out.add(opening+[center],[(c,(c+1)%segments,segments) for c in range(segments)],[(0,0)]*(segments+1),[weight]*(segments+1),0)
@@ -129,10 +166,10 @@ def sculpted_menpo(mesh, kind):
         rim=[];well=[]
         for i in range(20):
             a=i/20*math.tau
-            x=center_x+.010*math.cos(a);z=center_z+.0055*math.sin(a)
+            x=center_x+(.006 if slim else .010)*math.cos(a);z=center_z+(.0035 if slim else .0055)*math.sin(a)
             rim.append(front(x,z,.003))
             well.append(front(x,z,.001))
-        out.tube([(p,weight) for p in rim+[rim[0]]],.0030,role,6)
+        out.tube([(p,weight) for p in rim+[rim[0]]],.0013 if slim else .0030,role,6)
         start=len(out.v)
         center=front(center_x,center_z,.001)
         out.add(well+[center],[(i,(i+1)%20,20) for i in range(20)],[(0,0)]*21,[weight]*21,0)
@@ -144,13 +181,13 @@ def sculpted_menpo(mesh, kind):
     # Mouth hardware and moustache are fitted onto the same sculpted surface.
     if kind=='ieyasu':
         for side in [-1,1]:
-            for strand in range(12):
+            for strand in range(6 if slim else 12):
                 points=[]
                 for j in range(8):
                     t=j/7;x=side*(.012+.047*t)
-                    z=1.818+.009*math.sin(t*math.pi)+(strand-5.5)*.0012
+                    z=(1.816 if slim else 1.818)+(.007 if slim else .009)*math.sin(t*math.pi)+(strand-(2.5 if slim else 5.5))*.0012
                     points.append((front(x,z,.004+(strand%3)*.0005),weight))
-                start=len(out.v);out.tube(points,.0009,0,4);hair_ids.update(range(start,len(out.v)))
+                start=len(out.v);out.tube(points,.00065 if slim else .0009,0,4);hair_ids.update(range(start,len(out.v)))
         for i in range(9):
             x=(i-4)*.010
             p=front(x,1.808,.003)
@@ -164,13 +201,13 @@ def sculpted_menpo(mesh, kind):
         if out.roles[i]==role:
             colors.data[loop.index].color=(.25,.014,.008,1) if kind=='yukimura' else (.045,.043,.035,1)
         if i in dark_ids:colors.data[loop.index].color=(.001,.001,.001,1)
-        if i in hair_ids:colors.data[loop.index].color=(.25,.23,.19,1)
+        if i in hair_ids:colors.data[loop.index].color=(.15,.14,.12,1) if slim else (.25,.23,.19,1)
         if out.roles[i] in (role,0):
             # Avoid a cloth normal pattern over embossed metal and dark recesses.
             center=Vector((.75,.75 if role==3 else .25)) if out.roles[i]==role else Vector((.25,.25))
             uv.data[loop.index].uv=center+(uv.data[loop.index].uv-center)*.008
     return ob,{'shell_vertices':shell_count,'vertices':len(out.v),'shell_thickness_m':.002,
         'minimum_authored_front_clearance_m':.010,'mouth_opening':True,'eye_openings':0,
-        'reference_form':'embossed menpo: continuous lip, alar sockets, cheek bosses, rounded chin',
+        'reference_form':'v21 trial: v19 silhouette, restrained cheeks and thin mouth rim' if slim else 'embossed menpo: continuous lip, alar sockets, cheek bosses, rounded chin',
         'shared_material':mat.name,'bone':'body.head','new_textures':0,
         'topology':{'angular_segments':segments,'radial_rings':rings,'sculpted_shell_triangles':len(exterior)*2+segments*4}}

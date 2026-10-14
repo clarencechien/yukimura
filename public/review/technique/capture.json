@@ -1,0 +1,485 @@
+{
+  "results": [
+    {
+      "kind": "yukimura",
+      "rig": "trial-before",
+      "clip": "idle",
+      "view": "oblique",
+      "file": "yukimura-trial-before-idle-oblique.png",
+      "hands": [
+        [
+          0.16421237587928772,
+          1.4619888067245483,
+          0.23894371092319489
+        ],
+        [
+          -0.3317241370677948,
+          1.4175764322280884,
+          0.20778502523899078
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial-before",
+      "clip": "idle",
+      "view": "side",
+      "file": "yukimura-trial-before-idle-side.png",
+      "hands": [
+        [
+          0.16421237587928772,
+          1.4619888067245483,
+          0.23894371092319489
+        ],
+        [
+          -0.3317241370677948,
+          1.4175764322280884,
+          0.20778502523899078
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial-before",
+      "clip": "run",
+      "view": "oblique",
+      "file": "yukimura-trial-before-run-oblique.png",
+      "hands": [
+        [
+          0.11920542269945145,
+          1.429256796836853,
+          0.306140273809433
+        ],
+        [
+          -0.3666077256202698,
+          1.4251418113708496,
+          0.20466819405555725
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial-before",
+      "clip": "run",
+      "view": "side",
+      "file": "yukimura-trial-before-run-side.png",
+      "hands": [
+        [
+          0.11920542269945145,
+          1.429256796836853,
+          0.306140273809433
+        ],
+        [
+          -0.3666077256202698,
+          1.4251418113708496,
+          0.20466819405555725
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial-before",
+      "clip": "thrust",
+      "view": "oblique",
+      "file": "yukimura-trial-before-thrust-oblique.png",
+      "hands": [
+        [
+          0.13764256238937378,
+          1.283820390701294,
+          0.36690080165863037
+        ],
+        [
+          -0.19176648557186127,
+          1.2927041053771973,
+          0.10472266376018524
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial-before",
+      "clip": "thrust",
+      "view": "side",
+      "file": "yukimura-trial-before-thrust-side.png",
+      "hands": [
+        [
+          0.13764256238937378,
+          1.283820390701294,
+          0.36690080165863037
+        ],
+        [
+          -0.19176648557186127,
+          1.2927041053771973,
+          0.10472266376018524
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial",
+      "clip": "idle",
+      "view": "oblique",
+      "file": "yukimura-trial-idle-oblique.png",
+      "hands": [
+        [
+          0.1561446338891983,
+          1.4103342294692993,
+          0.35488346219062805
+        ],
+        [
+          -0.3154319226741791,
+          1.3633062839508057,
+          0.26996302604675293
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial",
+      "clip": "idle",
+      "view": "side",
+      "file": "yukimura-trial-idle-side.png",
+      "hands": [
+        [
+          0.1561446338891983,
+          1.4103342294692993,
+          0.35488346219062805
+        ],
+        [
+          -0.3154319226741791,
+          1.3633062839508057,
+          0.26996302604675293
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial",
+      "clip": "run",
+      "view": "oblique",
+      "file": "yukimura-trial-run-oblique.png",
+      "hands": [
+        [
+          0.11951825022697449,
+          1.3795169591903687,
+          0.37907707691192627
+        ],
+        [
+          -0.34439122676849365,
+          1.348801851272583,
+          0.253982812166214
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial",
+      "clip": "run",
+      "view": "side",
+      "file": "yukimura-trial-run-side.png",
+      "hands": [
+        [
+          0.11951825022697449,
+          1.3795169591903687,
+          0.37907707691192627
+        ],
+        [
+          -0.34439122676849365,
+          1.348801851272583,
+          0.253982812166214
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial",
+      "clip": "thrust",
+      "view": "oblique",
+      "file": "yukimura-trial-thrust-oblique.png",
+      "hands": [
+        [
+          0.13764256238937378,
+          1.283820390701294,
+          0.36690080165863037
+        ],
+        [
+          -0.19176648557186127,
+          1.2927041053771973,
+          0.10472266376018524
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "yukimura",
+      "rig": "trial",
+      "clip": "thrust",
+      "view": "side",
+      "file": "yukimura-trial-thrust-side.png",
+      "hands": [
+        [
+          0.13764256238937378,
+          1.283820390701294,
+          0.36690080165863037
+        ],
+        [
+          -0.19176648557186127,
+          1.2927041053771973,
+          0.10472266376018524
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial-before",
+      "clip": "idle",
+      "view": "oblique",
+      "file": "ieyasu-trial-before-idle-oblique.png",
+      "hands": [
+        [
+          0.007662870921194553,
+          1.2188057899475098,
+          0.15086884796619415
+        ],
+        [
+          -0.17620499432086945,
+          1.3654683828353882,
+          0.2771036922931671
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial-before",
+      "clip": "idle",
+      "view": "side",
+      "file": "ieyasu-trial-before-idle-side.png",
+      "hands": [
+        [
+          0.007662870921194553,
+          1.2188057899475098,
+          0.15086884796619415
+        ],
+        [
+          -0.17620499432086945,
+          1.3654683828353882,
+          0.2771036922931671
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial-before",
+      "clip": "run",
+      "view": "oblique",
+      "file": "ieyasu-trial-before-run-oblique.png",
+      "hands": [
+        [
+          -0.014889795333147049,
+          1.20781672000885,
+          0.14924213290214539
+        ],
+        [
+          -0.20618346333503723,
+          1.3475979566574097,
+          0.272184818983078
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial-before",
+      "clip": "run",
+      "view": "side",
+      "file": "ieyasu-trial-before-run-side.png",
+      "hands": [
+        [
+          -0.014889795333147049,
+          1.20781672000885,
+          0.14924213290214539
+        ],
+        [
+          -0.20618346333503723,
+          1.3475979566574097,
+          0.272184818983078
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial-before",
+      "clip": "thrust",
+      "view": "oblique",
+      "file": "ieyasu-trial-before-thrust-oblique.png",
+      "hands": [
+        [
+          0.0708320364356041,
+          1.346754789352417,
+          -0.07530002295970917
+        ],
+        [
+          -0.19176648557186127,
+          1.2927041053771973,
+          0.10472266376018524
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial-before",
+      "clip": "thrust",
+      "view": "side",
+      "file": "ieyasu-trial-before-thrust-side.png",
+      "hands": [
+        [
+          0.0708320364356041,
+          1.346754789352417,
+          -0.07530002295970917
+        ],
+        [
+          -0.19176648557186127,
+          1.2927041053771973,
+          0.10472266376018524
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial",
+      "clip": "idle",
+      "view": "oblique",
+      "file": "ieyasu-trial-idle-oblique.png",
+      "hands": [
+        [
+          0.007662870921194553,
+          1.2188057899475098,
+          0.15086884796619415
+        ],
+        [
+          -0.17620499432086945,
+          1.3654683828353882,
+          0.2771036922931671
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial",
+      "clip": "idle",
+      "view": "side",
+      "file": "ieyasu-trial-idle-side.png",
+      "hands": [
+        [
+          0.007662870921194553,
+          1.2188057899475098,
+          0.15086884796619415
+        ],
+        [
+          -0.17620499432086945,
+          1.3654683828353882,
+          0.2771036922931671
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial",
+      "clip": "run",
+      "view": "oblique",
+      "file": "ieyasu-trial-run-oblique.png",
+      "hands": [
+        [
+          -0.014889795333147049,
+          1.20781672000885,
+          0.14924213290214539
+        ],
+        [
+          -0.20618346333503723,
+          1.3475979566574097,
+          0.272184818983078
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial",
+      "clip": "run",
+      "view": "side",
+      "file": "ieyasu-trial-run-side.png",
+      "hands": [
+        [
+          -0.014889795333147049,
+          1.20781672000885,
+          0.14924213290214539
+        ],
+        [
+          -0.20618346333503723,
+          1.3475979566574097,
+          0.272184818983078
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial",
+      "clip": "thrust",
+      "view": "oblique",
+      "file": "ieyasu-trial-thrust-oblique.png",
+      "hands": [
+        [
+          0.1047053262591362,
+          1.2248517274856567,
+          0.24466846883296967
+        ],
+        [
+          -0.15841737389564514,
+          1.2793827056884766,
+          0.3994766175746918
+        ]
+      ],
+      "bones": 92
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "trial",
+      "clip": "thrust",
+      "view": "side",
+      "file": "ieyasu-trial-thrust-side.png",
+      "hands": [
+        [
+          0.1047053262591362,
+          1.2248517274856567,
+          0.24466846883296967
+        ],
+        [
+          -0.15841737389564514,
+          1.2793827056884766,
+          0.3994766175746918
+        ]
+      ],
+      "bones": 92
+    }
+  ],
+  "errors": []
+}

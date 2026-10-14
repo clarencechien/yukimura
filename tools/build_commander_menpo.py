@@ -14,9 +14,10 @@ from refine_commander_faces import fit, components, SOURCE, SOURCE_SHA
 import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
-SCULPT = '--sculpt' in sys.argv
+TRIAL = '--trial' in sys.argv
+SCULPT = '--sculpt' in sys.argv or TRIAL
 VISOR = '--visor' in sys.argv or SCULPT
-STAGE = ROOT / ('.tmp/menpo-v20' if SCULPT else '.tmp/menpo-v19' if VISOR else '.tmp/menpo-v18')
+STAGE = ROOT / ('.tmp/menpo-v21' if TRIAL else '.tmp/menpo-v20' if SCULPT else '.tmp/menpo-v19' if VISOR else '.tmp/menpo-v18')
 OUT = STAGE / 'models'
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -295,7 +296,7 @@ def run(kind, expression):
     helmet=seat_helmet(mesh) if VISOR else None
     if SCULPT:
         from sculpt_menpo import sculpted_menpo
-        extra, report = sculpted_menpo(mesh, kind)
+        extra, report = sculpted_menpo(mesh, kind, slim=TRIAL)
     else:
         extra, report = menpo(mesh, kind)
     if VISOR:report['helmet_fit']=helmet
@@ -312,11 +313,14 @@ def run(kind, expression):
     bpy.ops.object.join()
     mesh.data.calc_loop_triangles()
     assert len(mesh.data.loop_triangles) <= (90000 if SCULPT else 80000)
+    if TRIAL:
+        from technique_trial import apply_technique
+        report['technique_trial']=apply_technique(rig,mesh,kind)
     report['first_vertex'] = original_vertices
     mesh['menpo'] = json.dumps(report)
     bpy.context.preferences.filepaths.save_version = 0
     bpy.ops.file.pack_all()
-    bpy.ops.wm.save_as_mainfile(filepath=str(ROOT / 'assets/optimized/commanders' / f'{kind}-{"sculpt" if SCULPT else "visor" if VISOR else "menpo"}.blend'), compress=True)
+    bpy.ops.wm.save_as_mainfile(filepath=str(ROOT / 'assets/optimized/commanders' / f'{kind}-{"trial" if TRIAL else "sculpt" if SCULPT else "visor" if VISOR else "menpo"}.blend'), compress=True)
     bpy.ops.object.select_all(action='DESELECT')
     mesh.select_set(True); rig.select_set(True)
     target = OUT / f'{kind}.glb'
