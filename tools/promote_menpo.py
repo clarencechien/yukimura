@@ -1,11 +1,13 @@
-"""Install reviewed v18 menpo without altering the shared texture inventory."""
+"""Install reviewed v18/v19 menpo without altering the shared texture inventory."""
 from pathlib import Path
 import json
 import shutil
 import struct
+import sys
 
 ROOT=Path(__file__).resolve().parents[1]
-STAGE=ROOT/'.tmp/menpo-v18'
+VISOR='--visor' in sys.argv
+STAGE=ROOT/('.tmp/menpo-v19' if VISOR else '.tmp/menpo-v18')
 OUT=ROOT/'public/models'
 manifest=json.loads((OUT/'manifest.json').read_text())
 for kind in ['yukimura','ieyasu']:
@@ -26,6 +28,6 @@ for kind in ['yukimura','ieyasu']:
     d=json.loads(bake.read_text());d['runtime_triangles']=info['triangles']
     d['runtime_note']='Original armor bake; MPFB arms; Rocketbox head; fitted menpo shares existing fittings atlas.'
     bake.write_text(json.dumps(d,indent=2)+'\n')
-manifest['generator']='modular-samurai-v18-human-head-menpo'
+manifest['generator']='modular-samurai-v19-reference-menpo' if VISOR else 'modular-samurai-v18-human-head-menpo'
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print('Installed fitted menpo; unchanged 14 model textures and 5 commander materials')

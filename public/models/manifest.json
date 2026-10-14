@@ -1,10 +1,10 @@
 {
-  "generator": "modular-samurai-v18-human-head-menpo",
+  "generator": "modular-samurai-v19-reference-menpo",
   "unique_source_parts": 905,
   "variants": {
     "yukimura": {
-      "triangles": 79627,
-      "bytes": 6049524,
+      "triangles": 79743,
+      "bytes": 6071816,
       "source_parts": 532,
       "materials": 5,
       "textures": 7,
@@ -59,18 +59,40 @@
         "neck_blend": "v18: spine-to-head blend at z=1.64\u20131.74 m; jaw fully follows head"
       },
       "menpo": {
-        "shell_vertices": 378,
-        "vertices": 690,
+        "shell_vertices": 420,
+        "vertices": 792,
         "shell_thickness_m": 0.002,
         "minimum_authored_front_clearance_m": 0.005,
         "mouth_opening": true,
+        "eye_openings": 0,
+        "reference_form": "photograph-guided menpo with low kabuto",
         "shared_material": "samurai woven cords and fittings",
         "bone": "body.head",
         "new_textures": 0,
+        "coverage_rays": {
+          "forehead": false,
+          "nose": true,
+          "mouth": false,
+          "chin": true,
+          "bridge": true,
+          "left_eye": false,
+          "right_eye": false
+        },
+        "helmet_fit": {
+          "vertices": 9398,
+          "crown_lowered_m": 0.045,
+          "lateral_scale": 0.96,
+          "brim": [
+            {
+              "before_z": 1.9785196781158447,
+              "after_z": 1.933519721031189
+            }
+          ]
+        },
         "battle_expression": {
           "source_targets": {
-            "AK_01_BrowDownLeft": 0.98,
-            "AK_02_BrowDownRight": 0.9,
+            "AK_01_BrowDownLeft": 1.12,
+            "AK_02_BrowDownRight": 1.06,
             "AK_09_EyeBlinkLeft": 0.22,
             "AK_10_EyeBlinkRight": 0.2
           },
@@ -103,8 +125,8 @@
       "fittings_lod": "crowd"
     },
     "ieyasu": {
-      "triangles": 76681,
-      "bytes": 5764356,
+      "triangles": 76995,
+      "bytes": 5800448,
       "source_parts": 590,
       "materials": 5,
       "textures": 7,
@@ -159,18 +181,40 @@
         "neck_blend": "v18: spine-to-head blend at z=1.64\u20131.74 m; jaw fully follows head"
       },
       "menpo": {
-        "shell_vertices": 378,
-        "vertices": 690,
+        "shell_vertices": 420,
+        "vertices": 948,
         "shell_thickness_m": 0.002,
         "minimum_authored_front_clearance_m": 0.005,
         "mouth_opening": true,
+        "eye_openings": 0,
+        "reference_form": "photograph-guided menpo with low kabuto",
         "shared_material": "samurai woven cords and fittings",
         "bone": "body.head",
         "new_textures": 0,
+        "coverage_rays": {
+          "forehead": false,
+          "nose": true,
+          "mouth": false,
+          "chin": true,
+          "bridge": true,
+          "left_eye": false,
+          "right_eye": false
+        },
+        "helmet_fit": {
+          "vertices": 9260,
+          "crown_lowered_m": 0.045,
+          "lateral_scale": 0.96,
+          "brim": [
+            {
+              "before_z": 1.9785196781158447,
+              "after_z": 1.933519721031189
+            }
+          ]
+        },
         "battle_expression": {
           "source_targets": {
-            "AK_01_BrowDownLeft": 1.0,
-            "AK_02_BrowDownRight": 1.0,
+            "AK_01_BrowDownLeft": 1.12,
+            "AK_02_BrowDownRight": 1.12,
             "AK_09_EyeBlinkLeft": 0.26,
             "AK_10_EyeBlinkRight": 0.26
           },

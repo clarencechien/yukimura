@@ -9,9 +9,10 @@ from mathutils.bvhtree import BVHTree
 
 ROOT=Path(__file__).resolve().parents[1]
 results=[]
-menpo='--menpo' in sys.argv
+visor='--visor' in sys.argv
+menpo=visor or '--menpo' in sys.argv
 for kind in ['yukimura','ieyasu']:
-    bpy.ops.wm.open_mainfile(filepath=str(ROOT/'assets/optimized/commanders'/f'{kind}-{"menpo" if menpo else "face"}.blend'))
+    bpy.ops.wm.open_mainfile(filepath=str(ROOT/'assets/optimized/commanders'/f'{kind}-{"visor" if visor else "menpo" if menpo else "face"}.blend'))
     scene=bpy.context.scene
     rig=next(o for o in scene.objects if o.type=='ARMATURE')
     mesh=next(o for o in scene.objects if o.type=='MESH' and o.parent==rig)
@@ -54,6 +55,6 @@ for kind in ['yukimura','ieyasu']:
             results[-1].update({'mask_vertices':len(mask_ids),'minimum_skin_clearance_m':clearance})
             assert clearance>.0001, f'{kind}/{track.name}: mask intersects skin ({clearance} m)'
     rig.animation_data.action=None
-out=ROOT/('renders/menpo-v18' if menpo else 'renders/face-v17');out.mkdir(parents=True,exist_ok=True)
+out=ROOT/('renders/menpo-v19' if visor else 'renders/menpo-v18' if menpo else 'renders/face-v17');out.mkdir(parents=True,exist_ok=True)
 (out/'motion-check.json').write_text(json.dumps({'results':results,'passed':True},indent=2)+'\n')
 print('Validated',len(results),'clips /',len(results)*13,'poses',flush=True)

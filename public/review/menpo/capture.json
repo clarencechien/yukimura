@@ -2,11 +2,11 @@
   "results": [
     {
       "kind": "yukimura",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "idle",
       "view": "face",
-      "file": "yukimura-menpo-before-idle-face.png",
-      "triangles": 78295,
+      "file": "yukimura-visor-before-idle-face.png",
+      "triangles": 79627,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -17,11 +17,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "idle",
       "view": "profile",
-      "file": "yukimura-menpo-before-idle-profile.png",
-      "triangles": 78295,
+      "file": "yukimura-visor-before-idle-profile.png",
+      "triangles": 79627,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -32,11 +32,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "idle",
       "view": "full",
-      "file": "yukimura-menpo-before-idle-full.png",
-      "triangles": 78295,
+      "file": "yukimura-visor-before-idle-full.png",
+      "triangles": 79627,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -47,11 +47,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "thrust",
       "view": "action",
-      "file": "yukimura-menpo-before-thrust-action.png",
-      "triangles": 78295,
+      "file": "yukimura-visor-before-thrust-action.png",
+      "triangles": 79627,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -62,11 +62,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "run",
       "view": "action",
-      "file": "yukimura-menpo-before-run-action.png",
-      "triangles": 78295,
+      "file": "yukimura-visor-before-run-action.png",
+      "triangles": 79627,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -77,11 +77,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "idle",
       "view": "face",
-      "file": "yukimura-menpo-idle-face.png",
-      "triangles": 79627,
+      "file": "yukimura-visor-idle-face.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -92,11 +92,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "idle",
       "view": "profile",
-      "file": "yukimura-menpo-idle-profile.png",
-      "triangles": 79627,
+      "file": "yukimura-visor-idle-profile.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -107,11 +107,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "idle",
       "view": "full",
-      "file": "yukimura-menpo-idle-full.png",
-      "triangles": 79627,
+      "file": "yukimura-visor-idle-full.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -122,11 +122,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "thrust",
       "view": "action",
-      "file": "yukimura-menpo-thrust-action.png",
-      "triangles": 79627,
+      "file": "yukimura-visor-thrust-action.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -137,11 +137,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "run",
       "view": "action",
-      "file": "yukimura-menpo-run-action.png",
-      "triangles": 79627,
+      "file": "yukimura-visor-run-action.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -152,11 +152,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "idle",
       "view": "face",
-      "file": "ieyasu-menpo-before-idle-face.png",
-      "triangles": 75349,
+      "file": "ieyasu-visor-before-idle-face.png",
+      "triangles": 76681,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -167,11 +167,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "idle",
       "view": "profile",
-      "file": "ieyasu-menpo-before-idle-profile.png",
-      "triangles": 75349,
+      "file": "ieyasu-visor-before-idle-profile.png",
+      "triangles": 76681,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -182,11 +182,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "idle",
       "view": "full",
-      "file": "ieyasu-menpo-before-idle-full.png",
-      "triangles": 75349,
+      "file": "ieyasu-visor-before-idle-full.png",
+      "triangles": 76681,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -197,11 +197,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "thrust",
       "view": "action",
-      "file": "ieyasu-menpo-before-thrust-action.png",
-      "triangles": 75349,
+      "file": "ieyasu-visor-before-thrust-action.png",
+      "triangles": 76681,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -212,11 +212,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo-before",
+      "rig": "visor-before",
       "clip": "run",
       "view": "action",
-      "file": "ieyasu-menpo-before-run-action.png",
-      "triangles": 75349,
+      "file": "ieyasu-visor-before-run-action.png",
+      "triangles": 76681,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -227,11 +227,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "idle",
       "view": "face",
-      "file": "ieyasu-menpo-idle-face.png",
-      "triangles": 76681,
+      "file": "ieyasu-visor-idle-face.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -242,11 +242,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "idle",
       "view": "profile",
-      "file": "ieyasu-menpo-idle-profile.png",
-      "triangles": 76681,
+      "file": "ieyasu-visor-idle-profile.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -257,11 +257,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "idle",
       "view": "full",
-      "file": "ieyasu-menpo-idle-full.png",
-      "triangles": 76681,
+      "file": "ieyasu-visor-idle-full.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -272,11 +272,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "thrust",
       "view": "action",
-      "file": "ieyasu-menpo-thrust-action.png",
-      "triangles": 76681,
+      "file": "ieyasu-visor-thrust-action.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -287,11 +287,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "menpo",
+      "rig": "visor",
       "clip": "run",
       "view": "action",
-      "file": "ieyasu-menpo-run-action.png",
-      "triangles": 76681,
+      "file": "ieyasu-visor-run-action.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
