@@ -8,16 +8,16 @@ const shared=new Set();
 for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){
  test(`${name}: valid geometry, shared painted textures and mobile asset budget`,()=>{
   const {bytes,gltf:g,binary}=readGLB(name);
-  assert.ok(g.buffers.every(b=>!b.uri));const commander=['yukimura','ieyasu'].includes(name);assert.equal(g.images.length,commander?5:3);assert.equal(g.materials.length,commander?4:1);
+  assert.ok(g.buffers.every(b=>!b.uri));const commander=['yukimura','ieyasu'].includes(name);assert.equal(g.images.length,commander?7:3);assert.equal(g.materials.length,commander?5:1);
   const mat=g.materials[0];assert.ok(mat.pbrMetallicRoughness.baseColorTexture);assert.ok(mat.pbrMetallicRoughness.metallicRoughnessTexture);assert.ok(mat.normalTexture);
   for(const [imageIndex,image] of g.images.entries()){
    assert.match(image.uri,/^shared\/[a-f0-9]{16}\.png$/);
    const png=readFileSync(new URL(image.uri,root));assert.equal(png.toString('ascii',1,4),'PNG');
    assert.equal(createHash('sha256').update(png).digest('hex').slice(0,16),image.uri.slice(7,23),'texture content does not match its cache key');
-   assert.ok((imageIndex>=3?[512]:name==='yukimura'?[2048]:[512,1024]).includes(png.readUInt32BE(16)));shared.add(image.uri);
+   assert.ok((imageIndex>=5?[1024]:imageIndex>=3?[512]:name==='yukimura'?[2048]:[512,1024]).includes(png.readUInt32BE(16)));shared.add(image.uri);
   }
   for(const view of g.bufferViews)assert.ok((view.byteOffset||0)+view.byteLength<=g.buffers[0].byteLength,'repacked buffer view out of bounds');
-  const primitives=g.meshes.flatMap(m=>m.primitives);assert.equal(primitives.length,commander?4:1);const p=primitives[0];assert.ok('COLOR_0' in p.attributes);assert.ok('TEXCOORD_0' in p.attributes);assert.ok(!('TEXCOORD_1' in p.attributes),'joined meshes split the painted atlas across UV sets');
+  const primitives=g.meshes.flatMap(m=>m.primitives);assert.equal(primitives.length,commander?5:1);const p=primitives[0];assert.ok('COLOR_0' in p.attributes);assert.ok('TEXCOORD_0' in p.attributes);assert.ok(!('TEXCOORD_1' in p.attributes),'joined meshes split the painted atlas across UV sets');
   const color=g.accessors[p.attributes.COLOR_0],colorView=g.bufferViews[color.bufferView];
   assert.ok([5121,5123,5126].includes(color.componentType));const step=color.componentType===5126?4:color.componentType===5123?2:1;const offset=(colorView.byteOffset||0)+(color.byteOffset||0);const rgba=Array.from({length:color.count*4},(_,i)=>step===4?binary.readFloatLE(offset+i*4):step===2?binary.readUInt16LE(offset+i*2):binary.readUInt8(offset+i));
   if(!['yukimura','ieyasu'].includes(name))assert.ok(rgba.some((v,i)=>i%4===0&&v!==rgba[i+1]),'team palette was replaced by white');
@@ -31,11 +31,11 @@ for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){
  });
 }
 test('commanders have dedicated bakes; foot soldiers reuse three atlas files',()=>{
- assert.equal(shared.size,11);
+ assert.equal(shared.size,14);
  const hero=new Set(readGLB('yukimura').gltf.images.slice(0,3).map(i=>i.uri));
  const army=new Set(['ashigaru','tokugawa'].flatMap(n=>readGLB(n).gltf.images.map(i=>i.uri)));
  const boss=new Set(readGLB('ieyasu').gltf.images.slice(0,3).map(i=>i.uri));assert.equal(boss.size,3);assert.ok([...boss].every(uri=>!hero.has(uri)&&!army.has(uri)));
- assert.deepEqual(readGLB('yukimura').gltf.images.slice(3).map(i=>i.uri),readGLB('ieyasu').gltf.images.slice(3).map(i=>i.uri),'commander fittings must reuse the same normal and ORM files');
+ assert.deepEqual(readGLB('yukimura').gltf.images.slice(3,6).map(i=>i.uri),readGLB('ieyasu').gltf.images.slice(3,6).map(i=>i.uri),'commander fittings and skin normals must be shared');
  assert.equal(hero.size,3);assert.equal(army.size,3);assert.ok([...hero].every(uri=>!army.has(uri)));
  const report=JSON.parse(readFileSync(new URL('hero-bake.json',root)));
  assert.ok(report.high_triangles>report.low_triangles*8);assert.ok(report.high_triangles>200000);

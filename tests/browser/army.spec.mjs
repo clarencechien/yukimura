@@ -57,10 +57,10 @@ test('soldiers collapse through two articulated poses without rotating or shrink
  await page.click('#resume');await page.evaluate(()=>window.__sanadaTest.step(1));expect((await page.evaluate(()=>window.__sanada)).corpses).toBe(0);expect(errors).toEqual([]);
 });
 
-test('Ieyasu instances all four material sections on the same GPU animation frame',async({page})=>{
+test('Ieyasu instances armor and human skin on the same GPU animation frame',async({page})=>{
  await page.goto('http://127.0.0.1:5175/?test');await expect(page.locator('#start')).toBeEnabled({timeout:60000});await page.click('#start');
  await page.evaluate(()=>{window.__sanadaTest.inspectBoss(true);window.__sanadaTest.step(.3)});
  const parts=await page.evaluate(()=>window.__sanadaTest.snapshot().bossParts);
- expect(parts).toHaveLength(4);expect(new Set(parts.map(p=>p.frame)).size).toBe(1);expect(parts.every(p=>p.enabled&&p.vertices>0)).toBe(true);
+ expect(parts).toHaveLength(5);expect(parts.some(p=>p.material==='human skin / ieyasu')).toBe(true);expect(new Set(parts.map(p=>p.frame)).size).toBe(1);expect(parts.every(p=>p.enabled&&p.vertices>0)).toBe(true);
  expect(parts.map(p=>p.material)).toEqual(expect.arrayContaining(['runtime/ieyasu high bake','commander deerskin and cloth','fitted black iron kote','samurai woven cords and fittings']));
 });

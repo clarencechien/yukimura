@@ -19,6 +19,13 @@ export function finishMaterials(scene:Scene,meshes:AbstractMesh[],kind:string,de
  for(const material of materials){
   if(!(material instanceof PBRMaterial))continue;
   material.maxSimultaneousLights=4;material.environmentIntensity=.95;material.enableSpecularAntiAliasing=true;
+  if(material.name.startsWith('human skin /')){
+   // Skin has its own authored pores. Applying the shared forged-metal detail
+   // or lacquer coat here makes faces look like painted armour.
+   material.environmentIntensity=.70;material.metallic=0;material.roughness=.64;
+   material.detailMap.isEnabled=false;material.clearCoat.isEnabled=false;
+   continue;
+  }
   material.ambientTexture=material.metallicTexture;material.useAmbientInGrayScale=true;material.ambientTextureStrength=.42;material.ambientTextureImpactOnAnalyticalLights=0;
   if(details&&!material.name.startsWith('samurai woven')){
    const maps=sharedDetails(scene),cloth=material.name==='commander deerskin and cloth';

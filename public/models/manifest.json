@@ -1,13 +1,13 @@
 {
-  "generator": "modular-samurai-v16-shared-fittings",
+  "generator": "modular-samurai-v17-human-heads",
   "unique_source_parts": 905,
   "variants": {
     "yukimura": {
-      "triangles": 76625,
-      "bytes": 5890804,
+      "triangles": 78295,
+      "bytes": 5996784,
       "source_parts": 532,
-      "materials": 4,
-      "textures": 5,
+      "materials": 5,
+      "textures": 7,
       "rigged": true,
       "animation_fps": 90,
       "anatomical_hands": true,
@@ -44,6 +44,18 @@
           "diameter_before_m": 0.08348678898134737,
           "diameter_after_m": 0.16697357796269474
         }
+      },
+      "human_head": {
+        "version": "human-head-v17",
+        "source": "Microsoft Rocketbox Male Adult 10",
+        "license": "MIT",
+        "source_sha256": "142e74c396085ae990391803f28d178b2f41266e153f454d23ebebfe7f51e6e7",
+        "vertices": 1707,
+        "deform_bones": [
+          "body.head",
+          "body.spine02"
+        ],
+        "runtime_facial_animation": false
       }
     },
     "ashigaru": {
@@ -69,11 +81,11 @@
       "fittings_lod": "crowd"
     },
     "ieyasu": {
-      "triangles": 73775,
-      "bytes": 5629336,
+      "triangles": 75349,
+      "bytes": 5711620,
       "source_parts": 590,
-      "materials": 4,
-      "textures": 5,
+      "materials": 5,
+      "textures": 7,
       "rigged": true,
       "animation_fps": 90,
       "anatomical_hands": true,
@@ -110,6 +122,18 @@
           "diameter_before_m": 0.08451588921784209,
           "diameter_after_m": 0.16903177843568418
         }
+      },
+      "human_head": {
+        "version": "human-head-v17",
+        "source": "Microsoft Rocketbox Male Adult 10",
+        "license": "MIT",
+        "source_sha256": "142e74c396085ae990391803f28d178b2f41266e153f454d23ebebfe7f51e6e7",
+        "vertices": 1707,
+        "deform_bones": [
+          "body.head",
+          "body.spine02"
+        ],
+        "runtime_facial_animation": false
       }
     }
   },
@@ -119,19 +143,22 @@
     "shared/12517fdcd06fdcb2.png": 2232923,
     "shared/3ff0a81211d42119.png": 367567,
     "shared/f4868c39ab18a8e6.png": 161223,
+    "shared/bab307690ba25bca.png": 1284704,
+    "shared/01ea1dfb480c269b.png": 1276952,
     "shared/0845c79e3d7909d4.png": 72753,
     "shared/b033bec590993e64.png": 1459001,
     "shared/a3beead67d295d1c.png": 54127,
     "shared/47b71e723f59644e.png": 1260027,
     "shared/dd52f7b6de222d4c.png": 870976,
-    "shared/a9fb7ac1d84d1457.png": 872270
+    "shared/a9fb7ac1d84d1457.png": 872270,
+    "shared/eab0af5ae8723c90.png": 1282313
   },
-  "shared_texture_bytes": 13427264,
+  "shared_texture_bytes": 17271233,
   "paid_api_calls": 0,
   "shared_fittings_source": "tools/detail_commanders.py",
   "shared_fittings_lods": {
     "commander": {
-      "material_sections": 4
+      "material_sections": 5
     },
     "crowd": {
       "material_sections": 1

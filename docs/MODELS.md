@@ -1,6 +1,8 @@
 # 共用武士模型套件 v9・雙統帥甲冑、分段倒地與全軍動畫
 
-最新 v16 已加上雙倍腕部與四種角色共用的甲冑細節，詳見 [共用甲冑套件](SHARED_ARMOR_DETAILS.md)。v15 的上臂、胸背與腿部調整見 [武將體格修正](COMMANDER_PHYSIQUE.md)。沿用 v14 的 MPFB 全身骨架轉接、連續腕部蒙皮及手指骨，詳見 [全身骨架與腕部修正](FULLBODY_RIG.md)。v13 紀錄見 [雙武將模型修正](COMMANDER_MODEL_REFINEMENT.md)。以下保留 v9 的製作紀錄與當時數據；目前資產數據以 `public/models/manifest.json` 為準。
+目前遊戲使用 **v17 真人頭臉**：幸村與家康接入 Rocketbox 衍生頭部、獨立皮膚材質、頸部蒙皮與頭盔內襯，詳見 [武將頭臉精修](HUMAN_COMMANDER_HEADS.md)。
+
+v16 已加上雙倍腕部與四種角色共用的甲冑細節，詳見 [共用甲冑套件](SHARED_ARMOR_DETAILS.md)。v15 的上臂、胸背與腿部調整見 [武將體格修正](COMMANDER_PHYSIQUE.md)。沿用 v14 的 MPFB 全身骨架轉接、連續腕部蒙皮及手指骨，詳見 [全身骨架與腕部修正](FULLBODY_RIG.md)。v13 紀錄見 [雙武將模型修正](COMMANDER_MODEL_REFINEMENT.md)。以下保留 v9 的製作紀錄與當時數據；目前資產數據以 `public/models/manifest.json` 為準。
 
 本版由本機 Blender 4.3.2 CPU 產生並接入 Babylon.js。未呼叫 Modal 或付費 3D 生成服務。此前的 image gen 人物／戰場圖是美術目標，**目前模型仍未達到那兩張插畫的造型與細節品質**。
 

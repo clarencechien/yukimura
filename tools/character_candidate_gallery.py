@@ -27,7 +27,8 @@ page = '''<!doctype html><html lang="zh-Hant"><meta charset="utf-8">
 <style>body{margin:0;background:#131b1e;color:#ece6d9;font:16px/1.8 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:32px 20px 60px}h1{font-family:serif;font-size:clamp(28px,5vw,44px);line-height:1.3}h2{font-family:serif;font-size:26px}a{color:#e3b67b}p{max-width:850px}small,.meta{color:#b7c2c4}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}figure{margin:0;background:#202a2e}img{display:block;width:100%;height:auto;aspect-ratio:5/6;object-fit:contain}figcaption{padding:12px 16px}section{margin-top:48px;border-top:1px solid #435054;padding-top:24px}.tag{font-size:13px;color:#ffbd99;letter-spacing:.08em}li{margin:10px 0}footer{margin-top:48px;font-size:14px}@media(max-width:640px){.grid{grid-template-columns:1fr}main{padding:24px 16px}}</style>
 <main><a href="../">← 現行模型比較</a> · <a href="../../">遊戲</a>
 <p class="tag">ART STUDY / 已完成素材的實際試載</p><h1>從木偶輪廓，走向可信的人物。</h1>
-<p>這次先檢查別人完成的人物與甲冑：臉部解剖、皮膚貼圖、衣褶和甲片結構。下方是實際下載模型的 Blender 渲染，幸村與家康尚未換成這些候選。</p>
+<p><strong>後續進度：</strong>幸村與家康已完成頭臉改裝並接入遊戲。<a href="../faces/">查看 v17 人物精修與動作比較 ↗</a></p>
+<p>此頁保留素材選型時的試載：臉部解剖、皮膚貼圖、衣褶和甲片結構。下方是下載原始候選的 Blender 渲染，武將改裝成品請看上方的 v17 比較頁。</p>
 <p class="meta">Cycles CPU · 32 samples · 1,000 × 1,200 · 本頁預覽貼圖上限 1,024 px · 無付費素材／Modal 作業</p>
 <section><p class="tag">01 / 可改裝的人體候選</p><h2>Rocketbox：先把眼、鼻、嘴做好</h2>
 <p>Microsoft / Rocketbox，MIT 授權。模型包含完整人體骨架、五指和皮膚貼圖。原 FBX 有 175 個表情形變；預覽 GLB 保留選定的眉頭、眨眼與張口表情。現代衣服、髮型與角色年齡仍須重作，這是人體底材。</p>

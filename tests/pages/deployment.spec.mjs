@@ -1,4 +1,21 @@
 import {test,expect} from '@playwright/test';
+test('Human head review displays all twenty before/after images under Pages',async({page,request})=>{
+ const errors=[];
+ page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
+ const base='http://127.0.0.1:4174/yukimura/review/faces/';
+ const response=await page.goto(base);expect(response.status()).toBe(200);
+ await expect(page).toHaveTitle('赤冬 · 武將頭臉精修 v17');
+ await expect(page.locator('img')).toHaveCount(20);
+ await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
+ for(const width of [1280,390]){
+  await page.setViewportSize({width,height:900});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+ }
+ const motion=await request.get(base+'motion-check.json');expect(motion.status()).toBe(200);
+ expect((await motion.json()).results).toHaveLength(14);
+ expect((await request.get(base+'LICENSE-Rocketbox.txt')).status()).toBe(200);
+ expect(errors).toEqual([]);
+});
 test('Candidate study resolves images, licensed models and provenance under Pages subpath',async({page,request})=>{
  const errors=[];
  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
@@ -33,7 +50,7 @@ test('Pages subpath loads background, four models and shared textures, and start
  for(const role of ['yukimura','ieyasu'])expect(assets.has(`/yukimura/look/${role}-coat.png`)).toBe(true);
  for(const surface of ['forged','woven'])expect(assets.has(`/yukimura/look/${surface}-detail.png`)).toBe(true);
  for(const name of ['yukimura','ashigaru','tokugawa','ieyasu'])expect(assets.has(`/yukimura/models/${name}.glb`)).toBe(true);
- expect([...assets].filter(p=>p.startsWith('/yukimura/models/shared/')&&p.endsWith('.png'))).toHaveLength(11);
+ expect([...assets].filter(p=>p.startsWith('/yukimura/models/shared/')&&p.endsWith('.png'))).toHaveLength(14);
  expect(assets.has('/yukimura/models/crowd-animation.json')).toBe(true);
  expect([...assets].filter(p=>p.startsWith('/yukimura/models/shared/')&&p.endsWith('.bin'))).toHaveLength(2);
  await page.click('#start');await page.keyboard.down('w');await page.waitForTimeout(1500);await page.keyboard.up('w');
