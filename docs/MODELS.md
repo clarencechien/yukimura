@@ -1,10 +1,51 @@
-# 共用武士模型套件 v9・雙統帥甲冑、分段倒地與全軍動畫
+# 共用武士模型套件：v22
 
-目前遊戲使用 v20 立體面頬；詳見 [鼻翼、鼓頰與連續唇框](COMMANDER_MENPO_V20.md)。
+2026-10-14 停在已部署的 v22。兩位主將使用 v21 面具、v22 持武器／突刺動作；不是 v20。最新交接見 [STATUS.md](STATUS.md)。
 
-目前遊戲使用 **v17 真人頭臉**：幸村與家康接入 Rocketbox 衍生頭部、獨立皮膚材質、頸部蒙皮與頭盔內襯，詳見 [武將頭臉精修](HUMAN_COMMANDER_HEADS.md)。
+## 目前遊戲資產預算
 
-v16 已加上雙倍腕部與四種角色共用的甲冑細節，詳見 [共用甲冑套件](SHARED_ARMOR_DETAILS.md)。v15 的上臂、胸背與腿部調整見 [武將體格修正](COMMANDER_PHYSIQUE.md)。沿用 v14 的 MPFB 全身骨架轉接、連續腕部蒙皮及手指骨，詳見 [全身骨架與腕部修正](FULLBODY_RIG.md)。v13 紀錄見 [雙武將模型修正](COMMANDER_MODEL_REFINEMENT.md)。以下保留 v9 的製作紀錄與當時數據；目前資產數據以 `public/models/manifest.json` 為準。
+來源：`public/models/manifest.json`（`modular-samurai-v22-authored-weapon-grips`）。GLB 不含外部共用貼圖及動畫 palette 的下載大小。
+
+| 角色 | 三角形 | GLB bytes | 骨骼 | 材質 | 引用貼圖 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 幸村 | 87,087 | 6,202,652 | 92 | 5 | 7 |
+| 家康 | 84,831 | 5,961,236 | 92 | 5 | 7 |
+| 赤備足輕 | 3,650 | 511,636 | 18 | 1 | 3 |
+| 德川足輕 | 3,506 | 475,060 | 18 | 1 | 3 |
+
+模型貼圖共 14 張唯一 PNG、17,271,233 bytes。GPU 動畫共有兩個唯一 palette：足輕共用 503,424 bytes，家康 2,464,128 bytes，合計 2,967,552 bytes。這些是資產大小，不是真機效能保證。細節以 manifest 與實際檔案為準。
+
+## 來源與共用方式
+
+- [MPFB／MakeHuman 全身骨架及連續手臂](FULLBODY_RIG.md)：CC0 人體資產，主將保留 92 根變形骨。
+- [v15 體格](COMMANDER_PHYSIQUE.md) 與 [v16 腕部／共用甲冑細節](SHARED_ARMOR_DETAILS.md)：共用組件生成幸村、家康與足輕，主將腕部保留雙倍半徑調整。
+- [Rocketbox 頭部](HUMAN_COMMANDER_HEADS.md)：MIT 衍生頭臉及皮膚材質；[v19 頭盔與眼神](COMMANDER_MENPO.md) 後接 [v21 面具](COMMANDER_TRIAL_V21.md)。
+- [v22 握姿](WRIST_STUDY_V22.md)：沿用相同骨架與材質，離線排掌面、手肘、逐指 FK 與拇指對握；不新增即時 IK。
+- 授權說明見 [模型 NOTICE](../public/models/NOTICE.md)。來源授權不代表整個專案採用同一授權。
+
+## 目前重建流程
+
+一般啟動直接使用已提交的 `public/models`，不需建模。要重新製作時，需 Node 依賴及 Blender 4.3.x（此環境 CLI 4.3.2）。先保存手工改動；生成腳本會覆寫對應場景與產物。
+
+```sh
+npm run models:trial
+npm run models:wrists
+npm run models:install-wrists
+```
+
+1. `models:trial` 從 `*-face.blend` 建立 v21 場景與 `.tmp/menpo-v21` 資料，不安裝到遊戲。
+2. `models:wrists` 讀取 `*-trial.blend` 和 `assets/source/weapon-grips.json`，產出 `assets/optimized/commanders/*-grip-study.blend` 及 `.tmp/wrist-v22/models`，不直接安裝。
+3. `models:install-wrists` 驗證握點、指節、模型雜湊及預算後安裝兩個 GLB／握姿設定，重烘焙家康 GPU palette。新工作區沒有 `.tmp` 報告，不能省略前置生成步驟。
+
+`npm run models:menpo` 依序包含以上三步。完整 `npm run models` 從程序甲冑基底開始，串接骨架、體格、細節、頭臉及 v22，最後生成表面遮罩；它是耗時且會寫入資產的重建命令，不是一般環境安裝步驟。本次採用 v22 使用既有候選、驗證與安裝流程，未重跑整條基底管線。
+
+部署必須包含完整 `public/models`。GPU palette 的 `source_sha256` 要與對應 GLB 相符；若只換 GLB 沒有重烘焙，資產測試會失敗。材質、臉型與全身尺寸仍需視覺評估，數值檢查不等於達到插畫品質。
+
+`tools/modal_models.py` 僅是早期 CPU 生成器的實驗，不包含目前完整骨架／頭臉／握姿流程，不能作為 v22 重建捷徑。此輪沒有 Modal 遠端成果。
+
+## 歷史附錄：v9 製作與當時預算
+
+以下面數、單一材質、18 骨主將及截圖均屬 **v9 或更早**，不是目前遊戲規格。早期重建命令指向會隨專案演進的工具；重建歷史版本應使用對應 Git 版本，現行操作以本頁上方為準。
 
 本版由本機 Blender 4.3.2 CPU 產生並接入 Babylon.js。未呼叫 Modal 或付費 3D 生成服務。此前的 image gen 人物／戰場圖是美術目標，**目前模型仍未達到那兩張插畫的造型與細節品質**。
 
@@ -20,7 +61,7 @@ v16 已加上雙倍腕部與四種角色共用的甲冑細節，詳見 [共用�
 - `tools/gltf_assets.py`：將 GLB 內重複貼圖抽成共用檔案，重新排列二進位 buffer views。
 - `tools/bake-crowd.mjs`：以 Babylon.js 離線計算 60fps 骨骼矩陣，寫出共用 GPU palette。
 - `src/crowd-motion.ts`：Babylon.js 原生 BakedVertexAnimationManager，每個實例獨立選擇動作與影格。
-- `public/models/manifest.json`：本次面數、幾何大小及共用貼圖清單。
+- `public/models/manifest.json`：各次重建後的面數、幾何大小及共用貼圖清單。
 
 ```sh
 npm run models

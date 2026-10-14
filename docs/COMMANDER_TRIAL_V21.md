@@ -1,6 +1,8 @@
-# v21：面具與握持試作（未替換遊戲）
+# v21：面具與握持試作（歷史比較紀錄）
 
-使用者較喜歡 v19 的外型，並提供槍術及雙手持刀照片，要求檢查手腕／手部。此版本產生獨立試作和對照圖；遊戲仍使用 v20 模型及原動作。
+> 歷史／研究文件（2026-10-14 整理）：以下「目前」、測試數據與待辦指原記錄階段，不代表 v22 現況；舊版命令如需精確重現，應使用對應 Git 版本。目前採用範圍以 [狀態與交接](STATUS.md) 為準；參閱 [完整索引](INDEX.md)。
+
+使用者較喜歡 v19 的外型，並提供槍術及雙手持刀照片，要求檢查手腕／手部。v21 發布當時只產生獨立試作和對照圖，遊戲當時仍使用 v20。後續 v22 已沿用此面具並更新握姿，且已安裝到遊戲，詳見 [v22 採用紀錄](WRIST_STUDY_V22.md)。
 
 ## 面具
 
@@ -29,10 +31,12 @@
 
 ## 重建
 
+先依下文提取 v19 對照模型及貼圖，再執行 before 測試；不可拿目前正式 v22 當作歷史對照。以下自訂 Python 路徑是原環境的 bpy／NumPy 環境，新工作區需另行準備。
+
 ```bash
 npm run models:trial
 /workspace/yukimura-tools/render-env/bin/python tools/validate_face_motion.py --trial
-GRIP_REPORT_DIR=.tmp/menpo-v21/grip-before node --test tests/commander-grip.test.mjs
+GRIP_REPORT_DIR=.tmp/menpo-v21/grip-before MODEL_TEST_ROOT=../.tmp/menpo-v21/before/ node --test tests/commander-grip.test.mjs
 GRIP_REPORT_DIR=.tmp/menpo-v21/grip-after GRIP_MAX_WRIST_ANGLE=35 MODEL_TEST_ROOT=../.tmp/menpo-v21/models/ node --test tests/commander-grip.test.mjs
 ```
 

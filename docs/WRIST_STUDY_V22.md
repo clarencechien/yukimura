@@ -1,4 +1,6 @@
-# v22：掌面、手肘與指節的握姿試作
+# v22：掌面、手肘與指節握姿製作及遊戲採用
+
+> 文件狀態（2026-10-14）：目前遊戲停在 v22；本頁的早期版本圖例／數據保留作比較。目前採用範圍以 [狀態與交接](STATUS.md) 為準；參閱 [完整索引](INDEX.md)。
 
 頁面：`review/wrists/`。2026-10-14 使用者確認採用後，v22 已安裝至正式遊戲：兩位主將沿用 v21 面具，使用 v22 持武器／突刺動畫；其他招式保持既有動作。家康的 GPU 群體動畫表已重烘焙，瀏覽器資產版本更新為 `commander-22`。
 
@@ -17,6 +19,8 @@
 `assets/source/weapon-grips.json` 是握姿來源：`center`、`axis`、`spacing`、左右 `radial`（掌面繞握柄方向）、`pole`（肘部彎曲平面）、`fingers`（三節附加旋轉）及 `thumb_opposition`。坐標為 Blender 模型／胸部局部坐標，前方 -Y、上方 Z；長度公尺、手指角度為度。不能把 pole 坐標當實際手肘位置，也不能把附加指節角度當人體絕對關節角度。
 
 可編輯場景：`assets/optimized/commanders/{yukimura,ieyasu}-grip-study.blend`。內含原有完整骨架、可編輯動畫曲線及 `Weapon grip controls.json` 文字區塊。改姿勢來源 JSON 後重新執行 builder；修改文字區塊不會自動驅動模型。
+
+新工作區先執行 `npm run models:trial`，建立下方比較擷取及安裝器所需的 `.tmp/menpo-v21` 候選與 metadata。擷取另需 Chromium、FFmpeg 及 5180 埠的 Vite 服務；以下為製作／比較流程，不是啟動遊戲的必要步驟。
 
 ```bash
 npm run models:wrists

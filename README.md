@@ -4,9 +4,17 @@
 
 手機與 laptop 的斜俯視 3D 戰鬥原型。以大坂冬之陣的藝術化場景，演繹幸村與傳說中的十勇士自修羅戰境重返大坂的架空故事。
 
-## 啟動
+## 目前版本
 
-Node.js 22.12+（此環境已驗證 24.19.0）。
+2026-10-14 依使用者指示暫停開發，保留已上線的 **v22**。幸村與家康已採用 v21 面具及 v22 握姿，並接入遊戲；不是只有比較頁更新。程式基線為 `1ecbcc5`。
+
+- [遊戲](https://clarencechien.github.io/yukimura/?v=22)
+- [手腕、握姿與動作對照](https://clarencechien.github.io/yukimura/review/wrists/?v=22)
+- [目前狀態與交接](docs/STATUS.md)・[完整文件索引](docs/INDEX.md)
+
+## 啟動與驗證
+
+Node.js 22.12+；此環境已驗證 Node 24.19.0。前端不需要 Blender 或 Modal 憑證。
 
 ```sh
 cd /workspace/yukimura
@@ -14,76 +22,38 @@ npm ci
 npm run dev
 ```
 
-正式建置：`npm run build`；本機檢查建置結果：`npm run preview`。
-依賴、模型與概念圖均隨專案本機載入，前端不需要 Modal 憑證。
+`npm run build` 建置；`npm run preview` 檢查建置結果。依賴由 npm 安裝，執行時模型、貼圖及概念圖由網站本身提供。
 
-## GitHub Pages
+```sh
+npm test           # 規則、模型與動畫資料：28 項
+npm run test:e2e   # 桌面、手機尺寸、通關與敗北：10 項
+npm run test:pages # /yukimura/ 子路徑與資產：7 項
+```
 
-遊戲已上線：[真田・赤冬](https://clarencechien.github.io/yukimura/)。`main` 的 push 會觸發部署 workflow；此 repository 已設定 Pages Source 為 GitHub Actions。
-
-部署與子路徑測試見 [部署說明](docs/DEPLOYMENT.md)。v9 加入沿用主角甲冑的黑金家康、兩種分段倒地、風雪粒子與赤蓮技能特效；保留幸村高模烘焙、全軍骨架動畫與雙手握槍；實際近景及仍待完成的手工雕修／手機最佳化見 [幸村精修規格](docs/HERO_REFINEMENT.md)。
-
-實際引擎錄影：[幸村八組動作](docs/art/hero-motion.webm)・[隊友與敵軍實戰](docs/art/army-motion.webm)。
+v22 基線本機與 CI 共 45 項通過，詳見 [驗證紀錄](docs/VALIDATION.md)。兩套瀏覽器測試會重建同一個 `dist`，請依序執行。Playwright 使用 `/usr/bin/chromium`，可設定 `CHROMIUM_PATH`，或以 `npx playwright install chromium` 安裝。E2E 使用 5175／4173 埠，Pages 測試使用 4174 埠。手機尺寸／觸控模擬不等於真機效能驗證。
 
 ## 操作與目標
 
-- WASD／方向鍵移動，按住 J 四連段槍擊，空白鍵踏雪衝刺，K 六文赤蓮（蓄滿無雙）。
-- F 切換十勇士結誓／破軍陣，P／Esc 暫停。
-- 手機左側搖桿，右側戰技按鈕；支援直向與橫向。
-- 四連段包含橫掃、反掃、突刺與迴旋；無雙分段爆發，敵兵會擊退／擊飛／倒地。右上角可切換音效。
-- 向前突破三段戰場，擊敗家康本陣的修羅之影。擊破累積無雙，連擊每八次恢復少量體力。
-- 戰前選擇初陣／猛將／修羅難度。通關解鎖下一周目，localStorage 保存進度；目前上限二十周目，到上限仍可重玩。
+- WASD／方向鍵移動，按住 J 四連段槍擊，空白鍵衝刺，K 六文赤蓮（蓄滿無雙）。
+- F 切換十勇士結誓／破軍陣，P／Esc 暫停；右上角可切換音效。
+- 手機左側搖桿、右側戰技按鈕，支援直向與橫向。
+- 突破三段戰場、擊敗家康；擊破累積無雙，連擊每八次恢復少量體力。
+- 戰前選擇初陣／猛將／修羅難度。通關解鎖下一周目，localStorage 保存進度，上限二十周目。
 
-## 引擎與美術
+## 引擎與模型
 
-Babylon.js 處理 WebGL 場景、相機、GLB、材質與實例化。TypeScript + Vite 處理應用與建置，遊戲規則自訂。場景使用髒雪／泥水／風化木石的 PBR 材質；靜態物件依材質合併並投影、士兵模型實例化，軟體繪圖環境自動降低內部解析度。
+使用 **Babylon.js 8 + TypeScript + Vite 7**。引擎處理 WebGL、相機、GLB、PBR 材質及 GPU 實例動畫；戰鬥規則由專案實作。
 
-`public/art/concept.png` 是原創 2D 方向板；主選單只顯示其左側戰場裁切，右側設定集不進入遊戲 UI。`public/models/*.glb` 是本機 Blender 匯出的四個遊戲資產，須一併部署 `public/models/shared/`。幸村使用專用 2K 高模烘焙貼圖與單一骨架模型，大量足輕保留約三千面的實例；可重用零件、編輯流程與實際下載預算見 [模型套件](docs/MODELS.md)。
+主選單只使用概念圖左側戰場；右側設定集不放入遊戲 UI。兩位主將使用 92 骨架及約 8.5–8.7 萬三角形，足輕約 3,500–3,700 三角形、18 骨架，共用零件、貼圖與動畫資料。地面和建物已有髒雪、泥水、風化木石材質及光影；模型仍未達到設定插畫品質。
 
-```sh
-npm run models # 需要 Blender；此環境使用 4.3.2
-```
+[模型套件與重建](docs/MODELS.md)・[v22 握姿流程](docs/WRIST_STUDY_V22.md)・[戰鬥動作](docs/COMBAT.md)・[環境材質](docs/ENVIRONMENT.md)
 
-Blender 未提供 Draco 函式庫時會提示，但本專案輸出不使用 Draco，普通 GLB 已通過實際載入測試。
+模型製作與本輪離線驗證使用本機 Blender CPU；遊戲使用瀏覽器 GPU 渲染。沒有成功執行 Modal 遠端建模。`tools/modal_models.py` 是早期 CPU 建模實驗，未串接完整 v22 管線，不能用來重建目前主將。過去 Modal 連線曾回覆 CONNECT 403，本次文件整理未重試。憑證不可放進 `VITE_*`、前端、Git 或文件。
 
-可選的 Modal 遠端流程：
+## 部署與範圍
 
-```sh
-python -m venv /workspace/yukimura-tools
-/workspace/yukimura-tools/bin/pip install -r tools/requirements.txt
-/workspace/yukimura-tools/bin/modal run tools/modal_models.py
-```
+GitHub Pages Source 已設為 GitHub Actions；一般 `main` push 會測試並部署，詳見 [部署說明](docs/DEPLOYMENT.md)。文件專用的 `[skip ci]` 提交不會更新部署。
 
-SDK 支援從安全環境中的 `modal_token_id` / `modal_token_secret` 對應至 `MODAL_TOKEN_ID` / `MODAL_TOKEN_SECRET`。不將它們放進任何 `VITE_*` 變數、前端檔案、Git 或聊天。此流程呼叫 Modal CPU 工作來執行 Blender，會使用 Modal 帳戶資源。遠端程式收到成功結果才會覆寫本機 GLB，再以本機 Node.js／Babylon.js 烘焙共用群兵動畫資料；請先執行 npm ci。
+已具備十名隨行角色、四向敵軍、獨立動畫相位、連擊、擊退、衝刺、無雙、陣形、家康戰、勝敗與周目，以及 WebAudio 合成音效。尚未完成十勇士獨立造型／忍術、完整角色 LOD、配樂／配音、更多關卡、真機效能量測、全部招式的手腕與衣甲碰撞修正。
 
-目前：憑證變數已注入，但 Modal 連線失敗；代理對 `api.modal.com` 回覆 CONNECT 403。**模型已由本機 Blender 生成，未宣稱由 Modal 成功生成。**
-
-## 驗證
-
-```sh
-npm test        # 戰鬥與周目規則
-npm run test:e2e # 建置 + 桌面／手機／通關／敗北回歸
-```
-
-Playwright 預設使用 `/usr/bin/chromium`；其他機器可設定 `CHROMIUM_PATH`，或執行 `npx playwright install chromium` 安裝瀏覽器。測試啟動 5175 開發服務與 4173 預覽服務。
-完整戰鬥測試使用僅存在於 Vite 開發模式的固定時間步進，仍透過實際鍵盤事件與完整遊戲規則完成通關；正式建置不含此控制介面。
-
-## 文件
-
-- [家康、倒地與風雪特效](docs/STORM_AND_COMMANDERS.md)
-- [戰鬥操作與手感](docs/COMBAT.md)
-- [開發計畫](docs/PLAN.md)
-- [完整世界觀與文案](docs/NARRATIVE.md)
-- [歷史與架空界線](docs/HISTORY.md)
-- [美術規格](docs/ART.md)
-- [共用模型與成本](docs/MODELS.md)
-- [幸村高模與烘焙流程](docs/HIGH_POLY.md)
-- [髒雪、建物與障礙物材質](docs/ENVIRONMENT.md)
-- [插畫風格與 2D→3D 流程](docs/ILLUSTRATION_DIRECTION.md)
-- [驗證紀錄與限制](docs/VALIDATION.md)
-
-## 原型範圍
-
-已做：具八組骨架動作及動作銜接的幸村、各自跑動／刺擊的十名隨行角色、具跑動／攻擊／受擊／倒地動畫的敵軍、四向生成敵軍、攻擊與擊退、衝刺、無雙、陣形、連擊、家康戰、勝敗、周目、手機觸控與敘事。
-尚未做：十勇士各自的模型／忍術、角色 LOD、配樂與角色配音、更多關卡、實體手機效能基準。場景是低多邊形原型，不能把概念圖當作實機畫質承諾。
-史料來源仍受網路政策限制，背景文件標示為待核對；十勇士為傳說角色，修羅輪迴為創作設定。
+冬之陣場景取自 1614 年背景，衝向家康的事件來自 1615 年夏之陣並經架空改編；十勇士屬傳說，修羅輪迴為創作，不能當作宗教或史實結論。史料核對狀態見 [歷史界線](docs/HISTORY.md)，文案見 [世界觀](docs/NARRATIVE.md)。

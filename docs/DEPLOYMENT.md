@@ -1,29 +1,39 @@
 # GitHub Pages 部署
 
-公開遊戲：[真田・赤冬](https://clarencechien.github.io/yukimura/)。
+[公開遊戲 v22](https://clarencechien.github.io/yukimura/?v=22) 已部署。Repository 的 Pages Source **已設為 GitHub Actions**，不需再次設定。
 
-2026-10-12 已啟用 GitHub Actions Source，首次部署成功。部署版本 `ba87470`，Actions run `38198847112`；公開站 HTTP 200，105 個檔案經 HTTPS 下載及 SHA-256 比對，與通過瀏覽器測試的建置相同。
+## 最新驗證基線
+
+2026-10-14，程式／資產提交 `1ecbcc5c6be707a814a8777558f2e47bf3b064bc`，[Actions run 38523594856](https://github.com/clarencechien/yukimura/actions/runs/38523594856) 成功。兩位主將已採用 v22 候選 GLB，家康動畫 palette 已重烘焙。
+
+本機及 CI 共 45 項測試通過；公開站抽查 HTML、JS／CSS、兩位主將 GLB、動畫 palette、manifest 及 review 狀態等 15 個檔案，HTTP 200 且 SHA-256 與建置一致。此為該遊戲提交的驗證，文件整理不重跑部署。首次部署為 2026-10-12 的 `ba87470`／run `38198847112`，不是目前版本。
 
 ## 自動部署
 
-`.github/workflows/pages.yml` 在 `main` push 或手動 workflow_dispatch 時：
+`.github/workflows/pages.yml` 在一般 `main` push 或手動 `workflow_dispatch` 時：
 
-1. Node 22、`npm ci`。
-2. 資產／規則測試。
-3. 安裝 Chromium，先執行 `npm run test:e2e` 完整桌面／手機／戰鬥驗證，再執行 `npm run test:pages`：以 `/yukimura/` 建置並透過瀏覽器實際載入背景、四個 GLB、九張貼圖（幸村與家康各三張、足輕共用三張）、群兵動畫 JSON／足輕與家康兩份 binary palette 和開始戰鬥。
+1. 使用 Node 22，執行 `npm ci`。
+2. 執行 `npm test`（目前 28 項資產／規則測試）。
+3. 安裝 Chromium，依序執行 `npm run test:e2e`（10 項）及 `npm run test:pages`（7 項）。
 4. 上傳 `dist`，透過 GitHub 官方 Pages Actions 部署。
 
-**第一次需在 repo Settings → Pages → Build and deployment → Source 選 GitHub Actions。** 有可用的 repository 管理 API 時可自動設定；若 API 被雲端網路阻擋，repository 管理者需在 GitHub 完成這個一次性設定，然後重新執行 workflow。若 repository 為 private，還須符合帳戶方案對 Pages 的支援；部署不會自動修改 repository 可見性。
-
-部署是否成功以 Actions 的 `deploy` job 和公開網址實際回應為準，不以 Git push 成功代替。啟用後，每次推送 `main` 自動更新。
+文件專用提交若包含 `[skip ci]`，會略過 push workflow，網站維持前一次成功部署。Git push 成功不等於部署成功；判定部署需同時確認 Actions 與公開站回應。
 
 ## 本機重現
 
 ```sh
+npm ci
 npm test
+npm run test:e2e
 npm run test:pages
 ```
 
-普通開發使用 `npm run dev`；`npm run build` 仍採網站根路徑。Pages 使用 `npm run build:pages` 指定 Vite base；Babylon GLB 路徑使用 `import.meta.env.BASE_URL`，HTML 背景使用 `%BASE_URL%`。
+兩套瀏覽器測試都改寫 `dist`，不可同時執行。一般開發用 `npm run dev`；一般建置 `npm run build` 使用根路徑，Pages 用 `npm run build:pages` 指定 `/yukimura/`。GLB 使用 `import.meta.env.BASE_URL`，HTML 背景使用 `%BASE_URL%`。
 
-部署輸出只包含遊戲需要的 `dist`，不會上傳 Blender 源檔、美術設定文件或環境憑證。GLB 依賴 `models/shared/` 中的貼圖；群兵動畫另依賴 `models/crowd-animation.json` 及 shared 中的 `.bin`。部署時需完整保留 models 目錄，以及 environment 目錄中的地面／木石／屋瓦材質。
+## 部署內容
+
+Vite 的 `dist` 包含遊戲及 `public/` 內的 review 比較頁與媒體；不包含 Blender 源檔、`docs/` 研究文件或環境憑證。不能只部署單一 `index.html` 或 GLB。
+
+模型共有四個 GLB、14 張共用 PNG、兩份共用 binary palette，以及模型／群體動畫 manifest、握姿設定及授權文件。必須保留 `models/shared/`、`models/crowd-animation.json`、`models/weapon-grips.json`，以及環境材質等完整建置輸出。
+
+模型與群體動畫使用 `rev=commander-22`。修改模型後須同步重烘焙 palette；測試會比對 palette 的 `source_sha256`，防止新模型搭配舊動畫資料。[完整資產預算](MODELS.md)・[驗證紀錄](VALIDATION.md)。

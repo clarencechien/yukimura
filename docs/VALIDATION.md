@@ -1,5 +1,27 @@
 # 驗證紀錄
 
+## 最新遊戲基線：v22（2026-10-14）
+
+程式／資產提交 `1ecbcc5c6be707a814a8777558f2e47bf3b064bc`；[部署 run 38523594856](https://github.com/clarencechien/yukimura/actions/runs/38523594856) 成功。
+
+| 檢查 | 結果 |
+| --- | --- |
+| `npm test` | 28 項通過 |
+| `npm run test:e2e` | 10 項通過，桌面／手機尺寸／戰鬥流程 |
+| `npm run test:pages` | 7 項通過，包含 Pages 子路徑載入 |
+| GLB 握點／軸線 | 2,352 個非倒地手部取樣；最大握點偏差幸村約 0.485 mm、家康約 0.084 mm |
+| 指節表面近似 | 四段動畫 × 11 時間點 × 兩手 × 五指，檢查原版／候選 Blender 及 GLB 回匯；最大壓入約 0.98 mm，低於 2 mm 門檻 |
+| 採用檔案 | 遊戲主將 GLB 與比較頁驗證的 v22 候選 SHA-256 相同，家康 palette 已重烘焙 |
+| 公開站抽查 | 15 個檔案 HTTP 200，SHA-256 與建置相符；本機記錄 `.tmp/wrist-v22/installed-live-check.json` |
+
+前三項在本機及 CI 均通過，合計 45 項；模型取樣及公開站檢查另列，不重複計入測試總數。`.tmp` 為本機暫存，不保證新工作區保留。v22 模型證據亦隨 [比較頁](https://clarencechien.github.io/yukimura/review/wrists/?v=22) 的 `validation.json`／`capture.json` 提供。
+
+本次暫停點整理僅修改文件，未重跑上述遊戲測試、離線建模或完整基底生成管線。完整限制見 [STATUS.md](STATUS.md) 與 [WRIST_STUDY_V22.md](WRIST_STUDY_V22.md)：沒有真機 FPS、完整人體限制／衣甲碰撞或全招式握姿修正。
+
+## 歷史紀錄（以下的「目前／未完成」均指該次版本）
+
+早期測試數、模型預算、未部署／未實作項目保留作為歷史證據，不能代替上方 v22 狀態。
+
 2026-10-12，Linux 雲端環境，Node.js 24.19.0、Blender 4.3.2、Modal SDK 1.6.1。
 
 ## 已通過
