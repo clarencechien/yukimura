@@ -1,15 +1,16 @@
 import {chromium} from '@playwright/test';
 import {mkdir,writeFile} from 'node:fs/promises';
-const visor=process.argv.includes('--visor');
+const sculpt=process.argv.includes('--sculpt');
+const visor=process.argv.includes('--visor')||sculpt;
 const menpo=visor||process.argv.includes('--menpo');
 const closeup=process.argv.includes('--closeup');
-const out=visor?(closeup?'.tmp/menpo-v19/expressions':'renders/menpo-v19'):closeup?'.tmp/menpo-v18/expressions':menpo?'renders/menpo-v18':'renders/face-v17';await mkdir(out,{recursive:true});
+const out=sculpt?(closeup?'.tmp/menpo-v20/expressions':'renders/menpo-v20'):visor?(closeup?'.tmp/menpo-v19/expressions':'renders/menpo-v19'):closeup?'.tmp/menpo-v18/expressions':menpo?'renders/menpo-v18':'renders/face-v17';await mkdir(out,{recursive:true});
 const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const results=[],errors=[];
 try{
  const page=await browser.newPage({viewport:{width:1000,height:1000}});
  page.on('pageerror',e=>errors.push(e.message));
- for(const kind of ['yukimura','ieyasu'])for(const rig of visor?(closeup?['visor']:['visor-before','visor']):closeup?['menpo']:menpo?['menpo-before','menpo']:['face-before','face']){
+ for(const kind of ['yukimura','ieyasu'])for(const rig of sculpt?(closeup?['sculpt']:['sculpt-before','sculpt']):visor?(closeup?['visor']:['visor-before','visor']):closeup?['menpo']:menpo?['menpo-before','menpo']:['face-before','face']){
   await page.goto(`http://127.0.0.1:5180/tools/model-preview.html?rig=${rig}&model=${kind}`);
   await page.waitForFunction(()=>window.modelPreview?.ready,{},{timeout:120000});
   await page.evaluate(async()=>{const p=window.modelPreview;await p.scene.whenReadyAsync();p.scene.getEngine().stopRenderLoop()});

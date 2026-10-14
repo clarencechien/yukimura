@@ -2,10 +2,12 @@
 import html
 import json
 import shutil
+import sys
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-SOURCE=ROOT/'renders/menpo-v19'
+SCULPT='--sculpt' in sys.argv
+SOURCE=ROOT/('renders/menpo-v20' if SCULPT else 'renders/menpo-v19')
 OUT=ROOT/'public/review/menpo'
 OUT.mkdir(parents=True,exist_ok=True)
 capture=json.loads((SOURCE/'capture.json').read_text())
@@ -19,10 +21,10 @@ manifest=json.loads((ROOT/'public/models/manifest.json').read_text())
 sections=[]
 for kind,label in [('yukimura','真田幸村 · 赤漆面頰'),('ieyasu','德川家康 · 黑鐵金飾')]:
     stats=manifest['variants'][kind]
-    sections.append(f'<section><h2>{label}</h2><p class="muted">{stats["triangles"]:,} 三角面 · {stats["bytes"]/1048576:.2f} MiB GLB · 92 骨 · 5 材質區塊</p>')
+    sections.append(f'<section id="{kind}"><h2>{label}</h2><p class="muted">{stats["triangles"]:,} 三角面 · {stats["bytes"]/1048576:.2f} MiB GLB · 92 骨 · 5 材質區塊</p>')
     for clip,view,title in [('idle','face','面罩與雙眼'),('idle','profile','鼻翼、面頰與頸甲'),('idle','full','全身輪廓'),('thrust','action','突刺'),('run','action','奔跑')]:
         sections.append(f'<h3>{title}</h3><div class="pair">')
-        for rig,caption in [('visor-before','前版 v18 · 半面罩與較高帽沿'),('visor','遊戲現版 v19 · 武士面頬與貼合頭盔')]:
+        for rig,caption in ([('sculpt','新版 v20 · 立體鼻翼、鼓頰與厚唇框'),('sculpt-before','舊版 v19 · 平滑面殼')] if SCULPT else [('visor-before','前版 v18 · 半面罩與較高帽沿'),('visor','遊戲現版 v19 · 武士面頬與貼合頭盔')]):
             file=f'{kind}-{rig}-{clip}-{view}.png'
             sections.append(f'<figure><a href="{file}"><img src="{file}" width="1000" height="1000" alt="{html.escape(label+" / "+title+" / "+caption)}"></a><figcaption>{caption}</figcaption></figure>')
         sections.append('</div>')
@@ -38,4 +40,15 @@ page='''<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="vi
 '''+''.join(sections)+'''
 <footer><p>Human head derived from Microsoft Rocketbox Male Adult 10. Copyright (c) 2020 Microsoft, <a href="LICENSE-Rocketbox.txt">MIT license</a>. 面罩為本專案自製，沿用既有甲冑貼圖。參考照片只用來觀察造型，未收錄、去浮水印或用作遊戲貼圖；照片中的甲冑年代與收藏來源尚未核實。</p>
 <p><a href="capture.json">引擎截圖紀錄</a> · <a href="motion-check.json">動作與皮膚間隙檢查</a> · <a href="https://github.com/clarencechien/yukimura/blob/main/docs/COMMANDER_VISOR.md">製作與重建紀錄</a></p></footer></main></html>'''
+if SCULPT:
+    start=page.index('<p class="tag">');end=page.index('<section',start)
+    page=page[:start]+"""<p class="tag">V20 / 新版模型已接入遊戲</p><h1>重新塑形的武士面頬</h1>
+<div class="intro"><p><strong>新版在左邊；手機版先顯示新版。</strong>右邊／下方是上一版 v19，方便直接比較。</p>
+<p>上一版仍像平滑面殼。這次重建鼻頭、立體鼻翼、鼓頰與鼻唇溝，使用連續曲面包圍嘴部，加厚唇框並塑出圓下巴；家康的鬚飾也增加厚度。</p>
+<p>以下均為 Babylon.js 實際模型截圖，兩版相機、光線及動作時間相同。仍沿用 92 骨、5 材質區塊與全部既有貼圖。只增加主將面具的幾何密度，小兵未增加面數。</p>
+<p class="muted">參考使用者提供的武士甲冑照片塑形，仍為風格化遊戲模型，並非實物復原。14 個動作、182 個取樣姿勢通過面罩隨骨與殼體頂點間隙檢查。</p></div>
+"""+page[end:]
+    page=page.replace('赤冬 · 武士面頬 v19','赤冬 · 立體面頬 v20').replace('COMMANDER_VISOR.md','COMMANDER_MENPO_V20.md')
+    page=page.replace('<a href="v18.html">v18 半面罩記錄</a>','<a href="v19.html">v19 記錄</a> · <a href="v18.html">v18 記錄</a>')
+    page=page.replace('figure{margin:0;', '.pair figure:first-child{outline:2px solid #b65243}.pair figure:first-child figcaption{color:#ffd8b2;font-weight:700}figure{margin:0;')
 (OUT/'index.html').write_text(page)

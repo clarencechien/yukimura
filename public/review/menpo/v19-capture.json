@@ -1,0 +1,305 @@
+{
+  "results": [
+    {
+      "kind": "yukimura",
+      "rig": "visor-before",
+      "clip": "idle",
+      "view": "face",
+      "file": "yukimura-visor-before-idle-face.png",
+      "triangles": 79627,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor-before",
+      "clip": "idle",
+      "view": "profile",
+      "file": "yukimura-visor-before-idle-profile.png",
+      "triangles": 79627,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor-before",
+      "clip": "idle",
+      "view": "full",
+      "file": "yukimura-visor-before-idle-full.png",
+      "triangles": 79627,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor-before",
+      "clip": "thrust",
+      "view": "action",
+      "file": "yukimura-visor-before-thrust-action.png",
+      "triangles": 79627,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor-before",
+      "clip": "run",
+      "view": "action",
+      "file": "yukimura-visor-before-run-action.png",
+      "triangles": 79627,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor",
+      "clip": "idle",
+      "view": "face",
+      "file": "yukimura-visor-idle-face.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor",
+      "clip": "idle",
+      "view": "profile",
+      "file": "yukimura-visor-idle-profile.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor",
+      "clip": "idle",
+      "view": "full",
+      "file": "yukimura-visor-idle-full.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor",
+      "clip": "thrust",
+      "view": "action",
+      "file": "yukimura-visor-thrust-action.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "visor",
+      "clip": "run",
+      "view": "action",
+      "file": "yukimura-visor-run-action.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor-before",
+      "clip": "idle",
+      "view": "face",
+      "file": "ieyasu-visor-before-idle-face.png",
+      "triangles": 76681,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor-before",
+      "clip": "idle",
+      "view": "profile",
+      "file": "ieyasu-visor-before-idle-profile.png",
+      "triangles": 76681,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor-before",
+      "clip": "idle",
+      "view": "full",
+      "file": "ieyasu-visor-before-idle-full.png",
+      "triangles": 76681,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor-before",
+      "clip": "thrust",
+      "view": "action",
+      "file": "ieyasu-visor-before-thrust-action.png",
+      "triangles": 76681,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor-before",
+      "clip": "run",
+      "view": "action",
+      "file": "ieyasu-visor-before-run-action.png",
+      "triangles": 76681,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor",
+      "clip": "idle",
+      "view": "face",
+      "file": "ieyasu-visor-idle-face.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor",
+      "clip": "idle",
+      "view": "profile",
+      "file": "ieyasu-visor-idle-profile.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor",
+      "clip": "idle",
+      "view": "full",
+      "file": "ieyasu-visor-idle-full.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor",
+      "clip": "thrust",
+      "view": "action",
+      "file": "ieyasu-visor-thrust-action.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "visor",
+      "clip": "run",
+      "view": "action",
+      "file": "ieyasu-visor-run-action.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    }
+  ],
+  "errors": []
+}

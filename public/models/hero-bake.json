@@ -15,6 +15,6 @@
     "ambient_occlusion"
   ],
   "paid_api_calls": 0,
-  "runtime_triangles": 79743,
+  "runtime_triangles": 87087,
   "runtime_note": "Original armor bake; MPFB arms; Rocketbox head; fitted menpo shares existing fittings atlas."
 }

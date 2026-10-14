@@ -25,10 +25,10 @@ for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){
   const pos=g.accessors[p.attributes.POSITION];assert.ok(Math.abs(pos.min[1])<.025);assert.ok(pos.max[1]>1.8&&pos.max[1]<3.5);
   // One detailed hero; the crowd keeps its original per-instance budget.
   // Dedicated, non-overlapping hero UV islands split vertices at their seams;
-  // Continuous anatomical hands and fitted plates keep each commander below
-  // 80k triangles including menpo. v18 adds ~52 KB geometry, no textures;
-  // 6.1 MB accommodates the fitted shell while keeping the crowd budget fixed.
-  const triangles=primitives.reduce((sum,p)=>sum+g.accessors[p.indices].count/3,0);assert.ok(triangles>1000&&triangles<=(['yukimura','ieyasu'].includes(name)?80000:3800));assert.ok(bytes.length<(['yukimura','ieyasu'].includes(name)?6100000:550000));
+  // v20 budgets extra geometry for embossed commander faces and continuous lips.
+  // The crowd stays at 3,800 triangles; commanders retain five material sections
+  // and the same shared textures within 90k triangles and 7 MB GLB.
+  const triangles=primitives.reduce((sum,p)=>sum+g.accessors[p.indices].count/3,0);assert.ok(triangles>1000&&triangles<=(['yukimura','ieyasu'].includes(name)?90000:3800));assert.ok(bytes.length<(['yukimura','ieyasu'].includes(name)?7000000:550000));
  });
 }
 test('commanders have dedicated bakes; foot soldiers reuse three atlas files',()=>{

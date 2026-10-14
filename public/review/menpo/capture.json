@@ -2,11 +2,11 @@
   "results": [
     {
       "kind": "yukimura",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "idle",
       "view": "face",
-      "file": "yukimura-visor-before-idle-face.png",
-      "triangles": 79627,
+      "file": "yukimura-sculpt-before-idle-face.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -17,11 +17,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "idle",
       "view": "profile",
-      "file": "yukimura-visor-before-idle-profile.png",
-      "triangles": 79627,
+      "file": "yukimura-sculpt-before-idle-profile.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -32,11 +32,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "idle",
       "view": "full",
-      "file": "yukimura-visor-before-idle-full.png",
-      "triangles": 79627,
+      "file": "yukimura-sculpt-before-idle-full.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -47,11 +47,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "thrust",
       "view": "action",
-      "file": "yukimura-visor-before-thrust-action.png",
-      "triangles": 79627,
+      "file": "yukimura-sculpt-before-thrust-action.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -62,11 +62,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "run",
       "view": "action",
-      "file": "yukimura-visor-before-run-action.png",
-      "triangles": 79627,
+      "file": "yukimura-sculpt-before-run-action.png",
+      "triangles": 79743,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -77,11 +77,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "idle",
       "view": "face",
-      "file": "yukimura-visor-idle-face.png",
-      "triangles": 79743,
+      "file": "yukimura-sculpt-idle-face.png",
+      "triangles": 87087,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -92,11 +92,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "idle",
       "view": "profile",
-      "file": "yukimura-visor-idle-profile.png",
-      "triangles": 79743,
+      "file": "yukimura-sculpt-idle-profile.png",
+      "triangles": 87087,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -107,11 +107,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "idle",
       "view": "full",
-      "file": "yukimura-visor-idle-full.png",
-      "triangles": 79743,
+      "file": "yukimura-sculpt-idle-full.png",
+      "triangles": 87087,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -122,11 +122,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "thrust",
       "view": "action",
-      "file": "yukimura-visor-thrust-action.png",
-      "triangles": 79743,
+      "file": "yukimura-sculpt-thrust-action.png",
+      "triangles": 87087,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -137,11 +137,11 @@
     },
     {
       "kind": "yukimura",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "run",
       "view": "action",
-      "file": "yukimura-visor-run-action.png",
-      "triangles": 79743,
+      "file": "yukimura-sculpt-run-action.png",
+      "triangles": 87087,
       "skin": {
         "vertices": 1707,
         "material": "human skin / yukimura",
@@ -152,11 +152,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "idle",
       "view": "face",
-      "file": "ieyasu-visor-before-idle-face.png",
-      "triangles": 76681,
+      "file": "ieyasu-sculpt-before-idle-face.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -167,11 +167,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "idle",
       "view": "profile",
-      "file": "ieyasu-visor-before-idle-profile.png",
-      "triangles": 76681,
+      "file": "ieyasu-sculpt-before-idle-profile.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -182,11 +182,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "idle",
       "view": "full",
-      "file": "ieyasu-visor-before-idle-full.png",
-      "triangles": 76681,
+      "file": "ieyasu-sculpt-before-idle-full.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -197,11 +197,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "thrust",
       "view": "action",
-      "file": "ieyasu-visor-before-thrust-action.png",
-      "triangles": 76681,
+      "file": "ieyasu-sculpt-before-thrust-action.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -212,11 +212,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor-before",
+      "rig": "sculpt-before",
       "clip": "run",
       "view": "action",
-      "file": "ieyasu-visor-before-run-action.png",
-      "triangles": 76681,
+      "file": "ieyasu-sculpt-before-run-action.png",
+      "triangles": 76995,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -227,11 +227,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "idle",
       "view": "face",
-      "file": "ieyasu-visor-idle-face.png",
-      "triangles": 76995,
+      "file": "ieyasu-sculpt-idle-face.png",
+      "triangles": 85503,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -242,11 +242,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "idle",
       "view": "profile",
-      "file": "ieyasu-visor-idle-profile.png",
-      "triangles": 76995,
+      "file": "ieyasu-sculpt-idle-profile.png",
+      "triangles": 85503,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -257,11 +257,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "idle",
       "view": "full",
-      "file": "ieyasu-visor-idle-full.png",
-      "triangles": 76995,
+      "file": "ieyasu-sculpt-idle-full.png",
+      "triangles": 85503,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -272,11 +272,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "thrust",
       "view": "action",
-      "file": "ieyasu-visor-thrust-action.png",
-      "triangles": 76995,
+      "file": "ieyasu-sculpt-thrust-action.png",
+      "triangles": 85503,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",
@@ -287,11 +287,11 @@
     },
     {
       "kind": "ieyasu",
-      "rig": "visor",
+      "rig": "sculpt",
       "clip": "run",
       "view": "action",
-      "file": "ieyasu-visor-run-action.png",
-      "triangles": 76995,
+      "file": "ieyasu-sculpt-run-action.png",
+      "triangles": 85503,
       "skin": {
         "vertices": 1707,
         "material": "human skin / ieyasu",

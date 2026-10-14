@@ -4,8 +4,10 @@ test('Menpo review loads all before/after images and motion evidence under Pages
  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
  const base='http://127.0.0.1:4174/yukimura/review/menpo/';
  expect((await page.goto(base)).status()).toBe(200);
- await expect(page).toHaveTitle('赤冬 · 武士面頬 v19');
+ await expect(page).toHaveTitle('赤冬 · 立體面頬 v20');
  await expect(page.locator('img')).toHaveCount(20);
+ await expect(page.locator('figcaption').first()).toContainText('新版 v20');
+ await expect(page.locator('img').first()).toHaveAttribute('src','yukimura-sculpt-idle-face.png');
  await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
  for(const width of [1280,390]){
   await page.setViewportSize({width,height:900});
@@ -17,7 +19,7 @@ test('Menpo review loads all before/after images and motion evidence under Pages
  expect((await request.get(base+'LICENSE-Rocketbox.txt')).status()).toBe(200);
  await page.goto('http://127.0.0.1:4174/yukimura/review/faces/');
  await page.getByRole('link',{name:'查看真人頭部加上面罩的新版比較 ↗'}).click();
- await expect(page).toHaveTitle('赤冬 · 武士面頬 v19');
+ await expect(page).toHaveTitle('赤冬 · 立體面頬 v20');
  expect(errors).toEqual([]);
 });
 test('Human head review displays all twenty before/after images under Pages',async({page,request})=>{

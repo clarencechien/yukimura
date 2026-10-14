@@ -1,4 +1,4 @@
-"""Install reviewed v18/v19 menpo without altering the shared texture inventory."""
+"""Install reviewed v18–v20 menpo without altering the shared texture inventory."""
 from pathlib import Path
 import json
 import shutil
@@ -6,8 +6,9 @@ import struct
 import sys
 
 ROOT=Path(__file__).resolve().parents[1]
-VISOR='--visor' in sys.argv
-STAGE=ROOT/('.tmp/menpo-v19' if VISOR else '.tmp/menpo-v18')
+SCULPT='--sculpt' in sys.argv
+VISOR='--visor' in sys.argv or SCULPT
+STAGE=ROOT/('.tmp/menpo-v20' if SCULPT else '.tmp/menpo-v19' if VISOR else '.tmp/menpo-v18')
 OUT=ROOT/'public/models'
 manifest=json.loads((OUT/'manifest.json').read_text())
 for kind in ['yukimura','ieyasu']:
@@ -16,7 +17,7 @@ for kind in ['yukimura','ieyasu']:
     raw=source.read_bytes();g=json.loads(raw[20:20+struct.unpack_from('<I',raw,12)[0]])
     assert len(g['skins'])==1 and len(g['skins'][0]['joints'])==92
     assert len(g['materials'])==5 and len(g['images'])==7
-    assert info['triangles']<=80000 and info['bytes']<6100000
+    assert info['triangles']<=(90000 if SCULPT else 80000) and info['bytes']<(7000000 if SCULPT else 6100000)
     for image in g['images']:
         assert (OUT/image['uri']).read_bytes()==(STAGE/'models'/image['uri']).read_bytes()
     shutil.copy2(source,OUT/source.name)
@@ -28,6 +29,6 @@ for kind in ['yukimura','ieyasu']:
     d=json.loads(bake.read_text());d['runtime_triangles']=info['triangles']
     d['runtime_note']='Original armor bake; MPFB arms; Rocketbox head; fitted menpo shares existing fittings atlas.'
     bake.write_text(json.dumps(d,indent=2)+'\n')
-manifest['generator']='modular-samurai-v19-reference-menpo' if VISOR else 'modular-samurai-v18-human-head-menpo'
+manifest['generator']='modular-samurai-v20-embossed-menpo' if SCULPT else 'modular-samurai-v19-reference-menpo' if VISOR else 'modular-samurai-v18-human-head-menpo'
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print('Installed fitted menpo; unchanged 14 model textures and 5 commander materials')

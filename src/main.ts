@@ -274,7 +274,7 @@ function visual(dt:number){
  weather.update(dt,target);
  if(announceTime>0){announceTime-=dt;$('announcement').style.opacity=String(Math.min(1,announceTime));}else $('announcement').style.opacity='0';
 }
-async function init(){try{const response=await fetch(`${import.meta.env.BASE_URL}models/crowd-animation.json?rev=commander-19`);if(!response.ok)throw Error('Crowd manifest unavailable');const crowdManifest: CrowdManifest=await response.json();const palettes=await loadPalettes(scene,crowdManifest,`${import.meta.env.BASE_URL}models/`);for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=commander-19',scene);finishMaterials(scene,loaded.meshes,name);loaded.meshes.forEach(mesh=>mesh.receiveShadows=true);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
+async function init(){try{const response=await fetch(`${import.meta.env.BASE_URL}models/crowd-animation.json?rev=commander-20`);if(!response.ok)throw Error('Crowd manifest unavailable');const crowdManifest: CrowdManifest=await response.json();const palettes=await loadPalettes(scene,crowdManifest,`${import.meta.env.BASE_URL}models/`);for(const name of ['yukimura','ashigaru','tokugawa','ieyasu']){const loaded=await SceneLoader.ImportMeshAsync('', `${import.meta.env.BASE_URL}models/`,name+'.glb?rev=commander-20',scene);finishMaterials(scene,loaded.meshes,name);loaded.meshes.forEach(mesh=>mesh.receiveShadows=true);templates[name]=loaded.meshes[0];templates[name].setEnabled(false);
  if(name==='yukimura'){
   // Use the loaded skinned mesh directly so clips target the visible rig.
   hero=new TransformNode('yukimura',scene);templates[name].parent=hero;

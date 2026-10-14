@@ -1,10 +1,10 @@
 {
-  "generator": "modular-samurai-v19-reference-menpo",
+  "generator": "modular-samurai-v20-embossed-menpo",
   "unique_source_parts": 905,
   "variants": {
     "yukimura": {
-      "triangles": 79743,
-      "bytes": 6071816,
+      "triangles": 87087,
+      "bytes": 6352092,
       "source_parts": 532,
       "materials": 5,
       "textures": 7,
@@ -59,24 +59,20 @@
         "neck_blend": "v18: spine-to-head blend at z=1.64\u20131.74 m; jaw fully follows head"
       },
       "menpo": {
-        "shell_vertices": 420,
-        "vertices": 792,
+        "shell_vertices": 3040,
+        "vertices": 4483,
         "shell_thickness_m": 0.002,
-        "minimum_authored_front_clearance_m": 0.005,
+        "minimum_authored_front_clearance_m": 0.01,
         "mouth_opening": true,
         "eye_openings": 0,
-        "reference_form": "photograph-guided menpo with low kabuto",
+        "reference_form": "embossed menpo: continuous lip, alar sockets, cheek bosses, rounded chin",
         "shared_material": "samurai woven cords and fittings",
         "bone": "body.head",
         "new_textures": 0,
-        "coverage_rays": {
-          "forehead": false,
-          "nose": true,
-          "mouth": false,
-          "chin": true,
-          "bridge": true,
-          "left_eye": false,
-          "right_eye": false
+        "topology": {
+          "angular_segments": 80,
+          "radial_rings": 18,
+          "sculpted_shell_triangles": 6080
         },
         "helmet_fit": {
           "vertices": 9398,
@@ -125,8 +121,8 @@
       "fittings_lod": "crowd"
     },
     "ieyasu": {
-      "triangles": 76995,
-      "bytes": 5800448,
+      "triangles": 85503,
+      "bytes": 6129180,
       "source_parts": 590,
       "materials": 5,
       "textures": 7,
@@ -181,24 +177,20 @@
         "neck_blend": "v18: spine-to-head blend at z=1.64\u20131.74 m; jaw fully follows head"
       },
       "menpo": {
-        "shell_vertices": 420,
-        "vertices": 948,
+        "shell_vertices": 3040,
+        "vertices": 5287,
         "shell_thickness_m": 0.002,
-        "minimum_authored_front_clearance_m": 0.005,
+        "minimum_authored_front_clearance_m": 0.01,
         "mouth_opening": true,
         "eye_openings": 0,
-        "reference_form": "photograph-guided menpo with low kabuto",
+        "reference_form": "embossed menpo: continuous lip, alar sockets, cheek bosses, rounded chin",
         "shared_material": "samurai woven cords and fittings",
         "bone": "body.head",
         "new_textures": 0,
-        "coverage_rays": {
-          "forehead": false,
-          "nose": true,
-          "mouth": false,
-          "chin": true,
-          "bridge": true,
-          "left_eye": false,
-          "right_eye": false
+        "topology": {
+          "angular_segments": 80,
+          "radial_rings": 18,
+          "sculpted_shell_triangles": 6080
         },
         "helmet_fit": {
           "vertices": 9260,

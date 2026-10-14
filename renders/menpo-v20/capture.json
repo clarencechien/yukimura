@@ -1,0 +1,305 @@
+{
+  "results": [
+    {
+      "kind": "yukimura",
+      "rig": "sculpt-before",
+      "clip": "idle",
+      "view": "face",
+      "file": "yukimura-sculpt-before-idle-face.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt-before",
+      "clip": "idle",
+      "view": "profile",
+      "file": "yukimura-sculpt-before-idle-profile.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt-before",
+      "clip": "idle",
+      "view": "full",
+      "file": "yukimura-sculpt-before-idle-full.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt-before",
+      "clip": "thrust",
+      "view": "action",
+      "file": "yukimura-sculpt-before-thrust-action.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt-before",
+      "clip": "run",
+      "view": "action",
+      "file": "yukimura-sculpt-before-run-action.png",
+      "triangles": 79743,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt",
+      "clip": "idle",
+      "view": "face",
+      "file": "yukimura-sculpt-idle-face.png",
+      "triangles": 87087,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt",
+      "clip": "idle",
+      "view": "profile",
+      "file": "yukimura-sculpt-idle-profile.png",
+      "triangles": 87087,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt",
+      "clip": "idle",
+      "view": "full",
+      "file": "yukimura-sculpt-idle-full.png",
+      "triangles": 87087,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt",
+      "clip": "thrust",
+      "view": "action",
+      "file": "yukimura-sculpt-thrust-action.png",
+      "triangles": 87087,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "yukimura",
+      "rig": "sculpt",
+      "clip": "run",
+      "view": "action",
+      "file": "yukimura-sculpt-run-action.png",
+      "triangles": 87087,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / yukimura",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt-before",
+      "clip": "idle",
+      "view": "face",
+      "file": "ieyasu-sculpt-before-idle-face.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt-before",
+      "clip": "idle",
+      "view": "profile",
+      "file": "ieyasu-sculpt-before-idle-profile.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt-before",
+      "clip": "idle",
+      "view": "full",
+      "file": "ieyasu-sculpt-before-idle-full.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt-before",
+      "clip": "thrust",
+      "view": "action",
+      "file": "ieyasu-sculpt-before-thrust-action.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt-before",
+      "clip": "run",
+      "view": "action",
+      "file": "ieyasu-sculpt-before-run-action.png",
+      "triangles": 76995,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt",
+      "clip": "idle",
+      "view": "face",
+      "file": "ieyasu-sculpt-idle-face.png",
+      "triangles": 85503,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt",
+      "clip": "idle",
+      "view": "profile",
+      "file": "ieyasu-sculpt-idle-profile.png",
+      "triangles": 85503,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt",
+      "clip": "idle",
+      "view": "full",
+      "file": "ieyasu-sculpt-idle-full.png",
+      "triangles": 85503,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt",
+      "clip": "thrust",
+      "view": "action",
+      "file": "ieyasu-sculpt-thrust-action.png",
+      "triangles": 85503,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    },
+    {
+      "kind": "ieyasu",
+      "rig": "sculpt",
+      "clip": "run",
+      "view": "action",
+      "file": "ieyasu-sculpt-run-action.png",
+      "triangles": 85503,
+      "skin": {
+        "vertices": 1707,
+        "material": "human skin / ieyasu",
+        "metallic": 0,
+        "detail": false,
+        "clearCoat": false
+      }
+    }
+  ],
+  "errors": []
+}
