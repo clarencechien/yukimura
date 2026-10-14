@@ -1,4 +1,25 @@
 import {test,expect} from '@playwright/test';
+test('Menpo review loads all before/after images and motion evidence under Pages',async({page,request})=>{
+ const errors=[];
+ page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});
+ const base='http://127.0.0.1:4174/yukimura/review/menpo/';
+ expect((await page.goto(base)).status()).toBe(200);
+ await expect(page).toHaveTitle('赤冬 · 真人面罩 v18');
+ await expect(page.locator('img')).toHaveCount(24);
+ await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
+ for(const width of [1280,390]){
+  await page.setViewportSize({width,height:900});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+ }
+ const motion=await request.get(base+'motion-check.json');expect(motion.status()).toBe(200);
+ const report=await motion.json();expect(report.passed).toBe(true);expect(report.results).toHaveLength(14);
+ for(const clip of report.results){expect(clip.minimum_skin_clearance_m).toBeGreaterThan(.0001);expect(clip.mask_vertices).toBeGreaterThan(0);}
+ expect((await request.get(base+'LICENSE-Rocketbox.txt')).status()).toBe(200);
+ await page.goto('http://127.0.0.1:4174/yukimura/review/faces/');
+ await page.getByRole('link',{name:'查看真人頭部加上面罩的新版比較 ↗'}).click();
+ await expect(page).toHaveTitle('赤冬 · 真人面罩 v18');
+ expect(errors).toEqual([]);
+});
 test('Human head review displays all twenty before/after images under Pages',async({page,request})=>{
  const errors=[];
  page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`)});

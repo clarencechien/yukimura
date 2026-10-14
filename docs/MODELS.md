@@ -1,5 +1,7 @@
 # 共用武士模型套件 v9・雙統帥甲冑、分段倒地與全軍動畫
 
+目前遊戲使用 v18 真人頭部＋面罩；詳見 [面罩製作與驗證](COMMANDER_MENPO.md)。
+
 目前遊戲使用 **v17 真人頭臉**：幸村與家康接入 Rocketbox 衍生頭部、獨立皮膚材質、頸部蒙皮與頭盔內襯，詳見 [武將頭臉精修](HUMAN_COMMANDER_HEADS.md)。
 
 v16 已加上雙倍腕部與四種角色共用的甲冑細節，詳見 [共用甲冑套件](SHARED_ARMOR_DETAILS.md)。v15 的上臂、胸背與腿部調整見 [武將體格修正](COMMANDER_PHYSIQUE.md)。沿用 v14 的 MPFB 全身骨架轉接、連續腕部蒙皮及手指骨，詳見 [全身骨架與腕部修正](FULLBODY_RIG.md)。v13 紀錄見 [雙武將模型修正](COMMANDER_MODEL_REFINEMENT.md)。以下保留 v9 的製作紀錄與當時數據；目前資產數據以 `public/models/manifest.json` 為準。

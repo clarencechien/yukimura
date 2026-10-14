@@ -1,0 +1,145 @@
+{
+  "results": [
+    {
+      "kind": "yukimura",
+      "clip": "idle",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.4027400635012747e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0008165371255017817
+    },
+    {
+      "kind": "yukimura",
+      "clip": "run",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.4576330480069735e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0008165486506186426
+    },
+    {
+      "kind": "yukimura",
+      "clip": "slash",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.3888436094564237e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0008164860773831606
+    },
+    {
+      "kind": "yukimura",
+      "clip": "reverse",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.4027400458748785e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0008164964965544641
+    },
+    {
+      "kind": "yukimura",
+      "clip": "thrust",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.4027400458748785e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0008165027829818428
+    },
+    {
+      "kind": "yukimura",
+      "clip": "spin",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.38912831914782e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0008165175095200539
+    },
+    {
+      "kind": "yukimura",
+      "clip": "dash",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 1.228781230931777e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.000816542305983603
+    },
+    {
+      "kind": "yukimura",
+      "clip": "hurt",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.3868036984862905e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0008165451581589878
+    },
+    {
+      "kind": "ieyasu",
+      "clip": "idle",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.4027400458748785e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.001052710460498929
+    },
+    {
+      "kind": "ieyasu",
+      "clip": "run",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.38999946897409e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0010526847327128053
+    },
+    {
+      "kind": "ieyasu",
+      "clip": "thrust",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.388837865275353e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0010527014965191483
+    },
+    {
+      "kind": "ieyasu",
+      "clip": "hurt",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.392194084669154e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0010527074337005615
+    },
+    {
+      "kind": "ieyasu",
+      "clip": "fall",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.4578447942743725e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0010526856640353799
+    },
+    {
+      "kind": "ieyasu",
+      "clip": "fall_back",
+      "samples": 13,
+      "head_vertices": 1707,
+      "rigid_cranium_vertices": 1063,
+      "max_helmet_bone_drift_m": 2.4027400635012747e-07,
+      "mask_vertices": 690,
+      "minimum_skin_clearance_m": 0.0010526776313781738
+    }
+  ],
+  "passed": true
+}

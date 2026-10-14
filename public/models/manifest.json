@@ -1,10 +1,10 @@
 {
-  "generator": "modular-samurai-v17-human-heads",
+  "generator": "modular-samurai-v18-human-head-menpo",
   "unique_source_parts": 905,
   "variants": {
     "yukimura": {
-      "triangles": 78295,
-      "bytes": 5996784,
+      "triangles": 79627,
+      "bytes": 6049524,
       "source_parts": 532,
       "materials": 5,
       "textures": 7,
@@ -55,7 +55,29 @@
           "body.head",
           "body.spine02"
         ],
-        "runtime_facial_animation": false
+        "runtime_facial_animation": false,
+        "neck_blend": "v18: spine-to-head blend at z=1.64\u20131.74 m; jaw fully follows head"
+      },
+      "menpo": {
+        "shell_vertices": 378,
+        "vertices": 690,
+        "shell_thickness_m": 0.002,
+        "minimum_authored_front_clearance_m": 0.005,
+        "mouth_opening": true,
+        "shared_material": "samurai woven cords and fittings",
+        "bone": "body.head",
+        "new_textures": 0,
+        "battle_expression": {
+          "source_targets": {
+            "AK_01_BrowDownLeft": 0.98,
+            "AK_02_BrowDownRight": 0.9,
+            "AK_09_EyeBlinkLeft": 0.22,
+            "AK_10_EyeBlinkRight": 0.2
+          },
+          "baked_static": true,
+          "runtime_morph_targets": 0,
+          "sculpt": "inner brow compression, raised brow ridge and glabella furrows"
+        }
       }
     },
     "ashigaru": {
@@ -81,8 +103,8 @@
       "fittings_lod": "crowd"
     },
     "ieyasu": {
-      "triangles": 75349,
-      "bytes": 5711620,
+      "triangles": 76681,
+      "bytes": 5764356,
       "source_parts": 590,
       "materials": 5,
       "textures": 7,
@@ -133,7 +155,29 @@
           "body.head",
           "body.spine02"
         ],
-        "runtime_facial_animation": false
+        "runtime_facial_animation": false,
+        "neck_blend": "v18: spine-to-head blend at z=1.64\u20131.74 m; jaw fully follows head"
+      },
+      "menpo": {
+        "shell_vertices": 378,
+        "vertices": 690,
+        "shell_thickness_m": 0.002,
+        "minimum_authored_front_clearance_m": 0.005,
+        "mouth_opening": true,
+        "shared_material": "samurai woven cords and fittings",
+        "bone": "body.head",
+        "new_textures": 0,
+        "battle_expression": {
+          "source_targets": {
+            "AK_01_BrowDownLeft": 1.0,
+            "AK_02_BrowDownRight": 1.0,
+            "AK_09_EyeBlinkLeft": 0.26,
+            "AK_10_EyeBlinkRight": 0.26
+          },
+          "baked_static": true,
+          "runtime_morph_targets": 0,
+          "sculpt": "inner brow compression, raised brow ridge and glabella furrows"
+        }
       }
     }
   },

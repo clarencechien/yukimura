@@ -28,7 +28,9 @@ for(const kind of ['yukimura','ieyasu'])test(`${kind}: human head follows the ba
   assert.ok(used.every(n=>['body.head','body.spine02'].includes(n)),'head attached to an unrelated limb');
   assert.ok(Math.abs(weights[i].reduce((a,b)=>a+b,0)-1)<.001);
   if(used.length===2)neckBlends++;
-  if(positions[i][1]>1.82){assert.deepEqual(used,['body.head']);cranium++;}
+  // Jaw must remain rigid with the mask. The old blend reached the chin and
+  // moved skin through the menpo during a strong slash/turn.
+  if(positions[i][1]>1.74){assert.deepEqual(used,['body.head']);cranium++;}
  }
  assert.ok(neckBlends>4,'neck has no continuous transition into the torso');
  assert.ok(cranium>400,'cranium does not follow the helmet bone');
