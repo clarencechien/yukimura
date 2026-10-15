@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-15",
+  "timezone": "Asia/Taipei",
+  "method": "fixed illustration multiplied by bounded linear RGB gain from Blender diffuse-light passes on a manually authored image-aligned relief",
+  "source": "assets/source/jigoku-2d/yukimura-illustration-cutout.png",
+  "source_sha256": "5b54b40c5bcc759b42abc9d2f63e459e5bce55fc4318e66c62227f0434179bce",
+  "surface_config": "assets/source/jigoku-2d/relight-surfaces.json",
+  "surface_config_sha256": "1de05af99c71d828eef80f9d7f2d728399e3026b4371646781d288cb831b2b93",
+  "source_dimensions": [
+    1024,
+    1536
+  ],
+  "source_cleanup": "image_gen derived transparent cutout from original reference sheet; not pixel-identical extraction",
+  "engine": "Cycles",
+  "device": "CPU",
+  "blender": "4.3.2",
+  "samples": 64,
+  "threads": 4,
+  "denoising": false,
+  "camera": {
+    "type": "ORTHO",
+    "scale": 2.0,
+    "sensor_fit": "HORIZONTAL",
+    "locked": true
+  },
+  "proxy": {
+    "vertices": 38801,
+    "triangles": 76800,
+    "maximum_relief": 0.16971294160900355,
+    "estimated_by_neural_model": false
+  },
+  "gain": {
+    "strength": 0.72,
+    "minimum": 0.72,
+    "maximum": 2.15,
+    "color_space": "linear"
+  },
+  "reference_render_seconds": 25.323505738007952,
+  "files": [
+    {
+      "name": "neutral",
+      "file": "neutral.png",
+      "frame": 1,
+      "seconds": 22.526,
+      "sha256": "e5fca59bf8035d7039a2d3374fee16e75420179e20256383bd88965e78290681"
+    },
+    {
+      "name": "warm-left",
+      "file": "warm-left.png",
+      "frame": 2,
+      "seconds": 26.198,
+      "sha256": "265ec7cbe0c7062dda26422c717ab641c0f1888a3a156e4b9f6e8c5971567a41"
+    },
+    {
+      "name": "cool-right",
+      "file": "cool-right.png",
+      "frame": 3,
+      "seconds": 24.498,
+      "sha256": "b4ca5a3a4647d774499b088cc6cf7b41fdaf2e2fe09c4145dd28cfcce72b1610"
+    }
+  ],
+  "limitations": [
+    "Original painted shadows and highlights remain.",
+    "Broad hand-authored surface directions, not recovered material or true depth.",
+    "Single fixed view; no new perspective or body animation.",
+    "No Marigold, IC-Light, Modal or GPU inference was used."
+  ],
+  "scene": "assets/optimized/jigoku-2d/illustration-relight.blend",
+  "scene_sha256": "1113b35e564be5a549e24999cd6ea4350d607f73e050f1733f869744905ae2d3"
+}

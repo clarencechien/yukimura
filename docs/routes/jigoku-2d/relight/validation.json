@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "source_pixel_dimensions": [
+    1024,
+    1536
+  ],
+  "alpha_identical_for_all_variants": true,
+  "checks": [
+    {
+      "name": "neutral",
+      "source_alpha_identical": true,
+      "foreground_rgb_mean_absolute_difference_8bit": 0.41300243170815487,
+      "foreground_rgb_max_difference_8bit": 1,
+      "changed_foreground_pixels": 192117
+    },
+    {
+      "name": "warm-left",
+      "source_alpha_identical": true,
+      "foreground_rgb_mean_absolute_difference_8bit": 8.993422699145855,
+      "foreground_rgb_max_difference_8bit": 74,
+      "changed_foreground_pixels": 454941
+    },
+    {
+      "name": "cool-right",
+      "source_alpha_identical": true,
+      "foreground_rgb_mean_absolute_difference_8bit": 7.293166763834598,
+      "foreground_rgb_max_difference_8bit": 74,
+      "changed_foreground_pixels": 452038
+    }
+  ],
+  "method_verification": "Locked UV and camera; only a linear RGB gain changes. Exact source alpha retained. Neutral RGB differs by no more than one 8-bit quantization level.",
+  "scope": "Checks refer to the prepared single-character cutout, not pixel identity with the earlier multiview concept sheet.",
+  "blender_output_render_seconds": 73.22200000000001
+}

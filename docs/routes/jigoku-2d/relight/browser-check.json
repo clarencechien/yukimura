@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "three 1024x1536 PNGs loaded",
+    "original-source toggle loads same cutout in all columns",
+    "return toggle restores corresponding light variants",
+    "desktop 1440x1100",
+    "mobile 390x844 without horizontal page overflow",
+    "no page errors or HTTP failures"
+  ],
+  "scope": "Static illustration comparison page; not game performance."
+}
