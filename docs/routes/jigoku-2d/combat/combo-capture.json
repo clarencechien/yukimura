@@ -1,7 +1,7 @@
 [
   {
     "sample": 0,
-    "time": 1792083079445,
+    "time": 1792103817057,
     "phase": "idle",
     "attackKind": "thrust",
     "frame": 1,
@@ -18,11 +18,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 1,
-    "time": 1792083079478,
+    "time": 1792103817090,
     "phase": "idle",
     "attackKind": "thrust",
     "frame": 2,
@@ -39,11 +46,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 2,
-    "time": 1792083079512,
+    "time": 1792103817124,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 0,
@@ -60,11 +74,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 3,
-    "time": 1792083079545,
+    "time": 1792103817157,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 1,
@@ -81,11 +102,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 4,
-    "time": 1792083079578,
+    "time": 1792103817190,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 2,
@@ -102,11 +130,46 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 5,
-    "time": 1792083079612,
+    "time": 1792103817224,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 3,
+    "heroFrame": 3,
+    "sweepPose": null,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 918.2044444444444,
+      "y": 330.38368740740736
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
+  },
+  {
+    "sample": 6,
+    "time": 1792103817257,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 4,
@@ -123,11 +186,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 6,
-    "time": 1792083079645,
+    "sample": 7,
+    "time": 1792103817290,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 5,
@@ -144,11 +214,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 7,
-    "time": 1792083079678,
+    "sample": 8,
+    "time": 1792103817324,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 6,
@@ -165,32 +242,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
-  },
-  {
-    "sample": 8,
-    "time": 1792083079712,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 7,
-    "heroFrame": 7,
-    "sweepPose": null,
-    "texture": "thrust",
-    "hp": 3,
-    "queuedAttack": null,
-    "tip": {
-      "x": 905.9972016460905,
-      "y": 333.7870190397805
     },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    }
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 9,
-    "time": 1792083079745,
+    "time": 1792103817357,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 8,
@@ -207,11 +270,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 10,
-    "time": 1792083079778,
+    "time": 1792103817390,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 9,
@@ -228,11 +298,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 11,
-    "time": 1792083079812,
+    "time": 1792103817424,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 10,
@@ -249,11 +326,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 12,
-    "time": 1792083079845,
+    "time": 1792103817457,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 11,
@@ -270,11 +354,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 13,
-    "time": 1792083079878,
+    "time": 1792103817490,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
@@ -291,11 +382,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 14,
-    "time": 1792083079912,
+    "time": 1792103817524,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
@@ -312,11 +410,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 15,
-    "time": 1792083079945,
+    "time": 1792103817557,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 13,
@@ -333,11 +438,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 16,
-    "time": 1792083079978,
+    "time": 1792103817590,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
@@ -354,11 +466,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 17,
-    "time": 1792083080012,
+    "time": 1792103817624,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
@@ -375,11 +494,46 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 18,
-    "time": 1792083080045,
+    "time": 1792103817657,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 14,
+    "heroFrame": 14,
+    "sweepPose": null,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 950,
+      "y": 332.79499999999996
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
+  },
+  {
+    "sample": 19,
+    "time": 1792103817690,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 15,
@@ -396,11 +550,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
-    "sample": 19,
-    "time": 1792083080078,
+    "sample": 20,
+    "time": 1792103817724,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 16,
@@ -417,32 +578,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
-  },
-  {
-    "sample": 20,
-    "time": 1792083080112,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 17,
-    "heroFrame": 17,
-    "sweepPose": null,
-    "texture": "thrust",
-    "hp": 2,
-    "queuedAttack": null,
-    "tip": {
-      "x": 947.4758450745595,
-      "y": 332.59576827967464
     },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    }
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 21,
-    "time": 1792083080145,
+    "time": 1792103817757,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 18,
@@ -459,11 +606,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 2
   },
   {
     "sample": 22,
-    "time": 1792083080178,
+    "time": 1792103817790,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 19,
@@ -480,11 +634,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 2
   },
   {
     "sample": 23,
-    "time": 1792083080212,
+    "time": 1792103817824,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 19,
@@ -501,11 +662,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 2
   },
   {
     "sample": 24,
-    "time": 1792083080245,
+    "time": 1792103817857,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 20,
@@ -522,11 +690,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 25,
-    "time": 1792083080278,
+    "time": 1792103817890,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 21,
@@ -543,11 +718,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 26,
-    "time": 1792083080312,
+    "time": 1792103817924,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 22,
@@ -564,11 +746,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 27,
-    "time": 1792083080345,
+    "time": 1792103817957,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 23,
@@ -585,11 +774,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 28,
-    "time": 1792083080378,
+    "time": 1792103817990,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 24,
@@ -606,11 +802,46 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 1
   },
   {
     "sample": 29,
-    "time": 1792083080412,
+    "time": 1792103818024,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 25,
+    "heroFrame": 1,
+    "sweepPose": null,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 926.9421487603306,
+      "y": 329.7934072126221
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
+  },
+  {
+    "sample": 30,
+    "time": 1792103818057,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 26,
@@ -627,11 +858,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 30,
-    "time": 1792083080445,
+    "sample": 31,
+    "time": 1792103818090,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 27,
@@ -648,11 +886,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 31,
-    "time": 1792083080478,
+    "sample": 32,
+    "time": 1792103818124,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 28,
@@ -669,32 +914,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
-  },
-  {
-    "sample": 32,
-    "time": 1792083080512,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 29,
-    "heroFrame": 5,
-    "sweepPose": null,
-    "texture": "thrust-2",
-    "hp": 2,
-    "queuedAttack": "sweep",
-    "tip": {
-      "x": 925.3890975874447,
-      "y": 329.5528767287197
     },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    }
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 33,
-    "time": 1792083080545,
+    "time": 1792103818157,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 30,
@@ -711,11 +942,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 34,
-    "time": 1792083080578,
+    "time": 1792103818190,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 31,
@@ -732,11 +970,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 35,
-    "time": 1792083080612,
+    "time": 1792103818224,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 31,
@@ -753,11 +998,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 36,
-    "time": 1792083080645,
+    "time": 1792103818257,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 32,
@@ -774,11 +1026,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 37,
-    "time": 1792083080678,
+    "time": 1792103818290,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 33,
@@ -795,11 +1054,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 38,
-    "time": 1792083080712,
+    "time": 1792103818324,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 34,
@@ -816,11 +1082,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 39,
-    "time": 1792083080745,
+    "time": 1792103818357,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 35,
@@ -837,11 +1110,18 @@
       "x": 970,
       "y": 334,
       "radius": 32
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 40,
-    "time": 1792083080778,
+    "time": 1792103818390,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 0,
@@ -858,11 +1138,46 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 41,
-    "time": 1792083080812,
+    "time": 1792103818424,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 1,
+    "heroFrame": 11,
+    "sweepPose": 0,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 923,
+      "y": 329
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
+  },
+  {
+    "sample": 42,
+    "time": 1792103818457,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 2,
@@ -879,11 +1194,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 42,
-    "time": 1792083080845,
+    "sample": 43,
+    "time": 1792103818490,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 3,
@@ -900,11 +1222,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 43,
-    "time": 1792083080878,
+    "sample": 44,
+    "time": 1792103818524,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 4,
@@ -921,32 +1250,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
-  },
-  {
-    "sample": 44,
-    "time": 1792083080912,
-    "phase": "attack",
-    "attackKind": "sweep",
-    "frame": 5,
-    "heroFrame": 0,
-    "sweepPose": 1,
-    "texture": "sweep",
-    "hp": 2,
-    "queuedAttack": null,
-    "tip": {
-      "x": 932.7131474103585,
-      "y": 456.45816733067727
     },
-    "hurtbox": {
-      "x": 915,
-      "y": 535,
-      "radius": 42
-    }
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 45,
-    "time": 1792083080945,
+    "time": 1792103818557,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 6,
@@ -963,11 +1278,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 46,
-    "time": 1792083080978,
+    "time": 1792103818590,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 7,
@@ -984,11 +1306,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 47,
-    "time": 1792083081012,
+    "time": 1792103818624,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 7,
@@ -1005,11 +1334,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 48,
-    "time": 1792083081045,
+    "time": 1792103818657,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 8,
@@ -1026,11 +1362,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 49,
-    "time": 1792083081078,
+    "time": 1792103818690,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -1047,11 +1390,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-flinch",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 50,
-    "time": 1792083081112,
+    "time": 1792103818724,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -1068,11 +1419,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-flinch",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 51,
-    "time": 1792083081145,
+    "time": 1792103818757,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -1089,11 +1448,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-flinch",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 52,
-    "time": 1792083081178,
+    "time": 1792103818790,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 10,
@@ -1110,11 +1477,48 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-flinch",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 53,
-    "time": 1792083081212,
+    "time": 1792103818824,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 11,
+    "heroFrame": 1,
+    "sweepPose": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-flinch",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
+  },
+  {
+    "sample": 54,
+    "time": 1792103818857,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 12,
@@ -1131,11 +1535,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 13,
+      "phase": "low-stagger",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 1
   },
   {
-    "sample": 54,
-    "time": 1792083081245,
+    "sample": 55,
+    "time": 1792103818890,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 13,
@@ -1152,11 +1564,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 13,
+      "phase": "low-stagger",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 1
   },
   {
-    "sample": 55,
-    "time": 1792083081278,
+    "sample": 56,
+    "time": 1792103818924,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 14,
@@ -1173,32 +1593,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
-  },
-  {
-    "sample": 56,
-    "time": 1792083081312,
-    "phase": "attack",
-    "attackKind": "sweep",
-    "frame": 15,
-    "heroFrame": 2,
-    "sweepPose": 3,
-    "texture": "sweep",
-    "hp": 1,
-    "queuedAttack": null,
-    "tip": {
-      "x": 954.9401496259352,
-      "y": 523.4339152119701
     },
-    "hurtbox": {
-      "x": 915,
-      "y": 535,
-      "radius": 42
-    }
+    "enemy": {
+      "pose": 13,
+      "phase": "low-stagger",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 1
   },
   {
     "sample": 57,
-    "time": 1792083081345,
+    "time": 1792103818957,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 15,
@@ -1215,11 +1622,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 13,
+      "phase": "low-stagger",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 1
   },
   {
     "sample": 58,
-    "time": 1792083081378,
+    "time": 1792103818990,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 16,
@@ -1236,11 +1651,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-recover",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 59,
-    "time": 1792083081412,
+    "time": 1792103819024,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 17,
@@ -1257,11 +1680,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-recover",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 60,
-    "time": 1792083081445,
+    "time": 1792103819057,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 18,
@@ -1278,11 +1709,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-recover",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 61,
-    "time": 1792083081478,
+    "time": 1792103819090,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 19,
@@ -1299,11 +1738,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-recover",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 62,
-    "time": 1792083081512,
+    "time": 1792103819124,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 20,
@@ -1320,11 +1767,19 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 12,
+      "phase": "leg-recover",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 0
   },
   {
     "sample": 63,
-    "time": 1792083081545,
+    "time": 1792103819157,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 21,
@@ -1341,11 +1796,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 64,
-    "time": 1792083081578,
+    "time": 1792103819190,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 22,
@@ -1362,11 +1824,46 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 65,
-    "time": 1792083081612,
+    "time": 1792103819224,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 23,
+    "heroFrame": 3,
+    "sweepPose": 4,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 897.7061224489796,
+      "y": 398.334693877551
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
+  },
+  {
+    "sample": 66,
+    "time": 1792103819257,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 24,
@@ -1383,11 +1880,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 66,
-    "time": 1792083081645,
+    "sample": 67,
+    "time": 1792103819290,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 25,
@@ -1404,11 +1908,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 67,
-    "time": 1792083081678,
+    "sample": 68,
+    "time": 1792103819324,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 26,
@@ -1425,32 +1936,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
-  },
-  {
-    "sample": 68,
-    "time": 1792083081712,
-    "phase": "attack",
-    "attackKind": "sweep",
-    "frame": 27,
-    "heroFrame": 0,
-    "sweepPose": 5,
-    "texture": "idle",
-    "hp": 1,
-    "queuedAttack": null,
-    "tip": {
-      "x": 923,
-      "y": 329
     },
-    "hurtbox": {
-      "x": 915,
-      "y": 535,
-      "radius": 42
-    }
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 69,
-    "time": 1792083081745,
+    "time": 1792103819357,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 27,
@@ -1467,11 +1964,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 70,
-    "time": 1792083081778,
+    "time": 1792103819390,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 28,
@@ -1488,11 +1992,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 71,
-    "time": 1792083081812,
+    "time": 1792103819424,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 29,
@@ -1509,11 +2020,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 72,
-    "time": 1792083081845,
+    "time": 1792103819457,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 30,
@@ -1530,11 +2048,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 73,
-    "time": 1792083081878,
+    "time": 1792103819490,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 31,
@@ -1551,11 +2076,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 74,
-    "time": 1792083081912,
+    "time": 1792103819524,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 0,
@@ -1572,11 +2104,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 75,
-    "time": 1792083081945,
+    "time": 1792103819557,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 1,
@@ -1593,11 +2132,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 76,
-    "time": 1792083081978,
+    "time": 1792103819590,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 2,
@@ -1614,11 +2160,46 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 77,
-    "time": 1792083082012,
+    "time": 1792103819624,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 3,
+    "heroFrame": 3,
+    "sweepPose": null,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 918.2044444444444,
+      "y": 330.38368740740736
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
+  },
+  {
+    "sample": 78,
+    "time": 1792103819657,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 4,
@@ -1635,11 +2216,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
-    "sample": 78,
-    "time": 1792083082045,
+    "sample": 79,
+    "time": 1792103819690,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 5,
@@ -1656,32 +2244,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
-  },
-  {
-    "sample": 79,
-    "time": 1792083082078,
-    "phase": "idle",
-    "attackKind": "sweep",
-    "frame": 6,
-    "heroFrame": 6,
-    "sweepPose": null,
-    "texture": "idle",
-    "hp": 1,
-    "queuedAttack": null,
-    "tip": {
-      "x": 908.8355555555555,
-      "y": 333.0214325925926
     },
-    "hurtbox": {
-      "x": 915,
-      "y": 535,
-      "radius": 42
-    }
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 80,
-    "time": 1792083082112,
+    "time": 1792103819724,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 6,
@@ -1698,11 +2272,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 81,
-    "time": 1792083082145,
+    "time": 1792103819757,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 7,
@@ -1719,11 +2300,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 82,
-    "time": 1792083082178,
+    "time": 1792103819790,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 8,
@@ -1740,11 +2328,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 83,
-    "time": 1792083082212,
+    "time": 1792103819824,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 9,
@@ -1761,11 +2356,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 84,
-    "time": 1792083082245,
+    "time": 1792103819857,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 10,
@@ -1782,11 +2384,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 85,
-    "time": 1792083082278,
+    "time": 1792103819890,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 11,
@@ -1803,11 +2412,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 86,
-    "time": 1792083082312,
+    "time": 1792103819924,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 12,
@@ -1824,11 +2440,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 87,
-    "time": 1792083082345,
+    "time": 1792103819957,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 13,
@@ -1845,11 +2468,18 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 88,
-    "time": 1792083082378,
+    "time": 1792103819990,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 14,
@@ -1866,27 +2496,41 @@
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   },
   {
     "sample": 89,
-    "time": 1792083082412,
+    "time": 1792103820024,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 16,
-    "heroFrame": 16,
+    "frame": 15,
+    "heroFrame": 15,
     "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 949.3182042339527,
-      "y": 332.7428208972183
+      "x": 950,
+      "y": 332.79499999999996
     },
     "hurtbox": {
       "x": 915,
       "y": 535,
       "radius": 42
-    }
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0
   }
 ]

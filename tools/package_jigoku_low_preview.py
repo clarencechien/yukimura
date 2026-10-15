@@ -1,0 +1,31 @@
+"""Encode actual browser screenshots; no generated or interpolated motion frames."""
+from pathlib import Path
+import json,subprocess
+from PIL import Image, ImageChops, ImageDraw, ImageFont
+ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/routes/jigoku-2d/combat';TMP=ROOT/'.tmp/combat-check/low-frames'
+frames=sorted(TMP.glob('*.png'));assert len(frames)==78
+subprocess.run(['ffmpeg','-y','-loglevel','error','-framerate','30','-i',str(TMP/'%03d.png'),'-frames:v','78','-vf','pad=ceil(iw/2)*2:ceil(ih/2)*2','-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(OUT/'low-hit-30fps.mp4')],check=True)
+images=[Image.open(p).convert('RGB').resize((640,400),Image.Resampling.LANCZOS) for p in frames]
+sheet=Image.new('RGB',(640*8,400*10))
+for i,im in enumerate(images):sheet.paste(im,((i%8)*640,(i//8)*400))
+palette=sheet.quantize(colors=256)
+gifs=[im.quantize(palette=palette,dither=Image.Dither.NONE) for im in images]
+gifs[0].save(OUT/'low-hit-preview.gif',save_all=True,append_images=gifs[1:],duration=[30,30,40]*26,loop=0,disposal=1,optimize=True)
+decoded=Image.open(OUT/'low-hit-preview.gif')
+assert decoded.n_frames==len(gifs)
+for i,expected in enumerate(gifs):
+    decoded.seek(i)
+    assert ImageChops.difference(decoded.convert('RGB'),expected.convert('RGB')).getbbox() is None, ('GIF ghosting',i)
+probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=width,height,avg_frame_rate,nb_read_frames,duration','-of','json',str(OUT/'low-hit-30fps.mp4')]))['streams'][0]
+assert probe['avg_frame_rate']=='30/1' and int(probe['nb_read_frames'])==78 and abs(float(probe['duration'])-2.6)<.001
+(OUT/'low-video-check.json').write_text(json.dumps({'passed':True,'source':'78 actual Phaser browser screenshots sampled with controlled clock at 33/33/34 ms','video':probe,'gif':'30/30/40 ms approximate 30 fps; use MP4 for uniform frame timing.','note':'This is deterministic capture, not measured real-device frame rate.'},indent=2)+'\n')
+print('Encoded and verified 78 frames / 30 fps / 2.6 seconds.')
+
+rows=json.loads((OUT/'low-capture.json').read_text())
+labels=[('guard','戒備'),('leg-flinch','掃中脛甲'),('low-stagger','低身失衡'),('crouch','屈膝'),('kneel','跪倒'),('brace','手掌承重'),('lower','脫刀落胯'),('fallen','伏地')]
+plate=Image.new('RGB',(1440,900),'#1b2328');font=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',21)
+for i,(phase,label) in enumerate(labels):
+ row=next(r for r in rows if r['enemy']['phase']==phase)
+ im=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB').crop((755,165,1200,650)).resize((360,400),Image.Resampling.LANCZOS)
+ x,y=(i%4)*360,(i//4)*450;plate.paste(im,(x,y));ImageDraw.Draw(plate).text((x+15,y+410),label,font=font,fill='#e0c9a2')
+plate.save(OUT/'low-hit-sequence.jpg',quality=94)

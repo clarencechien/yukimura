@@ -22,6 +22,7 @@ class Battle extends Phaser.Scene {
     this.hd=innerWidth>=900;
     this.load.json('sweepTrack','sweep-track.json');
     this.load.spritesheet('sweep',`sweep${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:3});
+    this.load.spritesheet('enemyLow',`enemy-low${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:1});
     this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:11});
     for(const clip of ['idle','thrust']){
       if(this.hd){
@@ -60,7 +61,7 @@ class Battle extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
     for(const id of ['attack','sweep','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
+    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -95,7 +96,7 @@ class Battle extends Phaser.Scene {
     const warrior=this.state.targetKind==='warrior';
     if(event.type==='recover')this.message(this.state.hp===0?(warrior?'鬼武者倒下 · 六文不渡，赤槍開路':'封印已破 · 六文不渡，赤槍開路'):event.hit?'收槍 · 再進一擊':event.kind==='sweep'?'掃空 · 低槍未及':'刺空 · 一步之外，槍尖未及');
     if(event.type==='hit'){
-      this.message(event.broken?(warrior?'破甲 · 鬼武者力竭':'破封 · 亡魂歸途已開'):(warrior?'命中 · 鬼武者失衡':'命中 · 怨火震裂'));tone(true);
+      this.message(event.broken?(warrior?'破甲 · 鬼武者力竭':'破封 · 亡魂歸途已開'):(warrior?(event.kind==='sweep'?'掃中脛甲 · 鬼武者屈膝失衡':'命中 · 鬼武者失衡'):'命中 · 怨火震裂'));tone(true);
       if($('#feedback').checked){
         this.sparks.explode(event.broken?48:24,event.point.x,event.point.y);
         this.flash.setPosition(event.point.x,event.point.y).setScale(1).setAlpha(.8);
@@ -122,7 +123,7 @@ class Battle extends Phaser.Scene {
     if(uiKey!==this.uiKey){this.uiKey=uiKey;this.refreshUI();}
     const warrior=this.state.targetKind==='warrior',enemy=this.state.enemy;
     this.seal.setVisible(!warrior);this.pedestal.setVisible(!warrior);
-    this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setFrame(enemy.pose).setAlpha(enemy.alpha);
+    this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setTexture(enemy.pose>=12?'enemyLow':'warrior',enemy.pose>=12?enemy.pose-12:enemy.pose).setAlpha(enemy.alpha);
     this.armPose=enemyArm(enemy,this.state.enemyAge,this.state.hp===0,this.enemyRig);
     this.weaponPose=enemyWeapon(enemy,this.state.enemyAge,this.state.hp===0,this.enemyRig);
     const weapon=this.weaponPose,grip=enemyPointToWorld(weapon.grip,this.state.target.x,this.enemyRig),wrist=enemyPointToWorld(this.armPose.wrist,this.state.target.x,this.enemyRig);
@@ -136,7 +137,7 @@ class Battle extends Phaser.Scene {
     this.enemyShadow.clear();
     if(warrior&&!weapon.held){this.enemyShadow.fillStyle(0x05070a,.25*weapon.alpha);this.enemyShadow.fillEllipse(grip.x-65,574,230,9);}
     if(warrior){
-      this.enemyShadow.fillStyle(0x06090b,.25*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x,574,enemy.pose>=7?380:235,28);
+      this.enemyShadow.fillStyle(0x06090b,.25*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x,574,enemy.pose>=7&&enemy.pose<12?380:235,28);
       // Small painted support-hand contact, separate from the broad body shadow.
       const contact=this.enemyRig.bindings[enemy.pose].supportContact;
       if(contact){const p=enemyPointToWorld({x:contact[0],y:contact[1]},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x030609,.4*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y-3,35,9);}

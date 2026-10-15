@@ -7,7 +7,7 @@ export function segmentHitsCircle(a,b,c,r){
 }
 export class CombatState {
   constructor(track,onEvent=()=>{},sweepTrack=null){this.track=track;this.sweepTrack=sweepTrack;this.onEvent=onEvent;this.range='near';this.targetKind='warrior';this.paused=false;this.reset();}
-  reset(){this.hp=3;this.hits=0;this.swings=0;this.phase='idle';this.frame=0;this.elapsed=0;this.freeze=0;this.didHit=false;this.idleTime=0;this.enemyAge=0;this.enemyHit=false;this.attackKind='thrust';this.queuedAttack=null;}
+  reset(){this.hp=3;this.hits=0;this.swings=0;this.phase='idle';this.frame=0;this.elapsed=0;this.freeze=0;this.didHit=false;this.idleTime=0;this.enemyAge=0;this.enemyHit=false;this.attackKind='thrust';this.queuedAttack=null;this.lastHitKind=null;}
   get target(){return {x:this.range==='near'?970:1060,y:334,radius:32};}
   get currentTrack(){return this.attackKind==='sweep'?this.sweepTrack:this.track;}
   get hurtbox(){return this.attackKind==='sweep'&&this.targetKind==='warrior'?{x:this.target.x-55,y:535,radius:42}:this.target;}
@@ -15,6 +15,14 @@ export class CombatState {
   get enemy(){
     if(!this.enemyHit)return {pose:0,phase:'guard',alpha:1};
     const age=this.enemyAge;
+    if(this.lastHitKind==='sweep'){
+      if(age<110)return {pose:12,phase:'leg-flinch',alpha:1,reaction:'sweep'};
+      if(age<(this.hp>0?260:250))return {pose:13,phase:'low-stagger',alpha:1,reaction:'sweep'};
+      if(this.hp>0){
+        if(age<420)return {pose:12,phase:'leg-recover',alpha:1,reaction:'sweep'};
+        return {pose:0,phase:'guard',alpha:1};
+      }
+    }
     if(this.hp>0){
       if(age<90)return {pose:1,phase:'flinch',alpha:1};
       if(age<220)return {pose:2,phase:'hurt',alpha:1};
@@ -50,7 +58,7 @@ export class CombatState {
       if(this.currentTrack.activeFrames.includes(this.frame)&&!this.didHit&&this.hp>0){
         const a=this.currentTrack.frames[this.frame-1],b=this.currentTrack.frames[this.frame];
         if(segmentHitsCircle(a,b,this.hurtbox,this.hurtbox.radius)){
-          this.didHit=true;this.hp--;this.hits++;this.freeze=70;this.enemyAge=0;this.enemyHit=true;
+          this.didHit=true;this.hp--;this.hits++;this.freeze=70;this.enemyAge=0;this.enemyHit=true;this.lastHitKind=this.attackKind;
           this.onEvent({type:'hit',point:b,broken:this.hp===0,kind:this.attackKind});
         }
       }

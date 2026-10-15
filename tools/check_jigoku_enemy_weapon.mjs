@@ -10,8 +10,8 @@ const track=JSON.parse(fs.readFileSync(new URL('spear-track.json',base)));
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
 test('all held poses keep the same wrist-to-grip distance and valid sockets',()=>{
  const hand=rig.parts.grip,length=Math.hypot(hand.gripPoint[0]-hand.pivot[0],hand.gripPoint[1]-hand.pivot[1]);
- assert.equal(rig.bindings.length,12);
- for(let pose=0;pose<7;pose++){
+ assert.equal(rig.bindings.length,14);
+ for(const pose of [0,1,2,3,4,5,6,12,13]){
   const w=enemyWeapon({pose,alpha:1},0,false,rig);assert.equal(w.held,true);
   near(Math.hypot(w.grip.x-w.wrist.x,w.grip.y-w.wrist.y),length);
   const p=enemyPointToWorld(w.wrist,970,rig),q=enemyPointToWorld(w.wrist,1060,rig);near(q.x-p.x,90);near(q.y,p.y);
@@ -71,4 +71,19 @@ test('authored torso transitions reduce the brace-to-lower shoulder step',()=>{
  }
  s.enemyAge=525;s.paused=true;s.update(200);assert.equal(s.enemy.pose,10);
  s.reset();assert.equal(s.enemy.pose,0);
+});
+
+test('low-hit arm stays rigid and retains the same release transform at shared death handoff',()=>{
+ for(const dead of [false,true])for(let age=0;age<430;age+=7){
+  const pose=age<110?12:age<250?13:dead?4:12;
+  const reaction=age<250||!dead?'sweep':undefined;
+  const arm=enemyArm({pose,alpha:1,reaction},age,dead,rig);
+  near(Math.hypot(arm.elbow.x-arm.shoulder.x,arm.elbow.y-arm.shoulder.y),65);
+  near(Math.hypot(arm.wrist.x-arm.elbow.x,arm.wrist.y-arm.elbow.y),75);
+  assert.equal(enemyWeapon({pose,alpha:1,reaction},age,dead,rig).held,true);
+ }
+ const low=enemyArm({pose:4,alpha:1,reaction:'sweep'},250,true,rig),shared=enemyArm({pose:4,alpha:1},250,true,rig);
+ near(low.wrist.x,shared.wrist.x);near(low.wrist.y,shared.wrist.y);
+ const a=enemyWeapon({pose:6,alpha:1},499.999999,true,rig),b=enemyWeapon({pose:10,alpha:1},500,true,rig);
+ near(a.grip.x,b.grip.x);near(a.grip.y,b.grip.y);
 });

@@ -402,6 +402,64 @@
         1500,
         650
       ]
+    },
+    {
+      "pose": "leg-flinch",
+      "shoulder": [
+        437.76,
+        295.52
+      ],
+      "wrist": [
+        420.6,
+        401.6
+      ],
+      "sourceShoulder": [
+        292,
+        284
+      ],
+      "sourceWrist": [
+        270,
+        420
+      ],
+      "footContacts": [
+        [
+          437.76,
+          677.72
+        ],
+        [
+          740.4,
+          686.3000000000001
+        ]
+      ]
+    },
+    {
+      "pose": "low-stagger",
+      "shoulder": [
+        365.84000000000003,
+        354.8
+      ],
+      "wrist": [
+        346.34000000000003,
+        460.1
+      ],
+      "sourceShoulder": [
+        1165,
+        360
+      ],
+      "sourceWrist": [
+        1140,
+        495
+      ],
+      "footContacts": [
+        [
+          416.54,
+          677.72
+        ],
+        [
+          740.24,
+          686.3000000000001
+        ]
+      ]
     }
   ],
   "armLengths": [
@@ -427,5 +485,6 @@
   "bulkArmSha256": "210bebe28d3e5225007eff5ba52e13468f43fdc1171dd5d436ae7eab2525669e",
   "bulkArmGeneratedFile": "exec-9c05eb10-612f-4f45-8ed8-b9d578b85253.png",
   "method": "Image_gen separate arm segments and half/open hands, plus reused katana and closed grip. A thicker arm redraw supplies the upper/forearm only; original half/open hands retained. Redraw joint anchors remeasured and uniformly rescaled to the same 65/75 lengths. Fixed 65/75 px segments, manual shoulder anchors, interpolated local reach targets and two-bone IK. Shoulder anchors still switch with twelve body images, including two additional torso transitions. No continuous torso animation or physical finger simulation. Scripted blade release from the last held transform to a flat plane.",
-  "extraRGBA8Bytes": 180396
+  "extraRGBA8Bytes": 180396,
+  "lowHitSource": "enemy-low-art.json"
 }

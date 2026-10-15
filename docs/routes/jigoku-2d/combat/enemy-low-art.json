@@ -1,0 +1,131 @@
+{
+  "source": "assets/source/jigoku-2d/ghost-rig/low-hit.png",
+  "sha256": "eeee373442c3309583f00b52fa228453cd3440a4cb45057ab6ec3d8f64b6d1e5",
+  "generatedFile": "exec-4bc112f1-deeb-4eda-9314-f489d1ba5cea.png",
+  "referenceCommit": "4f794f485ed1feeaaac305643ad33cc2a42fde51",
+  "referenceFrames": [
+    0,
+    1,
+    3,
+    4
+  ],
+  "method": "One image_gen two-pose edit from existing body layers, keeping far weapon arm absent. Same .78 uniform scale and rear-sole registration; manually measured shoulder/wrist anchors. Reuses original arm, grip and katana components. No whole-body rotation, nonuniform scaling, crossfade, new Blender render or physical ragdoll. Armor, head projection and soles still vary.",
+  "poses": [
+    {
+      "pose": "leg-flinch",
+      "sourceBox": [
+        0,
+        0,
+        887,
+        887
+      ],
+      "uniformScale": 0.78,
+      "pasteOffset": [
+        210,
+        74
+      ],
+      "rearSole": [
+        740.4,
+        686.3000000000001
+      ],
+      "frontSole": [
+        437.76,
+        677.72
+      ],
+      "sourceRearSole": [
+        680,
+        785
+      ],
+      "sourceFrontSole": [
+        292,
+        774
+      ]
+    },
+    {
+      "pose": "low-stagger",
+      "sourceBox": [
+        887,
+        0,
+        1774,
+        887
+      ],
+      "uniformScale": 0.78,
+      "pasteOffset": [
+        149,
+        74
+      ],
+      "rearSole": [
+        740.24,
+        686.3000000000001
+      ],
+      "frontSole": [
+        416.54,
+        677.72
+      ],
+      "sourceRearSole": [
+        1645,
+        785
+      ],
+      "sourceFrontSole": [
+        1230,
+        774
+      ]
+    }
+  ],
+  "bindings": [
+    12,
+    13
+  ],
+  "hdFrame": [
+    1152,
+    768
+  ],
+  "mobileFrame": [
+    768,
+    512
+  ],
+  "hdRGBA8Bytes": 7077888,
+  "mobileRGBA8Bytes": 3145728,
+  "boundaryChecks": [
+    {
+      "resolution": "-hd",
+      "pose": "leg-flinch",
+      "worldBounds": [
+        842.8,
+        254.2,
+        1093.0,
+        580.0
+      ]
+    },
+    {
+      "resolution": "-hd",
+      "pose": "low-stagger",
+      "worldBounds": [
+        807.4,
+        302.2,
+        1090.0,
+        578.2
+      ]
+    },
+    {
+      "resolution": "mobile",
+      "pose": "leg-flinch",
+      "worldBounds": [
+        843.1,
+        253.60000000000002,
+        1093.3,
+        580.3
+      ]
+    },
+    {
+      "resolution": "mobile",
+      "pose": "low-stagger",
+      "worldBounds": [
+        807.1,
+        302.2,
+        1090.6,
+        578.5
+      ]
+    }
+  ]
+}
