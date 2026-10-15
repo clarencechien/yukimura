@@ -6,7 +6,7 @@
 
 ## 並行美術路線
 
-本分支新增 [《真田・六文劫》預渲染 2D 研究與參考圖](docs/routes/jigoku-2d/README.md)：Blender → 透明動畫貼圖 → 2D 引擎的另一條路線。目前只有文案、規格與三張生成參考圖；下列 v22 仍是既有遊戲基線。
+本分支新增 [《真田・六文劫》預渲染 2D 研究與參考圖](docs/routes/jigoku-2d/README.md)：Blender → 透明動畫貼圖 → 2D 引擎的另一條路線。已有文案、規格、三張生成參考圖與 [Blender 三幀實作](docs/routes/jigoku-2d/BLENDER_STUDY.md)；下列 v22 仍是既有遊戲基線。
 
 ## 目前版本
 
