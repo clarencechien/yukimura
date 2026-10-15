@@ -8,6 +8,7 @@
     "nb_read_frames": "90"
   },
   "source": "90 actual Phaser screenshots with controlled 33/33/34 ms clock; not a device FPS benchmark",
-  "sweep": "Four distinct drawn poses held over 32 simulation frames; no interpolated body frames",
-  "gif": "30/30/40 ms timings, decoded pixels checked against palette frames"
+  "sweep": "Six silhouettes held over 32 simulation frames: two shared boundary frames, two preserved low poses, two new transitions; no interpolated body frames",
+  "gif": "30/30/40 ms timings, decoded pixels checked against palette frames",
+  "residentTextureChecks": "Every captured start/end sweep sample binds thrust-2 frame 11 / idle frame 0 respectively; no duplicate boundary textures"
 }

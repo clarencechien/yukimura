@@ -1,11 +1,12 @@
 [
   {
     "sample": 0,
-    "time": 1792080594738,
+    "time": 1792083079445,
     "phase": "idle",
     "attackKind": "thrust",
     "frame": 1,
     "heroFrame": 1,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 3,
     "queuedAttack": null,
@@ -21,11 +22,12 @@
   },
   {
     "sample": 1,
-    "time": 1792080594771,
+    "time": 1792083079478,
     "phase": "idle",
     "attackKind": "thrust",
     "frame": 2,
     "heroFrame": 2,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 3,
     "queuedAttack": null,
@@ -41,11 +43,12 @@
   },
   {
     "sample": 2,
-    "time": 1792080594805,
+    "time": 1792083079512,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 0,
     "heroFrame": 0,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -61,11 +64,12 @@
   },
   {
     "sample": 3,
-    "time": 1792080594838,
+    "time": 1792083079545,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 1,
     "heroFrame": 1,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -81,11 +85,12 @@
   },
   {
     "sample": 4,
-    "time": 1792080594871,
+    "time": 1792083079578,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 2,
     "heroFrame": 2,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -101,31 +106,12 @@
   },
   {
     "sample": 5,
-    "time": 1792080594905,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 3,
-    "heroFrame": 3,
-    "texture": "thrust",
-    "hp": 3,
-    "queuedAttack": null,
-    "tip": {
-      "x": 918.2044444444444,
-      "y": 330.38368740740736
-    },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    }
-  },
-  {
-    "sample": 6,
-    "time": 1792080594938,
+    "time": 1792083079612,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 4,
     "heroFrame": 4,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -140,12 +126,13 @@
     }
   },
   {
-    "sample": 7,
-    "time": 1792080594971,
+    "sample": 6,
+    "time": 1792083079645,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 5,
     "heroFrame": 5,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -160,12 +147,13 @@
     }
   },
   {
-    "sample": 8,
-    "time": 1792080595005,
+    "sample": 7,
+    "time": 1792083079678,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 6,
     "heroFrame": 6,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -180,12 +168,13 @@
     }
   },
   {
-    "sample": 9,
-    "time": 1792080595038,
+    "sample": 8,
+    "time": 1792083079712,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 7,
     "heroFrame": 7,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -200,12 +189,13 @@
     }
   },
   {
-    "sample": 10,
-    "time": 1792080595071,
+    "sample": 9,
+    "time": 1792083079745,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 8,
     "heroFrame": 8,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -220,12 +210,34 @@
     }
   },
   {
+    "sample": 10,
+    "time": 1792083079778,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 9,
+    "heroFrame": 9,
+    "sweepPose": null,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 902.42,
+      "y": 334.64326
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
     "sample": 11,
-    "time": 1792080595105,
+    "time": 1792083079812,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 10,
     "heroFrame": 10,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -241,11 +253,12 @@
   },
   {
     "sample": 12,
-    "time": 1792080595138,
+    "time": 1792083079845,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 11,
     "heroFrame": 11,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -261,11 +274,12 @@
   },
   {
     "sample": 13,
-    "time": 1792080595171,
+    "time": 1792083079878,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
     "heroFrame": 12,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -281,11 +295,12 @@
   },
   {
     "sample": 14,
-    "time": 1792080595205,
+    "time": 1792083079912,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
     "heroFrame": 12,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -301,11 +316,12 @@
   },
   {
     "sample": 15,
-    "time": 1792080595238,
+    "time": 1792083079945,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 13,
     "heroFrame": 13,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
@@ -321,11 +337,12 @@
   },
   {
     "sample": 16,
-    "time": 1792080595271,
+    "time": 1792083079978,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
     "heroFrame": 14,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -341,11 +358,12 @@
   },
   {
     "sample": 17,
-    "time": 1792080595305,
+    "time": 1792083080012,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
     "heroFrame": 14,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -361,11 +379,12 @@
   },
   {
     "sample": 18,
-    "time": 1792080595338,
+    "time": 1792083080045,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 14,
-    "heroFrame": 14,
+    "frame": 15,
+    "heroFrame": 15,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -381,31 +400,12 @@
   },
   {
     "sample": 19,
-    "time": 1792080595371,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 15,
-    "heroFrame": 15,
-    "texture": "thrust",
-    "hp": 2,
-    "queuedAttack": null,
-    "tip": {
-      "x": 950,
-      "y": 332.79499999999996
-    },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    }
-  },
-  {
-    "sample": 20,
-    "time": 1792080595405,
+    "time": 1792083080078,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 16,
     "heroFrame": 16,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -420,12 +420,13 @@
     }
   },
   {
-    "sample": 21,
-    "time": 1792080595438,
+    "sample": 20,
+    "time": 1792083080112,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 17,
     "heroFrame": 17,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -440,12 +441,13 @@
     }
   },
   {
-    "sample": 22,
-    "time": 1792080595471,
+    "sample": 21,
+    "time": 1792083080145,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 18,
     "heroFrame": 18,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -460,12 +462,34 @@
     }
   },
   {
-    "sample": 23,
-    "time": 1792080595505,
+    "sample": 22,
+    "time": 1792083080178,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 19,
     "heroFrame": 19,
+    "sweepPose": null,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 941.5276054082299,
+      "y": 332.0739506451104
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 23,
+    "time": 1792083080212,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 19,
+    "heroFrame": 19,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -481,11 +505,12 @@
   },
   {
     "sample": 24,
-    "time": 1792080595538,
+    "time": 1792083080245,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 20,
     "heroFrame": 20,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -501,11 +526,12 @@
   },
   {
     "sample": 25,
-    "time": 1792080595571,
+    "time": 1792083080278,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 21,
     "heroFrame": 21,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -521,11 +547,12 @@
   },
   {
     "sample": 26,
-    "time": 1792080595605,
+    "time": 1792083080312,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 22,
     "heroFrame": 22,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": null,
@@ -541,11 +568,12 @@
   },
   {
     "sample": 27,
-    "time": 1792080595638,
+    "time": 1792083080345,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 23,
     "heroFrame": 23,
+    "sweepPose": null,
     "texture": "thrust",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -561,11 +589,12 @@
   },
   {
     "sample": 28,
-    "time": 1792080595671,
+    "time": 1792083080378,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 24,
     "heroFrame": 0,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -581,31 +610,12 @@
   },
   {
     "sample": 29,
-    "time": 1792080595705,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 25,
-    "heroFrame": 1,
-    "texture": "thrust-2",
-    "hp": 2,
-    "queuedAttack": "sweep",
-    "tip": {
-      "x": 926.9421487603306,
-      "y": 329.7934072126221
-    },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    }
-  },
-  {
-    "sample": 30,
-    "time": 1792080595738,
+    "time": 1792083080412,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 26,
     "heroFrame": 2,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -620,12 +630,13 @@
     }
   },
   {
-    "sample": 31,
-    "time": 1792080595771,
+    "sample": 30,
+    "time": 1792083080445,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 27,
     "heroFrame": 3,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -640,12 +651,13 @@
     }
   },
   {
-    "sample": 32,
-    "time": 1792080595805,
+    "sample": 31,
+    "time": 1792083080478,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 28,
     "heroFrame": 4,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -660,12 +672,13 @@
     }
   },
   {
-    "sample": 33,
-    "time": 1792080595838,
+    "sample": 32,
+    "time": 1792083080512,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 29,
     "heroFrame": 5,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -680,12 +693,13 @@
     }
   },
   {
-    "sample": 34,
-    "time": 1792080595871,
+    "sample": 33,
+    "time": 1792083080545,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 30,
     "heroFrame": 6,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -700,12 +714,34 @@
     }
   },
   {
-    "sample": 35,
-    "time": 1792080595905,
+    "sample": 34,
+    "time": 1792083080578,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 31,
     "heroFrame": 7,
+    "sweepPose": null,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 924.3016977241036,
+      "y": 329.31761065403555
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 35,
+    "time": 1792083080612,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 31,
+    "heroFrame": 7,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -721,11 +757,12 @@
   },
   {
     "sample": 36,
-    "time": 1792080595938,
+    "time": 1792083080645,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 32,
     "heroFrame": 8,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -741,11 +778,12 @@
   },
   {
     "sample": 37,
-    "time": 1792080595971,
+    "time": 1792083080678,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 33,
     "heroFrame": 9,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -761,11 +799,12 @@
   },
   {
     "sample": 38,
-    "time": 1792080596005,
+    "time": 1792083080712,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 34,
     "heroFrame": 10,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -781,11 +820,12 @@
   },
   {
     "sample": 39,
-    "time": 1792080596038,
+    "time": 1792083080745,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 35,
     "heroFrame": 11,
+    "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
@@ -801,17 +841,18 @@
   },
   {
     "sample": 40,
-    "time": 1792080596071,
+    "time": 1792083080778,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 0,
-    "heroFrame": 0,
-    "texture": "sweep",
+    "heroFrame": 11,
+    "sweepPose": 0,
+    "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -821,17 +862,18 @@
   },
   {
     "sample": 41,
-    "time": 1792080596105,
+    "time": 1792083080812,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 1,
-    "heroFrame": 0,
-    "texture": "sweep",
+    "frame": 2,
+    "heroFrame": 11,
+    "sweepPose": 0,
+    "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -841,17 +883,18 @@
   },
   {
     "sample": 42,
-    "time": 1792080596138,
+    "time": 1792083080845,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 2,
-    "heroFrame": 0,
-    "texture": "sweep",
+    "frame": 3,
+    "heroFrame": 11,
+    "sweepPose": 0,
+    "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -861,17 +904,18 @@
   },
   {
     "sample": 43,
-    "time": 1792080596171,
+    "time": 1792083080878,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 3,
+    "frame": 4,
     "heroFrame": 0,
+    "sweepPose": 1,
     "texture": "sweep",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 932.7131474103585,
+      "y": 456.45816733067727
     },
     "hurtbox": {
       "x": 915,
@@ -881,17 +925,18 @@
   },
   {
     "sample": 44,
-    "time": 1792080596205,
+    "time": 1792083080912,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 4,
+    "frame": 5,
     "heroFrame": 0,
+    "sweepPose": 1,
     "texture": "sweep",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 932.7131474103585,
+      "y": 456.45816733067727
     },
     "hurtbox": {
       "x": 915,
@@ -901,17 +946,18 @@
   },
   {
     "sample": 45,
-    "time": 1792080596238,
+    "time": 1792083080945,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 5,
+    "frame": 6,
     "heroFrame": 0,
+    "sweepPose": 1,
     "texture": "sweep",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 932.7131474103585,
+      "y": 456.45816733067727
     },
     "hurtbox": {
       "x": 915,
@@ -921,17 +967,18 @@
   },
   {
     "sample": 46,
-    "time": 1792080596271,
+    "time": 1792083080978,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 6,
+    "frame": 7,
     "heroFrame": 0,
+    "sweepPose": 1,
     "texture": "sweep",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 932.7131474103585,
+      "y": 456.45816733067727
     },
     "hurtbox": {
       "x": 915,
@@ -941,17 +988,18 @@
   },
   {
     "sample": 47,
-    "time": 1792080596305,
+    "time": 1792083081012,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 7,
     "heroFrame": 0,
+    "sweepPose": 1,
     "texture": "sweep",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 956.5212464589234,
-      "y": 307.4164305949008
+      "x": 932.7131474103585,
+      "y": 456.45816733067727
     },
     "hurtbox": {
       "x": 915,
@@ -961,11 +1009,12 @@
   },
   {
     "sample": 48,
-    "time": 1792080596338,
+    "time": 1792083081045,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 8,
     "heroFrame": 1,
+    "sweepPose": 2,
     "texture": "sweep",
     "hp": 2,
     "queuedAttack": null,
@@ -981,11 +1030,12 @@
   },
   {
     "sample": 49,
-    "time": 1792080596371,
+    "time": 1792083081078,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
     "heroFrame": 1,
+    "sweepPose": 2,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1001,11 +1051,12 @@
   },
   {
     "sample": 50,
-    "time": 1792080596405,
+    "time": 1792083081112,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
     "heroFrame": 1,
+    "sweepPose": 2,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1021,11 +1072,12 @@
   },
   {
     "sample": 51,
-    "time": 1792080596438,
+    "time": 1792083081145,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
     "heroFrame": 1,
+    "sweepPose": 2,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1041,11 +1093,12 @@
   },
   {
     "sample": 52,
-    "time": 1792080596471,
+    "time": 1792083081178,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 10,
     "heroFrame": 1,
+    "sweepPose": 2,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1061,11 +1114,12 @@
   },
   {
     "sample": 53,
-    "time": 1792080596505,
+    "time": 1792083081212,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 11,
+    "frame": 12,
     "heroFrame": 1,
+    "sweepPose": 2,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1081,11 +1135,12 @@
   },
   {
     "sample": 54,
-    "time": 1792080596538,
+    "time": 1792083081245,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 12,
+    "frame": 13,
     "heroFrame": 1,
+    "sweepPose": 2,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1101,17 +1156,18 @@
   },
   {
     "sample": 55,
-    "time": 1792080596571,
+    "time": 1792083081278,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 13,
-    "heroFrame": 1,
+    "frame": 14,
+    "heroFrame": 2,
+    "sweepPose": 3,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 949.3421052631578,
-      "y": 554.2368421052631
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
     },
     "hurtbox": {
       "x": 915,
@@ -1121,11 +1177,12 @@
   },
   {
     "sample": 56,
-    "time": 1792080596605,
+    "time": 1792083081312,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 14,
+    "frame": 15,
     "heroFrame": 2,
+    "sweepPose": 3,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1141,11 +1198,12 @@
   },
   {
     "sample": 57,
-    "time": 1792080596638,
+    "time": 1792083081345,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 15,
     "heroFrame": 2,
+    "sweepPose": 3,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1161,11 +1219,12 @@
   },
   {
     "sample": 58,
-    "time": 1792080596671,
+    "time": 1792083081378,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 16,
     "heroFrame": 2,
+    "sweepPose": 3,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1181,11 +1240,12 @@
   },
   {
     "sample": 59,
-    "time": 1792080596705,
+    "time": 1792083081412,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 17,
     "heroFrame": 2,
+    "sweepPose": 3,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1201,11 +1261,12 @@
   },
   {
     "sample": 60,
-    "time": 1792080596738,
+    "time": 1792083081445,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 18,
     "heroFrame": 2,
+    "sweepPose": 3,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
@@ -1221,17 +1282,18 @@
   },
   {
     "sample": 61,
-    "time": 1792080596771,
+    "time": 1792083081478,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 19,
-    "heroFrame": 2,
+    "heroFrame": 3,
+    "sweepPose": 4,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 954.9401496259352,
-      "y": 523.4339152119701
+      "x": 897.7061224489796,
+      "y": 398.334693877551
     },
     "hurtbox": {
       "x": 915,
@@ -1241,17 +1303,18 @@
   },
   {
     "sample": 62,
-    "time": 1792080596805,
+    "time": 1792083081512,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 20,
-    "heroFrame": 2,
+    "heroFrame": 3,
+    "sweepPose": 4,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 954.9401496259352,
-      "y": 523.4339152119701
+      "x": 897.7061224489796,
+      "y": 398.334693877551
     },
     "hurtbox": {
       "x": 915,
@@ -1261,17 +1324,18 @@
   },
   {
     "sample": 63,
-    "time": 1792080596838,
+    "time": 1792083081545,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 21,
-    "heroFrame": 2,
+    "heroFrame": 3,
+    "sweepPose": 4,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 954.9401496259352,
-      "y": 523.4339152119701
+      "x": 897.7061224489796,
+      "y": 398.334693877551
     },
     "hurtbox": {
       "x": 915,
@@ -1281,17 +1345,18 @@
   },
   {
     "sample": 64,
-    "time": 1792080596871,
+    "time": 1792083081578,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 22,
     "heroFrame": 3,
+    "sweepPose": 4,
     "texture": "sweep",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 897.7061224489796,
+      "y": 398.334693877551
     },
     "hurtbox": {
       "x": 915,
@@ -1301,17 +1366,18 @@
   },
   {
     "sample": 65,
-    "time": 1792080596905,
+    "time": 1792083081612,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 23,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "frame": 24,
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1321,17 +1387,18 @@
   },
   {
     "sample": 66,
-    "time": 1792080596938,
+    "time": 1792083081645,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 24,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "frame": 25,
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1341,17 +1408,18 @@
   },
   {
     "sample": 67,
-    "time": 1792080596971,
+    "time": 1792083081678,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 25,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "frame": 26,
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1361,17 +1429,18 @@
   },
   {
     "sample": 68,
-    "time": 1792080597005,
+    "time": 1792083081712,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 26,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "frame": 27,
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1381,17 +1450,18 @@
   },
   {
     "sample": 69,
-    "time": 1792080597038,
+    "time": 1792083081745,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 27,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1401,17 +1471,18 @@
   },
   {
     "sample": 70,
-    "time": 1792080597071,
+    "time": 1792083081778,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 28,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1421,17 +1492,18 @@
   },
   {
     "sample": 71,
-    "time": 1792080597105,
+    "time": 1792083081812,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 29,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1441,17 +1513,18 @@
   },
   {
     "sample": 72,
-    "time": 1792080597138,
+    "time": 1792083081845,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 30,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1461,17 +1534,18 @@
   },
   {
     "sample": 73,
-    "time": 1792080597171,
+    "time": 1792083081878,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 31,
-    "heroFrame": 3,
-    "texture": "sweep",
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 888.2902374670184,
-      "y": 346.62269129287597
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -1481,11 +1555,12 @@
   },
   {
     "sample": 74,
-    "time": 1792080597205,
+    "time": 1792083081912,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 0,
     "heroFrame": 0,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1501,11 +1576,12 @@
   },
   {
     "sample": 75,
-    "time": 1792080597238,
+    "time": 1792083081945,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 1,
     "heroFrame": 1,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1521,11 +1597,12 @@
   },
   {
     "sample": 76,
-    "time": 1792080597271,
+    "time": 1792083081978,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 2,
     "heroFrame": 2,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1541,31 +1618,12 @@
   },
   {
     "sample": 77,
-    "time": 1792080597305,
-    "phase": "idle",
-    "attackKind": "sweep",
-    "frame": 3,
-    "heroFrame": 3,
-    "texture": "idle",
-    "hp": 1,
-    "queuedAttack": null,
-    "tip": {
-      "x": 918.2044444444444,
-      "y": 330.38368740740736
-    },
-    "hurtbox": {
-      "x": 915,
-      "y": 535,
-      "radius": 42
-    }
-  },
-  {
-    "sample": 78,
-    "time": 1792080597338,
+    "time": 1792083082012,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 4,
     "heroFrame": 4,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1580,12 +1638,13 @@
     }
   },
   {
-    "sample": 79,
-    "time": 1792080597371,
+    "sample": 78,
+    "time": 1792083082045,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 5,
     "heroFrame": 5,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1600,12 +1659,34 @@
     }
   },
   {
-    "sample": 80,
-    "time": 1792080597405,
+    "sample": 79,
+    "time": 1792083082078,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 6,
     "heroFrame": 6,
+    "sweepPose": null,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 908.8355555555555,
+      "y": 333.0214325925926
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 80,
+    "time": 1792083082112,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 6,
+    "heroFrame": 6,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1621,11 +1702,12 @@
   },
   {
     "sample": 81,
-    "time": 1792080597438,
+    "time": 1792083082145,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 7,
     "heroFrame": 7,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1641,11 +1723,12 @@
   },
   {
     "sample": 82,
-    "time": 1792080597471,
+    "time": 1792083082178,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 8,
     "heroFrame": 8,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1661,11 +1744,12 @@
   },
   {
     "sample": 83,
-    "time": 1792080597505,
+    "time": 1792083082212,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 9,
     "heroFrame": 9,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1681,11 +1765,12 @@
   },
   {
     "sample": 84,
-    "time": 1792080597538,
+    "time": 1792083082245,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 10,
     "heroFrame": 10,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1701,11 +1786,12 @@
   },
   {
     "sample": 85,
-    "time": 1792080597571,
+    "time": 1792083082278,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 11,
     "heroFrame": 11,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1721,11 +1807,12 @@
   },
   {
     "sample": 86,
-    "time": 1792080597605,
+    "time": 1792083082312,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 12,
     "heroFrame": 12,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1741,11 +1828,12 @@
   },
   {
     "sample": 87,
-    "time": 1792080597638,
+    "time": 1792083082345,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 13,
     "heroFrame": 13,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1761,11 +1849,12 @@
   },
   {
     "sample": 88,
-    "time": 1792080597671,
+    "time": 1792083082378,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 14,
     "heroFrame": 14,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
@@ -1781,17 +1870,18 @@
   },
   {
     "sample": 89,
-    "time": 1792080597705,
+    "time": 1792083082412,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 15,
-    "heroFrame": 15,
+    "frame": 16,
+    "heroFrame": 16,
+    "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 950,
-      "y": 332.79499999999996
+      "x": 949.3182042339527,
+      "y": 332.7428208972183
     },
     "hurtbox": {
       "x": 915,

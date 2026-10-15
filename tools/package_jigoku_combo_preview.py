@@ -15,10 +15,14 @@ for i,expected in enumerate(gifs):
  decoded.seek(i);assert ImageChops.difference(decoded.convert('RGB'),expected.convert('RGB')).getbbox() is None,('ghosting',i)
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=width,height,avg_frame_rate,nb_read_frames,duration','-of','json',str(OUT/'combo-30fps.mp4')]))['streams'][0]
 assert probe['avg_frame_rate']=='30/1' and int(probe['nb_read_frames'])==90 and abs(float(probe['duration'])-3)<.001
-rows=json.loads((OUT/'combo-capture.json').read_text());plate=Image.new('RGB',(1200,750))
-for i in range(4):
- row=next(r for r in rows if r['texture']=='sweep' and r['heroFrame']==i)
+rows=json.loads((OUT/'combo-capture.json').read_text())
+for pose,texture,frame in [(0,'thrust-2',11),(5,'idle',0)]:
+ samples=[r for r in rows if r['sweepPose']==pose];assert samples
+ assert all(r['texture']==texture and r['heroFrame']==frame for r in samples),'Rendered boundary must use resident source cell'
+plate=Image.new('RGB',(1200,1125))
+for i in range(6):
+ row=next(r for r in rows if r['sweepPose']==i)
  im=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB');plate.paste(im.resize((600,375),Image.Resampling.LANCZOS),((i%2)*600,(i//2)*375))
 plate.save(OUT/'combo-sequence.jpg',quality=94)
-(OUT/'combo-video-check.json').write_text(json.dumps({'passed':True,'video':probe,'source':'90 actual Phaser screenshots with controlled 33/33/34 ms clock; not a device FPS benchmark','sweep':'Four distinct drawn poses held over 32 simulation frames; no interpolated body frames','gif':'30/30/40 ms timings, decoded pixels checked against palette frames'},indent=2)+'\n')
+(OUT/'combo-video-check.json').write_text(json.dumps({'passed':True,'video':probe,'source':'90 actual Phaser screenshots with controlled 33/33/34 ms clock; not a device FPS benchmark','sweep':'Six silhouettes held over 32 simulation frames: two shared boundary frames, two preserved low poses, two new transitions; no interpolated body frames','gif':'30/30/40 ms timings, decoded pixels checked against palette frames','residentTextureChecks':'Every captured start/end sweep sample binds thrust-2 frame 11 / idle frame 0 respectively; no duplicate boundary textures'},indent=2)+'\n')
 print('Verified combo capture: 90 frames, 30 fps, 3 seconds.')
