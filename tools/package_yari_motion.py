@@ -142,6 +142,8 @@ validation={'passed':True,'framesChecked':432,'fps':FPS,'framesPerClip':COUNT,'v
     'desktopAtlasesLosslessForeground':True,'scope':'Image-cage consistency checks, not human anatomy, sword/spear technique or game-performance validation.'}
 if RIGID:
     validation['maxJointGapSourcePixels']=max(f['max_joint_gap_source_px'] for f in report['frames'])
+    validation['maxLegLengthErrorSourcePixels']=max(f['max_leg_length_error_source_px'] for f in report['frames'])
+    validation['maxRearHeelLiftSourcePixels']=max(f['rear_heel_lift_source_px'] for f in report['frames'])
     validation['maxRigidMatrixError']=max(f['max_rigid_matrix_error'] for f in report['frames'])
     validation['maxUpperArmLengthError']=max(a['upper_length_error'] for f in report['frames'] for a in f['arms'])
     validation['maxForearmLengthError']=max(a['forearm_length_error'] for f in report['frames'] for a in f['arms'])

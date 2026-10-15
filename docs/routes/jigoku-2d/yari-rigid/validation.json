@@ -35,7 +35,7 @@
       "clip": "thrust",
       "light": "neutral",
       "frameCount": 36,
-      "distinctFrames": 33,
+      "distinctFrames": 34,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -53,7 +53,7 @@
       "clip": "thrust",
       "light": "warm-left",
       "frameCount": 36,
-      "distinctFrames": 33,
+      "distinctFrames": 34,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -71,7 +71,7 @@
       "clip": "thrust",
       "light": "cool-right",
       "frameCount": 36,
-      "distinctFrames": 33,
+      "distinctFrames": 34,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -87,13 +87,15 @@
     }
   ],
   "minTriangleAreaRatio": null,
-  "maxGripTranslationErrorSourcePixels": 4.1831421278879755e-05,
+  "maxGripTranslationErrorSourcePixels": 3.411968959808029e-05,
   "maxFootAnchorDriftSourcePixels": 0.0,
   "desktopAtlasesLosslessForeground": true,
   "scope": "Rigid image pieces and projected two-link IK consistency; not full anatomical/dynamics validation.",
   "maxJointGapSourcePixels": 3.411968959808029e-05,
+  "maxLegLengthErrorSourcePixels": 3.2694949595679645e-05,
+  "maxRearHeelLiftSourcePixels": 1.610595703125,
   "maxRigidMatrixError": 1.1920928955078125e-07,
   "maxUpperArmLengthError": 7.105427357601002e-14,
   "maxForearmLengthError": 9.947598300641403e-14,
-  "maxWristAngleChangeDegrees": 7.342226406115192
+  "maxWristAngleChangeDegrees": 7.342226406115218
 }

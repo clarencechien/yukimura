@@ -26,12 +26,12 @@ for light in ['neutral','warm-left','cool-right']:
     masks={name:polygon(poly) for name,poly in CONFIG['parts'].items()}
     masks['weapon']=weapon
     masks['torso']=np.zeros((H,W),dtype=np.uint8);masks['torso'][:CONFIG['torso_cut_y']]=255
-    masks['lower']=np.zeros((H,W),dtype=np.uint8);masks['lower'][CONFIG['lower_start_y']:]=255
+    masks.update({name:polygon(poly) for name,poly in CONFIG['lower_parts'].items()})
     for name,mask in masks.items():
         if name in ['front_forearm','rear_forearm','front_upper','rear_upper']:
             # Spear pixels must not rotate with the forearm.
             mask=np.minimum(mask,255-weapon)
-        rgba=np.array(body if name in ['torso','lower'] else original).copy()
+        rgba=np.array(body if name=='torso' or name in CONFIG['lower_parts'] else original).copy()
         # Half-pixel antialiasing at manually cut boundaries; no warp or inpaint.
         soft=np.array(Image.fromarray(mask).filter(ImageFilter.GaussianBlur(.45)))
         rgba[:,:,3]=(rgba[:,:,3].astype(float)*soft/255).round().astype('uint8')

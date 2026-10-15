@@ -20,48 +20,48 @@
       "light": "neutral",
       "image": "thrust-neutral.webp",
       "data": "thrust-neutral.json",
-      "bytes": 1257544,
-      "sha256": "138cd76b2cbea58c6dba7420d2bdd6f6a8d5d1e1621c3578dbbc6dd30f38e5ee"
+      "bytes": 2062628,
+      "sha256": "4c8334c5ee24be3a294d2e81349aae3538e0c328fea94369a58b9be3f4fb53d2"
     },
     {
       "clip": "idle",
       "light": "neutral",
       "image": "idle-neutral.webp",
       "data": "idle-neutral.json",
-      "bytes": 1236800,
-      "sha256": "ae70b8e1aedeb61017e4b5e8508102dff32598af37b091d7ca5e51094d6c125c"
+      "bytes": 2080884,
+      "sha256": "1344a519d64048f72c9e66b110e312769ebd2135de9a7ac8774f418780b9852e"
     },
     {
       "clip": "thrust",
       "light": "warm-left",
       "image": "thrust-warm-left.webp",
       "data": "thrust-warm-left.json",
-      "bytes": 1304834,
-      "sha256": "f630187ef08945abdab848efe301a2b45abb9ce185367c0b69bf51272fb5c47c"
+      "bytes": 2132560,
+      "sha256": "b0f13947054e576b13ed8698bb1fe0b2f56d8f586e4256c190e65dc4a8e6df93"
     },
     {
       "clip": "idle",
       "light": "warm-left",
       "image": "idle-warm-left.webp",
       "data": "idle-warm-left.json",
-      "bytes": 1299082,
-      "sha256": "40e1fbfa6315dbb7c1e4f135708c3e70f6d3fc92f1f6c72d3761ad5c886907dd"
+      "bytes": 2162988,
+      "sha256": "4167fcb5b71a2cdd1df5a11e3374f6f1e000116333541adbda9f59f32aff005a"
     },
     {
       "clip": "thrust",
       "light": "cool-right",
       "image": "thrust-cool-right.webp",
       "data": "thrust-cool-right.json",
-      "bytes": 1270082,
-      "sha256": "ec5efaa43ba2438309cb809fa3ccd017530ef8b63f86eabe96917e62a4a6d951"
+      "bytes": 2098356,
+      "sha256": "b9ac41822bea1986a42b59e4a32f16853dc6b9429571a0bea3b779c9710cc262"
     },
     {
       "clip": "idle",
       "light": "cool-right",
       "image": "idle-cool-right.webp",
       "data": "idle-cool-right.json",
-      "bytes": 1258918,
-      "sha256": "b08a9594f505fcc42ee64fb1567ee6305c372c1a4af87dc11829c69c29fcde95"
+      "bytes": 2118722,
+      "sha256": "8b0a8965c540cda0d436e73d22c00f8ae98c6a28b8b1e148aeb86496e99a9787"
     }
   ],
   "clips": {
@@ -87,16 +87,16 @@
           "frameCount": 24,
           "image": "thrust-neutral-hd.webp",
           "data": "thrust-neutral-hd.json",
-          "bytes": 3279746,
-          "sha256": "c06cc473bd1f258584c15eaba6bf7e7202e0e455a3d4573c622f1325dae4d030"
+          "bytes": 4638840,
+          "sha256": "e69fc382c19c4dbba2e4a38831a84d9256432d5d81ff9a1209c2765da3bc383e"
         },
         {
           "firstFrame": 24,
           "frameCount": 12,
           "image": "thrust-neutral-hd-2.webp",
           "data": "thrust-neutral-hd-2.json",
-          "bytes": 1685972,
-          "sha256": "1a2050d436d4faff311c54c8fc1da933e28e8ee28d848ce1e5cdf2fb004a9462"
+          "bytes": 2470200,
+          "sha256": "2ce71845e7c276fe89de4959f091dc3e07ff7ab5018b97d982cade87b4ba53b5"
         }
       ]
     },
@@ -109,16 +109,16 @@
           "frameCount": 24,
           "image": "idle-neutral-hd.webp",
           "data": "idle-neutral-hd.json",
-          "bytes": 3310918,
-          "sha256": "60c38bc8ffb34eaf4ce922e2082e51df3ff1811641e2b5b1d07bed46eb754842"
+          "bytes": 4834638,
+          "sha256": "1a616c99cb7df7705fb33df7999c4c0ab11405fe00b93f5305a86f176a9840aa"
         },
         {
           "firstFrame": 24,
           "frameCount": 12,
           "image": "idle-neutral-hd-2.webp",
           "data": "idle-neutral-hd-2.json",
-          "bytes": 1637584,
-          "sha256": "d035c5b5bb2a4b15ea5ac7121797480859ae58f05b765b8d728dc80cd6f2f9df"
+          "bytes": 2375864,
+          "sha256": "79a4abb41975f3117452423310cdd1a1f5aa12a5d23e78d5914241f02601f7df"
         }
       ]
     },
@@ -131,16 +131,16 @@
           "frameCount": 24,
           "image": "thrust-warm-left-hd.webp",
           "data": "thrust-warm-left-hd.json",
-          "bytes": 3431828,
-          "sha256": "e35cd3bd660b854a708f9d89a7289af7d41e4be6cf52cae2c7a75f0046c921ac"
+          "bytes": 4788524,
+          "sha256": "c6ed6a288d97b67791e961b41fb200b289c30aedf3eaabf2fccd9d06aa7a5fd7"
         },
         {
           "firstFrame": 24,
           "frameCount": 12,
           "image": "thrust-warm-left-hd-2.webp",
           "data": "thrust-warm-left-hd-2.json",
-          "bytes": 1762596,
-          "sha256": "3f093008cf57908e22ea47e3eeff83a51002978b03e530b2c32a87b4d3c1539b"
+          "bytes": 2560282,
+          "sha256": "c09516c0bbecc555bffa1da5314e7ff960ad162319980df626e80e17c3df65e3"
         }
       ]
     },
@@ -153,16 +153,16 @@
           "frameCount": 24,
           "image": "idle-warm-left-hd.webp",
           "data": "idle-warm-left-hd.json",
-          "bytes": 3479828,
-          "sha256": "e08fda15f432757844045d14c7fca6fbe1dc97ed4058707e60120ff98d0412ce"
+          "bytes": 5029964,
+          "sha256": "93eaf317ea27b6cd88d17ff2fe70ad582d9a73ace9299f30970efb2982c5cb3a"
         },
         {
           "firstFrame": 24,
           "frameCount": 12,
           "image": "idle-warm-left-hd-2.webp",
           "data": "idle-warm-left-hd-2.json",
-          "bytes": 1721738,
-          "sha256": "debcd3da1e553e8ecca6698eb31149e214a677daeac75d0ce887d88e99fae6c9"
+          "bytes": 2483096,
+          "sha256": "8e940208c8c168dcb6781526d4479112d1d9227555ceb3d21a365d37f46a034d"
         }
       ]
     },
@@ -175,16 +175,16 @@
           "frameCount": 24,
           "image": "thrust-cool-right-hd.webp",
           "data": "thrust-cool-right-hd.json",
-          "bytes": 3376492,
-          "sha256": "c278fceaa6763d65f6cb9370b8490d37f7b9900b14520c7e96694998cb78a327"
+          "bytes": 4725208,
+          "sha256": "38e264bcef03de948610001d1219df95aa9fdb882f1adcaa028e7b0c7276317e"
         },
         {
           "firstFrame": 24,
           "frameCount": 12,
           "image": "thrust-cool-right-hd-2.webp",
           "data": "thrust-cool-right-hd-2.json",
-          "bytes": 1720958,
-          "sha256": "0550653701c2854a6c9b99552262a855ad749f91b3645eb1babf103cc5eea38b"
+          "bytes": 2527722,
+          "sha256": "dbe5f09d62af958223a13d5687c951e4ffbd233896ffbc8aecfc9bcc191785d9"
         }
       ]
     },
@@ -197,16 +197,16 @@
           "frameCount": 24,
           "image": "idle-cool-right-hd.webp",
           "data": "idle-cool-right-hd.json",
-          "bytes": 3381470,
-          "sha256": "82b10aca20a16a9be8ed36634c96f9cca8a253908a38ed950f1dc6be076cdb05"
+          "bytes": 4938124,
+          "sha256": "6a7d814d77ea60b147056cb77eb7b062d00a56b925c5dd6f82a545c386dd6628"
         },
         {
           "firstFrame": 24,
           "frameCount": 12,
           "image": "idle-cool-right-hd-2.webp",
           "data": "idle-cool-right-hd-2.json",
-          "bytes": 1692078,
-          "sha256": "5a77e3830e0a1b50589e7e679edbf5f218927382259ce7fca22e6d8f233472eb"
+          "bytes": 2429952,
+          "sha256": "e1e3b474b52c6e9cb1e0870e6791b31f012ec8324cdc082350db1e974feaba2c"
         }
       ]
     }

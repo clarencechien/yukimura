@@ -20,13 +20,16 @@ W,H=config['canvas'];SCALE=512
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene=bpy.context.scene
 objects={};textures={};images={};pivots={}
-order=['lower','rear_upper','front_upper','rear_forearm','front_forearm','torso','weapon','rear_hand','front_hand']
+order=['rear_foot','front_foot','rear_shin','front_shin','rear_thigh','front_thigh','pelvis','rear_upper','front_upper','rear_forearm','front_forearm','torso','weapon','rear_hand','front_hand']
 for name in order:
-    pivot=config['hip'] if name=='torso' else [0,0]
+    pivot=config['hip'] if name in ['torso','pelvis'] else [0,0]
     for side,arm in config['arms'].items():
         if name==side+'_upper':pivot=arm['shoulder']
         if name==side+'_forearm':pivot=arm['elbow']
         if name==side+'_hand':pivot=arm['wrist']
+    for side,leg in config['legs'].items():
+        for part,joint in [('thigh','hip'),('shin','knee'),('foot','toe')]:
+            if name==side+'_'+part:pivot=leg[joint]
     pivots[name]=np.array(pivot,float)
     x0,y0,x1,y1=layers[name]['box']
     verts=[((x-pivot[0])/SCALE,-(y-pivot[1])/SCALE,0) for x,y in [(x0,y1),(x1,y1),(x1,y0),(x0,y0)]]
@@ -43,11 +46,11 @@ for name in order:
     for light,file in layers[name]['files'].items():
         im=bpy.data.images.load(str(SOURCE/'layers'/file));im.alpha_mode='STRAIGHT';im.pack();images[name][light]=im
     tex.image=images[name]['neutral']
-report={'method':'Nine rigid cutout objects; fixed-length two-link planar IK; fixed elbow branch; constant scale; no mesh warping.',
+report={'method':'Fifteen rigid cutouts; fixed-length arm and leg IK; pelvis drive leads hands; rear toe pivot; constant scale.',
  'fps':30,'frames_per_clip':36,'duration_ms':1200,'clips':{'thrust':[1,36],'idle':[37,72]},'device':'CPU','blender':bpy.app.version_string,
  'source':'assets/source/jigoku-2d/yari-rigid/body-clean.png','source_sha256':hashlib.sha256((SOURCE/'body-clean.png').read_bytes()).hexdigest(),
  'rig_config_sha256':hashlib.sha256((SOURCE/'rig.json').read_bytes()).hexdigest(),'frames':[],
- 'limitations':['Planar cutout rig, not a 3D anatomical or dynamics simulation.','Projected joints are manually placed. No weight-transfer simulation or footstep.','Clean torso/waist generated once; other cutouts reuse the original illustration.','Lighting baked before animation; rigid rotations do not recalculate material highlights.','Only a small planted-foot thrust; larger movements need additional views and occlusion art.']}
+ 'limitations':['Planar cutout rig, not a 3D anatomical or dynamics simulation.','Projected joints are manually placed. Authored pelvis shift and heel lift, not force/center-of-mass simulation or footstep.','Clean torso/waist generated once; other cutouts reuse the original illustration.','Lighting baked before animation; rigid rotations do not recalculate material highlights.','Only a small planted-foot thrust; larger movements need additional views and occlusion art.']}
 for frame in range(1,73):
     transforms,measures,joints=pose(frame,config)
     for name,ob in objects.items():
@@ -66,6 +69,8 @@ for frame in range(1,73):
     for side,arm in config['arms'].items():
         seam.extend([np.linalg.norm(mapped('torso',arm['shoulder'])-mapped(side+'_upper',arm['shoulder'])),np.linalg.norm(mapped(side+'_upper',arm['elbow'])-mapped(side+'_forearm',arm['elbow'])),np.linalg.norm(mapped(side+'_forearm',arm['wrist'])-mapped(side+'_hand',arm['wrist']))])
         grip.append(float(np.linalg.norm(mapped(side+'_hand',arm['grip'])-mapped('weapon',arm['grip']))))
+    for side,leg in config['legs'].items():
+        seam.extend([np.linalg.norm(mapped('pelvis',leg['hip'])-mapped(side+'_thigh',leg['hip'])),np.linalg.norm(mapped(side+'_thigh',leg['knee'])-mapped(side+'_shin',leg['knee'])),np.linalg.norm(mapped(side+'_shin',leg['ankle'])-mapped(side+'_foot',leg['ankle']))])
     for ob in objects.values():
         rigid.append(float(np.max(abs(np.array(ob.matrix_world.to_3x3().transposed()@ob.matrix_world.to_3x3())-np.eye(3)))))
     assert max(seam)<.001 and max(grip)<.001 and max(rigid)<1e-5
@@ -76,7 +81,16 @@ for ob in objects.values():
 for row in report['frames']:
     scene.frame_set(row['frame']);expected,_,_=pose(row['frame'],config)
     errors=[float(np.linalg.norm(mapped(name,pivots[name])-point)) for name,(point,_) in expected.items()]
-    feet=[float(np.linalg.norm(mapped('lower',p)-np.array(p))) for p in [[202,970],[975,880]]]
+    feet=[float(np.linalg.norm(mapped(side+'_foot',leg['toe'])-np.array(leg['toe']))) for side,leg in config['legs'].items()]
+    feet.append(float(np.linalg.norm(mapped('front_foot',config['legs']['front']['ankle'])-np.array(config['legs']['front']['ankle']))))
+    leg_errors=[]
+    for side,leg in config['legs'].items():
+        for part,a,b in [('thigh','hip','knee'),('shin','knee','ankle')]:
+            leg_errors.append(abs(float(np.linalg.norm(mapped(side+'_'+part,leg[b])-mapped(side+'_'+part,leg[a]))-np.linalg.norm(np.array(leg[b])-np.array(leg[a])))))
+    assert max(leg_errors)<.001
+    row['max_leg_length_error_source_px']=max(leg_errors)
+    row['pelvis_offset_source_px']=(expected['pelvis'][0]-np.array(config['hip'])).tolist()
+    row['rear_heel_lift_source_px']=float(config['legs']['rear']['ankle'][1]-mapped('rear_foot',config['legs']['rear']['ankle'])[1])
     assert max(errors)<.001 and max(feet)<.001
     row['evaluated_transform_error_source_px']=max(errors);row['foot_anchor_drift_source_px']=max(feet)
 camdata=bpy.data.cameras.new('Fixed illustrated view');camdata.type='ORTHO';camdata.ortho_scale=4;camdata.sensor_fit='HORIZONTAL'
@@ -100,7 +114,7 @@ for light in (['neutral'] if preview else ['neutral','warm-left','cool-right']):
     for frame in [1,11,15,27]:
         scene.frame_set(frame);scene.render.filepath=str(OUT/f'{light}-{frame:02}.png');bpy.ops.render.render(write_still=True)
 scene.frame_set(15)
-text=bpy.data.texts.new('README - rigid illustration rig');text.write('30 fps; frames 1-36 short thrust, 37-72 idle. Nine alpha cutouts. Objects are keyed with rigid transforms from fixed-length projected two-link IK. No mesh warping, stretch, scale or full 3D dynamics. Rebuild with tools/render_yari_rigid.py. Three lighting plates per part packed. Coordinates, masks, wrist limits and movement envelope: assets/source/jigoku-2d/yari-rigid/rig.json.\n')
+text=bpy.data.texts.new('README - rigid illustration rig');text.write('30 fps; frames 1-36 short thrust, 37-72 idle. Fifteen alpha cutouts including pelvis, thighs, shins and feet. Objects are keyed with rigid transforms from fixed-length projected two-link IK. No mesh warping, stretch, scale or full 3D dynamics. Rebuild with tools/render_yari_rigid.py. Three lighting plates per part packed. Coordinates, masks, wrist limits and movement envelope: assets/source/jigoku-2d/yari-rigid/rig.json.\n')
 target=ROOT/'assets/optimized/jigoku-2d/yari-rigid-motion.blend';bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(target),compress=True)
 report['scene']=str(target.relative_to(ROOT));report['scene_sha256']=hashlib.sha256(target.read_bytes()).hexdigest();report['render_seconds']=round(time.perf_counter()-start,3);report['preview_only']=preview
 (OUT/'motion-report.json').write_text(json.dumps(report,indent=2)+'\n')
