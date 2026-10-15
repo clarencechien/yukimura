@@ -1,0 +1,55 @@
+{
+  "baselineCommit": "d496634a164677c94131b900d51d535ab56c10fb",
+  "source": "Previous committed GIF decoded at matching sample; new actual browser PNG resized identically. Same stage and health asserted, palette/noise can differ.",
+  "selected": [
+    {
+      "sample": 7,
+      "stage": "windup",
+      "enemyPose": 16,
+      "heroGuardPose": null,
+      "armOrder": {
+        "body": 8,
+        "upper": 9,
+        "fore": 10,
+        "hand": 11
+      }
+    },
+    {
+      "sample": 20,
+      "stage": "windup",
+      "enemyPose": 16,
+      "heroGuardPose": 0,
+      "armOrder": {
+        "body": 8,
+        "upper": 9,
+        "fore": 10,
+        "hand": 11
+      }
+    },
+    {
+      "sample": 28,
+      "stage": "strike",
+      "enemyPose": 17,
+      "heroGuardPose": 1,
+      "armOrder": {
+        "body": 8,
+        "upper": 9,
+        "fore": 10,
+        "hand": 11
+      }
+    },
+    {
+      "sample": 38,
+      "stage": "recovery",
+      "enemyPose": 18,
+      "heroGuardPose": null,
+      "armOrder": {
+        "body": 8,
+        "upper": 9,
+        "fore": 10,
+        "hand": 11
+      }
+    }
+  ],
+  "limits": "Key poses, not continuous motion; shoulders and painted hero yari can change projection between drawings."
+}

@@ -1,7 +1,89 @@
 [
   {
     "sample": 0,
-    "time": 1792106108091,
+    "time": 1792106993397,
+    "phase": "idle",
+    "attackKind": "thrust",
+    "frame": 1,
+    "heroFrame": 1,
+    "sweepPose": null,
+    "texture": "idle",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 922.3742386831276,
+      "y": 329.18176743484224
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0,
+    "enemyAge": 64,
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 913,
+        "y": 322
+      },
+      "elbow": {
+        "x": 914.7392389424072,
+        "y": 360.9611992615886
+      }
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 483.89873157067854,
+        "y": 334.9353321026477
+      },
+      "wrist": {
+        "x": 446.5010919067215,
+        "y": 399.9462277091907
+      },
+      "upperAngle": -2.556002857024268,
+      "foreAngle": 29.909746265979038,
+      "handState": "grip",
+      "handAngle": -6.1176271191245775,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 882.5343275987088,
+      "y": 416.94521718882083,
+      "angle": -6.117627119124563,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 892.3006551440329,
+      "y": 399.9677366255144,
+      "angle": -6.117627119124563,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 1,
+    "time": 1792106993430,
     "phase": "idle",
     "attackKind": "thrust",
     "frame": 2,
@@ -26,7 +108,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 80,
+    "enemyAge": 96,
     "body": {
       "x": 970,
       "y": 574,
@@ -39,8 +121,8 @@
         "y": 322
       },
       "elbow": {
-        "x": 901.2967332120509,
-        "y": 359.2026013403645
+        "x": 900.9697636820013,
+        "y": 359.0981591744537
       }
     },
     "arm": {
@@ -49,115 +131,33 @@
         "y": 270
       },
       "elbow": {
-        "x": 461.4945553534182,
-        "y": 332.0043355672741
+        "x": 460.9496061366687,
+        "y": 331.8302652907562
       },
       "wrist": {
-        "x": 438.8168783096436,
-        "y": 403.49365619559075
+        "x": 437.6436246940313,
+        "y": 403.11722923926106
       },
-      "upperAngle": 17.4626342390315,
-      "foreAngle": 17.599948095478865,
+      "upperAngle": 17.966905071310606,
+      "foreAngle": 18.104218927757827,
       "handState": "grip",
-      "handAngle": -18.42742528962475,
+      "handAngle": -17.923154457345788,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 881.7678916798496,
-      "y": 420.76550353269363,
-      "angle": -18.427425289624807,
+      "x": 880.8998589264507,
+      "y": 420.4868022693719,
+      "angle": -17.923154457345845,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 887.6901269857862,
-      "y": 402.0961937173545,
-      "angle": -18.427425289624807,
-      "visible": true,
-      "state": "grip",
-      "texture": "enemyGrip"
-    }
-  },
-  {
-    "sample": 1,
-    "time": 1792106108124,
-    "phase": "idle",
-    "attackKind": "thrust",
-    "frame": 3,
-    "heroFrame": 3,
-    "sweepPose": null,
-    "texture": "idle",
-    "hp": 3,
-    "queuedAttack": null,
-    "tip": {
-      "x": 918.2044444444444,
-      "y": 330.38368740740736
-    },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    },
-    "enemy": {
-      "pose": 0,
-      "phase": "guard",
-      "alpha": 1
-    },
-    "enemyTexture": "warrior",
-    "enemyFrame": 0,
-    "enemyAge": 112,
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 913,
-        "y": 322
-      },
-      "elbow": {
-        "x": 908.4320507458466,
-        "y": 360.7315612854876
-      }
-    },
-    "arm": {
-      "shoulder": {
-        "x": 481,
-        "y": 270
-      },
-      "elbow": {
-        "x": 473.3867512430776,
-        "y": 334.55260214247926
-      },
-      "wrist": {
-        "x": 438.63967346938773,
-        "y": 401.0179358600583
-      },
-      "upperAngle": 6.726316868630789,
-      "foreAngle": 27.599892365368248,
-      "handState": "grip",
-      "handAngle": -8.427481019735367,
-      "alpha": 1
-    },
-    "weapon": {
-      "held": true,
-      "landed": false,
-      "x": 878.5096660924439,
-      "y": 417.9680660231629,
-      "angle": -8.427481019735296,
-      "width": 246,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 887.5838040816326,
-      "y": 400.610761516035,
-      "angle": -8.427481019735296,
+      "x": 886.9861748164187,
+      "y": 401.8703375435566,
+      "angle": -17.923154457345845,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -165,7 +165,7 @@
   },
   {
     "sample": 2,
-    "time": 1792106108158,
+    "time": 1792106993464,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 0,
@@ -190,7 +190,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 144,
+    "enemyAge": 128,
     "body": {
       "x": 970,
       "y": 574,
@@ -203,8 +203,8 @@
         "y": 322
       },
       "elbow": {
-        "x": 919.9694203477661,
-        "y": 360.3722188570865
+        "x": 915.526623688999,
+        "y": 360.91807000268886
       }
     },
     "arm": {
@@ -213,33 +213,33 @@
         "y": 270
       },
       "elbow": {
-        "x": 492.6157005796101,
-        "y": 333.95369809514415
+        "x": 485.2110394816651,
+        "y": 334.86345000448136
       },
       "wrist": {
-        "x": 443.0700408163265,
-        "y": 390.258472303207
+        "x": 440.9488979591837,
+        "y": 395.4098192419825
       },
-      "upperAngle": -10.294227336582637,
-      "foreAngle": 41.346319639287,
+      "upperAngle": -3.7145213227135514,
+      "foreAngle": 36.16849703219971,
       "handState": "grip",
-      "handAngle": 5.318946254183388,
+      "handAngle": 0.14112364709609437,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 877.303262951758,
-      "y": 408.85897571905014,
-      "angle": 5.318946254183402,
+      "x": 877.4103586941372,
+      "y": 413.0574689326112,
+      "angle": 0.14112364709603753,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 890.2420244897959,
-      "y": 394.1550833819242,
-      "angle": 5.318946254183402,
+      "x": 888.9693387755102,
+      "y": 397.2458915451895,
+      "angle": 0.14112364709603753,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -247,7 +247,7 @@
   },
   {
     "sample": 3,
-    "time": 1792106108191,
+    "time": 1792106993497,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 1,
@@ -272,7 +272,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 176,
+    "enemyAge": 160,
     "body": {
       "x": 970,
       "y": 574,
@@ -285,8 +285,8 @@
         "y": 322
       },
       "elbow": {
-        "x": 920.7939676843401,
-        "y": 360.21327083272854
+        "x": 921.641062875957,
+        "y": 360.0306722577153
       }
     },
     "arm": {
@@ -295,33 +295,33 @@
         "y": 270
       },
       "elbow": {
-        "x": 493.989946140567,
-        "y": 333.68878472121423
+        "x": 495.40177145992834,
+        "y": 333.38445376285887
       },
       "wrist": {
-        "x": 443.519744,
-        "y": 389.166336
+        "x": 444,
+        "y": 388
       },
-      "upperAngle": -11.52791422230517,
-      "foreAngle": 42.29407534405436,
+      "upperAngle": -12.801011611121666,
+      "foreAngle": 43.263685931957724,
       "handState": "grip",
-      "handAngle": 6.2667019589507476,
+      "handAngle": 7.2363125468541085,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 877.3316422530911,
-      "y": 407.98766613021303,
-      "angle": 6.266701958950762,
+      "x": 877.3765181707076,
+      "y": 407.0627534360887,
+      "angle": 7.236312546854151,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 890.5118464,
-      "y": 393.4998016,
-      "angle": 6.266701958950762,
+      "x": 890.8,
+      "y": 392.8,
+      "angle": 7.236312546854151,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -329,18 +329,18 @@
   },
   {
     "sample": 4,
-    "time": 1792106108224,
+    "time": 1792106993530,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 2,
-    "heroFrame": 2,
+    "frame": 3,
+    "heroFrame": 3,
     "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
     "tip": {
-      "x": 920.6827983539094,
-      "y": 329.6710209602195
+      "x": 918.2044444444444,
+      "y": 330.38368740740736
     },
     "hurtbox": {
       "x": 970,
@@ -411,18 +411,18 @@
   },
   {
     "sample": 5,
-    "time": 1792106108258,
+    "time": 1792106993564,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 3,
-    "heroFrame": 3,
+    "frame": 4,
+    "heroFrame": 4,
     "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
     "tip": {
-      "x": 918.2044444444444,
-      "y": 330.38368740740736
+      "x": 915.2179423868313,
+      "y": 331.23569360768175
     },
     "hurtbox": {
       "x": 970,
@@ -493,18 +493,18 @@
   },
   {
     "sample": 6,
-    "time": 1792106108291,
+    "time": 1792106993597,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 4,
-    "heroFrame": 4,
+    "frame": 5,
+    "heroFrame": 5,
     "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
     "tip": {
-      "x": 915.2179423868313,
-      "y": 331.23569360768175
+      "x": 912.0020576131687,
+      "y": 332.14296639231827
     },
     "hurtbox": {
       "x": 970,
@@ -575,18 +575,18 @@
   },
   {
     "sample": 7,
-    "time": 1792106108324,
+    "time": 1792106993630,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 5,
-    "heroFrame": 5,
+    "frame": 6,
+    "heroFrame": 6,
     "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
     "tip": {
-      "x": 912.0020576131687,
-      "y": 332.14296639231827
+      "x": 908.8355555555555,
+      "y": 333.0214325925926
     },
     "hurtbox": {
       "x": 970,
@@ -657,18 +657,18 @@
   },
   {
     "sample": 8,
-    "time": 1792106108358,
+    "time": 1792106993664,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 6,
-    "heroFrame": 6,
+    "frame": 7,
+    "heroFrame": 7,
     "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
     "tip": {
-      "x": 908.8355555555555,
-      "y": 333.0214325925926
+      "x": 905.9972016460905,
+      "y": 333.7870190397805
     },
     "hurtbox": {
       "x": 970,
@@ -739,18 +739,18 @@
   },
   {
     "sample": 9,
-    "time": 1792106108391,
+    "time": 1792106993697,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 7,
-    "heroFrame": 7,
+    "frame": 8,
+    "heroFrame": 8,
     "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
     "tip": {
-      "x": 905.9972016460905,
-      "y": 333.7870190397805
+      "x": 903.7657613168724,
+      "y": 334.35565256515775
     },
     "hurtbox": {
       "x": 970,
@@ -821,18 +821,18 @@
   },
   {
     "sample": 10,
-    "time": 1792106108424,
+    "time": 1792106993730,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 8,
-    "heroFrame": 8,
+    "frame": 9,
+    "heroFrame": 9,
     "sweepPose": null,
     "texture": "thrust",
     "hp": 3,
     "queuedAttack": null,
     "tip": {
-      "x": 903.7657613168724,
-      "y": 334.35565256515775
+      "x": 902.42,
+      "y": 334.64326
     },
     "hurtbox": {
       "x": 970,
@@ -903,7 +903,7 @@
   },
   {
     "sample": 11,
-    "time": 1792106108458,
+    "time": 1792106993764,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 10,
@@ -928,7 +928,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 448,
+    "enemyAge": 432,
     "body": {
       "x": 970,
       "y": 574,
@@ -985,7 +985,7 @@
   },
   {
     "sample": 12,
-    "time": 1792106108491,
+    "time": 1792106993797,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 11,
@@ -1010,7 +1010,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 480,
+    "enemyAge": 464,
     "body": {
       "x": 970,
       "y": 574,
@@ -1067,7 +1067,7 @@
   },
   {
     "sample": 13,
-    "time": 1792106108524,
+    "time": 1792106993830,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
@@ -1092,7 +1092,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 512,
+    "enemyAge": 496,
     "body": {
       "x": 970,
       "y": 574,
@@ -1149,7 +1149,7 @@
   },
   {
     "sample": 14,
-    "time": 1792106108558,
+    "time": 1792106993864,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
@@ -1174,7 +1174,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 544,
+    "enemyAge": 528,
     "body": {
       "x": 970,
       "y": 574,
@@ -1231,7 +1231,7 @@
   },
   {
     "sample": 15,
-    "time": 1792106108591,
+    "time": 1792106993897,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 13,
@@ -1256,7 +1256,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 576,
+    "enemyAge": 560,
     "body": {
       "x": 970,
       "y": 574,
@@ -1313,7 +1313,7 @@
   },
   {
     "sample": 16,
-    "time": 1792106108624,
+    "time": 1792106993930,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
@@ -1395,7 +1395,7 @@
   },
   {
     "sample": 17,
-    "time": 1792106108658,
+    "time": 1792106993964,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
@@ -1420,7 +1420,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 1,
-    "enemyAge": 0,
+    "enemyAge": 7.333333333333329,
     "body": {
       "x": 970,
       "y": 574,
@@ -1433,8 +1433,8 @@
         "y": 331
       },
       "elbow": {
-        "x": 924.6440663790838,
-        "y": 359.47970728057044
+        "x": 924.2436217074467,
+        "y": 359.84913031057323
       }
     },
     "arm": {
@@ -1443,33 +1443,33 @@
         "y": 285
       },
       "elbow": {
-        "x": 500.406777298473,
-        "y": 332.46617880095073
+        "x": 499.73936951241114,
+        "y": 333.08188385095536
       },
       "wrist": {
-        "x": 459,
-        "y": 395
+        "x": 458.1147199105827,
+        "y": 395.4708936645836
       },
-      "upperAngle": -43.09273533420962,
-      "foreAngle": 33.51053919509634,
+      "upperAngle": -42.292320832923814,
+      "foreAngle": 33.71039298798742,
       "handState": "grip",
-      "handAngle": -2.5168341900072733,
+      "handAngle": -2.316980397116197,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 888.9866932424904,
-      "y": 413.33059695687814,
-      "angle": -2.51683419000733,
+      "x": 888.3986282216318,
+      "y": 413.5753159180962,
+      "angle": -2.31698039711614,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 899.8,
-      "y": 397,
-      "angle": -2.51683419000733,
+      "x": 899.2688319463497,
+      "y": 397.2825361987502,
+      "angle": -2.31698039711614,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -1477,89 +1477,7 @@
   },
   {
     "sample": 18,
-    "time": 1792106108691,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 14,
-    "heroFrame": 14,
-    "sweepPose": null,
-    "texture": "thrust",
-    "hp": 2,
-    "queuedAttack": null,
-    "tip": {
-      "x": 950,
-      "y": 332.79499999999996
-    },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    },
-    "enemy": {
-      "pose": 1,
-      "phase": "flinch",
-      "alpha": 1
-    },
-    "enemyTexture": "warrior",
-    "enemyFrame": 1,
-    "enemyAge": 23.33333333333333,
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 898,
-        "y": 331
-      },
-      "elbow": {
-        "x": 920.853558043063,
-        "y": 362.6024506133994
-      }
-    },
-    "arm": {
-      "shoulder": {
-        "x": 456,
-        "y": 285
-      },
-      "elbow": {
-        "x": 494.08926340510504,
-        "y": 337.67075102233235
-      },
-      "wrist": {
-        "x": 451.1606970482142,
-        "y": 399.16984199563075
-      },
-      "upperAngle": -35.872865602837976,
-      "foreAngle": 34.91641952307644,
-      "handState": "grip",
-      "handAngle": -1.1109538620271735,
-      "alpha": 1
-    },
-    "weapon": {
-      "held": true,
-      "landed": false,
-      "x": 883.8856989466461,
-      "y": 415.5622841833757,
-      "angle": -1.110953862027145,
-      "width": 246,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 895.0964182289285,
-      "y": 399.50190519737845,
-      "angle": -1.110953862027145,
-      "visible": true,
-      "state": "grip",
-      "texture": "enemyGrip"
-    }
-  },
-  {
-    "sample": 19,
-    "time": 1792106108724,
+    "time": 1792106993997,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 15,
@@ -1584,7 +1502,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 1,
-    "enemyAge": 55.33333333333333,
+    "enemyAge": 39.33333333333333,
     "body": {
       "x": 970,
       "y": 574,
@@ -1597,8 +1515,8 @@
         "y": 331
       },
       "elbow": {
-        "x": 905.4214479751721,
-        "y": 369.28736227466993
+        "x": 914.3881644266363,
+        "y": 366.3896604494241
       }
     },
     "arm": {
@@ -1607,41 +1525,41 @@
         "y": 285
       },
       "elbow": {
-        "x": 468.3690799586202,
-        "y": 348.81227045778314
+        "x": 483.31360737772724,
+        "y": 343.9827674157068
       },
       "wrist": {
-        "x": 427.54782827820964,
-        "y": 411.7298785754204
+        "x": 439.9154259005233,
+        "y": 405.1513692018493
       },
-      "upperAngle": -10.969915221390963,
-      "foreAngle": 32.9757042666822,
+      "upperAngle": -24.84780497192257,
+      "foreAngle": 35.35511421657479,
       "handState": "grip",
-      "handAngle": -3.0516691184214153,
+      "handAngle": -0.6722591685288251,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 870.268299190399,
-      "y": 423.46874937806285,
-      "angle": -3.051669118421387,
+      "x": 877.0158970988113,
+      "y": 419.0648938396017,
+      "angle": -0.6722591685288535,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 880.9286969669258,
-      "y": 407.03792714525224,
-      "angle": -3.051669118421387,
+      "x": 888.349255540314,
+      "y": 403.0908215211096,
+      "angle": -0.6722591685288535,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 20,
-    "time": 1792106108758,
+    "sample": 19,
+    "time": 1792106994030,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 16,
@@ -1666,7 +1584,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 1,
-    "enemyAge": 87.33333333333333,
+    "enemyAge": 71.33333333333333,
     "body": {
       "x": 970,
       "y": 574,
@@ -1679,8 +1597,8 @@
         "y": 331
       },
       "elbow": {
-        "x": 885.9871458554243,
-        "y": 368.10379138715
+        "x": 894.3436210152568,
+        "y": 369.8282228890266
       }
     },
     "arm": {
@@ -1689,41 +1607,41 @@
         "y": 285
       },
       "elbow": {
-        "x": 435.97857642570705,
-        "y": 346.83965231191667
+        "x": 449.9060350254279,
+        "y": 349.7137048150443
       },
       "wrist": {
-        "x": 412.70599618590757,
-        "y": 418.1375275185601
+        "x": 417.22682599197276,
+        "y": 417.21977340852516
       },
-      "upperAngle": 17.940061433100368,
-      "foreAngle": 18.07737528954766,
+      "upperAngle": 5.379569323805782,
+      "foreAngle": 25.831294864004548,
       "handState": "grip",
-      "handAngle": -17.949998095555955,
+      "handAngle": -10.196078521099068,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 865.9460044867034,
-      "y": 429.5018306927424,
-      "angle": -17.949998095555884,
+      "x": 866.2019778751708,
+      "y": 427.96095462690516,
+      "angle": -10.196078521099025,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 872.0235977115445,
-      "y": 410.88251651113603,
-      "angle": -17.949998095555884,
+      "x": 874.7360955951837,
+      "y": 410.33186404511514,
+      "angle": -10.196078521099025,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 21,
-    "time": 1792106108791,
+    "sample": 20,
+    "time": 1792106994064,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 17,
@@ -1748,7 +1666,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 2,
-    "enemyAge": 119.33333333333331,
+    "enemyAge": 103.33333333333331,
     "body": {
       "x": 970,
       "y": 574,
@@ -1761,8 +1679,8 @@
         "y": 330.4
       },
       "elbow": {
-        "x": 913.8784302520143,
-        "y": 369.3891101360315
+        "x": 902.7970866981358,
+        "y": 367.50700839825186
       }
     },
     "arm": {
@@ -1771,41 +1689,41 @@
         "y": 284
       },
       "elbow": {
-        "x": 482.46405042002374,
-        "y": 348.9818502267192
+        "x": 463.9951444968929,
+        "y": 345.84501399708637
       },
       "wrist": {
-        "x": 442.65742705971275,
-        "y": 412.546248569269
+        "x": 440.74166638084336,
+        "y": 417.1491215611419
       },
-      "upperAngle": 1.3540249289003725,
-      "foreAngle": 32.05647986163174,
+      "upperAngle": 17.92471142123108,
+      "foreAngle": 18.06202527767833,
       "handState": "grip",
-      "handAngle": -3.9708935234718723,
+      "handAngle": -17.965348107425285,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 879.5990268530255,
-      "y": 424.12747949922607,
-      "angle": -3.9708935234718865,
+      "x": 882.7723950895434,
+      "y": 428.91041468742185,
+      "angle": -17.965348107425257,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 889.9944562358277,
-      "y": 407.5277491415614,
-      "angle": -3.9708935234718865,
+      "x": 888.844999828506,
+      "y": 410.2894729366851,
+      "angle": -17.965348107425257,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 22,
-    "time": 1792106108824,
+    "sample": 21,
+    "time": 1792106994097,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 18,
@@ -1830,7 +1748,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 2,
-    "enemyAge": 151.33333333333331,
+    "enemyAge": 135.33333333333331,
     "body": {
       "x": 970,
       "y": 574,
@@ -1843,8 +1761,8 @@
         "y": 330.4
       },
       "elbow": {
-        "x": 922.9240218769899,
-        "y": 368.54446576558905
+        "x": 919.6717399785645,
+        "y": 369.0945235089057
       }
     },
     "arm": {
@@ -1853,33 +1771,115 @@
         "y": 284
       },
       "elbow": {
-        "x": 497.5400364616498,
-        "y": 347.57410960931503
+        "x": 492.1195666309407,
+        "y": 348.49087251484286
       },
       "wrist": {
-        "x": 446.7046651549509,
-        "y": 402.7172417665479
+        "x": 445.0049644746788,
+        "y": 406.84508627578015
       },
-      "upperAngle": -12.023229964200041,
-      "foreAngle": 42.67235136583872,
+      "upperAngle": -7.175928574832625,
+      "foreAngle": 38.917055673136815,
       "handState": "grip",
-      "handAngle": 6.644977980735106,
+      "handAngle": 2.8896822880331996,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 879.1472316632999,
-      "y": 416.0308766272101,
-      "angle": 6.644977980735121,
+      "x": 879.0990835470307,
+      "y": 419.3461516220409,
+      "angle": 2.8896822880333275,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 892.4227990929705,
-      "y": 401.63034505992874,
-      "angle": 6.644977980735121,
+      "x": 891.4029786848073,
+      "y": 404.1070517654681,
+      "angle": 2.8896822880333275,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 22,
+    "time": 1792106994130,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 19,
+    "heroFrame": 19,
+    "sweepPose": null,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 941.5276054082299,
+      "y": 332.0739506451104
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    },
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 2,
+    "enemyAge": 167.33333333333331,
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 914.8,
+        "y": 330.4
+      },
+      "elbow": {
+        "x": 923.2544102781281,
+        "y": 368.472600999263
+      }
+    },
+    "arm": {
+      "shoulder": {
+        "x": 484,
+        "y": 284
+      },
+      "elbow": {
+        "x": 498.0906837968803,
+        "y": 347.4543349987716
+      },
+      "wrist": {
+        "x": 446.89258785185183,
+        "y": 402.26085807407406
+      },
+      "upperAngle": -12.51996234242192,
+      "foreAngle": 43.05038830397805,
+      "handState": "grip",
+      "handAngle": 7.023014918874438,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 879.1652603827966,
+      "y": 415.66914154450944,
+      "angle": 7.0230149188744235,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 892.5355527111111,
+      "y": 401.3565148444444,
+      "angle": 7.0230149188744235,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -1887,7 +1887,7 @@
   },
   {
     "sample": 23,
-    "time": 1792106108858,
+    "time": 1792106994164,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 19,
@@ -1969,7 +1969,7 @@
   },
   {
     "sample": 24,
-    "time": 1792106108891,
+    "time": 1792106994197,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 20,
@@ -2051,7 +2051,7 @@
   },
   {
     "sample": 25,
-    "time": 1792106108924,
+    "time": 1792106994230,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 21,
@@ -2133,7 +2133,7 @@
   },
   {
     "sample": 26,
-    "time": 1792106108958,
+    "time": 1792106994264,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 22,
@@ -2215,7 +2215,7 @@
   },
   {
     "sample": 27,
-    "time": 1792106108991,
+    "time": 1792106994297,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 23,
@@ -2297,89 +2297,7 @@
   },
   {
     "sample": 28,
-    "time": 1792106109024,
-    "phase": "attack",
-    "attackKind": "thrust",
-    "frame": 24,
-    "heroFrame": 0,
-    "sweepPose": null,
-    "texture": "thrust-2",
-    "hp": 2,
-    "queuedAttack": "sweep",
-    "tip": {
-      "x": 927.6651014274981,
-      "y": 330.1050125845229
-    },
-    "hurtbox": {
-      "x": 970,
-      "y": 334,
-      "radius": 32
-    },
-    "enemy": {
-      "pose": 1,
-      "phase": "flinch",
-      "alpha": 1
-    },
-    "enemyTexture": "warrior",
-    "enemyFrame": 1,
-    "enemyAge": 359.33333333333337,
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 898,
-        "y": 331
-      },
-      "elbow": {
-        "x": 924.6412685966847,
-        "y": 359.4823244760554
-      }
-    },
-    "arm": {
-      "shoulder": {
-        "x": 456,
-        "y": 285
-      },
-      "elbow": {
-        "x": 500.4021143278077,
-        "y": 332.4705407934257
-      },
-      "wrist": {
-        "x": 458.9937611851852,
-        "y": 395.00331851851854
-      },
-      "upperAngle": -43.08710698429313,
-      "foreAngle": 33.511983053324016,
-      "handState": "grip",
-      "handAngle": -2.5153903317795994,
-      "alpha": 1
-    },
-    "weapon": {
-      "held": true,
-      "landed": false,
-      "x": 888.9825384246852,
-      "y": 413.3323155666086,
-      "angle": -2.5153903317795994,
-      "width": 246,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 899.7962567111111,
-      "y": 397.0019911111111,
-      "angle": -2.5153903317795994,
-      "visible": true,
-      "state": "grip",
-      "texture": "enemyGrip"
-    }
-  },
-  {
-    "sample": 29,
-    "time": 1792106109058,
+    "time": 1792106994330,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 25,
@@ -2404,7 +2322,89 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 391.33333333333337,
+    "enemyAge": 375.33333333333337,
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 913,
+        "y": 322
+      },
+      "elbow": {
+        "x": 939.6440663790838,
+        "y": 350.47970728057044
+      }
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 29,
+    "time": 1792106994364,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 26,
+    "heroFrame": 2,
+    "sweepPose": null,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 926.5539068369646,
+      "y": 329.6980756949662
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    },
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "enemyTexture": "warrior",
+    "enemyFrame": 0,
+    "enemyAge": 407.33333333333337,
     "body": {
       "x": 970,
       "y": 574,
@@ -2461,18 +2461,18 @@
   },
   {
     "sample": 30,
-    "time": 1792106109091,
+    "time": 1792106994397,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 26,
-    "heroFrame": 2,
+    "frame": 27,
+    "heroFrame": 3,
     "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
     "tip": {
-      "x": 926.5539068369646,
-      "y": 329.6980756949662
+      "x": 926.2877783033889,
+      "y": 329.69534130819466
     },
     "hurtbox": {
       "x": 970,
@@ -2486,7 +2486,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 423.33333333333337,
+    "enemyAge": 439.33333333333337,
     "body": {
       "x": 970,
       "y": 574,
@@ -2543,18 +2543,18 @@
   },
   {
     "sample": 31,
-    "time": 1792106109124,
+    "time": 1792106994430,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 27,
-    "heroFrame": 3,
+    "frame": 28,
+    "heroFrame": 4,
     "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
     "tip": {
-      "x": 926.2877783033889,
-      "y": 329.69534130819466
+      "x": 925.884516267666,
+      "y": 329.64244867381086
     },
     "hurtbox": {
       "x": 970,
@@ -2568,7 +2568,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 455.33333333333337,
+    "enemyAge": 471.33333333333337,
     "body": {
       "x": 970,
       "y": 574,
@@ -2625,18 +2625,18 @@
   },
   {
     "sample": 32,
-    "time": 1792106109158,
+    "time": 1792106994464,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 28,
-    "heroFrame": 4,
+    "frame": 29,
+    "heroFrame": 5,
     "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
     "tip": {
-      "x": 925.884516267666,
-      "y": 329.64244867381086
+      "x": 925.3890975874447,
+      "y": 329.5528767287197
     },
     "hurtbox": {
       "x": 970,
@@ -2650,7 +2650,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 487.33333333333337,
+    "enemyAge": 503.33333333333337,
     "body": {
       "x": 970,
       "y": 574,
@@ -2707,18 +2707,18 @@
   },
   {
     "sample": 33,
-    "time": 1792106109191,
+    "time": 1792106994497,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 29,
-    "heroFrame": 5,
+    "frame": 30,
+    "heroFrame": 6,
     "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
     "tip": {
-      "x": 925.3890975874447,
-      "y": 329.5528767287197
+      "x": 924.8464991203742,
+      "y": 329.4401044098263
     },
     "hurtbox": {
       "x": 970,
@@ -2732,7 +2732,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 519.3333333333334,
+    "enemyAge": 535.3333333333334,
     "body": {
       "x": 970,
       "y": 574,
@@ -2789,18 +2789,18 @@
   },
   {
     "sample": 34,
-    "time": 1792106109224,
+    "time": 1792106994530,
     "phase": "attack",
     "attackKind": "thrust",
-    "frame": 30,
-    "heroFrame": 6,
+    "frame": 31,
+    "heroFrame": 7,
     "sweepPose": null,
     "texture": "thrust-2",
     "hp": 2,
     "queuedAttack": "sweep",
     "tip": {
-      "x": 924.8464991203742,
-      "y": 329.4401044098263
+      "x": 924.3016977241036,
+      "y": 329.31761065403555
     },
     "hurtbox": {
       "x": 970,
@@ -2814,7 +2814,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 551.3333333333334,
+    "enemyAge": 567.3333333333334,
     "body": {
       "x": 970,
       "y": 574,
@@ -2871,7 +2871,7 @@
   },
   {
     "sample": 35,
-    "time": 1792106109258,
+    "time": 1792106994564,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 31,
@@ -2953,7 +2953,7 @@
   },
   {
     "sample": 36,
-    "time": 1792106109291,
+    "time": 1792106994597,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 32,
@@ -3035,7 +3035,7 @@
   },
   {
     "sample": 37,
-    "time": 1792106109324,
+    "time": 1792106994630,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 33,
@@ -3117,7 +3117,7 @@
   },
   {
     "sample": 38,
-    "time": 1792106109358,
+    "time": 1792106994664,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 34,
@@ -3199,7 +3199,7 @@
   },
   {
     "sample": 39,
-    "time": 1792106109391,
+    "time": 1792106994697,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 35,
@@ -3281,10 +3281,10 @@
   },
   {
     "sample": 40,
-    "time": 1792106109424,
+    "time": 1792106994730,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 0,
+    "frame": 1,
     "heroFrame": 11,
     "sweepPose": 0,
     "texture": "thrust-2",
@@ -3306,7 +3306,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 759.3333333333335,
+    "enemyAge": 775.3333333333335,
     "body": {
       "x": 970,
       "y": 574,
@@ -3363,10 +3363,10 @@
   },
   {
     "sample": 41,
-    "time": 1792106109458,
+    "time": 1792106994764,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 1,
+    "frame": 2,
     "heroFrame": 11,
     "sweepPose": 0,
     "texture": "thrust-2",
@@ -3388,7 +3388,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 791.3333333333335,
+    "enemyAge": 807.3333333333335,
     "body": {
       "x": 970,
       "y": 574,
@@ -3445,10 +3445,10 @@
   },
   {
     "sample": 42,
-    "time": 1792106109491,
+    "time": 1792106994797,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 2,
+    "frame": 3,
     "heroFrame": 11,
     "sweepPose": 0,
     "texture": "thrust-2",
@@ -3470,7 +3470,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 823.3333333333335,
+    "enemyAge": 839.3333333333335,
     "body": {
       "x": 970,
       "y": 574,
@@ -3527,18 +3527,18 @@
   },
   {
     "sample": 43,
-    "time": 1792106109524,
+    "time": 1792106994830,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 3,
-    "heroFrame": 11,
-    "sweepPose": 0,
-    "texture": "thrust-2",
+    "frame": 4,
+    "heroFrame": 0,
+    "sweepPose": 1,
+    "texture": "sweep",
     "hp": 2,
     "queuedAttack": null,
     "tip": {
-      "x": 923,
-      "y": 329
+      "x": 932.7131474103585,
+      "y": 456.45816733067727
     },
     "hurtbox": {
       "x": 915,
@@ -3552,7 +3552,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 855.3333333333335,
+    "enemyAge": 871.3333333333335,
     "body": {
       "x": 970,
       "y": 574,
@@ -3609,10 +3609,10 @@
   },
   {
     "sample": 44,
-    "time": 1792106109558,
+    "time": 1792106994864,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 4,
+    "frame": 5,
     "heroFrame": 0,
     "sweepPose": 1,
     "texture": "sweep",
@@ -3634,7 +3634,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 887.3333333333335,
+    "enemyAge": 903.3333333333335,
     "body": {
       "x": 970,
       "y": 574,
@@ -3691,10 +3691,10 @@
   },
   {
     "sample": 45,
-    "time": 1792106109591,
+    "time": 1792106994897,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 5,
+    "frame": 6,
     "heroFrame": 0,
     "sweepPose": 1,
     "texture": "sweep",
@@ -3716,7 +3716,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 919.3333333333335,
+    "enemyAge": 935.3333333333335,
     "body": {
       "x": 970,
       "y": 574,
@@ -3773,10 +3773,10 @@
   },
   {
     "sample": 46,
-    "time": 1792106109624,
+    "time": 1792106994930,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 6,
+    "frame": 7,
     "heroFrame": 0,
     "sweepPose": 1,
     "texture": "sweep",
@@ -3798,7 +3798,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 951.3333333333335,
+    "enemyAge": 967.3333333333335,
     "body": {
       "x": 970,
       "y": 574,
@@ -3855,7 +3855,7 @@
   },
   {
     "sample": 47,
-    "time": 1792106109658,
+    "time": 1792106994964,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 7,
@@ -3937,7 +3937,7 @@
   },
   {
     "sample": 48,
-    "time": 1792106109691,
+    "time": 1792106994997,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 8,
@@ -4019,7 +4019,7 @@
   },
   {
     "sample": 49,
-    "time": 1792106109724,
+    "time": 1792106995030,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -4102,7 +4102,7 @@
   },
   {
     "sample": 50,
-    "time": 1792106109758,
+    "time": 1792106995064,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -4185,7 +4185,7 @@
   },
   {
     "sample": 51,
-    "time": 1792106109791,
+    "time": 1792106995097,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -4268,90 +4268,7 @@
   },
   {
     "sample": 52,
-    "time": 1792106109824,
-    "phase": "attack",
-    "attackKind": "sweep",
-    "frame": 10,
-    "heroFrame": 1,
-    "sweepPose": 2,
-    "texture": "sweep",
-    "hp": 1,
-    "queuedAttack": null,
-    "tip": {
-      "x": 949.3421052631578,
-      "y": 554.2368421052631
-    },
-    "hurtbox": {
-      "x": 915,
-      "y": 535,
-      "radius": 42
-    },
-    "enemy": {
-      "pose": 12,
-      "phase": "leg-flinch",
-      "alpha": 1,
-      "reaction": "sweep"
-    },
-    "enemyTexture": "enemyLow",
-    "enemyFrame": 0,
-    "enemyAge": 55.99999999999992,
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 887.056,
-        "y": 337.312
-      },
-      "elbow": {
-        "x": 908.6946691498697,
-        "y": 369.75838650793764
-      }
-    },
-    "arm": {
-      "shoulder": {
-        "x": 437.76,
-        "y": 295.52
-      },
-      "elbow": {
-        "x": 473.82444858311624,
-        "y": 349.59731084656266
-      },
-      "wrist": {
-        "x": 419.3980944252442,
-        "y": 401.1993648084147
-      },
-      "upperAngle": -33.699534658221204,
-      "foreAngle": 46.52583847793548,
-      "handState": "grip",
-      "handAngle": 10.498465092831864,
-      "alpha": 1
-    },
-    "weapon": {
-      "held": true,
-      "landed": false,
-      "x": 861.8255103964018,
-      "y": 414.19540413597315,
-      "angle": 10.498465092831793,
-      "width": 246,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 876.0388566551466,
-      "y": 400.7196188850488,
-      "angle": 10.498465092831793,
-      "visible": true,
-      "state": "grip",
-      "texture": "enemyGrip"
-    }
-  },
-  {
-    "sample": 53,
-    "time": 1792106109858,
+    "time": 1792106995130,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 11,
@@ -4377,7 +4294,7 @@
     },
     "enemyTexture": "enemyLow",
     "enemyFrame": 0,
-    "enemyAge": 87.99999999999991,
+    "enemyAge": 71.99999999999991,
     "body": {
       "x": 970,
       "y": 574,
@@ -4390,8 +4307,8 @@
         "y": 337.312
       },
       "elbow": {
-        "x": 908.4671402349152,
-        "y": 369.908979520207
+        "x": 908.569869554181,
+        "y": 369.8412701548265
       }
     },
     "arm": {
@@ -4400,41 +4317,41 @@
         "y": 295.52
       },
       "elbow": {
-        "x": 473.44523372485867,
-        "y": 349.848299200345
+        "x": 473.6164492569682,
+        "y": 349.7354502580442
       },
       "wrist": {
-        "x": 418.50336,
-        "y": 400.90112
+        "x": 418.90482031555223,
+        "y": 401.0349401051841
       },
-      "upperAngle": -33.29868229876233,
-      "foreAngle": 47.101297699264734,
+      "upperAngle": -33.479437418973916,
+      "foreAngle": 46.84352077150328,
       "handState": "grip",
-      "handAngle": 11.073924314161118,
+      "handAngle": 10.816147386399663,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 861.1540427168641,
-      "y": 413.8730259806898,
-      "angle": 11.073924314161104,
+      "x": 861.4550469247257,
+      "y": 414.01773522987617,
+      "angle": 10.816147386399734,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 875.502016,
-      "y": 400.540672,
-      "angle": 11.073924314161104,
+      "x": 875.7428921893313,
+      "y": 400.6209640631105,
+      "angle": 10.816147386399734,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 54,
-    "time": 1792106109891,
+    "sample": 53,
+    "time": 1792106995164,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 12,
@@ -4453,14 +4370,14 @@
       "radius": 42
     },
     "enemy": {
-      "pose": 13,
-      "phase": "low-stagger",
+      "pose": 12,
+      "phase": "leg-flinch",
       "alpha": 1,
       "reaction": "sweep"
     },
     "enemyTexture": "enemyLow",
-    "enemyFrame": 1,
-    "enemyAge": 119.99999999999991,
+    "enemyFrame": 0,
+    "enemyAge": 103.99999999999991,
     "body": {
       "x": 970,
       "y": 574,
@@ -4469,55 +4386,55 @@
     },
     "renderedArm": {
       "shoulder": {
-        "x": 843.904,
-        "y": 372.88
+        "x": 887.056,
+        "y": 337.312
       },
       "elbow": {
-        "x": 865.2433308762422,
-        "y": 405.5240340300377
+        "x": 908.4095672160414,
+        "y": 369.94672333496953
       }
     },
     "arm": {
       "shoulder": {
-        "x": 365.84000000000003,
-        "y": 354.8
+        "x": 437.76,
+        "y": 295.52
       },
       "elbow": {
-        "x": 401.4055514604037,
-        "y": 409.2067233833961
+        "x": 473.34927869340237,
+        "y": 349.9112055582825
       },
       "wrist": {
-        "x": 346.37949629629634,
-        "y": 460.16880000000003
+        "x": 418.2801264613073,
+        "y": 400.8267088204358
       },
-      "upperAngle": -33.1725539234934,
-      "foreAngle": 47.19585722360233,
+      "upperAngle": -33.19754466186535,
+      "foreAngle": 47.244332657760225,
       "handState": "grip",
-      "handAngle": 11.168483838498716,
+      "handAngle": 11.21695927265661,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 817.857740660466,
-      "y": 449.40993629756144,
-      "angle": 11.168483838498787,
+      "x": 860.986864036287,
+      "y": 413.7925190405674,
+      "angle": 11.216959272656595,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 832.2276977777778,
-      "y": 436.10128000000003,
-      "angle": 11.168483838498787,
+      "x": 875.3680758767844,
+      "y": 400.4960252922615,
+      "angle": 11.216959272656595,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 55,
-    "time": 1792106109924,
+    "sample": 54,
+    "time": 1792106995197,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 13,
@@ -4543,7 +4460,7 @@
     },
     "enemyTexture": "enemyLow",
     "enemyFrame": 1,
-    "enemyAge": 151.99999999999991,
+    "enemyAge": 135.99999999999991,
     "body": {
       "x": 970,
       "y": 574,
@@ -4556,8 +4473,8 @@
         "y": 372.88
       },
       "elbow": {
-        "x": 865.1119242411402,
-        "y": 405.60955773275987
+        "x": 865.1951054560503,
+        "y": 405.5555080826503
       }
     },
     "arm": {
@@ -4566,41 +4483,41 @@
         "y": 354.8
       },
       "elbow": {
-        "x": 401.18654040190023,
-        "y": 409.34926288793315
+        "x": 401.32517576008394,
+        "y": 409.2591801377505
       },
       "wrist": {
-        "x": 346.9330176,
-        "y": 461.1329984
+        "x": 346.5871255703704,
+        "y": 460.53047680000003
       },
-      "upperAngle": -32.94221518125448,
-      "foreAngle": 46.33427447111177,
+      "upperAngle": -33.08795098688904,
+      "foreAngle": 46.8730384545581,
       "handState": "grip",
-      "handAngle": 10.306901086008153,
+      "handAngle": 10.845665069454483,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 818.391598904607,
-      "y": 450.20303010687104,
-      "angle": 10.30690108600811,
+      "x": 818.0575302152897,
+      "y": 449.7076946463273,
+      "angle": 10.845665069454526,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 832.55981056,
-      "y": 436.67979904000003,
-      "angle": 10.30690108600811,
+      "x": 832.3522753422222,
+      "y": 436.31828608,
+      "angle": 10.845665069454526,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 56,
-    "time": 1792106109958,
+    "sample": 55,
+    "time": 1792106995230,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 14,
@@ -4626,7 +4543,7 @@
     },
     "enemyTexture": "enemyLow",
     "enemyFrame": 1,
-    "enemyAge": 183.99999999999994,
+    "enemyAge": 167.99999999999994,
     "body": {
       "x": 970,
       "y": 574,
@@ -4639,8 +4556,8 @@
         "y": 372.88
       },
       "elbow": {
-        "x": 864.8714270599479,
-        "y": 405.76414515364155
+        "x": 865.0011720534474,
+        "y": 405.68105686326646
       }
     },
     "arm": {
@@ -4649,41 +4566,41 @@
         "y": 354.8
       },
       "elbow": {
-        "x": 400.7857117665799,
-        "y": 409.60690858940256
+        "x": 401.0019534224123,
+        "y": 409.4684281054441
       },
       "wrist": {
-        "x": 347.85900183703706,
-        "y": 462.7460032
+        "x": 347.372025362963,
+        "y": 461.8977216
       },
-      "upperAngle": -32.522198899492444,
-      "foreAngle": 44.88527188713903,
+      "upperAngle": -32.74854610233877,
+      "foreAngle": 45.648584384716685,
       "handState": "grip",
-      "handAngle": 8.857898502035411,
+      "handAngle": 9.62121099961307,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 819.2936842849856,
-      "y": 451.52478262157337,
-      "angle": 8.857898502035368,
+      "x": 818.8178542279627,
+      "y": 450.83045035379274,
+      "angle": 9.62121099961314,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 833.1154011022222,
-      "y": 437.64760192000006,
-      "angle": 8.857898502035368,
+      "x": 832.8232152177778,
+      "y": 437.13863296,
+      "angle": 9.62121099961314,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 57,
-    "time": 1792106109991,
+    "sample": 56,
+    "time": 1792106995264,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 15,
@@ -4709,7 +4626,7 @@
     },
     "enemyTexture": "enemyLow",
     "enemyFrame": 1,
-    "enemyAge": 215.99999999999994,
+    "enemyAge": 199.99999999999994,
     "body": {
       "x": 970,
       "y": 574,
@@ -4722,8 +4639,8 @@
         "y": 372.88
       },
       "elbow": {
-        "x": 864.6007527398989,
-        "y": 405.9351724549048
+        "x": 864.7334706062126,
+        "y": 405.8517023258571
       }
     },
     "arm": {
@@ -4732,44 +4649,44 @@
         "y": 354.8
       },
       "elbow": {
-        "x": 400.33458789983143,
-        "y": 409.8919540915079
+        "x": 400.5557843436876,
+        "y": 409.75283720976176
       },
       "wrist": {
-        "x": 348.79627282962963,
-        "y": 464.3786688
+        "x": 348.3488,
+        "y": 463.5992
       },
-      "upperAngle": -32.05181462444686,
-      "foreAngle": 43.407099431105394,
+      "upperAngle": -32.28215002620251,
+      "foreAngle": 44.11438923810363,
       "handState": "grip",
-      "handAngle": 7.379726046001778,
+      "handAngle": 8.087015853000011,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 820.2186237458303,
-      "y": 452.8563105899284,
-      "angle": 7.379726046001679,
+      "x": 819.775518248307,
+      "y": 452.22140253748665,
+      "angle": 8.087015853000025,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 833.6777636977778,
-      "y": 438.62720128,
-      "angle": 7.379726046001679,
+      "x": 833.40928,
+      "y": 438.15952000000004,
+      "angle": 8.087015853000025,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
     }
   },
   {
-    "sample": 58,
-    "time": 1792106110024,
+    "sample": 57,
+    "time": 1792106995297,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 16,
+    "frame": 15,
     "heroFrame": 2,
     "sweepPose": 3,
     "texture": "sweep",
@@ -4792,7 +4709,7 @@
     },
     "enemyTexture": "enemyLow",
     "enemyFrame": 1,
-    "enemyAge": 247.99999999999994,
+    "enemyAge": 231.99999999999994,
     "body": {
       "x": 970,
       "y": 574,
@@ -4805,8 +4722,8 @@
         "y": 372.88
       },
       "elbow": {
-        "x": 864.4166079726693,
-        "y": 406.04975903077354
+        "x": 864.4892481421406,
+        "y": 406.00472730342847
       }
     },
     "arm": {
@@ -4815,33 +4732,116 @@
         "y": 354.8
       },
       "elbow": {
-        "x": 400.02767995444884,
-        "y": 410.08293171795594
+        "x": 400.14874690356766,
+        "y": 410.00787883904746
       },
       "wrist": {
-        "x": 349.3836544,
-        "y": 465.4018496
+        "x": 349.1562733037037,
+        "y": 465.00576639999997
       },
-      "upperAngle": -31.73318263636029,
-      "foreAngle": 42.47385254996075,
+      "upperAngle": -31.8587428057902,
+      "foreAngle": 42.83580168196457,
       "handState": "grip",
-      "handAngle": 6.446479164857138,
+      "handAngle": 6.808428296860953,
       "alpha": 1
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 820.8045948155684,
-      "y": 453.6875474588374,
-      "angle": 6.446479164857124,
+      "x": 820.5771695661706,
+      "y": 453.3660610374984,
+      "angle": 6.808428296860939,
       "width": 246,
       "alpha": 1,
       "visible": true
     },
     "hand": {
-      "x": 834.03019264,
-      "y": 439.24110976,
-      "angle": 6.446479164857124,
+      "x": 833.8937639822223,
+      "y": 439.00345984,
+      "angle": 6.808428296860939,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 58,
+    "time": 1792106995330,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 16,
+    "heroFrame": 2,
+    "sweepPose": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    },
+    "enemy": {
+      "pose": 14,
+      "phase": "leg-rise",
+      "alpha": 1,
+      "reaction": "sweep"
+    },
+    "enemyTexture": "enemyLow",
+    "enemyFrame": 2,
+    "enemyAge": 263.99999999999994,
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 888.52,
+        "y": 362.74
+      },
+      "elbow": {
+        "x": 909.0235266969478,
+        "y": 395.9153732908546
+      }
+    },
+    "arm": {
+      "shoulder": {
+        "x": 440.2,
+        "y": 337.9
+      },
+      "elbow": {
+        "x": 474.37254449491303,
+        "y": 393.19228881809096
+      },
+      "wrist": {
+        "x": 423.85509999999994,
+        "y": 448.62682499999994
+      },
+      "upperAngle": -31.717497423294084,
+      "foreAngle": 42.34288494482138,
+      "handState": "grip",
+      "handAngle": 6.315511559717763,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 865.5205185956945,
+      "y": 443.6527262136383,
+      "angle": 6.315511559717834,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 878.7130599999999,
+      "y": 429.176095,
+      "angle": 6.315511559717834,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -4849,7 +4849,7 @@
   },
   {
     "sample": 59,
-    "time": 1792106110058,
+    "time": 1792106995364,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 17,
@@ -4932,7 +4932,7 @@
   },
   {
     "sample": 60,
-    "time": 1792106110091,
+    "time": 1792106995397,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 18,
@@ -5015,7 +5015,7 @@
   },
   {
     "sample": 61,
-    "time": 1792106110124,
+    "time": 1792106995430,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 19,
@@ -5098,7 +5098,7 @@
   },
   {
     "sample": 62,
-    "time": 1792106110158,
+    "time": 1792106995464,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 20,
@@ -5181,7 +5181,7 @@
   },
   {
     "sample": 63,
-    "time": 1792106110191,
+    "time": 1792106995497,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 21,
@@ -5263,10 +5263,10 @@
   },
   {
     "sample": 64,
-    "time": 1792106110224,
+    "time": 1792106995530,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 22,
+    "frame": 23,
     "heroFrame": 3,
     "sweepPose": 4,
     "texture": "sweep",
@@ -5288,7 +5288,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 455.9999999999999,
+    "enemyAge": 471.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -5345,18 +5345,18 @@
   },
   {
     "sample": 65,
-    "time": 1792106110258,
+    "time": 1792106995564,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 23,
-    "heroFrame": 3,
-    "sweepPose": 4,
-    "texture": "sweep",
+    "frame": 24,
+    "heroFrame": 0,
+    "sweepPose": 5,
+    "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 897.7061224489796,
-      "y": 398.334693877551
+      "x": 923,
+      "y": 329
     },
     "hurtbox": {
       "x": 915,
@@ -5370,7 +5370,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 487.9999999999999,
+    "enemyAge": 503.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -5427,10 +5427,10 @@
   },
   {
     "sample": 66,
-    "time": 1792106110291,
+    "time": 1792106995597,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 24,
+    "frame": 25,
     "heroFrame": 0,
     "sweepPose": 5,
     "texture": "idle",
@@ -5452,7 +5452,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 519.9999999999999,
+    "enemyAge": 535.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -5509,10 +5509,10 @@
   },
   {
     "sample": 67,
-    "time": 1792106110324,
+    "time": 1792106995630,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 25,
+    "frame": 26,
     "heroFrame": 0,
     "sweepPose": 5,
     "texture": "idle",
@@ -5534,7 +5534,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 551.9999999999999,
+    "enemyAge": 567.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -5591,10 +5591,10 @@
   },
   {
     "sample": 68,
-    "time": 1792106110358,
+    "time": 1792106995664,
     "phase": "attack",
     "attackKind": "sweep",
-    "frame": 26,
+    "frame": 27,
     "heroFrame": 0,
     "sweepPose": 5,
     "texture": "idle",
@@ -5616,7 +5616,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 583.9999999999999,
+    "enemyAge": 599.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -5673,7 +5673,7 @@
   },
   {
     "sample": 69,
-    "time": 1792106110391,
+    "time": 1792106995697,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 27,
@@ -5698,7 +5698,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 615.9999999999999,
+    "enemyAge": 631.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -5755,7 +5755,7 @@
   },
   {
     "sample": 70,
-    "time": 1792106110424,
+    "time": 1792106995730,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 28,
@@ -5780,7 +5780,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 647.9999999999999,
+    "enemyAge": 663.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -5837,7 +5837,7 @@
   },
   {
     "sample": 71,
-    "time": 1792106110458,
+    "time": 1792106995764,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 29,
@@ -5919,7 +5919,7 @@
   },
   {
     "sample": 72,
-    "time": 1792106110491,
+    "time": 1792106995797,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 30,
@@ -6001,7 +6001,7 @@
   },
   {
     "sample": 73,
-    "time": 1792106110524,
+    "time": 1792106995830,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 31,
@@ -6083,7 +6083,7 @@
   },
   {
     "sample": 74,
-    "time": 1792106110558,
+    "time": 1792106995864,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 0,
@@ -6165,7 +6165,7 @@
   },
   {
     "sample": 75,
-    "time": 1792106110591,
+    "time": 1792106995897,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 1,
@@ -6247,18 +6247,18 @@
   },
   {
     "sample": 76,
-    "time": 1792106110624,
+    "time": 1792106995930,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 2,
-    "heroFrame": 2,
+    "frame": 3,
+    "heroFrame": 3,
     "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 920.6827983539094,
-      "y": 329.6710209602195
+      "x": 918.2044444444444,
+      "y": 330.38368740740736
     },
     "hurtbox": {
       "x": 915,
@@ -6272,7 +6272,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 855.9999999999999,
+    "enemyAge": 871.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -6329,18 +6329,18 @@
   },
   {
     "sample": 77,
-    "time": 1792106110658,
+    "time": 1792106995964,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 3,
-    "heroFrame": 3,
+    "frame": 4,
+    "heroFrame": 4,
     "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 918.2044444444444,
-      "y": 330.38368740740736
+      "x": 915.2179423868313,
+      "y": 331.23569360768175
     },
     "hurtbox": {
       "x": 915,
@@ -6354,7 +6354,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 887.9999999999999,
+    "enemyAge": 903.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -6411,18 +6411,18 @@
   },
   {
     "sample": 78,
-    "time": 1792106110691,
+    "time": 1792106995997,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 4,
-    "heroFrame": 4,
+    "frame": 5,
+    "heroFrame": 5,
     "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 915.2179423868313,
-      "y": 331.23569360768175
+      "x": 912.0020576131687,
+      "y": 332.14296639231827
     },
     "hurtbox": {
       "x": 915,
@@ -6436,7 +6436,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 919.9999999999999,
+    "enemyAge": 935.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -6493,18 +6493,18 @@
   },
   {
     "sample": 79,
-    "time": 1792106110724,
+    "time": 1792106996030,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 5,
-    "heroFrame": 5,
+    "frame": 6,
+    "heroFrame": 6,
     "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 912.0020576131687,
-      "y": 332.14296639231827
+      "x": 908.8355555555555,
+      "y": 333.0214325925926
     },
     "hurtbox": {
       "x": 915,
@@ -6518,7 +6518,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 951.9999999999999,
+    "enemyAge": 967.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -6575,7 +6575,7 @@
   },
   {
     "sample": 80,
-    "time": 1792106110758,
+    "time": 1792106996064,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 6,
@@ -6600,7 +6600,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 983.9999999999999,
+    "enemyAge": 999.9999999999999,
     "body": {
       "x": 970,
       "y": 574,
@@ -6657,7 +6657,7 @@
   },
   {
     "sample": 81,
-    "time": 1792106110791,
+    "time": 1792106996097,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 7,
@@ -6682,7 +6682,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 1015.9999999999999,
+    "enemyAge": 1032,
     "body": {
       "x": 970,
       "y": 574,
@@ -6739,7 +6739,7 @@
   },
   {
     "sample": 82,
-    "time": 1792106110824,
+    "time": 1792106996130,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 8,
@@ -6764,7 +6764,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 1048,
+    "enemyAge": 1064,
     "body": {
       "x": 970,
       "y": 574,
@@ -6821,7 +6821,7 @@
   },
   {
     "sample": 83,
-    "time": 1792106110858,
+    "time": 1792106996164,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 9,
@@ -6903,7 +6903,7 @@
   },
   {
     "sample": 84,
-    "time": 1792106110891,
+    "time": 1792106996197,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 10,
@@ -6985,7 +6985,7 @@
   },
   {
     "sample": 85,
-    "time": 1792106110924,
+    "time": 1792106996230,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 11,
@@ -7067,7 +7067,7 @@
   },
   {
     "sample": 86,
-    "time": 1792106110958,
+    "time": 1792106996264,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 12,
@@ -7149,7 +7149,7 @@
   },
   {
     "sample": 87,
-    "time": 1792106110991,
+    "time": 1792106996297,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 13,
@@ -7231,11 +7231,11 @@
   },
   {
     "sample": 88,
-    "time": 1792106111024,
+    "time": 1792106996330,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 14,
-    "heroFrame": 14,
+    "frame": 15,
+    "heroFrame": 15,
     "sweepPose": null,
     "texture": "idle",
     "hp": 1,
@@ -7256,7 +7256,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 1256,
+    "enemyAge": 1272,
     "body": {
       "x": 970,
       "y": 574,
@@ -7313,18 +7313,18 @@
   },
   {
     "sample": 89,
-    "time": 1792106111058,
+    "time": 1792106996364,
     "phase": "idle",
     "attackKind": "sweep",
-    "frame": 15,
-    "heroFrame": 15,
+    "frame": 16,
+    "heroFrame": 16,
     "sweepPose": null,
     "texture": "idle",
     "hp": 1,
     "queuedAttack": null,
     "tip": {
-      "x": 950,
-      "y": 332.79499999999996
+      "x": 949.3182042339527,
+      "y": 332.7428208972183
     },
     "hurtbox": {
       "x": 915,
@@ -7338,7 +7338,7 @@
     },
     "enemyTexture": "warrior",
     "enemyFrame": 0,
-    "enemyAge": 1288,
+    "enemyAge": 1304,
     "body": {
       "x": 970,
       "y": 574,

@@ -1,3 +1,4 @@
+import {enemyBinding,enemyTexture} from './duel-poses.mjs';
 import {enemyArm} from './enemy-arm.mjs';
 import {CombatState} from './combat-state.mjs';
 import {enemyWeapon,enemyPointToWorld} from './enemy-weapon.mjs';
@@ -20,6 +21,9 @@ class Battle extends Phaser.Scene {
     this.load.json('enemyRig','enemy-rig.json');this.load.image('enemyKatana','enemy-katana.webp');this.load.image('enemyGrip','enemy-grip.webp');
     this.load.image('arena','arena.webp');this.load.json('track','spear-track.json');
     this.hd=innerWidth>=900;
+    this.load.json('duelArt','duel-art.json');
+    this.load.spritesheet('enemyDuel',`enemy-duel${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:2});
+    this.load.spritesheet('guard',`guard${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:1});
     this.load.json('sweepTrack','sweep-track.json');
     this.load.spritesheet('sweep',`sweep${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:3});
     this.load.spritesheet('enemyLow',`enemy-low${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:3});
@@ -44,7 +48,7 @@ class Battle extends Phaser.Scene {
     this.hero=this.add.sprite(35,90,'idle',0).setOrigin(0).setDisplaySize(1024,640);
     this.pedestal=this.add.graphics();this.seal=this.add.container(970,334);this.sealArt=this.add.graphics();this.seal.add(this.sealArt);this.drawSeal();
     this.enemyShadow=this.add.graphics();
-    this.enemyRig=this.cache.json.get('enemyRig');
+    this.enemyRig=this.cache.json.get('enemyRig');this.enemyRig.duelBindings=this.cache.json.get('duelArt').enemy.bindings;
     const component=(key,part)=>this.add.image(0,0,key).setOrigin(part.pivot[0]/part.size[0],part.pivot[1]/part.size[1]).setDisplaySize(part.size[0]*.6,part.size[1]*.6);
     this.enemyKatana=component('enemyKatana',this.enemyRig.parts.katana);
     this.enemyUpper=component('enemy-upper',this.enemyRig.parts.upper);this.enemyFore=component('enemy-fore',this.enemyRig.parts.fore);
@@ -62,7 +66,7 @@ class Battle extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
     for(const id of ['attack','sweep','guard','duel','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,duel:{enabled:this.state.duel.enabled,stage:this.state.duel.stage,age:this.state.duel.age,playerHP:this.state.duel.playerHP,guard:this.state.duel.guard,cooldown:this.state.duel.cooldown,blocks:this.state.duel.blocks,result:this.state.duel.result},engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
+    window.yariCombat={snapshot:()=>({ready:true,armOrder:{body:this.children.getIndex(this.enemySprite),upper:this.children.getIndex(this.enemyUpper),fore:this.children.getIndex(this.enemyFore),hand:this.children.getIndex(this.enemyGrip)},duel:{enabled:this.state.duel.enabled,stage:this.state.duel.stage,age:this.state.duel.age,playerHP:this.state.duel.playerHP,guardPose:this.state.duel.guardPose,recoveryFrom:this.state.duel.recoveryFrom,guard:this.state.duel.guard,cooldown:this.state.duel.cooldown,blocks:this.state.duel.blocks,result:this.state.duel.result},engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -107,7 +111,7 @@ class Battle extends Phaser.Scene {
     if(notices[event.type])this.message(notices[event.type]);
     if(event.type==='block'||event.type==='player-hit'){
       tone(true);
-      if($('#feedback').checked){this.sparks.explode(20,650,420);if(!reduced&&event.type==='player-hit')this.cameras.main.shake(75,.002);}
+      if($('#feedback').checked){this.sparks.explode(20,650,event.type==='block'?330:420);if(!reduced&&event.type==='player-hit')this.cameras.main.shake(75,.002);}
     }
     if(event.type==='swing'){tone(false);this.message(event.kind==='sweep'?'沉腰 · 赤槍低掃':'蓄勢 · 赤槍將出');}
     if(event.type==='queued')this.message('接招已記 · 收槍後橫掃');
@@ -135,13 +139,21 @@ class Battle extends Phaser.Scene {
     const sweeping=this.state.phase==='attack'&&this.state.attackKind==='sweep';
     let clip=this.state.phase==='attack'?this.state.attackKind:'idle',frame=this.state.frame;
     if(sweeping){const source=this.state.currentTrack.poseSources[this.state.currentTrack.poseFrames[frame]];clip=source.clip;frame=source.frame;}
-    const paged=this.hd&&clip!=='sweep',page=paged&&frame>=24?'-2':'';
+    if(this.state.duel.guardPose!==null){clip='guard';frame=this.state.duel.guardPose;}
+    const paged=this.hd&&['idle','thrust'].includes(clip),page=paged&&frame>=24?'-2':'';
     this.hero.setTexture(clip+page,paged?frame%24:frame);
     const uiKey=[this.state.phase,this.state.canQueueSweep,this.state.queuedAttack,this.state.duel.stage,this.state.duel.guarding,this.state.duel.cooldown>0,this.state.duel.result].join(':');
     if(uiKey!==this.uiKey){this.uiKey=uiKey;this.refreshUI();}
     const warrior=this.state.targetKind==='warrior',enemy=this.state.enemy;
     this.seal.setVisible(!warrior);this.pedestal.setVisible(!warrior);
-    this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setTexture(enemy.pose>=12?'enemyLow':'warrior',enemy.pose>=12?enemy.pose-12:enemy.pose).setAlpha(enemy.alpha);
+    const bodyTexture=enemyTexture(enemy.pose);
+    this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setTexture(bodyTexture.key,bodyTexture.frame).setAlpha(enemy.alpha);
+    const actionArmFront=enemy.pose>=16;
+    if(actionArmFront!==this.actionArmFront){
+      if(actionArmFront){this.children.moveAbove(this.enemyUpper,this.enemySprite);this.children.moveAbove(this.enemyFore,this.enemyUpper);}
+      else{this.children.moveBelow(this.enemyUpper,this.enemySprite);this.children.moveBelow(this.enemyFore,this.enemySprite);}
+      this.actionArmFront=actionArmFront;
+    }
     this.armPose=enemyArm(enemy,this.state.enemyAge,this.state.hp===0,this.enemyRig);
     this.weaponPose=enemyWeapon(enemy,this.state.enemyAge,this.state.hp===0,this.enemyRig);
     const weapon=this.weaponPose,grip=enemyPointToWorld(weapon.grip,this.state.target.x,this.enemyRig),wrist=enemyPointToWorld(this.armPose.wrist,this.state.target.x,this.enemyRig);
@@ -157,9 +169,9 @@ class Battle extends Phaser.Scene {
     if(warrior){
       this.enemyShadow.fillStyle(0x06090b,.25*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x,574,enemy.pose>=7&&enemy.pose<12?380:235,28);
       // Small painted support-hand contact, separate from the broad body shadow.
-      const contact=this.enemyRig.bindings[enemy.pose].supportContact;
+      const contact=enemyBinding(enemy.pose,this.enemyRig).supportContact;
       if(contact){const p=enemyPointToWorld({x:contact[0],y:contact[1]},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x030609,.4*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y-3,35,9);}
-      const feet=this.enemyRig.bindings[enemy.pose].footContacts;
+      const feet=enemyBinding(enemy.pose,this.enemyRig).footContacts;
       if(feet){for(const [x,y] of feet){const p=enemyPointToWorld({x,y},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y,55,12);}}
       else if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
     }
@@ -175,11 +187,11 @@ class Battle extends Phaser.Scene {
         g.lineBetween(700,594,700,612);
       }
       if(duel.stage==='strike'){
-        const end=this.state.range==='near'?650:780;
-        g.lineStyle(13,0xb94028,.28);g.lineBetween(this.state.target.x-85,350,end,480);
-        g.lineStyle(3,0xffd9ac,.95);g.lineBetween(this.state.target.x-85,350,end,480);
+        const end=this.state.range==='near'?650:780,contactY=duel.blocked?330:480,startY=duel.blocked?300:350;
+        g.lineStyle(13,0xb94028,.28);g.lineBetween(this.state.target.x-85,startY,end,contactY);
+        g.lineStyle(3,0xffd9ac,.95);g.lineBetween(this.state.target.x-85,startY,end,contactY);
       }
-      if(duel.guarding){g.lineStyle(4,0x8adddc,.9);g.beginPath();g.arc(545,440,105,-.8,.8);g.strokePath();}
+      if(duel.guarding){g.lineStyle(4,0x8adddc,.9);g.beginPath();g.arc(545,duel.guardPose===0?245:330,105,-.8,.8);g.strokePath();}
     }
     this.trail.clear();this.debug.clear();
     const track=this.state.phase==='attack'?this.state.currentTrack:this.track,tip=track.frames[this.state.frame];

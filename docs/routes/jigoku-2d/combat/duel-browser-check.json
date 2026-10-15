@@ -1,6 +1,6 @@
 {
   "checks": [
-    "Keyboard L guards one telegraphed slash; counterattack damages enemy; fixed body/arm lengths in 105 actual 30 Hz frames",
+    "Keyboard L guards one telegraphed slash; counterattack damages enemy; all 3 authored enemy poses and both hero guard frames render; actual shoulder/elbow sprites follow rigid sockets in 105 actual 30 Hz frames",
     "Windup pause resumes without extra damage; three unblocked attacks end duel; reset restores health",
     "Far slash misses; seal practice disables enemy offense",
     "390 px touch: visible warning and successful block with feedback off/reduced motion; cooldown rejects repeat; no horizontal overflow"

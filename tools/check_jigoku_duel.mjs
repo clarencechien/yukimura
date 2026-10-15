@@ -44,3 +44,18 @@ test('windup and strike keep rigid arm lengths and the same hand/weapon grip',()
   assert.deepEqual(weapon.grip,closedGrip(arm,rig).grip);assert.equal(weapon.held,true);
  }
 });
+test('authored enemy poses follow preparation, cut and recovery without replaying attacks after a hit',()=>{
+ const {s}=setup();advance(s,1360);assert.equal(s.enemy.pose,16);advance(s,690);assert.equal(s.enemy.pose,17);advance(s,340);assert.equal(s.enemy.pose,18);advance(s,200);assert.equal(s.enemy.pose,0);
+ s.reset();advance(s,1250);s.attack();advance(s,1000);assert.equal(s.duel.recoveryFrom,'hit');assert.equal(s.enemy.pose,0);
+});
+test('guard raises spear then absorbs on block; pause retains authored guard pose, expiry clears it',()=>{
+ const {s}=setup();advance(s,1700);s.defend();assert.equal(s.duel.guardPose,0);advance(s,350);assert.equal(s.duel.guardPose,1);s.paused=true;advance(s,1000);assert.equal(s.duel.guardPose,1);s.paused=false;advance(s,230);assert.equal(s.duel.guardPose,null);s.reset();assert.equal(s.duel.guardPose,null);
+});
+test('authored shoulder sockets drive both rigid arm and shared weapon throughout an actual duel',()=>{
+ const {s}=setup(),art=read('duel-art'),actionRig={...rig,duelBindings:art.enemy.bindings};const poses=new Set();
+ for(let i=0;i<2700;i+=10){s.update(10);const e=s.enemy;poses.add(e.pose);const a=enemyArm(e,s.enemyAge,false,actionRig),w=enemyWeapon(e,s.enemyAge,false,actionRig);for(const [p,q,len] of [[a.shoulder,a.elbow,65],[a.elbow,a.wrist,75]])assert.ok(Math.abs(Math.hypot(p.x-q.x,p.y-q.y)-len)<1e-6);assert.deepEqual(w.grip,closedGrip(a,actionRig).grip);if(e.pose>=16)assert.deepEqual(a.shoulder,{x:art.enemy.bindings[e.pose-16].shoulder[0],y:art.enemy.bindings[e.pose-16].shoulder[1]});}
+ assert.deepEqual([...poses],[0,16,17,18]);
+});
+test('a previous block never marks the next unguarded slash as blocked',()=>{
+ const {s}=setup();advance(s,1700);s.defend();advance(s,350);assert.equal(s.duel.blocked,true);advance(s,2430);assert.equal(s.duel.stage,'strike');assert.equal(s.duel.blocked,false);assert.equal(s.duel.playerHP,2);assert.equal(s.duel.guardPose,null);
+});

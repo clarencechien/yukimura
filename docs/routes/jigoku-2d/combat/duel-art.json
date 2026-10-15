@@ -1,0 +1,329 @@
+{
+  "referenceCommit": "d496634a164677c94131b900d51d535ab56c10fb",
+  "sources": [
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/duel-bodies.png",
+      "sha256": "b26ff6c972e38d510ea2cd44c3f74fd1caa1f0597b2d99bbb655bf18a80c2839",
+      "generatedFile": "exec-1164ef98-bb11-4649-a5e7-417612b2f255.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/yari-guard-poses.png",
+      "sha256": "1f002e37f1617eddc963572e1e5aa6aa6c83202c28fae470adccef7496813617",
+      "generatedFile": "exec-7d4614e0-3390-4176-8916-c25161c123d9.png"
+    }
+  ],
+  "method": "Two image_gen reference edits. Transparent-gutter sprite extraction and uniform sole registration only; no body rotation, stretching, interpolation or new Blender rendering. Enemy uses existing 65/75 px arm segments, hand and katana. Hero yari is painted into each guard pose, not a shared rigid weapon. Foot/shoulder marks are manual; projection and armor vary between drawings.",
+  "enemy": {
+    "poses": [
+      {
+        "pose": "draw-cut",
+        "sourceBox": [
+          0,
+          0,
+          790,
+          724
+        ],
+        "uniformScale": 0.82,
+        "pasteOffset": [
+          170,
+          119
+        ],
+        "rearSole": [
+          749.74,
+          679.88
+        ],
+        "frontSole": [
+          342.2,
+          688.9
+        ]
+      },
+      {
+        "pose": "committed-cut",
+        "sourceBox": [
+          790,
+          0,
+          1480,
+          724
+        ],
+        "uniformScale": 0.82,
+        "pasteOffset": [
+          258,
+          119
+        ],
+        "rearSole": [
+          750.0,
+          679.88
+        ],
+        "frontSole": [
+          338.36,
+          688.9
+        ]
+      },
+      {
+        "pose": "cut-recover",
+        "sourceBox": [
+          1480,
+          0,
+          2172,
+          724
+        ],
+        "uniformScale": 0.82,
+        "pasteOffset": [
+          258,
+          119
+        ],
+        "rearSole": [
+          750.0,
+          679.88
+        ],
+        "frontSole": [
+          358.03999999999996,
+          688.9
+        ]
+      }
+    ],
+    "bindings": [
+      {
+        "pose": "draw-cut",
+        "shoulder": [
+          476.68,
+          264.14
+        ],
+        "wrist": [
+          479.68,
+          374.14
+        ],
+        "sourceShoulder": [
+          374,
+          177
+        ],
+        "footContacts": [
+          [
+            342.2,
+            688.9
+          ],
+          [
+            749.74,
+            679.88
+          ]
+        ]
+      },
+      {
+        "pose": "committed-cut",
+        "shoulder": [
+          394.94,
+          330.55999999999995
+        ],
+        "wrist": [
+          397.94,
+          440.55999999999995
+        ],
+        "sourceShoulder": [
+          957,
+          258
+        ],
+        "footContacts": [
+          [
+            338.36,
+            688.9
+          ],
+          [
+            750.0,
+            679.88
+          ]
+        ]
+      },
+      {
+        "pose": "cut-recover",
+        "shoulder": [
+          438.4,
+          278.9
+        ],
+        "wrist": [
+          441.4,
+          388.9
+        ],
+        "sourceShoulder": [
+          1700,
+          195
+        ],
+        "footContacts": [
+          [
+            358.03999999999996,
+            688.9
+          ],
+          [
+            750.0,
+            679.88
+          ]
+        ]
+      }
+    ]
+  },
+  "hero": {
+    "poses": [
+      {
+        "pose": "raised-guard",
+        "uniformScale": 0.6958041958041958,
+        "pasteOffset": [
+          135,
+          31
+        ],
+        "sourceRearSole": [
+          133,
+          757
+        ],
+        "sourceFrontSole": [
+          705,
+          700
+        ],
+        "rearSole": [
+          227.54195804195803,
+          557.7237762237762
+        ],
+        "frontSole": [
+          625.5419580419581,
+          518.0629370629371
+        ],
+        "tip": [
+          865.5944055944057,
+          58.83216783216783
+        ]
+      },
+      {
+        "pose": "absorb-lower",
+        "uniformScale": 0.6994727592267135,
+        "pasteOffset": [
+          -515,
+          28
+        ],
+        "sourceRearSole": [
+          1062,
+          757
+        ],
+        "sourceFrontSole": [
+          1631,
+          700
+        ],
+        "rearSole": [
+          227.84007029876966,
+          557.5008787346221
+        ],
+        "frontSole": [
+          625.8400702987697,
+          517.6309314586995
+        ],
+        "tip": [
+          824.4903339191562,
+          179.08611599297012
+        ]
+      }
+    ]
+  },
+  "addedRGBA8Bytes": {
+    "hd": 15859712,
+    "mobile": 6029312
+  },
+  "boundaryChecks": [
+    {
+      "atlas": "enemy-duel-hd",
+      "pose": 0,
+      "worldBounds": [
+        801.4,
+        238.60000000000002,
+        1097.2,
+        580.0
+      ]
+    },
+    {
+      "atlas": "enemy-duel-hd",
+      "pose": 1,
+      "worldBounds": [
+        794.2,
+        278.8,
+        1103.2,
+        579.4
+      ]
+    },
+    {
+      "atlas": "enemy-duel-hd",
+      "pose": 2,
+      "worldBounds": [
+        805.6,
+        239.2,
+        1092.4,
+        579.4
+      ]
+    },
+    {
+      "atlas": "enemy-duel",
+      "pose": 0,
+      "worldBounds": [
+        801.7,
+        238.3,
+        1096.9,
+        580.3
+      ]
+    },
+    {
+      "atlas": "enemy-duel",
+      "pose": 1,
+      "worldBounds": [
+        793.6,
+        278.8,
+        1103.2,
+        579.4
+      ]
+    },
+    {
+      "atlas": "enemy-duel",
+      "pose": 2,
+      "worldBounds": [
+        805.3,
+        239.2,
+        1092.4,
+        579.4
+      ]
+    },
+    {
+      "atlas": "guard-hd",
+      "pose": 0,
+      "worldBounds": [
+        218.0,
+        148.0,
+        901.0,
+        656.0
+      ]
+    },
+    {
+      "atlas": "guard-hd",
+      "pose": 1,
+      "worldBounds": [
+        217.0,
+        173.0,
+        863.0,
+        655.0
+      ]
+    },
+    {
+      "atlas": "guard",
+      "pose": 0,
+      "worldBounds": [
+        219.0,
+        148.0,
+        901.0,
+        656.0
+      ]
+    },
+    {
+      "atlas": "guard",
+      "pose": 1,
+      "worldBounds": [
+        217.0,
+        172.0,
+        863.0,
+        656.0
+      ]
+    }
+  ]
+}

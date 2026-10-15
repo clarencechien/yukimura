@@ -7,6 +7,8 @@ frames=sorted(TMP.glob('*.png'));assert len(frames)==105
 rows=json.loads((OUT/'duel-capture.json').read_text());assert len(rows)==105
 assert any(r['duel']['stage']=='windup' for r in rows)
 assert any(r['duel']['blocks']==1 for r in rows)
+assert all(any(r['enemy']['pose']==p for r in rows) for p in [16,17,18])
+assert all(any(r['duel']['guardPose']==p and r['texture']=='guard' for r in rows) for p in [0,1])
 assert rows[-1]['hp']==2 and all(r['duel']['playerHP']==3 for r in rows)
 subprocess.run(['ffmpeg','-y','-loglevel','error','-framerate','30','-i',str(TMP/'%03d.png'),'-frames:v','105','-vf','pad=ceil(iw/2)*2:ceil(ih/2)*2','-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(OUT/'duel-30fps.mp4')],check=True)
 images=[Image.open(p).convert('RGB').resize((640,400),Image.Resampling.LANCZOS) for p in frames]
@@ -19,5 +21,5 @@ for i,expected in enumerate(gifs):
  decoded.seek(i);assert ImageChops.difference(decoded.convert('RGB'),expected.convert('RGB')).getbbox() is None,('ghosting',i)
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=width,height,avg_frame_rate,nb_read_frames,duration','-of','json',str(OUT/'duel-30fps.mp4')]))['streams'][0]
 assert probe['avg_frame_rate']=='30/1' and int(probe['nb_read_frames'])==105 and abs(float(probe['duration'])-3.5)<.001
-(OUT/'duel-video-check.json').write_text(json.dumps({'passed':True,'video':probe,'source':'105 actual Phaser screenshots at controlled 33/33/34 ms; not a hardware FPS benchmark','rules':'Telegraph, one successful block, one counterattack; no player damage','gif':'30/30/40 ms; decoded pixel comparison passed','art':'Existing body/arm/weapon textures; no newly authored attack or guard silhouettes'},indent=2)+'\n')
+(OUT/'duel-video-check.json').write_text(json.dumps({'passed':True,'video':probe,'source':'105 actual Phaser screenshots at controlled 33/33/34 ms; not a hardware FPS benchmark','rules':'Telegraph, one successful block, one counterattack; no player damage','gif':'30/30/40 ms; decoded pixel comparison passed','art':'Three authored enemy body poses and two hero guard poses; enemy arm/hand/katana remain shared; actual atlas indices verified'},indent=2)+'\n')
 print('Verified duel capture: 105 frames, 30 fps, 3.5 seconds.')
