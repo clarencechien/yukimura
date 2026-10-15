@@ -8,7 +8,7 @@
     "Pause freezes pose and input; hit flash expires after recovery",
     "Visual feedback off preserves actual hit rules",
     "Warrior hurt uses authored pose, no whole-body rotation; pause freezes reaction; guard recovers",
-    "Fatal reaction: hurt → kneel → fallen → dissolve → gone; 72 captured frames with fixed timing",
+    "Fatal reaction: flinch → recoil → crouch → kneel → brace → settle → fallen → dissolve → gone; 78 captured frames with fixed timing",
     "Mobile touch attack; 512px atlas; no horizontal overflow; reduced motion"
   ],
   "pageErrors": [],

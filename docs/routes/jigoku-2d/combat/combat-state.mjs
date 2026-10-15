@@ -11,11 +11,17 @@ export class CombatState {
   get target(){return {x:this.range==='near'?970:1060,y:334,radius:32};}
   get enemy(){
     if(!this.enemyHit)return {pose:0,phase:'guard',alpha:1};
-    if(this.hp>0)return this.enemyAge<450?{pose:1,phase:'hurt',alpha:1}:{pose:0,phase:'guard',alpha:1};
-    if(this.enemyAge<180)return {pose:1,phase:'hurt',alpha:1};
-    if(this.enemyAge<480)return {pose:2,phase:'kneel',alpha:1};
-    if(this.enemyAge<950)return {pose:3,phase:'fallen',alpha:1};
-    return {pose:3,phase:this.enemyAge<1650?'dissolve':'gone',alpha:Math.max(0,1-(this.enemyAge-950)/700)};
+    const age=this.enemyAge;
+    if(this.hp>0){
+      if(age<90)return {pose:1,phase:'flinch',alpha:1};
+      if(age<220)return {pose:2,phase:'hurt',alpha:1};
+      if(age<360)return {pose:1,phase:'flinch',alpha:1};
+      return {pose:0,phase:'guard',alpha:1};
+    }
+    // Authored silhouettes carry the weight shift; never rotate or stretch the whole body.
+    const stages=[[90,1,'flinch'],[180,2,'hurt'],[300,3,'crouch'],[420,4,'kneel'],[540,5,'brace'],[680,6,'settle'],[1000,7,'fallen']];
+    for(const [end,pose,phase] of stages)if(age<end)return {pose,phase,alpha:1};
+    return {pose:7,phase:age<1700?'dissolve':'gone',alpha:Math.max(0,1-(age-1000)/700)};
   }
   setTarget(kind){if(this.phase==='attack'||!['warrior','seal'].includes(kind))return false;this.targetKind=kind;this.reset();return true;}
   setRange(range){if(this.phase==='attack'||!['near','far'].includes(range))return false;this.range=range;this.reset();return true;}

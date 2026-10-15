@@ -1,7 +1,7 @@
 [
   {
     "sample": 0,
-    "time": 1792070154523,
+    "time": 1792071065134,
     "phase": "idle",
     "frame": 7,
     "hp": 1,
@@ -13,7 +13,7 @@
   },
   {
     "sample": 1,
-    "time": 1792070154556,
+    "time": 1792071065167,
     "phase": "idle",
     "frame": 8,
     "hp": 1,
@@ -25,7 +25,7 @@
   },
   {
     "sample": 2,
-    "time": 1792070154590,
+    "time": 1792071065201,
     "phase": "idle",
     "frame": 9,
     "hp": 1,
@@ -37,7 +37,7 @@
   },
   {
     "sample": 3,
-    "time": 1792070154623,
+    "time": 1792071065234,
     "phase": "idle",
     "frame": 10,
     "hp": 1,
@@ -49,7 +49,7 @@
   },
   {
     "sample": 4,
-    "time": 1792070154656,
+    "time": 1792071065267,
     "phase": "idle",
     "frame": 11,
     "hp": 1,
@@ -61,7 +61,7 @@
   },
   {
     "sample": 5,
-    "time": 1792070154690,
+    "time": 1792071065301,
     "phase": "idle",
     "frame": 12,
     "hp": 1,
@@ -73,7 +73,7 @@
   },
   {
     "sample": 6,
-    "time": 1792070154723,
+    "time": 1792071065334,
     "phase": "attack",
     "frame": 0,
     "hp": 1,
@@ -85,7 +85,7 @@
   },
   {
     "sample": 7,
-    "time": 1792070154756,
+    "time": 1792071065367,
     "phase": "attack",
     "frame": 1,
     "hp": 1,
@@ -97,7 +97,7 @@
   },
   {
     "sample": 8,
-    "time": 1792070154790,
+    "time": 1792071065401,
     "phase": "attack",
     "frame": 2,
     "hp": 1,
@@ -109,7 +109,7 @@
   },
   {
     "sample": 9,
-    "time": 1792070154823,
+    "time": 1792071065434,
     "phase": "attack",
     "frame": 3,
     "hp": 1,
@@ -121,19 +121,7 @@
   },
   {
     "sample": 10,
-    "time": 1792070154856,
-    "phase": "attack",
-    "frame": 4,
-    "hp": 1,
-    "enemy": {
-      "pose": 0,
-      "phase": "guard",
-      "alpha": 1
-    }
-  },
-  {
-    "sample": 11,
-    "time": 1792070154890,
+    "time": 1792071065467,
     "phase": "attack",
     "frame": 5,
     "hp": 1,
@@ -144,8 +132,8 @@
     }
   },
   {
-    "sample": 12,
-    "time": 1792070154923,
+    "sample": 11,
+    "time": 1792071065501,
     "phase": "attack",
     "frame": 6,
     "hp": 1,
@@ -156,8 +144,8 @@
     }
   },
   {
-    "sample": 13,
-    "time": 1792070154956,
+    "sample": 12,
+    "time": 1792071065534,
     "phase": "attack",
     "frame": 7,
     "hp": 1,
@@ -168,8 +156,20 @@
     }
   },
   {
+    "sample": 13,
+    "time": 1792071065567,
+    "phase": "attack",
+    "frame": 8,
+    "hp": 1,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    }
+  },
+  {
     "sample": 14,
-    "time": 1792070154990,
+    "time": 1792071065601,
     "phase": "attack",
     "frame": 9,
     "hp": 1,
@@ -181,7 +181,7 @@
   },
   {
     "sample": 15,
-    "time": 1792070155023,
+    "time": 1792071065634,
     "phase": "attack",
     "frame": 10,
     "hp": 1,
@@ -193,7 +193,7 @@
   },
   {
     "sample": 16,
-    "time": 1792070155056,
+    "time": 1792071065667,
     "phase": "attack",
     "frame": 11,
     "hp": 1,
@@ -205,7 +205,7 @@
   },
   {
     "sample": 17,
-    "time": 1792070155090,
+    "time": 1792071065701,
     "phase": "attack",
     "frame": 12,
     "hp": 1,
@@ -217,7 +217,7 @@
   },
   {
     "sample": 18,
-    "time": 1792070155123,
+    "time": 1792071065734,
     "phase": "attack",
     "frame": 12,
     "hp": 1,
@@ -229,7 +229,7 @@
   },
   {
     "sample": 19,
-    "time": 1792070155156,
+    "time": 1792071065767,
     "phase": "attack",
     "frame": 13,
     "hp": 1,
@@ -241,624 +241,696 @@
   },
   {
     "sample": 20,
-    "time": 1792070155190,
+    "time": 1792071065801,
     "phase": "attack",
     "frame": 14,
     "hp": 0,
     "enemy": {
       "pose": 1,
-      "phase": "hurt",
+      "phase": "flinch",
       "alpha": 1
     }
   },
   {
     "sample": 21,
-    "time": 1792070155223,
+    "time": 1792071065834,
     "phase": "attack",
     "frame": 14,
     "hp": 0,
     "enemy": {
       "pose": 1,
-      "phase": "hurt",
+      "phase": "flinch",
       "alpha": 1
     }
   },
   {
     "sample": 22,
-    "time": 1792070155256,
-    "phase": "attack",
-    "frame": 14,
-    "hp": 0,
-    "enemy": {
-      "pose": 1,
-      "phase": "hurt",
-      "alpha": 1
-    }
-  },
-  {
-    "sample": 23,
-    "time": 1792070155290,
+    "time": 1792071065867,
     "phase": "attack",
     "frame": 15,
     "hp": 0,
     "enemy": {
       "pose": 1,
-      "phase": "hurt",
+      "phase": "flinch",
       "alpha": 1
     }
   },
   {
-    "sample": 24,
-    "time": 1792070155323,
+    "sample": 23,
+    "time": 1792071065901,
     "phase": "attack",
     "frame": 16,
     "hp": 0,
     "enemy": {
       "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    }
+  },
+  {
+    "sample": 24,
+    "time": 1792071065934,
+    "phase": "attack",
+    "frame": 17,
+    "hp": 0,
+    "enemy": {
+      "pose": 2,
       "phase": "hurt",
       "alpha": 1
     }
   },
   {
     "sample": 25,
-    "time": 1792070155356,
+    "time": 1792071065967,
     "phase": "attack",
-    "frame": 17,
+    "frame": 18,
     "hp": 0,
     "enemy": {
-      "pose": 1,
+      "pose": 2,
       "phase": "hurt",
       "alpha": 1
     }
   },
   {
     "sample": 26,
-    "time": 1792070155390,
+    "time": 1792071066001,
     "phase": "attack",
     "frame": 19,
     "hp": 0,
     "enemy": {
-      "pose": 1,
+      "pose": 2,
       "phase": "hurt",
       "alpha": 1
     }
   },
   {
     "sample": 27,
-    "time": 1792070155423,
+    "time": 1792071066034,
     "phase": "attack",
     "frame": 19,
     "hp": 0,
     "enemy": {
-      "pose": 2,
-      "phase": "kneel",
+      "pose": 3,
+      "phase": "crouch",
       "alpha": 1
     }
   },
   {
     "sample": 28,
-    "time": 1792070155456,
+    "time": 1792071066067,
     "phase": "attack",
     "frame": 20,
     "hp": 0,
     "enemy": {
-      "pose": 2,
-      "phase": "kneel",
+      "pose": 3,
+      "phase": "crouch",
       "alpha": 1
     }
   },
   {
     "sample": 29,
-    "time": 1792070155490,
+    "time": 1792071066101,
     "phase": "attack",
     "frame": 21,
     "hp": 0,
     "enemy": {
-      "pose": 2,
-      "phase": "kneel",
+      "pose": 3,
+      "phase": "crouch",
       "alpha": 1
     }
   },
   {
     "sample": 30,
-    "time": 1792070155523,
+    "time": 1792071066134,
     "phase": "attack",
     "frame": 22,
     "hp": 0,
     "enemy": {
-      "pose": 2,
-      "phase": "kneel",
+      "pose": 3,
+      "phase": "crouch",
       "alpha": 1
     }
   },
   {
     "sample": 31,
-    "time": 1792070155556,
+    "time": 1792071066167,
     "phase": "attack",
     "frame": 23,
     "hp": 0,
     "enemy": {
-      "pose": 2,
+      "pose": 4,
       "phase": "kneel",
       "alpha": 1
     }
   },
   {
     "sample": 32,
-    "time": 1792070155590,
+    "time": 1792071066201,
     "phase": "attack",
     "frame": 24,
     "hp": 0,
     "enemy": {
-      "pose": 2,
+      "pose": 4,
       "phase": "kneel",
       "alpha": 1
     }
   },
   {
     "sample": 33,
-    "time": 1792070155623,
+    "time": 1792071066234,
     "phase": "attack",
     "frame": 25,
     "hp": 0,
     "enemy": {
-      "pose": 2,
+      "pose": 4,
       "phase": "kneel",
       "alpha": 1
     }
   },
   {
     "sample": 34,
-    "time": 1792070155656,
+    "time": 1792071066267,
     "phase": "attack",
-    "frame": 26,
+    "frame": 27,
     "hp": 0,
     "enemy": {
-      "pose": 2,
-      "phase": "kneel",
+      "pose": 5,
+      "phase": "brace",
       "alpha": 1
     }
   },
   {
     "sample": 35,
-    "time": 1792070155690,
+    "time": 1792071066301,
     "phase": "attack",
-    "frame": 27,
+    "frame": 28,
     "hp": 0,
     "enemy": {
-      "pose": 2,
-      "phase": "kneel",
+      "pose": 5,
+      "phase": "brace",
       "alpha": 1
     }
   },
   {
     "sample": 36,
-    "time": 1792070155723,
+    "time": 1792071066334,
     "phase": "attack",
-    "frame": 28,
+    "frame": 29,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "fallen",
+      "pose": 5,
+      "phase": "brace",
       "alpha": 1
     }
   },
   {
     "sample": 37,
-    "time": 1792070155756,
+    "time": 1792071066367,
     "phase": "attack",
-    "frame": 29,
+    "frame": 30,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "fallen",
+      "pose": 5,
+      "phase": "brace",
       "alpha": 1
     }
   },
   {
     "sample": 38,
-    "time": 1792070155790,
+    "time": 1792071066401,
     "phase": "attack",
     "frame": 31,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "fallen",
+      "pose": 6,
+      "phase": "settle",
       "alpha": 1
     }
   },
   {
     "sample": 39,
-    "time": 1792070155823,
+    "time": 1792071066434,
     "phase": "attack",
     "frame": 31,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "fallen",
+      "pose": 6,
+      "phase": "settle",
       "alpha": 1
     }
   },
   {
     "sample": 40,
-    "time": 1792070155856,
+    "time": 1792071066467,
     "phase": "attack",
     "frame": 32,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "fallen",
+      "pose": 6,
+      "phase": "settle",
       "alpha": 1
     }
   },
   {
     "sample": 41,
-    "time": 1792070155890,
+    "time": 1792071066501,
     "phase": "attack",
     "frame": 33,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "fallen",
+      "pose": 6,
+      "phase": "settle",
       "alpha": 1
     }
   },
   {
     "sample": 42,
-    "time": 1792070155923,
+    "time": 1792071066534,
     "phase": "attack",
     "frame": 34,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 43,
-    "time": 1792070155956,
+    "time": 1792071066567,
     "phase": "attack",
     "frame": 35,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 44,
-    "time": 1792070155990,
+    "time": 1792071066601,
     "phase": "idle",
     "frame": 0,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 45,
-    "time": 1792070156023,
+    "time": 1792071066634,
     "phase": "idle",
     "frame": 1,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 46,
-    "time": 1792070156056,
+    "time": 1792071066667,
     "phase": "idle",
-    "frame": 2,
+    "frame": 3,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 47,
-    "time": 1792070156090,
+    "time": 1792071066701,
     "phase": "idle",
-    "frame": 3,
+    "frame": 4,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 48,
-    "time": 1792070156123,
+    "time": 1792071066734,
     "phase": "idle",
-    "frame": 4,
+    "frame": 5,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 49,
-    "time": 1792070156156,
+    "time": 1792071066767,
     "phase": "idle",
-    "frame": 5,
+    "frame": 6,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "fallen",
       "alpha": 1
     }
   },
   {
     "sample": 50,
-    "time": 1792070156190,
+    "time": 1792071066801,
     "phase": "idle",
     "frame": 7,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "dissolve",
-      "alpha": 0.975238095238095
+      "pose": 7,
+      "phase": "fallen",
+      "alpha": 1
     }
   },
   {
     "sample": 51,
-    "time": 1792070156223,
+    "time": 1792071066834,
     "phase": "idle",
     "frame": 7,
     "hp": 0,
     "enemy": {
-      "pose": 3,
-      "phase": "dissolve",
-      "alpha": 0.9295238095238093
+      "pose": 7,
+      "phase": "fallen",
+      "alpha": 1
     }
   },
   {
     "sample": 52,
-    "time": 1792070156256,
+    "time": 1792071066867,
     "phase": "idle",
     "frame": 8,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.8838095238095236
+      "alpha": 0.955238095238095
     }
   },
   {
     "sample": 53,
-    "time": 1792070156290,
+    "time": 1792071066901,
     "phase": "idle",
     "frame": 9,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.8380952380952379
+      "alpha": 0.9095238095238093
     }
   },
   {
     "sample": 54,
-    "time": 1792070156323,
+    "time": 1792071066934,
     "phase": "idle",
     "frame": 10,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.7923809523809522
+      "alpha": 0.8638095238095236
     }
   },
   {
     "sample": 55,
-    "time": 1792070156356,
+    "time": 1792071066967,
     "phase": "idle",
     "frame": 11,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.7466666666666664
+      "alpha": 0.8180952380952379
     }
   },
   {
     "sample": 56,
-    "time": 1792070156390,
+    "time": 1792071067001,
     "phase": "idle",
     "frame": 12,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.7009523809523808
+      "alpha": 0.7723809523809522
     }
   },
   {
     "sample": 57,
-    "time": 1792070156423,
+    "time": 1792071067034,
     "phase": "idle",
     "frame": 13,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.655238095238095
+      "alpha": 0.7266666666666665
     }
   },
   {
     "sample": 58,
-    "time": 1792070156456,
-    "phase": "idle",
-    "frame": 14,
-    "hp": 0,
-    "enemy": {
-      "pose": 3,
-      "phase": "dissolve",
-      "alpha": 0.6095238095238094
-    }
-  },
-  {
-    "sample": 59,
-    "time": 1792070156490,
+    "time": 1792071067067,
     "phase": "idle",
     "frame": 15,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.5638095238095235
+      "alpha": 0.6580952380952378
     }
   },
   {
-    "sample": 60,
-    "time": 1792070156523,
+    "sample": 59,
+    "time": 1792071067101,
     "phase": "idle",
     "frame": 16,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.5180952380952379
+      "alpha": 0.6123809523809521
     }
   },
   {
-    "sample": 61,
-    "time": 1792070156556,
+    "sample": 60,
+    "time": 1792071067134,
     "phase": "idle",
     "frame": 17,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.4723809523809521
+      "alpha": 0.5666666666666664
+    }
+  },
+  {
+    "sample": 61,
+    "time": 1792071067167,
+    "phase": "idle",
+    "frame": 18,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
+      "phase": "dissolve",
+      "alpha": 0.5209523809523807
     }
   },
   {
     "sample": 62,
-    "time": 1792070156590,
+    "time": 1792071067201,
     "phase": "idle",
     "frame": 19,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.4038095238095236
+      "alpha": 0.475238095238095
     }
   },
   {
     "sample": 63,
-    "time": 1792070156623,
+    "time": 1792071067234,
     "phase": "idle",
     "frame": 19,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.3580952380952379
+      "alpha": 0.4295238095238093
     }
   },
   {
     "sample": 64,
-    "time": 1792070156656,
+    "time": 1792071067267,
     "phase": "idle",
     "frame": 20,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.3123809523809522
+      "alpha": 0.3838095238095236
     }
   },
   {
     "sample": 65,
-    "time": 1792070156690,
+    "time": 1792071067301,
     "phase": "idle",
     "frame": 21,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.2666666666666665
+      "alpha": 0.3380952380952379
     }
   },
   {
     "sample": 66,
-    "time": 1792070156723,
+    "time": 1792071067334,
     "phase": "idle",
     "frame": 22,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.2209523809523808
+      "alpha": 0.2923809523809522
     }
   },
   {
     "sample": 67,
-    "time": 1792070156756,
+    "time": 1792071067367,
     "phase": "idle",
     "frame": 23,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.17523809523809497
+      "alpha": 0.24666666666666648
     }
   },
   {
     "sample": 68,
-    "time": 1792070156790,
+    "time": 1792071067401,
     "phase": "idle",
     "frame": 24,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.12952380952380926
+      "alpha": 0.20095238095238077
     }
   },
   {
     "sample": 69,
-    "time": 1792070156823,
+    "time": 1792071067434,
     "phase": "idle",
     "frame": 25,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
       "phase": "dissolve",
-      "alpha": 0.08380952380952356
+      "alpha": 0.15523809523809506
     }
   },
   {
     "sample": 70,
-    "time": 1792070156856,
-    "phase": "idle",
-    "frame": 26,
-    "hp": 0,
-    "enemy": {
-      "pose": 3,
-      "phase": "dissolve",
-      "alpha": 0.03809523809523785
-    }
-  },
-  {
-    "sample": 71,
-    "time": 1792070156890,
+    "time": 1792071067467,
     "phase": "idle",
     "frame": 27,
     "hp": 0,
     "enemy": {
-      "pose": 3,
+      "pose": 7,
+      "phase": "dissolve",
+      "alpha": 0.08666666666666645
+    }
+  },
+  {
+    "sample": 71,
+    "time": 1792071067501,
+    "phase": "idle",
+    "frame": 28,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
+      "phase": "dissolve",
+      "alpha": 0.04095238095238074
+    }
+  },
+  {
+    "sample": 72,
+    "time": 1792071067534,
+    "phase": "idle",
+    "frame": 29,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
+      "phase": "gone",
+      "alpha": 0
+    }
+  },
+  {
+    "sample": 73,
+    "time": 1792071067567,
+    "phase": "idle",
+    "frame": 30,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
+      "phase": "gone",
+      "alpha": 0
+    }
+  },
+  {
+    "sample": 74,
+    "time": 1792071067601,
+    "phase": "idle",
+    "frame": 31,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
+      "phase": "gone",
+      "alpha": 0
+    }
+  },
+  {
+    "sample": 75,
+    "time": 1792071067634,
+    "phase": "idle",
+    "frame": 31,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
+      "phase": "gone",
+      "alpha": 0
+    }
+  },
+  {
+    "sample": 76,
+    "time": 1792071067667,
+    "phase": "idle",
+    "frame": 32,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
+      "phase": "gone",
+      "alpha": 0
+    }
+  },
+  {
+    "sample": 77,
+    "time": 1792071067701,
+    "phase": "idle",
+    "frame": 33,
+    "hp": 0,
+    "enemy": {
+      "pose": 7,
       "phase": "gone",
       "alpha": 0
     }

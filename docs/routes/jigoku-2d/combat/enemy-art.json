@@ -1,11 +1,21 @@
 {
-  "source": "assets/source/jigoku-2d/ghost-warrior-poses.png",
-  "sha256": "34c7ce068290b5e2d6a6c1d0f082118cbd57309c5487135ecfa301a5f04b14e3",
-  "generatedFile": "exec-a2caeabc-b872-45ca-a782-3641042aed13.png",
-  "method": "One image_gen sheet referencing clean Sanada armor material style, followed by a head-facing correction edit; four separately authored poses, not 30fps skeletal animation. Manual crop and ground anchors, no nonuniform scaling or whole-body death rotation. No reproducible seed. Armor details and projected proportions may vary between poses.",
+  "sources": [
+    {
+      "path": "assets/source/jigoku-2d/ghost-warrior-poses.png",
+      "sha256": "34c7ce068290b5e2d6a6c1d0f082118cbd57309c5487135ecfa301a5f04b14e3",
+      "generatedFile": "exec-a2caeabc-b872-45ca-a782-3641042aed13.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/ghost-warrior-inbetweens.png",
+      "sha256": "ae311c8bb589989a00090c4f4774114f9c7da603947e491ec08f3a1ce67c26cd",
+      "generatedFile": "exec-66c79597-b037-4c85-b5ee-0d5846fe1c4f.png"
+    }
+  ],
+  "method": "Original image_gen four-pose sheet with head-facing correction, plus one referenced four-pose inbetween sheet. Eight authored silhouettes, not 30 unique enemy poses per second. Manual crop and ground anchors, no nonuniform scaling, morphing or whole-body death rotation. No reproducible seed; armor, sword and projected proportions still vary between poses.",
   "poses": [
     {
       "pose": "guard",
+      "source": 0,
       "sourceBox": [
         0,
         0,
@@ -22,7 +32,26 @@
       ]
     },
     {
+      "pose": "flinch",
+      "source": 1,
+      "sourceBox": [
+        0,
+        0,
+        765,
+        595
+      ],
+      "sourceAnchor": [
+        480,
+        555
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
       "pose": "hurt",
+      "source": 0,
       "sourceBox": [
         740,
         0,
@@ -39,7 +68,26 @@
       ]
     },
     {
+      "pose": "crouch",
+      "source": 1,
+      "sourceBox": [
+        765,
+        0,
+        1536,
+        595
+      ],
+      "sourceAnchor": [
+        1270,
+        535
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
       "pose": "kneel",
+      "source": 0,
       "sourceBox": [
         0,
         595,
@@ -56,7 +104,44 @@
       ]
     },
     {
+      "pose": "brace",
+      "source": 1,
+      "sourceBox": [
+        0,
+        595,
+        765,
+        1024
+      ],
+      "sourceAnchor": [
+        500,
+        955
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
+      "pose": "settle",
+      "source": 1,
+      "sourceBox": [
+        765,
+        595,
+        1536,
+        1024
+      ],
+      "sourceAnchor": [
+        1180,
+        955
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
       "pose": "fallen",
+      "source": 0,
       "sourceBox": [
         740,
         595,
@@ -81,8 +166,10 @@
     768,
     512
   ],
+  "atlasColumns": 2,
+  "atlasRows": 4,
   "worldScaleFromHD": 0.6,
   "worldGroundY": 574,
-  "hdRGBA8Bytes": 14155776,
-  "mobileRGBA8Bytes": 6291456
+  "hdRGBA8Bytes": 28311552,
+  "mobileRGBA8Bytes": 12582912
 }
