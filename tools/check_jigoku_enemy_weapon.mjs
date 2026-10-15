@@ -10,7 +10,7 @@ const track=JSON.parse(fs.readFileSync(new URL('spear-track.json',base)));
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
 test('all held poses keep the same wrist-to-grip distance and valid sockets',()=>{
  const hand=rig.parts.grip,length=Math.hypot(hand.gripPoint[0]-hand.pivot[0],hand.gripPoint[1]-hand.pivot[1]);
- assert.equal(rig.bindings.length,10);
+ assert.equal(rig.bindings.length,12);
  for(let pose=0;pose<7;pose++){
   const w=enemyWeapon({pose,alpha:1},0,false,rig);assert.equal(w.held,true);
   near(Math.hypot(w.grip.x-w.wrist.x,w.grip.y-w.wrist.y),length);
@@ -32,7 +32,7 @@ test('pause freezes drop; reset restores held weapon',()=>{
 });
 
 test('two-bone solve preserves both lengths for all poses and unreachable/zero targets',()=>{
- for(let pose=0;pose<10;pose++)for(let age=0;age<=1700;age+=17){
+ for(let pose=0;pose<rig.bindings.length;pose++)for(let age=0;age<=1700;age+=17){
   const arm=enemyArm({pose,alpha:1},age,true,rig);
   near(Math.hypot(arm.elbow.x-arm.shoulder.x,arm.elbow.y-arm.shoulder.y),65);
   near(Math.hypot(arm.wrist.x-arm.elbow.x,arm.wrist.y-arm.elbow.y),75);
@@ -42,7 +42,7 @@ test('two-bone solve preserves both lengths for all poses and unreachable/zero t
  }
 });
 test('local reach is continuous across curve keys and hands relax before blade release',()=>{
- for(const age of [90,160,180,250,260,330,360,420,500,580,720,1000]){
+ for(const age of [90,160,180,250,260,330,360,420,500,540,580,640,720,1000]){
   const a=enemyArm({pose:6,alpha:1},age-1e-5,true,rig),b=enemyArm({pose:6,alpha:1},age+1e-5,true,rig);
   assert.ok(Math.hypot(a.wrist.x-b.wrist.x,a.wrist.y-b.wrist.y)<.001);
  }
@@ -51,4 +51,24 @@ test('local reach is continuous across curve keys and hands relax before blade r
  assert.equal(enemyWeapon({pose:6,alpha:1},430,true,rig).held,true);
  assert.equal(enemyArm({pose:7,alpha:1},500,true,rig).handState,'open');
  assert.equal(enemyArm({pose:6,alpha:1},600,false,rig).handState,'grip');
+});
+
+test('authored torso transitions reduce the brace-to-lower shoulder step',()=>{
+ const s=new CombatState(track);s.hp=0;s.enemyHit=true;
+ const points=[];
+ for(const [age,pose] of [[499,6],[500,10],[540,11],[580,7]]){
+  s.enemyAge=age;assert.equal(s.enemy.pose,pose);
+  points.push(enemyArm(s.enemy,age,true,rig).shoulder);
+ }
+ const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y)*rig.worldScale;
+ const oldStep=distance(points[0],points.at(-1));
+ const steps=points.slice(1).map((point,i)=>distance(points[i],point));
+ assert.ok(Math.max(...steps)<oldStep*.55,`Shoulder steps ${steps} vs previous ${oldStep}`);
+ // 40 ms holds ensure each added silhouette can appear at a 30 Hz render cadence.
+ for(let offset=0;offset<34;offset++){
+  const seen=new Set();for(let age=420+offset;age<650;age+=1000/30){s.enemyAge=age;seen.add(s.enemy.pose);}
+  assert.ok(seen.has(10)&&seen.has(11));
+ }
+ s.enemyAge=525;s.paused=true;s.update(200);assert.equal(s.enemy.pose,10);
+ s.reset();assert.equal(s.enemy.pose,0);
 });

@@ -14,9 +14,20 @@
       "path": "assets/source/jigoku-2d/ghost-rig/arm-bodies-c.png",
       "sha256": "997fa9da2d1ba4eda5a7670612472c70fa62e921ad2b99ffcb0a7a5c8bde63f0",
       "generatedFile": "exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/shoulder-yield.png",
+      "sha256": "5c48a3694431ead232ee90cc84c0567e5fef31e946972563cf17a12c8c7caf9a",
+      "generatedFile": "exec-7a3cf7b0-09e1-4495-8820-ea2285d941a2.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/shoulder-sink.png",
+      "sha256": "550d87fc78bb4dcf418d09df45cabc4514000976597291aba99b3b09cb9df933",
+      "generatedFile": "exec-a4c2345d-ec78-4c47-842e-a108095d61f3.png"
     }
   ],
   "method": "Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.",
+  "transitionMethod": "Two additional image_gen keyframes from cropped brace/lower references. First output supplied sink (right half); one edit supplied yield (left half). Uniform 0.8 scale with manually inspected support-palm anchors; no runtime root translation, warp or crossfade. Generated armor, head scale and knee contacts still vary.",
   "poses": [
     {
       "pose": "guard",
@@ -207,6 +218,44 @@
         576,
         690
       ]
+    },
+    {
+      "pose": "yield",
+      "source": 3,
+      "sourceBox": [
+        0,
+        0,
+        1086,
+        724
+      ],
+      "sourceAnchor": [
+        566.25,
+        680
+      ],
+      "uniformScale": 0.8,
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
+      "pose": "sink",
+      "source": 4,
+      "sourceBox": [
+        1086,
+        0,
+        2172,
+        724
+      ],
+      "sourceAnchor": [
+        1566.25,
+        680
+      ],
+      "uniformScale": 0.8,
+      "alignedAnchor": [
+        576,
+        690
+      ]
     }
   ],
   "hdFrame": [
@@ -217,10 +266,10 @@
     768,
     512
   ],
-  "atlasColumns": 2,
-  "atlasRows": 5,
+  "atlasColumns": 3,
+  "atlasRows": 4,
   "worldScaleFromHD": 0.6,
   "worldGroundY": 574,
-  "hdRGBA8Bytes": 35389440,
-  "mobileRGBA8Bytes": 15728640
+  "hdRGBA8Bytes": 42467328,
+  "mobileRGBA8Bytes": 18874368
 }

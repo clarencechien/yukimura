@@ -8,8 +8,9 @@
     "Pause freezes pose and input; hit flash expires after recovery",
     "Visual feedback off preserves actual hit rules",
     "Warrior hurt uses authored pose, no whole-body rotation; pause freezes reaction; guard recovers",
+    "Body root and scale fixed; actual upper/forearm sprites follow current shoulder/elbow anchors",
     "All captured arm segments retain 65/75 px length; closed, half-open and open hand textures actually render",
-    "Fatal reaction: flinch → recoil → buckle → crouch → kneel → brace → lower → settle → fallen → dissolve → gone; 78 captured frames with fixed timing",
+    "Fatal reaction: flinch → recoil → buckle → crouch → kneel → brace → yield → sink → lower → settle → fallen → dissolve → gone; 78 captured frames with fixed timing",
     "One fixed-size katana across all poses; hand relaxes then opens on release; dropped sword lands, fades and resets",
     "Mobile touch attack; 512px atlas; no horizontal overflow; reduced motion"
   ],

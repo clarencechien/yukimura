@@ -34,10 +34,10 @@ test('enemy hurt holds during hitstop and pause, then recovers',()=>{
  const s=new CombatState(track);s.attack();s.update(250);s.update(217);assert.equal(s.enemy.phase,'flinch');const age=s.enemyAge;s.update(40);assert.equal(s.enemyAge,age);
  s.paused=true;s.update(200);assert.equal(s.enemyAge,age);s.paused=false;finish(s);assert.equal(s.enemy.phase,'guard');
 });
-test('fatal hit orders all ten silhouettes and dissolve; reset restores guard',()=>{
+test('fatal hit orders all twelve silhouettes and dissolve; reset restores guard',()=>{
  const s=new CombatState(track);for(let i=0;i<2;i++){s.attack();finish(s);}
  s.attack();const seen=[];for(let i=0;i<170;i++){s.update(20);if(seen.at(-1)!==s.enemy.phase)seen.push(s.enemy.phase);}
- assert.deepEqual(seen,['guard','flinch','hurt','buckle','crouch','kneel','brace','lower','settle','fallen','dissolve','gone']);assert.equal(s.enemy.alpha,0);assert.equal(s.attack(),false);
+ assert.deepEqual(seen,['guard','flinch','hurt','buckle','crouch','kneel','brace','yield','sink','lower','settle','fallen','dissolve','gone']);assert.equal(s.enemy.alpha,0);assert.equal(s.attack(),false);
  s.reset();assert.equal(s.enemy.phase,'guard');assert.equal(s.enemy.alpha,1);assert.equal(s.hp,3);
 });
 test('target switch resets reaction and is blocked during attack',()=>{

@@ -23,9 +23,9 @@ print('Encoded and verified 78 frames / 30 fps / 2.6 seconds.')
 
 # Inspect authored enemy transitions using the exact captured browser frames.
 rows=json.loads((OUT/'capture-timing.json').read_text())
-inspection=Image.new('RGB',(1536,1440),'#1b2328')
+inspection=Image.new('RGB',(1536,1920),'#1b2328')
 font=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',22)
-for i,(phase,label) in enumerate([('guard','戒備'),('flinch','輕受擊'),('hurt','後仰'),('buckle','重心下沉'),('crouch','屈膝'),('kneel','跪下'),('brace','手掌承重'),('lower','屈肘落胯'),('settle','側身落地'),('fallen','伏地'),('dissolve','消散'),('gone','離場')]):
+for i,(phase,label) in enumerate([('guard','戒備'),('flinch','輕受擊'),('hurt','後仰'),('buckle','重心下沉'),('crouch','屈膝'),('kneel','跪下'),('brace','手掌承重'),('yield','屈肘承重'),('sink','落胯過渡'),('lower','屈肘落胯'),('settle','側身落地'),('fallen','伏地'),('dissolve','消散'),('gone','離場')]):
     row=next(r for r in rows if r['enemy']['phase']==phase)
     im=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB').crop((760,160,1200,650)).resize((384,428),Image.Resampling.LANCZOS)
     inspection.paste(im,((i%4)*384,(i//4)*480))
@@ -44,3 +44,25 @@ for i,(phase,label) in enumerate(labels):
     contacts.paste(crop,((i%3)*384,(i//3)*350))
     ImageDraw.Draw(contacts).text(((i%3)*384+15,(i//3)*350+308),label,font=font,fill='#e0c9a2')
 contacts.save(OUT/'weapon-contacts.jpg',quality=94)
+
+# Shoulder positions come from the actual captured runtime, not a separate mockup.
+phases=['brace','yield','sink','lower']
+selected=[next(r for r in rows if r['enemy']['phase']==phase) for phase in phases]
+distance=lambda a,b: ((a['x']-b['x'])**2+(a['y']-b['y'])**2)**.5
+shoulders=[r['renderedArm']['shoulder'] for r in selected]
+steps=[distance(a,b) for a,b in zip(shoulders,shoulders[1:])]
+baseline=distance(shoulders[0],shoulders[-1])
+assert max(steps)<baseline*.55
+report={'scope':'Only brace → yield → sink → lower; manually authored shoulder anchors. Not a measurement of mesh continuity, foot sliding, or every body transition.',
+        'previousDirectWorldStep':baseline,'currentWorldSteps':steps,'maxStepReductionPercent':100*(1-max(steps)/baseline),
+        'samples':[{'phase':r['enemy']['phase'],'sample':r['sample'],'body':r['body'],'shoulder':r['renderedArm']['shoulder']} for r in selected]}
+(OUT/'shoulder-check.json').write_text(json.dumps(report,indent=2)+'\n')
+plate=Image.new('RGB',(1440,340),'#1b2328')
+for i,(r,label) in enumerate(zip(selected,['手掌承重','屈肘承重','落胯過渡','屈肘落胯'])):
+    crop=Image.open(TMP/f"{r['sample']:03}.png").convert('RGB').crop((720,290,1200,690)).resize((360,300),Image.Resampling.LANCZOS)
+    plate.paste(crop,(i*360,0))
+    point=r['renderedArm']['shoulder'];x=i*360+(point['x']-720)*.75;y=(point['y']-290)*.75
+    draw=ImageDraw.Draw(plate);draw.ellipse((x-4,y-4,x+4,y+4),outline='#72e4ef',width=2)
+    draw.text((i*360+12,304),label,font=font,fill='#e0c9a2')
+plate.save(OUT/'shoulder-transitions.jpg',quality=94)
+print(f'Shoulder steps: {baseline:.2f} px direct → {max(steps):.2f} px maximum with authored transitions.')

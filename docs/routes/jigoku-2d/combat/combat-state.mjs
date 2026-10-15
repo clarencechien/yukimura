@@ -19,7 +19,7 @@ export class CombatState {
       return {pose:0,phase:'guard',alpha:1};
     }
     // Authored silhouettes carry the weight shift; never rotate or stretch the whole body.
-    const stages=[[90,1,'flinch'],[180,2,'hurt'],[250,3,'buckle'],[330,4,'crouch'],[420,5,'kneel'],[500,6,'brace'],[580,7,'lower'],[720,8,'settle'],[1000,9,'fallen']];
+    const stages=[[90,1,'flinch'],[180,2,'hurt'],[250,3,'buckle'],[330,4,'crouch'],[420,5,'kneel'],[500,6,'brace'],[540,10,'yield'],[580,11,'sink'],[640,7,'lower'],[720,8,'settle'],[1000,9,'fallen']];
     for(const [end,pose,phase] of stages)if(age<end)return {pose,phase,alpha:1};
     return {pose:9,phase:age<1700?'dissolve':'gone',alpha:Math.max(0,1-(age-1000)/700)};
   }

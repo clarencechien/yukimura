@@ -20,7 +20,7 @@ class Battle extends Phaser.Scene {
     this.load.json('enemyRig','enemy-rig.json');this.load.image('enemyKatana','enemy-katana.webp');this.load.image('enemyGrip','enemy-grip.webp');
     this.load.image('arena','arena.webp');this.load.json('track','spear-track.json');
     this.hd=innerWidth>=900;
-    this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:9});
+    this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:11});
     for(const clip of ['idle','thrust']){
       if(this.hd){
         this.load.spritesheet(clip,`../yari-rigid/${clip}-warm-left-hd.webp`,{frameWidth:1024,frameHeight:640,endFrame:23});
@@ -57,7 +57,7 @@ class Battle extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
     for(const id of ['attack','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.track.frames[this.state.frame]})};
+    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.track.frames[this.state.frame]})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
