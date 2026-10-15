@@ -19,9 +19,9 @@ export class CombatState {
       return {pose:0,phase:'guard',alpha:1};
     }
     // Authored silhouettes carry the weight shift; never rotate or stretch the whole body.
-    const stages=[[90,1,'flinch'],[180,2,'hurt'],[300,3,'crouch'],[420,4,'kneel'],[540,5,'brace'],[680,6,'settle'],[1000,7,'fallen']];
+    const stages=[[90,1,'flinch'],[180,2,'hurt'],[250,3,'buckle'],[330,4,'crouch'],[420,5,'kneel'],[500,6,'brace'],[580,7,'lower'],[720,8,'settle'],[1000,9,'fallen']];
     for(const [end,pose,phase] of stages)if(age<end)return {pose,phase,alpha:1};
-    return {pose:7,phase:age<1700?'dissolve':'gone',alpha:Math.max(0,1-(age-1000)/700)};
+    return {pose:9,phase:age<1700?'dissolve':'gone',alpha:Math.max(0,1-(age-1000)/700)};
   }
   setTarget(kind){if(this.phase==='attack'||!['warrior','seal'].includes(kind))return false;this.targetKind=kind;this.reset();return true;}
   setRange(range){if(this.phase==='attack'||!['near','far'].includes(range))return false;this.range=range;this.reset();return true;}

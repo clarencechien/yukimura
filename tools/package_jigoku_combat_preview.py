@@ -25,7 +25,7 @@ print('Encoded and verified 78 frames / 30 fps / 2.6 seconds.')
 rows=json.loads((OUT/'capture-timing.json').read_text())
 inspection=Image.new('RGB',(1536,1440),'#1b2328')
 font=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',22)
-for i,(phase,label) in enumerate([('guard','戒備'),('flinch','輕受擊'),('hurt','後仰'),('crouch','屈膝'),('kneel','跪下'),('brace','手掌承重'),('settle','側身落地'),('fallen','伏地'),('dissolve','消散'),('gone','離場')]):
+for i,(phase,label) in enumerate([('guard','戒備'),('flinch','輕受擊'),('hurt','後仰'),('buckle','重心下沉'),('crouch','屈膝'),('kneel','跪下'),('brace','手掌承重'),('lower','屈肘落胯'),('settle','側身落地'),('fallen','伏地'),('dissolve','消散'),('gone','離場')]):
     row=next(r for r in rows if r['enemy']['phase']==phase)
     im=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB').crop((760,160,1200,650)).resize((384,428),Image.Resampling.LANCZOS)
     inspection.paste(im,((i%4)*384,(i//4)*480))

@@ -16,7 +16,7 @@ class Battle extends Phaser.Scene {
   preload(){
     this.load.image('arena','arena.webp');this.load.json('track','spear-track.json');
     this.hd=innerWidth>=900;
-    this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:7});
+    this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:9});
     for(const clip of ['idle','thrust']){
       if(this.hd){
         this.load.spritesheet(clip,`../yari-rigid/${clip}-warm-left-hd.webp`,{frameWidth:1024,frameHeight:640,endFrame:23});
@@ -103,7 +103,7 @@ class Battle extends Phaser.Scene {
     this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setFrame(enemy.pose).setAlpha(enemy.alpha);
     this.enemyShadow.clear();
     if(warrior){
-      this.enemyShadow.fillStyle(0x06090b,.25*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x,574,enemy.pose>=6?380:235,28);
+      this.enemyShadow.fillStyle(0x06090b,.25*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x,574,enemy.pose>=7?380:235,28);
       if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
     }
     this.trail.clear();this.debug.clear();
