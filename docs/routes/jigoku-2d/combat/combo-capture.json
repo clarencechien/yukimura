@@ -1,0 +1,1802 @@
+[
+  {
+    "sample": 0,
+    "time": 1792080594738,
+    "phase": "idle",
+    "attackKind": "thrust",
+    "frame": 1,
+    "heroFrame": 1,
+    "texture": "idle",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 922.3742386831276,
+      "y": 329.18176743484224
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 1,
+    "time": 1792080594771,
+    "phase": "idle",
+    "attackKind": "thrust",
+    "frame": 2,
+    "heroFrame": 2,
+    "texture": "idle",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 920.6827983539094,
+      "y": 329.6710209602195
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 2,
+    "time": 1792080594805,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 0,
+    "heroFrame": 0,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 923,
+      "y": 329
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 3,
+    "time": 1792080594838,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 1,
+    "heroFrame": 1,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 922.3742386831276,
+      "y": 329.18176743484224
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 4,
+    "time": 1792080594871,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 2,
+    "heroFrame": 2,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 920.6827983539094,
+      "y": 329.6710209602195
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 5,
+    "time": 1792080594905,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 3,
+    "heroFrame": 3,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 918.2044444444444,
+      "y": 330.38368740740736
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 6,
+    "time": 1792080594938,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 4,
+    "heroFrame": 4,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 915.2179423868313,
+      "y": 331.23569360768175
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 7,
+    "time": 1792080594971,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 5,
+    "heroFrame": 5,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 912.0020576131687,
+      "y": 332.14296639231827
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 8,
+    "time": 1792080595005,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 6,
+    "heroFrame": 6,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 908.8355555555555,
+      "y": 333.0214325925926
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 9,
+    "time": 1792080595038,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 7,
+    "heroFrame": 7,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 905.9972016460905,
+      "y": 333.7870190397805
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 10,
+    "time": 1792080595071,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 8,
+    "heroFrame": 8,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 903.7657613168724,
+      "y": 334.35565256515775
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 11,
+    "time": 1792080595105,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 10,
+    "heroFrame": 10,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 906.6666666666666,
+      "y": 335.35314814814814
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 12,
+    "time": 1792080595138,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 11,
+    "heroFrame": 11,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 920.0208333333334,
+      "y": 335.86778935185185
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 13,
+    "time": 1792080595171,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 12,
+    "heroFrame": 12,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 935,
+      "y": 335
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 14,
+    "time": 1792080595205,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 12,
+    "heroFrame": 12,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 935,
+      "y": 335
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 15,
+    "time": 1792080595238,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 13,
+    "heroFrame": 13,
+    "texture": "thrust",
+    "hp": 3,
+    "queuedAttack": null,
+    "tip": {
+      "x": 945.3125,
+      "y": 333.4840625
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 16,
+    "time": 1792080595271,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 14,
+    "heroFrame": 14,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 950,
+      "y": 332.79499999999996
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 17,
+    "time": 1792080595305,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 14,
+    "heroFrame": 14,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 950,
+      "y": 332.79499999999996
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 18,
+    "time": 1792080595338,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 14,
+    "heroFrame": 14,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 950,
+      "y": 332.79499999999996
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 19,
+    "time": 1792080595371,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 15,
+    "heroFrame": 15,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 950,
+      "y": 332.79499999999996
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 20,
+    "time": 1792080595405,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 16,
+    "heroFrame": 16,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3182042339527,
+      "y": 332.7428208972183
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 21,
+    "time": 1792080595438,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 17,
+    "heroFrame": 17,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 947.4758450745595,
+      "y": 332.59576827967464
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 22,
+    "time": 1792080595471,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 18,
+    "heroFrame": 18,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 944.7774647299441,
+      "y": 332.36806918357127
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 23,
+    "time": 1792080595505,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 19,
+    "heroFrame": 19,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 941.5276054082299,
+      "y": 332.0739506451104
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 24,
+    "time": 1792080595538,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 20,
+    "heroFrame": 20,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 938.0308093175403,
+      "y": 331.72763970049436
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 25,
+    "time": 1792080595571,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 21,
+    "heroFrame": 21,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 934.5916186659988,
+      "y": 331.3433633859254
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 26,
+    "time": 1792080595605,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 22,
+    "heroFrame": 22,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 931.514575661729,
+      "y": 330.93534873760564
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 27,
+    "time": 1792080595638,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 23,
+    "heroFrame": 23,
+    "texture": "thrust",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 929.1042225128543,
+      "y": 330.5178227917374
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 28,
+    "time": 1792080595671,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 24,
+    "heroFrame": 0,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 927.6651014274981,
+      "y": 330.1050125845229
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 29,
+    "time": 1792080595705,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 25,
+    "heroFrame": 1,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 926.9421487603306,
+      "y": 329.7934072126221
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 30,
+    "time": 1792080595738,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 26,
+    "heroFrame": 2,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 926.5539068369646,
+      "y": 329.6980756949662
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 31,
+    "time": 1792080595771,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 27,
+    "heroFrame": 3,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 926.2877783033889,
+      "y": 329.69534130819466
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 32,
+    "time": 1792080595805,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 28,
+    "heroFrame": 4,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 925.884516267666,
+      "y": 329.64244867381086
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 33,
+    "time": 1792080595838,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 29,
+    "heroFrame": 5,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 925.3890975874447,
+      "y": 329.5528767287197
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 34,
+    "time": 1792080595871,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 30,
+    "heroFrame": 6,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 924.8464991203742,
+      "y": 329.4401044098263
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 35,
+    "time": 1792080595905,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 31,
+    "heroFrame": 7,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 924.3016977241036,
+      "y": 329.31761065403555
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 36,
+    "time": 1792080595938,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 32,
+    "heroFrame": 8,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 923.7996702562818,
+      "y": 329.1988743982525
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 37,
+    "time": 1792080595971,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 33,
+    "heroFrame": 9,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 923.385393574558,
+      "y": 329.09737457938223
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 38,
+    "time": 1792080596005,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 34,
+    "heroFrame": 10,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 923.1038445365809,
+      "y": 329.0265901343297
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 39,
+    "time": 1792080596038,
+    "phase": "attack",
+    "attackKind": "thrust",
+    "frame": 35,
+    "heroFrame": 11,
+    "texture": "thrust-2",
+    "hp": 2,
+    "queuedAttack": "sweep",
+    "tip": {
+      "x": 923,
+      "y": 329
+    },
+    "hurtbox": {
+      "x": 970,
+      "y": 334,
+      "radius": 32
+    }
+  },
+  {
+    "sample": 40,
+    "time": 1792080596071,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 0,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 41,
+    "time": 1792080596105,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 1,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 42,
+    "time": 1792080596138,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 2,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 43,
+    "time": 1792080596171,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 3,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 44,
+    "time": 1792080596205,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 4,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 45,
+    "time": 1792080596238,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 5,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 46,
+    "time": 1792080596271,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 6,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 47,
+    "time": 1792080596305,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 7,
+    "heroFrame": 0,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 956.5212464589234,
+      "y": 307.4164305949008
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 48,
+    "time": 1792080596338,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 8,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 2,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 49,
+    "time": 1792080596371,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 9,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 50,
+    "time": 1792080596405,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 9,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 51,
+    "time": 1792080596438,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 9,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 52,
+    "time": 1792080596471,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 10,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 53,
+    "time": 1792080596505,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 11,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 54,
+    "time": 1792080596538,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 12,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 55,
+    "time": 1792080596571,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 13,
+    "heroFrame": 1,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 949.3421052631578,
+      "y": 554.2368421052631
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 56,
+    "time": 1792080596605,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 14,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 57,
+    "time": 1792080596638,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 15,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 58,
+    "time": 1792080596671,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 16,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 59,
+    "time": 1792080596705,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 17,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 60,
+    "time": 1792080596738,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 18,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 61,
+    "time": 1792080596771,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 19,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 62,
+    "time": 1792080596805,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 20,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 63,
+    "time": 1792080596838,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 21,
+    "heroFrame": 2,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 954.9401496259352,
+      "y": 523.4339152119701
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 64,
+    "time": 1792080596871,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 22,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 65,
+    "time": 1792080596905,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 23,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 66,
+    "time": 1792080596938,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 24,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 67,
+    "time": 1792080596971,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 25,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 68,
+    "time": 1792080597005,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 26,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 69,
+    "time": 1792080597038,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 27,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 70,
+    "time": 1792080597071,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 28,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 71,
+    "time": 1792080597105,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 29,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 72,
+    "time": 1792080597138,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 30,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 73,
+    "time": 1792080597171,
+    "phase": "attack",
+    "attackKind": "sweep",
+    "frame": 31,
+    "heroFrame": 3,
+    "texture": "sweep",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 888.2902374670184,
+      "y": 346.62269129287597
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 74,
+    "time": 1792080597205,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 0,
+    "heroFrame": 0,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 923,
+      "y": 329
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 75,
+    "time": 1792080597238,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 1,
+    "heroFrame": 1,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 922.3742386831276,
+      "y": 329.18176743484224
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 76,
+    "time": 1792080597271,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 2,
+    "heroFrame": 2,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 920.6827983539094,
+      "y": 329.6710209602195
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 77,
+    "time": 1792080597305,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 3,
+    "heroFrame": 3,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 918.2044444444444,
+      "y": 330.38368740740736
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 78,
+    "time": 1792080597338,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 4,
+    "heroFrame": 4,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 915.2179423868313,
+      "y": 331.23569360768175
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 79,
+    "time": 1792080597371,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 5,
+    "heroFrame": 5,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 912.0020576131687,
+      "y": 332.14296639231827
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 80,
+    "time": 1792080597405,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 6,
+    "heroFrame": 6,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 908.8355555555555,
+      "y": 333.0214325925926
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 81,
+    "time": 1792080597438,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 7,
+    "heroFrame": 7,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 905.9972016460905,
+      "y": 333.7870190397805
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 82,
+    "time": 1792080597471,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 8,
+    "heroFrame": 8,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 903.7657613168724,
+      "y": 334.35565256515775
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 83,
+    "time": 1792080597505,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 9,
+    "heroFrame": 9,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 902.42,
+      "y": 334.64326
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 84,
+    "time": 1792080597538,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 10,
+    "heroFrame": 10,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 906.6666666666666,
+      "y": 335.35314814814814
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 85,
+    "time": 1792080597571,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 11,
+    "heroFrame": 11,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 920.0208333333334,
+      "y": 335.86778935185185
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 86,
+    "time": 1792080597605,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 12,
+    "heroFrame": 12,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 935,
+      "y": 335
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 87,
+    "time": 1792080597638,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 13,
+    "heroFrame": 13,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 945.3125,
+      "y": 333.4840625
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 88,
+    "time": 1792080597671,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 14,
+    "heroFrame": 14,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 950,
+      "y": 332.79499999999996
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  },
+  {
+    "sample": 89,
+    "time": 1792080597705,
+    "phase": "idle",
+    "attackKind": "sweep",
+    "frame": 15,
+    "heroFrame": 15,
+    "texture": "idle",
+    "hp": 1,
+    "queuedAttack": null,
+    "tip": {
+      "x": 950,
+      "y": 332.79499999999996
+    },
+    "hurtbox": {
+      "x": 915,
+      "y": 535,
+      "radius": 42
+    }
+  }
+]

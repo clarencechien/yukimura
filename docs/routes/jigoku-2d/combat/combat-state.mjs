@@ -6,9 +6,12 @@ export function segmentHitsCircle(a,b,c,r){
   return Math.hypot(a.x+t*dx-c.x,a.y+t*dy-c.y)<=r;
 }
 export class CombatState {
-  constructor(track,onEvent=()=>{}){this.track=track;this.onEvent=onEvent;this.range='near';this.targetKind='warrior';this.paused=false;this.reset();}
-  reset(){this.hp=3;this.hits=0;this.swings=0;this.phase='idle';this.frame=0;this.elapsed=0;this.freeze=0;this.didHit=false;this.idleTime=0;this.enemyAge=0;this.enemyHit=false;}
+  constructor(track,onEvent=()=>{},sweepTrack=null){this.track=track;this.sweepTrack=sweepTrack;this.onEvent=onEvent;this.range='near';this.targetKind='warrior';this.paused=false;this.reset();}
+  reset(){this.hp=3;this.hits=0;this.swings=0;this.phase='idle';this.frame=0;this.elapsed=0;this.freeze=0;this.didHit=false;this.idleTime=0;this.enemyAge=0;this.enemyHit=false;this.attackKind='thrust';this.queuedAttack=null;}
   get target(){return {x:this.range==='near'?970:1060,y:334,radius:32};}
+  get currentTrack(){return this.attackKind==='sweep'?this.sweepTrack:this.track;}
+  get hurtbox(){return this.attackKind==='sweep'&&this.targetKind==='warrior'?{x:this.target.x-55,y:535,radius:42}:this.target;}
+  get canQueueSweep(){return !!this.sweepTrack&&!this.paused&&this.hp>0&&this.phase==='attack'&&this.attackKind==='thrust'&&this.frame>=22&&this.frame<=30&&!this.queuedAttack;}
   get enemy(){
     if(!this.enemyHit)return {pose:0,phase:'guard',alpha:1};
     const age=this.enemyAge;
@@ -25,7 +28,12 @@ export class CombatState {
   }
   setTarget(kind){if(this.phase==='attack'||!['warrior','seal'].includes(kind))return false;this.targetKind=kind;this.reset();return true;}
   setRange(range){if(this.phase==='attack'||!['near','far'].includes(range))return false;this.range=range;this.reset();return true;}
-  attack(){if(this.paused||this.phase==='attack'||this.hp===0)return false;this.phase='attack';this.frame=0;this.elapsed=0;this.didHit=false;this.swings++;this.onEvent({type:'swing'});return true;}
+  attack(kind='thrust'){
+    if(!['thrust','sweep'].includes(kind)||kind==='sweep'&&!this.sweepTrack)return false;
+    if(kind==='sweep'&&this.canQueueSweep){this.queuedAttack='sweep';this.onEvent({type:'queued',kind});return true;}
+    if(this.paused||this.phase==='attack'||this.hp===0)return false;
+    this.phase='attack';this.attackKind=kind;this.frame=0;this.elapsed=0;this.didHit=false;this.swings++;this.onEvent({type:'swing',kind});return true;
+  }
   update(delta){
     if(this.paused)return;
     let remaining=Math.min(Math.max(delta,0),250); // Never catch up a hidden tab.
@@ -35,12 +43,15 @@ export class CombatState {
       const step=Math.min(remaining,FRAME_MS-this.elapsed);this.elapsed+=step;this.enemyAge+=step;remaining-=step;
       if(this.elapsed<FRAME_MS-1e-7)break;
       this.elapsed=0;this.frame++;
-      if(this.frame>=36){this.phase='idle';this.frame=0;this.idleTime=0;this.onEvent({type:'recover',hit:this.didHit});continue;}
-      if(this.track.activeFrames.includes(this.frame)&&!this.didHit&&this.hp>0){
-        const a=this.track.frames[this.frame-1],b=this.track.frames[this.frame];
-        if(segmentHitsCircle(a,b,this.target,this.target.radius)){
+      if(this.frame>=this.currentTrack.frames.length){
+        const next=this.queuedAttack;this.queuedAttack=null;this.phase='idle';this.frame=0;this.idleTime=0;this.onEvent({type:'recover',hit:this.didHit,kind:this.attackKind});
+        if(next&&this.hp>0)this.attack(next);continue;
+      }
+      if(this.currentTrack.activeFrames.includes(this.frame)&&!this.didHit&&this.hp>0){
+        const a=this.currentTrack.frames[this.frame-1],b=this.currentTrack.frames[this.frame];
+        if(segmentHitsCircle(a,b,this.hurtbox,this.hurtbox.radius)){
           this.didHit=true;this.hp--;this.hits++;this.freeze=70;this.enemyAge=0;this.enemyHit=true;
-          this.onEvent({type:'hit',point:b,broken:this.hp===0});
+          this.onEvent({type:'hit',point:b,broken:this.hp===0,kind:this.attackKind});
         }
       }
     }

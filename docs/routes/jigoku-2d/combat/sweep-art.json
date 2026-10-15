@@ -1,0 +1,172 @@
+{
+  "source": "assets/source/jigoku-2d/yari-sweep-poses.png",
+  "sha256": "eadf51358a8bf646fd76e7b5aae579fd9ec4a16de82c160caf04828bc6141660",
+  "generatedFile": "exec-25b51d9d-0827-4e2c-95b8-35567e74c12b.png",
+  "referenceCommit": "3487e4aa12f67d96c91398d3e3994b6f6ae56851",
+  "reference": "First 1024x640 frame of yari-rigid/thrust-warm-left-hd.webp",
+  "method": "One image_gen four-pose sheet; uniform scale from projected sole span, rear sole aligned to existing hero. No anatomy warping, no new Blender render. Four discrete poses, not 32 unique drawings. Weapon length is drawn into the image and its projected appearance varies.",
+  "poses": [
+    {
+      "pose": "windup",
+      "sourceBox": [
+        0,
+        0,
+        805,
+        505
+      ],
+      "uniformScale": 1.1274787535410764,
+      "pasteOffset": [
+        59,
+        28
+      ],
+      "sourceRearSole": [
+        150,
+        470
+      ],
+      "sourceFrontSole": [
+        503,
+        435
+      ],
+      "sourceTip": [
+        765,
+        168
+      ],
+      "rearSole": [
+        228.12181303116145,
+        557.915014164306
+      ],
+      "frontSole": [
+        626.1218130311614,
+        518.4532577903683
+      ],
+      "worldTip": {
+        "x": 956.5212464589234,
+        "y": 307.4164305949008
+      }
+    },
+    {
+      "pose": "contact",
+      "sourceBox": [
+        805,
+        0,
+        1536,
+        510
+      ],
+      "uniformScale": 1.0473684210526315,
+      "pasteOffset": [
+        155,
+        61
+      ],
+      "sourceRearSole": [
+        875,
+        475
+      ],
+      "sourceFrontSole": [
+        1255,
+        443
+      ],
+      "sourceTip": [
+        1530,
+        385
+      ],
+      "rearSole": [
+        228.31578947368422,
+        558.5
+      ],
+      "frontSole": [
+        626.3157894736842,
+        524.9842105263158
+      ],
+      "worldTip": {
+        "x": 949.3421052631578,
+        "y": 554.2368421052631
+      }
+    },
+    {
+      "pose": "follow",
+      "sourceBox": [
+        0,
+        510,
+        830,
+        1024
+      ],
+      "uniformScale": 0.9925187032418953,
+      "pasteOffset": [
+        116,
+        93
+      ],
+      "sourceRearSole": [
+        113,
+        979
+      ],
+      "sourceFrontSole": [
+        514,
+        947
+      ],
+      "sourceTip": [
+        810,
+        853
+      ],
+      "rearSole": [
+        228.15461346633418,
+        558.4912718204489
+      ],
+      "frontSole": [
+        626.1546134663342,
+        526.7306733167082
+      ],
+      "worldTip": {
+        "x": 954.9401496259352,
+        "y": 523.4339152119701
+      }
+    },
+    {
+      "pose": "recover",
+      "sourceBox": [
+        830,
+        510,
+        1536,
+        1024
+      ],
+      "uniformScale": 1.050131926121372,
+      "pasteOffset": [
+        135,
+        76
+      ],
+      "sourceRearSole": [
+        919,
+        969
+      ],
+      "sourceFrontSole": [
+        1298,
+        939
+      ],
+      "sourceTip": [
+        1514,
+        682
+      ],
+      "rearSole": [
+        228.46174142480209,
+        558.0105540897098
+      ],
+      "frontSole": [
+        626.4617414248021,
+        526.5065963060686
+      ],
+      "worldTip": {
+        "x": 888.2902374670184,
+        "y": 346.62269129287597
+      }
+    }
+  ],
+  "frameSizeHD": [
+    1024,
+    640
+  ],
+  "frameSizeMobile": [
+    512,
+    320
+  ],
+  "hdRGBA8Bytes": 10485760,
+  "mobileRGBA8Bytes": 2621440
+}

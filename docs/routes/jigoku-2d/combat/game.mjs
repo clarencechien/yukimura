@@ -20,6 +20,8 @@ class Battle extends Phaser.Scene {
     this.load.json('enemyRig','enemy-rig.json');this.load.image('enemyKatana','enemy-katana.webp');this.load.image('enemyGrip','enemy-grip.webp');
     this.load.image('arena','arena.webp');this.load.json('track','spear-track.json');
     this.hd=innerWidth>=900;
+    this.load.json('sweepTrack','sweep-track.json');
+    this.load.spritesheet('sweep',`sweep${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:3});
     this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:11});
     for(const clip of ['idle','thrust']){
       if(this.hd){
@@ -32,7 +34,7 @@ class Battle extends Phaser.Scene {
   }
   create(){
     if(this.failed)return;
-    scene=this;this.track=this.cache.json.get('track');this.state=new CombatState(this.track,e=>this.onCombat(e));
+    scene=this;this.track=this.cache.json.get('track');this.state=new CombatState(this.track,e=>this.onCombat(e),this.cache.json.get('sweepTrack'));
     this.add.image(600,375,'arena').setDisplaySize(1200,750).setTint(0xb8b8bd);
     const shade=this.add.graphics();shade.fillStyle(0x080d14,.18);shade.fillRect(0,0,1200,750);
     // Fixed contact patches under actual planted feet, plus a softer body shadow.
@@ -54,10 +56,11 @@ class Battle extends Phaser.Scene {
     this.ash=this.add.particles(0,0,'spark',{emitting:!reduced,x:{min:0,max:1200},y:760,speedY:{min:-30,max:-90},speedX:{min:5,max:35},lifespan:4000,frequency:180,quantity:1,scale:{start:.2,end:0},alpha:{start:.25,end:0},tint:0xef9c69,blendMode:'ADD',maxParticles:30});
     this.trail=this.add.graphics();this.debug=this.add.graphics();
     this.input.keyboard.on('keydown-J',event=>{if(event.repeat||/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;this.attack();});
+    this.input.keyboard.on('keydown-K',event=>{if(event.repeat||/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;this.attack('sweep');});
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
-    for(const id of ['attack','pause','reset','range','target'])$('#'+id).disabled=false;
+    for(const id of ['attack','sweep','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.track.frames[this.state.frame]})};
+    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,hurtbox:this.state.hurtbox})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -70,13 +73,16 @@ class Battle extends Phaser.Scene {
     for(let i=0;i<8;i++){p.lineStyle(1,0x61bec9,.12-i*.012);p.strokeEllipse(x,578-i*29,125-i*8,18);}
     p.lineStyle(1,0x75dbda,.2);p.lineBetween(x-19,385,x-50,571);p.lineBetween(x+19,385,x+50,571);
   }
-  attack(){if(this.state.attack()){tone(false);this.refreshUI();}}
+  attack(kind='thrust'){if(this.state.attack(kind))this.refreshUI();}
   reset(){this.tweens.killTweensOf(this.seal);this.tweens.killTweensOf(this.flash);this.flash.setAlpha(0);this.state.reset();this.seal.setPosition(this.state.target.x,334).setScale(1).setAlpha(1);this.sparks.killAll();this.drawSeal();this.message(this.state.targetKind==='warrior'?'鬼武者現身 · 等待出槍':'封印重聚 · 等待出槍');this.refreshUI();}
   message(text){$('#message').textContent=text;}
   refreshUI(){
     $('#hp').textContent=Array.from({length:3},(_,i)=>i<this.state.hp?'●':'○').join(' ');
     $('#score').textContent=`命中 ${this.state.hits} ／ 出槍 ${this.state.swings}`;
     $('#attack').disabled=this.state.paused||this.state.phase==='attack'||this.state.hp===0;
+    $('#sweep').disabled=this.state.paused||this.state.hp===0||(this.state.phase==='attack'&&!this.state.canQueueSweep);
+    $('#sweep').classList.toggle('combo-ready',this.state.canQueueSweep);
+    $('#sweep').innerHTML=(this.state.queuedAttack?'已接橫掃':this.state.canQueueSweep?'接橫掃':'橫掃')+' <kbd>K</kbd>';
     $('#range').disabled=this.state.phase==='attack';$('#target').disabled=this.state.phase==='attack';
     $('#target-name').textContent=this.state.targetKind==='warrior'?'燼關鬼武者':'怨火封印';
     $('#reset').textContent=this.state.targetKind==='warrior'?'再戰鬼武者':'重聚封印';
@@ -84,9 +90,10 @@ class Battle extends Phaser.Scene {
   }
   setPaused(value){this.state.paused=value;if(value){this.tweens.pauseAll();this.sparks.pause();this.ash.pause();}else{this.tweens.resumeAll();this.sparks.resume();this.ash.resume();}this.refreshUI();}
   onCombat(event){
-    if(event.type==='swing')this.message('蓄勢 · 赤槍將出');
+    if(event.type==='swing'){tone(false);this.message(event.kind==='sweep'?'沉腰 · 赤槍低掃':'蓄勢 · 赤槍將出');}
+    if(event.type==='queued')this.message('接招已記 · 收槍後橫掃');
     const warrior=this.state.targetKind==='warrior';
-    if(event.type==='recover')this.message(this.state.hp===0?(warrior?'鬼武者倒下 · 六文不渡，赤槍開路':'封印已破 · 六文不渡，赤槍開路'):event.hit?'收槍 · 再進一擊':'刺空 · 一步之外，槍尖未及');
+    if(event.type==='recover')this.message(this.state.hp===0?(warrior?'鬼武者倒下 · 六文不渡，赤槍開路':'封印已破 · 六文不渡，赤槍開路'):event.hit?'收槍 · 再進一擊':event.kind==='sweep'?'掃空 · 低槍未及':'刺空 · 一步之外，槍尖未及');
     if(event.type==='hit'){
       this.message(event.broken?(warrior?'破甲 · 鬼武者力竭':'破封 · 亡魂歸途已開'):(warrior?'命中 · 鬼武者失衡':'命中 · 怨火震裂'));tone(true);
       if($('#feedback').checked){
@@ -106,8 +113,11 @@ class Battle extends Phaser.Scene {
   update(_time,delta){
     if(!this.state)return;
     this.state.update(delta);
-    const clip=this.state.phase==='attack'?'thrust':'idle',page=this.hd&&this.state.frame>=24?'-2':'';
-    this.hero.setTexture(clip+page,this.hd?this.state.frame%24:this.state.frame);
+    const sweeping=this.state.phase==='attack'&&this.state.attackKind==='sweep';
+    const clip=this.state.phase==='attack'?this.state.attackKind:'idle',page=this.hd&&this.state.frame>=24?'-2':'';
+    this.hero.setTexture(sweeping?'sweep':clip+page,sweeping?this.state.currentTrack.poseFrames[this.state.frame]:this.hd?this.state.frame%24:this.state.frame);
+    const uiKey=[this.state.phase,this.state.canQueueSweep,this.state.queuedAttack].join(':');
+    if(uiKey!==this.uiKey){this.uiKey=uiKey;this.refreshUI();}
     const warrior=this.state.targetKind==='warrior',enemy=this.state.enemy;
     this.seal.setVisible(!warrior);this.pedestal.setVisible(!warrior);
     this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setFrame(enemy.pose).setAlpha(enemy.alpha);
@@ -133,20 +143,20 @@ class Battle extends Phaser.Scene {
       else if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
     }
     this.trail.clear();this.debug.clear();
-    const tip=this.track.frames[this.state.frame];
-    if(this.state.phase==='attack'&&this.state.frame>=13&&this.state.frame<=17&&$('#feedback').checked){
+    const track=this.state.phase==='attack'?this.state.currentTrack:this.track,tip=track.frames[this.state.frame];
+    if(this.state.phase==='attack'&&track.activeFrames.includes(this.state.frame)&&$('#feedback').checked){
       this.trail.lineStyle(8,0xd72f28,.16);this.trail.lineBetween(tip.x-88,tip.y+13,tip.x,tip.y);
       this.trail.lineStyle(2,0xffd5a0,.85);this.trail.lineBetween(tip.x-65,tip.y+10,tip.x,tip.y);
     }
     if($('#debug').checked){
       if(warrior){this.debug.lineStyle(1,0x59e7f0,.8);this.debug.lineBetween(shoulder.x,shoulder.y,elbow.x,elbow.y);this.debug.lineBetween(elbow.x,elbow.y,wrist.x,wrist.y);this.debug.fillStyle(0x59e7f0,1);this.debug.fillCircle(wrist.x,wrist.y,3);this.debug.fillStyle(0xffe08b,1);this.debug.fillCircle(grip.x,grip.y,3);}
-      const target=this.state.target;this.debug.lineStyle(2,0x6edee2,.8);this.debug.strokeCircle(target.x,target.y,target.radius);
-      if(this.state.phase==='attack'){this.debug.fillStyle(this.track.activeFrames.includes(this.state.frame)?0xffdd77:0xffffff);this.debug.fillCircle(tip.x,tip.y,5);}
+      const target=this.state.hurtbox;this.debug.lineStyle(2,0x6edee2,.8);this.debug.strokeCircle(target.x,target.y,target.radius);
+      if(this.state.phase==='attack'){this.debug.fillStyle(track.activeFrames.includes(this.state.frame)?0xffdd77:0xffffff);this.debug.fillCircle(tip.x,tip.y,5);}
     }
   }
 }
 const game=new Phaser.Game({type:Phaser.AUTO,parent:'stage',width:1200,height:750,backgroundColor:'#12171b',scene:Battle,render:{antialias:true,pixelArt:false},scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},audio:{noAudio:true},fps:{target:60},banner:false});
-$('#attack').onclick=()=>scene?.attack();$('#pause').onclick=()=>scene?.setPaused(!scene.state.paused);$('#reset').onclick=()=>scene?.reset();
+$('#attack').onclick=()=>scene?.attack();$('#sweep').onclick=()=>scene?.attack('sweep');$('#pause').onclick=()=>scene?.setPaused(!scene.state.paused);$('#reset').onclick=()=>scene?.reset();
 $('#range').onchange=e=>{if(scene?.state.setRange(e.target.value))scene.reset();};
 $('#target').onchange=e=>{if(scene?.state.setTarget(e.target.value))scene.reset();};
 $('#fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.querySelector('main').requestFullscreen();}catch{$('#message').textContent='此瀏覽器未提供全螢幕，請改用橫向畫面。';}};
