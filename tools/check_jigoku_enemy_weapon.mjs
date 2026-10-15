@@ -10,8 +10,8 @@ const track=JSON.parse(fs.readFileSync(new URL('spear-track.json',base)));
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
 test('all held poses keep the same wrist-to-grip distance and valid sockets',()=>{
  const hand=rig.parts.grip,length=Math.hypot(hand.gripPoint[0]-hand.pivot[0],hand.gripPoint[1]-hand.pivot[1]);
- assert.equal(rig.bindings.length,14);
- for(const pose of [0,1,2,3,4,5,6,12,13]){
+ assert.equal(rig.bindings.length,16);
+ for(const pose of [0,1,2,3,4,5,6,12,13,14,15]){
   const w=enemyWeapon({pose,alpha:1},0,false,rig);assert.equal(w.held,true);
   near(Math.hypot(w.grip.x-w.wrist.x,w.grip.y-w.wrist.y),length);
   const p=enemyPointToWorld(w.wrist,970,rig),q=enemyPointToWorld(w.wrist,1060,rig);near(q.x-p.x,90);near(q.y,p.y);
@@ -86,4 +86,13 @@ test('low-hit arm stays rigid and retains the same release transform at shared d
  near(low.wrist.x,shared.wrist.x);near(low.wrist.y,shared.wrist.y);
  const a=enemyWeapon({pose:6,alpha:1},499.999999,true,rig),b=enemyWeapon({pose:10,alpha:1},500,true,rig);
  near(a.grip.x,b.grip.x);near(a.grip.y,b.grip.y);
+});
+
+test('recovery arm keeps its grip and continuous local reach through both new keys',()=>{
+ for(const age of [260,340,420]){
+  const a=enemyArm({pose:14,alpha:1,reaction:'sweep'},age-1e-5,false,rig),b=enemyArm({pose:14,alpha:1,reaction:'sweep'},age+1e-5,false,rig);
+  assert.ok(Math.hypot(a.wrist.x-b.wrist.x,a.wrist.y-b.wrist.y)<.001);assert.equal(a.handState,'grip');
+ }
+ const low=enemyArm({pose:0,alpha:1,reaction:'sweep'},420,false,rig),guard=enemyArm({pose:0,alpha:1},420,false,rig);
+ near(low.wrist.x,guard.wrist.x);near(low.wrist.y,guard.wrist.y);
 });

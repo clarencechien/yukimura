@@ -10,7 +10,7 @@ export function solveArm(shoulder,target,upperLength,foreLength){
   return {shoulder,elbow,wrist,upperAngle:Math.atan2(elbow.y-shoulder.y,elbow.x-shoulder.x)*degrees-90,foreAngle:Math.atan2(wrist.y-elbow.y,wrist.x-elbow.x)*degrees-90};
 }
 function localTarget(age,dead,rig,low=false){
-  const keys=low?(dead?[[0,12],[110,13],[250,3],[330,4],[420,5],[500,6],[540,10],[580,11],[640,7],[720,8],[1000,9]]:[[0,12],[110,13],[260,12],[420,0]]):dead?[[0,0],[90,1],[180,2],[250,3],[330,4],[420,5],[500,6],[540,10],[580,11],[640,7],[720,8],[1000,9]]:[[0,0],[90,1],[160,2],[260,1],[360,0]];
+  const keys=low?(dead?[[0,12],[110,13],[250,3],[330,4],[420,5],[500,6],[540,10],[580,11],[640,7],[720,8],[1000,9]]:[[0,12],[110,13],[260,14],[340,15],[420,0]]):dead?[[0,0],[90,1],[180,2],[250,3],[330,4],[420,5],[500,6],[540,10],[580,11],[640,7],[720,8],[1000,9]]:[[0,0],[90,1],[160,2],[260,1],[360,0]];
   let a=keys[0],b=keys.at(-1);
   for(let i=1;i<keys.length;i++){if(age<keys[i][0]){a=keys[i-1];b=keys[i];break;}a=keys[i];}
   const t=b[0]===a[0]?0:Math.max(0,Math.min(1,(age-a[0])/(b[0]-a[0]))),blend=t*t*(3-2*t);

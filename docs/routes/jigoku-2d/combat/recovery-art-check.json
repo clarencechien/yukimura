@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "baselineCommit": "21d8b539b1a2abc9c38d2f0b8c0fdaf104cdf0aa",
+  "preservedCells": [
+    {
+      "resolution": "-hd",
+      "pose": 12,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    },
+    {
+      "resolution": "-hd",
+      "pose": 13,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    },
+    {
+      "resolution": "mobile",
+      "pose": 12,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    },
+    {
+      "resolution": "mobile",
+      "pose": 13,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    }
+  ],
+  "paths": {
+    "previous": {
+      "poses": [
+        13,
+        12,
+        0
+      ],
+      "shoulderStepsWorld": [
+        55.921174236598425,
+        30.1255453062679
+      ],
+      "soleStepsWorld": [
+        [
+          12.731999999999982,
+          0.09599999999998089
+        ],
+        [
+          41.121217880797246,
+          8.896403767815437
+        ]
+      ]
+    },
+    "current": {
+      "poses": [
+        13,
+        14,
+        15,
+        0
+      ],
+      "shoulderStepsWorld": [
+        45.753765484383884,
+        37.897552216469066,
+        11.851942625578312
+      ],
+      "soleStepsWorld": [
+        [
+          25.697279233413045,
+          0.44803571286226535
+        ],
+        [
+          10.807703918964465,
+          7.265710151113905
+        ],
+        [
+          8.828086089294793,
+          2.7749854053670413
+        ]
+      ]
+    }
+  },
+  "guardSoleMarkersHD": [
+    [
+      370,
+      688
+    ],
+    [
+      750,
+      675
+    ]
+  ],
+  "scope": "Manually registered shoulder and sole-center projections, world scale 0.6. Not pixel tracking, anatomical validation, no-slip feet or continuous torso animation. Original 14 bindings and shared component metadata unchanged."
+}

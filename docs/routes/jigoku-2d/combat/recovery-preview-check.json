@@ -1,0 +1,56 @@
+{
+  "baselineCommit": "21d8b539b1a2abc9c38d2f0b8c0fdaf104cdf0aa",
+  "beforeSource": "Decoded baseline combo-preview.gif, same sample indices as baseline combo-capture.json",
+  "afterSource": "Current actual Phaser PNG captures; downsampled to same 640x400 only for comparison",
+  "beforeSamples": [
+    54,
+    58,
+    62,
+    63
+  ],
+  "afterSamples": [
+    54,
+    59,
+    61,
+    63
+  ],
+  "afterRenderedBindings": [
+    {
+      "phase": "low-stagger",
+      "texture": "enemyLow",
+      "frame": 1,
+      "shoulder": {
+        "x": 843.904,
+        "y": 372.88
+      }
+    },
+    {
+      "phase": "leg-rise",
+      "texture": "enemyLow",
+      "frame": 2,
+      "shoulder": {
+        "x": 888.52,
+        "y": 362.74
+      }
+    },
+    {
+      "phase": "guard-settle",
+      "texture": "enemyLow",
+      "frame": 3,
+      "shoulder": {
+        "x": 902.512,
+        "y": 327.52
+      }
+    },
+    {
+      "phase": "guard",
+      "texture": "warrior",
+      "frame": 0,
+      "shoulder": {
+        "x": 913,
+        "y": 322
+      }
+    }
+  ],
+  "scope": "Static comparison of authored body poses, not optical flow or anatomy validation."
+}

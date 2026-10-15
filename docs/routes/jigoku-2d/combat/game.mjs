@@ -22,7 +22,7 @@ class Battle extends Phaser.Scene {
     this.hd=innerWidth>=900;
     this.load.json('sweepTrack','sweep-track.json');
     this.load.spritesheet('sweep',`sweep${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:3});
-    this.load.spritesheet('enemyLow',`enemy-low${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:1});
+    this.load.spritesheet('enemyLow',`enemy-low${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:3});
     this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:11});
     for(const clip of ['idle','thrust']){
       if(this.hd){

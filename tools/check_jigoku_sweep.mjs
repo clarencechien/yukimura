@@ -28,7 +28,7 @@ test('dead target rejects both attacks and has no combo window',()=>{
 test('low hit has its own recovery sequence and resets cleanly',()=>{
  const s=make();s.attack('sweep');const seen=[];
  for(let t=0;t<1600;t+=10){s.update(10);if(seen.at(-1)!==s.enemy.phase)seen.push(s.enemy.phase);}
- assert.deepEqual(seen,['guard','leg-flinch','low-stagger','leg-recover','guard']);assert.equal(s.hp,2);
+ assert.deepEqual(seen,['guard','leg-flinch','low-stagger','leg-rise','guard-settle','guard']);assert.equal(s.hp,2);
  s.reset();assert.equal(s.lastHitKind,null);s.attack();advance(s,550);assert.equal(s.enemy.phase,'flinch');assert.equal(s.lastHitKind,'thrust');
 });
 test('fatal low hit joins shared crouch and death sequence; no upper-body recoil',()=>{
@@ -39,4 +39,16 @@ test('fatal low hit joins shared crouch and death sequence; no upper-body recoil
 test('low-hit reaction freezes during hitstop and pause, clears on target change',()=>{
  const s=make();s.attack('sweep');while(!s.freeze)s.update(1);const before=s.enemy;s.update(40);assert.deepEqual(s.enemy,before);assert.equal(s.enemyAge,0);
  s.paused=true;advance(s,500);assert.deepEqual(s.enemy,before);s.paused=false;advance(s,1600);s.setTarget('seal');assert.equal(s.lastHitKind,null);assert.equal(s.enemy.phase,'guard');
+});
+
+test('both recovery poses show at 30 Hz without extending recovery and freeze on pause',()=>{
+ const s=make();s.enemyHit=true;s.lastHitKind='sweep';
+ for(let offset=0;offset<34;offset++){
+  const seen=new Set();for(let age=260+offset;age<420;age+=1000/30){s.enemyAge=age;seen.add(s.enemy.pose);}
+  assert.ok(seen.has(14)&&seen.has(15));
+ }
+ s.enemyAge=300;s.paused=true;s.update(100);assert.equal(s.enemy.pose,14);assert.equal(s.enemyAge,300);
+ s.paused=false;s.update(120);assert.equal(s.enemy.phase,'guard');
+ s.hp=0;s.enemyAge=300;assert.equal(s.enemy.phase,'crouch');
+ s.reset();assert.equal(s.enemy.phase,'guard');assert.equal(s.lastHitKind,null);
 });

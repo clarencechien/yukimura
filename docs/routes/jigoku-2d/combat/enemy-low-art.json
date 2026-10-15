@@ -10,9 +10,21 @@
     4
   ],
   "method": "One image_gen two-pose edit from existing body layers, keeping far weapon arm absent. Same .78 uniform scale and rear-sole registration; manually measured shoulder/wrist anchors. Reuses original arm, grip and katana components. No whole-body rotation, nonuniform scaling, crossfade, new Blender render or physical ragdoll. Armor, head projection and soles still vary.",
+  "recoverySource": {
+    "path": "assets/source/jigoku-2d/ghost-rig/low-recovery.png",
+    "sha256": "542490c42f56c56aa959720cc598e4975355920e9a785752fcb753f1eafb43ab",
+    "generatedFile": "exec-7988ca99-5e29-4083-828e-bc5fb973b26d.png",
+    "referenceCommit": "21d8b539b1a2abc9c38d2f0b8c0fdaf104cdf0aa",
+    "referenceFrames": [
+      13,
+      0
+    ],
+    "method": "Two authored recovery poses; uniform .82/.88 scales with manually registered sole/shoulder/wrist points. Replaces reverse playback of flinch with rise and guard-settle silhouettes. Original low-hit cells retained. No body warping or new Blender render."
+  },
   "poses": [
     {
       "pose": "leg-flinch",
+      "source": 0,
       "sourceBox": [
         0,
         0,
@@ -43,6 +55,7 @@
     },
     {
       "pose": "low-stagger",
+      "source": 0,
       "sourceBox": [
         887,
         0,
@@ -70,11 +83,75 @@
         1230,
         774
       ]
+    },
+    {
+      "pose": "leg-rise",
+      "source": 1,
+      "sourceBox": [
+        0,
+        0,
+        1086,
+        724
+      ],
+      "uniformScale": 0.82,
+      "pasteOffset": [
+        22,
+        137
+      ],
+      "rearSole": [
+        739.5,
+        686.4
+      ],
+      "frontSole": [
+        374.59999999999997,
+        686.4
+      ],
+      "sourceRearSole": [
+        875,
+        670
+      ],
+      "sourceFrontSole": [
+        430,
+        670
+      ]
+    },
+    {
+      "pose": "guard-settle",
+      "source": 1,
+      "sourceBox": [
+        1086,
+        0,
+        2172,
+        724
+      ],
+      "uniformScale": 0.88,
+      "pasteOffset": [
+        174,
+        90
+      ],
+      "rearSole": [
+        749.52,
+        679.6
+      ],
+      "frontSole": [
+        357.91999999999996,
+        679.6
+      ],
+      "sourceRearSole": [
+        1740,
+        670
+      ],
+      "sourceFrontSole": [
+        1295,
+        670
+      ]
     }
   ],
   "bindings": [
     12,
-    13
+    13,
+    14,
+    15
   ],
   "hdFrame": [
     1152,
@@ -84,8 +161,8 @@
     768,
     512
   ],
-  "hdRGBA8Bytes": 7077888,
-  "mobileRGBA8Bytes": 3145728,
+  "hdRGBA8Bytes": 14155776,
+  "mobileRGBA8Bytes": 6291456,
   "boundaryChecks": [
     {
       "resolution": "-hd",
@@ -108,6 +185,26 @@
       ]
     },
     {
+      "resolution": "-hd",
+      "pose": "leg-rise",
+      "worldBounds": [
+        820.6,
+        276.40000000000003,
+        1097.2,
+        577.0
+      ]
+    },
+    {
+      "resolution": "-hd",
+      "pose": "guard-settle",
+      "worldBounds": [
+        812.8,
+        240.40000000000003,
+        1099.6,
+        574.6
+      ]
+    },
+    {
       "resolution": "mobile",
       "pose": "leg-flinch",
       "worldBounds": [
@@ -125,6 +222,26 @@
         302.2,
         1090.6,
         578.5
+      ]
+    },
+    {
+      "resolution": "mobile",
+      "pose": "leg-rise",
+      "worldBounds": [
+        820.6,
+        276.1,
+        1097.8,
+        576.7
+      ]
+    },
+    {
+      "resolution": "mobile",
+      "pose": "guard-settle",
+      "worldBounds": [
+        812.5,
+        240.10000000000002,
+        1099.6,
+        574.9
       ]
     }
   ]

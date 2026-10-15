@@ -15,7 +15,7 @@
 <div class="controls"><button id="attack" class="primary" disabled>短刺 <kbd>J</kbd></button><button id="sweep" disabled>橫掃 <kbd>K</kbd></button><button id="pause" disabled>暫停</button><button id="reset" disabled>再戰鬼武者</button><label>對手 <select id="target" disabled><option value="warrior">燼關鬼武者</option><option value="seal">怨火封印</option></select></label><label>間合 <select id="range" disabled><option value="near">槍尖可及</option><option value="far">一步之外</option></select></label><button id="fullscreen">全螢幕</button></div>
 <div class="settings"><label><input id="feedback" type="checkbox" checked> 命中特效</label><label><input id="sound" type="checkbox"> 音效</label><label><input id="debug" type="checkbox"> 顯示槍尖判定</label><span id="score">命中 0 ／ 出槍 0</span></div>
 <p class="note">J 短刺、K 低位橫掃。短刺收槍時「接橫掃」亮起，按 K 可接第二招；每次只能預約一招。橫掃攻腿，碰不到懸空封印；「一步之外」會落空。手機可用下方按鈕，橫向或全螢幕能看清動作。</p>
-<footer>固定視角戰鬥試作 · <a href="../YARI_RIGID_MOTION.md">動作對照</a> · <a href="../README.md">美術設定</a><br>幸村待機與短刺為 Blender 預渲染貼圖，橫掃為六張姿勢（含共用起收勢）；鬼武者為十二張共用與兩張低掃受擊姿勢，本頁使用 Phaser 3.90。鬼武者受到短刺會後仰，受到低掃會屈膝失衡；致命時會鬆手脫刀與側身倒下；目前不會主動攻擊，尚無移動 AI 或完整關卡。</footer>
+<footer>固定視角戰鬥試作 · <a href="../YARI_RIGID_MOTION.md">動作對照</a> · <a href="../README.md">美術設定</a><br>幸村待機與短刺為 Blender 預渲染貼圖，橫掃為六張姿勢（含共用起收勢）；鬼武者為十二張共用與四張低掃受擊／回穩姿勢，本頁使用 Phaser 3.90。鬼武者受到短刺會後仰，受到低掃會屈膝失衡；致命時會鬆手脫刀與側身倒下；目前不會主動攻擊，尚無移動 AI 或完整關卡。</footer>
 </main>
 <script src="vendor/phaser-3.90.0.min.js"></script><script type="module" src="game.mjs"></script>
 </html>

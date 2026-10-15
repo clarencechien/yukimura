@@ -19,7 +19,8 @@ export class CombatState {
       if(age<110)return {pose:12,phase:'leg-flinch',alpha:1,reaction:'sweep'};
       if(age<(this.hp>0?260:250))return {pose:13,phase:'low-stagger',alpha:1,reaction:'sweep'};
       if(this.hp>0){
-        if(age<420)return {pose:12,phase:'leg-recover',alpha:1,reaction:'sweep'};
+        if(age<340)return {pose:14,phase:'leg-rise',alpha:1,reaction:'sweep'};
+        if(age<420)return {pose:15,phase:'guard-settle',alpha:1,reaction:'sweep'};
         return {pose:0,phase:'guard',alpha:1};
       }
     }
