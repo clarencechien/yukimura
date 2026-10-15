@@ -1,6 +1,16 @@
 {
   "passed": true,
   "scope": "12 body silhouettes in both atlases, alpha > 16, at near-range root (970,574) in 1200x750 viewport. Excludes separate arm/weapon layers; not a foot-slip or anatomy test.",
+  "manualSoleCenterStepsWorld": [
+    [
+      9.634111271933703,
+      30.35396619883471
+    ],
+    [
+      2.401686907155043,
+      1.749532508986355
+    ]
+  ],
   "checks": [
     {
       "atlas": "-hd",
@@ -36,10 +46,10 @@
       "atlas": "-hd",
       "pose": "buckle",
       "worldBounds": [
-        806.8,
-        304.0,
-        1110.4,
-        576.4
+        865.6,
+        281.2,
+        1091.2,
+        578.8
       ]
     },
     {
@@ -156,10 +166,10 @@
       "atlas": "mobile",
       "pose": "buckle",
       "worldBounds": [
-        806.2,
-        304.0,
-        1110.4,
-        576.7
+        865.6,
+        280.6,
+        1091.5,
+        579.4
       ]
     },
     {

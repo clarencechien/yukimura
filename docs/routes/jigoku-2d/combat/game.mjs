@@ -128,7 +128,9 @@ class Battle extends Phaser.Scene {
       // Small painted support-hand contact, separate from the broad body shadow.
       const contact=this.enemyRig.bindings[enemy.pose].supportContact;
       if(contact){const p=enemyPointToWorld({x:contact[0],y:contact[1]},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x030609,.4*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y-3,35,9);}
-      if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
+      const feet=this.enemyRig.bindings[enemy.pose].footContacts;
+      if(feet){for(const [x,y] of feet){const p=enemyPointToWorld({x,y},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y,55,12);}}
+      else if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
     }
     this.trail.clear();this.debug.clear();
     const tip=this.track.frames[this.state.frame];

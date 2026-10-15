@@ -19,6 +19,11 @@
       "path": "assets/source/jigoku-2d/ghost-rig/shoulder-refined.png",
       "sha256": "a73199b3ed2b9274d5fcf89f5aa1774c2b012df3450627595d0bb479c4e6109f",
       "generatedFile": "exec-acf88264-061d-4c09-a38e-7c76b93ab6c1.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/recoil-buckle.png",
+      "sha256": "5dc033021a73ee3e414f60f42b4c5a49ed7247b30647de674b323587d8cd822c",
+      "generatedFile": "exec-17f529c0-11a1-4b9e-9f13-1f1dd94f658e.png"
     }
   ],
   "method": "Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.",
@@ -34,6 +39,15 @@
     ]
   },
   "transitionMethod": "One image_gen consistency edit of the prior yield/sink frames, with brace/lower as size references. Smaller helmet/menpo, close-fitting shoulder armor, restrained brass and finer hand details. Uniform scales 0.87/0.84 align the manually inspected support-finger contact and rear-foot span. Repaint shifted anatomy, so shoulder/wrist anchors were remeasured. No runtime root translation, warp or crossfade; armor and knee contacts still vary.",
+  "recoilRefinement": {
+    "referenceCommit": "80c217c6c57c7aecd039604428f99afca13bb4f4",
+    "referenceFrames": [
+      3,
+      2,
+      4
+    ],
+    "method": "One image_gen redraw of the overly wide buckle stance, then one knee-flexion and near-hand revision. Replaces frame 3 only. Uniform 0.67 scale, manually measured shoulder/wrist and sole-center landmarks. No whole-body warp or simulated foot constraint. Initial draft exec-f42fc0e7-da36-406b-84df-8f4aaddc9d9e.png was too upright and is not used."
+  },
   "poses": [
     {
       "pose": "guard",
@@ -94,18 +108,18 @@
     },
     {
       "pose": "buckle",
-      "source": 2,
+      "source": 4,
       "sourceBox": [
         0,
         0,
-        1140,
-        724
+        1536,
+        1024
       ],
       "sourceAnchor": [
-        750,
-        690
+        760.5223880597015,
+        920
       ],
-      "uniformScale": 0.6666666666666666,
+      "uniformScale": 0.67,
       "alignedAnchor": [
         576,
         690

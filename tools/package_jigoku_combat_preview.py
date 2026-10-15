@@ -73,3 +73,30 @@ for y,name,label in [(0,'proportion-before.jpg','前輪 6100c07 · 頭盔與肩�
     ImageDraw.Draw(comparison).text((16,y+3),label,font=font,fill='#e0c9a2')
     comparison.paste(Image.open(OUT/name).convert('RGB'),(0,y+30))
 comparison.save(OUT/'proportion-comparison.jpg',quality=94)
+
+# Recoil study: three actual browser frames. Foot measurements use manually authored sole
+# centers projected through the same body transform, not tracked physical contacts.
+rig=json.loads((OUT/'enemy-rig.json').read_text())
+recoil=Image.new('RGB',(1152,480),'#1b2328')
+recoil_rows=[]
+for i,(phase,label) in enumerate([('hurt','後仰'),('buckle','重心下沉'),('crouch','屈膝')]):
+    row=next(r for r in rows if r['enemy']['phase']==phase)
+    crop=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB').crop((760,160,1200,650)).resize((384,428),Image.Resampling.LANCZOS)
+    recoil.paste(crop,(i*384,0))
+    ImageDraw.Draw(recoil).text((i*384+18,440),label,font=font,fill='#e0c9a2')
+    binding=rig['bindings'][row['enemy']['pose']]
+    recoil_rows.append({'phase':phase,'sample':row['sample'],'shoulder':row['renderedArm']['shoulder'],'soleCentersHD':binding['footContacts']})
+recoil.save(OUT/'recoil-after.jpg',quality=94)
+comparison=Image.new('RGB',(1152,1020),'#1b2328')
+for y,name,label in [(0,'recoil-before.jpg','前輪 80c217c · 中間幀站距突然加寬'),(510,'recoil-after.jpg','本輪 · 收窄站距、屈膝回正與雙腳接觸陰影')]:
+    ImageDraw.Draw(comparison).text((16,y+3),label,font=font,fill='#e0c9a2')
+    comparison.paste(Image.open(OUT/name).convert('RGB'),(0,y+30))
+comparison.save(OUT/'recoil-comparison.jpg',quality=94)
+old_feet=[[[461,688],[681,665]],[[350,678],[765,677]],[[448,684],[729,686]]]
+new_feet=[r['soleCentersHD'] for r in recoil_rows]
+foot_steps=lambda poses: [[sum((a-b)**2 for a,b in zip(poses[j][i],poses[j+1][i]))**.5*rig['worldScale'] for i in range(2)] for j in range(2)]
+report={'scope':'Manually inspected projected sole centers, not optical flow or a physical foot-lock measurement. Shoulder coordinates are actual runtime layer origins.',
+        'previousCommit':'80c217c6c57c7aecd039604428f99afca13bb4f4','previousSoleCentersHD':old_feet,
+        'previousFootStepsWorld':foot_steps(old_feet),'currentFootStepsWorld':foot_steps(new_feet),'samples':recoil_rows}
+(OUT/'recoil-check.json').write_text(json.dumps(report,indent=2)+'\n')
+print('Prepared three-pose recoil comparison and explicitly marked manual foot measurements.')

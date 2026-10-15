@@ -3,7 +3,7 @@ from pathlib import Path
 import json, hashlib
 from PIL import Image, ImageDraw, ImageFont
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'docs/routes/jigoku-2d/combat'
-sources=[ROOT/'assets/source/jigoku-2d/ghost-rig'/name for name in ['arm-bodies-a.png','arm-bodies-b.png','arm-bodies-c.png','shoulder-refined.png']]
+sources=[ROOT/'assets/source/jigoku-2d/ghost-rig'/name for name in ['arm-bodies-a.png','arm-bodies-b.png','arm-bodies-c.png','shoulder-refined.png','recoil-buckle.png']]
 images=[Image.open(p).convert('RGBA') for p in sources]
 # Inspected unequal rows: top figures extend below the nominal 512 px quadrant.
 # The new palm-braced silhouette lowers the helmet after the original kneeling pose.
@@ -11,7 +11,7 @@ poses=[
  ('guard',0,(0,0,740,595),(480,570),'戒備'),
  ('flinch',1,(0,0,765,595),(480,555),'輕受擊'),
  ('hurt',0,(740,0,1536,595),(1180,570),'後仰'),
- ('buckle',2,(0,0,1140,724),(750,690),'重心下沉'),
+ ('buckle',4,(0,0,1536,1024),(565+(576-445)/.67,920),'重心下沉'),
  ('crouch',1,(765,0,1536,595),(1270,535),'屈膝'),
  ('kneel',0,(0,595,740,1024),(485,955),'跪下'),
  ('brace',1,(0,595,765,1024),(500,955),'手掌承重'),
@@ -26,7 +26,7 @@ def alpha_mass(im):return sum(i*n for i,n in enumerate(im.getchannel('A').histog
 frames=[]; rows=[]
 for name,source_id,box,anchor,label in poses:
     crop=images[source_id].crop(box); frame=Image.new('RGBA',(1152,768))
-    scale={'yield':.87,'sink':.84}.get(name,2/3 if source_id==2 else 1)
+    scale={'yield':.87,'sink':.84,'buckle':.67}.get(name,2/3 if source_id==2 else 1)
     if scale!=1:crop=crop.resize((round(crop.width*scale),round(crop.height*scale)),Image.Resampling.LANCZOS)
     offset=(576-round((anchor[0]-box[0])*scale),690-round((anchor[1]-box[1])*scale))
     frame.alpha_composite(crop,offset); assert frame.getbbox()
@@ -44,10 +44,11 @@ for i,index in enumerate([0,1,2,3,4,5,6,10,11,7,8,9]):
     ImageDraw.Draw(preview).text(((i%3)*576+20,(i//3)*420+385),pose[-1],font=font,fill='#dac7aa')
 preview.save(OUT/'enemy-poses.jpg',quality=93)
 (OUT/'enemy-art.json').write_text(json.dumps({
- 'sources':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'generatedFile':generated} for p,generated in zip(sources,['exec-2fec5164-0ca5-40c3-8616-f0f413e7686d.png','exec-3f92b7d4-a205-40ff-9827-20759bcfee52.png','exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png','exec-acf88264-061d-4c09-a38e-7c76b93ab6c1.png'])],
+ 'sources':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'generatedFile':generated} for p,generated in zip(sources,['exec-2fec5164-0ca5-40c3-8616-f0f413e7686d.png','exec-3f92b7d4-a205-40ff-9827-20759bcfee52.png','exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png','exec-acf88264-061d-4c09-a38e-7c76b93ab6c1.png','exec-17f529c0-11a1-4b9e-9f13-1f1dd94f658e.png'])],
  'method':'Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.',
  'transitionReferenceCommit':'6100c076457a68c965b1474327b3a2739eb150bc','transitionReferenceFrames':{'targets':[10,11],'neighbors':[6,7]},
  'transitionMethod':'One image_gen consistency edit of the prior yield/sink frames, with brace/lower as size references. Smaller helmet/menpo, close-fitting shoulder armor, restrained brass and finer hand details. Uniform scales 0.87/0.84 align the manually inspected support-finger contact and rear-foot span. Repaint shifted anatomy, so shoulder/wrist anchors were remeasured. No runtime root translation, warp or crossfade; armor and knee contacts still vary.',
+ 'recoilRefinement':{'referenceCommit':'80c217c6c57c7aecd039604428f99afca13bb4f4','referenceFrames':[3,2,4],'method':'One image_gen redraw of the overly wide buckle stance, then one knee-flexion and near-hand revision. Replaces frame 3 only. Uniform 0.67 scale, manually measured shoulder/wrist and sole-center landmarks. No whole-body warp or simulated foot constraint. Initial draft exec-f42fc0e7-da36-406b-84df-8f4aaddc9d9e.png was too upright and is not used.'},
  'poses':rows,'hdFrame':[1152,768],'mobileFrame':[768,512],'atlasColumns':3,'atlasRows':4,'worldScaleFromHD':.6,'worldGroundY':574,'hdRGBA8Bytes':3456*3072*4,'mobileRGBA8Bytes':2304*2048*4},indent=2)+'\n')
 print('Prepared twelve enemy poses, HD/mobile atlases and inspection plate.')
 
@@ -80,8 +81,8 @@ for name,box,scale,pivot in [
 import math
 parts['grip']['axisDegrees']=math.degrees(math.atan2(parts['grip']['gripPoint'][1]-parts['grip']['pivot'][1],parts['grip']['gripPoint'][0]-parts['grip']['pivot'][0]))
 # Original desired sockets are retained as authoring targets, then constrained by two-bone IK.
-sockets=[(388,260),(316,285),(1051,282),(455,388),(1025,381),(300,828),(286,858),(1430,575),(965,895),(980,900),(272,580),(1389,588)]
-shoulders=[(385,150),(360,150),(1088,164),(520,230),(1090,260),(335,735),(335,748),(1350,440),(900,810),(930,815),(300,460),(1380,470)]
+sockets=[(388,260),(316,285),(1051,282),(560,570),(1025,381),(300,828),(286,858),(1430,575),(965,895),(980,900),(272,580),(1389,588)]
+shoulders=[(385,150),(360,150),(1088,164),(590,425),(1090,260),(335,735),(335,748),(1350,440),(900,810),(930,815),(300,460),(1380,470)]
 bindings=[]
 support_contacts={'brace':(384,965),'yield':(390,650),'sink':(1500,650),'lower':(1561,660)}
 for row,(x,y),(sx,sy) in zip(rows,sockets,shoulders):
@@ -91,6 +92,10 @@ for row,(x,y),(sx,sy) in zip(rows,sockets,shoulders):
         cx,cy=support_contacts[row['pose']]
         binding['supportContact']=[576+(cx-ax)*scale,690+(cy-ay)*scale]
         binding['sourceSupportContact']=[cx,cy]
+    if row['pose']=='buckle':
+        binding['footContacts']=[[576+(cx-ax)*scale,690+(cy-ay)*scale] for cx,cy in [(565,915),(985,916)]]
+    elif row['pose'] in ['hurt','crouch']:
+        binding['footContacts']={'hurt':[[461,688],[681,665]],'crouch':[[448,684],[729,686]]}[row['pose']]
     bindings.append(binding)
 rig={'parts':parts,'bindings':bindings,'armLengths':[65,75],'relaxAge':430,'releaseAge':500,'flightMs':280,'groundY':690,'worldScale':.6,'bodyOrigin':[576,690],
  'source':str(source.relative_to(ROOT)),'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'generatedFile':'exec-4eb8eba6-b48f-4afd-b737-7a200ae630a3.png',
