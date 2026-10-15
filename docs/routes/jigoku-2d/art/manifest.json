@@ -1,0 +1,45 @@
+{
+  "created_date": "2026-10-15",
+  "timezone": "Asia/Taipei",
+  "tool": "image_gen",
+  "branch": "art/jigoku-prerendered-2d",
+  "notes": "Native generated images; no upscale. Concepts only, not rendered game assets. Briefs in ../ART_BRIEFS.md.",
+  "images": [
+    {
+      "file": "01-battlefield-concept.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 3321214,
+      "sha256": "fdac3643e01f865a31e06c15e534be1534ab9275b97a91eb113fd9a1a6ecd12e",
+      "kind": "imagegen_concept_reference",
+      "transparent": false,
+      "blender_render": false,
+      "game_ready_sprite": false,
+      "reference_image": null
+    },
+    {
+      "file": "02-yukimura-model-reference.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2649443,
+      "sha256": "81f010c94669283a4ad536314ea9a73f1d1a25be8869aedb2d7063c6fb79b2e0",
+      "kind": "imagegen_concept_reference",
+      "transparent": false,
+      "blender_render": false,
+      "game_ready_sprite": false,
+      "reference_image": "01-battlefield-concept.png"
+    },
+    {
+      "file": "03-environment-model-reference.png",
+      "width": 1671,
+      "height": 941,
+      "bytes": 3277319,
+      "sha256": "7b67b20db2dec643a11a47f444227d991072cc20a159fa650ffe83e77a261d0c",
+      "kind": "imagegen_concept_reference",
+      "transparent": false,
+      "blender_render": false,
+      "game_ready_sprite": false,
+      "reference_image": "01-battlefield-concept.png"
+    }
+  ]
+}

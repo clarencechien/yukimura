@@ -53,3 +53,7 @@
 - [Rocketbox MIT 授權](../public/models/LICENSE-Rocketbox.txt)
 
 上游授權文件原文保留；文件整理不修改第三方授權。
+
+## 並行路線（2026-10-15）
+
+- [真田・六文劫：預渲染 2D 研究、文案與三張參考圖](routes/jigoku-2d/README.md)（獨立分支，未替換 v22）。
