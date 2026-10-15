@@ -1,5 +1,7 @@
 # 插畫 2.5D 補光：第一輪實際結果
 
+> 後續已完成 [持槍待機／短刺與三種補光](YARI_MOTION.md)。本文保留第一輪無武器站姿的實驗內容與限制。
+
 2026-10-15（Asia/Taipei），分支 `art/jigoku-prerendered-2d`。這輪使用插畫本身，沒有匯入舊 v22 人物模型。
 
 ![中性、暖火光、冷鬼火對照](relight/comparison.jpg)

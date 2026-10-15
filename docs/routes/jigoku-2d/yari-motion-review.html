@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>六文劫 · 赤槍初動</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#111518;color:#ece2d3}*{box-sizing:border-box}body{margin:0 auto;max-width:1200px;padding:28px}header{display:flex;align-items:center;justify-content:space-between;gap:20px}h1{font-family:serif;font-size:clamp(30px,5vw,52px);letter-spacing:.12em;margin:16px 0}h1 small{display:block;font:12px system-ui;letter-spacing:.2em;color:#b68e64;margin-top:12px}a{color:#dbb47b}p{color:#aeb5b6;line-height:1.8}button,select{font:inherit;background:#202a2f;color:#ece2d3;border:1px solid #596269;border-radius:4px;padding:10px 15px;cursor:pointer}button[aria-pressed=true]{background:#7c262c;border-color:#d68a74}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #f0c578;outline-offset:3px}.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0}.stage{max-width:1024px;margin:auto;position:relative;border:1px solid #3c3935;background:radial-gradient(ellipse at 40% 90%,#48292766,transparent 60%),linear-gradient(#10181e,#1c2327);border-radius:8px;overflow:hidden}.stage:after{content:'六文不渡 · 赤槍開路';position:absolute;right:18px;bottom:15px;letter-spacing:.2em;font-family:serif;color:#a1927c;font-size:12px;pointer-events:none}canvas{display:block;width:100%;height:auto}.badge{position:absolute;top:15px;left:18px;font:12px monospace;color:#c5b799;pointer-events:none}.timeline button{flex-shrink:0;white-space:nowrap}.timeline{display:flex;gap:14px;align-items:center;margin:18px 0}input[type=range]{width:100%;accent-color:#c05c51}output{font-variant-numeric:tabular-nums;white-space:nowrap}.note{font-size:14px;max-width:900px}.stills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}.stills a{display:block;background:#20282c;text-decoration:none;font-size:14px;padding:8px}.stills img{display:block;width:100%;height:auto}footer{padding:25px 0;color:#919b9e;font-size:13px;line-height:1.8}#status{min-height:25px}label{font-size:14px;color:#bcc2c3}@media(max-width:600px){body{padding:16px}.stills{grid-template-columns:repeat(2,minmax(0,1fr))}.controls{gap:8px}button,select{padding:10px}header{display:block}}
+</style>
+<header><h1>赤槍初動<small>SANADA · ILLUSTRATION MOTION STUDY 01</small></h1><a href="YARI_MOTION.md">製作與素材說明</a></header>
+<p>幸村持十文字槍。固定插畫、小幅蓄勢與突刺；切換補光，檢查同一個動作。</p>
+<div class="controls" aria-label="動作選擇"><button data-clip="thrust" aria-pressed="true">蓄勢・短刺・收槍</button><button data-clip="idle" aria-pressed="false">持槍待機</button><label>補光 <select id="light"><option value="warm-left">左暖火光</option><option value="neutral">中性原畫</option><option value="cool-right">右冷鬼火</option></select></label><label>速度 <select id="speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label></div>
+<div class="stage"><span class="badge" id="phase">載入素材</span><canvas id="canvas" width="512" height="320" role="img" aria-label="幸村持槍動畫；可暫停並拖動下方時間軸"></canvas></div>
+<div class="timeline"><button id="play" aria-pressed="true">暫停</button><input id="scrub" type="range" min="0" max="23" value="0" step="1" aria-label="動畫影格"><output id="counter">01 / 24</output></div>
+<p id="status" aria-live="polite">正在載入透明動畫圖集…</p>
+<p class="note">這是單一方向的動作試作。雙手和槍桿共用位移，腳底固定；還沒有翻身、換手或大幅揮槍。補光先由 Blender 烘焙，再與原畫一起變形。</p>
+<div class="stills">
+<a href="yari-motion/warm-left-01.png"><img src="yari-motion/warm-left-01.png" alt="持槍原姿勢" loading="lazy">持槍・大圖</a>
+<a href="yari-motion/warm-left-08.png"><img src="yari-motion/warm-left-08.png" alt="蓄勢姿勢" loading="lazy">蓄勢・大圖</a>
+<a href="yari-motion/warm-left-10.png"><img src="yari-motion/warm-left-10.png" alt="短刺姿勢" loading="lazy">短刺・大圖</a>
+<a href="yari-motion/warm-left-18.png"><img src="yari-motion/warm-left-18.png" alt="收槍姿勢" loading="lazy">收槍・大圖</a>
+</div>
+<footer>手機載入 512 × 320；桌機載入 1024 × 640 透明幀，20 fps；放大檢查請開啟大圖。圖集與影格資料可接入 2D 引擎，本頁是 Canvas 素材檢視器，尚未替換正式遊戲。<br><a href="yari-motion/atlas-manifest.json">圖集清單</a> · <a href="yari-motion/validation.json">檢查紀錄</a> · <a href="yari-motion/thrust-preview.gif">GIF 預覽</a></footer>
+<script type="module">
+const $=s=>document.querySelector(s),canvas=$('#canvas'),ctx=canvas.getContext('2d');
+const hd=innerWidth>=700,fw=hd?1024:512,fh=hd?640:320,cols=hd?4:6;canvas.width=fw;canvas.height=fh;canvas.dataset.quality=hd?'desktop':'mobile';
+let clip='thrust',light='warm-left',frame=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,speed=1,image=null,requestId=0,previous=0,accumulator=0;
+function syncPlay(){$('#play').textContent=playing?'暫停':'播放';$('#play').setAttribute('aria-pressed',String(playing));}
+function draw(){ctx.clearRect(0,0,fw,fh);if(image)ctx.drawImage(image,(frame%cols)*fw,Math.floor(frame/cols)*fh,fw,fh,0,0,fw,fh);$('#scrub').value=frame;$('#counter').textContent=`${String(frame+1).padStart(2,'0')} / 24`;$('#phase').textContent=clip==='idle'?'持槍待機':frame<4?'持槍':frame<9?'蓄勢':frame<11?'短刺・接觸停頓':'收槍';canvas.dataset.frame=String(frame);canvas.dataset.clip=clip;canvas.dataset.light=light;}
+async function load(){const id=++requestId;image=null;draw();$('#status').textContent='正在載入透明動畫圖集…';try{const next=new Image();next.src=`yari-motion/${clip}-${light}${hd?'-hd':''}.webp`;await next.decode();if(id!==requestId)return;image=next;accumulator=0;draw();$('#status').textContent='24 幀 / 20 fps · 可暫停、逐幀檢查握持與輪廓';}catch(e){if(id===requestId)$('#status').textContent='圖集載入失敗，請重新整理或開啟下方 GIF 預覽。';}}
+for(const b of document.querySelectorAll('[data-clip]'))b.onclick=()=>{clip=b.dataset.clip;frame=0;for(const c of document.querySelectorAll('[data-clip]'))c.setAttribute('aria-pressed',String(c===b));load();};
+$('#light').onchange=e=>{light=e.target.value;load();};$('#speed').onchange=e=>speed=Number(e.target.value);
+$('#play').onclick=()=>{playing=!playing;accumulator=0;syncPlay();};$('#scrub').oninput=e=>{playing=false;syncPlay();frame=Number(e.target.value);draw();};
+function tick(now){const dt=Math.min(now-previous,100);previous=now;if(playing&&image){accumulator+=dt*speed;const steps=Math.floor(accumulator/50);if(steps){frame=(frame+steps)%24;accumulator%=50;draw();}}requestAnimationFrame(tick);}
+syncPlay();load();requestAnimationFrame(tick);
+</script>
+</html>

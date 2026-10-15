@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "frameSize": [
+    512,
+    320
+  ],
+  "fps": 20,
+  "framesPerClip": 24,
+  "direction": "single source view, facing screen-right",
+  "pivot": {
+    "x": 0.5,
+    "y": 0.85
+  },
+  "pivotNote": "Stable canvas anchor. No root motion. Weapon-tip markers are reference data, not a collision system.",
+  "gpuBytesPerAtlasRGBA8": 15728640,
+  "gpuBytesWithMipmapsApprox": 20971520,
+  "atlases": [
+    {
+      "clip": "thrust",
+      "light": "neutral",
+      "image": "thrust-neutral.webp",
+      "data": "thrust-neutral.json",
+      "bytes": 1328546,
+      "sha256": "350f88063aa2532fdf571831297ae6d0d2cddb0d31222c79dc433b9a3fa2d7f4"
+    },
+    {
+      "clip": "idle",
+      "light": "neutral",
+      "image": "idle-neutral.webp",
+      "data": "idle-neutral.json",
+      "bytes": 1300554,
+      "sha256": "fa07d7daca41aec0bd01d0909906123a27fa6cac249c2ddd7fae9b6517729f3b"
+    },
+    {
+      "clip": "thrust",
+      "light": "warm-left",
+      "image": "thrust-warm-left.webp",
+      "data": "thrust-warm-left.json",
+      "bytes": 1387498,
+      "sha256": "2d6e3dbb43ab9c6d725614d8d80e82dbe79a31abbdd003eb44d078512420293a"
+    },
+    {
+      "clip": "idle",
+      "light": "warm-left",
+      "image": "idle-warm-left.webp",
+      "data": "idle-warm-left.json",
+      "bytes": 1347660,
+      "sha256": "ee809262ee69903924357bfa8c3c753f2e1a0e21cbd8f8d5c96f8af5a3caeda4"
+    },
+    {
+      "clip": "thrust",
+      "light": "cool-right",
+      "image": "thrust-cool-right.webp",
+      "data": "thrust-cool-right.json",
+      "bytes": 1357956,
+      "sha256": "8364637ee8086e1c3df06c865c7f1a004f901b563c62023d7753a40ef5547a30"
+    },
+    {
+      "clip": "idle",
+      "light": "cool-right",
+      "image": "idle-cool-right.webp",
+      "data": "idle-cool-right.json",
+      "bytes": 1318544,
+      "sha256": "faa8a2f3438defc804636a00955a885c364e0acb02fc05e62566bf5dbdd71fc8"
+    }
+  ],
+  "clips": {
+    "idle": {
+      "loop": true
+    },
+    "thrust": {
+      "loop": false,
+      "contactFramesZeroBased": [
+        9,
+        10
+      ],
+      "durationMs": 1200
+    }
+  },
+  "desktopAtlases": [
+    {
+      "clip": "thrust",
+      "light": "neutral",
+      "image": "thrust-neutral-hd.webp",
+      "data": "thrust-neutral-hd.json",
+      "bytes": 4719934,
+      "sha256": "305226f78ec69209b9ab5317fbf48c800a7c0a8ef5d9f6d2ae62f53384981a97"
+    },
+    {
+      "clip": "idle",
+      "light": "neutral",
+      "image": "idle-neutral-hd.webp",
+      "data": "idle-neutral-hd.json",
+      "bytes": 4819598,
+      "sha256": "c2bdd8dc694ea184d29e1c8a2a1d212c1c2b78fd10caa7a316a52b30b81e55cc"
+    },
+    {
+      "clip": "thrust",
+      "light": "warm-left",
+      "image": "thrust-warm-left-hd.webp",
+      "data": "thrust-warm-left-hd.json",
+      "bytes": 4902182,
+      "sha256": "693ec0e1a9bec54591b65f6ed4ab120f6680f243ea38320e3906486443847106"
+    },
+    {
+      "clip": "idle",
+      "light": "warm-left",
+      "image": "idle-warm-left-hd.webp",
+      "data": "idle-warm-left-hd.json",
+      "bytes": 5003552,
+      "sha256": "38c20a5d0aac7c4ea3b154233b0b83c1158c0ea5ea93d87fe90dc7258377dda5"
+    },
+    {
+      "clip": "thrust",
+      "light": "cool-right",
+      "image": "thrust-cool-right-hd.webp",
+      "data": "thrust-cool-right-hd.json",
+      "bytes": 4791972,
+      "sha256": "6df31db74765b5211c1f7a81315e912d328fa31a832a3714f2c65dd83358952e"
+    },
+    {
+      "clip": "idle",
+      "light": "cool-right",
+      "image": "idle-cool-right-hd.webp",
+      "data": "idle-cool-right-hd.json",
+      "bytes": 4911698,
+      "sha256": "cb68afac1243acbe0ed74a3fe6a3606319ed9e0cdf34e843fcf473b7f45ebfad"
+    }
+  ],
+  "desktopFrameSize": [
+    1024,
+    640
+  ],
+  "desktopGPUBytesPerAtlasRGBA8": 62914560
+}

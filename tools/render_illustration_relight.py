@@ -6,13 +6,19 @@ lighting to existing painted illumination; it is not intrinsic decomposition.
 
 blender -b -t 4 --python-exit-code 1 --python tools/render_illustration_relight.py
 """
-import bpy, json, math, time, hashlib
+import bpy, json, math, time, hashlib, argparse, sys
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[1]
-SOURCE=ROOT/'assets/source/jigoku-2d/yukimura-illustration-cutout.png'
-CONFIG=ROOT/'assets/source/jigoku-2d/relight-surfaces.json'
-OUT=ROOT/'docs/routes/jigoku-2d/relight';OUT.mkdir(parents=True,exist_ok=True)
+parser=argparse.ArgumentParser()
+parser.add_argument('--source',default='assets/source/jigoku-2d/yukimura-illustration-cutout.png')
+parser.add_argument('--surfaces',default='assets/source/jigoku-2d/relight-surfaces.json')
+parser.add_argument('--output',default='docs/routes/jigoku-2d/relight')
+parser.add_argument('--scene',default='assets/optimized/jigoku-2d/illustration-relight.blend')
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+SOURCE=ROOT/args.source
+CONFIG=ROOT/args.surfaces
+OUT=ROOT/args.output;OUT.mkdir(parents=True,exist_ok=True)
 TMP=ROOT/'.tmp/jigoku-relight';TMP.mkdir(parents=True,exist_ok=True)
 config=json.loads(CONFIG.read_text())
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -107,6 +113,6 @@ for name,frame,*_ in presets:
     (OUT/'render-report.json').write_text(json.dumps(report,indent=2)+'\n')
 scene.frame_set(2);scene.render.filepath=str(OUT/'warm-left.png')
 block=bpy.data.texts.new('README - illustration relight');block.write('Original illustration + manual shallow relief + bounded light gain. Frames 1/2/3: neutral/warm/cool. Do not rotate camera expecting a full body. Rebuild script recalculates the neutral reference if geometry changes. No v22 mesh is used.\n')
-target=ROOT/'assets/optimized/jigoku-2d/illustration-relight.blend';target.parent.mkdir(parents=True,exist_ok=True);bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(target),compress=True)
+target=ROOT/args.scene;target.parent.mkdir(parents=True,exist_ok=True);bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(target),compress=True)
 report['scene']=str(target.relative_to(ROOT));report['scene_sha256']=hashlib.sha256(target.read_bytes()).hexdigest();(OUT/'render-report.json').write_text(json.dumps(report,indent=2)+'\n')
 print('ILLUSTRATION_RELIGHT_DONE',flush=True)

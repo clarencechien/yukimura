@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "Rendered sprite visible; scrub changes actual canvas pixels.",
+    "Play advances frames; pause and scrub operate.",
+    "thrust: all 3 light atlases load, change RGB, preserve frame alpha.",
+    "idle: all 3 light atlases load, change RGB, preserve frame alpha.",
+    "HD stills load; desktop 1440x1100 and mobile 390x844 have no overflow.",
+    "Reduced-motion preference starts paused.",
+    "No page errors or failed asset requests."
+  ],
+  "scope": "Canvas illustration viewer only; not mobile game FPS or Phaser integration."
+}
