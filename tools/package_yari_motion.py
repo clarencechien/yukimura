@@ -3,7 +3,7 @@
 Pillow only downsizes/composites/packages actual rendered frames. No image AI.
 """
 from pathlib import Path
-import json, hashlib
+import json, hashlib, subprocess
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
@@ -11,9 +11,11 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'docs/routes/jigoku-2d/yari-motion'
 TMP=ROOT/'.tmp/yari-motion'
 PRESETS=['neutral','warm-left','cool-right']
-CLIPS={'thrust':(1,24),'idle':(25,48)}
+FPS, COUNT = 30, 36
+CLIPS={'thrust':(1,36),'idle':(37,72)}
 W,H=512,320
 report=json.loads((OUT/'motion-report.json').read_text())
+assert report['fps']==FPS and report['frames_per_clip']==COUNT and len(report['frames'])==72
 assert report['source_sha256']==hashlib.sha256((ROOT/report['source']).read_bytes()).hexdigest()
 assert report['scene_sha256']==hashlib.sha256((ROOT/report['scene']).read_bytes()).hexdigest()
 source=np.array(Image.open(ROOT/report['source']))
@@ -26,13 +28,13 @@ for preset in PRESETS:
     else:assert difference.mean()>1
     light_checks.append({'preset':preset,'source_alpha_exact':True,'mean_RGB_difference_from_source':float(difference.mean()),'max_RGB_difference':int(difference.max())})
 
-manifest={'version':1,'frameSize':[W,H],'fps':20,'framesPerClip':24,'direction':'single source view, facing screen-right',
+manifest={'version':2,'frameSize':[W,H],'fps':FPS,'framesPerClip':COUNT,'direction':'single source view, facing screen-right',
           'pivot':{'x':.5,'y':.85},'pivotNote':'Stable canvas anchor. No root motion. Weapon-tip markers are reference data, not a collision system.',
-          'gpuBytesPerAtlasRGBA8':3072*1280*4,'gpuBytesWithMipmapsApprox':round(3072*1280*4*4/3),
-          'atlases':[],'clips':{'idle':{'loop':True},'thrust':{'loop':False,'contactFramesZeroBased':[9,10],'durationMs':1200}}}
+          'gpuBytesPerAtlasRGBA8':3072*1920*4,'gpuBytesWithMipmapsApprox':round(3072*1920*4*4/3),
+          'atlases':[],'clips':{'idle':{'loop':True},'thrust':{'loop':False,'contactFramesZeroBased':[14,15],'durationMs':1200}}}
 frames={};checks=[]
 for preset in PRESETS:
-    frames[preset]=[Image.open(TMP/preset/f'{i:03}.png').convert('RGBA') for i in range(1,49)]
+    frames[preset]=[Image.open(TMP/preset/f'{i:03}.png').convert('RGBA') for i in range(1,73)]
     for i,im in enumerate(frames[preset]):
         assert im.size==(W,H)
         a=np.array(im)[:,:,3]
@@ -43,7 +45,9 @@ for preset in PRESETS:
         images=frames[preset][start-1:end]
         assert np.array_equal(np.array(images[0]),np.array(images[-1])),(preset,clip,'loop seam')
         assert np.mean(np.abs(np.array(images[0]).astype(float)-np.array(images[9]).astype(float)))>.05
-        atlas=Image.new('RGBA',(W*6,H*4))
+        distinct=len({hashlib.sha256(im.tobytes()).hexdigest() for im in images})
+        if clip=='thrust':assert distinct>24, 'Must render new in-between poses, not duplicate 24 old frames'
+        atlas=Image.new('RGBA',(W*6,H*6))
         name=f'{clip}-{preset}'
         entries={}
         for i,im in enumerate(images):
@@ -55,18 +59,19 @@ for preset in PRESETS:
         decoded=np.array(Image.open(file).convert('RGBA'));original=np.array(atlas)
         assert np.array_equal(decoded[:,:,3],original[:,:,3])
         mask=original[:,:,3]>0;assert np.array_equal(decoded[:,:,:3][mask],original[:,:,:3][mask])
-        metadata={'frames':entries,'meta':{'app':'Yukimura illustration study','image':name+'.webp','format':'RGBA8888','size':{'w':W*6,'h':H*4},'scale':'1'}}
+        metadata={'frames':entries,'meta':{'app':'Yukimura illustration study','image':name+'.webp','format':'RGBA8888','size':{'w':W*6,'h':H*6},'scale':'1'}}
         (OUT/(name+'.json')).write_text(json.dumps(metadata,indent=2)+'\n')
         manifest['atlases'].append({'clip':clip,'light':preset,'image':name+'.webp','data':name+'.json','bytes':file.stat().st_size,'sha256':hashlib.sha256(file.read_bytes()).hexdigest()})
-        checks.append({'clip':clip,'light':preset,'frameCount':24,'closed_loop':True,'visible_motion':True,'webp_lossless_foreground':True})
+        checks.append({'clip':clip,'light':preset,'frameCount':COUNT,'distinctFrames':distinct,'closed_loop':True,'visible_motion':True,'webp_lossless_foreground':True})
 (OUT/'atlas-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 
 # Larger optional atlases for desktop review. Do not load these on mobile by default.
 manifest['desktopAtlases']=[]
 manifest['desktopFrameSize']=[1024,640]
-manifest['desktopGPUBytesPerAtlasRGBA8']=4096*3840*4
+manifest['desktopGPUBytesPerClipRGBA8']=4096*(3840+1920)*4
+manifest['desktopMaxPageSize']=[4096,3840]
 for preset in PRESETS:
-    hd=[Image.open(TMP/(preset+'-hd')/f'{i:03}.png').convert('RGBA') for i in range(1,49)]
+    hd=[Image.open(TMP/(preset+'-hd')/f'{i:03}.png').convert('RGBA') for i in range(1,73)]
     for im in hd:
         assert im.size==(1024,640)
         a=np.array(im)[:,:,3]
@@ -74,27 +79,44 @@ for preset in PRESETS:
     for clip,(start,end) in CLIPS.items():
         images=hd[start-1:end]
         assert np.array_equal(np.array(images[0]),np.array(images[-1]))
-        name=f'{clip}-{preset}-hd';atlas=Image.new('RGBA',(4096,3840));entries={}
-        for i,im in enumerate(images):
-            x,y=(i%4)*1024,(i//4)*640;atlas.paste(im,(x,y))
-            entries[f'{clip}-{i:02}']={'frame':{'x':x,'y':y,'w':1024,'h':640},'rotated':False,'trimmed':False,
-                'spriteSourceSize':{'x':0,'y':0,'w':1024,'h':640},'sourceSize':{'w':1024,'h':640},'pivot':manifest['pivot']}
-        file=OUT/(name+'.webp');atlas.save(file,lossless=True,method=4)
-        decoded=np.array(Image.open(file).convert('RGBA'));original=np.array(atlas);mask=original[:,:,3]>0
-        assert np.array_equal(decoded[:,:,3],original[:,:,3]) and np.array_equal(decoded[:,:,:3][mask],original[:,:,:3][mask])
-        (OUT/(name+'.json')).write_text(json.dumps({'frames':entries,'meta':{'image':name+'.webp','format':'RGBA8888','size':{'w':4096,'h':3840},'scale':'1'}},indent=2)+'\n')
-        manifest['desktopAtlases'].append({'clip':clip,'light':preset,'image':name+'.webp','data':name+'.json','bytes':file.stat().st_size,'sha256':hashlib.sha256(file.read_bytes()).hexdigest()})
+        pages=[]
+        for first in [0,24]:
+            chunk=images[first:first+24]
+            name=f'{clip}-{preset}-hd'+('-2' if first else '')
+            height=((len(chunk)+3)//4)*640
+            atlas=Image.new('RGBA',(4096,height));entries={}
+            for i,im in enumerate(chunk):
+                x,y=(i%4)*1024,(i//4)*640;atlas.paste(im,(x,y))
+                entries[f'{clip}-{first+i:02}']={'frame':{'x':x,'y':y,'w':1024,'h':640},'rotated':False,'trimmed':False,
+                    'spriteSourceSize':{'x':0,'y':0,'w':1024,'h':640},'sourceSize':{'w':1024,'h':640},'pivot':manifest['pivot']}
+            file=OUT/(name+'.webp');atlas.save(file,lossless=True,method=4)
+            decoded=np.array(Image.open(file).convert('RGBA'));original=np.array(atlas);mask=original[:,:,3]>0
+            assert np.array_equal(decoded[:,:,3],original[:,:,3]) and np.array_equal(decoded[:,:,:3][mask],original[:,:,:3][mask])
+            (OUT/(name+'.json')).write_text(json.dumps({'frames':entries,'meta':{'image':name+'.webp','format':'RGBA8888','size':{'w':4096,'h':height},'scale':'1'}},indent=2)+'\n')
+            pages.append({'firstFrame':first,'frameCount':len(chunk),'image':name+'.webp','data':name+'.json','bytes':file.stat().st_size,'sha256':hashlib.sha256(file.read_bytes()).hexdigest()})
+        manifest['desktopAtlases'].append({'clip':clip,'light':preset,'pages':pages})
 (OUT/'atlas-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 
 # GitHub supports this GIF inline. It is a small review proxy, not game art.
 preview=[]
-for im in frames['warm-left'][:24]:
+for im in frames['warm-left'][:COUNT]:
     bg=Image.new('RGBA',(W,H),'#161b20');bg.alpha_composite(im);preview.append(bg.convert('RGB'))
-palette=Image.new('RGB',(W*6,H*4))
+palette=Image.new('RGB',(W*6,H*6))
 for i,im in enumerate(preview):palette.paste(im,((i%6)*W,(i//6)*H))
 palette=palette.quantize(colors=256)
 gifs=[im.quantize(palette=palette,dither=Image.Dither.NONE) for im in preview]
-gifs[0].save(OUT/'thrust-preview.gif',save_all=True,append_images=gifs[1:],duration=50,loop=0,disposal=2,optimize=False)
+gifs[0].save(OUT/'thrust-preview.gif',save_all=True,append_images=gifs[1:],duration=[30,30,40]*12,loop=0,disposal=2,optimize=False)
+
+# GIF timing is centisecond-quantized; MP4 is the exact constant-30-fps preview.
+video_frames=TMP/'video-30';video_frames.mkdir(exist_ok=True)
+for i,im in enumerate(preview):im.save(video_frames/f'{i:03}.png')
+subprocess.run(['ffmpeg','-y','-loglevel','error','-framerate',str(FPS),'-i',str(video_frames/'%03d.png'),'-frames:v',str(COUNT),'-c:v','libx264','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',str(OUT/'thrust-preview-30fps.mp4')],check=True)
+video=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=avg_frame_rate,nb_frames,duration','-of','json',str(OUT/'thrust-preview-30fps.mp4')]))['streams'][0]
+assert video['avg_frame_rate']=='30/1' and int(video['nb_frames'])==COUNT and abs(float(video['duration'])-1.2)<.001
+with Image.open(OUT/'thrust-preview.gif') as gif:
+    durations=[]
+    for i in range(gif.n_frames):gif.seek(i);durations.append(gif.info['duration'])
+    assert sum(durations)==1200
 
 fontfile='/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc'
 def font(n):return ImageFont.truetype(fontfile,n)
@@ -109,7 +131,7 @@ for i,(f,label) in enumerate([(1,'持槍'),(8,'蓄勢'),(10,'短刺'),(18,'收�
     sheet.alpha_composite(im,(i*384,510));d.text((i*384+26,770),label,font=font(22),fill='#eddbc5')
 d.text((30,846),'單方向試作 / 腳底固定 / 小幅動作 / 尚未接入正式遊戲',font=font(20),fill='#a5afb2')
 sheet.convert('RGB').save(OUT/'comparison.jpg',quality=94)
-validation={'passed':True,'framesChecked':288,'allFramesUncropped':True,'matchingAlphaAcrossLightsAt512':True,
+validation={'passed':True,'framesChecked':432,'fps':FPS,'framesPerClip':COUNT,'video':video,'allFramesUncropped':True,'matchingAlphaAcrossLightsAt512':True,
     'lighting':light_checks,'clips':checks,'minTriangleAreaRatio':min(f['min_triangle_area_ratio'] for f in report['frames']),
     'maxGripTranslationErrorSourcePixels':max(f['weapon_hand_translation_error_source_px'] for f in report['frames']),
     'maxFootAnchorDriftSourcePixels':max(f['foot_anchor_drift_source_px'] for f in report['frames']),

@@ -15,6 +15,10 @@ W, H = 1536, 1024
 NX, NY = 256, 172
 SCALE = 512  # source pixels per Blender world unit
 FRAME_SIZE = (512, 320)
+FPS, FRAMES_PER_CLIP = 30, 36
+def retime(frame):
+    return 1 + (frame - 1) * FPS / 20
+
 PRESETS = ['neutral', 'warm-left', 'cool-right']
 
 def smooth(a, b, x):
@@ -79,12 +83,12 @@ curves={'Thrust':[(1,0),(5,-.28),(8,-.32),(10,1),(11,1),(14,.65),(18,.16),(24,0)
         'Cloth':[(1,0),(8,-.12),(10,0),(13,1),(18,-.25),(24,0),(25,0),(31,.15),(37,0),(43,-.15),(48,0)]}
 for name,points in curves.items():
     for frame,value in points:
-        keys[name].value=value;keys[name].keyframe_insert('value',frame=frame)
+        keys[name].value=value;keys[name].keyframe_insert('value',frame=retime(frame))
 for fc in mesh.shape_keys.animation_data.action.fcurves:
     for k in fc.keyframe_points:
         k.interpolation='BEZIER';k.handle_left_type=k.handle_right_type='AUTO_CLAMPED'
 for label,frame in [('ready',1),('windup',8),('thrust / contact',10),('recover',18),('idle start',25)]:
-    scene.timeline_markers.new(label,frame=frame)
+    scene.timeline_markers.new(label,frame=round(retime(frame)))
 
 mat=bpy.data.materials.new('Cached Blender light plate - illustration emission');mat.use_nodes=True
 n=mat.node_tree.nodes;l=mat.node_tree.links;n.clear()
@@ -106,7 +110,7 @@ scene.render.film_transparent=True;scene.render.threads_mode='FIXED';scene.rende
 scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA';scene.render.image_settings.color_depth='8'
 scene.render.resolution_percentage=100;scene.render.pixel_aspect_x=scene.render.pixel_aspect_y=1
 scene.view_settings.view_transform='Standard';scene.view_settings.look='None';scene.view_settings.exposure=0;scene.view_settings.gamma=1
-scene.frame_start=1;scene.frame_end=48;scene.render.fps=20
+scene.frame_start=1;scene.frame_end=72;scene.render.fps=FPS
 
 # Validate the evaluated cage at EVERY exported frame: no inverted triangles,
 # both hands/shaft translate together, feet stay planted. Not anatomical IK.
@@ -119,14 +123,14 @@ base_area=areas(points)
 deltas={k:np.array([displacement(x,y,k) for x,y in pixels]) for k in curves}
 report={'method':'one illustration, continuous 2D deformation cage, rigid shared grip/shaft translation; cached Blender lighting plates',
         'not_anatomical_ik':True,'device':'CPU','blender':bpy.app.version_string,'source_size':[W,H],
-        'frame_size':list(FRAME_SIZE),'fps':20,'clips':{'thrust':[1,24],'idle':[25,48]},
+        'frame_size':list(FRAME_SIZE),'fps':FPS,'frames_per_clip':FRAMES_PER_CLIP,'duration_ms':1200,'retiming':'Original 20 fps key times multiplied by 1.5; re-evaluated and rendered, not repeated frames or faster playback.','clips':{'thrust':[1,36],'idle':[37,72]},
         'source':'assets/source/jigoku-2d/yukimura-yari-ready.png',
         'source_sha256':hashlib.sha256((ROOT/'assets/source/jigoku-2d/yukimura-yari-ready.png').read_bytes()).hexdigest(),
         'frames':[],'limits':['One fixed source view; no reconstructed back side.',
         'Small planar thrust only; no skeletal IK, independent fingers, sliding grip or large shoulder rotation.',
         'Lighting baked in source pose, not recalculated on a 3D animated body.',
         'Painted original shadows remain. The source view is shallow three-quarter, not a calibrated isometric camera.']}
-for frame in range(1,49):
+for frame in range(1,73):
     scene.frame_set(frame);values={k:keys[k].value for k in curves}
     deformed=points+sum(deltas[k]*values[k] for k in curves)
     ratio=areas(deformed)/base_area
@@ -143,24 +147,24 @@ start=time.perf_counter()
 for preset in PRESETS:
     tex.image=plates[preset];folder=TMP/preset;folder.mkdir(exist_ok=True)
     scene.render.resolution_x,scene.render.resolution_y=FRAME_SIZE
-    for frame in range(1,49):
+    for frame in range(1,73):
         scene.frame_set(frame);scene.render.filepath=str(folder/f'{frame:03}.png')
         bpy.ops.render.render(write_still=True)
     # Optional desktop inspection sprites, separate from the mobile atlas.
     hd_folder=TMP/(preset+'-hd');hd_folder.mkdir(exist_ok=True)
     scene.render.resolution_x=1024;scene.render.resolution_y=640
-    for frame in range(1,49):
+    for frame in range(1,73):
         scene.frame_set(frame);scene.render.filepath=str(hd_folder/f'{frame:03}.png')
         bpy.ops.render.render(write_still=True)
     scene.render.resolution_x=2048;scene.render.resolution_y=1280
     for frame in [1,8,10,18]:
-        scene.frame_set(frame);scene.render.filepath=str(OUT/f'{preset}-{frame:02}.png')
+        t=retime(frame);scene.frame_set(int(t),subframe=t%1);scene.render.filepath=str(OUT/f'{preset}-{frame:02}.png')
         bpy.ops.render.render(write_still=True)
     print('YARI_MOTION_PRESET_DONE',preset,flush=True)
 report['render_seconds']=round(time.perf_counter()-start,3)
-tex.image=plates['warm-left'];scene.frame_set(10);scene.render.resolution_x,scene.render.resolution_y=FRAME_SIZE
+tex.image=plates['warm-left'];scene.frame_set(15);scene.render.resolution_x,scene.render.resolution_y=FRAME_SIZE
 info=bpy.data.texts.new('README - fixed illustration motion')
-info.write('Frames 1-24: short thrust. Frames 25-48: idle. Three packed Blender light plates: swap material texture. Thrust/Breath/Cloth shape keys + matching vertex groups. This is planar image deformation, not skeletal IK. Light is baked before motion. All reference pixels and weapon are one source image; no independently replaceable weapon yet. Camera must remain fixed. Rebuild with tools/animate_yari_illustration.py.\n')
+info.write('30 fps. Frames 1-36: short thrust. Frames 37-72: idle. 1.2 seconds per clip. Original key times preserved by 1.5x retiming. Three packed Blender light plates: swap material texture. Thrust/Breath/Cloth shape keys + matching vertex groups. This is planar image deformation, not skeletal IK. Light is baked before motion. All reference pixels and weapon are one source image; no independently replaceable weapon yet. Camera must remain fixed. Rebuild with tools/animate_yari_illustration.py.\n')
 target=ROOT/'assets/optimized/jigoku-2d/yari-motion.blend'
 bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(target),compress=True)
 report['scene']=str(target.relative_to(ROOT));report['scene_sha256']=hashlib.sha256(target.read_bytes()).hexdigest()

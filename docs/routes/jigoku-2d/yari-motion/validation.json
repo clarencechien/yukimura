@@ -1,6 +1,13 @@
 {
   "passed": true,
-  "framesChecked": 288,
+  "framesChecked": 432,
+  "fps": 30,
+  "framesPerClip": 36,
+  "video": {
+    "avg_frame_rate": "30/1",
+    "duration": "1.200000",
+    "nb_frames": "36"
+  },
   "allFramesUncropped": true,
   "matchingAlphaAcrossLightsAt512": true,
   "lighting": [
@@ -27,7 +34,8 @@
     {
       "clip": "thrust",
       "light": "neutral",
-      "frameCount": 24,
+      "frameCount": 36,
+      "distinctFrames": 35,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -35,7 +43,8 @@
     {
       "clip": "idle",
       "light": "neutral",
-      "frameCount": 24,
+      "frameCount": 36,
+      "distinctFrames": 34,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -43,7 +52,8 @@
     {
       "clip": "thrust",
       "light": "warm-left",
-      "frameCount": 24,
+      "frameCount": 36,
+      "distinctFrames": 35,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -51,7 +61,8 @@
     {
       "clip": "idle",
       "light": "warm-left",
-      "frameCount": 24,
+      "frameCount": 36,
+      "distinctFrames": 34,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -59,7 +70,8 @@
     {
       "clip": "thrust",
       "light": "cool-right",
-      "frameCount": 24,
+      "frameCount": 36,
+      "distinctFrames": 35,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true
@@ -67,7 +79,8 @@
     {
       "clip": "idle",
       "light": "cool-right",
-      "frameCount": 24,
+      "frameCount": 36,
+      "distinctFrames": 34,
       "closed_loop": true,
       "visible_motion": true,
       "webp_lossless_foreground": true

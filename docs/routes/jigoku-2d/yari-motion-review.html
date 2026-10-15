@@ -10,7 +10,7 @@
 <p>幸村持十文字槍。固定插畫、小幅蓄勢與突刺；切換補光，檢查同一個動作。</p>
 <div class="controls" aria-label="動作選擇"><button data-clip="thrust" aria-pressed="true">蓄勢・短刺・收槍</button><button data-clip="idle" aria-pressed="false">持槍待機</button><label>補光 <select id="light"><option value="warm-left">左暖火光</option><option value="neutral">中性原畫</option><option value="cool-right">右冷鬼火</option></select></label><label>速度 <select id="speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label></div>
 <div class="stage"><span class="badge" id="phase">載入素材</span><canvas id="canvas" width="512" height="320" role="img" aria-label="幸村持槍動畫；可暫停並拖動下方時間軸"></canvas></div>
-<div class="timeline"><button id="play" aria-pressed="true">暫停</button><input id="scrub" type="range" min="0" max="23" value="0" step="1" aria-label="動畫影格"><output id="counter">01 / 24</output></div>
+<div class="timeline"><button id="play" aria-pressed="true">暫停</button><input id="scrub" type="range" min="0" max="35" value="0" step="1" aria-label="動畫影格"><output id="counter">01 / 36</output></div>
 <p id="status" aria-live="polite">正在載入透明動畫圖集…</p>
 <p class="note">這是單一方向的動作試作。雙手和槍桿共用位移，腳底固定；還沒有翻身、換手或大幅揮槍。補光先由 Blender 烘焙，再與原畫一起變形。</p>
 <div class="stills">
@@ -19,18 +19,18 @@
 <a href="yari-motion/warm-left-10.png"><img src="yari-motion/warm-left-10.png" alt="短刺姿勢" loading="lazy">短刺・大圖</a>
 <a href="yari-motion/warm-left-18.png"><img src="yari-motion/warm-left-18.png" alt="收槍姿勢" loading="lazy">收槍・大圖</a>
 </div>
-<footer>手機載入 512 × 320；桌機載入 1024 × 640 透明幀，20 fps；放大檢查請開啟大圖。圖集與影格資料可接入 2D 引擎，本頁是 Canvas 素材檢視器，尚未替換正式遊戲。<br><a href="yari-motion/atlas-manifest.json">圖集清單</a> · <a href="yari-motion/validation.json">檢查紀錄</a> · <a href="yari-motion/thrust-preview.gif">GIF 預覽</a></footer>
+<footer>手機載入 512 × 320；桌機載入 1024 × 640 透明幀，30 fps；放大檢查請開啟大圖。圖集與影格資料可接入 2D 引擎，本頁是 Canvas 素材檢視器，尚未替換正式遊戲。<br><a href="yari-motion/atlas-manifest.json">圖集清單</a> · <a href="yari-motion/validation.json">檢查紀錄</a> · <a href="yari-motion/thrust-preview.gif">GIF 預覽（近似時間）</a> · <a href="yari-motion/thrust-preview-30fps.mp4">30 fps MP4</a></footer>
 <script type="module">
 const $=s=>document.querySelector(s),canvas=$('#canvas'),ctx=canvas.getContext('2d');
-const hd=innerWidth>=700,fw=hd?1024:512,fh=hd?640:320,cols=hd?4:6;canvas.width=fw;canvas.height=fh;canvas.dataset.quality=hd?'desktop':'mobile';
-let clip='thrust',light='warm-left',frame=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,speed=1,image=null,requestId=0,previous=0,accumulator=0;
+const hd=innerWidth>=700,fw=hd?1024:512,fh=hd?640:320,cols=hd?4:6,frameMs=1000/30,count=36; if(hd)canvas.dataset.pages='2';canvas.width=fw;canvas.height=fh;canvas.dataset.quality=hd?'desktop':'mobile';
+let clip='thrust',light='warm-left',frame=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,speed=1,images=null,requestId=0,previous=0,accumulator=0;
 function syncPlay(){$('#play').textContent=playing?'暫停':'播放';$('#play').setAttribute('aria-pressed',String(playing));}
-function draw(){ctx.clearRect(0,0,fw,fh);if(image)ctx.drawImage(image,(frame%cols)*fw,Math.floor(frame/cols)*fh,fw,fh,0,0,fw,fh);$('#scrub').value=frame;$('#counter').textContent=`${String(frame+1).padStart(2,'0')} / 24`;$('#phase').textContent=clip==='idle'?'持槍待機':frame<4?'持槍':frame<9?'蓄勢':frame<11?'短刺・接觸停頓':'收槍';canvas.dataset.frame=String(frame);canvas.dataset.clip=clip;canvas.dataset.light=light;}
-async function load(){const id=++requestId;image=null;draw();$('#status').textContent='正在載入透明動畫圖集…';try{const next=new Image();next.src=`yari-motion/${clip}-${light}${hd?'-hd':''}.webp`;await next.decode();if(id!==requestId)return;image=next;accumulator=0;draw();$('#status').textContent='24 幀 / 20 fps · 可暫停、逐幀檢查握持與輪廓';}catch(e){if(id===requestId)$('#status').textContent='圖集載入失敗，請重新整理或開啟下方 GIF 預覽。';}}
+function draw(){ctx.clearRect(0,0,fw,fh);if(images){const page=hd&&frame>=24?1:0,local=hd?frame%24:frame;ctx.drawImage(images[page],(local%cols)*fw,Math.floor(local/cols)*fh,fw,fh,0,0,fw,fh);}$('#scrub').value=frame;$('#counter').textContent=`${String(frame+1).padStart(2,'0')} / 36`;$('#phase').textContent=clip==='idle'?'持槍待機':frame<6?'持槍':frame<14?'蓄勢':frame<16?'短刺・接觸停頓':'收槍';canvas.dataset.frame=String(frame);canvas.dataset.clip=clip;canvas.dataset.light=light;}
+async function load(){const id=++requestId;images=null;draw();$('#status').textContent='正在載入透明動畫圖集…';try{const next=await Promise.all((hd?['-hd','-hd-2']:['']).map(async suffix=>{const im=new Image();im.src=`yari-motion/${clip}-${light}${suffix}.webp?v=30`;await im.decode();return im;}));if(id!==requestId)return;images=next;accumulator=0;draw();$('#status').textContent='36 幀 / 30 fps · 可暫停、逐幀檢查握持與輪廓';}catch(e){if(id===requestId)$('#status').textContent='圖集載入失敗，請重新整理或開啟下方 GIF 預覽。';}}
 for(const b of document.querySelectorAll('[data-clip]'))b.onclick=()=>{clip=b.dataset.clip;frame=0;for(const c of document.querySelectorAll('[data-clip]'))c.setAttribute('aria-pressed',String(c===b));load();};
 $('#light').onchange=e=>{light=e.target.value;load();};$('#speed').onchange=e=>speed=Number(e.target.value);
 $('#play').onclick=()=>{playing=!playing;accumulator=0;syncPlay();};$('#scrub').oninput=e=>{playing=false;syncPlay();frame=Number(e.target.value);draw();};
-function tick(now){const dt=Math.min(now-previous,100);previous=now;if(playing&&image){accumulator+=dt*speed;const steps=Math.floor(accumulator/50);if(steps){frame=(frame+steps)%24;accumulator%=50;draw();}}requestAnimationFrame(tick);}
+function tick(now){const dt=Math.min(now-previous,100);previous=now;if(playing&&images){accumulator+=dt*speed;const steps=Math.floor((accumulator+1e-8)/frameMs);if(steps){frame=(frame+steps)%count;accumulator=Math.max(0,accumulator-steps*frameMs);draw();}}requestAnimationFrame(tick);}
 syncPlay();load();requestAnimationFrame(tick);
 </script>
 </html>
