@@ -3,7 +3,7 @@ from pathlib import Path
 import json, hashlib
 from PIL import Image, ImageDraw, ImageFont
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'docs/routes/jigoku-2d/combat'
-sources=[ROOT/'assets/source/jigoku-2d/ghost-rig'/name for name in ['arm-bodies-a.png','arm-bodies-b.png','arm-bodies-c.png','shoulder-yield.png','shoulder-sink.png']]
+sources=[ROOT/'assets/source/jigoku-2d/ghost-rig'/name for name in ['arm-bodies-a.png','arm-bodies-b.png','arm-bodies-c.png','shoulder-refined.png']]
 images=[Image.open(p).convert('RGBA') for p in sources]
 # Inspected unequal rows: top figures extend below the nominal 512 px quadrant.
 # The new palm-braced silhouette lowers the helmet after the original kneeling pose.
@@ -18,14 +18,15 @@ poses=[
  ('lower',2,(1140,0,2172,724),(1780,660),'屈肘落胯'),
  ('settle',1,(765,595,1536,1024),(1180,955),'側身落地'),
  ('fallen',0,(740,595,1536,1024),(1180,955),'伏地'),
- ('yield',3,(0,0,1086,724),(566.25,680),'屈肘承重'),
- ('sink',4,(1086,0,2172,724),(1566.25,680),'落胯過渡'),
+ # Align the inspected support fingertip to the prior version's authored contact.
+ ('yield',3,(0,0,1086,724),(390+(576-455)/.87,650),'屈肘承重'),
+ ('sink',3,(1086,0,2172,724),(1500+(576-435)/.84,650),'落胯過渡'),
 ]
 def alpha_mass(im):return sum(i*n for i,n in enumerate(im.getchannel('A').histogram()))
 frames=[]; rows=[]
 for name,source_id,box,anchor,label in poses:
     crop=images[source_id].crop(box); frame=Image.new('RGBA',(1152,768))
-    scale=.8 if source_id>=3 else 2/3 if source_id==2 else 1
+    scale={'yield':.87,'sink':.84}.get(name,2/3 if source_id==2 else 1)
     if scale!=1:crop=crop.resize((round(crop.width*scale),round(crop.height*scale)),Image.Resampling.LANCZOS)
     offset=(576-round((anchor[0]-box[0])*scale),690-round((anchor[1]-box[1])*scale))
     frame.alpha_composite(crop,offset); assert frame.getbbox()
@@ -43,9 +44,10 @@ for i,index in enumerate([0,1,2,3,4,5,6,10,11,7,8,9]):
     ImageDraw.Draw(preview).text(((i%3)*576+20,(i//3)*420+385),pose[-1],font=font,fill='#dac7aa')
 preview.save(OUT/'enemy-poses.jpg',quality=93)
 (OUT/'enemy-art.json').write_text(json.dumps({
- 'sources':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'generatedFile':generated} for p,generated in zip(sources,['exec-2fec5164-0ca5-40c3-8616-f0f413e7686d.png','exec-3f92b7d4-a205-40ff-9827-20759bcfee52.png','exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png','exec-7a3cf7b0-09e1-4495-8820-ea2285d941a2.png','exec-a4c2345d-ec78-4c47-842e-a108095d61f3.png'])],
+ 'sources':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'generatedFile':generated} for p,generated in zip(sources,['exec-2fec5164-0ca5-40c3-8616-f0f413e7686d.png','exec-3f92b7d4-a205-40ff-9827-20759bcfee52.png','exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png','exec-acf88264-061d-4c09-a38e-7c76b93ab6c1.png'])],
  'method':'Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.',
- 'transitionMethod':'Two additional image_gen keyframes from cropped brace/lower references. First output supplied sink (right half); one edit supplied yield (left half). Uniform 0.8 scale with manually inspected support-palm anchors; no runtime root translation, warp or crossfade. Generated armor, head scale and knee contacts still vary.',
+ 'transitionReferenceCommit':'6100c076457a68c965b1474327b3a2739eb150bc','transitionReferenceFrames':{'targets':[10,11],'neighbors':[6,7]},
+ 'transitionMethod':'One image_gen consistency edit of the prior yield/sink frames, with brace/lower as size references. Smaller helmet/menpo, close-fitting shoulder armor, restrained brass and finer hand details. Uniform scales 0.87/0.84 align the manually inspected support-finger contact and rear-foot span. Repaint shifted anatomy, so shoulder/wrist anchors were remeasured. No runtime root translation, warp or crossfade; armor and knee contacts still vary.',
  'poses':rows,'hdFrame':[1152,768],'mobileFrame':[768,512],'atlasColumns':3,'atlasRows':4,'worldScaleFromHD':.6,'worldGroundY':574,'hdRGBA8Bytes':3456*3072*4,'mobileRGBA8Bytes':2304*2048*4},indent=2)+'\n')
 print('Prepared twelve enemy poses, HD/mobile atlases and inspection plate.')
 
@@ -78,12 +80,18 @@ for name,box,scale,pivot in [
 import math
 parts['grip']['axisDegrees']=math.degrees(math.atan2(parts['grip']['gripPoint'][1]-parts['grip']['pivot'][1],parts['grip']['gripPoint'][0]-parts['grip']['pivot'][0]))
 # Original desired sockets are retained as authoring targets, then constrained by two-bone IK.
-sockets=[(388,260),(316,285),(1051,282),(455,388),(1025,381),(300,828),(286,858),(1430,575),(965,895),(980,900),(265,610),(1240,620)]
-shoulders=[(385,150),(360,150),(1088,164),(520,230),(1090,260),(335,735),(335,748),(1350,440),(900,810),(930,815),(295,480),(1230,490)]
+sockets=[(388,260),(316,285),(1051,282),(455,388),(1025,381),(300,828),(286,858),(1430,575),(965,895),(980,900),(272,580),(1389,588)]
+shoulders=[(385,150),(360,150),(1088,164),(520,230),(1090,260),(335,735),(335,748),(1350,440),(900,810),(930,815),(300,460),(1380,470)]
 bindings=[]
+support_contacts={'brace':(384,965),'yield':(390,650),'sink':(1500,650),'lower':(1561,660)}
 for row,(x,y),(sx,sy) in zip(rows,sockets,shoulders):
     ax,ay=row['sourceAnchor'];scale=row['uniformScale']
-    bindings.append({'pose':row['pose'],'wrist':[576+(x-ax)*scale,690+(y-ay)*scale],'shoulder':[576+(sx-ax)*scale,690+(sy-ay)*scale],'sourceWrist':[x,y],'sourceShoulder':[sx,sy]})
+    binding={'pose':row['pose'],'wrist':[576+(x-ax)*scale,690+(y-ay)*scale],'shoulder':[576+(sx-ax)*scale,690+(sy-ay)*scale],'sourceWrist':[x,y],'sourceShoulder':[sx,sy]}
+    if row['pose'] in support_contacts:
+        cx,cy=support_contacts[row['pose']]
+        binding['supportContact']=[576+(cx-ax)*scale,690+(cy-ay)*scale]
+        binding['sourceSupportContact']=[cx,cy]
+    bindings.append(binding)
 rig={'parts':parts,'bindings':bindings,'armLengths':[65,75],'relaxAge':430,'releaseAge':500,'flightMs':280,'groundY':690,'worldScale':.6,'bodyOrigin':[576,690],
  'source':str(source.relative_to(ROOT)),'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'generatedFile':'exec-4eb8eba6-b48f-4afd-b737-7a200ae630a3.png',
  'armSource':str(arm_source.relative_to(ROOT)),'armSha256':hashlib.sha256(arm_source.read_bytes()).hexdigest(),'armGeneratedFile':'exec-0c203020-19d7-4f8a-84da-60cc3ae54737.png',

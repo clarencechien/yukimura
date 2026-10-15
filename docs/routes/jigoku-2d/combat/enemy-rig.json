@@ -244,6 +244,14 @@
       "sourceShoulder": [
         335,
         748
+      ],
+      "supportContact": [
+        460,
+        700
+      ],
+      "sourceSupportContact": [
+        384,
+        965
       ]
     },
     {
@@ -263,6 +271,14 @@
       "sourceShoulder": [
         1350,
         440
+      ],
+      "supportContact": [
+        430.0,
+        690.0
+      ],
+      "sourceSupportContact": [
+        1561,
+        660
       ]
     },
     {
@@ -306,39 +322,55 @@
     {
       "pose": "yield",
       "wrist": [
-        335.0,
-        634.0
+        352.34000000000003,
+        629.1
       ],
       "shoulder": [
-        359.0,
-        530.0
+        376.70000000000005,
+        524.7
       ],
       "sourceWrist": [
-        265,
-        610
+        272,
+        580
       ],
       "sourceShoulder": [
-        295,
-        480
+        300,
+        460
+      ],
+      "supportContact": [
+        455.00000000000006,
+        690.0
+      ],
+      "sourceSupportContact": [
+        390,
+        650
       ]
     },
     {
       "pose": "sink",
       "wrist": [
-        315.0,
-        642.0
+        341.76,
+        637.92
       ],
       "shoulder": [
-        307.0,
-        538.0
+        334.2,
+        538.8
       ],
       "sourceWrist": [
-        1240,
-        620
+        1389,
+        588
       ],
       "sourceShoulder": [
-        1230,
-        490
+        1380,
+        470
+      ],
+      "supportContact": [
+        435.0,
+        690.0
+      ],
+      "sourceSupportContact": [
+        1500,
+        650
       ]
     }
   ],

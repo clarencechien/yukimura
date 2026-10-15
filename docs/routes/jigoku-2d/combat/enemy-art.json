@@ -16,18 +16,24 @@
       "generatedFile": "exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png"
     },
     {
-      "path": "assets/source/jigoku-2d/ghost-rig/shoulder-yield.png",
-      "sha256": "5c48a3694431ead232ee90cc84c0567e5fef31e946972563cf17a12c8c7caf9a",
-      "generatedFile": "exec-7a3cf7b0-09e1-4495-8820-ea2285d941a2.png"
-    },
-    {
-      "path": "assets/source/jigoku-2d/ghost-rig/shoulder-sink.png",
-      "sha256": "550d87fc78bb4dcf418d09df45cabc4514000976597291aba99b3b09cb9df933",
-      "generatedFile": "exec-a4c2345d-ec78-4c47-842e-a108095d61f3.png"
+      "path": "assets/source/jigoku-2d/ghost-rig/shoulder-refined.png",
+      "sha256": "a73199b3ed2b9274d5fcf89f5aa1774c2b012df3450627595d0bb479c4e6109f",
+      "generatedFile": "exec-acf88264-061d-4c09-a38e-7c76b93ab6c1.png"
     }
   ],
   "method": "Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.",
-  "transitionMethod": "Two additional image_gen keyframes from cropped brace/lower references. First output supplied sink (right half); one edit supplied yield (left half). Uniform 0.8 scale with manually inspected support-palm anchors; no runtime root translation, warp or crossfade. Generated armor, head scale and knee contacts still vary.",
+  "transitionReferenceCommit": "6100c076457a68c965b1474327b3a2739eb150bc",
+  "transitionReferenceFrames": {
+    "targets": [
+      10,
+      11
+    ],
+    "neighbors": [
+      6,
+      7
+    ]
+  },
+  "transitionMethod": "One image_gen consistency edit of the prior yield/sink frames, with brace/lower as size references. Smaller helmet/menpo, close-fitting shoulder armor, restrained brass and finer hand details. Uniform scales 0.87/0.84 align the manually inspected support-finger contact and rear-foot span. Repaint shifted anatomy, so shoulder/wrist anchors were remeasured. No runtime root translation, warp or crossfade; armor and knee contacts still vary.",
   "poses": [
     {
       "pose": "guard",
@@ -229,10 +235,10 @@
         724
       ],
       "sourceAnchor": [
-        566.25,
-        680
+        529.0804597701149,
+        650
       ],
-      "uniformScale": 0.8,
+      "uniformScale": 0.87,
       "alignedAnchor": [
         576,
         690
@@ -240,7 +246,7 @@
     },
     {
       "pose": "sink",
-      "source": 4,
+      "source": 3,
       "sourceBox": [
         1086,
         0,
@@ -248,10 +254,10 @@
         724
       ],
       "sourceAnchor": [
-        1566.25,
-        680
+        1667.857142857143,
+        650
       ],
-      "uniformScale": 0.8,
+      "uniformScale": 0.84,
       "alignedAnchor": [
         576,
         690

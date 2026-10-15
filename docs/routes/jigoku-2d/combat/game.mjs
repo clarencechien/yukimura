@@ -125,6 +125,9 @@ class Battle extends Phaser.Scene {
     if(warrior&&!weapon.held){this.enemyShadow.fillStyle(0x05070a,.25*weapon.alpha);this.enemyShadow.fillEllipse(grip.x-65,574,230,9);}
     if(warrior){
       this.enemyShadow.fillStyle(0x06090b,.25*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x,574,enemy.pose>=7?380:235,28);
+      // Small painted support-hand contact, separate from the broad body shadow.
+      const contact=this.enemyRig.bindings[enemy.pose].supportContact;
+      if(contact){const p=enemyPointToWorld({x:contact[0],y:contact[1]},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x030609,.4*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y-3,35,9);}
       if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
     }
     this.trail.clear();this.debug.clear();

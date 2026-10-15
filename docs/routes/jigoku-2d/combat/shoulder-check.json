@@ -2,11 +2,11 @@
   "scope": "Only brace \u2192 yield \u2192 sink \u2192 lower; manually authored shoulder anchors. Not a measurement of mesh continuity, foot sliding, or every body transition.",
   "previousDirectWorldStep": 81.4827589125454,
   "currentWorldSteps": [
-    42.055677381300164,
-    31.567071451118107,
-    11.072488428533145
+    32.396555372446606,
+    26.86673779974049,
+    27.057065620647002
   ],
-  "maxStepReductionPercent": 48.387023288646766,
+  "maxStepReductionPercent": 60.241214454683,
   "samples": [
     {
       "phase": "brace",
@@ -32,8 +32,8 @@
         "height": 460.79999999999995
       },
       "shoulder": {
-        "x": 839.8,
-        "y": 478
+        "x": 850.4200000000001,
+        "y": 474.82000000000005
       }
     },
     {
@@ -46,8 +46,8 @@
         "height": 460.79999999999995
       },
       "shoulder": {
-        "x": 808.6,
-        "y": 482.8
+        "x": 824.92,
+        "y": 483.28
       }
     },
     {

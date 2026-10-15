@@ -66,3 +66,10 @@ for i,(r,label) in enumerate(zip(selected,['手掌承重','屈肘承重','落胯
     draw.text((i*360+12,304),label,font=font,fill='#e0c9a2')
 plate.save(OUT/'shoulder-transitions.jpg',quality=94)
 print(f'Shoulder steps: {baseline:.2f} px direct → {max(steps):.2f} px maximum with authored transitions.')
+
+# The top strip is an archived browser capture from 6100c07, not a reconstruction.
+comparison=Image.new('RGB',(1440,740),'#1b2328')
+for y,name,label in [(0,'proportion-before.jpg','前輪 6100c07 · 頭盔與肩甲偏大'),(370,'shoulder-transitions.jpg','本輪 · 比例重繪、接點重標與掌下接觸陰影')]:
+    ImageDraw.Draw(comparison).text((16,y+3),label,font=font,fill='#e0c9a2')
+    comparison.paste(Image.open(OUT/name).convert('RGB'),(0,y+30))
+comparison.save(OUT/'proportion-comparison.jpg',quality=94)
