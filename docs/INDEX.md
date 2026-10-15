@@ -59,3 +59,5 @@
 - [真田・六文劫：預渲染 2D 研究、文案與三張參考圖](routes/jigoku-2d/README.md)（獨立分支，未替換 v22）。
 
 - [六文劫：Blender 三幀試渲與 512／1024 比較](routes/jigoku-2d/BLENDER_STUDY.md)（實際 CPU 渲染，造型尚未達概念圖目標）。
+
+- [路線修正：保留插畫的 2.5D 重打光](routes/jigoku-2d/ILLUSTRATION_RELIGHT.md)（目前優先方向；工具已查文件，尚未推論）。

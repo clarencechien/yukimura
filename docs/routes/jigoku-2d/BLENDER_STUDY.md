@@ -1,5 +1,7 @@
 # Blender 三幀試渲：第一個製作驗證
 
+> 2026-10-15 路線修正：使用者要求以插畫為實際素材，做分層／淺浮雕與重打光。新的優先方案見 [插畫 2.5D 重打光](ILLUSTRATION_RELIGHT.md)；下列完整 3D／舊模型試渲流程保留作研究比較，不是目前的造型製作方向。
+
 2026-10-15（Asia/Taipei），分支 `art/jigoku-prerendered-2d`。這一輪已實際執行 Blender，產出九張 PNG 與可編輯場景；不是把 image gen 圖裁切成 sprite。
 
 [互動比較頁](review.html) · [三幀原圖與檢查資料](renders/render-report.json) · [上一輪概念圖](README.md)
