@@ -3,7 +3,7 @@ from pathlib import Path
 import json, hashlib
 from PIL import Image, ImageDraw, ImageFont
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'docs/routes/jigoku-2d/combat'
-sources=[ROOT/'assets/source/jigoku-2d/ghost-rig'/name for name in ['bodies-a.png','bodies-b.png','bodies-c.png']]
+sources=[ROOT/'assets/source/jigoku-2d/ghost-rig'/name for name in ['arm-bodies-a.png','arm-bodies-b.png','arm-bodies-c.png']]
 images=[Image.open(p).convert('RGBA') for p in sources]
 # Inspected unequal rows: top figures extend below the nominal 512 px quadrant.
 # The new palm-braced silhouette lowers the helmet after the original kneeling pose.
@@ -40,8 +40,8 @@ for i,(frame,pose) in enumerate(zip(frames,poses)):
     ImageDraw.Draw(preview).text(((i%2)*576+20,(i//2)*420+385),pose[-1],font=font,fill='#dac7aa')
 preview.save(OUT/'enemy-poses.jpg',quality=93)
 (OUT/'enemy-art.json').write_text(json.dumps({
- 'sources':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'generatedFile':generated} for p,generated in zip(sources,['exec-581d763c-0659-41fa-9c45-5d9e5aaee529.png','exec-732be87f-242b-475a-982b-96204b6e58d8.png','exec-d37250aa-a34a-48f2-b201-572887ec552a.png'])],
- 'method':'Three image_gen cleanup edits of the previous ten-pose sources: remove swords and gripping hands for poses 0-6; retain relaxed hands for released poses 7-9. Layout and proportions may drift in these generative edits. Common hand and katana are separate reusable runtime layers, with fixed size and manual wrist sockets. No mesh warping or new Blender rendering.',
+ 'sources':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'generatedFile':generated} for p,generated in zip(sources,['exec-2fec5164-0ca5-40c3-8616-f0f413e7686d.png','exec-3f92b7d4-a205-40ff-9827-20759bcfee52.png','exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png'])],
+ 'method':'Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.',
  'poses':rows,'hdFrame':[1152,768],'mobileFrame':[768,512],'atlasColumns':2,'atlasRows':5,'worldScaleFromHD':.6,'worldGroundY':574,'hdRGBA8Bytes':2304*3840*4,'mobileRGBA8Bytes':1536*2560*4},indent=2)+'\n')
 print('Prepared ten aligned enemy poses, HD/mobile atlases and inspection plate.')
 
@@ -57,15 +57,34 @@ for name,box,scale,pivot in [
     part.save(OUT/f'enemy-{name}.webp',lossless=True,method=6)
     parts[name]={'size':list(part.size),'pivot':[(pivot[0]-box[0])*scale,(pivot[1]-box[1])*scale],'sourceBox':box,'uniformScale':scale}
 parts['grip']['gripPoint']=[(1700-1530)*.16,(585-365)*.16]
-# Source-space socket centers inspected on the cleaned forearm cuffs.
-sockets=[(388,260,0),(316,285,8),(1051,282,-8),(455,388,-8),(1025,381,8),(300,828,-4),(286,858,8)]
+# Rigid upper arm, forearm and releasing hands from a single authored parts sheet.
+arm_source=ROOT/'assets/source/jigoku-2d/ghost-rig/arm-parts.png'
+arm_im=Image.open(arm_source).convert('RGBA')
+bulk_source=ROOT/'assets/source/jigoku-2d/ghost-rig/arm-parts-stocky.png'
+bulk_im=Image.open(bulk_source).convert('RGBA')
+for name,box,scale,pivot in [
+ ('upper',(260,0,700,630),65/465,(470,70)),
+ ('fore',(860,0,1320,630),75/500,(1080,80)),
+ ('relax',(260,580,650,1000),.16,(460,625)),
+ ('open',(910,580,1290,1024),.16,(1095,625)),
+]:
+    part=(bulk_im if name in ['upper','fore'] else arm_im).crop(box).resize((round((box[2]-box[0])*scale),round((box[3]-box[1])*scale)),Image.Resampling.LANCZOS)
+    part.save(OUT/f'enemy-{name}.webp',lossless=True,method=6)
+    parts[name]={'size':list(part.size),'pivot':[(pivot[0]-box[0])*scale,(pivot[1]-box[1])*scale],'sourceBox':box,'uniformScale':scale,'axisDegrees':90}
+import math
+parts['grip']['axisDegrees']=math.degrees(math.atan2(parts['grip']['gripPoint'][1]-parts['grip']['pivot'][1],parts['grip']['gripPoint'][0]-parts['grip']['pivot'][0]))
+# Original desired sockets are retained as authoring targets, then constrained by two-bone IK.
+sockets=[(388,260),(316,285),(1051,282),(455,388),(1025,381),(300,828),(286,858),(1430,575),(965,895),(980,900)]
+shoulders=[(385,150),(360,150),(1088,164),(520,230),(1090,260),(335,735),(335,748),(1350,440),(900,810),(930,815)]
 bindings=[]
-for row,(x,y,angle) in zip(rows,sockets):
+for row,(x,y),(sx,sy) in zip(rows,sockets,shoulders):
     ax,ay=row['sourceAnchor'];scale=row['uniformScale']
-    bindings.append({'pose':row['pose'],'wrist':[576+(x-ax)*scale,690+(y-ay)*scale],'angle':angle,'sourceWrist':[x,y]})
-rig={'parts':parts,'bindings':bindings,'releaseAge':500,'flightMs':280,'groundY':690,'worldScale':.6,'bodyOrigin':[576,690],
+    bindings.append({'pose':row['pose'],'wrist':[576+(x-ax)*scale,690+(y-ay)*scale],'shoulder':[576+(sx-ax)*scale,690+(sy-ay)*scale],'sourceWrist':[x,y],'sourceShoulder':[sx,sy]})
+rig={'parts':parts,'bindings':bindings,'armLengths':[65,75],'relaxAge':430,'releaseAge':500,'flightMs':280,'groundY':690,'worldScale':.6,'bodyOrigin':[576,690],
  'source':str(source.relative_to(ROOT)),'sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'generatedFile':'exec-4eb8eba6-b48f-4afd-b737-7a200ae630a3.png',
- 'method':'image_gen disassembled katana and grip, referencing exec-f7fc9938-d445-41cf-b7c0-efc72f1b3b0f.png (a generated combined hand-and-sword study based on ghost-warrior-poses.png). Manual wrist and handle anchors. One constant-size blade and one grip reused across seven held poses. Scripted drop to a flat plane, not a physics simulation. No reproducible seed.',
+ 'armSource':str(arm_source.relative_to(ROOT)),'armSha256':hashlib.sha256(arm_source.read_bytes()).hexdigest(),'armGeneratedFile':'exec-0c203020-19d7-4f8a-84da-60cc3ae54737.png',
+ 'bulkArmSource':str(bulk_source.relative_to(ROOT)),'bulkArmSha256':hashlib.sha256(bulk_source.read_bytes()).hexdigest(),'bulkArmGeneratedFile':'exec-9c05eb10-612f-4f45-8ed8-b9d578b85253.png',
+ 'method':'Image_gen separate arm segments and half/open hands, plus reused katana and closed grip. A thicker arm redraw supplies the upper/forearm only; original half/open hands retained. Redraw joint anchors remeasured and uniformly rescaled to the same 65/75 lengths. Fixed 65/75 px segments, manual shoulder anchors, interpolated local reach targets and two-bone IK. Shoulder anchors still switch with ten body images. No continuous torso animation or physical finger simulation. Scripted blade release from the last held transform to a flat plane.',
  'extraRGBA8Bytes':sum(v['size'][0]*v['size'][1]*4 for v in parts.values())}
 (OUT/'enemy-rig.json').write_text(json.dumps(rig,indent=2)+'\n')
-print('Packed shared katana and gripping hand; seven wrist sockets and deterministic release.')
+print('Packed shared two-bone arm, three hand states, katana and ten shoulder bindings.')

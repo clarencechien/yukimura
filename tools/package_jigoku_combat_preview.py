@@ -34,10 +34,10 @@ inspection.save(OUT/'enemy-sequence.jpg',quality=93)
 
 # Wrist contact inspection from actual renderer captures, including release and landing.
 contacts=Image.new('RGB',(1152,1050),'#1b2328')
-labels=[('guard','戒備'),('flinch','輕受擊'),('hurt','後仰'),('buckle','重心下沉'),('crouch','屈膝'),('kneel','跪下'),('brace','撐地前握持'),('lower','已脫手'),('fallen','刀已落地')]
+labels=[('guard','戒備'),('flinch','輕受擊'),('hurt','後仰'),('buckle','重心下沉'),('crouch','屈膝'),('kneel','跪下'),('brace','半開握姿'),('lower','已脫手'),('fallen','刀已落地')]
 for i,(phase,label) in enumerate(labels):
     candidates=[r for r in rows if r['enemy']['phase']==phase]
-    row=candidates[-1] if phase=='fallen' else candidates[0]
+    row=candidates[-1] if phase in ['fallen','brace'] else candidates[0]
     point=row['hand'] if row['weapon']['held'] else row['weapon']
     x,y=round(point['x']),round(point['y'])
     crop=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB').crop((x-150,y-70,x+70,y+100)).resize((384,297),Image.Resampling.LANCZOS)

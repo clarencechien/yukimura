@@ -1,22 +1,22 @@
 {
   "sources": [
     {
-      "path": "assets/source/jigoku-2d/ghost-rig/bodies-a.png",
-      "sha256": "94d7c68eab38f06064c07e662e6af44c9f8124c9465c7aa2ea1388e45d517bf6",
-      "generatedFile": "exec-581d763c-0659-41fa-9c45-5d9e5aaee529.png"
+      "path": "assets/source/jigoku-2d/ghost-rig/arm-bodies-a.png",
+      "sha256": "30af3c0cd9293895c3d1edf39e887dc96d8ea77162c125bee280f7c592a9f049",
+      "generatedFile": "exec-2fec5164-0ca5-40c3-8616-f0f413e7686d.png"
     },
     {
-      "path": "assets/source/jigoku-2d/ghost-rig/bodies-b.png",
-      "sha256": "73cf9f3e44ba8c56a5e773563b146127e970e60253cb5a3ed653320d16d07017",
-      "generatedFile": "exec-732be87f-242b-475a-982b-96204b6e58d8.png"
+      "path": "assets/source/jigoku-2d/ghost-rig/arm-bodies-b.png",
+      "sha256": "676513cce447eac28e0fc4fb9f29e35592109b3300aa9b8daebd668155a53ab9",
+      "generatedFile": "exec-3f92b7d4-a205-40ff-9827-20759bcfee52.png"
     },
     {
-      "path": "assets/source/jigoku-2d/ghost-rig/bodies-c.png",
-      "sha256": "e935305b9f3ba6672aeb6a550f02e3f85db3c63a433081de4b48947c75d84a30",
-      "generatedFile": "exec-d37250aa-a34a-48f2-b201-572887ec552a.png"
+      "path": "assets/source/jigoku-2d/ghost-rig/arm-bodies-c.png",
+      "sha256": "997fa9da2d1ba4eda5a7670612472c70fa62e921ad2b99ffcb0a7a5c8bde63f0",
+      "generatedFile": "exec-e08ce8d8-91a8-4b56-b6fc-4da9581326d5.png"
     }
   ],
-  "method": "Three image_gen cleanup edits of the previous ten-pose sources: remove swords and gripping hands for poses 0-6; retain relaxed hands for released poses 7-9. Layout and proportions may drift in these generative edits. Common hand and katana are separate reusable runtime layers, with fixed size and manual wrist sockets. No mesh warping or new Blender rendering.",
+  "method": "Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.",
   "poses": [
     {
       "pose": "guard",

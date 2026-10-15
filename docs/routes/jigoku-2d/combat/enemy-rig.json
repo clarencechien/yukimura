@@ -36,7 +36,80 @@
       "gripPoint": [
         27.2,
         35.2
-      ]
+      ],
+      "axisDegrees": 126.02737338510362
+    },
+    "upper": {
+      "size": [
+        62,
+        88
+      ],
+      "pivot": [
+        29.354838709677416,
+        9.784946236559138
+      ],
+      "sourceBox": [
+        260,
+        0,
+        700,
+        630
+      ],
+      "uniformScale": 0.13978494623655913,
+      "axisDegrees": 90
+    },
+    "fore": {
+      "size": [
+        69,
+        94
+      ],
+      "pivot": [
+        33.0,
+        12.0
+      ],
+      "sourceBox": [
+        860,
+        0,
+        1320,
+        630
+      ],
+      "uniformScale": 0.15,
+      "axisDegrees": 90
+    },
+    "relax": {
+      "size": [
+        62,
+        67
+      ],
+      "pivot": [
+        32.0,
+        7.2
+      ],
+      "sourceBox": [
+        260,
+        580,
+        650,
+        1000
+      ],
+      "uniformScale": 0.16,
+      "axisDegrees": 90
+    },
+    "open": {
+      "size": [
+        61,
+        71
+      ],
+      "pivot": [
+        29.6,
+        7.2
+      ],
+      "sourceBox": [
+        910,
+        580,
+        1290,
+        1024
+      ],
+      "uniformScale": 0.16,
+      "axisDegrees": 90
     }
   },
   "bindings": [
@@ -46,10 +119,17 @@
         484,
         380
       ],
-      "angle": 0,
+      "shoulder": [
+        481,
+        270
+      ],
       "sourceWrist": [
         388,
         260
+      ],
+      "sourceShoulder": [
+        385,
+        150
       ]
     },
     {
@@ -58,10 +138,17 @@
         412,
         420
       ],
-      "angle": 8,
+      "shoulder": [
+        456,
+        285
+      ],
       "sourceWrist": [
         316,
         285
+      ],
+      "sourceShoulder": [
+        360,
+        150
       ]
     },
     {
@@ -70,10 +157,17 @@
         447,
         402
       ],
-      "angle": -8,
+      "shoulder": [
+        484,
+        284
+      ],
       "sourceWrist": [
         1051,
         282
+      ],
+      "sourceShoulder": [
+        1088,
+        164
       ]
     },
     {
@@ -82,10 +176,17 @@
         379.33333333333337,
         488.6666666666667
       ],
-      "angle": -8,
+      "shoulder": [
+        422.6666666666667,
+        383.33333333333337
+      ],
       "sourceWrist": [
         455,
         388
+      ],
+      "sourceShoulder": [
+        520,
+        230
       ]
     },
     {
@@ -94,10 +195,17 @@
         331,
         536
       ],
-      "angle": 8,
+      "shoulder": [
+        396,
+        415
+      ],
       "sourceWrist": [
         1025,
         381
+      ],
+      "sourceShoulder": [
+        1090,
+        260
       ]
     },
     {
@@ -106,10 +214,17 @@
         391,
         563
       ],
-      "angle": -4,
+      "shoulder": [
+        426,
+        470
+      ],
       "sourceWrist": [
         300,
         828
+      ],
+      "sourceShoulder": [
+        335,
+        735
       ]
     },
     {
@@ -118,13 +233,82 @@
         362,
         593
       ],
-      "angle": 8,
+      "shoulder": [
+        411,
+        483
+      ],
       "sourceWrist": [
         286,
         858
+      ],
+      "sourceShoulder": [
+        335,
+        748
+      ]
+    },
+    {
+      "pose": "lower",
+      "wrist": [
+        342.6666666666667,
+        633.3333333333334
+      ],
+      "shoulder": [
+        289.33333333333337,
+        543.3333333333334
+      ],
+      "sourceWrist": [
+        1430,
+        575
+      ],
+      "sourceShoulder": [
+        1350,
+        440
+      ]
+    },
+    {
+      "pose": "settle",
+      "wrist": [
+        361,
+        630
+      ],
+      "shoulder": [
+        296,
+        545
+      ],
+      "sourceWrist": [
+        965,
+        895
+      ],
+      "sourceShoulder": [
+        900,
+        810
+      ]
+    },
+    {
+      "pose": "fallen",
+      "wrist": [
+        376,
+        635
+      ],
+      "shoulder": [
+        326,
+        550
+      ],
+      "sourceWrist": [
+        980,
+        900
+      ],
+      "sourceShoulder": [
+        930,
+        815
       ]
     }
   ],
+  "armLengths": [
+    65,
+    75
+  ],
+  "relaxAge": 430,
   "releaseAge": 500,
   "flightMs": 280,
   "groundY": 690,
@@ -136,6 +320,12 @@
   "source": "assets/source/jigoku-2d/ghost-rig/katana-hand.png",
   "sha256": "6780cc3b5095e1f3a050eb2e2173c9042010a002ebb3eb070ac804b1e6aef8e5",
   "generatedFile": "exec-4eb8eba6-b48f-4afd-b737-7a200ae630a3.png",
-  "method": "image_gen disassembled katana and grip, referencing exec-f7fc9938-d445-41cf-b7c0-efc72f1b3b0f.png (a generated combined hand-and-sword study based on ghost-warrior-poses.png). Manual wrist and handle anchors. One constant-size blade and one grip reused across seven held poses. Scripted drop to a flat plane, not a physics simulation. No reproducible seed.",
-  "extraRGBA8Bytes": 98688
+  "armSource": "assets/source/jigoku-2d/ghost-rig/arm-parts.png",
+  "armSha256": "e43d6dbd831681df0198dd6f81b2487317dac32f6a85dc1f0b44db1e31a687a2",
+  "armGeneratedFile": "exec-0c203020-19d7-4f8a-84da-60cc3ae54737.png",
+  "bulkArmSource": "assets/source/jigoku-2d/ghost-rig/arm-parts-stocky.png",
+  "bulkArmSha256": "210bebe28d3e5225007eff5ba52e13468f43fdc1171dd5d436ae7eab2525669e",
+  "bulkArmGeneratedFile": "exec-9c05eb10-612f-4f45-8ed8-b9d578b85253.png",
+  "method": "Image_gen separate arm segments and half/open hands, plus reused katana and closed grip. A thicker arm redraw supplies the upper/forearm only; original half/open hands retained. Redraw joint anchors remeasured and uniformly rescaled to the same 65/75 lengths. Fixed 65/75 px segments, manual shoulder anchors, interpolated local reach targets and two-bone IK. Shoulder anchors still switch with ten body images. No continuous torso animation or physical finger simulation. Scripted blade release from the last held transform to a flat plane.",
+  "extraRGBA8Bytes": 180396
 }

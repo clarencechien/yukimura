@@ -1,3 +1,4 @@
+import {enemyArm} from './enemy-arm.mjs';
 import {CombatState} from './combat-state.mjs';
 import {enemyWeapon,enemyPointToWorld} from './enemy-weapon.mjs';
 const $=s=>document.querySelector(s);
@@ -15,6 +16,7 @@ function tone(hit=false){
 class Battle extends Phaser.Scene {
   constructor(){super('battle');}
   preload(){
+    for(const part of ['upper','fore','relax','open'])this.load.image('enemy-'+part,`enemy-${part}.webp`);
     this.load.json('enemyRig','enemy-rig.json');this.load.image('enemyKatana','enemy-katana.webp');this.load.image('enemyGrip','enemy-grip.webp');
     this.load.image('arena','arena.webp');this.load.json('track','spear-track.json');
     this.hd=innerWidth>=900;
@@ -42,6 +44,7 @@ class Battle extends Phaser.Scene {
     this.enemyRig=this.cache.json.get('enemyRig');
     const component=(key,part)=>this.add.image(0,0,key).setOrigin(part.pivot[0]/part.size[0],part.pivot[1]/part.size[1]).setDisplaySize(part.size[0]*.6,part.size[1]*.6);
     this.enemyKatana=component('enemyKatana',this.enemyRig.parts.katana);
+    this.enemyUpper=component('enemy-upper',this.enemyRig.parts.upper);this.enemyFore=component('enemy-fore',this.enemyRig.parts.fore);
     this.enemySprite=this.add.sprite(970,574,'warrior',0).setOrigin(.5,690/768).setDisplaySize(1152*.6,768*.6);
     // The shared cuff must cover the painted socket opening on the body.
     this.enemyGrip=component('enemyGrip',this.enemyRig.parts.grip);
@@ -54,7 +57,7 @@ class Battle extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
     for(const id of ['attack','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.track.frames[this.state.frame]})};
+    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.track.frames[this.state.frame]})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -108,10 +111,16 @@ class Battle extends Phaser.Scene {
     const warrior=this.state.targetKind==='warrior',enemy=this.state.enemy;
     this.seal.setVisible(!warrior);this.pedestal.setVisible(!warrior);
     this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setFrame(enemy.pose).setAlpha(enemy.alpha);
+    this.armPose=enemyArm(enemy,this.state.enemyAge,this.state.hp===0,this.enemyRig);
     this.weaponPose=enemyWeapon(enemy,this.state.enemyAge,this.state.hp===0,this.enemyRig);
-    const weapon=this.weaponPose,grip=enemyPointToWorld(weapon.grip,this.state.target.x,this.enemyRig),wrist=enemyPointToWorld(weapon.wrist,this.state.target.x,this.enemyRig);
+    const weapon=this.weaponPose,grip=enemyPointToWorld(weapon.grip,this.state.target.x,this.enemyRig),wrist=enemyPointToWorld(this.armPose.wrist,this.state.target.x,this.enemyRig);
     this.enemyKatana.setVisible(warrior).setPosition(grip.x,grip.y).setAngle(weapon.angle).setAlpha(weapon.alpha);
-    this.enemyGrip.setVisible(warrior&&weapon.held).setPosition(wrist.x,wrist.y).setAngle(weapon.angle).setAlpha(weapon.alpha);
+    const arm=this.armPose,hand=this.enemyRig.parts[arm.handState];
+    const shoulder=enemyPointToWorld(arm.shoulder,this.state.target.x,this.enemyRig),elbow=enemyPointToWorld(arm.elbow,this.state.target.x,this.enemyRig);
+    this.enemyUpper.setVisible(warrior).setPosition(shoulder.x,shoulder.y).setAngle(arm.upperAngle).setAlpha(enemy.alpha);
+    this.enemyFore.setVisible(warrior).setPosition(elbow.x,elbow.y).setAngle(arm.foreAngle).setAlpha(enemy.alpha);
+    this.enemyGrip.setTexture(arm.handState==='grip'?'enemyGrip':'enemy-'+arm.handState).setOrigin(hand.pivot[0]/hand.size[0],hand.pivot[1]/hand.size[1]).setDisplaySize(hand.size[0]*.6,hand.size[1]*.6);
+    this.enemyGrip.setVisible(warrior).setPosition(wrist.x,wrist.y).setAngle(arm.handAngle).setAlpha(enemy.alpha);
     this.enemyShadow.clear();
     if(warrior&&!weapon.held){this.enemyShadow.fillStyle(0x05070a,.25*weapon.alpha);this.enemyShadow.fillEllipse(grip.x-65,574,230,9);}
     if(warrior){
@@ -125,7 +134,7 @@ class Battle extends Phaser.Scene {
       this.trail.lineStyle(2,0xffd5a0,.85);this.trail.lineBetween(tip.x-65,tip.y+10,tip.x,tip.y);
     }
     if($('#debug').checked){
-      if(warrior&&weapon.held){this.debug.fillStyle(0x59e7f0,1);this.debug.fillCircle(wrist.x,wrist.y,3);this.debug.fillStyle(0xffe08b,1);this.debug.fillCircle(grip.x,grip.y,3);}
+      if(warrior){this.debug.lineStyle(1,0x59e7f0,.8);this.debug.lineBetween(shoulder.x,shoulder.y,elbow.x,elbow.y);this.debug.lineBetween(elbow.x,elbow.y,wrist.x,wrist.y);this.debug.fillStyle(0x59e7f0,1);this.debug.fillCircle(wrist.x,wrist.y,3);this.debug.fillStyle(0xffe08b,1);this.debug.fillCircle(grip.x,grip.y,3);}
       const target=this.state.target;this.debug.lineStyle(2,0x6edee2,.8);this.debug.strokeCircle(target.x,target.y,target.radius);
       if(this.state.phase==='attack'){this.debug.fillStyle(this.track.activeFrames.includes(this.state.frame)?0xffdd77:0xffffff);this.debug.fillCircle(tip.x,tip.y,5);}
     }
