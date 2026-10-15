@@ -5,9 +5,10 @@
     "HD near hit; one damage per strike; no button spam; recovery unlocks",
     "Three distinct strikes break seal; dead target cannot be hit again",
     "Keyboard J works; far target misses without damage",
-    "Pause freezes pose and input",
+    "Pause freezes pose and input; hit flash expires after recovery",
     "Visual feedback off preserves actual hit rules",
-    "Captured 48 rendered scene frames at 33/33/34 ms controlled-clock samples",
+    "Warrior hurt uses authored pose, no whole-body rotation; pause freezes reaction; guard recovers",
+    "Fatal reaction: hurt → kneel → fallen → dissolve → gone; 72 captured frames with fixed timing",
     "Mobile touch attack; 512px atlas; no horizontal overflow; reduced motion"
   ],
   "pageErrors": [],

@@ -6,16 +6,16 @@
 <link rel="stylesheet" href="style.css">
 <main>
 <header><div><p class="eyebrow">SANADA · SIX COINS IN ASH</p><h1>燼關試槍</h1></div><a href="../COMBAT_STUDY.md">製作說明 ↗</a></header>
-<p class="intro">六文不渡，赤槍開路。三度破封，讓亡魂離開這場沒有黎明的戰爭。</p>
-<div class="battle" id="battle" aria-label="幸村在地獄石台刺破怨火封印">
-<div id="stage"></div><div class="hud"><span>修羅道 · 三途燼關</span><span>怨火封印 <b id="hp">● ● ●</b></span></div>
+<p class="intro">六文不渡，赤槍開路。赤槍擊退燼關鬼武者，為亡魂劃出歸途。</p>
+<div class="battle" id="battle" aria-label="幸村在地獄石台與鬼武者交戰">
+<div id="stage"></div><div class="hud"><span>修羅道 · 三途燼關</span><span><span id="target-name">燼關鬼武者</span> <b id="hp">● ● ●</b></span></div>
 <div id="loading" role="status">正在載入赤甲與燼關…</div>
 <div class="message" id="message" role="status" aria-live="polite">待機 · 按 J 或「出槍」</div>
 </div>
-<div class="controls"><button id="attack" class="primary" disabled>出槍 <kbd>J</kbd></button><button id="pause" disabled>暫停</button><button id="reset" disabled>重聚封印</button><label>間合 <select id="range" disabled><option value="near">槍尖可及</option><option value="far">一步之外</option></select></label><button id="fullscreen">全螢幕</button></div>
+<div class="controls"><button id="attack" class="primary" disabled>出槍 <kbd>J</kbd></button><button id="pause" disabled>暫停</button><button id="reset" disabled>再戰鬼武者</button><label>對手 <select id="target" disabled><option value="warrior">燼關鬼武者</option><option value="seal">怨火封印</option></select></label><label>間合 <select id="range" disabled><option value="near">槍尖可及</option><option value="far">一步之外</option></select></label><button id="fullscreen">全螢幕</button></div>
 <div class="settings"><label><input id="feedback" type="checkbox" checked> 命中特效</label><label><input id="sound" type="checkbox"> 音效</label><label><input id="debug" type="checkbox"> 顯示槍尖判定</label><span id="score">命中 0 ／ 出槍 0</span></div>
 <p class="note">先蓄勢，再短刺，收槍後才能再次出手。「一步之外」會刺空。手機可用下方按鈕，橫向或全螢幕能看清動作。</p>
-<footer>固定視角戰鬥試作 · <a href="../YARI_RIGID_MOTION.md">動作對照</a> · <a href="../README.md">美術設定</a><br>角色為 Blender 預渲染貼圖；本頁使用 Phaser 3.90。這輪驗證短刺與命中回饋，尚無移動、敵軍 AI 或完整關卡。</footer>
+<footer>固定視角戰鬥試作 · <a href="../YARI_RIGID_MOTION.md">動作對照</a> · <a href="../README.md">美術設定</a><br>角色為 Blender 預渲染貼圖；本頁使用 Phaser 3.90。鬼武者有受擊、跪倒與伏地姿勢；目前不會主動攻擊，尚無移動 AI 或完整關卡。</footer>
 </main>
 <script src="vendor/phaser-3.90.0.min.js"></script><script type="module" src="game.mjs"></script>
 </html>

@@ -30,3 +30,16 @@ test('swept segment detects crossing, tangency and misses',()=>{
  assert.equal(segmentHitsCircle({x:0,y:0},{x:100,y:0},{x:50,y:3},2),false);
  assert.equal(segmentHitsCircle({x:0,y:0},{x:0,y:0},{x:0,y:0},2),true);
 });
+test('enemy hurt holds during hitstop and pause, then recovers',()=>{
+ const s=new CombatState(track);s.attack();s.update(250);s.update(217);assert.equal(s.enemy.phase,'hurt');const age=s.enemyAge;s.update(40);assert.equal(s.enemyAge,age);
+ s.paused=true;s.update(200);assert.equal(s.enemyAge,age);s.paused=false;finish(s);assert.equal(s.enemy.phase,'guard');
+});
+test('fatal hit orders hurt, kneel, fallen and dissolve; reset restores guard',()=>{
+ const s=new CombatState(track);for(let i=0;i<2;i++){s.attack();finish(s);}
+ s.attack();const seen=[];for(let i=0;i<170;i++){s.update(20);if(seen.at(-1)!==s.enemy.phase)seen.push(s.enemy.phase);}
+ assert.deepEqual(seen,['guard','hurt','kneel','fallen','dissolve','gone']);assert.equal(s.enemy.alpha,0);assert.equal(s.attack(),false);
+ s.reset();assert.equal(s.enemy.phase,'guard');assert.equal(s.enemy.alpha,1);assert.equal(s.hp,3);
+});
+test('target switch resets reaction and is blocked during attack',()=>{
+ const s=new CombatState(track);assert.equal(s.targetKind,'warrior');s.attack();assert.equal(s.setTarget('seal'),false);finish(s);assert.equal(s.setTarget('seal'),true);assert.equal(s.hp,3);assert.equal(s.enemy.phase,'guard');assert.equal(s.setTarget('unknown'),false);
+});

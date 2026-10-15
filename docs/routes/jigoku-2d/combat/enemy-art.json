@@ -1,0 +1,88 @@
+{
+  "source": "assets/source/jigoku-2d/ghost-warrior-poses.png",
+  "sha256": "34c7ce068290b5e2d6a6c1d0f082118cbd57309c5487135ecfa301a5f04b14e3",
+  "generatedFile": "exec-a2caeabc-b872-45ca-a782-3641042aed13.png",
+  "method": "One image_gen sheet referencing clean Sanada armor material style, followed by a head-facing correction edit; four separately authored poses, not 30fps skeletal animation. Manual crop and ground anchors, no nonuniform scaling or whole-body death rotation. No reproducible seed. Armor details and projected proportions may vary between poses.",
+  "poses": [
+    {
+      "pose": "guard",
+      "sourceBox": [
+        0,
+        0,
+        740,
+        595
+      ],
+      "sourceAnchor": [
+        480,
+        570
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
+      "pose": "hurt",
+      "sourceBox": [
+        740,
+        0,
+        1536,
+        595
+      ],
+      "sourceAnchor": [
+        1180,
+        570
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
+      "pose": "kneel",
+      "sourceBox": [
+        0,
+        595,
+        740,
+        1024
+      ],
+      "sourceAnchor": [
+        485,
+        955
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    },
+    {
+      "pose": "fallen",
+      "sourceBox": [
+        740,
+        595,
+        1536,
+        1024
+      ],
+      "sourceAnchor": [
+        1180,
+        955
+      ],
+      "alignedAnchor": [
+        576,
+        690
+      ]
+    }
+  ],
+  "hdFrame": [
+    1152,
+    768
+  ],
+  "mobileFrame": [
+    768,
+    512
+  ],
+  "worldScaleFromHD": 0.6,
+  "worldGroundY": 574,
+  "hdRGBA8Bytes": 14155776,
+  "mobileRGBA8Bytes": 6291456
+}

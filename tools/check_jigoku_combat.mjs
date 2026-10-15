@@ -12,21 +12,30 @@ async function ready(page){page.on('pageerror',e=>errors.push(e.message));page.o
 const state=p=>p.evaluate(()=>window.yariCombat.snapshot());
 const click=(p,id)=>p.locator(id).evaluate(el=>el.click());
 try{
- const p=await browser.newPage({viewport:{width:1280,height:1100}});await ready(p);assert.equal((await state(p)).engine,'3.90.0');assert.equal((await state(p)).hd,true);
- await p.clock.install();await p.clock.pauseAt(new Date(Date.now()+100));await p.clock.runFor(100);await click(p,'#reset');
+ const p=await browser.newPage({viewport:{width:1280,height:1100}});
+ // Install before Phaser starts: swapping Date afterward corrupts TweenManager's epoch.
+ await p.clock.install();await ready(p);assert.equal((await state(p)).engine,'3.90.0');assert.equal((await state(p)).hd,true);
+ await p.clock.pauseAt(new Date(await p.evaluate(()=>Date.now())+100));await p.clock.runFor(100);await p.locator('#target').selectOption('seal');await click(p,'#reset');
  await p.screenshot({path:`${out}/desktop.jpg`,fullPage:true});
- await click(p,'#attack');assert.equal(await p.locator('#attack').isDisabled(),true);await click(p,'#attack');await p.clock.runFor(600);assert.equal((await state(p)).hp,2);assert.equal((await state(p)).swings,1);assert.ok((await state(p)).particles<=80);await p.clock.runFor(300);assert.ok((await state(p)).frame>=24);assert.equal((await state(p)).texture,'thrust-2');await p.clock.runFor(700);assert.equal((await state(p)).phase,'idle');
+ await click(p,'#attack');assert.equal(await p.locator('#attack').isDisabled(),true);await click(p,'#attack');await p.clock.runFor(600);assert.equal((await state(p)).hp,2);assert.equal((await state(p)).swings,1);assert.ok((await state(p)).particles<=80);await p.clock.runFor(300);assert.ok((await state(p)).frame>=24);assert.equal((await state(p)).texture,'thrust-2');await p.clock.runFor(700);assert.equal((await state(p)).phase,'idle');assert.equal((await state(p)).flashAlpha,0);
  checks.push('HD near hit; one damage per strike; no button spam; recovery unlocks');
  for(let i=0;i<2;i++){await click(p,'#attack');await p.clock.runFor(1500);}assert.equal((await state(p)).hp,0);assert.equal(await p.locator('#attack').isDisabled(),true);assert.match(await p.locator('#message').textContent(),/封印已破/);checks.push('Three distinct strikes break seal; dead target cannot be hit again');
  await p.locator('#range').selectOption('far');await p.keyboard.press('Tab');await p.evaluate(()=>document.activeElement.blur());await p.keyboard.press('j');await p.clock.runFor(1500);assert.equal((await state(p)).swings,1);assert.equal((await state(p)).hp,3);assert.match(await p.locator('#message').textContent(),/刺空/);checks.push('Keyboard J works; far target misses without damage');
- await click(p,'#pause');const before=await state(p);await p.clock.runFor(700);assert.equal((await state(p)).frame,before.frame);assert.equal((await state(p)).paused,true);await click(p,'#pause');checks.push('Pause freezes pose and input');
+ await click(p,'#pause');const before=await state(p);await p.clock.runFor(700);assert.equal((await state(p)).frame,before.frame);assert.equal((await state(p)).paused,true);await click(p,'#pause');checks.push('Pause freezes pose and input; hit flash expires after recovery');
  await p.locator('#range').selectOption('near');await p.locator('#feedback').uncheck();await click(p,'#attack');await p.clock.runFor(600);assert.equal((await state(p)).hp,2);assert.equal((await state(p)).particles,0);await p.clock.runFor(900);checks.push('Visual feedback off preserves actual hit rules');
  await p.locator('#feedback').check();await click(p,'#reset');await p.locator('#debug').check();await click(p,'#attack');await p.clock.runFor(500);await p.screenshot({path:`${out}/hit-check.jpg`,fullPage:true});assert.equal((await state(p)).hp,2);await p.clock.runFor(1000);await p.locator('#debug').uncheck();
- await fs.mkdir(`${tmp}/frames`,{recursive:true});await click(p,'#reset');
+ await p.locator('#target').selectOption('warrior');await click(p,'#reset');await p.screenshot({path:`${out}/desktop.jpg`,fullPage:true});
+ await click(p,'#attack');await p.clock.runFor(600);assert.equal((await state(p)).enemy.phase,'hurt');assert.equal((await state(p)).enemyFrame,1);assert.equal((await state(p)).enemyAngle,0);
+ await p.screenshot({path:`${out}/enemy-hit.jpg`,fullPage:true});await click(p,'#pause');const enemyAge=(await state(p)).enemyAge;await p.clock.runFor(500);assert.equal((await state(p)).enemyAge,enemyAge);await click(p,'#pause');await p.clock.runFor(900);assert.equal((await state(p)).enemy.phase,'guard');
+ await click(p,'#attack');await p.clock.runFor(1500);assert.equal((await state(p)).hp,1);
+ checks.push('Warrior hurt uses authored pose, no whole-body rotation; pause freezes reaction; guard recovers');
+ await fs.mkdir(`${tmp}/frames`,{recursive:true});
  const capture=[],clip=await p.locator('#battle').boundingBox();
- for(let i=0;i<48;i++){if(i===6)await click(p,'#attack');await p.clock.runFor(i%3===2?34:33);const time=await p.evaluate(()=>Date.now());const before=await state(p);await p.screenshot({clip,path:`${tmp}/frames/${String(i).padStart(3,'0')}.png`});assert.equal(await p.evaluate(()=>Date.now()),time,'Screenshot must not advance simulation');assert.equal((await state(p)).frame,before.frame);capture.push({sample:i,time,phase:before.phase,frame:before.frame,hp:before.hp});}
+ for(let i=0;i<72;i++){if(i===6)await click(p,'#attack');await p.clock.runFor(i%3===2?34:33);const time=await p.evaluate(()=>Date.now());const before=await state(p);await p.screenshot({clip,path:`${tmp}/frames/${String(i).padStart(3,'0')}.png`});assert.equal(await p.evaluate(()=>Date.now()),time,'Screenshot must not advance simulation');assert.equal((await state(p)).frame,before.frame);capture.push({sample:i,time,phase:before.phase,frame:before.frame,hp:before.hp,enemy:before.enemy});}
  await fs.writeFile(`${out}/capture-timing.json`,JSON.stringify(capture,null,2)+'\n');
- checks.push('Captured 48 rendered scene frames at 33/33/34 ms controlled-clock samples');
+ assert.deepEqual([...new Set(capture.map(r=>r.enemy.phase))],['guard','hurt','kneel','fallen','dissolve','gone']);assert.equal((await state(p)).enemyAlpha,0);assert.equal((await state(p)).flashAlpha,0);
+ checks.push('Fatal reaction: hurt → kneel → fallen → dissolve → gone; 72 captured frames with fixed timing');
+ await click(p,'#reset');assert.equal((await state(p)).enemy.phase,'guard');assert.equal((await state(p)).hp,3);
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,reducedMotion:'reduce'});await ready(mobile);assert.equal((await state(mobile)).hd,false);assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await mobile.locator('#attack').tap();await mobile.waitForFunction(()=>window.yariCombat.snapshot().hp===2);await mobile.waitForFunction(()=>window.yariCombat.snapshot().phase==='idle');await mobile.screenshot({path:`${out}/mobile.jpg`,fullPage:true});checks.push('Mobile touch attack; 512px atlas; no horizontal overflow; reduced motion');
  assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);await fs.writeFile(`${out}/browser-check.json`,JSON.stringify({passed:true,engine:'Phaser 3.90.0',checks,pageErrors:errors,failedRequests:failed,scope:'Headless desktop/mobile correctness; not a physical phone FPS benchmark.'},null,2)+'\n');console.log('Combat browser checks passed.');
 }finally{await browser.close();await new Promise(r=>server.close(r));}
