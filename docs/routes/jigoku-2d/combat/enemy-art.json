@@ -1,22 +1,22 @@
 {
   "sources": [
     {
-      "path": "assets/source/jigoku-2d/ghost-warrior-poses.png",
-      "sha256": "34c7ce068290b5e2d6a6c1d0f082118cbd57309c5487135ecfa301a5f04b14e3",
-      "generatedFile": "exec-a2caeabc-b872-45ca-a782-3641042aed13.png"
+      "path": "assets/source/jigoku-2d/ghost-rig/bodies-a.png",
+      "sha256": "94d7c68eab38f06064c07e662e6af44c9f8124c9465c7aa2ea1388e45d517bf6",
+      "generatedFile": "exec-581d763c-0659-41fa-9c45-5d9e5aaee529.png"
     },
     {
-      "path": "assets/source/jigoku-2d/ghost-warrior-inbetweens.png",
-      "sha256": "ae311c8bb589989a00090c4f4774114f9c7da603947e491ec08f3a1ce67c26cd",
-      "generatedFile": "exec-66c79597-b037-4c85-b5ee-0d5846fe1c4f.png"
+      "path": "assets/source/jigoku-2d/ghost-rig/bodies-b.png",
+      "sha256": "73cf9f3e44ba8c56a5e773563b146127e970e60253cb5a3ed653320d16d07017",
+      "generatedFile": "exec-732be87f-242b-475a-982b-96204b6e58d8.png"
     },
     {
-      "path": "assets/source/jigoku-2d/ghost-warrior-weight-shift.png",
-      "sha256": "dbf32fa31152aa25ead66300c327361bdb97e2bbd0a2e07d2e7b96d03e879706",
-      "generatedFile": "exec-edeeb9bc-af2e-4d76-b7c5-808ed3808bc9.png"
+      "path": "assets/source/jigoku-2d/ghost-rig/bodies-c.png",
+      "sha256": "e935305b9f3ba6672aeb6a550f02e3f85db3c63a433081de4b48947c75d84a30",
+      "generatedFile": "exec-d37250aa-a34a-48f2-b201-572887ec552a.png"
     }
   ],
-  "method": "Original image_gen four-pose sheet with head-facing correction, plus referenced four-pose and two-pose inbetween sheets. Ten authored silhouettes, not 30 unique enemy poses per second. Manual crop and ground anchors; the third source is uniformly scaled 2/3 to match character size, no nonuniform scaling, morphing or whole-body death rotation. No reproducible seed; armor, sword and projected proportions still vary between poses.",
+  "method": "Three image_gen cleanup edits of the previous ten-pose sources: remove swords and gripping hands for poses 0-6; retain relaxed hands for released poses 7-9. Layout and proportions may drift in these generative edits. Common hand and katana are separate reusable runtime layers, with fixed size and manual wrist sockets. No mesh warping or new Blender rendering.",
   "poses": [
     {
       "pose": "guard",

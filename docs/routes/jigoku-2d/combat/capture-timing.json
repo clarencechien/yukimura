@@ -1,7 +1,7 @@
 [
   {
     "sample": 0,
-    "time": 1792071582329,
+    "time": 1792072785238,
     "phase": "idle",
     "frame": 7,
     "hp": 1,
@@ -9,11 +9,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 1,
-    "time": 1792071582362,
+    "time": 1792072785271,
     "phase": "idle",
     "frame": 8,
     "hp": 1,
@@ -21,11 +37,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 2,
-    "time": 1792071582396,
+    "time": 1792072785305,
     "phase": "idle",
     "frame": 9,
     "hp": 1,
@@ -33,11 +65,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 3,
-    "time": 1792071582429,
+    "time": 1792072785338,
     "phase": "idle",
     "frame": 10,
     "hp": 1,
@@ -45,11 +93,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 4,
-    "time": 1792071582462,
+    "time": 1792072785371,
     "phase": "idle",
     "frame": 11,
     "hp": 1,
@@ -57,11 +121,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 5,
-    "time": 1792071582496,
+    "time": 1792072785405,
     "phase": "idle",
     "frame": 12,
     "hp": 1,
@@ -69,11 +149,55 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 6,
-    "time": 1792071582529,
+    "time": 1792072785438,
+    "phase": "attack",
+    "frame": 0,
+    "hp": 1,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
+    }
+  },
+  {
+    "sample": 7,
+    "time": 1792072785471,
     "phase": "attack",
     "frame": 1,
     "hp": 1,
@@ -81,11 +205,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
-    "sample": 7,
-    "time": 1792071582562,
+    "sample": 8,
+    "time": 1792072785505,
     "phase": "attack",
     "frame": 2,
     "hp": 1,
@@ -93,11 +233,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
-    "sample": 8,
-    "time": 1792071582596,
+    "sample": 9,
+    "time": 1792072785538,
     "phase": "attack",
     "frame": 3,
     "hp": 1,
@@ -105,11 +261,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
-    "sample": 9,
-    "time": 1792071582629,
+    "sample": 10,
+    "time": 1792072785571,
     "phase": "attack",
     "frame": 4,
     "hp": 1,
@@ -117,11 +289,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
-    "sample": 10,
-    "time": 1792071582662,
+    "sample": 11,
+    "time": 1792072785605,
     "phase": "attack",
     "frame": 5,
     "hp": 1,
@@ -129,11 +317,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
-    "sample": 11,
-    "time": 1792071582696,
+    "sample": 12,
+    "time": 1792072785638,
     "phase": "attack",
     "frame": 6,
     "hp": 1,
@@ -141,23 +345,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
-    }
-  },
-  {
-    "sample": 12,
-    "time": 1792071582729,
-    "phase": "attack",
-    "frame": 7,
-    "hp": 1,
-    "enemy": {
-      "pose": 0,
-      "phase": "guard",
-      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 13,
-    "time": 1792071582762,
+    "time": 1792072785671,
     "phase": "attack",
     "frame": 8,
     "hp": 1,
@@ -165,11 +373,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 14,
-    "time": 1792071582796,
+    "time": 1792072785705,
     "phase": "attack",
     "frame": 9,
     "hp": 1,
@@ -177,11 +401,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 15,
-    "time": 1792071582829,
+    "time": 1792072785738,
     "phase": "attack",
     "frame": 10,
     "hp": 1,
@@ -189,11 +429,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 16,
-    "time": 1792071582862,
+    "time": 1792072785771,
     "phase": "attack",
     "frame": 11,
     "hp": 1,
@@ -201,11 +457,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 17,
-    "time": 1792071582896,
+    "time": 1792072785805,
     "phase": "attack",
     "frame": 12,
     "hp": 1,
@@ -213,11 +485,55 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 18,
-    "time": 1792071582929,
+    "time": 1792072785838,
+    "phase": "attack",
+    "frame": 12,
+    "hp": 1,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
+    }
+  },
+  {
+    "sample": 19,
+    "time": 1792072785871,
     "phase": "attack",
     "frame": 13,
     "hp": 1,
@@ -225,23 +541,27 @@
       "pose": 0,
       "phase": "guard",
       "alpha": 1
-    }
-  },
-  {
-    "sample": 19,
-    "time": 1792071582962,
-    "phase": "attack",
-    "frame": 14,
-    "hp": 0,
-    "enemy": {
-      "pose": 1,
-      "phase": "flinch",
-      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.28,
+      "y": 403.84000000000003,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": 0,
+      "visible": true
     }
   },
   {
     "sample": 20,
-    "time": 1792071582996,
+    "time": 1792072785905,
     "phase": "attack",
     "frame": 14,
     "hp": 0,
@@ -249,11 +569,27 @@
       "pose": 1,
       "phase": "flinch",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 857.9876099288897,
+      "y": 426.08257208580653,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 871.6,
+      "y": 412,
+      "angle": 8,
+      "visible": true
     }
   },
   {
     "sample": 21,
-    "time": 1792071583029,
+    "time": 1792072785938,
     "phase": "attack",
     "frame": 14,
     "hp": 0,
@@ -261,11 +597,55 @@
       "pose": 1,
       "phase": "flinch",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 857.9876099288897,
+      "y": 426.08257208580653,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 871.6,
+      "y": 412,
+      "angle": 8,
+      "visible": true
     }
   },
   {
     "sample": 22,
-    "time": 1792071583062,
+    "time": 1792072785971,
+    "phase": "attack",
+    "frame": 14,
+    "hp": 0,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 857.9876099288897,
+      "y": 426.08257208580653,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 871.6,
+      "y": 412,
+      "angle": 8,
+      "visible": true
+    }
+  },
+  {
+    "sample": 23,
+    "time": 1792072786005,
     "phase": "attack",
     "frame": 15,
     "hp": 0,
@@ -273,11 +653,27 @@
       "pose": 1,
       "phase": "flinch",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 857.9876099288897,
+      "y": 426.08257208580653,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 871.6,
+      "y": 412,
+      "angle": 8,
+      "visible": true
     }
   },
   {
-    "sample": 23,
-    "time": 1792071583096,
+    "sample": 24,
+    "time": 1792072786038,
     "phase": "attack",
     "frame": 16,
     "hp": 0,
@@ -285,23 +681,27 @@
       "pose": 1,
       "phase": "flinch",
       "alpha": 1
-    }
-  },
-  {
-    "sample": 24,
-    "time": 1792071583129,
-    "phase": "attack",
-    "frame": 17,
-    "hp": 0,
-    "enemy": {
-      "pose": 2,
-      "phase": "hurt",
-      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 857.9876099288897,
+      "y": 426.08257208580653,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 871.6,
+      "y": 412,
+      "angle": 8,
+      "visible": true
     }
   },
   {
     "sample": 25,
-    "time": 1792071583162,
+    "time": 1792072786071,
     "phase": "attack",
     "frame": 18,
     "hp": 0,
@@ -309,11 +709,27 @@
       "pose": 2,
       "phase": "hurt",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 883.3966137673045,
+      "y": 418.4891203319264,
+      "angle": -8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 892.6,
+      "y": 401.20000000000005,
+      "angle": -8,
+      "visible": true
     }
   },
   {
     "sample": 26,
-    "time": 1792071583196,
+    "time": 1792072786105,
     "phase": "attack",
     "frame": 19,
     "hp": 0,
@@ -321,11 +737,27 @@
       "pose": 2,
       "phase": "hurt",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 883.3966137673045,
+      "y": 418.4891203319264,
+      "angle": -8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 892.6,
+      "y": 401.20000000000005,
+      "angle": -8,
+      "visible": true
     }
   },
   {
     "sample": 27,
-    "time": 1792071583229,
+    "time": 1792072786138,
     "phase": "attack",
     "frame": 19,
     "hp": 0,
@@ -333,11 +765,27 @@
       "pose": 3,
       "phase": "buckle",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 842.7966137673045,
+      "y": 470.4891203319264,
+      "angle": -8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 852,
+      "y": 453.20000000000005,
+      "angle": -8,
+      "visible": true
     }
   },
   {
     "sample": 28,
-    "time": 1792071583262,
+    "time": 1792072786171,
     "phase": "attack",
     "frame": 20,
     "hp": 0,
@@ -345,11 +793,27 @@
       "pose": 3,
       "phase": "buckle",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 842.7966137673045,
+      "y": 470.4891203319264,
+      "angle": -8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 852,
+      "y": 453.20000000000005,
+      "angle": -8,
+      "visible": true
     }
   },
   {
     "sample": 29,
-    "time": 1792071583296,
+    "time": 1792072786205,
     "phase": "attack",
     "frame": 21,
     "hp": 0,
@@ -357,11 +821,55 @@
       "pose": 4,
       "phase": "crouch",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 809.3876099288897,
+      "y": 495.68257208580644,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 823,
+      "y": 481.6,
+      "angle": 8,
+      "visible": true
     }
   },
   {
     "sample": 30,
-    "time": 1792071583329,
+    "time": 1792072786238,
+    "phase": "attack",
+    "frame": 22,
+    "hp": 0,
+    "enemy": {
+      "pose": 4,
+      "phase": "crouch",
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 809.3876099288897,
+      "y": 495.68257208580644,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 823,
+      "y": 481.6,
+      "angle": 8,
+      "visible": true
+    }
+  },
+  {
+    "sample": 31,
+    "time": 1792072786271,
     "phase": "attack",
     "frame": 23,
     "hp": 0,
@@ -369,11 +877,27 @@
       "pose": 4,
       "phase": "crouch",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 809.3876099288897,
+      "y": 495.68257208580644,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 823,
+      "y": 481.6,
+      "angle": 8,
+      "visible": true
     }
   },
   {
-    "sample": 31,
-    "time": 1792071583362,
+    "sample": 32,
+    "time": 1792072786305,
     "phase": "attack",
     "frame": 24,
     "hp": 0,
@@ -381,11 +905,27 @@
       "pose": 5,
       "phase": "kneel",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 848.6130046851138,
+      "y": 514.4050091336479,
+      "angle": -4,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 859,
+      "y": 497.8,
+      "angle": -4,
+      "visible": true
     }
   },
   {
-    "sample": 32,
-    "time": 1792071583396,
+    "sample": 33,
+    "time": 1792072786338,
     "phase": "attack",
     "frame": 25,
     "hp": 0,
@@ -393,23 +933,55 @@
       "pose": 5,
       "phase": "kneel",
       "alpha": 1
-    }
-  },
-  {
-    "sample": 33,
-    "time": 1792071583429,
-    "phase": "attack",
-    "frame": 26,
-    "hp": 0,
-    "enemy": {
-      "pose": 5,
-      "phase": "kneel",
-      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 848.6130046851138,
+      "y": 514.4050091336479,
+      "angle": -4,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 859,
+      "y": 497.8,
+      "angle": -4,
+      "visible": true
     }
   },
   {
     "sample": 34,
-    "time": 1792071583462,
+    "time": 1792072786371,
+    "phase": "attack",
+    "frame": 26,
+    "hp": 0,
+    "enemy": {
+      "pose": 6,
+      "phase": "brace",
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 827.9876099288897,
+      "y": 529.8825720858065,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 8,
+      "visible": true
+    }
+  },
+  {
+    "sample": 35,
+    "time": 1792072786405,
     "phase": "attack",
     "frame": 27,
     "hp": 0,
@@ -417,11 +989,27 @@
       "pose": 6,
       "phase": "brace",
       "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 827.9876099288897,
+      "y": 529.8825720858065,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 8,
+      "visible": true
     }
   },
   {
-    "sample": 35,
-    "time": 1792071583496,
+    "sample": 36,
+    "time": 1792072786438,
     "phase": "attack",
     "frame": 28,
     "hp": 0,
@@ -429,23 +1017,27 @@
       "pose": 6,
       "phase": "brace",
       "alpha": 1
-    }
-  },
-  {
-    "sample": 36,
-    "time": 1792071583529,
-    "phase": "attack",
-    "frame": 29,
-    "hp": 0,
-    "enemy": {
-      "pose": 7,
-      "phase": "lower",
-      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 827.9876099288897,
+      "y": 529.8825720858065,
+      "angle": 8,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 8,
+      "visible": true
     }
   },
   {
     "sample": 37,
-    "time": 1792071583562,
+    "time": 1792072786471,
     "phase": "attack",
     "frame": 30,
     "hp": 0,
@@ -453,11 +1045,27 @@
       "pose": 7,
       "phase": "lower",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 831.016181357461,
+      "y": 527.7189533500409,
+      "angle": 6.990476190476215,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 6.990476190476215,
+      "visible": false
     }
   },
   {
     "sample": 38,
-    "time": 1792071583596,
+    "time": 1792072786505,
     "phase": "attack",
     "frame": 31,
     "hp": 0,
@@ -465,11 +1073,27 @@
       "pose": 7,
       "phase": "lower",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 833.7590385003183,
+      "y": 527.2522550912072,
+      "angle": 6.076190476190504,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 6.076190476190504,
+      "visible": false
     }
   },
   {
     "sample": 39,
-    "time": 1792071583629,
+    "time": 1792072786538,
     "phase": "attack",
     "frame": 31,
     "hp": 0,
@@ -477,11 +1101,27 @@
       "pose": 8,
       "phase": "settle",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 836.5018956431754,
+      "y": 528.2044610717646,
+      "angle": 5.161904761904793,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 5.161904761904793,
+      "visible": false
     }
   },
   {
     "sample": 40,
-    "time": 1792071583662,
+    "time": 1792072786571,
     "phase": "attack",
     "frame": 32,
     "hp": 0,
@@ -489,11 +1129,27 @@
       "pose": 8,
       "phase": "settle",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 839.2447527860326,
+      "y": 530.5755712917131,
+      "angle": 4.247619047619082,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 4.247619047619082,
+      "visible": false
     }
   },
   {
     "sample": 41,
-    "time": 1792071583696,
+    "time": 1792072786605,
     "phase": "attack",
     "frame": 33,
     "hp": 0,
@@ -501,23 +1157,83 @@
       "pose": 8,
       "phase": "settle",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 841.9876099288897,
+      "y": 534.3655857510529,
+      "angle": 3.3333333333333712,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 3.3333333333333712,
+      "visible": false
     }
   },
   {
     "sample": 42,
-    "time": 1792071583729,
+    "time": 1792072786638,
     "phase": "attack",
-    "frame": 35,
+    "frame": 34,
     "hp": 0,
     "enemy": {
       "pose": 8,
       "phase": "settle",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 844.7304670717468,
+      "y": 539.5745044497838,
+      "angle": 2.41904761904766,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 2.41904761904766,
+      "visible": false
     }
   },
   {
     "sample": 43,
-    "time": 1792071583762,
+    "time": 1792072786671,
+    "phase": "attack",
+    "frame": 35,
+    "hp": 0,
+    "enemy": {
+      "pose": 9,
+      "phase": "fallen",
+      "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 847.473324214604,
+      "y": 546.2023273879059,
+      "angle": 1.5047619047618355,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 1.5047619047618355,
+      "visible": false
+    }
+  },
+  {
+    "sample": 44,
+    "time": 1792072786705,
     "phase": "idle",
     "frame": 0,
     "hp": 0,
@@ -525,11 +1241,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 850.2161813574611,
+      "y": 554.2490545654192,
+      "angle": 0.5904761904762381,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0.5904761904762381,
+      "visible": false
     }
   },
   {
-    "sample": 44,
-    "time": 1792071583796,
+    "sample": 45,
+    "time": 1792072786738,
     "phase": "idle",
     "frame": 1,
     "hp": 0,
@@ -537,11 +1269,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 45,
-    "time": 1792071583829,
+    "sample": 46,
+    "time": 1792072786771,
     "phase": "idle",
     "frame": 2,
     "hp": 0,
@@ -549,11 +1297,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 46,
-    "time": 1792071583862,
+    "sample": 47,
+    "time": 1792072786805,
     "phase": "idle",
     "frame": 3,
     "hp": 0,
@@ -561,11 +1325,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 47,
-    "time": 1792071583896,
+    "sample": 48,
+    "time": 1792072786838,
     "phase": "idle",
     "frame": 4,
     "hp": 0,
@@ -573,23 +1353,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
-    }
-  },
-  {
-    "sample": 48,
-    "time": 1792071583929,
-    "phase": "idle",
-    "frame": 5,
-    "hp": 0,
-    "enemy": {
-      "pose": 9,
-      "phase": "fallen",
-      "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 49,
-    "time": 1792071583962,
+    "time": 1792072786871,
     "phase": "idle",
     "frame": 6,
     "hp": 0,
@@ -597,11 +1381,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 50,
-    "time": 1792071583996,
+    "time": 1792072786905,
     "phase": "idle",
     "frame": 7,
     "hp": 0,
@@ -609,11 +1409,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 51,
-    "time": 1792071584029,
+    "time": 1792072786938,
     "phase": "idle",
     "frame": 7,
     "hp": 0,
@@ -621,11 +1437,27 @@
       "pose": 9,
       "phase": "fallen",
       "alpha": 1
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 52,
-    "time": 1792071584062,
+    "time": 1792072786971,
     "phase": "idle",
     "frame": 8,
     "hp": 0,
@@ -633,11 +1465,27 @@
       "pose": 9,
       "phase": "dissolve",
       "alpha": 0.955238095238095
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.955238095238095,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 53,
-    "time": 1792071584096,
+    "time": 1792072787005,
     "phase": "idle",
     "frame": 9,
     "hp": 0,
@@ -645,95 +1493,223 @@
       "pose": 9,
       "phase": "dissolve",
       "alpha": 0.9095238095238093
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.9095238095238093,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 54,
-    "time": 1792071584129,
+    "time": 1792072787038,
+    "phase": "idle",
+    "frame": 10,
+    "hp": 0,
+    "enemy": {
+      "pose": 9,
+      "phase": "dissolve",
+      "alpha": 0.8638095238095236
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.8638095238095236,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
+    }
+  },
+  {
+    "sample": 55,
+    "time": 1792072787071,
     "phase": "idle",
     "frame": 11,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.8409523809523807
+      "alpha": 0.8180952380952379
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.8180952380952379,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 55,
-    "time": 1792071584162,
+    "sample": 56,
+    "time": 1792072787105,
     "phase": "idle",
     "frame": 12,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.7952380952380951
+      "alpha": 0.7723809523809522
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.7723809523809522,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 56,
-    "time": 1792071584196,
+    "sample": 57,
+    "time": 1792072787138,
     "phase": "idle",
     "frame": 13,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.7495238095238093
+      "alpha": 0.7266666666666665
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.7266666666666665,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 57,
-    "time": 1792071584229,
+    "sample": 58,
+    "time": 1792072787171,
     "phase": "idle",
     "frame": 14,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.7038095238095237
+      "alpha": 0.6809523809523808
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.6809523809523808,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 58,
-    "time": 1792071584262,
+    "sample": 59,
+    "time": 1792072787205,
     "phase": "idle",
     "frame": 15,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.6580952380952378
+      "alpha": 0.635238095238095
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.635238095238095,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 59,
-    "time": 1792071584296,
+    "sample": 60,
+    "time": 1792072787238,
     "phase": "idle",
     "frame": 16,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.6123809523809521
-    }
-  },
-  {
-    "sample": 60,
-    "time": 1792071584329,
-    "phase": "idle",
-    "frame": 17,
-    "hp": 0,
-    "enemy": {
-      "pose": 9,
-      "phase": "dissolve",
-      "alpha": 0.5666666666666664
+      "alpha": 0.5895238095238093
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.5895238095238093,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 61,
-    "time": 1792071584362,
+    "time": 1792072787271,
     "phase": "idle",
     "frame": 18,
     "hp": 0,
@@ -741,11 +1717,27 @@
       "pose": 9,
       "phase": "dissolve",
       "alpha": 0.5209523809523807
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.5209523809523807,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 62,
-    "time": 1792071584396,
+    "time": 1792072787305,
     "phase": "idle",
     "frame": 19,
     "hp": 0,
@@ -753,11 +1745,27 @@
       "pose": 9,
       "phase": "dissolve",
       "alpha": 0.475238095238095
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.475238095238095,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 63,
-    "time": 1792071584429,
+    "time": 1792072787338,
     "phase": "idle",
     "frame": 19,
     "hp": 0,
@@ -765,11 +1773,27 @@
       "pose": 9,
       "phase": "dissolve",
       "alpha": 0.4295238095238093
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.4295238095238093,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 64,
-    "time": 1792071584462,
+    "time": 1792072787371,
     "phase": "idle",
     "frame": 20,
     "hp": 0,
@@ -777,11 +1801,27 @@
       "pose": 9,
       "phase": "dissolve",
       "alpha": 0.3838095238095236
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.3838095238095236,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 65,
-    "time": 1792071584496,
+    "time": 1792072787405,
     "phase": "idle",
     "frame": 21,
     "hp": 0,
@@ -789,95 +1829,223 @@
       "pose": 9,
       "phase": "dissolve",
       "alpha": 0.3380952380952379
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.3380952380952379,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 66,
-    "time": 1792071584529,
+    "time": 1792072787438,
+    "phase": "idle",
+    "frame": 22,
+    "hp": 0,
+    "enemy": {
+      "pose": 9,
+      "phase": "dissolve",
+      "alpha": 0.2923809523809522
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.2923809523809522,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
+    }
+  },
+  {
+    "sample": 67,
+    "time": 1792072787471,
     "phase": "idle",
     "frame": 23,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.2695238095238093
+      "alpha": 0.24666666666666648
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.24666666666666648,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 67,
-    "time": 1792071584562,
+    "sample": 68,
+    "time": 1792072787505,
     "phase": "idle",
     "frame": 24,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.22380952380952357
+      "alpha": 0.20095238095238077
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.20095238095238077,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 68,
-    "time": 1792071584596,
+    "sample": 69,
+    "time": 1792072787538,
     "phase": "idle",
     "frame": 25,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.17809523809523786
+      "alpha": 0.15523809523809506
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.15523809523809506,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 69,
-    "time": 1792071584629,
+    "sample": 70,
+    "time": 1792072787571,
     "phase": "idle",
     "frame": 26,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.13238095238095215
+      "alpha": 0.10952380952380936
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.10952380952380936,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 70,
-    "time": 1792071584662,
+    "sample": 71,
+    "time": 1792072787605,
     "phase": "idle",
     "frame": 27,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.08666666666666645
+      "alpha": 0.06380952380952354
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.06380952380952354,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
-    "sample": 71,
-    "time": 1792071584696,
+    "sample": 72,
+    "time": 1792072787638,
     "phase": "idle",
     "frame": 28,
     "hp": 0,
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.04095238095238074
-    }
-  },
-  {
-    "sample": 72,
-    "time": 1792071584729,
-    "phase": "idle",
-    "frame": 29,
-    "hp": 0,
-    "enemy": {
-      "pose": 9,
-      "phase": "gone",
-      "alpha": 0
+      "alpha": 0.01809523809523783
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0.01809523809523783,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 73,
-    "time": 1792071584762,
+    "time": 1792072787671,
     "phase": "idle",
     "frame": 30,
     "hp": 0,
@@ -885,11 +2053,27 @@
       "pose": 9,
       "phase": "gone",
       "alpha": 0
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 74,
-    "time": 1792071584796,
+    "time": 1792072787705,
     "phase": "idle",
     "frame": 31,
     "hp": 0,
@@ -897,11 +2081,27 @@
       "pose": 9,
       "phase": "gone",
       "alpha": 0
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 75,
-    "time": 1792071584829,
+    "time": 1792072787738,
     "phase": "idle",
     "frame": 31,
     "hp": 0,
@@ -909,11 +2109,27 @@
       "pose": 9,
       "phase": "gone",
       "alpha": 0
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 76,
-    "time": 1792071584862,
+    "time": 1792072787771,
     "phase": "idle",
     "frame": 32,
     "hp": 0,
@@ -921,11 +2137,27 @@
       "pose": 9,
       "phase": "gone",
       "alpha": 0
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   },
   {
     "sample": 77,
-    "time": 1792071584896,
+    "time": 1792072787805,
     "phase": "idle",
     "frame": 33,
     "hp": 0,
@@ -933,6 +2165,22 @@
       "pose": 9,
       "phase": "gone",
       "alpha": 0
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 851.9876099288897,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "alpha": 0,
+      "visible": true
+    },
+    "hand": {
+      "x": 841.6,
+      "y": 515.8,
+      "angle": 0,
+      "visible": false
     }
   }
 ]

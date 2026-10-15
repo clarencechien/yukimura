@@ -1,4 +1,5 @@
 import {CombatState} from './combat-state.mjs';
+import {enemyWeapon,enemyPointToWorld} from './enemy-weapon.mjs';
 const $=s=>document.querySelector(s);
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let scene,audioContext;
@@ -14,6 +15,7 @@ function tone(hit=false){
 class Battle extends Phaser.Scene {
   constructor(){super('battle');}
   preload(){
+    this.load.json('enemyRig','enemy-rig.json');this.load.image('enemyKatana','enemy-katana.webp');this.load.image('enemyGrip','enemy-grip.webp');
     this.load.image('arena','arena.webp');this.load.json('track','spear-track.json');
     this.hd=innerWidth>=900;
     this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:9});
@@ -37,7 +39,12 @@ class Battle extends Phaser.Scene {
     this.hero=this.add.sprite(35,90,'idle',0).setOrigin(0).setDisplaySize(1024,640);
     this.pedestal=this.add.graphics();this.seal=this.add.container(970,334);this.sealArt=this.add.graphics();this.seal.add(this.sealArt);this.drawSeal();
     this.enemyShadow=this.add.graphics();
+    this.enemyRig=this.cache.json.get('enemyRig');
+    const component=(key,part)=>this.add.image(0,0,key).setOrigin(part.pivot[0]/part.size[0],part.pivot[1]/part.size[1]).setDisplaySize(part.size[0]*.6,part.size[1]*.6);
+    this.enemyKatana=component('enemyKatana',this.enemyRig.parts.katana);
     this.enemySprite=this.add.sprite(970,574,'warrior',0).setOrigin(.5,690/768).setDisplaySize(1152*.6,768*.6);
+    // The shared cuff must cover the painted socket opening on the body.
+    this.enemyGrip=component('enemyGrip',this.enemyRig.parts.grip);
     this.flash=this.add.circle(0,0,12,0xffd69b).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
     const dot=this.make.graphics({x:0,y:0,add:false});dot.fillStyle(0xffffff);dot.fillCircle(4,4,4);dot.generateTexture('spark',8,8);dot.destroy();
     this.sparks=this.add.particles(0,0,'spark',{emitting:false,lifespan:{min:140,max:380},speed:{min:80,max:290},angle:{min:150,max:370},gravityY:340,scale:{start:.55,end:0},alpha:{start:1,end:0},tint:[0xffe5b3,0xf99e5b,0xbc3834],blendMode:'ADD',maxParticles:80});
@@ -47,7 +54,7 @@ class Battle extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
     for(const id of ['attack','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.track.frames[this.state.frame]})};
+    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.track.frames[this.state.frame]})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -101,7 +108,12 @@ class Battle extends Phaser.Scene {
     const warrior=this.state.targetKind==='warrior',enemy=this.state.enemy;
     this.seal.setVisible(!warrior);this.pedestal.setVisible(!warrior);
     this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setFrame(enemy.pose).setAlpha(enemy.alpha);
+    this.weaponPose=enemyWeapon(enemy,this.state.enemyAge,this.state.hp===0,this.enemyRig);
+    const weapon=this.weaponPose,grip=enemyPointToWorld(weapon.grip,this.state.target.x,this.enemyRig),wrist=enemyPointToWorld(weapon.wrist,this.state.target.x,this.enemyRig);
+    this.enemyKatana.setVisible(warrior).setPosition(grip.x,grip.y).setAngle(weapon.angle).setAlpha(weapon.alpha);
+    this.enemyGrip.setVisible(warrior&&weapon.held).setPosition(wrist.x,wrist.y).setAngle(weapon.angle).setAlpha(weapon.alpha);
     this.enemyShadow.clear();
+    if(warrior&&!weapon.held){this.enemyShadow.fillStyle(0x05070a,.25*weapon.alpha);this.enemyShadow.fillEllipse(grip.x-65,574,230,9);}
     if(warrior){
       this.enemyShadow.fillStyle(0x06090b,.25*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x,574,enemy.pose>=7?380:235,28);
       if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
@@ -113,6 +125,7 @@ class Battle extends Phaser.Scene {
       this.trail.lineStyle(2,0xffd5a0,.85);this.trail.lineBetween(tip.x-65,tip.y+10,tip.x,tip.y);
     }
     if($('#debug').checked){
+      if(warrior&&weapon.held){this.debug.fillStyle(0x59e7f0,1);this.debug.fillCircle(wrist.x,wrist.y,3);this.debug.fillStyle(0xffe08b,1);this.debug.fillCircle(grip.x,grip.y,3);}
       const target=this.state.target;this.debug.lineStyle(2,0x6edee2,.8);this.debug.strokeCircle(target.x,target.y,target.radius);
       if(this.state.phase==='attack'){this.debug.fillStyle(this.track.activeFrames.includes(this.state.frame)?0xffdd77:0xffffff);this.debug.fillCircle(tip.x,tip.y,5);}
     }

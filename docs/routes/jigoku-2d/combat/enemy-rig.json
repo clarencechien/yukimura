@@ -1,0 +1,141 @@
+{
+  "parts": {
+    "katana": {
+      "size": [
+        410,
+        51
+      ],
+      "pivot": [
+        327.0,
+        28.0
+      ],
+      "sourceBox": [
+        0,
+        100,
+        2048,
+        355
+      ],
+      "uniformScale": 0.2
+    },
+    "grip": {
+      "size": [
+        66,
+        57
+      ],
+      "pivot": [
+        46.4,
+        8.8
+      ],
+      "sourceBox": [
+        1530,
+        365,
+        1940,
+        720
+      ],
+      "uniformScale": 0.16,
+      "gripPoint": [
+        27.2,
+        35.2
+      ]
+    }
+  },
+  "bindings": [
+    {
+      "pose": "guard",
+      "wrist": [
+        484,
+        380
+      ],
+      "angle": 0,
+      "sourceWrist": [
+        388,
+        260
+      ]
+    },
+    {
+      "pose": "flinch",
+      "wrist": [
+        412,
+        420
+      ],
+      "angle": 8,
+      "sourceWrist": [
+        316,
+        285
+      ]
+    },
+    {
+      "pose": "hurt",
+      "wrist": [
+        447,
+        402
+      ],
+      "angle": -8,
+      "sourceWrist": [
+        1051,
+        282
+      ]
+    },
+    {
+      "pose": "buckle",
+      "wrist": [
+        379.33333333333337,
+        488.6666666666667
+      ],
+      "angle": -8,
+      "sourceWrist": [
+        455,
+        388
+      ]
+    },
+    {
+      "pose": "crouch",
+      "wrist": [
+        331,
+        536
+      ],
+      "angle": 8,
+      "sourceWrist": [
+        1025,
+        381
+      ]
+    },
+    {
+      "pose": "kneel",
+      "wrist": [
+        391,
+        563
+      ],
+      "angle": -4,
+      "sourceWrist": [
+        300,
+        828
+      ]
+    },
+    {
+      "pose": "brace",
+      "wrist": [
+        362,
+        593
+      ],
+      "angle": 8,
+      "sourceWrist": [
+        286,
+        858
+      ]
+    }
+  ],
+  "releaseAge": 500,
+  "flightMs": 280,
+  "groundY": 690,
+  "worldScale": 0.6,
+  "bodyOrigin": [
+    576,
+    690
+  ],
+  "source": "assets/source/jigoku-2d/ghost-rig/katana-hand.png",
+  "sha256": "6780cc3b5095e1f3a050eb2e2173c9042010a002ebb3eb070ac804b1e6aef8e5",
+  "generatedFile": "exec-4eb8eba6-b48f-4afd-b737-7a200ae630a3.png",
+  "method": "image_gen disassembled katana and grip, referencing exec-f7fc9938-d445-41cf-b7c0-efc72f1b3b0f.png (a generated combined hand-and-sword study based on ghost-warrior-poses.png). Manual wrist and handle anchors. One constant-size blade and one grip reused across seven held poses. Scripted drop to a flat plane, not a physics simulation. No reproducible seed.",
+  "extraRGBA8Bytes": 98688
+}
