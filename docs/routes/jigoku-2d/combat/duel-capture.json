@@ -1,0 +1,6381 @@
+[
+  {
+    "sample": 0,
+    "time": 1792105973802,
+    "duel": {
+      "enabled": true,
+      "stage": "waiting",
+      "age": 1133,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 33,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "waiting",
+      "intentAge": 1133
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 1,
+    "time": 1792105973835,
+    "duel": {
+      "enabled": true,
+      "stage": "waiting",
+      "age": 1165,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 34,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "waiting",
+      "intentAge": 1165
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 2,
+    "time": 1792105973869,
+    "duel": {
+      "enabled": true,
+      "stage": "waiting",
+      "age": 1197,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 35,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "waiting",
+      "intentAge": 1197
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 3,
+    "time": 1792105973902,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 29,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 0,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 29
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.37290659061,
+        "y": 317.4978437479113
+      },
+      "wrist": {
+        "x": 483.85667018278036,
+        "y": 379.95904862365154
+      },
+      "upperAngle": -43.05186409739192,
+      "foreAngle": 33.61088788238739,
+      "handState": "grip",
+      "handAngle": -2.4164855027162275,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.8721102990804,
+      "y": 404.28706250649424,
+      "angle": -2.4164855027162275,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.7140021096682,
+      "y": 387.97542917419094,
+      "angle": -2.4164855027162275,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 4,
+    "time": 1792105973935,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 61,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 1,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 61
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.2593295172155,
+        "y": 317.60369471676063
+      },
+      "wrist": {
+        "x": 483.382124655404,
+        "y": 379.8234641872583
+      },
+      "upperAngle": -42.91501070960932,
+      "foreAngle": 33.94264517374805,
+      "handState": "grip",
+      "handAngle": -2.084728211355568,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.4931167084513,
+      "y": 404.1426614150102,
+      "angle": -2.084728211355582,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.4292747932424,
+      "y": 387.894078512355,
+      "angle": -2.084728211355582,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 5,
+    "time": 1792105973969,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 93,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 2,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 93
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.0677355554201,
+        "y": 317.7811121994618
+      },
+      "wrist": {
+        "x": 482.6016822112762,
+        "y": 379.6004806317932
+      },
+      "upperAngle": -42.68483756186111,
+      "foreAngle": 34.486639270012304,
+      "handState": "grip",
+      "handAngle": -1.5407341150913112,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 902.8710745008568,
+      "y": 403.9043072578152,
+      "angle": -1.5407341150912544,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 913.9610093267657,
+      "y": 387.7602883790759,
+      "angle": -1.5407341150912544,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 6,
+    "time": 1792105974002,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 125,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 3,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 125
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 524.798059921493,
+        "y": 318.0284285305413
+      },
+      "wrist": {
+        "x": 481.5422348870344,
+        "y": 379.29778139629553
+      },
+      "upperAngle": -42.36229693095063,
+      "foreAngle": 35.22188069918012,
+      "handState": "grip",
+      "handAngle": -0.8054926859234968,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 902.0291586243062,
+      "y": 403.57905212276023,
+      "angle": -0.8054926859234683,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 913.3253409322207,
+      "y": 387.5786688377773,
+      "angle": -0.8054926859234683,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 7,
+    "time": 1792105974035,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 157,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 4,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 157
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 524.4488536837773,
+        "y": 318.3445665361239
+      },
+      "wrist": {
+        "x": 480.2306747193161,
+        "y": 378.9230499198046
+      },
+      "upperAngle": -41.94707779157721,
+      "foreAngle": 36.12690575070725,
+      "handState": "grip",
+      "handAngle": 0.09953236560363621,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 900.9909054945956,
+      "y": 403.17379389185817,
+      "angle": 0.09953236560363621,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 912.5384048315897,
+      "y": 387.35382995188274,
+      "angle": 0.09953236560363621,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 8,
+    "time": 1792105974069,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 205,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 6,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 205
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 523.7711460220999,
+        "y": 318.94516388731597
+      },
+      "wrist": {
+        "x": 477.84944921636475,
+        "y": 378.24269977610425
+      },
+      "upperAngle": -41.148860743249735,
+      "foreAngle": 37.75521829971299,
+      "handState": "grip",
+      "handAngle": 1.7278449146093777,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 899.1172995173844,
+      "y": 402.4310666297976,
+      "angle": 1.7278449146093635,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 911.1096695298188,
+      "y": 386.9456198656626,
+      "angle": 1.7278449146093635,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 9,
+    "time": 1792105974102,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 237,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 7,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 237
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 523.2135597437317,
+        "y": 319.42686894556834
+      },
+      "wrist": {
+        "x": 476.0252596002442,
+        "y": 377.72150274292693
+      },
+      "upperAngle": -40.499346904427796,
+      "foreAngle": 38.98945386914454,
+      "handState": "grip",
+      "handAngle": 2.962080484040925,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 897.6920145231737,
+      "y": 401.85644230007244,
+      "angle": 2.962080484040939,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 910.0151557601465,
+      "y": 386.6329016457562,
+      "angle": 2.962080484040939,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 10,
+    "time": 1792105974135,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 269,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 8,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 269
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 522.5695812090248,
+        "y": 319.96968999409836
+      },
+      "wrist": {
+        "x": 474.0430792688785,
+        "y": 377.1551655053938
+      },
+      "upperAngle": -39.75693215129892,
+      "foreAngle": 40.317299569757466,
+      "handState": "grip",
+      "handAngle": 4.289926184653851,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 896.153237288732,
+      "y": 401.22698523017834,
+      "angle": 4.28992618465395,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 908.8258475613271,
+      "y": 386.2930993032363,
+      "angle": 4.28992618465395,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 11,
+    "time": 1792105974169,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 301,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 9,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 301
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 521.8389636008112,
+        "y": 320.56855793881823
+      },
+      "wrist": {
+        "x": 471.92980025890495,
+        "y": 376.55137150254427
+      },
+      "upperAngle": -38.924202928907,
+      "foreAngle": 41.71728046499442,
+      "handState": "grip",
+      "handAngle": 5.689907079890801,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 894.5241902997794,
+      "y": 400.5506357850412,
+      "angle": 5.689907079890872,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 907.557880155343,
+      "y": 385.93082290152654,
+      "angle": 5.689907079890872,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 12,
+    "time": 1792105974202,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 333,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 9,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 333
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 521.0230664426,
+        "y": 321.21673703518445
+      },
+      "wrist": {
+        "x": 469.7123146069611,
+        "y": 375.9178041734175
+      },
+      "upperAngle": -38.00567216286232,
+      "foreAngle": 43.16827428392918,
+      "handState": "grip",
+      "handAngle": 7.140900898825564,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 892.8276765490058,
+      "y": 399.83576957240956,
+      "angle": 7.140900898825521,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 906.2273887641767,
+      "y": 385.55068250405054,
+      "angle": 7.140900898825521,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 13,
+    "time": 1792105974235,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 365,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 10,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 365
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 520.1252373951141,
+        "y": 321.90583588360715
+      },
+      "wrist": {
+        "x": 467.4175143496845,
+        "y": 375.2621469570527
+      },
+      "upperAngle": -37.00801444441429,
+      "foreAngle": 44.649637186030304,
+      "handState": "grip",
+      "handAngle": 8.622263800926689,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 891.0859798305786,
+      "y": 399.091194571423,
+      "angle": 8.622263800926703,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 904.8505086098107,
+      "y": 385.15728817423167,
+      "angle": 8.622263800926703,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 14,
+    "time": 1792105974269,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 397,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 11,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 397
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 519.151134782744,
+        "y": 322.625952863477
+      },
+      "wrist": {
+        "x": 465.0722915237126,
+        "y": 374.5920832924893
+      },
+      "upperAngle": -35.94019854437492,
+      "foreAngle": 46.14134138101255,
+      "handState": "grip",
+      "handAngle": 10.113967995908936,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 889.3207805129301,
+      "y": 398.32611315277313,
+      "angle": 10.113967995908979,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 903.4433749142275,
+      "y": 384.7552499754936,
+      "angle": 10.113967995908979,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 15,
+    "time": 1792105974302,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 429,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 12,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 429
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 518.1089778418988,
+        "y": 323.36594198109384
+      },
+      "wrist": {
+        "x": 462.70353816568286,
+        "y": 373.91529661876655
+      },
+      "upperAngle": -34.813522390944726,
+      "foreAngle": 47.62412485576513,
+      "handState": "grip",
+      "handAngle": 11.596751470661516,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 887.5530901868419,
+      "y": 397.5500526529863,
+      "angle": 11.596751470661502,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 902.0221228994097,
+      "y": 384.3491779712599,
+      "angle": 11.596751470661502,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 16,
+    "time": 1792105974335,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 461,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 13,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 461
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 517.0097102858317,
+        "y": 324.1137761122846
+      },
+      "wrist": {
+        "x": 460.3381463122329,
+        "y": 373.23947037492366
+      },
+      "upperAngle": -33.64155810520396,
+      "foreAngle": 49.07964813916462,
+      "handState": "grip",
+      "handAngle": 13.052274754061003,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 885.80320895078,
+      "y": 396.77277051425546,
+      "angle": 13.052274754061045,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 900.6028877873397,
+      "y": 383.94368222495416,
+      "angle": 13.052274754061045,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 17,
+    "time": 1792105974369,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 493,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 14,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 493
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 515.8670642944752,
+        "y": 324.856976105915
+      },
+      "wrist": {
+        "x": 458.003008,
+        "y": 372.572288
+      },
+      "upperAngle": -32.44001746918957,
+      "foreAngle": 50.4906480180847,
+      "handState": "grip",
+      "handAngle": 14.463274632981083,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 884.0907087000619,
+      "y": 396.0041422248162,
+      "angle": 14.46327463298121,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 899.2018048,
+      "y": 383.54337280000004,
+      "angle": 14.46327463298121,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 18,
+    "time": 1792105974402,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 525,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 15,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 525
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 514.6975163736824,
+        "y": 325.5830674778336
+      },
+      "wrist": {
+        "x": 455.72501526562183,
+        "y": 371.9214329330348
+      },
+      "upperAngle": -31.22655081660249,
+      "foreAngle": 51.841074101863825,
+      "handState": "grip",
+      "handAngle": 15.81370071676021,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 882.4344446541381,
+      "y": 395.25404205412985,
+      "angle": 15.813700716760195,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 897.8350091593732,
+      "y": 383.1528597598209,
+      "angle": 15.813700716760195,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 19,
+    "time": 1792105974435,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 557,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 16,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 557
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 513.5201329382827,
+        "y": 326.28002268724157
+      },
+      "wrist": {
+        "x": 453.5310601457358,
+        "y": 371.2945886130674
+      },
+      "upperAngle": -30.020494185441002,
+      "foreAngle": 53.116191652939676,
+      "handState": "grip",
+      "handAngle": 17.08881826783606,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 880.8525956823047,
+      "y": 394.53222755319047,
+      "angle": 17.088818267836132,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 896.5186360874415,
+      "y": 382.7767531678404,
+      "angle": 17.088818267836132,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 20,
+    "time": 1792105974469,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 605,
+      "playerHP": 3,
+      "guard": 532,
+      "cooldown": 1052,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 18,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 605
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 511.78672344128546,
+        "y": 327.24663885111335
+      },
+      "wrist": {
+        "x": 450.45652432322413,
+        "y": 370.4161498066355
+      },
+      "upperAngle": -28.270960992063515,
+      "foreAngle": 54.85879547848131,
+      "handState": "grip",
+      "handAngle": 18.831422093377697,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 878.6576414176302,
+      "y": 393.52333142263217,
+      "angle": 18.831422093377682,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 894.6739145939345,
+      "y": 382.2496898839813,
+      "angle": 18.831422093377682,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 21,
+    "time": 1792105974502,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 637,
+      "playerHP": 3,
+      "guard": 500,
+      "cooldown": 1020,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 19,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 637
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 510.68757079726964,
+        "y": 327.8242867673878
+      },
+      "wrist": {
+        "x": 448.5903158998575,
+        "y": 369.8829473999593
+      },
+      "upperAngle": -27.176420525363504,
+      "foreAngle": 55.890094670173085,
+      "handState": "grip",
+      "handAngle": 19.86272128506947,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 877.3376011016314,
+      "y": 392.91331337880763,
+      "angle": 19.862721285069483,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 893.5541895399145,
+      "y": 381.92976843997553,
+      "angle": 19.862721285069483,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 22,
+    "time": 1792105974535,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 669,
+      "playerHP": 3,
+      "guard": 468,
+      "cooldown": 988,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 20,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 669
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 509.6631623838545,
+        "y": 328.3388645943404
+      },
+      "wrist": {
+        "x": 446.9022672192143,
+        "y": 369.4006477769184
+      },
+      "upperAngle": -26.16589771452214,
+      "foreAngle": 56.8049833970361,
+      "handState": "grip",
+      "handAngle": 20.77761001193248,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 876.1514634096018,
+      "y": 392.36360081963437,
+      "angle": 20.77761001193244,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 892.5413603315286,
+      "y": 381.640388666151,
+      "angle": 20.77761001193244,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 23,
+    "time": 1792105974569,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 701,
+      "playerHP": 3,
+      "guard": 436,
+      "cooldown": 956,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 21,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 701
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 508.7398050525389,
+        "y": 328.783528438221
+      },
+      "wrist": {
+        "x": 445.41927031793205,
+        "y": 368.976934376552
+      },
+      "upperAngle": -25.262511424563996,
+      "foreAngle": 57.59421246042834,
+      "handState": "grip",
+      "handAngle": 21.566839075324722,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 875.1155163835891,
+      "y": 391.88259759583536,
+      "angle": 21.56683907532465,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 891.6515621907593,
+      "y": 381.3861606259312,
+      "angle": 21.56683907532465,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 24,
+    "time": 1792105974602,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 733,
+      "playerHP": 3,
+      "guard": 404,
+      "cooldown": 924,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 21,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 733
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 507.9440484526797,
+        "y": 329.1524999723566
+      },
+      "wrist": {
+        "x": 444.1682172326481,
+        "y": 368.61949063789945
+      },
+      "upperAngle": -24.48933289013769,
+      "foreAngle": 58.249149771983326,
+      "handState": "grip",
+      "handAngle": 22.22177638687971,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 874.2459846594094,
+      "y": 391.4784292871733,
+      "angle": 22.221776386879696,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 890.9009303395889,
+      "y": 381.1716943827397,
+      "angle": 22.221776386879696,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 25,
+    "time": 1792105974635,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 765,
+      "playerHP": 3,
+      "guard": 372,
+      "cooldown": 892,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 22,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 765
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 507.30210440116446,
+        "y": 329.4407209248866
+      },
+      "wrist": {
+        "x": 443.176,
+        "y": 368.336
+      },
+      "upperAngle": -23.869055856882127,
+      "foreAngle": 58.7613616147882,
+      "handState": "grip",
+      "handAngle": 22.733988229684584,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 873.5591810972314,
+      "y": 391.15903343236846,
+      "angle": 22.733988229684655,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 890.3056,
+      "y": 381.00160000000005,
+      "angle": 22.733988229684655,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 26,
+    "time": 1792105974669,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 797,
+      "playerHP": 3,
+      "guard": 340,
+      "cooldown": 860,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 23,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 797
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 506.8392366952083,
+        "y": 329.643388963145
+      },
+      "wrist": {
+        "x": 442.4695106566253,
+        "y": 368.1341459018929
+      },
+      "upperAngle": -23.423652477807735,
+      "foreAngle": 59.12211004508339,
+      "handState": "grip",
+      "handAngle": 23.094736659979773,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 873.0716661308871,
+      "y": 390.9322807320724,
+      "angle": 23.094736659979844,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 889.8817063939752,
+      "y": 380.8804875411357,
+      "angle": 23.094736659979844,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 27,
+    "time": 1792105974702,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 829,
+      "playerHP": 3,
+      "guard": 308,
+      "cooldown": 828,
+      "blocks": 0,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 24,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 829
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 506.5791123965842,
+        "y": 329.7554098722694
+      },
+      "wrist": {
+        "x": 442.0756412391614,
+        "y": 368.0216117826175
+      },
+      "upperAngle": -23.174001710373346,
+      "foreAngle": 59.32177983918646,
+      "handState": "grip",
+      "handAngle": 23.294406454082846,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 872.8004171788488,
+      "y": 390.80611811145695,
+      "angle": 23.294406454082832,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 889.6453847434968,
+      "y": 380.8129670695705,
+      "angle": 23.294406454082832,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 28,
+    "time": 1792105974735,
+    "duel": {
+      "enabled": true,
+      "stage": "strike",
+      "age": 11,
+      "playerHP": 3,
+      "guard": 276,
+      "cooldown": 796,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 25,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "strike",
+      "intentAge": 11
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 506.82729828809477,
+        "y": 329.64855960656365
+      },
+      "wrist": {
+        "x": 442.45138477366254,
+        "y": 368.1289670781893
+      },
+      "upperAngle": -23.412184472671925,
+      "foreAngle": 59.131321709060444,
+      "handState": "grip",
+      "handAngle": 23.10394832395683,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 873.05917475272,
+      "y": 390.9264706927908,
+      "angle": 23.103948323956843,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 889.8708308641975,
+      "y": 380.8773802469136,
+      "angle": 23.103948323956843,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 29,
+    "time": 1792105974769,
+    "duel": {
+      "enabled": true,
+      "stage": "strike",
+      "age": 43,
+      "playerHP": 3,
+      "guard": 244,
+      "cooldown": 764,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 26,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "strike",
+      "intentAge": 43
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 510.35999676919806,
+        "y": 327.9912975343084
+      },
+      "wrist": {
+        "x": 448.0453930041152,
+        "y": 369.72725514403294
+      },
+      "upperAngle": -26.852309407659156,
+      "foreAngle": 56.18732485351225,
+      "handState": "grip",
+      "handAngle": 20.159951468408636,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 876.9538870912825,
+      "y": 392.7356247008038,
+      "angle": 20.15995146840862,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 893.2272358024692,
+      "y": 381.83635308641976,
+      "angle": 20.15995146840862,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 30,
+    "time": 1792105974802,
+    "duel": {
+      "enabled": true,
+      "stage": "strike",
+      "age": 75,
+      "playerHP": 3,
+      "guard": 212,
+      "cooldown": 732,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 27,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "strike",
+      "intentAge": 75
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 515.7643344417424,
+        "y": 324.9221362550901
+      },
+      "wrist": {
+        "x": 457.7986111111111,
+        "y": 372.5138888888889
+      },
+      "upperAngle": -32.33278422332184,
+      "foreAngle": 50.612886383241005,
+      "handState": "grip",
+      "handAngle": 14.58551299813739,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 883.941520399804,
+      "y": 395.9368354755602,
+      "angle": 14.585512998137347,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 899.0791666666667,
+      "y": 383.5083333333333,
+      "angle": 14.585512998137347,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 31,
+    "time": 1792105974835,
+    "duel": {
+      "enabled": true,
+      "stage": "strike",
+      "age": 107,
+      "playerHP": 3,
+      "guard": 180,
+      "cooldown": 700,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 28,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "strike",
+      "intentAge": 107
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 520.7034373051091,
+        "y": 321.4649110186666
+      },
+      "wrist": {
+        "x": 468.8792366255144,
+        "y": 375.67978189300413
+      },
+      "upperAngle": -37.64897080901641,
+      "foreAngle": 43.70847499959578,
+      "handState": "grip",
+      "handAngle": 7.681101614492164,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 892.1937435014086,
+      "y": 399.5659869085807,
+      "angle": 7.681101614492263,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 905.7275419753087,
+      "y": 385.40786913580246,
+      "angle": 7.681101614492263,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 32,
+    "time": 1792105974869,
+    "duel": {
+      "enabled": true,
+      "stage": "strike",
+      "age": 155,
+      "playerHP": 3,
+      "guard": 132,
+      "cooldown": 652,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 30,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "strike",
+      "intentAge": 155
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 524.8632748882114,
+        "y": 317.96887653553296
+      },
+      "wrist": {
+        "x": 481.79449588477365,
+        "y": 379.3698559670782
+      },
+      "upperAngle": -42.440143736684846,
+      "foreAngle": 35.04715320564624,
+      "handState": "grip",
+      "handAngle": -0.9802201794573762,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 902.2293619635841,
+      "y": 403.65667091040314,
+      "angle": -0.9802201794573193,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 913.4766975308642,
+      "y": 387.6219135802469,
+      "angle": -0.9802201794573193,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 33,
+    "time": 1792105974902,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 7,
+      "playerHP": 3,
+      "guard": 100,
+      "cooldown": 620,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 31,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 7
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 34,
+    "time": 1792105974935,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 39,
+      "playerHP": 3,
+      "guard": 68,
+      "cooldown": 588,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 32,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 39
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 35,
+    "time": 1792105974969,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 71,
+      "playerHP": 3,
+      "guard": 36,
+      "cooldown": 556,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 33,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 71
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 36,
+    "time": 1792105975002,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 103,
+      "playerHP": 3,
+      "guard": 4,
+      "cooldown": 524,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 33,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 103
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 37,
+    "time": 1792105975035,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 135,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 492,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 34,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 135
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 38,
+    "time": 1792105975069,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 167,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 460,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 0,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 167
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 39,
+    "time": 1792105975102,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 199,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 428,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 1,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 199
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 40,
+    "time": 1792105975135,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 231,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 396,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 2,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 231
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 41,
+    "time": 1792105975169,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 263,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 364,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 3,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 263
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 42,
+    "time": 1792105975202,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 295,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 332,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 4,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 295
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 43,
+    "time": 1792105975235,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 327,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 300,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 5,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 327
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 44,
+    "time": 1792105975269,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 375,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 252,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 7,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 375
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 45,
+    "time": 1792105975302,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 407,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 220,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 8,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 407
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 46,
+    "time": 1792105975335,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 439,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 188,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 9,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 439
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 47,
+    "time": 1792105975369,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 471,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 156,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 10,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 471
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 48,
+    "time": 1792105975402,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 503,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 124,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 11,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 503
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 49,
+    "time": 1792105975435,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 535,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 92,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 12,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 535
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 50,
+    "time": 1792105975469,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 567,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 60,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 12,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 567
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 51,
+    "time": 1792105975502,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 599,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 28,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 13,
+    "hp": 3,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 599
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 52,
+    "time": 1792105975535,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 25,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 14,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 500.406777298473,
+        "y": 332.46617880095073
+      },
+      "wrist": {
+        "x": 459,
+        "y": 395
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 888.9866932424904,
+      "y": 413.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 899.8,
+      "y": 397,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 53,
+    "time": 1792105975569,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 25,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 14,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 500.406777298473,
+        "y": 332.46617880095073
+      },
+      "wrist": {
+        "x": 459,
+        "y": 395
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 888.9866932424904,
+      "y": 413.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 899.8,
+      "y": 397,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 54,
+    "time": 1792105975602,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 24,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 2,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 14,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 494.08926340510504,
+        "y": 337.67075102233235
+      },
+      "wrist": {
+        "x": 451.1606970482142,
+        "y": 399.16984199563075
+      },
+      "upperAngle": -35.872865602837976,
+      "foreAngle": 34.91641952307644,
+      "handState": "grip",
+      "handAngle": -1.1109538620271735,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 883.8856989466461,
+      "y": 415.5622841833757,
+      "angle": -1.110953862027145,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 895.0964182289285,
+      "y": 399.50190519737845,
+      "angle": -1.110953862027145,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 55,
+    "time": 1792105975635,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 56,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 15,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 468.3690799586202,
+        "y": 348.81227045778314
+      },
+      "wrist": {
+        "x": 427.54782827820964,
+        "y": 411.7298785754204
+      },
+      "upperAngle": -10.969915221390963,
+      "foreAngle": 32.9757042666822,
+      "handState": "grip",
+      "handAngle": -3.0516691184214153,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 870.268299190399,
+      "y": 423.46874937806285,
+      "angle": -3.051669118421387,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 880.9286969669258,
+      "y": 407.03792714525224,
+      "angle": -3.051669118421387,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 56,
+    "time": 1792105975669,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 104,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 17,
+    "hp": 2,
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 484,
+        "y": 284
+      },
+      "elbow": {
+        "x": 463.9951444968929,
+        "y": 345.84501399708637
+      },
+      "wrist": {
+        "x": 440.74166638084336,
+        "y": 417.1491215611419
+      },
+      "upperAngle": 17.92471142123108,
+      "foreAngle": 18.06202527767833,
+      "handState": "grip",
+      "handAngle": -17.965348107425285,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 882.7723950895434,
+      "y": 428.91041468742185,
+      "angle": -17.965348107425257,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 888.844999828506,
+      "y": 410.2894729366851,
+      "angle": -17.965348107425257,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 57,
+    "time": 1792105975702,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 136,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 18,
+    "hp": 2,
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 484,
+        "y": 284
+      },
+      "elbow": {
+        "x": 492.1195666309407,
+        "y": 348.49087251484286
+      },
+      "wrist": {
+        "x": 445.0049644746788,
+        "y": 406.84508627578015
+      },
+      "upperAngle": -7.175928574832625,
+      "foreAngle": 38.917055673136815,
+      "handState": "grip",
+      "handAngle": 2.8896822880331996,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 879.0990835470307,
+      "y": 419.3461516220409,
+      "angle": 2.8896822880333275,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 891.4029786848073,
+      "y": 404.1070517654681,
+      "angle": 2.8896822880333275,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 58,
+    "time": 1792105975735,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 168,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 19,
+    "hp": 2,
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 484,
+        "y": 284
+      },
+      "elbow": {
+        "x": 498.0906837968803,
+        "y": 347.4543349987716
+      },
+      "wrist": {
+        "x": 446.89258785185183,
+        "y": 402.26085807407406
+      },
+      "upperAngle": -12.51996234242192,
+      "foreAngle": 43.05038830397805,
+      "handState": "grip",
+      "handAngle": 7.023014918874438,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 879.1652603827966,
+      "y": 415.66914154450944,
+      "angle": 7.0230149188744235,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 892.5355527111111,
+      "y": 401.3565148444444,
+      "angle": 7.0230149188744235,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 59,
+    "time": 1792105975769,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 200,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 19,
+    "hp": 2,
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 484,
+        "y": 284
+      },
+      "elbow": {
+        "x": 490.6930602115989,
+        "y": 348.6544889779814
+      },
+      "wrist": {
+        "x": 444.6030091851852,
+        "y": 407.8212634074074
+      },
+      "upperAngle": -5.910231184773622,
+      "foreAngle": 37.91806869386801,
+      "handState": "grip",
+      "handAngle": 1.8906953087643927,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 879.1254700912991,
+      "y": 420.1440566844222,
+      "angle": 1.890695308764407,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 891.1618055111111,
+      "y": 404.6927580444444,
+      "angle": 1.890695308764407,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 60,
+    "time": 1792105975802,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 232,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 20,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 446.4734314209455,
+        "y": 349.29809088230047
+      },
+      "wrist": {
+        "x": 413.39592651851854,
+        "y": 416.60989274074075
+      },
+      "upperAngle": 8.427776004630019,
+      "foreAngle": 26.16983464096721,
+      "handState": "grip",
+      "handAngle": -9.857538744136406,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 863.7994239283992,
+      "y": 427.54429381149896,
+      "angle": -9.857538744136377,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 872.4375559111111,
+      "y": 409.96593564444447,
+      "angle": -9.857538744136377,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 61,
+    "time": 1792105975835,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 264,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 21,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 435.98949414788206,
+        "y": 346.8431860073715
+      },
+      "wrist": {
+        "x": 412.729501471986,
+        "y": 418.1451687337815
+      },
+      "upperAngle": 17.92994621567165,
+      "foreAngle": 18.067260072118998,
+      "handState": "grip",
+      "handAngle": -17.960113312984618,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 865.9633948784312,
+      "y": 429.50748809340735,
+      "angle": -17.960113312984618,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 872.0377008831916,
+      "y": 410.88710124026886,
+      "angle": -17.960113312984618,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 62,
+    "time": 1792105975869,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 296,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 22,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 465.3392718445275,
+        "y": 349.3255625814032
+      },
+      "wrist": {
+        "x": 425.4565665185185,
+        "y": 412.84225185185187
+      },
+      "upperAngle": -8.260912375257035,
+      "foreAngle": 32.12508448396571,
+      "handState": "grip",
+      "handAngle": -3.902288901137908,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 869.2586418573454,
+      "y": 424.29262232886197,
+      "angle": -3.902288901137922,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 879.6739399111111,
+      "y": 407.7053511111111,
+      "angle": -3.902288901137922,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 63,
+    "time": 1792105975902,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 328,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 23,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 490.56584978583993,
+        "y": 340.04727085499104
+      },
+      "wrist": {
+        "x": 447.23047585185185,
+        "y": 401.2603851851852
+      },
+      "upperAngle": -32.12595723332504,
+      "foreAngle": 35.29630466648659,
+      "handState": "grip",
+      "handAngle": -0.7310687186170242,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 881.4213291485864,
+      "y": 416.74192780186286,
+      "angle": -0.7310687186170526,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 892.7382855111111,
+      "y": 400.7562311111111,
+      "angle": -0.7310687186170526,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 64,
+    "time": 1792105975935,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 360,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 24,
+    "hp": 2,
+    "enemy": {
+      "pose": 1,
+      "phase": "flinch",
+      "alpha": 1
+    },
+    "arm": {
+      "shoulder": {
+        "x": 456,
+        "y": 285
+      },
+      "elbow": {
+        "x": 500.4021143278077,
+        "y": 332.4705407934257
+      },
+      "wrist": {
+        "x": 458.9937611851852,
+        "y": 395.00331851851854
+      },
+      "upperAngle": -43.08710698429313,
+      "foreAngle": 33.511983053324016,
+      "handState": "grip",
+      "handAngle": -2.5153903317795994,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 888.9825384246852,
+      "y": 413.3323155666086,
+      "angle": -2.5153903317795994,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 899.7962567111111,
+      "y": 397.0019911111111,
+      "angle": -2.5153903317795994,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 65,
+    "time": 1792105975969,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 392,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 25,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 392
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 66,
+    "time": 1792105976002,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 424,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 26,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 424
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 67,
+    "time": 1792105976035,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 456,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 27,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 456
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 68,
+    "time": 1792105976069,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 504,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 29,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 504
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 69,
+    "time": 1792105976102,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 536,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 30,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 536
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 70,
+    "time": 1792105976135,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 568,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 31,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 568
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 71,
+    "time": 1792105976169,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 600,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 31,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 600
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 72,
+    "time": 1792105976202,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 632,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 32,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 632
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 73,
+    "time": 1792105976235,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 664,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 33,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 664
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 74,
+    "time": 1792105976269,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 696,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 34,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 696
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 75,
+    "time": 1792105976302,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 728,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "attack",
+    "frame": 35,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 728
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 76,
+    "time": 1792105976335,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 760,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 0,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 760
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 77,
+    "time": 1792105976369,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 792,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 1,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 792
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 78,
+    "time": 1792105976402,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 824,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 2,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 824
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 79,
+    "time": 1792105976435,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 856,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 3,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 856
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 80,
+    "time": 1792105976469,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 904,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 5,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 904
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 81,
+    "time": 1792105976502,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 936,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 6,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 936
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 82,
+    "time": 1792105976535,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 968,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 7,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 968
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 83,
+    "time": 1792105976569,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1000,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 7,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1000
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 84,
+    "time": 1792105976602,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1032,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 8,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1032
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 85,
+    "time": 1792105976635,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1064,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 9,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1064
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 86,
+    "time": 1792105976669,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1096,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 10,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1096
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 87,
+    "time": 1792105976702,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1128,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 11,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1128
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 88,
+    "time": 1792105976735,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1160,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 12,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1160
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 89,
+    "time": 1792105976769,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1192,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 13,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1192
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 90,
+    "time": 1792105976802,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1224,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 14,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1224
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 91,
+    "time": 1792105976835,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1256,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 15,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1256
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 92,
+    "time": 1792105976869,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1304,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 17,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1304
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 93,
+    "time": 1792105976902,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1336,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 18,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1336
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 94,
+    "time": 1792105976935,
+    "duel": {
+      "enabled": true,
+      "stage": "recovery",
+      "age": 1368,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 19,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "recovery",
+      "intentAge": 1368
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 95,
+    "time": 1792105976969,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 0,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 19,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 0
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 96,
+    "time": 1792105977002,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 32,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 20,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 32
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.3656094682252,
+        "y": 317.50465973473473
+      },
+      "wrist": {
+        "x": 483.8259020753104,
+        "y": 379.950257735803
+      },
+      "upperAngle": -43.043062343772995,
+      "foreAngle": 33.63242055057829,
+      "handState": "grip",
+      "handAngle": -2.394952834525327,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.8475200282986,
+      "y": 404.2777122660299,
+      "angle": -2.394952834525384,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.6955412451863,
+      "y": 387.9701546414818,
+      "angle": -2.394952834525384,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 97,
+    "time": 1792105977035,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 64,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 21,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 64
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.2446694992738,
+        "y": 317.6173205976569
+      },
+      "wrist": {
+        "x": 483.3215363256666,
+        "y": 379.80615323590473
+      },
+      "upperAngle": -42.897368445530574,
+      "foreAngle": 33.984949295197865,
+      "handState": "grip",
+      "handAngle": -2.042424089905751,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.4447696131035,
+      "y": 404.1241957450976,
+      "angle": -2.0424240899058077,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.3929217954,
+      "y": 387.88369194154285,
+      "angle": -2.0424240899058077,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 98,
+    "time": 1792105977069,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 96,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 22,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 96
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.0457848060939,
+        "y": 317.80134768827406
+      },
+      "wrist": {
+        "x": 482.5137947877061,
+        "y": 379.57536993934457
+      },
+      "upperAngle": -42.65852132616458,
+      "foreAngle": 34.54777349037798,
+      "handState": "grip",
+      "handAngle": -1.479599894725638,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 902.8011228006953,
+      "y": 403.8773987672017,
+      "angle": -1.4795998947256521,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 913.9082768726237,
+      "y": 387.74522196360675,
+      "angle": -1.4795998947256521,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 99,
+    "time": 1792105977102,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 128,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 23,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 128
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 524.7687305312008,
+        "y": 318.05515817981586
+      },
+      "wrist": {
+        "x": 481.42956949806637,
+        "y": 379.2655912851618
+      },
+      "upperAngle": -42.327318007187074,
+      "foreAngle": 35.29984948775933,
+      "handState": "grip",
+      "handAngle": -0.7275238973442839,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 901.939796342062,
+      "y": 403.5443512647154,
+      "angle": -0.7275238973443265,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 913.2577416988398,
+      "y": 387.5593547710971,
+      "angle": -0.7275238973443265,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 100,
+    "time": 1792105977135,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 160,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 24,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 160
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 524.4119633427609,
+        "y": 318.3776956740065
+      },
+      "wrist": {
+        "x": 480.0957524933849,
+        "y": 378.8845007123957
+      },
+      "upperAngle": -41.90337201600396,
+      "foreAngle": 36.21968022577869,
+      "handState": "grip",
+      "handAngle": 0.19230684067507298,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 900.8843513054385,
+      "y": 403.1319456941406,
+      "angle": 0.1923068406750872,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 912.4574514960309,
+      "y": 387.3307004274375,
+      "angle": 0.1923068406750872,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 101,
+    "time": 1792105977169,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 192,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 25,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 192
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 523.9732844592774,
+        "y": 318.7677846819192
+      },
+      "wrist": {
+        "x": 478.5392358102992,
+        "y": 378.4397816600855
+      },
+      "upperAngle": -41.385915565071905,
+      "foreAngle": 37.28551779537207,
+      "handState": "grip",
+      "handAngle": 1.2581444102684571,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 899.6585199285822,
+      "y": 402.6471056122922,
+      "angle": 1.2581444102684145,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 911.5235414861795,
+      "y": 387.06386899605127,
+      "angle": 1.2581444102684145,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 102,
+    "time": 1792105977202,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 224,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 26,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 224
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 523.4504396845276,
+        "y": 319.2235733220403
+      },
+      "wrist": {
+        "x": 476.78691148544675,
+        "y": 377.9391175672705
+      },
+      "upperAngle": -40.774504206558255,
+      "foreAngle": 38.47553249002689,
+      "handState": "grip",
+      "handAngle": 2.4481591049232776,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 898.2860489207078,
+      "y": 402.09693121471463,
+      "angle": 2.4481591049232065,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 910.472146891268,
+      "y": 386.7634705403623,
+      "angle": 2.4481591049232065,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 103,
+    "time": 1792105977235,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 256,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 27,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 256
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 522.841664402801,
+        "y": 319.7420860037391
+      },
+      "wrist": {
+        "x": 474.8656715554651,
+        "y": 377.39019187299004
+      },
+      "upperAngle": -40.06961698381061,
+      "foreAngle": 39.76795493394104,
+      "handState": "grip",
+      "handAngle": 3.740581548837426,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 896.7905571379445,
+      "y": 401.4888161516035,
+      "angle": 3.74058154883744,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 909.3194029332791,
+      "y": 386.4341151237941,
+      "angle": 3.74058154883744,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  },
+  {
+    "sample": 104,
+    "time": 1792105977269,
+    "duel": {
+      "enabled": true,
+      "stage": "windup",
+      "age": 304,
+      "playerHP": 3,
+      "guard": 0,
+      "cooldown": 0,
+      "blocks": 1,
+      "result": null
+    },
+    "phase": "idle",
+    "frame": 29,
+    "hp": 2,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1,
+      "intent": "windup",
+      "intentAge": 304
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 521.7660598773998,
+        "y": 320.6273479660179
+      },
+      "wrist": {
+        "x": 471.72592123101975,
+        "y": 376.49312035171994
+      },
+      "upperAngle": -38.841648701000835,
+      "foreAngle": 41.85146774457368,
+      "handState": "grip",
+      "handAngle": 5.824094359470067,
+      "alpha": 1
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 894.3676589136179,
+      "y": 400.4851199976275,
+      "angle": 5.824094359470109,
+      "width": 246,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 907.4355527386118,
+      "y": 385.89587221103193,
+      "angle": 5.824094359470109,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    }
+  }
+]

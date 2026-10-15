@@ -19,6 +19,12 @@ function localTarget(age,dead,rig,low=false){
 }
 export function enemyArm(enemy,age,dead,rig){
   const binding=rig.bindings[enemy.pose],shoulder={x:binding.shoulder[0],y:binding.shoulder[1]},offset=localTarget(age,dead,rig,enemy.reaction==='sweep');
+  if(enemy.intent){
+    // Modest elbow-led preparation; same fixed arm lengths and closed grip as reactions.
+    const ease=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);};
+    const amount=enemy.intent==='windup'?ease(enemy.intentAge/850):enemy.intent==='strike'?1-ease(enemy.intentAge/180):0;
+    offset.x=3-42*amount;offset.y=110-12*amount;
+  }
   const arm=solveArm(shoulder,{x:shoulder.x+offset.x,y:shoulder.y+offset.y},rig.armLengths[0],rig.armLengths[1]);
   const handState=dead?(age>=rig.releaseAge?'open':age>=rig.relaxAge?'relax':'grip'):'grip';
   const hand=rig.parts[handState],handAngle=arm.foreAngle+90-hand.axisDegrees;

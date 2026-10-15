@@ -55,13 +55,14 @@ class Battle extends Phaser.Scene {
     const dot=this.make.graphics({x:0,y:0,add:false});dot.fillStyle(0xffffff);dot.fillCircle(4,4,4);dot.generateTexture('spark',8,8);dot.destroy();
     this.sparks=this.add.particles(0,0,'spark',{emitting:false,lifespan:{min:140,max:380},speed:{min:80,max:290},angle:{min:150,max:370},gravityY:340,scale:{start:.55,end:0},alpha:{start:1,end:0},tint:[0xffe5b3,0xf99e5b,0xbc3834],blendMode:'ADD',maxParticles:80});
     this.ash=this.add.particles(0,0,'spark',{emitting:!reduced,x:{min:0,max:1200},y:760,speedY:{min:-30,max:-90},speedX:{min:5,max:35},lifespan:4000,frequency:180,quantity:1,scale:{start:.2,end:0},alpha:{start:.25,end:0},tint:0xef9c69,blendMode:'ADD',maxParticles:30});
-    this.trail=this.add.graphics();this.debug=this.add.graphics();
+    this.duelMarks=this.add.graphics();this.trail=this.add.graphics();this.debug=this.add.graphics();
     this.input.keyboard.on('keydown-J',event=>{if(event.repeat||/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;this.attack();});
+    this.input.keyboard.on('keydown-L',event=>{if(event.repeat||/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;this.defend();});
     this.input.keyboard.on('keydown-K',event=>{if(event.repeat||/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;this.attack('sweep');});
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
-    for(const id of ['attack','sweep','pause','reset','range','target'])$('#'+id).disabled=false;
+    for(const id of ['attack','sweep','guard','duel','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
+    window.yariCombat={snapshot:()=>({ready:true,duel:{enabled:this.state.duel.enabled,stage:this.state.duel.stage,age:this.state.duel.age,playerHP:this.state.duel.playerHP,guard:this.state.duel.guard,cooldown:this.state.duel.cooldown,blocks:this.state.duel.blocks,result:this.state.duel.result},engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -75,13 +76,24 @@ class Battle extends Phaser.Scene {
     p.lineStyle(1,0x75dbda,.2);p.lineBetween(x-19,385,x-50,571);p.lineBetween(x+19,385,x+50,571);
   }
   attack(kind='thrust'){if(this.state.attack(kind))this.refreshUI();}
+  defend(){if(this.state.defend())this.refreshUI();}
+  toggleDuel(){if(this.state.startDuel(!this.state.duel.enabled)){this.reset();this.message(this.state.duel.enabled?'交鋒開始 · 留意出刀預兆，按 L 格擋':'姿勢練習 · 鬼武者暫不出刀');}}
   reset(){this.tweens.killTweensOf(this.seal);this.tweens.killTweensOf(this.flash);this.flash.setAlpha(0);this.state.reset();this.seal.setPosition(this.state.target.x,334).setScale(1).setAlpha(1);this.sparks.killAll();this.drawSeal();this.message(this.state.targetKind==='warrior'?'鬼武者現身 · 等待出槍':'封印重聚 · 等待出槍');this.refreshUI();}
   message(text){$('#message').textContent=text;}
   refreshUI(){
+    const duel=this.state.duel;
+    $('#player-hp').textContent=duel.enabled?'幸村 '+Array.from({length:3},(_,i)=>i<duel.playerHP?'●':'○').join(' '):'修羅道 · 三途燼關';
+    $('#duel').textContent=duel.enabled?'結束交鋒':'開始交鋒';
+    $('#duel').disabled=this.state.paused||this.state.phase==='attack'||this.state.targetKind!=='warrior';
+    $('#guard').disabled=this.state.paused||this.state.phase==='attack'||!duel.active||duel.cooldown>0;
+    $('#guard').innerHTML=(duel.guarding?'架槍格擋':duel.cooldown>0?'回氣中':'格擋')+' <kbd>L</kbd>';
+    const cue=$('#enemy-cue');cue.hidden=!duel.enabled;
+    cue.dataset.phase=duel.result||duel.stage;
+    cue.textContent=duel.result==='victory'?'勝 · 燼關已破':duel.result==='defeat'?'敗 · 按「再戰鬼武者」':duel.stage==='windup'?'⚔ 鬼武者蓄刀 · 準備格擋':duel.stage==='strike'?'斬！':duel.stage==='recovery'?'收刀空隙 · 可以反擊':'交鋒 · 留意刀勢';
     $('#hp').textContent=Array.from({length:3},(_,i)=>i<this.state.hp?'●':'○').join(' ');
     $('#score').textContent=`命中 ${this.state.hits} ／ 出槍 ${this.state.swings}`;
-    $('#attack').disabled=this.state.paused||this.state.phase==='attack'||this.state.hp===0;
-    $('#sweep').disabled=this.state.paused||this.state.hp===0||(this.state.phase==='attack'&&!this.state.canQueueSweep);
+    $('#attack').disabled=this.state.paused||this.state.phase==='attack'||this.state.hp===0||duel.guarding||!!duel.result;
+    $('#sweep').disabled=this.state.paused||this.state.hp===0||duel.guarding||!!duel.result||(this.state.phase==='attack'&&!this.state.canQueueSweep);
     $('#sweep').classList.toggle('combo-ready',this.state.canQueueSweep);
     $('#sweep').innerHTML=(this.state.queuedAttack?'已接橫掃':this.state.canQueueSweep?'接橫掃':'橫掃')+' <kbd>K</kbd>';
     $('#range').disabled=this.state.phase==='attack';$('#target').disabled=this.state.phase==='attack';
@@ -91,6 +103,12 @@ class Battle extends Phaser.Scene {
   }
   setPaused(value){this.state.paused=value;if(value){this.tweens.pauseAll();this.sparks.pause();this.ash.pause();}else{this.tweens.resumeAll();this.sparks.resume();this.ash.resume();}this.refreshUI();}
   onCombat(event){
+    const notices={guard:'架槍 · 守住此身',warning:'鬼武者蓄刀 · 待刀將至再格擋',block:'鏘！格擋成功 · 趁收刀反擊','player-hit':'中刀 · 下次留意蓄刀預兆',defeat:'力盡 · 再戰，莫忘回防',victory:'燼關已破 · 六文不渡，赤槍開路',interrupt:'斷招 · 鬼武者刀勢受阻','enemy-miss':'刀鋒未及 · 間合之外'};
+    if(notices[event.type])this.message(notices[event.type]);
+    if(event.type==='block'||event.type==='player-hit'){
+      tone(true);
+      if($('#feedback').checked){this.sparks.explode(20,650,420);if(!reduced&&event.type==='player-hit')this.cameras.main.shake(75,.002);}
+    }
     if(event.type==='swing'){tone(false);this.message(event.kind==='sweep'?'沉腰 · 赤槍低掃':'蓄勢 · 赤槍將出');}
     if(event.type==='queued')this.message('接招已記 · 收槍後橫掃');
     const warrior=this.state.targetKind==='warrior';
@@ -119,7 +137,7 @@ class Battle extends Phaser.Scene {
     if(sweeping){const source=this.state.currentTrack.poseSources[this.state.currentTrack.poseFrames[frame]];clip=source.clip;frame=source.frame;}
     const paged=this.hd&&clip!=='sweep',page=paged&&frame>=24?'-2':'';
     this.hero.setTexture(clip+page,paged?frame%24:frame);
-    const uiKey=[this.state.phase,this.state.canQueueSweep,this.state.queuedAttack].join(':');
+    const uiKey=[this.state.phase,this.state.canQueueSweep,this.state.queuedAttack,this.state.duel.stage,this.state.duel.guarding,this.state.duel.cooldown>0,this.state.duel.result].join(':');
     if(uiKey!==this.uiKey){this.uiKey=uiKey;this.refreshUI();}
     const warrior=this.state.targetKind==='warrior',enemy=this.state.enemy;
     this.seal.setVisible(!warrior);this.pedestal.setVisible(!warrior);
@@ -145,6 +163,24 @@ class Battle extends Phaser.Scene {
       if(feet){for(const [x,y] of feet){const p=enemyPointToWorld({x,y},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y,55,12);}}
       else if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
     }
+    this.duelMarks.clear();
+    const duel=this.state.duel,g=this.duelMarks;
+    if(duel.active){
+      if(duel.stage==='windup'){
+        // Gameplay warning remains visible with effects off or reduced motion.
+        const progress=Math.min(1,duel.age/850);
+        g.lineStyle(2,0xf2bd7f,.9);g.strokeRect(this.state.target.x-85,242,130,9);
+        g.fillStyle(0xf2bd7f,1);g.fillRect(this.state.target.x-83,244,126*progress,5);
+        g.lineStyle(3,0xe5a173,.75);g.lineBetween(700,603,this.state.target.x-30,603);
+        g.lineBetween(700,594,700,612);
+      }
+      if(duel.stage==='strike'){
+        const end=this.state.range==='near'?650:780;
+        g.lineStyle(13,0xb94028,.28);g.lineBetween(this.state.target.x-85,350,end,480);
+        g.lineStyle(3,0xffd9ac,.95);g.lineBetween(this.state.target.x-85,350,end,480);
+      }
+      if(duel.guarding){g.lineStyle(4,0x8adddc,.9);g.beginPath();g.arc(545,440,105,-.8,.8);g.strokePath();}
+    }
     this.trail.clear();this.debug.clear();
     const track=this.state.phase==='attack'?this.state.currentTrack:this.track,tip=track.frames[this.state.frame];
     if(this.state.phase==='attack'&&track.activeFrames.includes(this.state.frame)&&$('#feedback').checked){
@@ -159,6 +195,7 @@ class Battle extends Phaser.Scene {
   }
 }
 const game=new Phaser.Game({type:Phaser.AUTO,parent:'stage',width:1200,height:750,backgroundColor:'#12171b',scene:Battle,render:{antialias:true,pixelArt:false},scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},audio:{noAudio:true},fps:{target:60},banner:false});
+$('#guard').onclick=()=>scene?.defend();$('#duel').onclick=()=>scene?.toggleDuel();
 $('#attack').onclick=()=>scene?.attack();$('#sweep').onclick=()=>scene?.attack('sweep');$('#pause').onclick=()=>scene?.setPaused(!scene.state.paused);$('#reset').onclick=()=>scene?.reset();
 $('#range').onchange=e=>{if(scene?.state.setRange(e.target.value))scene.reset();};
 $('#target').onchange=e=>{if(scene?.state.setTarget(e.target.value))scene.reset();};

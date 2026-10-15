@@ -1,7 +1,7 @@
 [
   {
     "sample": 0,
-    "time": 1792104635860,
+    "time": 1792106108091,
     "phase": "idle",
     "attackKind": "thrust",
     "frame": 2,
@@ -83,7 +83,7 @@
   },
   {
     "sample": 1,
-    "time": 1792104635893,
+    "time": 1792106108124,
     "phase": "idle",
     "attackKind": "thrust",
     "frame": 3,
@@ -165,7 +165,7 @@
   },
   {
     "sample": 2,
-    "time": 1792104635927,
+    "time": 1792106108158,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 0,
@@ -247,7 +247,7 @@
   },
   {
     "sample": 3,
-    "time": 1792104635960,
+    "time": 1792106108191,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 1,
@@ -329,7 +329,7 @@
   },
   {
     "sample": 4,
-    "time": 1792104635993,
+    "time": 1792106108224,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 2,
@@ -411,7 +411,7 @@
   },
   {
     "sample": 5,
-    "time": 1792104636027,
+    "time": 1792106108258,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 3,
@@ -493,7 +493,7 @@
   },
   {
     "sample": 6,
-    "time": 1792104636060,
+    "time": 1792106108291,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 4,
@@ -575,7 +575,7 @@
   },
   {
     "sample": 7,
-    "time": 1792104636093,
+    "time": 1792106108324,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 5,
@@ -657,7 +657,7 @@
   },
   {
     "sample": 8,
-    "time": 1792104636127,
+    "time": 1792106108358,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 6,
@@ -739,7 +739,7 @@
   },
   {
     "sample": 9,
-    "time": 1792104636160,
+    "time": 1792106108391,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 7,
@@ -821,7 +821,7 @@
   },
   {
     "sample": 10,
-    "time": 1792104636193,
+    "time": 1792106108424,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 8,
@@ -903,7 +903,7 @@
   },
   {
     "sample": 11,
-    "time": 1792104636227,
+    "time": 1792106108458,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 10,
@@ -985,7 +985,7 @@
   },
   {
     "sample": 12,
-    "time": 1792104636260,
+    "time": 1792106108491,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 11,
@@ -1067,7 +1067,7 @@
   },
   {
     "sample": 13,
-    "time": 1792104636293,
+    "time": 1792106108524,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
@@ -1149,7 +1149,7 @@
   },
   {
     "sample": 14,
-    "time": 1792104636327,
+    "time": 1792106108558,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 12,
@@ -1231,7 +1231,7 @@
   },
   {
     "sample": 15,
-    "time": 1792104636360,
+    "time": 1792106108591,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 13,
@@ -1313,7 +1313,7 @@
   },
   {
     "sample": 16,
-    "time": 1792104636393,
+    "time": 1792106108624,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
@@ -1395,7 +1395,7 @@
   },
   {
     "sample": 17,
-    "time": 1792104636427,
+    "time": 1792106108658,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
@@ -1477,7 +1477,7 @@
   },
   {
     "sample": 18,
-    "time": 1792104636460,
+    "time": 1792106108691,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 14,
@@ -1559,7 +1559,7 @@
   },
   {
     "sample": 19,
-    "time": 1792104636493,
+    "time": 1792106108724,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 15,
@@ -1641,7 +1641,7 @@
   },
   {
     "sample": 20,
-    "time": 1792104636527,
+    "time": 1792106108758,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 16,
@@ -1723,7 +1723,7 @@
   },
   {
     "sample": 21,
-    "time": 1792104636560,
+    "time": 1792106108791,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 17,
@@ -1805,7 +1805,7 @@
   },
   {
     "sample": 22,
-    "time": 1792104636593,
+    "time": 1792106108824,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 18,
@@ -1887,7 +1887,7 @@
   },
   {
     "sample": 23,
-    "time": 1792104636627,
+    "time": 1792106108858,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 19,
@@ -1969,7 +1969,7 @@
   },
   {
     "sample": 24,
-    "time": 1792104636660,
+    "time": 1792106108891,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 20,
@@ -2051,7 +2051,7 @@
   },
   {
     "sample": 25,
-    "time": 1792104636693,
+    "time": 1792106108924,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 21,
@@ -2133,7 +2133,7 @@
   },
   {
     "sample": 26,
-    "time": 1792104636727,
+    "time": 1792106108958,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 22,
@@ -2215,7 +2215,7 @@
   },
   {
     "sample": 27,
-    "time": 1792104636760,
+    "time": 1792106108991,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 23,
@@ -2297,7 +2297,7 @@
   },
   {
     "sample": 28,
-    "time": 1792104636793,
+    "time": 1792106109024,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 24,
@@ -2379,7 +2379,7 @@
   },
   {
     "sample": 29,
-    "time": 1792104636827,
+    "time": 1792106109058,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 25,
@@ -2461,7 +2461,7 @@
   },
   {
     "sample": 30,
-    "time": 1792104636860,
+    "time": 1792106109091,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 26,
@@ -2543,7 +2543,7 @@
   },
   {
     "sample": 31,
-    "time": 1792104636893,
+    "time": 1792106109124,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 27,
@@ -2625,7 +2625,7 @@
   },
   {
     "sample": 32,
-    "time": 1792104636927,
+    "time": 1792106109158,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 28,
@@ -2707,7 +2707,7 @@
   },
   {
     "sample": 33,
-    "time": 1792104636960,
+    "time": 1792106109191,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 29,
@@ -2789,7 +2789,7 @@
   },
   {
     "sample": 34,
-    "time": 1792104636993,
+    "time": 1792106109224,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 30,
@@ -2871,7 +2871,7 @@
   },
   {
     "sample": 35,
-    "time": 1792104637027,
+    "time": 1792106109258,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 31,
@@ -2953,7 +2953,7 @@
   },
   {
     "sample": 36,
-    "time": 1792104637060,
+    "time": 1792106109291,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 32,
@@ -3035,7 +3035,7 @@
   },
   {
     "sample": 37,
-    "time": 1792104637093,
+    "time": 1792106109324,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 33,
@@ -3117,7 +3117,7 @@
   },
   {
     "sample": 38,
-    "time": 1792104637127,
+    "time": 1792106109358,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 34,
@@ -3199,7 +3199,7 @@
   },
   {
     "sample": 39,
-    "time": 1792104637160,
+    "time": 1792106109391,
     "phase": "attack",
     "attackKind": "thrust",
     "frame": 35,
@@ -3281,7 +3281,7 @@
   },
   {
     "sample": 40,
-    "time": 1792104637193,
+    "time": 1792106109424,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 0,
@@ -3363,7 +3363,7 @@
   },
   {
     "sample": 41,
-    "time": 1792104637227,
+    "time": 1792106109458,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 1,
@@ -3445,7 +3445,7 @@
   },
   {
     "sample": 42,
-    "time": 1792104637260,
+    "time": 1792106109491,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 2,
@@ -3527,7 +3527,7 @@
   },
   {
     "sample": 43,
-    "time": 1792104637293,
+    "time": 1792106109524,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 3,
@@ -3609,7 +3609,7 @@
   },
   {
     "sample": 44,
-    "time": 1792104637327,
+    "time": 1792106109558,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 4,
@@ -3691,7 +3691,7 @@
   },
   {
     "sample": 45,
-    "time": 1792104637360,
+    "time": 1792106109591,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 5,
@@ -3773,7 +3773,7 @@
   },
   {
     "sample": 46,
-    "time": 1792104637393,
+    "time": 1792106109624,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 6,
@@ -3855,7 +3855,7 @@
   },
   {
     "sample": 47,
-    "time": 1792104637427,
+    "time": 1792106109658,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 7,
@@ -3937,7 +3937,7 @@
   },
   {
     "sample": 48,
-    "time": 1792104637460,
+    "time": 1792106109691,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 8,
@@ -4019,7 +4019,7 @@
   },
   {
     "sample": 49,
-    "time": 1792104637493,
+    "time": 1792106109724,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -4102,7 +4102,7 @@
   },
   {
     "sample": 50,
-    "time": 1792104637527,
+    "time": 1792106109758,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -4185,7 +4185,7 @@
   },
   {
     "sample": 51,
-    "time": 1792104637560,
+    "time": 1792106109791,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 9,
@@ -4268,7 +4268,7 @@
   },
   {
     "sample": 52,
-    "time": 1792104637593,
+    "time": 1792106109824,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 10,
@@ -4351,7 +4351,7 @@
   },
   {
     "sample": 53,
-    "time": 1792104637627,
+    "time": 1792106109858,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 11,
@@ -4434,7 +4434,7 @@
   },
   {
     "sample": 54,
-    "time": 1792104637660,
+    "time": 1792106109891,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 12,
@@ -4517,7 +4517,7 @@
   },
   {
     "sample": 55,
-    "time": 1792104637693,
+    "time": 1792106109924,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 13,
@@ -4600,7 +4600,7 @@
   },
   {
     "sample": 56,
-    "time": 1792104637727,
+    "time": 1792106109958,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 14,
@@ -4683,7 +4683,7 @@
   },
   {
     "sample": 57,
-    "time": 1792104637760,
+    "time": 1792106109991,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 15,
@@ -4766,7 +4766,7 @@
   },
   {
     "sample": 58,
-    "time": 1792104637793,
+    "time": 1792106110024,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 16,
@@ -4849,7 +4849,7 @@
   },
   {
     "sample": 59,
-    "time": 1792104637827,
+    "time": 1792106110058,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 17,
@@ -4932,7 +4932,7 @@
   },
   {
     "sample": 60,
-    "time": 1792104637860,
+    "time": 1792106110091,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 18,
@@ -5015,7 +5015,7 @@
   },
   {
     "sample": 61,
-    "time": 1792104637893,
+    "time": 1792106110124,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 19,
@@ -5098,7 +5098,7 @@
   },
   {
     "sample": 62,
-    "time": 1792104637927,
+    "time": 1792106110158,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 20,
@@ -5181,7 +5181,7 @@
   },
   {
     "sample": 63,
-    "time": 1792104637960,
+    "time": 1792106110191,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 21,
@@ -5263,7 +5263,7 @@
   },
   {
     "sample": 64,
-    "time": 1792104637993,
+    "time": 1792106110224,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 22,
@@ -5345,7 +5345,7 @@
   },
   {
     "sample": 65,
-    "time": 1792104638027,
+    "time": 1792106110258,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 23,
@@ -5427,7 +5427,7 @@
   },
   {
     "sample": 66,
-    "time": 1792104638060,
+    "time": 1792106110291,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 24,
@@ -5509,7 +5509,7 @@
   },
   {
     "sample": 67,
-    "time": 1792104638093,
+    "time": 1792106110324,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 25,
@@ -5591,7 +5591,7 @@
   },
   {
     "sample": 68,
-    "time": 1792104638127,
+    "time": 1792106110358,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 26,
@@ -5673,7 +5673,7 @@
   },
   {
     "sample": 69,
-    "time": 1792104638160,
+    "time": 1792106110391,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 27,
@@ -5755,7 +5755,7 @@
   },
   {
     "sample": 70,
-    "time": 1792104638193,
+    "time": 1792106110424,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 28,
@@ -5837,7 +5837,7 @@
   },
   {
     "sample": 71,
-    "time": 1792104638227,
+    "time": 1792106110458,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 29,
@@ -5919,7 +5919,7 @@
   },
   {
     "sample": 72,
-    "time": 1792104638260,
+    "time": 1792106110491,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 30,
@@ -6001,7 +6001,7 @@
   },
   {
     "sample": 73,
-    "time": 1792104638293,
+    "time": 1792106110524,
     "phase": "attack",
     "attackKind": "sweep",
     "frame": 31,
@@ -6083,7 +6083,7 @@
   },
   {
     "sample": 74,
-    "time": 1792104638327,
+    "time": 1792106110558,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 0,
@@ -6165,7 +6165,7 @@
   },
   {
     "sample": 75,
-    "time": 1792104638360,
+    "time": 1792106110591,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 1,
@@ -6247,7 +6247,7 @@
   },
   {
     "sample": 76,
-    "time": 1792104638393,
+    "time": 1792106110624,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 2,
@@ -6329,7 +6329,7 @@
   },
   {
     "sample": 77,
-    "time": 1792104638427,
+    "time": 1792106110658,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 3,
@@ -6411,7 +6411,7 @@
   },
   {
     "sample": 78,
-    "time": 1792104638460,
+    "time": 1792106110691,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 4,
@@ -6493,7 +6493,7 @@
   },
   {
     "sample": 79,
-    "time": 1792104638493,
+    "time": 1792106110724,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 5,
@@ -6575,7 +6575,7 @@
   },
   {
     "sample": 80,
-    "time": 1792104638527,
+    "time": 1792106110758,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 6,
@@ -6657,7 +6657,7 @@
   },
   {
     "sample": 81,
-    "time": 1792104638560,
+    "time": 1792106110791,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 7,
@@ -6739,7 +6739,7 @@
   },
   {
     "sample": 82,
-    "time": 1792104638593,
+    "time": 1792106110824,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 8,
@@ -6821,7 +6821,7 @@
   },
   {
     "sample": 83,
-    "time": 1792104638627,
+    "time": 1792106110858,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 9,
@@ -6903,7 +6903,7 @@
   },
   {
     "sample": 84,
-    "time": 1792104638660,
+    "time": 1792106110891,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 10,
@@ -6985,7 +6985,7 @@
   },
   {
     "sample": 85,
-    "time": 1792104638693,
+    "time": 1792106110924,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 11,
@@ -7067,7 +7067,7 @@
   },
   {
     "sample": 86,
-    "time": 1792104638727,
+    "time": 1792106110958,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 12,
@@ -7149,7 +7149,7 @@
   },
   {
     "sample": 87,
-    "time": 1792104638760,
+    "time": 1792106110991,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 13,
@@ -7231,7 +7231,7 @@
   },
   {
     "sample": 88,
-    "time": 1792104638793,
+    "time": 1792106111024,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 14,
@@ -7313,7 +7313,7 @@
   },
   {
     "sample": 89,
-    "time": 1792104638827,
+    "time": 1792106111058,
     "phase": "idle",
     "attackKind": "sweep",
     "frame": 15,
