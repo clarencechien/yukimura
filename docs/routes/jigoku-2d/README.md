@@ -1,6 +1,14 @@
 # 真田・六文劫：預渲染 2D 美術路線
 
-## 最新：固定肢段，加入骨盆與雙腿連動
+## 最新：Phaser 燼關試槍
+
+[實機錄影與操作說明](COMBAT_STUDY.md) · [試玩頁原始檔](combat/index.html)
+
+![Phaser 場景命中預覽](combat/combat-preview.gif)
+
+插畫動作已接入 Phaser 3.90：槍尖命中、射程外刺空、三擊破封、70 ms 命中停頓、接地陰影與火星。支援鍵盤和手機觸控；目前是固定站位、單目標試作，尚未部署為 Pages 遊戲。
+
+## 前一輪：固定肢段，加入骨盆與雙腿連動
 
 [前後對照與製作說明](YARI_RIGID_MOTION.md) · [新版互動檢視頁原始檔](yari-rigid-review.html)
 
@@ -26,7 +34,7 @@
 
 > 2026-10-15 路線修正：使用者要求以插畫為實際素材，做分層／淺浮雕與重打光。新的優先方案見 [插畫 2.5D 重打光](ILLUSTRATION_RELIGHT.md)；下列完整 3D／舊模型試渲流程保留作研究比較，不是目前的造型製作方向。
 
-2026-10-15（Asia/Taipei）。獨立分支 `art/jigoku-prerendered-2d`，自 `4b9f118` 分出。現有 Babylon.js v22 與 GitHub Pages 保留；此分支已完成資料調查、文案、image gen 視覺參考及第一輪實際 Blender 三幀驗證。新增離線場景、512／1024 透明角色 PNG；目前已追加插畫連續動畫圖集（見上方最新結果）；未建立新高模或可玩 2D 遊戲。
+2026-10-15（Asia/Taipei）。獨立分支 `art/jigoku-prerendered-2d`，自 `4b9f118` 分出。現有 Babylon.js v22 與 GitHub Pages 保留；此分支已完成資料調查、文案、image gen 視覺參考及第一輪實際 Blender 三幀驗證。新增離線場景、512／1024 透明角色 PNG；目前已追加插畫連續動畫圖集（見上方最新結果）；未建立新高模；目前已有上方的單目標 Phaser 試玩場景，尚非完整 2D 遊戲。
 
 **六文不渡，赤槍開路。**
 

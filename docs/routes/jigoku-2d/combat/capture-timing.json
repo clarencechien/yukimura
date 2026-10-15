@@ -1,0 +1,338 @@
+[
+  {
+    "sample": 0,
+    "time": 1792067809247,
+    "phase": "idle",
+    "frame": 0,
+    "hp": 3
+  },
+  {
+    "sample": 1,
+    "time": 1792067809280,
+    "phase": "idle",
+    "frame": 1,
+    "hp": 3
+  },
+  {
+    "sample": 2,
+    "time": 1792067809314,
+    "phase": "idle",
+    "frame": 2,
+    "hp": 3
+  },
+  {
+    "sample": 3,
+    "time": 1792067809347,
+    "phase": "idle",
+    "frame": 3,
+    "hp": 3
+  },
+  {
+    "sample": 4,
+    "time": 1792067809380,
+    "phase": "idle",
+    "frame": 4,
+    "hp": 3
+  },
+  {
+    "sample": 5,
+    "time": 1792067809414,
+    "phase": "idle",
+    "frame": 5,
+    "hp": 3
+  },
+  {
+    "sample": 6,
+    "time": 1792067809447,
+    "phase": "attack",
+    "frame": 0,
+    "hp": 3
+  },
+  {
+    "sample": 7,
+    "time": 1792067809480,
+    "phase": "attack",
+    "frame": 1,
+    "hp": 3
+  },
+  {
+    "sample": 8,
+    "time": 1792067809514,
+    "phase": "attack",
+    "frame": 2,
+    "hp": 3
+  },
+  {
+    "sample": 9,
+    "time": 1792067809547,
+    "phase": "attack",
+    "frame": 3,
+    "hp": 3
+  },
+  {
+    "sample": 10,
+    "time": 1792067809580,
+    "phase": "attack",
+    "frame": 4,
+    "hp": 3
+  },
+  {
+    "sample": 11,
+    "time": 1792067809614,
+    "phase": "attack",
+    "frame": 6,
+    "hp": 3
+  },
+  {
+    "sample": 12,
+    "time": 1792067809647,
+    "phase": "attack",
+    "frame": 7,
+    "hp": 3
+  },
+  {
+    "sample": 13,
+    "time": 1792067809680,
+    "phase": "attack",
+    "frame": 8,
+    "hp": 3
+  },
+  {
+    "sample": 14,
+    "time": 1792067809714,
+    "phase": "attack",
+    "frame": 9,
+    "hp": 3
+  },
+  {
+    "sample": 15,
+    "time": 1792067809747,
+    "phase": "attack",
+    "frame": 10,
+    "hp": 3
+  },
+  {
+    "sample": 16,
+    "time": 1792067809780,
+    "phase": "attack",
+    "frame": 11,
+    "hp": 3
+  },
+  {
+    "sample": 17,
+    "time": 1792067809814,
+    "phase": "attack",
+    "frame": 12,
+    "hp": 3
+  },
+  {
+    "sample": 18,
+    "time": 1792067809847,
+    "phase": "attack",
+    "frame": 12,
+    "hp": 3
+  },
+  {
+    "sample": 19,
+    "time": 1792067809880,
+    "phase": "attack",
+    "frame": 13,
+    "hp": 3
+  },
+  {
+    "sample": 20,
+    "time": 1792067809914,
+    "phase": "attack",
+    "frame": 14,
+    "hp": 2
+  },
+  {
+    "sample": 21,
+    "time": 1792067809947,
+    "phase": "attack",
+    "frame": 14,
+    "hp": 2
+  },
+  {
+    "sample": 22,
+    "time": 1792067809980,
+    "phase": "attack",
+    "frame": 14,
+    "hp": 2
+  },
+  {
+    "sample": 23,
+    "time": 1792067810014,
+    "phase": "attack",
+    "frame": 16,
+    "hp": 2
+  },
+  {
+    "sample": 24,
+    "time": 1792067810047,
+    "phase": "attack",
+    "frame": 17,
+    "hp": 2
+  },
+  {
+    "sample": 25,
+    "time": 1792067810080,
+    "phase": "attack",
+    "frame": 18,
+    "hp": 2
+  },
+  {
+    "sample": 26,
+    "time": 1792067810114,
+    "phase": "attack",
+    "frame": 19,
+    "hp": 2
+  },
+  {
+    "sample": 27,
+    "time": 1792067810147,
+    "phase": "attack",
+    "frame": 19,
+    "hp": 2
+  },
+  {
+    "sample": 28,
+    "time": 1792067810180,
+    "phase": "attack",
+    "frame": 20,
+    "hp": 2
+  },
+  {
+    "sample": 29,
+    "time": 1792067810214,
+    "phase": "attack",
+    "frame": 21,
+    "hp": 2
+  },
+  {
+    "sample": 30,
+    "time": 1792067810247,
+    "phase": "attack",
+    "frame": 22,
+    "hp": 2
+  },
+  {
+    "sample": 31,
+    "time": 1792067810280,
+    "phase": "attack",
+    "frame": 23,
+    "hp": 2
+  },
+  {
+    "sample": 32,
+    "time": 1792067810314,
+    "phase": "attack",
+    "frame": 24,
+    "hp": 2
+  },
+  {
+    "sample": 33,
+    "time": 1792067810347,
+    "phase": "attack",
+    "frame": 25,
+    "hp": 2
+  },
+  {
+    "sample": 34,
+    "time": 1792067810380,
+    "phase": "attack",
+    "frame": 26,
+    "hp": 2
+  },
+  {
+    "sample": 35,
+    "time": 1792067810414,
+    "phase": "attack",
+    "frame": 28,
+    "hp": 2
+  },
+  {
+    "sample": 36,
+    "time": 1792067810447,
+    "phase": "attack",
+    "frame": 29,
+    "hp": 2
+  },
+  {
+    "sample": 37,
+    "time": 1792067810480,
+    "phase": "attack",
+    "frame": 30,
+    "hp": 2
+  },
+  {
+    "sample": 38,
+    "time": 1792067810514,
+    "phase": "attack",
+    "frame": 31,
+    "hp": 2
+  },
+  {
+    "sample": 39,
+    "time": 1792067810547,
+    "phase": "attack",
+    "frame": 31,
+    "hp": 2
+  },
+  {
+    "sample": 40,
+    "time": 1792067810580,
+    "phase": "attack",
+    "frame": 32,
+    "hp": 2
+  },
+  {
+    "sample": 41,
+    "time": 1792067810614,
+    "phase": "attack",
+    "frame": 33,
+    "hp": 2
+  },
+  {
+    "sample": 42,
+    "time": 1792067810647,
+    "phase": "attack",
+    "frame": 34,
+    "hp": 2
+  },
+  {
+    "sample": 43,
+    "time": 1792067810680,
+    "phase": "attack",
+    "frame": 35,
+    "hp": 2
+  },
+  {
+    "sample": 44,
+    "time": 1792067810714,
+    "phase": "idle",
+    "frame": 0,
+    "hp": 2
+  },
+  {
+    "sample": 45,
+    "time": 1792067810747,
+    "phase": "idle",
+    "frame": 1,
+    "hp": 2
+  },
+  {
+    "sample": 46,
+    "time": 1792067810780,
+    "phase": "idle",
+    "frame": 2,
+    "hp": 2
+  },
+  {
+    "sample": 47,
+    "time": 1792067810814,
+    "phase": "idle",
+    "frame": 4,
+    "hp": 2
+  }
+]

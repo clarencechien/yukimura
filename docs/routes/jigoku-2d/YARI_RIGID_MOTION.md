@@ -1,5 +1,7 @@
 # 短刺修正：固定肢段，加入骨盆與雙腿連動
 
+> 下一步已將這套動作接入 [Phaser 燼關試槍場景](COMBAT_STUDY.md)，可檢查實際槍尖命中與受擊停頓。
+
 2026-10-15。分支 `art/jigoku-prerendered-2d`。延續 30 fps，每段 36 幀／1.2 秒。
 
 ![前版下身固定與新版骨盆雙腿連動對照](yari-rigid/before-after.gif)
