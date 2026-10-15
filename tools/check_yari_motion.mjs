@@ -4,7 +4,8 @@ import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-const root=process.cwd(),out='docs/routes/jigoku-2d/yari-motion';
+const rigid=process.argv.includes('--rigid'),study=rigid?'yari-rigid':'yari-motion';
+const root=process.cwd(),out=`docs/routes/jigoku-2d/${study}`;
 const server=http.createServer(async(req,res)=>{
   try {
     const file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));
@@ -20,7 +21,7 @@ try {
   const page=await browser.newPage({viewport:{width:1440,height:1100}});
   page.on('pageerror',e=>errors.push(e.message));
   page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))failed.push(r.url());});
-  await page.goto(`http://127.0.0.1:${server.address().port}/docs/routes/jigoku-2d/yari-motion-review.html`);
+  await page.goto(`http://127.0.0.1:${server.address().port}/docs/routes/jigoku-2d/${study}-review.html`);
   const ready=()=>page.waitForFunction(()=>document.querySelector('#status').textContent.startsWith('36 幀'));
   const scrub=async(frame)=>page.locator('#scrub').evaluate((el,value)=>{el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));},String(frame));
   const pixels=()=>page.locator('canvas').evaluate(async el=>{
@@ -49,15 +50,19 @@ try {
   await page.selectOption('#speed','0.25');assert.equal(await page.locator('#speed').inputValue(),'0.25');
   await page.locator('.stills img').evaluateAll(imgs=>Promise.all(imgs.map(im=>im.decode())));
   assert(await page.locator('.stills img').evaluateAll(imgs=>imgs.every(im=>im.naturalWidth===2048&&im.naturalHeight===1280)));
-  await page.screenshot({path:'.tmp/yari-motion/review-desktop.png',fullPage:true});
+  await page.screenshot({path:`.tmp/${study}/review-desktop.png`,fullPage:true});
+  if(rigid){const off=await pixels();await page.check('#joints');assert.notEqual((await pixels()).rgba,off.rgba);await page.uncheck('#joints');assert.equal((await pixels()).rgba,off.rgba);checks.push('Joint overlay toggles on and off without changing the rendered frame.');}
   await page.setViewportSize({width:390,height:844});await page.reload();await ready();assert.equal(await page.locator('canvas').getAttribute('data-quality'),'mobile');await scrub(14);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-  await page.screenshot({path:'.tmp/yari-motion/review-mobile.png',fullPage:true});
+  await page.screenshot({path:`.tmp/${study}/review-mobile.png`,fullPage:true});
   checks.push('HD stills load; desktop 1440x1100 and mobile 390x844 have no overflow.');
   await page.emulateMedia({reducedMotion:'reduce'});await page.reload();await ready();
   assert.equal(await page.locator('#play').getAttribute('aria-pressed'),'false');checks.push('Reduced-motion preference starts paused.');
   await page.clock.install();await page.clock.pauseAt(new Date(Date.now()+100));await page.clock.runFor(100);
-  await scrub(0);await page.click('#play');await page.clock.runFor(600);
-  assert([17,18].includes(Number(await page.locator('canvas').getAttribute('data-frame'))));
+  // Dispatch directly while the clock is paused: locator auto-wait can advance
+  // mocked animation frames during click stabilization before timing starts.
+  await scrub(0);await page.locator('#play').evaluate(el=>el.click());await page.clock.runFor(600);
+  const halfFrame=Number(await page.locator('canvas').getAttribute('data-frame'));
+  assert([17,18].includes(halfFrame),`Expected 17–18 frames at 600 ms; got ${halfFrame}`);
   await page.clock.runFor(600);assert([35,0].includes(Number(await page.locator('canvas').getAttribute('data-frame'))));
   checks.push('Controlled clock: ~18 frames per 600 ms and a 36-frame loop in 1.2 s at 1x, not sped-up 24-frame playback.');
 

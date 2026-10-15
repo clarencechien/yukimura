@@ -3,13 +3,16 @@
 Pillow only downsizes/composites/packages actual rendered frames. No image AI.
 """
 from pathlib import Path
-import json, hashlib, subprocess
+import json, hashlib, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'docs/routes/jigoku-2d/yari-motion'
-TMP=ROOT/'.tmp/yari-motion'
+RIGID='--rigid' in sys.argv
+STUDY='yari-rigid' if RIGID else 'yari-motion'
+OUT=ROOT/'docs/routes/jigoku-2d'/STUDY
+TMP=ROOT/'.tmp'/STUDY
+POSES=[1,11,15,27] if RIGID else [1,8,10,18]
 PRESETS=['neutral','warm-left','cool-right']
 FPS, COUNT = 30, 36
 CLIPS={'thrust':(1,36),'idle':(37,72)}
@@ -18,10 +21,11 @@ report=json.loads((OUT/'motion-report.json').read_text())
 assert report['fps']==FPS and report['frames_per_clip']==COUNT and len(report['frames'])==72
 assert report['source_sha256']==hashlib.sha256((ROOT/report['source']).read_bytes()).hexdigest()
 assert report['scene_sha256']==hashlib.sha256((ROOT/report['scene']).read_bytes()).hexdigest()
+if RIGID:assert report['preview_only'] is False
 source=np.array(Image.open(ROOT/report['source']))
 light_checks=[]
 for preset in PRESETS:
-    plate=np.array(Image.open(OUT/'lights'/f'{preset}.png'))
+    plate=np.array(Image.open(OUT/('body-lights' if RIGID else 'lights')/f'{preset}.png'))
     assert np.array_equal(source[:,:,3],plate[:,:,3])
     difference=np.abs(source[:,:,:3].astype(int)-plate[:,:,:3].astype(int))[source[:,:,3]>240]
     if preset=='neutral':assert difference.max()<=1
@@ -122,19 +126,26 @@ fontfile='/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc'
 def font(n):return ImageFont.truetype(fontfile,n)
 sheet=Image.new('RGBA',(1536,910),'#161b20');d=ImageDraw.Draw(sheet)
 d.text((30,20),'六文劫 · 十文字槍動作與補光',font=font(32),fill='#eddbc5')
-d.text((30,70),'同一插畫 → Blender 補光 → 固定視角連續變形',font=font(21),fill='#a5afb2')
+d.text((30,70),('固定長度手臂 → 肩肘腕求解 → 剛性貼圖旋轉' if RIGID else '同一插畫 → Blender 補光 → 固定視角連續變形'),font=font(21),fill='#a5afb2')
 for i,(preset,label) in enumerate(zip(PRESETS,['中性','左暖火光','右冷鬼火'])):
-    im=Image.open(OUT/f'{preset}-10.png');im.thumbnail((512,320),Image.Resampling.LANCZOS)
+    im=Image.open(OUT/f'{preset}-{POSES[2]:02}.png');im.thumbnail((512,320),Image.Resampling.LANCZOS)
     sheet.alpha_composite(im,(i*512,120));d.text((i*512+26,445),label,font=font(23),fill='#eddbc5')
-for i,(f,label) in enumerate([(1,'持槍'),(8,'蓄勢'),(10,'短刺'),(18,'收槍')]):
+for i,(f,label) in enumerate(zip(POSES,['持槍','蓄勢','短刺','收槍'])):
     im=Image.open(OUT/f'warm-left-{f:02}.png');im.thumbnail((384,240),Image.Resampling.LANCZOS)
     sheet.alpha_composite(im,(i*384,510));d.text((i*384+26,770),label,font=font(22),fill='#eddbc5')
 d.text((30,846),'單方向試作 / 腳底固定 / 小幅動作 / 尚未接入正式遊戲',font=font(20),fill='#a5afb2')
 sheet.convert('RGB').save(OUT/'comparison.jpg',quality=94)
 validation={'passed':True,'framesChecked':432,'fps':FPS,'framesPerClip':COUNT,'video':video,'allFramesUncropped':True,'matchingAlphaAcrossLightsAt512':True,
-    'lighting':light_checks,'clips':checks,'minTriangleAreaRatio':min(f['min_triangle_area_ratio'] for f in report['frames']),
-    'maxGripTranslationErrorSourcePixels':max(f['weapon_hand_translation_error_source_px'] for f in report['frames']),
+    'lighting':light_checks,'clips':checks,'minTriangleAreaRatio':None if RIGID else min(f['min_triangle_area_ratio'] for f in report['frames']),
+    'maxGripTranslationErrorSourcePixels':max(f['max_grip_error_source_px'] if RIGID else f['weapon_hand_translation_error_source_px'] for f in report['frames']),
     'maxFootAnchorDriftSourcePixels':max(f['foot_anchor_drift_source_px'] for f in report['frames']),
     'desktopAtlasesLosslessForeground':True,'scope':'Image-cage consistency checks, not human anatomy, sword/spear technique or game-performance validation.'}
+if RIGID:
+    validation['maxJointGapSourcePixels']=max(f['max_joint_gap_source_px'] for f in report['frames'])
+    validation['maxRigidMatrixError']=max(f['max_rigid_matrix_error'] for f in report['frames'])
+    validation['maxUpperArmLengthError']=max(a['upper_length_error'] for f in report['frames'] for a in f['arms'])
+    validation['maxForearmLengthError']=max(a['forearm_length_error'] for f in report['frames'] for a in f['arms'])
+    validation['maxWristAngleChangeDegrees']=max(abs(a['wrist_angle_change_degrees']) for f in report['frames'] for a in f['arms'])
+    validation['scope']='Rigid image pieces and projected two-link IK consistency; not full anatomical/dynamics validation.'
 (OUT/'validation.json').write_text(json.dumps(validation,indent=2)+'\n')
 print(json.dumps({'validation':validation,'totalAtlasBytes':sum(a['bytes'] for a in manifest['atlases'])},indent=2))

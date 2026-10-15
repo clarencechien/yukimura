@@ -1,0 +1,126 @@
+{
+  "canvas": [
+    1536,
+    1024
+  ],
+  "layers": {
+    "rear_upper": {
+      "box": [
+        267,
+        301,
+        468,
+        414
+      ],
+      "files": {
+        "neutral": "rear_upper-neutral.png",
+        "warm-left": "rear_upper-warm-left.png",
+        "cool-right": "rear_upper-cool-right.png"
+      }
+    },
+    "rear_forearm": {
+      "box": [
+        267,
+        350,
+        352,
+        504
+      ],
+      "files": {
+        "neutral": "rear_forearm-neutral.png",
+        "warm-left": "rear_forearm-warm-left.png",
+        "cool-right": "rear_forearm-cool-right.png"
+      }
+    },
+    "rear_hand": {
+      "box": [
+        280,
+        462,
+        373,
+        553
+      ],
+      "files": {
+        "neutral": "rear_hand-neutral.png",
+        "warm-left": "rear_hand-warm-left.png",
+        "cool-right": "rear_hand-cool-right.png"
+      }
+    },
+    "front_upper": {
+      "box": [
+        648,
+        343,
+        776,
+        452
+      ],
+      "files": {
+        "neutral": "front_upper-neutral.png",
+        "warm-left": "front_upper-warm-left.png",
+        "cool-right": "front_upper-cool-right.png"
+      }
+    },
+    "front_forearm": {
+      "box": [
+        699,
+        398,
+        853,
+        488
+      ],
+      "files": {
+        "neutral": "front_forearm-neutral.png",
+        "warm-left": "front_forearm-warm-left.png",
+        "cool-right": "front_forearm-cool-right.png"
+      }
+    },
+    "front_hand": {
+      "box": [
+        820,
+        423,
+        901,
+        497
+      ],
+      "files": {
+        "neutral": "front_hand-neutral.png",
+        "warm-left": "front_hand-warm-left.png",
+        "cool-right": "front_hand-cool-right.png"
+      }
+    },
+    "weapon": {
+      "box": [
+        14,
+        187,
+        1528,
+        585
+      ],
+      "files": {
+        "neutral": "weapon-neutral.png",
+        "warm-left": "weapon-warm-left.png",
+        "cool-right": "weapon-cool-right.png"
+      }
+    },
+    "torso": {
+      "box": [
+        298,
+        0,
+        816,
+        489
+      ],
+      "files": {
+        "neutral": "torso-neutral.png",
+        "warm-left": "torso-warm-left.png",
+        "cool-right": "torso-cool-right.png"
+      }
+    },
+    "lower": {
+      "box": [
+        145,
+        472,
+        1031,
+        1012
+      ],
+      "files": {
+        "neutral": "lower-neutral.png",
+        "warm-left": "lower-warm-left.png",
+        "cool-right": "lower-cool-right.png"
+      }
+    }
+  },
+  "method": "Rigid alpha cutouts; clean body prepared once by image_gen, original limbs/weapon retained."
+}

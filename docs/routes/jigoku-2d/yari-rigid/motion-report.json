@@ -1,0 +1,3922 @@
+{
+  "method": "Nine rigid cutout objects; fixed-length two-link planar IK; fixed elbow branch; constant scale; no mesh warping.",
+  "fps": 30,
+  "frames_per_clip": 36,
+  "duration_ms": 1200,
+  "clips": {
+    "thrust": [
+      1,
+      36
+    ],
+    "idle": [
+      37,
+      72
+    ]
+  },
+  "device": "CPU",
+  "blender": "4.3.2",
+  "source": "assets/source/jigoku-2d/yari-rigid/body-clean.png",
+  "source_sha256": "8eacb0dd547406f9d7315bbf2d7fba594b03d9cb618e532be1aeecc316278db2",
+  "rig_config_sha256": "b5b907a2cea2d0b076e68db58a7ff96ffbeb4990ee6953757db266172cc914fa",
+  "frames": [
+    {
+      "frame": 1,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 40.32212146275569
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 19.662261539382627
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.0,
+            317.0
+          ],
+          [
+            305.0,
+            378.0
+          ],
+          [
+            319.0,
+            486.0
+          ]
+        ],
+        "front": [
+          [
+            675.0,
+            340.0
+          ],
+          [
+            716.0,
+            423.0
+          ],
+          [
+            830.0,
+            450.0
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 0.0,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 2,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.19558676796612526,
+          "reach_margin": 40.21042361598762
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.06479443540182998,
+          "reach_margin": 19.870421050609366
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.63276163232103,
+            317.2642528000914
+          ],
+          [
+            304.52875322616916,
+            378.07631848526637
+          ],
+          [
+            318.16,
+            486.12348
+          ]
+        ],
+        "front": [
+          [
+            674.677224539659,
+            339.7559693027084
+          ],
+          [
+            715.1906065480422,
+            422.99457740161176
+          ],
+          [
+            829.16,
+            450.12348
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.145679951185349e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.7491412122230058e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 3,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.7291660038608909,
+          "reach_margin": 39.90308418781737
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 8.526512829121202e-14,
+          "wrist_angle_change_degrees": 0.24979860461275508,
+          "reach_margin": 20.425793719227187
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            413.638583197058,
+            317.9851235663474
+          ],
+          [
+            303.2555421401922,
+            378.2892216612388
+          ],
+          [
+            315.88,
+            486.45864
+          ]
+        ],
+        "front": [
+          [
+            673.7987217994145,
+            339.0967858031943
+          ],
+          [
+            712.9987978963632,
+            422.96188005577017
+          ],
+          [
+            826.88,
+            450.45864
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.1444091796875e-05,
+      "max_grip_error_source_px": 9.5367431640625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3734228340693837e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 4,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 1.5228101690780058,
+          "reach_margin": 39.43889244062768
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.5457592089256799,
+          "reach_margin": 21.218681055173278
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            412.1804831495298,
+            319.05704967624354
+          ],
+          [
+            301.3950360727459,
+            378.6186540535361
+          ],
+          [
+            312.52,
+            486.95256
+          ]
+        ],
+        "front": [
+          [
+            672.497740955031,
+            338.1338756340457
+          ],
+          [
+            709.7823507211197,
+            422.8679176395495
+          ],
+          [
+            823.52,
+            450.95256
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.057712467552452e-05,
+      "max_grip_error_source_px": 3.411968959808029e-05,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 2.452583982206911e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 5,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 7.105427357601002e-14,
+          "wrist_angle_change_degrees": 2.498541496344658,
+          "reach_margin": 38.856722254837905
+        },
+        {
+          "side": "front",
+          "upper_length_error": 5.684341886080802e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.9402737594736826,
+          "reach_margin": 22.14079476454677
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            410.4212693668311,
+            320.3739510393149
+          ],
+          [
+            299.1614565932747,
+            379.04467680262184
+          ],
+          [
+            308.44,
+            487.55232
+          ]
+        ],
+        "front": [
+          [
+            670.9079177578299,
+            336.9783483491908
+          ],
+          [
+            705.8984243921104,
+            422.68520014924445
+          ],
+          [
+            819.44,
+            451.55232
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 1.33514404296875e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3100592307740959e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 6,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 3.5758208510776854,
+          "reach_margin": 38.19942520695756
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 1.4103384918027222,
+          "reach_margin": 23.094001428040087
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            408.5211329723519,
+            321.82595657524763
+          ],
+          [
+            296.7631448944754,
+            379.54209037495065
+          ],
+          [
+            304.0,
+            488.205
+          ]
+        ],
+        "front": [
+          [
+            669.1654364214743,
+            335.73807645403656
+          ],
+          [
+            701.6990738405957,
+            422.4073468806482
+          ],
+          [
+            815.0,
+            452.205
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 1.1920928955078125e-07,
+      "evaluated_transform_error_source_px": 1.4902911663829657e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 7,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 4.6697709543732,
+          "reach_margin": 37.51657879308087
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 1.9197794294575532,
+          "reach_margin": 23.995332120775913
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            406.636100365076,
+            323.2975171290512
+          ],
+          [
+            294.39904219759393,
+            380.0764108652736
+          ],
+          [
+            299.56,
+            488.85768
+          ]
+        ],
+        "front": [
+          [
+            667.410233401439,
+            334.5158743676713
+          ],
+          [
+            697.5284924570809,
+            422.05381169462254
+          ],
+          [
+            810.56,
+            452.85768
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.4195887031745206e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 8,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 7.105427357601002e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 5.690243350094935,
+          "reach_margin": 36.86588116180587
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 2.420195372224669,
+          "reach_margin": 24.778335062037
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            404.9173973857204,
+            324.666868216994
+          ],
+          [
+            292.25721834166876,
+            380.6015091630322
+          ],
+          [
+            295.48,
+            489.45744
+          ]
+        ],
+        "front": [
+          [
+            665.7862885883275,
+            333.4088132364003
+          ],
+          [
+            693.7218381787612,
+            421.66755257183615
+          ],
+          [
+            806.48,
+            453.45744
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 3.259278772475254e-05,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 2.293438059500626e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 9,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": 6.541941770108268,
+          "reach_margin": 36.31286261049985
+        },
+        {
+          "side": "front",
+          "upper_length_error": 5.684341886080802e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 2.854061024207675,
+          "reach_margin": 25.39096628612444
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            403.5118084650015,
+            325.8067809854246
+          ],
+          [
+            290.5156518683947,
+            381.05955100100954
+          ],
+          [
+            292.12,
+            489.95136
+          ]
+        ],
+        "front": [
+          [
+            664.4410784433093,
+            332.5087261200372
+          ],
+          [
+            690.6057939350374,
+            421.3085440434819
+          ],
+          [
+            803.12,
+            453.95136
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.7059844799040144e-05,
+      "max_grip_error_source_px": 5.7220458984375e-06,
+      "max_rigid_matrix_error": 1.1920928955078125e-07,
+      "evaluated_transform_error_source_px": 7.0026817617942426e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 10,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": 7.125858203488426,
+          "reach_margin": 35.928588124003056
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": 3.1590961244999547,
+          "reach_margin": 25.79027157002409
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            402.56311130655416,
+            326.5865367961362
+          ],
+          [
+            289.3454611807167,
+            381.3840157525942
+          ],
+          [
+            289.84,
+            490.28652
+          ]
+        ],
+        "front": [
+          [
+            663.5242675351057,
+            331.903955329367
+          ],
+          [
+            688.5011736420341,
+            421.0451588287908
+          ],
+          [
+            800.84,
+            454.28652
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 8.529922399520072e-06,
+      "max_grip_error_source_px": 3.1972989300232336e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.8499950543062443e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 11,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 7.342226406115192,
+          "reach_margin": 35.785150920372104
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": 3.2735704234930383,
+          "reach_margin": 25.93406124046652
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            402.2146361510282,
+            326.87508250660994
+          ],
+          [
+            288.91671634366253,
+            381.50640472494683
+          ],
+          [
+            289.0,
+            490.41
+          ]
+        ],
+        "front": [
+          [
+            663.1856881146973,
+            331.68237248911333
+          ],
+          [
+            687.7278125072904,
+            420.94425758179153
+          ],
+          [
+            800.0,
+            454.41
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.814697265625e-06,
+      "max_rigid_matrix_error": 1.1920928955078125e-07,
+      "evaluated_transform_error_source_px": 8.653709146597015e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 12,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 4.96463290528304,
+          "reach_margin": 37.32991020547675
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": 2.062033070475968,
+          "reach_margin": 24.2271919271206
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            406.13557966251904,
+            323.6935506912107
+          ],
+          [
+            293.7739304070142,
+            380.22548659104444
+          ],
+          [
+            298.375,
+            489.031875
+          ]
+        ],
+        "front": [
+          [
+            666.939657104597,
+            334.19275016481515
+          ],
+          [
+            696.4203204285808,
+            421.94746792960495
+          ],
+          [
+            809.375,
+            453.031875
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.4648437499875655e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 13,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 40.32212146275569
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 19.662261539382627
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.0,
+            317.0
+          ],
+          [
+            305.0,
+            378.0
+          ],
+          [
+            319.0,
+            486.0
+          ]
+        ],
+        "front": [
+          [
+            675.0,
+            340.0
+          ],
+          [
+            716.0,
+            423.0
+          ],
+          [
+            830.0,
+            450.0
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 0.0,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 14,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": -4.64413342778076,
+          "reach_margin": 42.82201086847968
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.9092001801033319,
+          "reach_margin": 13.944331629699406
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            424.17535598654433,
+            310.7394559904478
+          ],
+          [
+            316.9265618553905,
+            376.4562434759403
+          ],
+          [
+            339.625,
+            482.968125
+          ]
+        ],
+        "front": [
+          [
+            682.7724395166406,
+            346.18728229515114
+          ],
+          [
+            736.2109203850566,
+            421.7804616334746
+          ],
+          [
+            850.625,
+            446.968125
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.814697265625e-06,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.4648437499875655e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 15,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -6.662274839105693,
+          "reach_margin": 43.81739126038016
+        },
+        {
+          "side": "front",
+          "upper_length_error": 7.105427357601002e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.7492329808461219,
+          "reach_margin": 10.954896338931377
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            428.4430702788193,
+            308.04083459569614
+          ],
+          [
+            322.5647261857914,
+            375.94353153858935
+          ],
+          [
+            349.0,
+            481.59
+          ]
+        ],
+        "front": [
+          [
+            686.2053244502587,
+            349.12149092514466
+          ],
+          [
+            745.6566890283956,
+            420.0829963333409
+          ],
+          [
+            860.0,
+            445.59
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 3.0517578125e-05,
+      "max_rigid_matrix_error": 1.1920928955078125e-07,
+      "evaluated_transform_error_source_px": 2.685546875014211e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 16,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -6.662274839105693,
+          "reach_margin": 43.81739126038016
+        },
+        {
+          "side": "front",
+          "upper_length_error": 7.105427357601002e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.7492329808461219,
+          "reach_margin": 10.954896338931377
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            428.4430702788193,
+            308.04083459569614
+          ],
+          [
+            322.5647261857914,
+            375.94353153858935
+          ],
+          [
+            349.0,
+            481.59
+          ]
+        ],
+        "front": [
+          [
+            686.2053244502587,
+            349.12149092514466
+          ],
+          [
+            745.6566890283956,
+            420.0829963333409
+          ],
+          [
+            860.0,
+            445.59
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 3.0517578125e-05,
+      "max_rigid_matrix_error": 1.1920928955078125e-07,
+      "evaluated_transform_error_source_px": 2.685546875014211e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 17,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -6.47629582729634,
+          "reach_margin": 43.72794145511983
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.784548443213694,
+          "reach_margin": 11.244155983611961
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            428.04250634016057,
+            308.2886130896073
+          ],
+          [
+            322.0333019918217,
+            375.9868301520391
+          ],
+          [
+            348.1255144032922,
+            481.71854938271605
+          ]
+        ],
+        "front": [
+          [
+            685.8878266908996,
+            348.84463327434423
+          ],
+          [
+            744.7665033731716,
+            420.2820284686294
+          ],
+          [
+            859.1255144032922,
+            445.71854938271605
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.5014266492244376e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 3.144876403633051e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 18,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -5.97560679433819,
+          "reach_margin": 43.484838001812136
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.8568572722705402,
+          "reach_margin": 12.008796019212525
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            426.9714901271661,
+            308.95667377217353
+          ],
+          [
+            320.6146199153727,
+            376.107371153152
+          ],
+          [
+            345.7818930041152,
+            482.06306172839504
+          ]
+        ],
+        "front": [
+          [
+            685.0341612859587,
+            348.1058468718554
+          ],
+          [
+            742.3908714731424,
+            420.77088520875725
+          ],
+          [
+            856.7818930041152,
+            446.06306172839504
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.411968959808029e-05,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 3.097788968095194e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 19,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -5.244777582236475,
+          "reach_margin": 43.123972523036116
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.9086722227720397,
+          "reach_margin": 13.088556125421462
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            425.4274068872715,
+            309.93419303944995
+          ],
+          [
+            318.5751311521668,
+            376.2937527895656
+          ],
+          [
+            342.3888888888889,
+            482.5618333333333
+          ]
+        ],
+        "front": [
+          [
+            683.7911475674296,
+            347.04453528734666
+          ],
+          [
+            738.9750413728882,
+            421.37311568861537
+          ],
+          [
+            853.3888888888889,
+            446.5618333333333
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.145679951185349e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.753431865310118e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 20,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -4.3689700321689,
+          "reach_margin": 42.682051089082336
+        },
+        {
+          "side": "front",
+          "upper_length_error": 5.684341886080802e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": -0.898038414363444,
+          "reach_margin": 14.327011637267361
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            423.6068623546231,
+            311.1088584897267
+          ],
+          [
+            316.1796008734341,
+            376.5334982720919
+          ],
+          [
+            338.36625514403295,
+            483.15316049382716
+          ]
+        ],
+        "front": [
+          [
+            682.3066712210216,
+            345.79904287218466
+          ],
+          [
+            734.9570844977902,
+            421.943208648595
+          ],
+          [
+            849.366255144033,
+            447.15316049382716
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 3.814697265625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.8731122968016913e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 21,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -3.4361625309061177,
+          "reach_margin": 42.19995375951652
+        },
+        {
+          "side": "front",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.8124381157903944,
+          "reach_margin": 15.581435379392985
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            421.7032935042031,
+            312.3631522726471
+          ],
+          [
+            313.685782240907,
+            376.8086118526959
+          ],
+          [
+            334.13374485596705,
+            483.7753395061728
+          ]
+        ],
+        "front": [
+          [
+            680.7322292993435,
+            344.50363174693365
+          ],
+          [
+            730.7623657253952,
+            422.3944877519274
+          ],
+          [
+            845.133744855967,
+            447.7753395061728
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 3.1972989300232336e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.9532950255806326e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 22,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -2.538515095313222,
+          "reach_margin": 41.724872568806376
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.6683215806893785,
+          "reach_margin": 16.727613924640423
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            419.9056495256533,
+            313.57257256428
+          ],
+          [
+            311.3414267601352,
+            377.0927231884635
+          ],
+          [
+            330.1111111111111,
+            484.3666666666667
+          ]
+        ],
+        "front": [
+          [
+            679.224101689605,
+            343.28688506334856
+          ],
+          [
+            726.8039343745796,
+            422.6982162552498
+          ],
+          [
+            841.1111111111111,
+            448.3666666666667
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 4.1831421278879755e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 3.933376736298888e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 23,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -1.7727049531087522,
+          "reach_margin": 41.310907167393765
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.5038598320061308,
+          "reach_margin": 17.65966303662094
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            418.3982327443516,
+            314.6057383869195
+          ],
+          [
+            309.383870212885,
+            377.3502103494594
+          ],
+          [
+            326.7181069958848,
+            484.86543827160494
+          ]
+        ],
+        "front": [
+          [
+            677.943219539428,
+            342.27159874844915
+          ],
+          [
+            723.4850797517556,
+            422.8689868475731
+          ],
+          [
+            837.7181069958848,
+            448.86543827160494
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.7034011533637236e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 3.518300053744488e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 24,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -1.2389958975976516,
+          "reach_margin": 41.01769406981913
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.3690974465353761,
+          "reach_margin": 18.284972847385177
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            417.36181247554475,
+            315.32630332534916
+          ],
+          [
+            308.0424885875218,
+            377.537921409639
+          ],
+          [
+            324.3744855967078,
+            485.20995061728394
+          ]
+        ],
+        "front": [
+          [
+            677.053824091335,
+            341.5762386194465
+          ],
+          [
+            721.2029191561173,
+            422.9448898615606
+          ],
+          [
+            835.3744855967078,
+            449.20995061728394
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.5728399755926745e-05,
+      "max_grip_error_source_px": 3.1972989300232336e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.8086793106485534e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 25,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": -1.038839964985622,
+          "reach_margin": 40.90673413256317
+        },
+        {
+          "side": "front",
+          "upper_length_error": 5.684341886080802e-14,
+          "forearm_length_error": 8.526512829121202e-14,
+          "wrist_angle_change_degrees": -0.31460415327316776,
+          "reach_margin": 18.514442025804726
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            416.9760975495101,
+            315.5966173035905
+          ],
+          [
+            307.54424119895344,
+            377.6100740341351
+          ],
+          [
+            323.5,
+            485.3385
+          ]
+        ],
+        "front": [
+          [
+            676.7209905498696,
+            341.31802006922123
+          ],
+          [
+            720.3534655615892,
+            422.9648640030297
+          ],
+          [
+            834.5,
+            449.3385
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.814697265625e-06,
+      "max_grip_error_source_px": 1.9073486328125e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 9.72262514636873e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 26,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -1.0148137947871034,
+          "reach_margin": 40.89337828585616
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 8.526512829121202e-14,
+          "wrist_angle_change_degrees": -0.30792332761294705,
+          "reach_margin": 18.541803873040266
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            416.92990597304066,
+            315.6290675006953
+          ],
+          [
+            307.48460856891916,
+            377.61879952240514
+          ],
+          [
+            323.39519158527423,
+            485.3539068369647
+          ]
+        ],
+        "front": [
+          [
+            676.6810647042942,
+            341.28711765598143
+          ],
+          [
+            720.2517331522048,
+            422.96696125893067
+          ],
+          [
+            834.3951915852742,
+            449.3539068369647
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.0789593218788873e-05,
+      "max_grip_error_source_px": 2.7771415288087914e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.7334699311616792e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 27,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.9488946255166437,
+          "reach_margin": 40.856694460996266
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.2894420517391457,
+          "reach_margin": 18.61667424437553
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            416.8032922682273,
+            315.71810163299625
+          ],
+          [
+            307.3211911063503,
+            377.6428101521368
+          ],
+          [
+            323.1078136739294,
+            485.39615138993236
+          ]
+        ],
+        "front": [
+          [
+            676.5715519588507,
+            341.20243519903
+          ],
+          [
+            719.9728725284909,
+            422.9723891724261
+          ],
+          [
+            834.1078136739294,
+            449.39615138993236
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 4.1831421278879755e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 3.779023334912628e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 28,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.8502915462294315,
+          "reach_margin": 40.80171221518367
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.2613867347812888,
+          "reach_margin": 18.72811891705078
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            416.614227510074,
+            315.8512868210156
+          ],
+          [
+            307.07727592213314,
+            377.67892009951896
+          ],
+          [
+            322.67843726521414,
+            485.4592697220135
+          ]
+        ],
+        "front": [
+          [
+            676.4078215740075,
+            341.07604615275443
+          ],
+          [
+            719.5564483994256,
+            422.9796236270065
+          ],
+          [
+            833.6784372652141,
+            449.4592697220135
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.5987782028414166e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 3.5571041924621e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 29,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.7282101829697551,
+          "reach_margin": 40.733455724289854
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.22597859417954796,
+          "reach_margin": 18.865193228831288
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            416.38068588256465,
+            316.01619409381624
+          ],
+          [
+            306.77615719049635,
+            377.7239512252302
+          ],
+          [
+            322.14763335837716,
+            485.53729789631853
+          ]
+        ],
+        "front": [
+          [
+            676.2052402912961,
+            340.92002766024063
+          ],
+          [
+            719.042030404067,
+            422.98713077003987
+          ],
+          [
+            833.1476333583771,
+            449.53729789631853
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 8.529922399520072e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.1978811567751673e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 30,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.5918886090863725,
+          "reach_margin": 40.65699898296077
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.1855759520204133,
+          "reach_margin": 19.017077058327544
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            416.1206090772243,
+            316.2003477594659
+          ],
+          [
+            306.4410560669524,
+            377.77465775533153
+          ],
+          [
+            321.55597295266716,
+            485.6242719759579
+          ]
+        ],
+        "front": [
+          [
+            675.9792061958929,
+            340.7464167628215
+          ],
+          [
+            718.4691204590857,
+            422.9936488494183
+          ],
+          [
+            832.5559729526672,
+            449.6242719759579
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0755072587198445e-05,
+      "max_grip_error_source_px": 3.814697265625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.4496605943498077e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 31,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.45062175432679524,
+          "reach_margin": 40.577503374868286
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 7.105427357601002e-14,
+          "wrist_angle_change_degrees": -0.14276388729422185,
+          "reach_margin": 19.173164456632236
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.8518823600582,
+            316.3911917919517
+          ],
+          [
+            306.09506679524065,
+            377.82767474036456
+          ],
+          [
+            320.94402704733284,
+            485.7142280240421
+          ]
+        ],
+        "front": [
+          [
+            675.7451711196109,
+            340.5671810735467
+          ],
+          [
+            717.8771051082304,
+            422.9983653327735
+          ],
+          [
+            831.9440270473328,
+            449.7142280240421
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 5.7220458984375e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.485065649816901e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 32,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.31377416091331223,
+          "reach_margin": 40.50023735624205
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.10039324249818128,
+          "reach_margin": 19.323108037139264
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.5923223737272,
+            316.5760731883769
+          ],
+          [
+            305.76112917426065,
+            377.87949071449407
+          ],
+          [
+            320.35236664162284,
+            485.8012021036814
+          ]
+        ],
+        "front": [
+          [
+            675.518651641405,
+            340.39420395950924
+          ],
+          [
+            717.3052324650241,
+            423.00099340850755
+          ],
+          [
+            831.3523666416229,
+            449.8012021036814
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 1.7059844799040144e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.2450840636157799e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 33,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.19078077343600908,
+          "reach_margin": 40.430577736147626
+        },
+        {
+          "side": "front",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 9.947598300641403e-14,
+          "wrist_angle_change_degrees": -0.061572528585143685,
+          "reach_margin": 19.45681835895047
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.35967680838587,
+            316.74224220272436
+          ],
+          [
+            305.4620277242395,
+            377.9264454399801
+          ],
+          [
+            319.82156273478586,
+            485.8792302779865
+          ]
+        ],
+        "front": [
+          [
+            675.315228800704,
+            340.23928432230207
+          ],
+          [
+            716.7926131967696,
+            423.00175518718754
+          ],
+          [
+            830.8215627347859,
+            449.8792302779865
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.1444091796875e-05,
+      "max_grip_error_source_px": 3.5987782028414166e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 3.503604766440343e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 34,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.09113539034105793,
+          "reach_margin": 40.37399194990789
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.029616531067642716,
+          "reach_margin": 19.56441859453946
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.171636096357,
+            316.876869345987
+          ],
+          [
+            305.2204179451779,
+            377.9647538000408
+          ],
+          [
+            319.3921863260706,
+            485.9423486100676
+          ]
+        ],
+        "front": [
+          [
+            675.1505366587096,
+            340.11415108009726
+          ],
+          [
+            716.3782450951599,
+            423.0012794962696
+          ],
+          [
+            830.3921863260706,
+            449.9423486100676
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 4.055078816503391e-05,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 3.707749180389642e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 35,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.024366452170322395,
+          "reach_margin": 40.33600080807443
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.007954610748666109,
+          "reach_margin": 19.636154744318986
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.04585726308756,
+            316.9670790575622
+          ],
+          [
+            305.0588800018415,
+            377.9905567766675
+          ],
+          [
+            319.10480841472577,
+            485.9845931630353
+          ]
+        ],
+        "front": [
+          [
+            675.0402398238994,
+            340.0304924394155
+          ],
+          [
+            716.1010609914048,
+            423.00042051609967
+          ],
+          [
+            830.1048084147258,
+            449.9845931630353
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 3.0755072587198445e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.823064986827953e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 36,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 40.32212146275569
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 19.662261539382627
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.0,
+            317.0
+          ],
+          [
+            305.0,
+            378.0
+          ],
+          [
+            319.0,
+            486.0
+          ]
+        ],
+        "front": [
+          [
+            675.0,
+            340.0
+          ],
+          [
+            716.0,
+            423.0
+          ],
+          [
+            830.0,
+            450.0
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 0.0,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 37,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 40.32212146275569
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 19.662261539382627
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.0,
+            317.0
+          ],
+          [
+            305.0,
+            378.0
+          ],
+          [
+            319.0,
+            486.0
+          ]
+        ],
+        "front": [
+          [
+            675.0,
+            340.0
+          ],
+          [
+            716.0,
+            423.0
+          ],
+          [
+            830.0,
+            450.0
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 0.0,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 38,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": 0.05001608972523794,
+          "reach_margin": 40.302158236751524
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.16156607759143385,
+          "reach_margin": 19.886746857098274
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.12892625938355,
+            316.90748694311833
+          ],
+          [
+            305.0942834302873,
+            377.84497439930755
+          ],
+          [
+            319.0,
+            485.8571544841611
+          ]
+        ],
+        "front": [
+          [
+            675.1130961398895,
+            340.0857399304391
+          ],
+          [
+            715.9243171220343,
+            423.178725446345
+          ],
+          [
+            830.0,
+            449.8571544841611
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 2.288818359375e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.3250213909337125e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 39,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.09846982810749468,
+          "reach_margin": 40.28278802214959
+        },
+        {
+          "side": "front",
+          "upper_length_error": 5.684341886080802e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.3173257186018112,
+          "reach_margin": 20.103940402578075
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.25376909710405,
+            316.81803152941717
+          ],
+          [
+            305.1856318374206,
+            377.6949989323972
+          ],
+          [
+            319.0,
+            485.71890014073495
+          ]
+        ],
+        "front": [
+          [
+            675.222501271621,
+            340.1687979317057
+          ],
+          [
+            715.8522129353792,
+            423.3506861653823
+          ],
+          [
+            830.0,
+            449.71890014073495
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 2.86102294921875e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.8070422425863217e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 40,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.1437974036006898,
+          "reach_margin": 40.264640298311605
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 9.947598300641403e-14,
+          "wrist_angle_change_degrees": -0.46237114548031755,
+          "reach_margin": 20.30687199245338
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.37050722681784,
+            316.7344968518245
+          ],
+          [
+            305.27109552698084,
+            377.5548844151227
+          ],
+          [
+            319.0,
+            485.5896805780753
+          ]
+        ],
+        "front": [
+          [
+            675.3247070382324,
+            340.2464937982162
+          ],
+          [
+            715.7858271019375,
+            423.5105182216756
+          ],
+          [
+            830.0,
+            449.5896805780753
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 5.3947966093944364e-06,
+      "max_grip_error_source_px": 1.9073486328125e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.9933544025074745e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 41,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.1845320553139761,
+          "reach_margin": 40.24830896361644
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.5921801661496181,
+          "reach_margin": 20.489035817735413
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.4753753233937,
+            316.65954933785946
+          ],
+          [
+            305.34790673818935,
+            377.4291195438008
+          ],
+          [
+            319.0,
+            485.4736490192482
+          ]
+        ],
+        "front": [
+          [
+            675.4164407214786,
+            340.31631411473745
+          ],
+          [
+            715.7270354635854,
+            423.6533164098622
+          ],
+          [
+            830.0,
+            449.4736490192482
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.6206748229885548e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 42,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.21935247637297836,
+          "reach_margin": 40.23433189703769
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.70274347271502,
+          "reach_margin": 20.64459745058599
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.5649867373918,
+            316.59557539940215
+          ],
+          [
+            305.4135712645974,
+            377.32172849129364
+          ],
+          [
+            319.0,
+            485.3745348140256
+          ]
+        ],
+        "front": [
+          [
+            675.4947688680538,
+            340.3759951077798
+          ],
+          [
+            715.677422920603,
+            423.7747619649291
+          ],
+          [
+            830.0,
+            449.3745348140256
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 2.288818359375e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.309527557609048e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 43,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.24712682204510134,
+          "reach_margin": 40.22317201014852
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.7906734679859403,
+          "reach_margin": 20.768578733557064
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.6364443954873,
+            316.54460759820904
+          ],
+          [
+            305.4659518651154,
+            377.2361438748207
+          ],
+          [
+            319.0,
+            485.2955235745146
+          ]
+        ],
+        "front": [
+          [
+            675.557189665033,
+            340.4235979144672
+          ],
+          [
+            715.6382704122134,
+            423.87122799548274
+          ],
+          [
+            830.0,
+            449.2955235745146
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 9.5367431640625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 9.551148140877214e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 44,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.2669507111802422,
+          "reach_margin": 40.215200611754824
+        },
+        {
+          "side": "front",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.8532934488952458,
+          "reach_margin": 20.857014951314397
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.6874360616779,
+            316.5082623340903
+          ],
+          [
+            305.5033403700463,
+            377.17509888106525
+          ],
+          [
+            319.0,
+            485.23915478696387
+          ]
+        ],
+        "front": [
+          [
+            675.6017113395704,
+            340.4575735301949
+          ],
+          [
+            715.6105518751177,
+            423.9398631430293
+          ],
+          [
+            830.0,
+            449.23915478696387
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 1.9073486328125e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.904477637715285e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 45,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.27817779118381664,
+          "reach_margin": 40.21068384751604
+        },
+        {
+          "side": "front",
+          "upper_length_error": 7.105427357601002e-14,
+          "forearm_length_error": 9.947598300641403e-14,
+          "wrist_angle_change_degrees": -0.888706383816327,
+          "reach_margin": 20.90707961123951
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.7163106256736,
+            316.4876906724141
+          ],
+          [
+            305.5245157279809,
+            377.14054169546847
+          ],
+          [
+            319.0,
+            485.20724019058565
+          ]
+        ],
+        "front": [
+          [
+            675.6269143211633,
+            340.4768150133755
+          ],
+          [
+            715.5949369335801,
+            423.9786543251736
+          ],
+          [
+            830.0,
+            449.20724019058565
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.7059844799040144e-05,
+      "max_grip_error_source_px": 2.6702880859375e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.583511690223972e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 46,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.2804416913321044,
+          "reach_margin": 40.209772862503286
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.8958427955027508,
+          "reach_margin": 20.917173182850547
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.72213271768004,
+            316.48354353502276
+          ],
+          [
+            305.52878572516863,
+            377.13357468578124
+          ],
+          [
+            319.0,
+            485.20080554676696
+          ]
+        ],
+        "front": [
+          [
+            675.6319954073423,
+            340.4806949626594
+          ],
+          [
+            715.5917955027351,
+            423.9864694715893
+          ],
+          [
+            830.0,
+            449.20080554676696
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 8.86067467440116e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 47,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.27366850671503934,
+          "reach_margin": 40.21249817102938
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.8744874520113751,
+          "reach_margin": 20.886973234334704
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.70471369940367,
+            316.4959520926915
+          ],
+          [
+            305.5160107194514,
+            377.1544200555065
+          ],
+          [
+            319.0,
+            485.22005767025456
+          ]
+        ],
+        "front": [
+          [
+            675.6167927016579,
+            340.4690868215073
+          ],
+          [
+            715.6012013633566,
+            423.96308100057547
+          ],
+          [
+            830.0,
+            449.22005767025456
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.9073486328125e-06,
+      "max_grip_error_source_px": 2.6702880859375e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.5931973291037913e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 48,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.25807932003851464,
+          "reach_margin": 40.21876851618288
+        },
+        {
+          "side": "front",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 7.105427357601002e-14,
+          "wrist_angle_change_degrees": -0.8252847123114221,
+          "reach_margin": 20.817444531811276
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.66461791856034,
+            316.5245238206476
+          ],
+          [
+            305.4866084354588,
+            377.2024129264955
+          ],
+          [
+            319.0,
+            485.26437778195884
+          ]
+        ],
+        "front": [
+          [
+            675.5817906357761,
+            340.44236918115257
+          ],
+          [
+            715.622932966341,
+            423.90917049079576
+          ],
+          [
+            830.0,
+            449.26437778195884
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 2.6702880859375e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 2.6514916160569335e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 49,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.23418266130388882,
+          "reach_margin": 40.22837427673406
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.7497224968383039,
+          "reach_margin": 20.710808813542997
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.6031440017867,
+            316.56835430906114
+          ],
+          [
+            305.44153962757434,
+            377.27602204304276
+          ],
+          [
+            319.0,
+            485.33234139702296
+          ]
+        ],
+        "front": [
+          [
+            675.5281049377065,
+            340.4014129138766
+          ],
+          [
+            715.6564711092537,
+            423.8263146423307
+          ],
+          [
+            830.0,
+            449.33234139702296
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 5.7220458984375e-06,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 1.271154779777292e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 50,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.20275720387427879,
+          "reach_margin": 40.240995249598086
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.650094973110579,
+          "reach_margin": 20.57047510154797
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.5222818586874,
+            316.6260545523727
+          ],
+          [
+            305.3822751882989,
+            377.3728975209318
+          ],
+          [
+            319.0,
+            485.4217641089381
+          ]
+        ],
+        "front": [
+          [
+            675.4574479597579,
+            340.34755163853583
+          ],
+          [
+            715.7009945485731,
+            423.71695224783525
+          ],
+          [
+            830.0,
+            449.4217641089381
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 1.1444091796875e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.2432640618812181e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 51,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": 0.16482537695666669,
+          "reach_margin": 40.25621242056468
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": -0.5294441779459435,
+          "reach_margin": 20.400932552169564
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.4246469371326,
+            316.6957930687565
+          ],
+          [
+            305.31074601711134,
+            377.48994430204317
+          ],
+          [
+            319.0,
+            485.529771798166
+          ]
+        ],
+        "front": [
+          [
+            675.3720753272119,
+            340.28253666308507
+          ],
+          [
+            715.7553759213534,
+            423.58433156045334
+          ],
+          [
+            830.0,
+            449.529771798166
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.7059844799040144e-05,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.4481775405343294e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 52,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.12161891796445679,
+          "reach_margin": 40.273523151559914
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.39148096138974875,
+          "reach_margin": 20.20760895781632
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.31339406823383,
+            316.77535181974406
+          ],
+          [
+            305.22927762688414,
+            377.62341922806326
+          ],
+          [
+            319.0,
+            485.652893008706
+          ]
+        ],
+        "front": [
+          [
+            675.2747154052976,
+            340.20847813033066
+          ],
+          [
+            715.8181814050241,
+            423.4324372090059
+          ],
+          [
+            830.0,
+            449.652893008706
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 8.529922399520072e-06,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.1430321006260966e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 53,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.07453767587048722,
+          "reach_margin": 40.29235907266337
+        },
+        {
+          "side": "front",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": -0.24048586462646454,
+          "reach_margin": 19.99669907168422
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.19211393457783,
+            316.8621945100556
+          ],
+          [
+            305.1405120162189,
+            377.76904892893907
+          ],
+          [
+            319.0,
+            485.78717052354665
+          ]
+        ],
+        "front": [
+          [
+            675.1684835988502,
+            340.1277745841818
+          ],
+          [
+            715.8876782108002,
+            423.2658957450195
+          ],
+          [
+            830.0,
+            449.78717052354665
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 1.0866871986171178e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 54,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.025103195681144542,
+          "reach_margin": 40.312105879676466
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.08119087882699577,
+          "reach_margin": 19.774967906649408
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.06471575989065,
+            316.95354545474436
+          ],
+          [
+            305.04731975129243,
+            377.92216505111776
+          ],
+          [
+            319.0,
+            485.92828855287723
+          ]
+        ],
+        "front": [
+          [
+            675.0567839838849,
+            340.0430335523597
+          ],
+          [
+            715.9618541699688,
+            423.08985909717836
+          ],
+          [
+            830.0,
+            449.92828855287723
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 5.7220458984375e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3808782333481393e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 55,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.025091242560844655,
+          "reach_margin": 40.33212420563561
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": 0.08135647351043168,
+          "reach_margin": 19.549535023514096
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.93530023314327,
+            317.04647681703636
+          ],
+          [
+            304.9527054659794,
+            378.0778527500909
+          ],
+          [
+            319.0,
+            486.07171144712277
+          ]
+        ],
+        "front": [
+          [
+            674.9432012077502,
+            339.9569859946819
+          ],
+          [
+            716.0384532468402,
+            422.9098657508644
+          ],
+          [
+            830.0,
+            450.07171144712277
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 5.7220458984375e-06,
+      "max_grip_error_source_px": 5.7220458984375e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 8.079353490316782e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 56,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": -0.07443239051851747,
+          "reach_margin": 40.351770753955606
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.24194458893691442,
+          "reach_margin": 19.327646533604053
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.8080269350629,
+            317.13800166396254
+          ],
+          [
+            304.8597101021651,
+            378.23110786763107
+          ],
+          [
+            319.0,
+            486.21282947645335
+          ]
+        ],
+        "front": [
+          [
+            674.8313859662973,
+            339.87239758982355
+          ],
+          [
+            716.1150297535501,
+            422.73168044725134
+          ],
+          [
+            830.0,
+            450.21282947645335
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3072024279661922e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 57,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.12133887074048386,
+          "reach_margin": 40.37041894368568
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": 0.3953616766562023,
+          "reach_margin": 19.116442057572726
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.6869806290226,
+            317.22516998087974
+          ],
+          [
+            304.7713131824393,
+            378.37699783395465
+          ],
+          [
+            319.0,
+            486.347106991294
+          ]
+        ],
+        "front": [
+          [
+            674.7249376527983,
+            339.7919798329828
+          ],
+          [
+            716.1890223670831,
+            422.56111465271266
+          ],
+          [
+            830.0,
+            450.347106991294
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 7.62939453125e-06,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.1960633264340769e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 58,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": -0.1643114255078371,
+          "reach_margin": 40.387478412050825
+        },
+        {
+          "side": "front",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": 0.5365678405928141,
+          "reach_margin": 18.922724171652845
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.5760407185743,
+            317.3051645554872
+          ],
+          [
+            304.69033825307326,
+            378.51082110505274
+          ],
+          [
+            319.0,
+            486.470228201834
+          ]
+        ],
+        "front": [
+          [
+            674.627287954541,
+            339.7183038050011
+          ],
+          [
+            716.2578468564058,
+            422.40383195544814
+          ],
+          [
+            830.0,
+            450.470228201834
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3358083978454172e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 59,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.20198003559690025,
+          "reach_margin": 40.402412832713225
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.660869786033068,
+          "reach_margin": 18.752737908286946
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.47875797456675,
+            317.3753935117146
+          ],
+          [
+            304.6193643809256,
+            378.62825988739894
+          ],
+          [
+            319.0,
+            486.5782358910619
+          ]
+        ],
+        "front": [
+          [
+            674.5415892316734,
+            339.6537192687748
+          ],
+          [
+            716.3190039151953,
+            422.2651447640479
+          ],
+          [
+            830.0,
+            450.5782358910619
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 5.7220458984375e-06,
+      "max_grip_error_source_px": 1.1444091796875e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.1526202286829322e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 60,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.23314653166696103,
+          "reach_margin": 40.41475562681643
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.7640912940906692,
+          "reach_margin": 18.611967645294072
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.3982423147969,
+            317.4335762651442
+          ],
+          [
+            304.560646261263,
+            378.72552103099997
+          ],
+          [
+            319.0,
+            486.66765860297704
+          ]
+        ],
+        "front": [
+          [
+            674.4706114358272,
+            339.6002814730589
+          ],
+          [
+            716.370195964959,
+            422.1498109464977
+          ],
+          [
+            830.0,
+            450.66765860297704
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 5.7220458984375e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.228313294585619e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 61,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.2568215099813168,
+          "reach_margin": 40.42412325636255
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.842731561345991,
+          "reach_margin": 18.504958215005217
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.3370650000604,
+            317.4778197993577
+          ],
+          [
+            304.5160451215693,
+            378.7994602931349
+          ],
+          [
+            319.0,
+            486.73562221804116
+          ]
+        ],
+        "front": [
+          [
+            674.4166511062416,
+            339.559687719384
+          ],
+          [
+            716.4094446297435,
+            422.06184097669325
+          ],
+          [
+            830.0,
+            450.73562221804116
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.814697265625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 9.683148848691121e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 62,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.2722545682672777,
+          "reach_margin": 40.43022588718176
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 5.684341886080802e-14,
+          "wrist_angle_change_degrees": 0.8941029714796715,
+          "reach_margin": 18.43516630438313
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.2971781142998,
+            317.5066824330586
+          ],
+          [
+            304.4869722131078,
+            378.8476856848624
+          ],
+          [
+            319.0,
+            486.77994232974544
+          ]
+        ],
+        "front": [
+          [
+            674.3814556189869,
+            339.5332253952414
+          ],
+          [
+            716.435199202944,
+            422.0043273072129
+          ],
+          [
+            830.0,
+            450.77994232974544
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 3.814697265625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 7.105332956604827e-06,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 63,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.2789570877511916,
+          "reach_margin": 40.43287528670342
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 7.105427357601002e-14,
+          "wrist_angle_change_degrees": 0.9164400963575592,
+          "reach_margin": 18.404847224225023
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.2798536437826,
+            317.51922265723636
+          ],
+          [
+            304.47434628554373,
+            378.868636295834
+          ],
+          [
+            319.0,
+            486.79919445323304
+          ]
+        ],
+        "front": [
+          [
+            674.3661653690813,
+            339.52173281246166
+          ],
+          [
+            716.446426189851,
+            421.979307657081
+          ],
+          [
+            830.0,
+            450.79919445323304
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 1.1595629571614354e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 64,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.276716997741988,
+          "reach_margin": 40.43198987871449
+        },
+        {
+          "side": "front",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.9089728646531048,
+          "reach_margin": 18.414980936525325
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.28564387856466,
+            317.5150311557104
+          ],
+          [
+            304.4785660518702,
+            378.8616338258034
+          ],
+          [
+            319.0,
+            486.79275980941435
+          ]
+        ],
+        "front": [
+          [
+            674.3712759526901,
+            339.52557382513805
+          ],
+          [
+            716.4426711223896,
+            421.98767244307885
+          ],
+          [
+            830.0,
+            450.79275980941435
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 3.814697265625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.06212702344262e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 65,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.26560516661130534,
+          "reach_margin": 40.42759691568202
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.8719588738899076,
+          "reach_margin": 18.465239889279275
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.3143642430988,
+            317.4942447570061
+          ],
+          [
+            304.499498275766,
+            378.82690500076797
+          ],
+          [
+            319.0,
+            486.76084521303613
+          ]
+        ],
+        "front": [
+          [
+            674.3966217115623,
+            339.54462684230987
+          ],
+          [
+            716.4240862719486,
+            422.02912370460194
+          ],
+          [
+            830.0,
+            450.76084521303613
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.0517578125e-05,
+      "max_grip_error_source_px": 1.1444091796875e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3461399810725358e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 66,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.24597326725459545,
+          "reach_margin": 40.41983175427208
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 9.947598300641403e-14,
+          "wrist_angle_change_degrees": 0.8066725547130609,
+          "reach_margin": 18.553999769238203
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.365099032626,
+            317.45754176834873
+          ],
+          [
+            304.53648174991054,
+            378.7655740786979
+          ],
+          [
+            319.0,
+            486.7044764254854
+          ]
+        ],
+        "front": [
+          [
+            674.4413812348621,
+            339.5782884976712
+          ],
+          [
+            716.3914213282926,
+            422.102188891191
+          ],
+          [
+            830.0,
+            450.7044764254854
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 9.5367431640625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.4994813175418099e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 67,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 5.684341886080802e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.21844316761996457,
+          "reach_margin": 40.40893423868121
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 7.105427357601002e-14,
+          "wrist_angle_change_degrees": 0.7153519606782955,
+          "reach_margin": 18.67839280124292
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.4362298963252,
+            317.40611887570003
+          ],
+          [
+            304.5883470759154,
+            378.67962571082035
+          ],
+          [
+            319.0,
+            486.6254651859744
+          ]
+        ],
+        "front": [
+          [
+            674.5041046192454,
+            339.6254918889855
+          ],
+          [
+            716.3459780357446,
+            422.20428837450993
+          ],
+          [
+            830.0,
+            450.6254651859744
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 7.62939453125e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3185735844707522e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 68,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": -0.18388809999548772,
+          "reach_margin": 40.39524221743076
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 4.263256414560601e-14,
+          "wrist_angle_change_degrees": 0.6011069084418653,
+          "reach_margin": 18.834401755289633
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.52548627431105,
+            317.341650516722
+          ],
+          [
+            304.65345179669816,
+            378.5718394740512
+          ],
+          [
+            319.0,
+            486.5263509807518
+          ]
+        ],
+        "front": [
+          [
+            674.5827615028688,
+            339.6847389491239
+          ],
+          [
+            716.2895335373405,
+            422.33185121848646
+          ],
+          [
+            830.0,
+            450.5263509807518
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.7059844799040144e-05,
+      "max_grip_error_source_px": 1.52587890625e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.4310829895225474e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 69,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.1434060685091209,
+          "reach_margin": 40.37918225018882
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.4677946152848578,
+          "reach_margin": 19.016991426421157
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.6300163710862,
+            317.2662323067382
+          ],
+          [
+            304.72973006326595,
+            378.4456983836756
+          ],
+          [
+            319.0,
+            486.4103194219247
+          ]
+        ],
+        "front": [
+          [
+            674.6748081488935,
+            339.75414615477763
+          ],
+          [
+            716.2242401675937,
+            422.4804702537209
+          ],
+          [
+            830.0,
+            450.4103194219247
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 3.411968959808029e-05,
+      "max_grip_error_source_px": 1.1444091796875e-05,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.1884922693812997e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 70,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.09828616339492582,
+          "reach_margin": 40.361257608371545
+        },
+        {
+          "side": "front",
+          "upper_length_error": 2.842170943040401e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": 0.31987058350384345,
+          "reach_margin": 19.220273081989944
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.74647664245913,
+            317.18231068567815
+          ],
+          [
+            304.81475563612645,
+            378.3052745911191
+          ],
+          [
+            319.0,
+            486.28109985926505
+          ]
+        ],
+        "front": [
+          [
+            674.7772711917464,
+            339.83150241664924
+          ],
+          [
+            716.152511226775,
+            422.64508531247475
+          ],
+          [
+            830.0,
+            450.28109985926505
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.5728399755926745e-05,
+      "max_grip_error_source_px": 3.814697265625e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.3899454775091868e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 71,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 4.263256414560601e-14,
+          "forearm_length_error": 1.4210854715202004e-14,
+          "wrist_angle_change_degrees": -0.04996866142353098,
+          "reach_margin": 40.34203374065669
+        },
+        {
+          "side": "front",
+          "upper_length_error": 1.4210854715202004e-14,
+          "forearm_length_error": 2.842170943040401e-14,
+          "wrist_angle_change_degrees": 0.16222315712156232,
+          "reach_margin": 19.43769627471525
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            414.87113719872127,
+            317.0926014281684
+          ],
+          [
+            304.9058166282813,
+            378.15509623341165
+          ],
+          [
+            319.0,
+            486.1428455158389
+          ]
+        ],
+        "front": [
+          [
+            674.886845102606,
+            339.9143376294668
+          ],
+          [
+            716.0769026952653,
+            422.8201827521927
+          ],
+          [
+            830.0,
+            450.1428455158389
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 1.52587890625e-05,
+      "max_grip_error_source_px": 7.62939453125e-06,
+      "max_rigid_matrix_error": 5.960464477539063e-08,
+      "evaluated_transform_error_source_px": 1.358462859540364e-05,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 72,
+      "arms": [
+        {
+          "side": "rear",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 40.32212146275569
+        },
+        {
+          "side": "front",
+          "upper_length_error": 0.0,
+          "forearm_length_error": 0.0,
+          "wrist_angle_change_degrees": 0.0,
+          "reach_margin": 19.662261539382627
+        }
+      ],
+      "joints": {
+        "rear": [
+          [
+            415.0,
+            317.0
+          ],
+          [
+            305.0,
+            378.0
+          ],
+          [
+            319.0,
+            486.0
+          ]
+        ],
+        "front": [
+          [
+            675.0,
+            340.0
+          ],
+          [
+            716.0,
+            423.0
+          ],
+          [
+            830.0,
+            450.0
+          ]
+        ]
+      },
+      "max_joint_gap_source_px": 0.0,
+      "max_grip_error_source_px": 0.0,
+      "max_rigid_matrix_error": 0.0,
+      "evaluated_transform_error_source_px": 1.9594348786357652e-16,
+      "foot_anchor_drift_source_px": 0.0
+    }
+  ],
+  "limitations": [
+    "Planar cutout rig, not a 3D anatomical or dynamics simulation.",
+    "Projected joints are manually placed. No weight-transfer simulation or footstep.",
+    "Clean torso/waist generated once; other cutouts reuse the original illustration.",
+    "Lighting baked before animation; rigid rotations do not recalculate material highlights.",
+    "Only a small planted-foot thrust; larger movements need additional views and occlusion art."
+  ],
+  "scene": "assets/optimized/jigoku-2d/yari-rigid-motion.blend",
+  "scene_sha256": "e58dda7285b29f5c7021e7a8261543514bef2023ddca6ce853d2cfe20302133b",
+  "render_seconds": 181.664,
+  "preview_only": false
+}

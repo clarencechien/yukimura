@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    "Rendered sprite visible; scrub changes actual canvas pixels.",
+    "Play advances frames; pause and scrub operate.",
+    "Desktop frames 23→24 cross atlas pages; frame 35 closes the 36-frame loop.",
+    "thrust: all 3 light atlases load, change RGB, preserve frame alpha.",
+    "idle: all 3 light atlases load, change RGB, preserve frame alpha.",
+    "Joint overlay toggles on and off without changing the rendered frame.",
+    "HD stills load; desktop 1440x1100 and mobile 390x844 have no overflow.",
+    "Reduced-motion preference starts paused.",
+    "Controlled clock: ~18 frames per 600 ms and a 36-frame loop in 1.2 s at 1x, not sped-up 24-frame playback.",
+    "No page errors or failed asset requests."
+  ],
+  "scope": "Canvas illustration viewer only; not mobile game FPS or Phaser integration."
+}

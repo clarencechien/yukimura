@@ -65,3 +65,5 @@
 - [插畫 2.5D 補光：中性／暖光／冷光實際結果](routes/jigoku-2d/RELIGHT_STUDY.md)（同一插畫，Blender 光照差異合成）。
 
 - [赤槍初動：插畫持槍待機、短刺與補光圖集](routes/jigoku-2d/YARI_MOTION.md)（30 fps／36 幀，兩動作、三光照、手機／桌機解析度，未接入正式遊戲）。
+
+- [短刺修正：固定肢段與肩肘腕連動](routes/jigoku-2d/YARI_RIGID_MOTION.md)（取代整圖拉伸，30 fps 前後對照，未接入正式遊戲）。
