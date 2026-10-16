@@ -24,7 +24,7 @@ class Battle extends Phaser.Scene {
     this.load.image('arena','arena.webp');this.load.json('track','shared-spear-track.json');
     this.hd=innerWidth>=900;
     this.load.json('duelArt','duel-art.json');
-    for(const part of ['lower','torso'])this.load.image('enemy-body-'+part,`enemy-body-${part}${this.hd?'-hd':''}.webp`);
+    for(const part of Object.keys(ENEMY_BODY_BOXES))this.load.image('enemy-body-'+part,`enemy-body-${part}${this.hd?'-hd':''}.webp`);
     this.load.json('guardRig','guard-rig.json');
     this.load.json('thrustRig','thrust-rig.json');
     for(const part of ['rearFoot','frontFoot','rearShin','frontShin','rearThigh','frontThigh','lower','torso','rearUpper','rearFore','rearHand','frontUpper','frontFore','frontHand'])this.load.image('hero-'+part,`hero-${part}${this.hd?'-hd':''}.webp`);
@@ -59,7 +59,7 @@ class Battle extends Phaser.Scene {
     this.enemyKatana=component('enemyKatana',this.enemyRig.parts.katana);
     this.enemyUpper=component('enemy-upper',this.enemyRig.parts.upper);this.enemyFore=component('enemy-fore',this.enemyRig.parts.fore);
     this.enemySprite=this.add.sprite(970,574,'warrior',0).setOrigin(.5,690/768).setDisplaySize(1152*.6,768*.6);
-    this.enemyBodyParts={lower:this.add.image(0,0,'enemy-body-lower'),torso:this.add.image(0,0,'enemy-body-torso')};
+    this.enemyBodyParts=Object.fromEntries(Object.keys(ENEMY_BODY_BOXES).map(name=>[name,this.add.image(0,0,'enemy-body-'+name)]));
     // The shared cuff must cover the painted socket opening on the body.
     this.enemyGrip=component('enemyGrip',this.enemyRig.parts.grip);
     this.flash=this.add.circle(0,0,12,0xffd69b).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
@@ -171,9 +171,9 @@ class Battle extends Phaser.Scene {
     for(const [name,part] of Object.entries(this.enemyBodyParts)){
       part.setVisible(warrior&&!!body).setAlpha(enemy.alpha);
       if(!body)continue;
-      const [x,y,right,bottom]=ENEMY_BODY_BOXES[name],p=body.pivot;
-      const world=enemyPointToWorld(p,this.state.target.x,this.enemyRig);
-      part.setOrigin((p.x-x)/(right-x),(p.y-y)/(bottom-y)).setDisplaySize((right-x)*.6,(bottom-y)*.6).setPosition(world.x,world.y).setAngle(name==='torso'?body.angle:0);
+      const [x,y,right,bottom]=ENEMY_BODY_BOXES[name],t=body.transforms[name],p=t.pivot;
+      const world=enemyPointToWorld(t.point,this.state.target.x,this.enemyRig);
+      part.setOrigin((p.x-x)/(right-x),(p.y-y)/(bottom-y)).setDisplaySize((right-x)*.6,(bottom-y)*.6).setPosition(world.x,world.y).setAngle(t.angle);
     }
     // Keep the upper arm under the shoulder armor and forearm in front of the
     // chest throughout the entire attack; no pose-index draw-order switch.

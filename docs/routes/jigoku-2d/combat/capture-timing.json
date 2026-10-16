@@ -1,7 +1,7 @@
 [
   {
     "sample": 0,
-    "time": 1792117225336,
+    "time": 1792118739466,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -526,7 +526,7 @@
   },
   {
     "sample": 1,
-    "time": 1792117225369,
+    "time": 1792118739499,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -1051,7 +1051,7 @@
   },
   {
     "sample": 2,
-    "time": 1792117225403,
+    "time": 1792118739533,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -1576,7 +1576,7 @@
   },
   {
     "sample": 3,
-    "time": 1792117225436,
+    "time": 1792118739566,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -2101,532 +2101,7 @@
   },
   {
     "sample": 4,
-    "time": 1792117225469,
-    "heroArt": {
-      "action": "idle",
-      "frame": 0,
-      "transforms": {
-        "lower": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "torso": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "rearThigh": {
-          "point": [
-            395,
-            375
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "rearShin": {
-          "point": [
-            300,
-            438.00000000000006
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "rearFoot": {
-          "point": [
-            242,
-            505
-          ],
-          "angle": 0
-        },
-        "frontThigh": {
-          "point": [
-            475,
-            378
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "frontShin": {
-          "point": [
-            552,
-            429.99999999999994
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "frontFoot": {
-          "point": [
-            600,
-            490
-          ],
-          "angle": 0
-        },
-        "rearUpper": {
-          "point": [
-            325,
-            255
-          ],
-          "angle": 0
-        },
-        "rearFore": {
-          "point": [
-            295,
-            288
-          ],
-          "angle": 0
-        },
-        "rearHand": {
-          "point": [
-            343,
-            309
-          ],
-          "angle": 0
-        },
-        "frontUpper": {
-          "point": [
-            505,
-            268
-          ],
-          "angle": 2.6909228839458432
-        },
-        "frontFore": {
-          "point": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "angle": -2.0179077332901145
-        },
-        "frontHand": {
-          "point": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "angle": 0
-        }
-      },
-      "arms": {
-        "rear": {
-          "shoulder": [
-            325,
-            255
-          ],
-          "elbow": [
-            295,
-            288
-          ],
-          "wrist": [
-            343,
-            309
-          ],
-          "upper": 44.59820624195551,
-          "fore": 52.39274758971894,
-          "upperAngle": 0,
-          "foreAngle": 0,
-          "grip": [
-            359,
-            313
-          ],
-          "handAngle": 0,
-          "wristDeflection": -9.59313426273034
-        },
-        "front": {
-          "shoulder": [
-            505,
-            268
-          ],
-          "elbow": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "wrist": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "upper": 50.44799302251775,
-          "fore": 44.94441010848846,
-          "upperAngle": 2.6909228839458432,
-          "foreAngle": -2.0179077332901145,
-          "grip": [
-            591.5860038639939,
-            267.4725269032182
-          ],
-          "handAngle": 0,
-          "wristDeflection": -2.576345597976276
-        }
-      },
-      "legs": {
-        "rear": {
-          "hip": [
-            395,
-            375
-          ],
-          "knee": [
-            300,
-            438.00000000000006
-          ],
-          "ankle": [
-            242,
-            505
-          ],
-          "thigh": 113.99122773266372,
-          "shin": 88.6171540955813
-        },
-        "front": {
-          "hip": [
-            475,
-            378
-          ],
-          "knee": [
-            552,
-            429.99999999999994
-          ],
-          "ankle": [
-            600,
-            490
-          ],
-          "thigh": 92.91393867445294,
-          "shin": 76.83749084919418
-        }
-      },
-      "root": [
-        0,
-        0
-      ],
-      "weapon": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      }
-    },
-    "heroParts": {
-      "rearFoot": {
-        "x": 277,
-        "y": 595,
-        "width": 69,
-        "height": 70,
-        "angle": 0,
-        "originX": 0.6376811594202898,
-        "originY": 0.15714285714285714,
-        "visible": true,
-        "texture": "hero-rearFoot",
-        "order": 3
-      },
-      "frontFoot": {
-        "x": 635,
-        "y": 580,
-        "width": 115,
-        "height": 69,
-        "angle": 0,
-        "originX": 0.3217391304347826,
-        "originY": 0.3188405797101449,
-        "visible": true,
-        "texture": "hero-frontFoot",
-        "order": 4
-      },
-      "rearShin": {
-        "x": 335,
-        "y": 528,
-        "width": 100,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.82,
-        "originY": 0.18627450980392157,
-        "visible": true,
-        "texture": "hero-rearShin",
-        "order": 5
-      },
-      "frontShin": {
-        "x": 587,
-        "y": 520,
-        "width": 97,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.27835051546391754,
-        "originY": 0.17647058823529413,
-        "visible": true,
-        "texture": "hero-frontShin",
-        "order": 6
-      },
-      "rearThigh": {
-        "x": 430,
-        "y": 465,
-        "width": 157,
-        "height": 125,
-        "angle": 0,
-        "originX": 0.8280254777070064,
-        "originY": 0.144,
-        "visible": true,
-        "texture": "hero-rearThigh",
-        "order": 7
-      },
-      "frontThigh": {
-        "x": 510,
-        "y": 468,
-        "width": 118,
-        "height": 113,
-        "angle": 0,
-        "originX": 0.05084745762711865,
-        "originY": 0.17699115044247787,
-        "visible": true,
-        "texture": "hero-frontThigh",
-        "order": 8
-      },
-      "lower": {
-        "x": 465,
-        "y": 432,
-        "width": 305,
-        "height": 170,
-        "angle": 0,
-        "originX": 0.5606557377049181,
-        "originY": 0.07058823529411765,
-        "visible": true,
-        "texture": "hero-lower",
-        "order": 9
-      },
-      "rearUpper": {
-        "x": 360,
-        "y": 345,
-        "width": 86,
-        "height": 74,
-        "angle": 0,
-        "originX": 0.6395348837209303,
-        "originY": 0.25675675675675674,
-        "visible": true,
-        "texture": "hero-rearUpper",
-        "order": 10
-      },
-      "frontUpper": {
-        "x": 540,
-        "y": 358,
-        "width": 69,
-        "height": 61,
-        "angle": 2.690922883945859,
-        "originX": 0.2608695652173913,
-        "originY": 0.14754098360655737,
-        "visible": true,
-        "texture": "hero-frontUpper",
-        "order": 11
-      },
-      "torso": {
-        "x": 465,
-        "y": 432,
-        "width": 612,
-        "height": 269,
-        "angle": 0,
-        "originX": 0.3284313725490196,
-        "originY": 0.966542750929368,
-        "visible": true,
-        "texture": "hero-torso",
-        "order": 12
-      },
-      "rearFore": {
-        "x": 330,
-        "y": 378,
-        "width": 77,
-        "height": 58,
-        "angle": 0,
-        "originX": 0.2987012987012987,
-        "originY": 0.3448275862068966,
-        "visible": true,
-        "texture": "hero-rearFore",
-        "order": 13
-      },
-      "frontFore": {
-        "x": 577.4546532726584,
-        "y": 391.795694226113,
-        "width": 69,
-        "height": 61,
-        "angle": -2.0179077332901443,
-        "originX": 0.17391304347826086,
-        "originY": 0.7049180327868853,
-        "visible": true,
-        "texture": "hero-frontFore",
-        "order": 14
-      }
-    },
-    "heroWeapon": {
-      "visible": true,
-      "texture": "guardYari",
-      "width": 763.8829540176498,
-      "height": 218.151416627961,
-      "x": 394,
-      "y": 403,
-      "angle": -11.075307333762794,
-      "originX": 0.23979715925673703,
-      "originY": 0.4627831715210356,
-      "pose": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      },
-      "hands": [
-        {
-          "visible": true,
-          "x": 378,
-          "y": 399,
-          "frame": "__BASE",
-          "texture": "hero-rearHand",
-          "width": 48,
-          "height": 55,
-          "angle": 0,
-          "originX": 0.3125,
-          "originY": 0.41818181818181815,
-          "order": 16
-        },
-        {
-          "visible": true,
-          "x": 614.5860038639939,
-          "y": 366.4725269032182,
-          "frame": "__BASE",
-          "texture": "hero-frontHand",
-          "width": 43,
-          "height": 51,
-          "angle": 0,
-          "originX": 0.16279069767441862,
-          "originY": 0.7058823529411765,
-          "order": 17
-        }
-      ],
-      "order": 15,
-      "bodyOrder": 9
-    },
-    "phase": "idle",
-    "frame": 11,
-    "hp": 1,
-    "enemy": {
-      "pose": 0,
-      "phase": "guard",
-      "alpha": 1
-    },
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 913,
-        "y": 322
-      },
-      "elbow": {
-        "x": 939.6440663790838,
-        "y": 350.47970728057044
-      }
-    },
-    "weapon": {
-      "held": true,
-      "landed": false,
-      "x": 903.9866932424904,
-      "y": 404.33059695687814,
-      "angle": -2.51683419000733,
-      "width": 246,
-      "height": 30.599999999999998,
-      "originX": 0.7975609756097561,
-      "originY": 0.5490196078431373,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 914.8,
-      "y": 388,
-      "angle": -2.51683419000733,
-      "visible": true,
-      "state": "grip",
-      "texture": "enemyGrip"
-    },
-    "arm": {
-      "shoulder": {
-        "x": 481,
-        "y": 270
-      },
-      "elbow": {
-        "x": 525.406777298473,
-        "y": 317.46617880095073
-      },
-      "wrist": {
-        "x": 484,
-        "y": 380
-      },
-      "upperAngle": -43.09273533420962,
-      "foreAngle": 33.51053919509634,
-      "handState": "grip",
-      "handAngle": -2.5168341900072733,
-      "alpha": 1
-    }
-  },
-  {
-    "sample": 5,
-    "time": 1792117225503,
+    "time": 1792118739599,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -3150,8 +2625,533 @@
     }
   },
   {
+    "sample": 5,
+    "time": 1792118739633,
+    "heroArt": {
+      "action": "idle",
+      "frame": 0,
+      "transforms": {
+        "lower": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "torso": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "rearThigh": {
+          "point": [
+            395,
+            375
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "rearShin": {
+          "point": [
+            300,
+            438.00000000000006
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "rearFoot": {
+          "point": [
+            242,
+            505
+          ],
+          "angle": 0
+        },
+        "frontThigh": {
+          "point": [
+            475,
+            378
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "frontShin": {
+          "point": [
+            552,
+            429.99999999999994
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "frontFoot": {
+          "point": [
+            600,
+            490
+          ],
+          "angle": 0
+        },
+        "rearUpper": {
+          "point": [
+            325,
+            255
+          ],
+          "angle": 0
+        },
+        "rearFore": {
+          "point": [
+            295,
+            288
+          ],
+          "angle": 0
+        },
+        "rearHand": {
+          "point": [
+            343,
+            309
+          ],
+          "angle": 0
+        },
+        "frontUpper": {
+          "point": [
+            505,
+            268
+          ],
+          "angle": 2.6909228839458432
+        },
+        "frontFore": {
+          "point": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "angle": -2.0179077332901145
+        },
+        "frontHand": {
+          "point": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "angle": 0
+        }
+      },
+      "arms": {
+        "rear": {
+          "shoulder": [
+            325,
+            255
+          ],
+          "elbow": [
+            295,
+            288
+          ],
+          "wrist": [
+            343,
+            309
+          ],
+          "upper": 44.59820624195551,
+          "fore": 52.39274758971894,
+          "upperAngle": 0,
+          "foreAngle": 0,
+          "grip": [
+            359,
+            313
+          ],
+          "handAngle": 0,
+          "wristDeflection": -9.59313426273034
+        },
+        "front": {
+          "shoulder": [
+            505,
+            268
+          ],
+          "elbow": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "wrist": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "upper": 50.44799302251775,
+          "fore": 44.94441010848846,
+          "upperAngle": 2.6909228839458432,
+          "foreAngle": -2.0179077332901145,
+          "grip": [
+            591.5860038639939,
+            267.4725269032182
+          ],
+          "handAngle": 0,
+          "wristDeflection": -2.576345597976276
+        }
+      },
+      "legs": {
+        "rear": {
+          "hip": [
+            395,
+            375
+          ],
+          "knee": [
+            300,
+            438.00000000000006
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            475,
+            378
+          ],
+          "knee": [
+            552,
+            429.99999999999994
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      },
+      "root": [
+        0,
+        0
+      ],
+      "weapon": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      }
+    },
+    "heroParts": {
+      "rearFoot": {
+        "x": 277,
+        "y": 595,
+        "width": 69,
+        "height": 70,
+        "angle": 0,
+        "originX": 0.6376811594202898,
+        "originY": 0.15714285714285714,
+        "visible": true,
+        "texture": "hero-rearFoot",
+        "order": 3
+      },
+      "frontFoot": {
+        "x": 635,
+        "y": 580,
+        "width": 115,
+        "height": 69,
+        "angle": 0,
+        "originX": 0.3217391304347826,
+        "originY": 0.3188405797101449,
+        "visible": true,
+        "texture": "hero-frontFoot",
+        "order": 4
+      },
+      "rearShin": {
+        "x": 335,
+        "y": 528,
+        "width": 100,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.82,
+        "originY": 0.18627450980392157,
+        "visible": true,
+        "texture": "hero-rearShin",
+        "order": 5
+      },
+      "frontShin": {
+        "x": 587,
+        "y": 520,
+        "width": 97,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.27835051546391754,
+        "originY": 0.17647058823529413,
+        "visible": true,
+        "texture": "hero-frontShin",
+        "order": 6
+      },
+      "rearThigh": {
+        "x": 430,
+        "y": 465,
+        "width": 157,
+        "height": 125,
+        "angle": 0,
+        "originX": 0.8280254777070064,
+        "originY": 0.144,
+        "visible": true,
+        "texture": "hero-rearThigh",
+        "order": 7
+      },
+      "frontThigh": {
+        "x": 510,
+        "y": 468,
+        "width": 118,
+        "height": 113,
+        "angle": 0,
+        "originX": 0.05084745762711865,
+        "originY": 0.17699115044247787,
+        "visible": true,
+        "texture": "hero-frontThigh",
+        "order": 8
+      },
+      "lower": {
+        "x": 465,
+        "y": 432,
+        "width": 305,
+        "height": 170,
+        "angle": 0,
+        "originX": 0.5606557377049181,
+        "originY": 0.07058823529411765,
+        "visible": true,
+        "texture": "hero-lower",
+        "order": 9
+      },
+      "rearUpper": {
+        "x": 360,
+        "y": 345,
+        "width": 86,
+        "height": 74,
+        "angle": 0,
+        "originX": 0.6395348837209303,
+        "originY": 0.25675675675675674,
+        "visible": true,
+        "texture": "hero-rearUpper",
+        "order": 10
+      },
+      "frontUpper": {
+        "x": 540,
+        "y": 358,
+        "width": 69,
+        "height": 61,
+        "angle": 2.690922883945859,
+        "originX": 0.2608695652173913,
+        "originY": 0.14754098360655737,
+        "visible": true,
+        "texture": "hero-frontUpper",
+        "order": 11
+      },
+      "torso": {
+        "x": 465,
+        "y": 432,
+        "width": 612,
+        "height": 269,
+        "angle": 0,
+        "originX": 0.3284313725490196,
+        "originY": 0.966542750929368,
+        "visible": true,
+        "texture": "hero-torso",
+        "order": 12
+      },
+      "rearFore": {
+        "x": 330,
+        "y": 378,
+        "width": 77,
+        "height": 58,
+        "angle": 0,
+        "originX": 0.2987012987012987,
+        "originY": 0.3448275862068966,
+        "visible": true,
+        "texture": "hero-rearFore",
+        "order": 13
+      },
+      "frontFore": {
+        "x": 577.4546532726584,
+        "y": 391.795694226113,
+        "width": 69,
+        "height": 61,
+        "angle": -2.0179077332901443,
+        "originX": 0.17391304347826086,
+        "originY": 0.7049180327868853,
+        "visible": true,
+        "texture": "hero-frontFore",
+        "order": 14
+      }
+    },
+    "heroWeapon": {
+      "visible": true,
+      "texture": "guardYari",
+      "width": 763.8829540176498,
+      "height": 218.151416627961,
+      "x": 394,
+      "y": 403,
+      "angle": -11.075307333762794,
+      "originX": 0.23979715925673703,
+      "originY": 0.4627831715210356,
+      "pose": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      },
+      "hands": [
+        {
+          "visible": true,
+          "x": 378,
+          "y": 399,
+          "frame": "__BASE",
+          "texture": "hero-rearHand",
+          "width": 48,
+          "height": 55,
+          "angle": 0,
+          "originX": 0.3125,
+          "originY": 0.41818181818181815,
+          "order": 16
+        },
+        {
+          "visible": true,
+          "x": 614.5860038639939,
+          "y": 366.4725269032182,
+          "frame": "__BASE",
+          "texture": "hero-frontHand",
+          "width": 43,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.16279069767441862,
+          "originY": 0.7058823529411765,
+          "order": 17
+        }
+      ],
+      "order": 15,
+      "bodyOrder": 9
+    },
+    "phase": "idle",
+    "frame": 13,
+    "hp": 1,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 913,
+        "y": 322
+      },
+      "elbow": {
+        "x": 939.6440663790838,
+        "y": 350.47970728057044
+      }
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "height": 30.599999999999998,
+      "originX": 0.7975609756097561,
+      "originY": 0.5490196078431373,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    }
+  },
+  {
     "sample": 6,
-    "time": 1792117225536,
+    "time": 1792118739666,
     "heroArt": {
       "action": "thrust",
       "frame": 0,
@@ -3676,7 +3676,7 @@
   },
   {
     "sample": 7,
-    "time": 1792117225569,
+    "time": 1792118739699,
     "heroArt": {
       "action": "thrust",
       "frame": 1,
@@ -4201,7 +4201,7 @@
   },
   {
     "sample": 8,
-    "time": 1792117225603,
+    "time": 1792118739733,
     "heroArt": {
       "action": "thrust",
       "frame": 2,
@@ -4726,7 +4726,7 @@
   },
   {
     "sample": 9,
-    "time": 1792117225636,
+    "time": 1792118739766,
     "heroArt": {
       "action": "thrust",
       "frame": 3,
@@ -5251,7 +5251,7 @@
   },
   {
     "sample": 10,
-    "time": 1792117225669,
+    "time": 1792118739799,
     "heroArt": {
       "action": "thrust",
       "frame": 4,
@@ -5776,7 +5776,7 @@
   },
   {
     "sample": 11,
-    "time": 1792117225703,
+    "time": 1792118739833,
     "heroArt": {
       "action": "thrust",
       "frame": 5,
@@ -6301,7 +6301,7 @@
   },
   {
     "sample": 12,
-    "time": 1792117225736,
+    "time": 1792118739866,
     "heroArt": {
       "action": "thrust",
       "frame": 6,
@@ -6826,7 +6826,532 @@
   },
   {
     "sample": 13,
-    "time": 1792117225769,
+    "time": 1792118739899,
+    "heroArt": {
+      "action": "thrust",
+      "frame": 7,
+      "transforms": {
+        "lower": {
+          "point": [
+            427,
+            345
+          ],
+          "angle": 0
+        },
+        "torso": {
+          "point": [
+            427,
+            345
+          ],
+          "angle": -3
+        },
+        "rearThigh": {
+          "point": [
+            392,
+            378
+          ],
+          "angle": 5.655393790621144
+        },
+        "rearShin": {
+          "point": [
+            291.2540660599849,
+            431.33157408659633
+          ],
+          "angle": -7.115468861900354
+        },
+        "rearFoot": {
+          "point": [
+            242,
+            505
+          ],
+          "angle": 0
+        },
+        "frontThigh": {
+          "point": [
+            472,
+            381
+          ],
+          "angle": -0.8361151580573081
+        },
+        "frontShin": {
+          "point": [
+            549.7506085092111,
+            431.8708450534034
+          ],
+          "angle": -2.1817656343109064
+        },
+        "frontFoot": {
+          "point": [
+            600,
+            490
+          ],
+          "angle": 0
+        },
+        "rearUpper": {
+          "point": [
+            317.5906706576336,
+            263.6145058818612
+          ],
+          "angle": 23.44672913445063
+        },
+        "rearFore": {
+          "point": [
+            276.9371816638012,
+            281.95282185220987
+          ],
+          "angle": 13.09217897162521
+        },
+        "rearHand": {
+          "point": [
+            318.9326272517486,
+            313.27984772237096
+          ],
+          "angle": -0.9999999999999999
+        },
+        "frontUpper": {
+          "point": [
+            498.0243543446152,
+            267.1762177099407
+          ],
+          "angle": 18.625962740722144
+        },
+        "frontFore": {
+          "point": [
+            524.7612419992994,
+            309.9563397123473
+          ],
+          "angle": -15.586984983043683
+        },
+        "frontHand": {
+          "point": [
+            554.9149152405612,
+            276.628333620485
+          ],
+          "angle": -0.9999999999999999
+        }
+      },
+      "arms": {
+        "rear": {
+          "shoulder": [
+            317.5906706576336,
+            263.6145058818612
+          ],
+          "elbow": [
+            276.9371816638012,
+            281.95282185220987
+          ],
+          "wrist": [
+            318.9326272517486,
+            313.27984772237096
+          ],
+          "upper": 44.59820624195551,
+          "fore": 52.39274758971894,
+          "upperAngle": 23.44672913445063,
+          "foreAngle": 13.09217897162521,
+          "grip": [
+            335,
+            317
+          ],
+          "handAngle": -0.9999999999999999,
+          "wristDeflection": -23.685313234355505
+        },
+        "front": {
+          "shoulder": [
+            498.0243543446152,
+            267.1762177099407
+          ],
+          "elbow": [
+            524.7612419992994,
+            309.9563397123473
+          ],
+          "wrist": [
+            554.9149152405612,
+            276.628333620485
+          ],
+          "upper": 50.44799302251775,
+          "fore": 44.94441010848846,
+          "upperAngle": 18.625962740722144,
+          "foreAngle": -15.586984983043683,
+          "grip": [
+            566.7560159245023,
+            267.4202754868301
+          ],
+          "handAngle": -0.9999999999999999,
+          "wristDeflection": 9.992731651777342
+        }
+      },
+      "legs": {
+        "rear": {
+          "hip": [
+            392,
+            378
+          ],
+          "knee": [
+            291.2540660599849,
+            431.33157408659633
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            472,
+            381
+          ],
+          "knee": [
+            549.7506085092111,
+            431.8708450534034
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      },
+      "root": [
+        -3,
+        3
+      ],
+      "weapon": {
+        "pose": 7,
+        "palms": [
+          {
+            "x": 370,
+            "y": 407
+          },
+          {
+            "x": 601.7560159245023,
+            "y": 357.4202754868301
+          }
+        ],
+        "rear": {
+          "x": 370,
+          "y": 407
+        },
+        "front": {
+          "x": 601.7560159245023,
+          "y": 357.4202754868301
+        },
+        "butt": {
+          "x": 193.98277271556785,
+          "y": 444.65548697202775
+        },
+        "tip": {
+          "x": 937.1666212498369,
+          "y": 285.66565309013276
+        },
+        "contact": {
+          "x": 673.1407803231887,
+          "y": 342.1488835481744
+        },
+        "angle": -12.075307333762723,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      }
+    },
+    "heroParts": {
+      "rearFoot": {
+        "x": 277,
+        "y": 595,
+        "width": 69,
+        "height": 70,
+        "angle": 0,
+        "originX": 0.6376811594202898,
+        "originY": 0.15714285714285714,
+        "visible": true,
+        "texture": "hero-rearFoot",
+        "order": 3
+      },
+      "frontFoot": {
+        "x": 635,
+        "y": 580,
+        "width": 115,
+        "height": 69,
+        "angle": 0,
+        "originX": 0.3217391304347826,
+        "originY": 0.3188405797101449,
+        "visible": true,
+        "texture": "hero-frontFoot",
+        "order": 4
+      },
+      "rearShin": {
+        "x": 326.2540660599849,
+        "y": 521.3315740865963,
+        "width": 100,
+        "height": 102,
+        "angle": -7.115468861900354,
+        "originX": 0.82,
+        "originY": 0.18627450980392157,
+        "visible": true,
+        "texture": "hero-rearShin",
+        "order": 5
+      },
+      "frontShin": {
+        "x": 584.7506085092111,
+        "y": 521.8708450534034,
+        "width": 97,
+        "height": 102,
+        "angle": -2.1817656343109775,
+        "originX": 0.27835051546391754,
+        "originY": 0.17647058823529413,
+        "visible": true,
+        "texture": "hero-frontShin",
+        "order": 6
+      },
+      "rearThigh": {
+        "x": 427,
+        "y": 468,
+        "width": 157,
+        "height": 125,
+        "angle": 5.655393790621247,
+        "originX": 0.8280254777070064,
+        "originY": 0.144,
+        "visible": true,
+        "texture": "hero-rearThigh",
+        "order": 7
+      },
+      "frontThigh": {
+        "x": 507,
+        "y": 471,
+        "width": 118,
+        "height": 113,
+        "angle": -0.8361151580572823,
+        "originX": 0.05084745762711865,
+        "originY": 0.17699115044247787,
+        "visible": true,
+        "texture": "hero-frontThigh",
+        "order": 8
+      },
+      "lower": {
+        "x": 462,
+        "y": 435,
+        "width": 305,
+        "height": 170,
+        "angle": 0,
+        "originX": 0.5606557377049181,
+        "originY": 0.07058823529411765,
+        "visible": true,
+        "texture": "hero-lower",
+        "order": 9
+      },
+      "rearUpper": {
+        "x": 352.5906706576336,
+        "y": 353.6145058818612,
+        "width": 86,
+        "height": 74,
+        "angle": 23.446729134450607,
+        "originX": 0.6395348837209303,
+        "originY": 0.25675675675675674,
+        "visible": true,
+        "texture": "hero-rearUpper",
+        "order": 10
+      },
+      "frontUpper": {
+        "x": 533.0243543446152,
+        "y": 357.1762177099407,
+        "width": 69,
+        "height": 61,
+        "angle": 18.625962740722116,
+        "originX": 0.2608695652173913,
+        "originY": 0.14754098360655737,
+        "visible": true,
+        "texture": "hero-frontUpper",
+        "order": 11
+      },
+      "torso": {
+        "x": 462,
+        "y": 435,
+        "width": 612,
+        "height": 269,
+        "angle": -3,
+        "originX": 0.3284313725490196,
+        "originY": 0.966542750929368,
+        "visible": true,
+        "texture": "hero-torso",
+        "order": 12
+      },
+      "rearFore": {
+        "x": 311.9371816638012,
+        "y": 371.95282185220987,
+        "width": 77,
+        "height": 58,
+        "angle": 13.09217897162523,
+        "originX": 0.2987012987012987,
+        "originY": 0.3448275862068966,
+        "visible": true,
+        "texture": "hero-rearFore",
+        "order": 13
+      },
+      "frontFore": {
+        "x": 559.7612419992994,
+        "y": 399.9563397123473,
+        "width": 69,
+        "height": 61,
+        "angle": -15.586984983043749,
+        "originX": 0.17391304347826086,
+        "originY": 0.7049180327868853,
+        "visible": true,
+        "texture": "hero-frontFore",
+        "order": 14
+      }
+    },
+    "heroWeapon": {
+      "visible": true,
+      "texture": "guardYari",
+      "width": 763.8829540176498,
+      "height": 218.151416627961,
+      "x": 370,
+      "y": 407,
+      "angle": -12.075307333762794,
+      "originX": 0.23979715925673703,
+      "originY": 0.4627831715210356,
+      "pose": {
+        "pose": 7,
+        "palms": [
+          {
+            "x": 370,
+            "y": 407
+          },
+          {
+            "x": 601.7560159245023,
+            "y": 357.4202754868301
+          }
+        ],
+        "rear": {
+          "x": 370,
+          "y": 407
+        },
+        "front": {
+          "x": 601.7560159245023,
+          "y": 357.4202754868301
+        },
+        "butt": {
+          "x": 193.98277271556785,
+          "y": 444.65548697202775
+        },
+        "tip": {
+          "x": 937.1666212498369,
+          "y": 285.66565309013276
+        },
+        "contact": {
+          "x": 673.1407803231887,
+          "y": 342.1488835481744
+        },
+        "angle": -12.075307333762723,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      },
+      "hands": [
+        {
+          "visible": true,
+          "x": 353.9326272517486,
+          "y": 403.27984772237096,
+          "frame": "__BASE",
+          "texture": "hero-rearHand",
+          "width": 48,
+          "height": 55,
+          "angle": -1,
+          "originX": 0.3125,
+          "originY": 0.41818181818181815,
+          "order": 16
+        },
+        {
+          "visible": true,
+          "x": 589.9149152405612,
+          "y": 366.628333620485,
+          "frame": "__BASE",
+          "texture": "hero-frontHand",
+          "width": 43,
+          "height": 51,
+          "angle": -1,
+          "originX": 0.16279069767441862,
+          "originY": 0.7058823529411765,
+          "order": 17
+        }
+      ],
+      "order": 15,
+      "bodyOrder": 9
+    },
+    "phase": "attack",
+    "frame": 7,
+    "hp": 1,
+    "enemy": {
+      "pose": 0,
+      "phase": "guard",
+      "alpha": 1
+    },
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 913,
+        "y": 322
+      },
+      "elbow": {
+        "x": 939.6440663790838,
+        "y": 350.47970728057044
+      }
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 903.9866932424904,
+      "y": 404.33059695687814,
+      "angle": -2.51683419000733,
+      "width": 246,
+      "height": 30.599999999999998,
+      "originX": 0.7975609756097561,
+      "originY": 0.5490196078431373,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 914.8,
+      "y": 388,
+      "angle": -2.51683419000733,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    },
+    "arm": {
+      "shoulder": {
+        "x": 481,
+        "y": 270
+      },
+      "elbow": {
+        "x": 525.406777298473,
+        "y": 317.46617880095073
+      },
+      "wrist": {
+        "x": 484,
+        "y": 380
+      },
+      "upperAngle": -43.09273533420962,
+      "foreAngle": 33.51053919509634,
+      "handState": "grip",
+      "handAngle": -2.5168341900072733,
+      "alpha": 1
+    }
+  },
+  {
+    "sample": 14,
+    "time": 1792118739933,
     "heroArt": {
       "action": "thrust",
       "frame": 8,
@@ -7350,8 +7875,8 @@
     }
   },
   {
-    "sample": 14,
-    "time": 1792117225803,
+    "sample": 15,
+    "time": 1792118739966,
     "heroArt": {
       "action": "thrust",
       "frame": 9,
@@ -7875,533 +8400,8 @@
     }
   },
   {
-    "sample": 15,
-    "time": 1792117225836,
-    "heroArt": {
-      "action": "thrust",
-      "frame": 10,
-      "transforms": {
-        "lower": {
-          "point": [
-            427.624,
-            344.376
-          ],
-          "angle": 0
-        },
-        "torso": {
-          "point": [
-            427.624,
-            344.376
-          ],
-          "angle": -2.376
-        },
-        "rearThigh": {
-          "point": [
-            392.624,
-            377.376
-          ],
-          "angle": 4.703807307120597
-        },
-        "rearShin": {
-          "point": [
-            292.7776674109567,
-            432.37336237782813
-          ],
-          "angle": -5.922089276449593
-        },
-        "rearFoot": {
-          "point": [
-            242,
-            505
-          ],
-          "angle": 0
-        },
-        "frontThigh": {
-          "point": [
-            472.624,
-            380.376
-          ],
-          "angle": -0.6858505302954192
-        },
-        "frontShin": {
-          "point": [
-            550.2409267599037,
-            431.45057959051405
-          ],
-          "angle": -1.7002204846510849
-        },
-        "frontFoot": {
-          "point": [
-            600,
-            490
-          ],
-          "angle": 0
-        },
-        "rearUpper": {
-          "point": [
-            319.10749920842875,
-            261.8037948946928
-          ],
-          "angle": 18.51074562490489
-        },
-        "rearFore": {
-          "point": [
-            280.1826526481482,
-            283.57203598713323
-          ],
-          "angle": 9.739594237292247
-        },
-        "rearHand": {
-          "point": [
-            323.9382383100957,
-            312.38954322457437
-          ],
-          "angle": -0.7919999999999997
-        },
-        "frontUpper": {
-          "point": [
-            499.4916929987014,
-            267.3303336517594
-          ],
-          "angle": 15.528630920214573
-        },
-        "frontFore": {
-          "point": [
-            528.5010319998615,
-            308.6033060515729
-          ],
-          "angle": -13.136637149832788
-        },
-        "frontHand": {
-          "point": [
-            560.052026443003,
-            276.59495167886485
-          ],
-          "angle": -0.7919999999999997
-        }
-      },
-      "arms": {
-        "rear": {
-          "shoulder": [
-            319.10749920842875,
-            261.8037948946928
-          ],
-          "elbow": [
-            280.1826526481482,
-            283.57203598713323
-          ],
-          "wrist": [
-            323.9382383100957,
-            312.38954322457437
-          ],
-          "upper": 44.59820624195551,
-          "fore": 52.39274758971894,
-          "upperAngle": 18.51074562490489,
-          "foreAngle": 9.739594237292247,
-          "grip": [
-            339.992,
-            316.168
-          ],
-          "handAngle": -0.7919999999999997,
-          "wristDeflection": -20.124728500022595
-        },
-        "front": {
-          "shoulder": [
-            499.4916929987014,
-            267.3303336517594
-          ],
-          "elbow": [
-            528.5010319998615,
-            308.6033060515729
-          ],
-          "wrist": [
-            560.052026443003,
-            276.59495167886485
-          ],
-          "upper": 50.44799302251775,
-          "fore": 44.94441010848846,
-          "upperAngle": 15.528630920214573,
-          "foreAngle": -13.136637149832788,
-          "grip": [
-            571.9264769007486,
-            267.42994069542647
-          ],
-          "handAngle": -0.7919999999999997,
-          "wristDeflection": 7.750383818566434
-        }
-      },
-      "legs": {
-        "rear": {
-          "hip": [
-            392.624,
-            377.376
-          ],
-          "knee": [
-            292.7776674109567,
-            432.37336237782813
-          ],
-          "ankle": [
-            242,
-            505
-          ],
-          "thigh": 113.99122773266372,
-          "shin": 88.6171540955813
-        },
-        "front": {
-          "hip": [
-            472.624,
-            380.376
-          ],
-          "knee": [
-            550.2409267599037,
-            431.45057959051405
-          ],
-          "ankle": [
-            600,
-            490
-          ],
-          "thigh": 92.91393867445294,
-          "shin": 76.83749084919418
-        }
-      },
-      "root": [
-        -2.376,
-        2.376
-      ],
-      "weapon": {
-        "pose": 10,
-        "palms": [
-          {
-            "x": 374.992,
-            "y": 406.168
-          },
-          {
-            "x": 606.9264769007486,
-            "y": 357.42994069542647
-          }
-        ],
-        "rear": {
-          "x": 374.992,
-          "y": 406.168
-        },
-        "front": {
-          "x": 606.9264769007486,
-          "y": 357.42994069542647
-        },
-        "butt": {
-          "x": 198.8392327336087,
-          "y": 443.18424757309384
-        },
-        "tip": {
-          "x": 942.5953611917055,
-          "y": 286.89342448669765
-        },
-        "contact": {
-          "x": 678.3662102921185,
-          "y": 342.41779584633844
-        },
-        "angle": -11.86730733376272,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 2.842170943040401e-14
-      }
-    },
-    "heroParts": {
-      "rearFoot": {
-        "x": 277,
-        "y": 595,
-        "width": 69,
-        "height": 70,
-        "angle": 0,
-        "originX": 0.6376811594202898,
-        "originY": 0.15714285714285714,
-        "visible": true,
-        "texture": "hero-rearFoot",
-        "order": 3
-      },
-      "frontFoot": {
-        "x": 635,
-        "y": 580,
-        "width": 115,
-        "height": 69,
-        "angle": 0,
-        "originX": 0.3217391304347826,
-        "originY": 0.3188405797101449,
-        "visible": true,
-        "texture": "hero-frontFoot",
-        "order": 4
-      },
-      "rearShin": {
-        "x": 327.7776674109567,
-        "y": 522.3733623778281,
-        "width": 100,
-        "height": 102,
-        "angle": -5.922089276449583,
-        "originX": 0.82,
-        "originY": 0.18627450980392157,
-        "visible": true,
-        "texture": "hero-rearShin",
-        "order": 5
-      },
-      "frontShin": {
-        "x": 585.2409267599037,
-        "y": 521.450579590514,
-        "width": 97,
-        "height": 102,
-        "angle": -1.7002204846510267,
-        "originX": 0.27835051546391754,
-        "originY": 0.17647058823529413,
-        "visible": true,
-        "texture": "hero-frontShin",
-        "order": 6
-      },
-      "rearThigh": {
-        "x": 427.624,
-        "y": 467.376,
-        "width": 157,
-        "height": 125,
-        "angle": 4.703807307120542,
-        "originX": 0.8280254777070064,
-        "originY": 0.144,
-        "visible": true,
-        "texture": "hero-rearThigh",
-        "order": 7
-      },
-      "frontThigh": {
-        "x": 507.624,
-        "y": 470.376,
-        "width": 118,
-        "height": 113,
-        "angle": -0.6858505302953972,
-        "originX": 0.05084745762711865,
-        "originY": 0.17699115044247787,
-        "visible": true,
-        "texture": "hero-frontThigh",
-        "order": 8
-      },
-      "lower": {
-        "x": 462.624,
-        "y": 434.376,
-        "width": 305,
-        "height": 170,
-        "angle": 0,
-        "originX": 0.5606557377049181,
-        "originY": 0.07058823529411765,
-        "visible": true,
-        "texture": "hero-lower",
-        "order": 9
-      },
-      "rearUpper": {
-        "x": 354.10749920842875,
-        "y": 351.8037948946928,
-        "width": 86,
-        "height": 74,
-        "angle": 18.51074562490487,
-        "originX": 0.6395348837209303,
-        "originY": 0.25675675675675674,
-        "visible": true,
-        "texture": "hero-rearUpper",
-        "order": 10
-      },
-      "frontUpper": {
-        "x": 534.4916929987014,
-        "y": 357.3303336517594,
-        "width": 69,
-        "height": 61,
-        "angle": 15.528630920214596,
-        "originX": 0.2608695652173913,
-        "originY": 0.14754098360655737,
-        "visible": true,
-        "texture": "hero-frontUpper",
-        "order": 11
-      },
-      "torso": {
-        "x": 462.624,
-        "y": 434.376,
-        "width": 612,
-        "height": 269,
-        "angle": -2.3759999999999764,
-        "originX": 0.3284313725490196,
-        "originY": 0.966542750929368,
-        "visible": true,
-        "texture": "hero-torso",
-        "order": 12
-      },
-      "rearFore": {
-        "x": 315.1826526481482,
-        "y": 373.57203598713323,
-        "width": 77,
-        "height": 58,
-        "angle": 9.739594237292295,
-        "originX": 0.2987012987012987,
-        "originY": 0.3448275862068966,
-        "visible": true,
-        "texture": "hero-rearFore",
-        "order": 13
-      },
-      "frontFore": {
-        "x": 563.5010319998615,
-        "y": 398.6033060515729,
-        "width": 69,
-        "height": 61,
-        "angle": -13.136637149832723,
-        "originX": 0.17391304347826086,
-        "originY": 0.7049180327868853,
-        "visible": true,
-        "texture": "hero-frontFore",
-        "order": 14
-      }
-    },
-    "heroWeapon": {
-      "visible": true,
-      "texture": "guardYari",
-      "width": 763.8829540176498,
-      "height": 218.151416627961,
-      "x": 374.992,
-      "y": 406.168,
-      "angle": -11.86730733376271,
-      "originX": 0.23979715925673703,
-      "originY": 0.4627831715210356,
-      "pose": {
-        "pose": 10,
-        "palms": [
-          {
-            "x": 374.992,
-            "y": 406.168
-          },
-          {
-            "x": 606.9264769007486,
-            "y": 357.42994069542647
-          }
-        ],
-        "rear": {
-          "x": 374.992,
-          "y": 406.168
-        },
-        "front": {
-          "x": 606.9264769007486,
-          "y": 357.42994069542647
-        },
-        "butt": {
-          "x": 198.8392327336087,
-          "y": 443.18424757309384
-        },
-        "tip": {
-          "x": 942.5953611917055,
-          "y": 286.89342448669765
-        },
-        "contact": {
-          "x": 678.3662102921185,
-          "y": 342.41779584633844
-        },
-        "angle": -11.86730733376272,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 2.842170943040401e-14
-      },
-      "hands": [
-        {
-          "visible": true,
-          "x": 358.9382383100957,
-          "y": 402.38954322457437,
-          "frame": "__BASE",
-          "texture": "hero-rearHand",
-          "width": 48,
-          "height": 55,
-          "angle": -0.7920000000001437,
-          "originX": 0.3125,
-          "originY": 0.41818181818181815,
-          "order": 16
-        },
-        {
-          "visible": true,
-          "x": 595.052026443003,
-          "y": 366.59495167886485,
-          "frame": "__BASE",
-          "texture": "hero-frontHand",
-          "width": 43,
-          "height": 51,
-          "angle": -0.7920000000001437,
-          "originX": 0.16279069767441862,
-          "originY": 0.7058823529411765,
-          "order": 17
-        }
-      ],
-      "order": 15,
-      "bodyOrder": 9
-    },
-    "phase": "attack",
-    "frame": 10,
-    "hp": 1,
-    "enemy": {
-      "pose": 0,
-      "phase": "guard",
-      "alpha": 1
-    },
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 913,
-        "y": 322
-      },
-      "elbow": {
-        "x": 939.6440663790838,
-        "y": 350.47970728057044
-      }
-    },
-    "weapon": {
-      "held": true,
-      "landed": false,
-      "x": 903.9866932424904,
-      "y": 404.33059695687814,
-      "angle": -2.51683419000733,
-      "width": 246,
-      "height": 30.599999999999998,
-      "originX": 0.7975609756097561,
-      "originY": 0.5490196078431373,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 914.8,
-      "y": 388,
-      "angle": -2.51683419000733,
-      "visible": true,
-      "state": "grip",
-      "texture": "enemyGrip"
-    },
-    "arm": {
-      "shoulder": {
-        "x": 481,
-        "y": 270
-      },
-      "elbow": {
-        "x": 525.406777298473,
-        "y": 317.46617880095073
-      },
-      "wrist": {
-        "x": 484,
-        "y": 380
-      },
-      "upperAngle": -43.09273533420962,
-      "foreAngle": 33.51053919509634,
-      "handState": "grip",
-      "handAngle": -2.5168341900072733,
-      "alpha": 1
-    }
-  },
-  {
     "sample": 16,
-    "time": 1792117225869,
+    "time": 1792118739999,
     "heroArt": {
       "action": "thrust",
       "frame": 11,
@@ -8926,7 +8926,7 @@
   },
   {
     "sample": 17,
-    "time": 1792117225903,
+    "time": 1792118740033,
     "heroArt": {
       "action": "thrust",
       "frame": 12,
@@ -9451,7 +9451,7 @@
   },
   {
     "sample": 18,
-    "time": 1792117225936,
+    "time": 1792118740066,
     "heroArt": {
       "action": "thrust",
       "frame": 12,
@@ -9976,7 +9976,7 @@
   },
   {
     "sample": 19,
-    "time": 1792117225969,
+    "time": 1792118740099,
     "heroArt": {
       "action": "thrust",
       "frame": 13,
@@ -10501,7 +10501,7 @@
   },
   {
     "sample": 20,
-    "time": 1792117226003,
+    "time": 1792118740133,
     "heroArt": {
       "action": "thrust",
       "frame": 14,
@@ -11026,7 +11026,7 @@
   },
   {
     "sample": 21,
-    "time": 1792117226036,
+    "time": 1792118740166,
     "heroArt": {
       "action": "thrust",
       "frame": 14,
@@ -11551,7 +11551,7 @@
   },
   {
     "sample": 22,
-    "time": 1792117226069,
+    "time": 1792118740199,
     "heroArt": {
       "action": "thrust",
       "frame": 14,
@@ -12076,7 +12076,7 @@
   },
   {
     "sample": 23,
-    "time": 1792117226103,
+    "time": 1792118740233,
     "heroArt": {
       "action": "thrust",
       "frame": 15,
@@ -12601,7 +12601,7 @@
   },
   {
     "sample": 24,
-    "time": 1792117226136,
+    "time": 1792118740266,
     "heroArt": {
       "action": "thrust",
       "frame": 16,
@@ -13126,7 +13126,532 @@
   },
   {
     "sample": 25,
-    "time": 1792117226169,
+    "time": 1792118740299,
+    "heroArt": {
+      "action": "thrust",
+      "frame": 17,
+      "transforms": {
+        "lower": {
+          "point": [
+            434.78515625,
+            345.828125
+          ],
+          "angle": 0
+        },
+        "torso": {
+          "point": [
+            434.78515625,
+            345.828125
+          ],
+          "angle": 9.5703125
+        },
+        "rearThigh": {
+          "point": [
+            399.78515625,
+            378.828125
+          ],
+          "angle": -1.2745271631312192
+        },
+        "rearShin": {
+          "point": [
+            306.20995977525774,
+            443.9256103947016
+          ],
+          "angle": 5.551867902428081
+        },
+        "rearFoot": {
+          "point": [
+            242,
+            505
+          ],
+          "angle": 0
+        },
+        "frontThigh": {
+          "point": [
+            479.78515625,
+            381.828125
+          ],
+          "angle": -8.090819418172023
+        },
+        "frontShin": {
+          "point": [
+            563.3373303872555,
+            422.4733485439508
+          ],
+          "angle": 10.160667153402372
+        },
+        "frontFoot": {
+          "point": [
+            600,
+            490
+          ],
+          "angle": 0
+        },
+        "rearUpper": {
+          "point": [
+            345.71094488630007,
+            242.58189083170254
+          ],
+          "angle": -9.565056201959734
+        },
+        "rearFore": {
+          "point": [
+            321.6115412690797,
+            280.10813158792945
+          ],
+          "angle": 3.6150074580315237
+        },
+        "rearHand": {
+          "point": [
+            368.19194261761425,
+            304.0928394287484
+          ],
+          "angle": 3.900196471765111
+        },
+        "frontUpper": {
+          "point": [
+            521.0444097277589,
+            285.32737137279514
+          ],
+          "angle": -12.93695633976212
+        },
+        "frontFore": {
+          "point": [
+            566.2185940534221,
+            307.7838419439025
+          ],
+          "angle": 5.780244215344541
+        },
+        "frontHand": {
+          "point": [
+            606.4425009032202,
+            287.732973689915
+          ],
+          "angle": 3.900196471765111
+        }
+      },
+      "arms": {
+        "rear": {
+          "shoulder": [
+            345.71094488630007,
+            242.58189083170254
+          ],
+          "elbow": [
+            321.6115412690797,
+            280.10813158792945
+          ],
+          "wrist": [
+            368.19194261761425,
+            304.0928394287484
+          ],
+          "upper": 44.59820624195551,
+          "fore": 52.39274758971894,
+          "upperAngle": -9.565056201959734,
+          "foreAngle": 3.6150074580315237,
+          "grip": [
+            383.8828125,
+            309.171875
+          ],
+          "handAngle": 3.900196471765111,
+          "wristDeflection": -9.307945248996756
+        },
+        "front": {
+          "shoulder": [
+            521.0444097277589,
+            285.32737137279514
+          ],
+          "elbow": [
+            566.2185940534221,
+            307.7838419439025
+          ],
+          "wrist": [
+            606.4425009032202,
+            287.732973689915
+          ],
+          "upper": 50.44799302251775,
+          "fore": 44.94441010848846,
+          "upperAngle": -12.93695633976212,
+          "foreAngle": 5.780244215344541,
+          "grip": [
+            619.0268778566485,
+            279.5700418211547
+          ],
+          "handAngle": 3.900196471765111,
+          "wristDeflection": -6.474301074845638
+        }
+      },
+      "legs": {
+        "rear": {
+          "hip": [
+            399.78515625,
+            378.828125
+          ],
+          "knee": [
+            306.20995977525774,
+            443.9256103947016
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            479.78515625,
+            381.828125
+          ],
+          "knee": [
+            563.3373303872555,
+            422.4733485439508
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      },
+      "root": [
+        4.78515625,
+        3.828125
+      ],
+      "weapon": {
+        "pose": 17,
+        "palms": [
+          {
+            "x": 418.8828125,
+            "y": 399.171875
+          },
+          {
+            "x": 654.0268778566485,
+            "y": 369.5700418211547
+          }
+        ],
+        "rear": {
+          "x": 418.8828125,
+          "y": 399.171875
+        },
+        "front": {
+          "x": 654.0268778566485,
+          "y": 369.5700418211547
+        },
+        "butt": {
+          "x": 240.29238311520362,
+          "y": 421.6542799459585
+        },
+        "tip": {
+          "x": 994.3408627398994,
+          "y": 326.72857017413384
+        },
+        "contact": {
+          "x": 726.4552186627049,
+          "y": 360.4521775930715
+        },
+        "angle": -7.175110861997612,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 2.842170943040401e-14
+      }
+    },
+    "heroParts": {
+      "rearFoot": {
+        "x": 277,
+        "y": 595,
+        "width": 69,
+        "height": 70,
+        "angle": 0,
+        "originX": 0.6376811594202898,
+        "originY": 0.15714285714285714,
+        "visible": true,
+        "texture": "hero-rearFoot",
+        "order": 3
+      },
+      "frontFoot": {
+        "x": 635,
+        "y": 580,
+        "width": 115,
+        "height": 69,
+        "angle": 0,
+        "originX": 0.3217391304347826,
+        "originY": 0.3188405797101449,
+        "visible": true,
+        "texture": "hero-frontFoot",
+        "order": 4
+      },
+      "rearShin": {
+        "x": 341.20995977525774,
+        "y": 533.9256103947016,
+        "width": 100,
+        "height": 102,
+        "angle": 5.551867902428057,
+        "originX": 0.82,
+        "originY": 0.18627450980392157,
+        "visible": true,
+        "texture": "hero-rearShin",
+        "order": 5
+      },
+      "frontShin": {
+        "x": 598.3373303872555,
+        "y": 512.4733485439508,
+        "width": 97,
+        "height": 102,
+        "angle": 10.1606671534023,
+        "originX": 0.27835051546391754,
+        "originY": 0.17647058823529413,
+        "visible": true,
+        "texture": "hero-frontShin",
+        "order": 6
+      },
+      "rearThigh": {
+        "x": 434.78515625,
+        "y": 468.828125,
+        "width": 157,
+        "height": 125,
+        "angle": -1.2745271631312107,
+        "originX": 0.8280254777070064,
+        "originY": 0.144,
+        "visible": true,
+        "texture": "hero-rearThigh",
+        "order": 7
+      },
+      "frontThigh": {
+        "x": 514.78515625,
+        "y": 471.828125,
+        "width": 118,
+        "height": 113,
+        "angle": -8.090819418172032,
+        "originX": 0.05084745762711865,
+        "originY": 0.17699115044247787,
+        "visible": true,
+        "texture": "hero-frontThigh",
+        "order": 8
+      },
+      "lower": {
+        "x": 469.78515625,
+        "y": 435.828125,
+        "width": 305,
+        "height": 170,
+        "angle": 0,
+        "originX": 0.5606557377049181,
+        "originY": 0.07058823529411765,
+        "visible": true,
+        "texture": "hero-lower",
+        "order": 9
+      },
+      "rearUpper": {
+        "x": 380.71094488630007,
+        "y": 332.58189083170254,
+        "width": 86,
+        "height": 74,
+        "angle": -9.565056201959806,
+        "originX": 0.6395348837209303,
+        "originY": 0.25675675675675674,
+        "visible": true,
+        "texture": "hero-rearUpper",
+        "order": 10
+      },
+      "frontUpper": {
+        "x": 556.0444097277589,
+        "y": 375.32737137279514,
+        "width": 69,
+        "height": 61,
+        "angle": -12.936956339762105,
+        "originX": 0.2608695652173913,
+        "originY": 0.14754098360655737,
+        "visible": true,
+        "texture": "hero-frontUpper",
+        "order": 11
+      },
+      "torso": {
+        "x": 469.78515625,
+        "y": 435.828125,
+        "width": 612,
+        "height": 269,
+        "angle": 9.5703125,
+        "originX": 0.3284313725490196,
+        "originY": 0.966542750929368,
+        "visible": true,
+        "texture": "hero-torso",
+        "order": 12
+      },
+      "rearFore": {
+        "x": 356.6115412690797,
+        "y": 370.10813158792945,
+        "width": 77,
+        "height": 58,
+        "angle": 3.6150074580315277,
+        "originX": 0.2987012987012987,
+        "originY": 0.3448275862068966,
+        "visible": true,
+        "texture": "hero-rearFore",
+        "order": 13
+      },
+      "frontFore": {
+        "x": 601.2185940534221,
+        "y": 397.7838419439025,
+        "width": 69,
+        "height": 61,
+        "angle": 5.78024421534451,
+        "originX": 0.17391304347826086,
+        "originY": 0.7049180327868853,
+        "visible": true,
+        "texture": "hero-frontFore",
+        "order": 14
+      }
+    },
+    "heroWeapon": {
+      "visible": true,
+      "texture": "guardYari",
+      "width": 763.8829540176498,
+      "height": 218.151416627961,
+      "x": 418.8828125,
+      "y": 399.171875,
+      "angle": -7.175110861997609,
+      "originX": 0.23979715925673703,
+      "originY": 0.4627831715210356,
+      "pose": {
+        "pose": 17,
+        "palms": [
+          {
+            "x": 418.8828125,
+            "y": 399.171875
+          },
+          {
+            "x": 654.0268778566485,
+            "y": 369.5700418211547
+          }
+        ],
+        "rear": {
+          "x": 418.8828125,
+          "y": 399.171875
+        },
+        "front": {
+          "x": 654.0268778566485,
+          "y": 369.5700418211547
+        },
+        "butt": {
+          "x": 240.29238311520362,
+          "y": 421.6542799459585
+        },
+        "tip": {
+          "x": 994.3408627398994,
+          "y": 326.72857017413384
+        },
+        "contact": {
+          "x": 726.4552186627049,
+          "y": 360.4521775930715
+        },
+        "angle": -7.175110861997612,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 2.842170943040401e-14
+      },
+      "hands": [
+        {
+          "visible": true,
+          "x": 403.19194261761425,
+          "y": 394.0928394287484,
+          "frame": "__BASE",
+          "texture": "hero-rearHand",
+          "width": 48,
+          "height": 55,
+          "angle": 3.900196471765071,
+          "originX": 0.3125,
+          "originY": 0.41818181818181815,
+          "order": 16
+        },
+        {
+          "visible": true,
+          "x": 641.4425009032202,
+          "y": 377.732973689915,
+          "frame": "__BASE",
+          "texture": "hero-frontHand",
+          "width": 43,
+          "height": 51,
+          "angle": 3.900196471765071,
+          "originX": 0.16279069767441862,
+          "originY": 0.7058823529411765,
+          "order": 17
+        }
+      ],
+      "order": 15,
+      "bodyOrder": 9
+    },
+    "phase": "attack",
+    "frame": 17,
+    "hp": 0,
+    "enemy": {
+      "pose": 2,
+      "phase": "hurt",
+      "alpha": 1
+    },
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 914.8,
+        "y": 330.4
+      },
+      "elbow": {
+        "x": 910.6848138277335,
+        "y": 369.1822800099167
+      }
+    },
+    "weapon": {
+      "held": true,
+      "landed": false,
+      "x": 880.2042244365683,
+      "y": 426.1234799296524,
+      "angle": -7.867257447787665,
+      "width": 246,
+      "height": 30.599999999999998,
+      "originX": 0.7975609756097561,
+      "originY": 0.5490196078431373,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 889.447641274196,
+      "y": 408.8557283340954,
+      "angle": -7.867257447787665,
+      "visible": true,
+      "state": "grip",
+      "texture": "enemyGrip"
+    },
+    "arm": {
+      "shoulder": {
+        "x": 484,
+        "y": 284
+      },
+      "elbow": {
+        "x": 477.14135637955576,
+        "y": 348.6371333498612
+      },
+      "wrist": {
+        "x": 441.74606879032666,
+        "y": 414.75954722349235
+      },
+      "upperAngle": 6.056988184592825,
+      "foreAngle": 28.160115937315922,
+      "handState": "grip",
+      "handAngle": -7.8672574477876935,
+      "alpha": 1
+    }
+  },
+  {
+    "sample": 26,
+    "time": 1792118740333,
     "heroArt": {
       "action": "thrust",
       "frame": 18,
@@ -13604,16 +14129,16 @@
         "y": 330.4
       },
       "elbow": {
-        "x": 916.3184639235349,
-        "y": 369.37042811303115
+        "x": 920.319750519781,
+        "y": 369.00741320263995
       }
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 879.2960780650899,
-      "y": 422.29215827447354,
-      "angle": -1.0519416421760752,
+      "x": 879.0899457345756,
+      "y": 418.7212923040133,
+      "angle": 3.6429678137709516,
       "width": 246,
       "height": 30.599999999999998,
       "originX": 0.7975609756097561,
@@ -13622,9 +14147,9 @@
       "visible": true
     },
     "hand": {
-      "x": 890.5233329065691,
-      "y": 406.24333436976076,
-      "angle": -1.0519416421760752,
+      "x": 891.5931249504649,
+      "y": 403.6452679774425,
+      "angle": 3.6429678137709516,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -13635,548 +14160,23 @@
         "y": 284
       },
       "elbow": {
-        "x": 486.5307732058915,
-        "y": 348.9507135217185
+        "x": 493.19958419963507,
+        "y": 348.34568867106657
       },
       "wrist": {
-        "x": 443.5388881776152,
-        "y": 410.4055572829345
+        "x": 445.32187491744145,
+        "y": 406.07544662907077
       },
-      "upperAngle": -2.2313736046880592,
-      "foreAngle": 34.97543174292754,
+      "upperAngle": -8.136509926686117,
+      "foreAngle": 39.67034119887455,
       "handState": "grip",
-      "handAngle": -1.0519416421760752,
-      "alpha": 1
-    }
-  },
-  {
-    "sample": 26,
-    "time": 1792117226203,
-    "heroArt": {
-      "action": "thrust",
-      "frame": 19,
-      "transforms": {
-        "lower": {
-          "point": [
-            433.41796875,
-            344.734375
-          ],
-          "angle": 0
-        },
-        "torso": {
-          "point": [
-            433.41796875,
-            344.734375
-          ],
-          "angle": 6.8359375
-        },
-        "rearThigh": {
-          "point": [
-            398.41796875,
-            377.734375
-          ],
-          "angle": -0.6710910763013517
-        },
-        "rearShin": {
-          "point": [
-            304.16237143504753,
-            441.84273931232303
-          ],
-          "angle": 3.663338721699148
-        },
-        "rearFoot": {
-          "point": [
-            242,
-            505
-          ],
-          "angle": 0
-        },
-        "frontThigh": {
-          "point": [
-            478.41796875,
-            380.734375
-          ],
-          "angle": -6.272645390980227
-        },
-        "frontShin": {
-          "point": [
-            560.6384948437287,
-            424.0100620409988
-          ],
-          "angle": 7.844687813385225
-        },
-        "frontFoot": {
-          "point": [
-            600,
-            490
-          ],
-          "angle": 0
-        },
-        "rearUpper": {
-          "point": [
-            339.51973702223506,
-            245.85504410421083
-          ],
-          "angle": -7.302294962098087
-        },
-        "rearFore": {
-          "point": [
-            313.95749962404494,
-            282.40052288337813
-          ],
-          "angle": 2.522457611136325
-        },
-        "rearHand": {
-          "point": [
-            360.9867595449909,
-            305.49270145726126
-          ],
-          "angle": 2.785854622689365
-        },
-        "frontUpper": {
-          "point": [
-            516.6927775134777,
-            280.1874445895907
-          ],
-          "angle": -7.869543429124744
-        },
-        "frontFore": {
-          "point": [
-            559.7068666327332,
-            306.5462787299836
-          ],
-          "angle": 2.904325103423388
-        },
-        "frontHand": {
-          "point": [
-            598.8740969042141,
-            284.5025024459438
-          ],
-          "angle": 2.785854622689365
-        }
-      },
-      "arms": {
-        "rear": {
-          "shoulder": [
-            339.51973702223506,
-            245.85504410421083
-          ],
-          "elbow": [
-            313.95749962404494,
-            282.40052288337813
-          ],
-          "wrist": [
-            360.9867595449909,
-            305.49270145726126
-          ],
-          "upper": 44.59820624195551,
-          "fore": 52.39274758971894,
-          "upperAngle": -7.302294962098087,
-          "foreAngle": 2.522457611136325,
-          "grip": [
-            376.7734375,
-            310.265625
-          ],
-          "handAngle": 2.785854622689365,
-          "wristDeflection": -9.329737251177237
-        },
-        "front": {
-          "shoulder": [
-            516.6927775134777,
-            280.1874445895907
-          ],
-          "elbow": [
-            559.7068666327332,
-            306.5462787299836
-          ],
-          "wrist": [
-            598.8740969042141,
-            284.5025024459438
-          ],
-          "upper": 50.44799302251775,
-          "fore": 44.94441010848846,
-          "upperAngle": -7.869543429124744,
-          "foreAngle": 2.904325103423388,
-          "grip": [
-            611.2973435262261,
-            276.0963770978022
-          ],
-          "handAngle": 2.785854622689365,
-          "wristDeflection": -4.712723812000339
-        }
-      },
-      "legs": {
-        "rear": {
-          "hip": [
-            398.41796875,
-            377.734375
-          ],
-          "knee": [
-            304.16237143504753,
-            441.84273931232303
-          ],
-          "ankle": [
-            242,
-            505
-          ],
-          "thigh": 113.99122773266372,
-          "shin": 88.6171540955813
-        },
-        "front": {
-          "hip": [
-            478.41796875,
-            380.734375
-          ],
-          "knee": [
-            560.6384948437287,
-            424.0100620409988
-          ],
-          "ankle": [
-            600,
-            490
-          ],
-          "thigh": 92.91393867445294,
-          "shin": 76.83749084919418
-        }
-      },
-      "root": [
-        3.41796875,
-        2.734375
-      ],
-      "weapon": {
-        "pose": 19,
-        "palms": [
-          {
-            "x": 411.7734375,
-            "y": 400.265625
-          },
-          {
-            "x": 646.2973435262261,
-            "y": 366.0963770978022
-          }
-        ],
-        "rear": {
-          "x": 411.7734375,
-          "y": 400.265625
-        },
-        "front": {
-          "x": 646.2973435262261,
-          "y": 366.0963770978022
-        },
-        "butt": {
-          "x": 233.6540152016004,
-          "y": 426.21695252065655
-        },
-        "tip": {
-          "x": 985.7137982392876,
-          "y": 316.64468076677326
-        },
-        "contact": {
-          "x": 718.5346647916882,
-          "y": 355.5716720477581
-        },
-        "angle": -8.28945271107337,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 5.684341886080802e-14
-      }
-    },
-    "heroParts": {
-      "rearFoot": {
-        "x": 277,
-        "y": 595,
-        "width": 69,
-        "height": 70,
-        "angle": 0,
-        "originX": 0.6376811594202898,
-        "originY": 0.15714285714285714,
-        "visible": true,
-        "texture": "hero-rearFoot",
-        "order": 3
-      },
-      "frontFoot": {
-        "x": 635,
-        "y": 580,
-        "width": 115,
-        "height": 69,
-        "angle": 0,
-        "originX": 0.3217391304347826,
-        "originY": 0.3188405797101449,
-        "visible": true,
-        "texture": "hero-frontFoot",
-        "order": 4
-      },
-      "rearShin": {
-        "x": 339.16237143504753,
-        "y": 531.842739312323,
-        "width": 100,
-        "height": 102,
-        "angle": 3.6633387216991196,
-        "originX": 0.82,
-        "originY": 0.18627450980392157,
-        "visible": true,
-        "texture": "hero-rearShin",
-        "order": 5
-      },
-      "frontShin": {
-        "x": 595.6384948437287,
-        "y": 514.0100620409987,
-        "width": 97,
-        "height": 102,
-        "angle": 7.844687813385235,
-        "originX": 0.27835051546391754,
-        "originY": 0.17647058823529413,
-        "visible": true,
-        "texture": "hero-frontShin",
-        "order": 6
-      },
-      "rearThigh": {
-        "x": 433.41796875,
-        "y": 467.734375,
-        "width": 157,
-        "height": 125,
-        "angle": -0.6710910763013089,
-        "originX": 0.8280254777070064,
-        "originY": 0.144,
-        "visible": true,
-        "texture": "hero-rearThigh",
-        "order": 7
-      },
-      "frontThigh": {
-        "x": 513.41796875,
-        "y": 470.734375,
-        "width": 118,
-        "height": 113,
-        "angle": -6.272645390980188,
-        "originX": 0.05084745762711865,
-        "originY": 0.17699115044247787,
-        "visible": true,
-        "texture": "hero-frontThigh",
-        "order": 8
-      },
-      "lower": {
-        "x": 468.41796875,
-        "y": 434.734375,
-        "width": 305,
-        "height": 170,
-        "angle": 0,
-        "originX": 0.5606557377049181,
-        "originY": 0.07058823529411765,
-        "visible": true,
-        "texture": "hero-lower",
-        "order": 9
-      },
-      "rearUpper": {
-        "x": 374.51973702223506,
-        "y": 335.85504410421083,
-        "width": 86,
-        "height": 74,
-        "angle": -7.302294962098131,
-        "originX": 0.6395348837209303,
-        "originY": 0.25675675675675674,
-        "visible": true,
-        "texture": "hero-rearUpper",
-        "order": 10
-      },
-      "frontUpper": {
-        "x": 551.6927775134777,
-        "y": 370.1874445895907,
-        "width": 69,
-        "height": 61,
-        "angle": -7.869543429124747,
-        "originX": 0.2608695652173913,
-        "originY": 0.14754098360655737,
-        "visible": true,
-        "texture": "hero-frontUpper",
-        "order": 11
-      },
-      "torso": {
-        "x": 468.41796875,
-        "y": 434.734375,
-        "width": 612,
-        "height": 269,
-        "angle": 6.8359375,
-        "originX": 0.3284313725490196,
-        "originY": 0.966542750929368,
-        "visible": true,
-        "texture": "hero-torso",
-        "order": 12
-      },
-      "rearFore": {
-        "x": 348.95749962404494,
-        "y": 372.40052288337813,
-        "width": 77,
-        "height": 58,
-        "angle": 2.5224576111363604,
-        "originX": 0.2987012987012987,
-        "originY": 0.3448275862068966,
-        "visible": true,
-        "texture": "hero-rearFore",
-        "order": 13
-      },
-      "frontFore": {
-        "x": 594.7068666327332,
-        "y": 396.5462787299836,
-        "width": 69,
-        "height": 61,
-        "angle": 2.904325103423389,
-        "originX": 0.17391304347826086,
-        "originY": 0.7049180327868853,
-        "visible": true,
-        "texture": "hero-frontFore",
-        "order": 14
-      }
-    },
-    "heroWeapon": {
-      "visible": true,
-      "texture": "guardYari",
-      "width": 763.8829540176498,
-      "height": 218.151416627961,
-      "x": 411.7734375,
-      "y": 400.265625,
-      "angle": -8.289452711073409,
-      "originX": 0.23979715925673703,
-      "originY": 0.4627831715210356,
-      "pose": {
-        "pose": 19,
-        "palms": [
-          {
-            "x": 411.7734375,
-            "y": 400.265625
-          },
-          {
-            "x": 646.2973435262261,
-            "y": 366.0963770978022
-          }
-        ],
-        "rear": {
-          "x": 411.7734375,
-          "y": 400.265625
-        },
-        "front": {
-          "x": 646.2973435262261,
-          "y": 366.0963770978022
-        },
-        "butt": {
-          "x": 233.6540152016004,
-          "y": 426.21695252065655
-        },
-        "tip": {
-          "x": 985.7137982392876,
-          "y": 316.64468076677326
-        },
-        "contact": {
-          "x": 718.5346647916882,
-          "y": 355.5716720477581
-        },
-        "angle": -8.28945271107337,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 5.684341886080802e-14
-      },
-      "hands": [
-        {
-          "visible": true,
-          "x": 395.9867595449909,
-          "y": 395.49270145726126,
-          "frame": "__BASE",
-          "texture": "hero-rearHand",
-          "width": 48,
-          "height": 55,
-          "angle": 2.785854622689385,
-          "originX": 0.3125,
-          "originY": 0.41818181818181815,
-          "order": 16
-        },
-        {
-          "visible": true,
-          "x": 633.8740969042141,
-          "y": 374.5025024459438,
-          "frame": "__BASE",
-          "texture": "hero-frontHand",
-          "width": 43,
-          "height": 51,
-          "angle": 2.785854622689385,
-          "originX": 0.16279069767441862,
-          "originY": 0.7058823529411765,
-          "order": 17
-        }
-      ],
-      "order": 15,
-      "bodyOrder": 9
-    },
-    "phase": "attack",
-    "frame": 19,
-    "hp": 0,
-    "enemy": {
-      "pose": 2,
-      "phase": "hurt",
-      "alpha": 1
-    },
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 914.8,
-        "y": 330.4
-      },
-      "elbow": {
-        "x": 922.7789909448188,
-        "y": 368.5750665160193
-      }
-    },
-    "weapon": {
-      "held": true,
-      "landed": false,
-      "x": 879.1400834779523,
-      "y": 416.18821945751625,
-      "angle": 6.4788343390818,
-      "width": 246,
-      "height": 30.599999999999998,
-      "originX": 0.7975609756097561,
-      "originY": 0.5490196078431373,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 892.3738371589696,
-      "y": 401.7492526139308,
-      "angle": 6.4788343390818,
-      "visible": true,
-      "state": "grip",
-      "texture": "enemyGrip"
-    },
-    "arm": {
-      "shoulder": {
-        "x": 484,
-        "y": 284
-      },
-      "elbow": {
-        "x": 497.29831824136465,
-        "y": 347.62511086003224
-      },
-      "wrist": {
-        "x": 446.6230619316161,
-        "y": 402.915421023218
-      },
-      "upperAngle": -11.80547049788062,
-      "foreAngle": 42.5062077241854,
-      "handState": "grip",
-      "handAngle": 6.478834339081786,
+      "handAngle": 3.6429678137709374,
       "alpha": 1
     }
   },
   {
     "sample": 27,
-    "time": 1792117226236,
+    "time": 1792118740366,
     "heroArt": {
       "action": "thrust",
       "frame": 19,
@@ -14654,16 +14654,16 @@
         "y": 375.01
       },
       "elbow": {
-        "x": 913.427032494097,
-        "y": 412.1253700323107
+        "x": 910.2151268009507,
+        "y": 413.0122703553782
       }
     },
     "weapon": {
       "held": true,
       "landed": false,
-      "x": 867.0917737162923,
-      "y": 457.118818132295,
-      "angle": 9.814361490657234,
+      "x": 865.8683795240518,
+      "y": 459.96685036511707,
+      "angle": 7.336536539496365,
       "width": 246,
       "height": 30.599999999999998,
       "originX": 0.7975609756097561,
@@ -14672,9 +14672,9 @@
       "visible": true
     },
     "hand": {
-      "x": 881.1432116877227,
-      "y": 443.4742920894072,
-      "angle": 9.814361490657234,
+      "x": 879.3167897635244,
+      "y": 445.7275996112731,
+      "angle": 7.336536539496365,
       "visible": true,
       "state": "grip",
       "texture": "enemyGrip"
@@ -14685,23 +14685,23 @@
         "y": 358.34999999999997
       },
       "elbow": {
-        "x": 481.711720823495,
-        "y": 420.2089500538511
+        "x": 476.35854466825117,
+        "y": 421.6871172589636
       },
       "wrist": {
-        "x": 427.9053528128712,
-        "y": 472.4571534823453
+        "x": 424.86131627254076,
+        "y": 476.21266601878847
       },
-      "upperAngle": -17.8847541731151,
-      "foreAngle": 45.841734875760864,
+      "upperAngle": -12.987991957772962,
+      "foreAngle": 43.363909924599994,
       "handState": "grip",
-      "handAngle": 9.814361490657248,
+      "handAngle": 7.336536539496379,
       "alpha": 1
     }
   },
   {
     "sample": 28,
-    "time": 1792117226269,
+    "time": 1792118740399,
     "heroArt": {
       "action": "thrust",
       "frame": 20,
@@ -15226,7 +15226,7 @@
   },
   {
     "sample": 29,
-    "time": 1792117226303,
+    "time": 1792118740433,
     "heroArt": {
       "action": "thrust",
       "frame": 21,
@@ -15751,7 +15751,7 @@
   },
   {
     "sample": 30,
-    "time": 1792117226336,
+    "time": 1792118740466,
     "heroArt": {
       "action": "thrust",
       "frame": 22,
@@ -16276,7 +16276,7 @@
   },
   {
     "sample": 31,
-    "time": 1792117226369,
+    "time": 1792118740499,
     "heroArt": {
       "action": "thrust",
       "frame": 23,
@@ -16801,7 +16801,7 @@
   },
   {
     "sample": 32,
-    "time": 1792117226403,
+    "time": 1792118740533,
     "heroArt": {
       "action": "thrust",
       "frame": 24,
@@ -17326,7 +17326,7 @@
   },
   {
     "sample": 33,
-    "time": 1792117226436,
+    "time": 1792118740566,
     "heroArt": {
       "action": "thrust",
       "frame": 25,
@@ -17851,7 +17851,7 @@
   },
   {
     "sample": 34,
-    "time": 1792117226469,
+    "time": 1792118740599,
     "heroArt": {
       "action": "thrust",
       "frame": 26,
@@ -18376,7 +18376,7 @@
   },
   {
     "sample": 35,
-    "time": 1792117226503,
+    "time": 1792118740633,
     "heroArt": {
       "action": "thrust",
       "frame": 27,
@@ -18901,7 +18901,7 @@
   },
   {
     "sample": 36,
-    "time": 1792117226536,
+    "time": 1792118740666,
     "heroArt": {
       "action": "thrust",
       "frame": 28,
@@ -19426,7 +19426,532 @@
   },
   {
     "sample": 37,
-    "time": 1792117226569,
+    "time": 1792118740699,
+    "heroArt": {
+      "action": "thrust",
+      "frame": 29,
+      "transforms": {
+        "lower": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "torso": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "rearThigh": {
+          "point": [
+            395,
+            375
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "rearShin": {
+          "point": [
+            300,
+            438.00000000000006
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "rearFoot": {
+          "point": [
+            242,
+            505
+          ],
+          "angle": 0
+        },
+        "frontThigh": {
+          "point": [
+            475,
+            378
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "frontShin": {
+          "point": [
+            552,
+            429.99999999999994
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "frontFoot": {
+          "point": [
+            600,
+            490
+          ],
+          "angle": 0
+        },
+        "rearUpper": {
+          "point": [
+            325,
+            255
+          ],
+          "angle": 0
+        },
+        "rearFore": {
+          "point": [
+            295,
+            288
+          ],
+          "angle": 0
+        },
+        "rearHand": {
+          "point": [
+            343,
+            309
+          ],
+          "angle": 0
+        },
+        "frontUpper": {
+          "point": [
+            505,
+            268
+          ],
+          "angle": 2.6909228839458432
+        },
+        "frontFore": {
+          "point": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "angle": -2.0179077332901145
+        },
+        "frontHand": {
+          "point": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "angle": 0
+        }
+      },
+      "arms": {
+        "rear": {
+          "shoulder": [
+            325,
+            255
+          ],
+          "elbow": [
+            295,
+            288
+          ],
+          "wrist": [
+            343,
+            309
+          ],
+          "upper": 44.59820624195551,
+          "fore": 52.39274758971894,
+          "upperAngle": 0,
+          "foreAngle": 0,
+          "grip": [
+            359,
+            313
+          ],
+          "handAngle": 0,
+          "wristDeflection": -9.59313426273034
+        },
+        "front": {
+          "shoulder": [
+            505,
+            268
+          ],
+          "elbow": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "wrist": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "upper": 50.44799302251775,
+          "fore": 44.94441010848846,
+          "upperAngle": 2.6909228839458432,
+          "foreAngle": -2.0179077332901145,
+          "grip": [
+            591.5860038639939,
+            267.4725269032182
+          ],
+          "handAngle": 0,
+          "wristDeflection": -2.576345597976276
+        }
+      },
+      "legs": {
+        "rear": {
+          "hip": [
+            395,
+            375
+          ],
+          "knee": [
+            300,
+            438.00000000000006
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            475,
+            378
+          ],
+          "knee": [
+            552,
+            429.99999999999994
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      },
+      "root": [
+        0,
+        0
+      ],
+      "weapon": {
+        "pose": 29,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      }
+    },
+    "heroParts": {
+      "rearFoot": {
+        "x": 277,
+        "y": 595,
+        "width": 69,
+        "height": 70,
+        "angle": 0,
+        "originX": 0.6376811594202898,
+        "originY": 0.15714285714285714,
+        "visible": true,
+        "texture": "hero-rearFoot",
+        "order": 3
+      },
+      "frontFoot": {
+        "x": 635,
+        "y": 580,
+        "width": 115,
+        "height": 69,
+        "angle": 0,
+        "originX": 0.3217391304347826,
+        "originY": 0.3188405797101449,
+        "visible": true,
+        "texture": "hero-frontFoot",
+        "order": 4
+      },
+      "rearShin": {
+        "x": 335,
+        "y": 528,
+        "width": 100,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.82,
+        "originY": 0.18627450980392157,
+        "visible": true,
+        "texture": "hero-rearShin",
+        "order": 5
+      },
+      "frontShin": {
+        "x": 587,
+        "y": 520,
+        "width": 97,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.27835051546391754,
+        "originY": 0.17647058823529413,
+        "visible": true,
+        "texture": "hero-frontShin",
+        "order": 6
+      },
+      "rearThigh": {
+        "x": 430,
+        "y": 465,
+        "width": 157,
+        "height": 125,
+        "angle": 0,
+        "originX": 0.8280254777070064,
+        "originY": 0.144,
+        "visible": true,
+        "texture": "hero-rearThigh",
+        "order": 7
+      },
+      "frontThigh": {
+        "x": 510,
+        "y": 468,
+        "width": 118,
+        "height": 113,
+        "angle": 0,
+        "originX": 0.05084745762711865,
+        "originY": 0.17699115044247787,
+        "visible": true,
+        "texture": "hero-frontThigh",
+        "order": 8
+      },
+      "lower": {
+        "x": 465,
+        "y": 432,
+        "width": 305,
+        "height": 170,
+        "angle": 0,
+        "originX": 0.5606557377049181,
+        "originY": 0.07058823529411765,
+        "visible": true,
+        "texture": "hero-lower",
+        "order": 9
+      },
+      "rearUpper": {
+        "x": 360,
+        "y": 345,
+        "width": 86,
+        "height": 74,
+        "angle": 0,
+        "originX": 0.6395348837209303,
+        "originY": 0.25675675675675674,
+        "visible": true,
+        "texture": "hero-rearUpper",
+        "order": 10
+      },
+      "frontUpper": {
+        "x": 540,
+        "y": 358,
+        "width": 69,
+        "height": 61,
+        "angle": 2.690922883945859,
+        "originX": 0.2608695652173913,
+        "originY": 0.14754098360655737,
+        "visible": true,
+        "texture": "hero-frontUpper",
+        "order": 11
+      },
+      "torso": {
+        "x": 465,
+        "y": 432,
+        "width": 612,
+        "height": 269,
+        "angle": 0,
+        "originX": 0.3284313725490196,
+        "originY": 0.966542750929368,
+        "visible": true,
+        "texture": "hero-torso",
+        "order": 12
+      },
+      "rearFore": {
+        "x": 330,
+        "y": 378,
+        "width": 77,
+        "height": 58,
+        "angle": 0,
+        "originX": 0.2987012987012987,
+        "originY": 0.3448275862068966,
+        "visible": true,
+        "texture": "hero-rearFore",
+        "order": 13
+      },
+      "frontFore": {
+        "x": 577.4546532726584,
+        "y": 391.795694226113,
+        "width": 69,
+        "height": 61,
+        "angle": -2.0179077332901443,
+        "originX": 0.17391304347826086,
+        "originY": 0.7049180327868853,
+        "visible": true,
+        "texture": "hero-frontFore",
+        "order": 14
+      }
+    },
+    "heroWeapon": {
+      "visible": true,
+      "texture": "guardYari",
+      "width": 763.8829540176498,
+      "height": 218.151416627961,
+      "x": 394,
+      "y": 403,
+      "angle": -11.075307333762794,
+      "originX": 0.23979715925673703,
+      "originY": 0.4627831715210356,
+      "pose": {
+        "pose": 29,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      },
+      "hands": [
+        {
+          "visible": true,
+          "x": 378,
+          "y": 399,
+          "frame": "__BASE",
+          "texture": "hero-rearHand",
+          "width": 48,
+          "height": 55,
+          "angle": 0,
+          "originX": 0.3125,
+          "originY": 0.41818181818181815,
+          "order": 16
+        },
+        {
+          "visible": true,
+          "x": 614.5860038639939,
+          "y": 366.4725269032182,
+          "frame": "__BASE",
+          "texture": "hero-frontHand",
+          "width": 43,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.16279069767441862,
+          "originY": 0.7058823529411765,
+          "order": 17
+        }
+      ],
+      "order": 15,
+      "bodyOrder": 9
+    },
+    "phase": "attack",
+    "frame": 29,
+    "hp": 0,
+    "enemy": {
+      "pose": 10,
+      "phase": "yield",
+      "alpha": 1
+    },
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 850.4200000000001,
+        "y": 474.82000000000005
+      },
+      "elbow": {
+        "x": 863.527991504818,
+        "y": 511.55119326552875
+      }
+    },
+    "weapon": {
+      "held": false,
+      "landed": false,
+      "x": 827.7535905705738,
+      "y": 526.3808505896203,
+      "angle": 15.178243275637897,
+      "width": 246,
+      "height": 30.599999999999998,
+      "originX": 0.7975609756097561,
+      "originY": 0.5490196078431373,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 828.0425368888889,
+      "y": 539.2239688888889,
+      "angle": 52.05167133752434,
+      "visible": true,
+      "state": "open",
+      "texture": "enemy-open"
+    },
+    "arm": {
+      "shoulder": {
+        "x": 376.70000000000005,
+        "y": 524.7
+      },
+      "elbow": {
+        "x": 398.54665250803004,
+        "y": 585.9186554425479
+      },
+      "wrist": {
+        "x": 339.4042281481482,
+        "y": 632.0399481481481
+      },
+      "upperAngle": -19.639584993854157,
+      "foreAngle": 52.05167133752428,
+      "handState": "open",
+      "handAngle": 52.05167133752428,
+      "alpha": 1
+    }
+  },
+  {
+    "sample": 38,
+    "time": 1792118740733,
     "heroArt": {
       "action": "thrust",
       "frame": 30,
@@ -19888,531 +20413,6 @@
     "frame": 30,
     "hp": 0,
     "enemy": {
-      "pose": 10,
-      "phase": "yield",
-      "alpha": 1
-    },
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 850.4200000000001,
-        "y": 474.82000000000005
-      },
-      "elbow": {
-        "x": 869.7470684104684,
-        "y": 508.6942442964722
-      }
-    },
-    "weapon": {
-      "held": false,
-      "landed": false,
-      "x": 829.1250191420024,
-      "y": 525.6389928684288,
-      "angle": 14.246586399384,
-      "width": 246,
-      "height": 30.599999999999998,
-      "originX": 0.7975609756097561,
-      "originY": 0.5490196078431373,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 835.2472728888889,
-      "y": 537.5865288888889,
-      "angle": 50.05508931092595,
-      "visible": true,
-      "state": "open",
-      "texture": "enemy-open"
-    },
-    "arm": {
-      "shoulder": {
-        "x": 376.70000000000005,
-        "y": 524.7
-      },
-      "elbow": {
-        "x": 408.91178068411404,
-        "y": 581.1570738274537
-      },
-      "wrist": {
-        "x": 351.4121214814815,
-        "y": 629.3108814814815
-      },
-      "upperAngle": -29.707070489830713,
-      "foreAngle": 50.05508931092595,
-      "handState": "open",
-      "handAngle": 50.05508931092595,
-      "alpha": 1
-    }
-  },
-  {
-    "sample": 38,
-    "time": 1792117226603,
-    "heroArt": {
-      "action": "thrust",
-      "frame": 31,
-      "transforms": {
-        "lower": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "torso": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "rearThigh": {
-          "point": [
-            395,
-            375
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "rearShin": {
-          "point": [
-            300,
-            438.00000000000006
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "rearFoot": {
-          "point": [
-            242,
-            505
-          ],
-          "angle": 0
-        },
-        "frontThigh": {
-          "point": [
-            475,
-            378
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "frontShin": {
-          "point": [
-            552,
-            429.99999999999994
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "frontFoot": {
-          "point": [
-            600,
-            490
-          ],
-          "angle": 0
-        },
-        "rearUpper": {
-          "point": [
-            325,
-            255
-          ],
-          "angle": 0
-        },
-        "rearFore": {
-          "point": [
-            295,
-            288
-          ],
-          "angle": 0
-        },
-        "rearHand": {
-          "point": [
-            343,
-            309
-          ],
-          "angle": 0
-        },
-        "frontUpper": {
-          "point": [
-            505,
-            268
-          ],
-          "angle": 2.6909228839458432
-        },
-        "frontFore": {
-          "point": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "angle": -2.0179077332901145
-        },
-        "frontHand": {
-          "point": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "angle": 0
-        }
-      },
-      "arms": {
-        "rear": {
-          "shoulder": [
-            325,
-            255
-          ],
-          "elbow": [
-            295,
-            288
-          ],
-          "wrist": [
-            343,
-            309
-          ],
-          "upper": 44.59820624195551,
-          "fore": 52.39274758971894,
-          "upperAngle": 0,
-          "foreAngle": 0,
-          "grip": [
-            359,
-            313
-          ],
-          "handAngle": 0,
-          "wristDeflection": -9.59313426273034
-        },
-        "front": {
-          "shoulder": [
-            505,
-            268
-          ],
-          "elbow": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "wrist": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "upper": 50.44799302251775,
-          "fore": 44.94441010848846,
-          "upperAngle": 2.6909228839458432,
-          "foreAngle": -2.0179077332901145,
-          "grip": [
-            591.5860038639939,
-            267.4725269032182
-          ],
-          "handAngle": 0,
-          "wristDeflection": -2.576345597976276
-        }
-      },
-      "legs": {
-        "rear": {
-          "hip": [
-            395,
-            375
-          ],
-          "knee": [
-            300,
-            438.00000000000006
-          ],
-          "ankle": [
-            242,
-            505
-          ],
-          "thigh": 113.99122773266372,
-          "shin": 88.6171540955813
-        },
-        "front": {
-          "hip": [
-            475,
-            378
-          ],
-          "knee": [
-            552,
-            429.99999999999994
-          ],
-          "ankle": [
-            600,
-            490
-          ],
-          "thigh": 92.91393867445294,
-          "shin": 76.83749084919418
-        }
-      },
-      "root": [
-        0,
-        0
-      ],
-      "weapon": {
-        "pose": 31,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      }
-    },
-    "heroParts": {
-      "rearFoot": {
-        "x": 277,
-        "y": 595,
-        "width": 69,
-        "height": 70,
-        "angle": 0,
-        "originX": 0.6376811594202898,
-        "originY": 0.15714285714285714,
-        "visible": true,
-        "texture": "hero-rearFoot",
-        "order": 3
-      },
-      "frontFoot": {
-        "x": 635,
-        "y": 580,
-        "width": 115,
-        "height": 69,
-        "angle": 0,
-        "originX": 0.3217391304347826,
-        "originY": 0.3188405797101449,
-        "visible": true,
-        "texture": "hero-frontFoot",
-        "order": 4
-      },
-      "rearShin": {
-        "x": 335,
-        "y": 528,
-        "width": 100,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.82,
-        "originY": 0.18627450980392157,
-        "visible": true,
-        "texture": "hero-rearShin",
-        "order": 5
-      },
-      "frontShin": {
-        "x": 587,
-        "y": 520,
-        "width": 97,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.27835051546391754,
-        "originY": 0.17647058823529413,
-        "visible": true,
-        "texture": "hero-frontShin",
-        "order": 6
-      },
-      "rearThigh": {
-        "x": 430,
-        "y": 465,
-        "width": 157,
-        "height": 125,
-        "angle": 0,
-        "originX": 0.8280254777070064,
-        "originY": 0.144,
-        "visible": true,
-        "texture": "hero-rearThigh",
-        "order": 7
-      },
-      "frontThigh": {
-        "x": 510,
-        "y": 468,
-        "width": 118,
-        "height": 113,
-        "angle": 0,
-        "originX": 0.05084745762711865,
-        "originY": 0.17699115044247787,
-        "visible": true,
-        "texture": "hero-frontThigh",
-        "order": 8
-      },
-      "lower": {
-        "x": 465,
-        "y": 432,
-        "width": 305,
-        "height": 170,
-        "angle": 0,
-        "originX": 0.5606557377049181,
-        "originY": 0.07058823529411765,
-        "visible": true,
-        "texture": "hero-lower",
-        "order": 9
-      },
-      "rearUpper": {
-        "x": 360,
-        "y": 345,
-        "width": 86,
-        "height": 74,
-        "angle": 0,
-        "originX": 0.6395348837209303,
-        "originY": 0.25675675675675674,
-        "visible": true,
-        "texture": "hero-rearUpper",
-        "order": 10
-      },
-      "frontUpper": {
-        "x": 540,
-        "y": 358,
-        "width": 69,
-        "height": 61,
-        "angle": 2.690922883945859,
-        "originX": 0.2608695652173913,
-        "originY": 0.14754098360655737,
-        "visible": true,
-        "texture": "hero-frontUpper",
-        "order": 11
-      },
-      "torso": {
-        "x": 465,
-        "y": 432,
-        "width": 612,
-        "height": 269,
-        "angle": 0,
-        "originX": 0.3284313725490196,
-        "originY": 0.966542750929368,
-        "visible": true,
-        "texture": "hero-torso",
-        "order": 12
-      },
-      "rearFore": {
-        "x": 330,
-        "y": 378,
-        "width": 77,
-        "height": 58,
-        "angle": 0,
-        "originX": 0.2987012987012987,
-        "originY": 0.3448275862068966,
-        "visible": true,
-        "texture": "hero-rearFore",
-        "order": 13
-      },
-      "frontFore": {
-        "x": 577.4546532726584,
-        "y": 391.795694226113,
-        "width": 69,
-        "height": 61,
-        "angle": -2.0179077332901443,
-        "originX": 0.17391304347826086,
-        "originY": 0.7049180327868853,
-        "visible": true,
-        "texture": "hero-frontFore",
-        "order": 14
-      }
-    },
-    "heroWeapon": {
-      "visible": true,
-      "texture": "guardYari",
-      "width": 763.8829540176498,
-      "height": 218.151416627961,
-      "x": 394,
-      "y": 403,
-      "angle": -11.075307333762794,
-      "originX": 0.23979715925673703,
-      "originY": 0.4627831715210356,
-      "pose": {
-        "pose": 31,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      },
-      "hands": [
-        {
-          "visible": true,
-          "x": 378,
-          "y": 399,
-          "frame": "__BASE",
-          "texture": "hero-rearHand",
-          "width": 48,
-          "height": 55,
-          "angle": 0,
-          "originX": 0.3125,
-          "originY": 0.41818181818181815,
-          "order": 16
-        },
-        {
-          "visible": true,
-          "x": 614.5860038639939,
-          "y": 366.4725269032182,
-          "frame": "__BASE",
-          "texture": "hero-frontHand",
-          "width": 43,
-          "height": 51,
-          "angle": 0,
-          "originX": 0.16279069767441862,
-          "originY": 0.7058823529411765,
-          "order": 17
-        }
-      ],
-      "order": 15,
-      "bodyOrder": 9
-    },
-    "phase": "attack",
-    "frame": 31,
-    "hp": 0,
-    "enemy": {
       "pose": 11,
       "phase": "sink",
       "alpha": 1
@@ -20429,16 +20429,16 @@
         "y": 483.28
       },
       "elbow": {
-        "x": 854.0495640699899,
-        "y": 509.21199755306856
+        "x": 847.430370116411,
+        "y": 515.1278136961109
       }
     },
     "weapon": {
       "held": false,
       "landed": false,
-      "x": 831.8678762848596,
-      "y": 525.2608652606085,
-      "angle": 12.383272646876094,
+      "x": 830.496447713431,
+      "y": 525.2656644254248,
+      "angle": 13.31492952312999,
       "width": 246,
       "height": 30.599999999999998,
       "originX": 0.7975609756097561,
@@ -20447,9 +20447,9 @@
       "visible": true
     },
     "hand": {
-      "x": 824.9107693333333,
-      "y": 543.5038426666666,
-      "angle": 40.35553995410828,
+      "x": 814.0452013333334,
+      "y": 545.3011546666667,
+      "angle": 47.89288996162827,
       "visible": true,
       "state": "open",
       "texture": "enemy-open"
@@ -20460,23 +20460,23 @@
         "y": 538.8
       },
       "elbow": {
-        "x": 382.7492734499831,
-        "y": 582.019995921781
+        "x": 371.71728352735164,
+        "y": 591.8796894935182
       },
       "wrist": {
-        "x": 334.1846155555556,
-        "y": 639.1730711111111
+        "x": 316.07533555555557,
+        "y": 642.168591111111
       },
-      "upperAngle": -48.323580477082636,
-      "foreAngle": 40.35553995410825,
+      "upperAngle": -35.25307218679786,
+      "foreAngle": 47.8928899616283,
       "handState": "open",
-      "handAngle": 40.35553995410825,
+      "handAngle": 47.8928899616283,
       "alpha": 1
     }
   },
   {
     "sample": 39,
-    "time": 1792117226636,
+    "time": 1792118740766,
     "heroArt": {
       "action": "thrust",
       "frame": 31,
@@ -20954,16 +20954,16 @@
         "y": 486
       },
       "elbow": {
-        "x": 831.914508867778,
-        "y": 505.2563259283127
+        "x": 829.3953398454977,
+        "y": 509.13725644897653
       }
     },
     "weapon": {
       "held": false,
       "landed": false,
-      "x": 834.6107334277167,
-      "y": 526.3568547655384,
-      "angle": 10.519958894368074,
+      "x": 833.2393048562882,
+      "y": 525.6245953739796,
+      "angle": 11.45161577062197,
       "width": 246,
       "height": 30.599999999999998,
       "originX": 0.7975609756097561,
@@ -20972,9 +20972,9 @@
       "visible": true
     },
     "hand": {
-      "x": 809.2528881865569,
-      "y": 544.1337094320987,
-      "angle": 30.237902244457814,
+      "x": 802.780877914952,
+      "y": 545.4232098765432,
+      "angle": 36.258727875777026,
       "visible": true,
       "state": "open",
       "texture": "enemy-open"
@@ -20985,23 +20985,23 @@
         "y": 543.3333333333334
       },
       "elbow": {
-        "x": 345.85751477963,
-        "y": 575.4272098805212
+        "x": 341.65889974249615,
+        "y": 581.8954274149609
       },
       "wrist": {
-        "x": 308.08814697759493,
-        "y": 640.222849053498
+        "x": 297.3014631915867,
+        "y": 642.3720164609053
       },
-      "upperAngle": -60.4125140724813,
-      "foreAngle": 30.237902244457786,
+      "upperAngle": -53.611096888047435,
+      "foreAngle": 36.258727875777,
       "handState": "open",
-      "handAngle": 30.237902244457786,
+      "handAngle": 36.258727875777,
       "alpha": 1
     }
   },
   {
     "sample": 40,
-    "time": 1792117226669,
+    "time": 1792118740799,
     "heroArt": {
       "action": "thrust",
       "frame": 32,
@@ -21526,7 +21526,7 @@
   },
   {
     "sample": 41,
-    "time": 1792117226703,
+    "time": 1792118740833,
     "heroArt": {
       "action": "thrust",
       "frame": 33,
@@ -22051,7 +22051,7 @@
   },
   {
     "sample": 42,
-    "time": 1792117226736,
+    "time": 1792118740866,
     "heroArt": {
       "action": "thrust",
       "frame": 34,
@@ -22576,7 +22576,7 @@
   },
   {
     "sample": 43,
-    "time": 1792117226769,
+    "time": 1792118740899,
     "heroArt": {
       "action": "thrust",
       "frame": 35,
@@ -23101,7 +23101,7 @@
   },
   {
     "sample": 44,
-    "time": 1792117226803,
+    "time": 1792118740933,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -23626,7 +23626,7 @@
   },
   {
     "sample": 45,
-    "time": 1792117226836,
+    "time": 1792118740966,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -24151,7 +24151,7 @@
   },
   {
     "sample": 46,
-    "time": 1792117226869,
+    "time": 1792118740999,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -24676,7 +24676,7 @@
   },
   {
     "sample": 47,
-    "time": 1792117226903,
+    "time": 1792118741033,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -25201,7 +25201,7 @@
   },
   {
     "sample": 48,
-    "time": 1792117226936,
+    "time": 1792118741066,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -25726,7 +25726,532 @@
   },
   {
     "sample": 49,
-    "time": 1792117226969,
+    "time": 1792118741099,
+    "heroArt": {
+      "action": "idle",
+      "frame": 0,
+      "transforms": {
+        "lower": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "torso": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "rearThigh": {
+          "point": [
+            395,
+            375
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "rearShin": {
+          "point": [
+            300,
+            438.00000000000006
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "rearFoot": {
+          "point": [
+            242,
+            505
+          ],
+          "angle": 0
+        },
+        "frontThigh": {
+          "point": [
+            475,
+            378
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "frontShin": {
+          "point": [
+            552,
+            429.99999999999994
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "frontFoot": {
+          "point": [
+            600,
+            490
+          ],
+          "angle": 0
+        },
+        "rearUpper": {
+          "point": [
+            325,
+            255
+          ],
+          "angle": 0
+        },
+        "rearFore": {
+          "point": [
+            295,
+            288
+          ],
+          "angle": 0
+        },
+        "rearHand": {
+          "point": [
+            343,
+            309
+          ],
+          "angle": 0
+        },
+        "frontUpper": {
+          "point": [
+            505,
+            268
+          ],
+          "angle": 2.6909228839458432
+        },
+        "frontFore": {
+          "point": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "angle": -2.0179077332901145
+        },
+        "frontHand": {
+          "point": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "angle": 0
+        }
+      },
+      "arms": {
+        "rear": {
+          "shoulder": [
+            325,
+            255
+          ],
+          "elbow": [
+            295,
+            288
+          ],
+          "wrist": [
+            343,
+            309
+          ],
+          "upper": 44.59820624195551,
+          "fore": 52.39274758971894,
+          "upperAngle": 0,
+          "foreAngle": 0,
+          "grip": [
+            359,
+            313
+          ],
+          "handAngle": 0,
+          "wristDeflection": -9.59313426273034
+        },
+        "front": {
+          "shoulder": [
+            505,
+            268
+          ],
+          "elbow": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "wrist": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "upper": 50.44799302251775,
+          "fore": 44.94441010848846,
+          "upperAngle": 2.6909228839458432,
+          "foreAngle": -2.0179077332901145,
+          "grip": [
+            591.5860038639939,
+            267.4725269032182
+          ],
+          "handAngle": 0,
+          "wristDeflection": -2.576345597976276
+        }
+      },
+      "legs": {
+        "rear": {
+          "hip": [
+            395,
+            375
+          ],
+          "knee": [
+            300,
+            438.00000000000006
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            475,
+            378
+          ],
+          "knee": [
+            552,
+            429.99999999999994
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      },
+      "root": [
+        0,
+        0
+      ],
+      "weapon": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      }
+    },
+    "heroParts": {
+      "rearFoot": {
+        "x": 277,
+        "y": 595,
+        "width": 69,
+        "height": 70,
+        "angle": 0,
+        "originX": 0.6376811594202898,
+        "originY": 0.15714285714285714,
+        "visible": true,
+        "texture": "hero-rearFoot",
+        "order": 3
+      },
+      "frontFoot": {
+        "x": 635,
+        "y": 580,
+        "width": 115,
+        "height": 69,
+        "angle": 0,
+        "originX": 0.3217391304347826,
+        "originY": 0.3188405797101449,
+        "visible": true,
+        "texture": "hero-frontFoot",
+        "order": 4
+      },
+      "rearShin": {
+        "x": 335,
+        "y": 528,
+        "width": 100,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.82,
+        "originY": 0.18627450980392157,
+        "visible": true,
+        "texture": "hero-rearShin",
+        "order": 5
+      },
+      "frontShin": {
+        "x": 587,
+        "y": 520,
+        "width": 97,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.27835051546391754,
+        "originY": 0.17647058823529413,
+        "visible": true,
+        "texture": "hero-frontShin",
+        "order": 6
+      },
+      "rearThigh": {
+        "x": 430,
+        "y": 465,
+        "width": 157,
+        "height": 125,
+        "angle": 0,
+        "originX": 0.8280254777070064,
+        "originY": 0.144,
+        "visible": true,
+        "texture": "hero-rearThigh",
+        "order": 7
+      },
+      "frontThigh": {
+        "x": 510,
+        "y": 468,
+        "width": 118,
+        "height": 113,
+        "angle": 0,
+        "originX": 0.05084745762711865,
+        "originY": 0.17699115044247787,
+        "visible": true,
+        "texture": "hero-frontThigh",
+        "order": 8
+      },
+      "lower": {
+        "x": 465,
+        "y": 432,
+        "width": 305,
+        "height": 170,
+        "angle": 0,
+        "originX": 0.5606557377049181,
+        "originY": 0.07058823529411765,
+        "visible": true,
+        "texture": "hero-lower",
+        "order": 9
+      },
+      "rearUpper": {
+        "x": 360,
+        "y": 345,
+        "width": 86,
+        "height": 74,
+        "angle": 0,
+        "originX": 0.6395348837209303,
+        "originY": 0.25675675675675674,
+        "visible": true,
+        "texture": "hero-rearUpper",
+        "order": 10
+      },
+      "frontUpper": {
+        "x": 540,
+        "y": 358,
+        "width": 69,
+        "height": 61,
+        "angle": 2.690922883945859,
+        "originX": 0.2608695652173913,
+        "originY": 0.14754098360655737,
+        "visible": true,
+        "texture": "hero-frontUpper",
+        "order": 11
+      },
+      "torso": {
+        "x": 465,
+        "y": 432,
+        "width": 612,
+        "height": 269,
+        "angle": 0,
+        "originX": 0.3284313725490196,
+        "originY": 0.966542750929368,
+        "visible": true,
+        "texture": "hero-torso",
+        "order": 12
+      },
+      "rearFore": {
+        "x": 330,
+        "y": 378,
+        "width": 77,
+        "height": 58,
+        "angle": 0,
+        "originX": 0.2987012987012987,
+        "originY": 0.3448275862068966,
+        "visible": true,
+        "texture": "hero-rearFore",
+        "order": 13
+      },
+      "frontFore": {
+        "x": 577.4546532726584,
+        "y": 391.795694226113,
+        "width": 69,
+        "height": 61,
+        "angle": -2.0179077332901443,
+        "originX": 0.17391304347826086,
+        "originY": 0.7049180327868853,
+        "visible": true,
+        "texture": "hero-frontFore",
+        "order": 14
+      }
+    },
+    "heroWeapon": {
+      "visible": true,
+      "texture": "guardYari",
+      "width": 763.8829540176498,
+      "height": 218.151416627961,
+      "x": 394,
+      "y": 403,
+      "angle": -11.075307333762794,
+      "originX": 0.23979715925673703,
+      "originY": 0.4627831715210356,
+      "pose": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      },
+      "hands": [
+        {
+          "visible": true,
+          "x": 378,
+          "y": 399,
+          "frame": "__BASE",
+          "texture": "hero-rearHand",
+          "width": 48,
+          "height": 55,
+          "angle": 0,
+          "originX": 0.3125,
+          "originY": 0.41818181818181815,
+          "order": 16
+        },
+        {
+          "visible": true,
+          "x": 614.5860038639939,
+          "y": 366.4725269032182,
+          "frame": "__BASE",
+          "texture": "hero-frontHand",
+          "width": 43,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.16279069767441862,
+          "originY": 0.7058823529411765,
+          "order": 17
+        }
+      ],
+      "order": 15,
+      "bodyOrder": 9
+    },
+    "phase": "idle",
+    "frame": 5,
+    "hp": 0,
+    "enemy": {
+      "pose": 9,
+      "phase": "fallen",
+      "alpha": 1
+    },
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 820,
+        "y": 490
+      },
+      "elbow": {
+        "x": 858.4556439103313,
+        "y": 496.49333900561146
+      }
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 850.096447713431,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "height": 30.599999999999998,
+      "originX": 0.7975609756097561,
+      "originY": 0.5490196078431373,
+      "alpha": 1,
+      "visible": true
+    },
+    "hand": {
+      "x": 851.8105609815354,
+      "y": 541,
+      "angle": 8.491837359301826,
+      "visible": true,
+      "state": "open",
+      "texture": "enemy-open"
+    },
+    "arm": {
+      "shoulder": {
+        "x": 326,
+        "y": 550
+      },
+      "elbow": {
+        "x": 390.0927398505523,
+        "y": 560.8222316760191
+      },
+      "wrist": {
+        "x": 379.01760163589245,
+        "y": 635
+      },
+      "upperAngle": -80.41585625782301,
+      "foreAngle": 8.491837359301783,
+      "handState": "open",
+      "handAngle": 8.491837359301783,
+      "alpha": 1
+    }
+  },
+  {
+    "sample": 50,
+    "time": 1792118741133,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -26204,8 +26729,8 @@
         "y": 490
       },
       "elbow": {
-        "x": 858.4403463944996,
-        "y": 496.5832946972532
+        "x": 858.4263381642196,
+        "y": 496.6645731513008
       }
     },
     "weapon": {
@@ -26222,9 +26747,9 @@
       "visible": true
     },
     "hand": {
-      "x": 851.2184152089408,
+      "x": 850.7211499028183,
       "y": 541,
-      "angle": 9.235185442225543,
+      "angle": 9.859132530819238,
       "visible": true,
       "state": "open",
       "texture": "enemy-open"
@@ -26235,548 +26760,23 @@
         "y": 550
       },
       "elbow": {
-        "x": 390.06724399083265,
-        "y": 560.9721578287554
+        "x": 390.04389694036604,
+        "y": 561.1076219188346
       },
       "wrist": {
-        "x": 378.0306920149012,
+        "x": 377.2019165046971,
         "y": 635
       },
-      "upperAngle": -80.2818029969787,
-      "foreAngle": 9.235185442225543,
+      "upperAngle": -80.16063449144468,
+      "foreAngle": 9.859132530819224,
       "handState": "open",
-      "handAngle": 9.235185442225543,
-      "alpha": 1
-    }
-  },
-  {
-    "sample": 50,
-    "time": 1792117227003,
-    "heroArt": {
-      "action": "idle",
-      "frame": 0,
-      "transforms": {
-        "lower": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "torso": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "rearThigh": {
-          "point": [
-            395,
-            375
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "rearShin": {
-          "point": [
-            300,
-            438.00000000000006
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "rearFoot": {
-          "point": [
-            242,
-            505
-          ],
-          "angle": 0
-        },
-        "frontThigh": {
-          "point": [
-            475,
-            378
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "frontShin": {
-          "point": [
-            552,
-            429.99999999999994
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "frontFoot": {
-          "point": [
-            600,
-            490
-          ],
-          "angle": 0
-        },
-        "rearUpper": {
-          "point": [
-            325,
-            255
-          ],
-          "angle": 0
-        },
-        "rearFore": {
-          "point": [
-            295,
-            288
-          ],
-          "angle": 0
-        },
-        "rearHand": {
-          "point": [
-            343,
-            309
-          ],
-          "angle": 0
-        },
-        "frontUpper": {
-          "point": [
-            505,
-            268
-          ],
-          "angle": 2.6909228839458432
-        },
-        "frontFore": {
-          "point": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "angle": -2.0179077332901145
-        },
-        "frontHand": {
-          "point": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "angle": 0
-        }
-      },
-      "arms": {
-        "rear": {
-          "shoulder": [
-            325,
-            255
-          ],
-          "elbow": [
-            295,
-            288
-          ],
-          "wrist": [
-            343,
-            309
-          ],
-          "upper": 44.59820624195551,
-          "fore": 52.39274758971894,
-          "upperAngle": 0,
-          "foreAngle": 0,
-          "grip": [
-            359,
-            313
-          ],
-          "handAngle": 0,
-          "wristDeflection": -9.59313426273034
-        },
-        "front": {
-          "shoulder": [
-            505,
-            268
-          ],
-          "elbow": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "wrist": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "upper": 50.44799302251775,
-          "fore": 44.94441010848846,
-          "upperAngle": 2.6909228839458432,
-          "foreAngle": -2.0179077332901145,
-          "grip": [
-            591.5860038639939,
-            267.4725269032182
-          ],
-          "handAngle": 0,
-          "wristDeflection": -2.576345597976276
-        }
-      },
-      "legs": {
-        "rear": {
-          "hip": [
-            395,
-            375
-          ],
-          "knee": [
-            300,
-            438.00000000000006
-          ],
-          "ankle": [
-            242,
-            505
-          ],
-          "thigh": 113.99122773266372,
-          "shin": 88.6171540955813
-        },
-        "front": {
-          "hip": [
-            475,
-            378
-          ],
-          "knee": [
-            552,
-            429.99999999999994
-          ],
-          "ankle": [
-            600,
-            490
-          ],
-          "thigh": 92.91393867445294,
-          "shin": 76.83749084919418
-        }
-      },
-      "root": [
-        0,
-        0
-      ],
-      "weapon": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      }
-    },
-    "heroParts": {
-      "rearFoot": {
-        "x": 277,
-        "y": 595,
-        "width": 69,
-        "height": 70,
-        "angle": 0,
-        "originX": 0.6376811594202898,
-        "originY": 0.15714285714285714,
-        "visible": true,
-        "texture": "hero-rearFoot",
-        "order": 3
-      },
-      "frontFoot": {
-        "x": 635,
-        "y": 580,
-        "width": 115,
-        "height": 69,
-        "angle": 0,
-        "originX": 0.3217391304347826,
-        "originY": 0.3188405797101449,
-        "visible": true,
-        "texture": "hero-frontFoot",
-        "order": 4
-      },
-      "rearShin": {
-        "x": 335,
-        "y": 528,
-        "width": 100,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.82,
-        "originY": 0.18627450980392157,
-        "visible": true,
-        "texture": "hero-rearShin",
-        "order": 5
-      },
-      "frontShin": {
-        "x": 587,
-        "y": 520,
-        "width": 97,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.27835051546391754,
-        "originY": 0.17647058823529413,
-        "visible": true,
-        "texture": "hero-frontShin",
-        "order": 6
-      },
-      "rearThigh": {
-        "x": 430,
-        "y": 465,
-        "width": 157,
-        "height": 125,
-        "angle": 0,
-        "originX": 0.8280254777070064,
-        "originY": 0.144,
-        "visible": true,
-        "texture": "hero-rearThigh",
-        "order": 7
-      },
-      "frontThigh": {
-        "x": 510,
-        "y": 468,
-        "width": 118,
-        "height": 113,
-        "angle": 0,
-        "originX": 0.05084745762711865,
-        "originY": 0.17699115044247787,
-        "visible": true,
-        "texture": "hero-frontThigh",
-        "order": 8
-      },
-      "lower": {
-        "x": 465,
-        "y": 432,
-        "width": 305,
-        "height": 170,
-        "angle": 0,
-        "originX": 0.5606557377049181,
-        "originY": 0.07058823529411765,
-        "visible": true,
-        "texture": "hero-lower",
-        "order": 9
-      },
-      "rearUpper": {
-        "x": 360,
-        "y": 345,
-        "width": 86,
-        "height": 74,
-        "angle": 0,
-        "originX": 0.6395348837209303,
-        "originY": 0.25675675675675674,
-        "visible": true,
-        "texture": "hero-rearUpper",
-        "order": 10
-      },
-      "frontUpper": {
-        "x": 540,
-        "y": 358,
-        "width": 69,
-        "height": 61,
-        "angle": 2.690922883945859,
-        "originX": 0.2608695652173913,
-        "originY": 0.14754098360655737,
-        "visible": true,
-        "texture": "hero-frontUpper",
-        "order": 11
-      },
-      "torso": {
-        "x": 465,
-        "y": 432,
-        "width": 612,
-        "height": 269,
-        "angle": 0,
-        "originX": 0.3284313725490196,
-        "originY": 0.966542750929368,
-        "visible": true,
-        "texture": "hero-torso",
-        "order": 12
-      },
-      "rearFore": {
-        "x": 330,
-        "y": 378,
-        "width": 77,
-        "height": 58,
-        "angle": 0,
-        "originX": 0.2987012987012987,
-        "originY": 0.3448275862068966,
-        "visible": true,
-        "texture": "hero-rearFore",
-        "order": 13
-      },
-      "frontFore": {
-        "x": 577.4546532726584,
-        "y": 391.795694226113,
-        "width": 69,
-        "height": 61,
-        "angle": -2.0179077332901443,
-        "originX": 0.17391304347826086,
-        "originY": 0.7049180327868853,
-        "visible": true,
-        "texture": "hero-frontFore",
-        "order": 14
-      }
-    },
-    "heroWeapon": {
-      "visible": true,
-      "texture": "guardYari",
-      "width": 763.8829540176498,
-      "height": 218.151416627961,
-      "x": 394,
-      "y": 403,
-      "angle": -11.075307333762794,
-      "originX": 0.23979715925673703,
-      "originY": 0.4627831715210356,
-      "pose": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      },
-      "hands": [
-        {
-          "visible": true,
-          "x": 378,
-          "y": 399,
-          "frame": "__BASE",
-          "texture": "hero-rearHand",
-          "width": 48,
-          "height": 55,
-          "angle": 0,
-          "originX": 0.3125,
-          "originY": 0.41818181818181815,
-          "order": 16
-        },
-        {
-          "visible": true,
-          "x": 614.5860038639939,
-          "y": 366.4725269032182,
-          "frame": "__BASE",
-          "texture": "hero-frontHand",
-          "width": 43,
-          "height": 51,
-          "angle": 0,
-          "originX": 0.16279069767441862,
-          "originY": 0.7058823529411765,
-          "order": 17
-        }
-      ],
-      "order": 15,
-      "bodyOrder": 9
-    },
-    "phase": "idle",
-    "frame": 7,
-    "hp": 0,
-    "enemy": {
-      "pose": 9,
-      "phase": "fallen",
-      "alpha": 1
-    },
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 820,
-        "y": 490
-      },
-      "elbow": {
-        "x": 858.4148279380958,
-        "y": 496.7306013465735
-      }
-    },
-    "weapon": {
-      "held": false,
-      "landed": true,
-      "x": 850.096447713431,
-      "y": 560.2,
-      "angle": 0,
-      "width": 246,
-      "height": 30.599999999999998,
-      "originX": 0.7975609756097561,
-      "originY": 0.5490196078431373,
-      "alpha": 1,
-      "visible": true
-    },
-    "hand": {
-      "x": 850.3389166666667,
-      "y": 541,
-      "angle": 10.338581359415684,
-      "visible": true,
-      "state": "open",
-      "texture": "enemy-open"
-    },
-    "arm": {
-      "shoulder": {
-        "x": 326,
-        "y": 550
-      },
-      "elbow": {
-        "x": 390.02471323015965,
-        "y": 561.2176689109558
-      },
-      "wrist": {
-        "x": 376.5648611111111,
-        "y": 635
-      },
-      "upperAngle": -80.06216810477265,
-      "foreAngle": 10.338581359415755,
-      "handState": "open",
-      "handAngle": 10.338581359415755,
+      "handAngle": 9.859132530819224,
       "alpha": 1
     }
   },
   {
     "sample": 51,
-    "time": 1792117227036,
+    "time": 1792118741166,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -27254,8 +27254,8 @@
         "y": 490
       },
       "elbow": {
-        "x": 858.4040735019005,
-        "y": 496.7916962874252
+        "x": 858.4070370750587,
+        "y": 496.77491720355806
       }
     },
     "weapon": {
@@ -27272,9 +27272,9 @@
       "visible": true
     },
     "hand": {
-      "x": 850.0001528182702,
+      "x": 850.0918671039844,
       "y": 541,
-      "angle": 10.763399553377212,
+      "angle": 10.648396843387673,
       "visible": true,
       "state": "open",
       "texture": "enemy-open"
@@ -27285,23 +27285,23 @@
         "y": 550
       },
       "elbow": {
-        "x": 390.0067891698341,
-        "y": 561.3194938123754
+        "x": 390.01172845843115,
+        "y": 561.2915286725968
       },
       "wrist": {
-        "x": 376.00025469711693,
+        "x": 376.1531118399741,
         "y": 635
       },
-      "upperAngle": -79.9710321614892,
-      "foreAngle": 10.763399553377212,
+      "upperAngle": -79.9960642347706,
+      "foreAngle": 10.648396843387715,
       "handState": "open",
-      "handAngle": 10.763399553377212,
+      "handAngle": 10.648396843387715,
       "alpha": 1
     }
   },
   {
     "sample": 52,
-    "time": 1792117227069,
+    "time": 1792118741199,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -27826,7 +27826,7 @@
   },
   {
     "sample": 53,
-    "time": 1792117227103,
+    "time": 1792118741233,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -28351,7 +28351,7 @@
   },
   {
     "sample": 54,
-    "time": 1792117227136,
+    "time": 1792118741266,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -28876,7 +28876,7 @@
   },
   {
     "sample": 55,
-    "time": 1792117227169,
+    "time": 1792118741299,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -29401,7 +29401,7 @@
   },
   {
     "sample": 56,
-    "time": 1792117227203,
+    "time": 1792118741333,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -29926,7 +29926,7 @@
   },
   {
     "sample": 57,
-    "time": 1792117227236,
+    "time": 1792118741366,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -30451,7 +30451,7 @@
   },
   {
     "sample": 58,
-    "time": 1792117227269,
+    "time": 1792118741399,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -30976,7 +30976,7 @@
   },
   {
     "sample": 59,
-    "time": 1792117227303,
+    "time": 1792118741433,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -31501,7 +31501,7 @@
   },
   {
     "sample": 60,
-    "time": 1792117227336,
+    "time": 1792118741466,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -32026,7 +32026,532 @@
   },
   {
     "sample": 61,
-    "time": 1792117227369,
+    "time": 1792118741499,
+    "heroArt": {
+      "action": "idle",
+      "frame": 0,
+      "transforms": {
+        "lower": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "torso": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "rearThigh": {
+          "point": [
+            395,
+            375
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "rearShin": {
+          "point": [
+            300,
+            438.00000000000006
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "rearFoot": {
+          "point": [
+            242,
+            505
+          ],
+          "angle": 0
+        },
+        "frontThigh": {
+          "point": [
+            475,
+            378
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "frontShin": {
+          "point": [
+            552,
+            429.99999999999994
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "frontFoot": {
+          "point": [
+            600,
+            490
+          ],
+          "angle": 0
+        },
+        "rearUpper": {
+          "point": [
+            325,
+            255
+          ],
+          "angle": 0
+        },
+        "rearFore": {
+          "point": [
+            295,
+            288
+          ],
+          "angle": 0
+        },
+        "rearHand": {
+          "point": [
+            343,
+            309
+          ],
+          "angle": 0
+        },
+        "frontUpper": {
+          "point": [
+            505,
+            268
+          ],
+          "angle": 2.6909228839458432
+        },
+        "frontFore": {
+          "point": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "angle": -2.0179077332901145
+        },
+        "frontHand": {
+          "point": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "angle": 0
+        }
+      },
+      "arms": {
+        "rear": {
+          "shoulder": [
+            325,
+            255
+          ],
+          "elbow": [
+            295,
+            288
+          ],
+          "wrist": [
+            343,
+            309
+          ],
+          "upper": 44.59820624195551,
+          "fore": 52.39274758971894,
+          "upperAngle": 0,
+          "foreAngle": 0,
+          "grip": [
+            359,
+            313
+          ],
+          "handAngle": 0,
+          "wristDeflection": -9.59313426273034
+        },
+        "front": {
+          "shoulder": [
+            505,
+            268
+          ],
+          "elbow": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "wrist": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "upper": 50.44799302251775,
+          "fore": 44.94441010848846,
+          "upperAngle": 2.6909228839458432,
+          "foreAngle": -2.0179077332901145,
+          "grip": [
+            591.5860038639939,
+            267.4725269032182
+          ],
+          "handAngle": 0,
+          "wristDeflection": -2.576345597976276
+        }
+      },
+      "legs": {
+        "rear": {
+          "hip": [
+            395,
+            375
+          ],
+          "knee": [
+            300,
+            438.00000000000006
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            475,
+            378
+          ],
+          "knee": [
+            552,
+            429.99999999999994
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      },
+      "root": [
+        0,
+        0
+      ],
+      "weapon": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      }
+    },
+    "heroParts": {
+      "rearFoot": {
+        "x": 277,
+        "y": 595,
+        "width": 69,
+        "height": 70,
+        "angle": 0,
+        "originX": 0.6376811594202898,
+        "originY": 0.15714285714285714,
+        "visible": true,
+        "texture": "hero-rearFoot",
+        "order": 3
+      },
+      "frontFoot": {
+        "x": 635,
+        "y": 580,
+        "width": 115,
+        "height": 69,
+        "angle": 0,
+        "originX": 0.3217391304347826,
+        "originY": 0.3188405797101449,
+        "visible": true,
+        "texture": "hero-frontFoot",
+        "order": 4
+      },
+      "rearShin": {
+        "x": 335,
+        "y": 528,
+        "width": 100,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.82,
+        "originY": 0.18627450980392157,
+        "visible": true,
+        "texture": "hero-rearShin",
+        "order": 5
+      },
+      "frontShin": {
+        "x": 587,
+        "y": 520,
+        "width": 97,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.27835051546391754,
+        "originY": 0.17647058823529413,
+        "visible": true,
+        "texture": "hero-frontShin",
+        "order": 6
+      },
+      "rearThigh": {
+        "x": 430,
+        "y": 465,
+        "width": 157,
+        "height": 125,
+        "angle": 0,
+        "originX": 0.8280254777070064,
+        "originY": 0.144,
+        "visible": true,
+        "texture": "hero-rearThigh",
+        "order": 7
+      },
+      "frontThigh": {
+        "x": 510,
+        "y": 468,
+        "width": 118,
+        "height": 113,
+        "angle": 0,
+        "originX": 0.05084745762711865,
+        "originY": 0.17699115044247787,
+        "visible": true,
+        "texture": "hero-frontThigh",
+        "order": 8
+      },
+      "lower": {
+        "x": 465,
+        "y": 432,
+        "width": 305,
+        "height": 170,
+        "angle": 0,
+        "originX": 0.5606557377049181,
+        "originY": 0.07058823529411765,
+        "visible": true,
+        "texture": "hero-lower",
+        "order": 9
+      },
+      "rearUpper": {
+        "x": 360,
+        "y": 345,
+        "width": 86,
+        "height": 74,
+        "angle": 0,
+        "originX": 0.6395348837209303,
+        "originY": 0.25675675675675674,
+        "visible": true,
+        "texture": "hero-rearUpper",
+        "order": 10
+      },
+      "frontUpper": {
+        "x": 540,
+        "y": 358,
+        "width": 69,
+        "height": 61,
+        "angle": 2.690922883945859,
+        "originX": 0.2608695652173913,
+        "originY": 0.14754098360655737,
+        "visible": true,
+        "texture": "hero-frontUpper",
+        "order": 11
+      },
+      "torso": {
+        "x": 465,
+        "y": 432,
+        "width": 612,
+        "height": 269,
+        "angle": 0,
+        "originX": 0.3284313725490196,
+        "originY": 0.966542750929368,
+        "visible": true,
+        "texture": "hero-torso",
+        "order": 12
+      },
+      "rearFore": {
+        "x": 330,
+        "y": 378,
+        "width": 77,
+        "height": 58,
+        "angle": 0,
+        "originX": 0.2987012987012987,
+        "originY": 0.3448275862068966,
+        "visible": true,
+        "texture": "hero-rearFore",
+        "order": 13
+      },
+      "frontFore": {
+        "x": 577.4546532726584,
+        "y": 391.795694226113,
+        "width": 69,
+        "height": 61,
+        "angle": -2.0179077332901443,
+        "originX": 0.17391304347826086,
+        "originY": 0.7049180327868853,
+        "visible": true,
+        "texture": "hero-frontFore",
+        "order": 14
+      }
+    },
+    "heroWeapon": {
+      "visible": true,
+      "texture": "guardYari",
+      "width": 763.8829540176498,
+      "height": 218.151416627961,
+      "x": 394,
+      "y": 403,
+      "angle": -11.075307333762794,
+      "originX": 0.23979715925673703,
+      "originY": 0.4627831715210356,
+      "pose": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      },
+      "hands": [
+        {
+          "visible": true,
+          "x": 378,
+          "y": 399,
+          "frame": "__BASE",
+          "texture": "hero-rearHand",
+          "width": 48,
+          "height": 55,
+          "angle": 0,
+          "originX": 0.3125,
+          "originY": 0.41818181818181815,
+          "order": 16
+        },
+        {
+          "visible": true,
+          "x": 614.5860038639939,
+          "y": 366.4725269032182,
+          "frame": "__BASE",
+          "texture": "hero-frontHand",
+          "width": 43,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.16279069767441862,
+          "originY": 0.7058823529411765,
+          "order": 17
+        }
+      ],
+      "order": 15,
+      "bodyOrder": 9
+    },
+    "phase": "idle",
+    "frame": 17,
+    "hp": 0,
+    "enemy": {
+      "pose": 9,
+      "phase": "dissolve",
+      "alpha": 0.5438095238095235
+    },
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 820,
+        "y": 490
+      },
+      "elbow": {
+        "x": 858.4040685314155,
+        "y": 496.79172439328505
+      }
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 850.096447713431,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "height": 30.599999999999998,
+      "originX": 0.7975609756097561,
+      "originY": 0.5490196078431373,
+      "alpha": 0.5438095238095235,
+      "visible": true
+    },
+    "hand": {
+      "x": 850,
+      "y": 541,
+      "angle": 10.763591170247423,
+      "visible": true,
+      "state": "open",
+      "texture": "enemy-open"
+    },
+    "arm": {
+      "shoulder": {
+        "x": 326,
+        "y": 550
+      },
+      "elbow": {
+        "x": 390.0067808856925,
+        "y": 561.3195406554751
+      },
+      "wrist": {
+        "x": 376,
+        "y": 635
+      },
+      "upperAngle": -79.97099022981105,
+      "foreAngle": 10.763591170247395,
+      "handState": "open",
+      "handAngle": 10.763591170247395,
+      "alpha": 0.5438095238095235
+    }
+  },
+  {
+    "sample": 62,
+    "time": 1792118741533,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -32490,7 +33015,7 @@
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.5209523809523807
+      "alpha": 0.4980952380952379
     },
     "body": {
       "x": 970,
@@ -32518,7 +33043,7 @@
       "height": 30.599999999999998,
       "originX": 0.7975609756097561,
       "originY": 0.5490196078431373,
-      "alpha": 0.5209523809523807,
+      "alpha": 0.4980952380952379,
       "visible": true
     },
     "hand": {
@@ -32546,537 +33071,12 @@
       "foreAngle": 10.763591170247395,
       "handState": "open",
       "handAngle": 10.763591170247395,
-      "alpha": 0.5209523809523807
-    }
-  },
-  {
-    "sample": 62,
-    "time": 1792117227403,
-    "heroArt": {
-      "action": "idle",
-      "frame": 0,
-      "transforms": {
-        "lower": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "torso": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "rearThigh": {
-          "point": [
-            395,
-            375
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "rearShin": {
-          "point": [
-            300,
-            438.00000000000006
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "rearFoot": {
-          "point": [
-            242,
-            505
-          ],
-          "angle": 0
-        },
-        "frontThigh": {
-          "point": [
-            475,
-            378
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "frontShin": {
-          "point": [
-            552,
-            429.99999999999994
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "frontFoot": {
-          "point": [
-            600,
-            490
-          ],
-          "angle": 0
-        },
-        "rearUpper": {
-          "point": [
-            325,
-            255
-          ],
-          "angle": 0
-        },
-        "rearFore": {
-          "point": [
-            295,
-            288
-          ],
-          "angle": 0
-        },
-        "rearHand": {
-          "point": [
-            343,
-            309
-          ],
-          "angle": 0
-        },
-        "frontUpper": {
-          "point": [
-            505,
-            268
-          ],
-          "angle": 2.6909228839458432
-        },
-        "frontFore": {
-          "point": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "angle": -2.0179077332901145
-        },
-        "frontHand": {
-          "point": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "angle": 0
-        }
-      },
-      "arms": {
-        "rear": {
-          "shoulder": [
-            325,
-            255
-          ],
-          "elbow": [
-            295,
-            288
-          ],
-          "wrist": [
-            343,
-            309
-          ],
-          "upper": 44.59820624195551,
-          "fore": 52.39274758971894,
-          "upperAngle": 0,
-          "foreAngle": 0,
-          "grip": [
-            359,
-            313
-          ],
-          "handAngle": 0,
-          "wristDeflection": -9.59313426273034
-        },
-        "front": {
-          "shoulder": [
-            505,
-            268
-          ],
-          "elbow": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "wrist": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "upper": 50.44799302251775,
-          "fore": 44.94441010848846,
-          "upperAngle": 2.6909228839458432,
-          "foreAngle": -2.0179077332901145,
-          "grip": [
-            591.5860038639939,
-            267.4725269032182
-          ],
-          "handAngle": 0,
-          "wristDeflection": -2.576345597976276
-        }
-      },
-      "legs": {
-        "rear": {
-          "hip": [
-            395,
-            375
-          ],
-          "knee": [
-            300,
-            438.00000000000006
-          ],
-          "ankle": [
-            242,
-            505
-          ],
-          "thigh": 113.99122773266372,
-          "shin": 88.6171540955813
-        },
-        "front": {
-          "hip": [
-            475,
-            378
-          ],
-          "knee": [
-            552,
-            429.99999999999994
-          ],
-          "ankle": [
-            600,
-            490
-          ],
-          "thigh": 92.91393867445294,
-          "shin": 76.83749084919418
-        }
-      },
-      "root": [
-        0,
-        0
-      ],
-      "weapon": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      }
-    },
-    "heroParts": {
-      "rearFoot": {
-        "x": 277,
-        "y": 595,
-        "width": 69,
-        "height": 70,
-        "angle": 0,
-        "originX": 0.6376811594202898,
-        "originY": 0.15714285714285714,
-        "visible": true,
-        "texture": "hero-rearFoot",
-        "order": 3
-      },
-      "frontFoot": {
-        "x": 635,
-        "y": 580,
-        "width": 115,
-        "height": 69,
-        "angle": 0,
-        "originX": 0.3217391304347826,
-        "originY": 0.3188405797101449,
-        "visible": true,
-        "texture": "hero-frontFoot",
-        "order": 4
-      },
-      "rearShin": {
-        "x": 335,
-        "y": 528,
-        "width": 100,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.82,
-        "originY": 0.18627450980392157,
-        "visible": true,
-        "texture": "hero-rearShin",
-        "order": 5
-      },
-      "frontShin": {
-        "x": 587,
-        "y": 520,
-        "width": 97,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.27835051546391754,
-        "originY": 0.17647058823529413,
-        "visible": true,
-        "texture": "hero-frontShin",
-        "order": 6
-      },
-      "rearThigh": {
-        "x": 430,
-        "y": 465,
-        "width": 157,
-        "height": 125,
-        "angle": 0,
-        "originX": 0.8280254777070064,
-        "originY": 0.144,
-        "visible": true,
-        "texture": "hero-rearThigh",
-        "order": 7
-      },
-      "frontThigh": {
-        "x": 510,
-        "y": 468,
-        "width": 118,
-        "height": 113,
-        "angle": 0,
-        "originX": 0.05084745762711865,
-        "originY": 0.17699115044247787,
-        "visible": true,
-        "texture": "hero-frontThigh",
-        "order": 8
-      },
-      "lower": {
-        "x": 465,
-        "y": 432,
-        "width": 305,
-        "height": 170,
-        "angle": 0,
-        "originX": 0.5606557377049181,
-        "originY": 0.07058823529411765,
-        "visible": true,
-        "texture": "hero-lower",
-        "order": 9
-      },
-      "rearUpper": {
-        "x": 360,
-        "y": 345,
-        "width": 86,
-        "height": 74,
-        "angle": 0,
-        "originX": 0.6395348837209303,
-        "originY": 0.25675675675675674,
-        "visible": true,
-        "texture": "hero-rearUpper",
-        "order": 10
-      },
-      "frontUpper": {
-        "x": 540,
-        "y": 358,
-        "width": 69,
-        "height": 61,
-        "angle": 2.690922883945859,
-        "originX": 0.2608695652173913,
-        "originY": 0.14754098360655737,
-        "visible": true,
-        "texture": "hero-frontUpper",
-        "order": 11
-      },
-      "torso": {
-        "x": 465,
-        "y": 432,
-        "width": 612,
-        "height": 269,
-        "angle": 0,
-        "originX": 0.3284313725490196,
-        "originY": 0.966542750929368,
-        "visible": true,
-        "texture": "hero-torso",
-        "order": 12
-      },
-      "rearFore": {
-        "x": 330,
-        "y": 378,
-        "width": 77,
-        "height": 58,
-        "angle": 0,
-        "originX": 0.2987012987012987,
-        "originY": 0.3448275862068966,
-        "visible": true,
-        "texture": "hero-rearFore",
-        "order": 13
-      },
-      "frontFore": {
-        "x": 577.4546532726584,
-        "y": 391.795694226113,
-        "width": 69,
-        "height": 61,
-        "angle": -2.0179077332901443,
-        "originX": 0.17391304347826086,
-        "originY": 0.7049180327868853,
-        "visible": true,
-        "texture": "hero-frontFore",
-        "order": 14
-      }
-    },
-    "heroWeapon": {
-      "visible": true,
-      "texture": "guardYari",
-      "width": 763.8829540176498,
-      "height": 218.151416627961,
-      "x": 394,
-      "y": 403,
-      "angle": -11.075307333762794,
-      "originX": 0.23979715925673703,
-      "originY": 0.4627831715210356,
-      "pose": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      },
-      "hands": [
-        {
-          "visible": true,
-          "x": 378,
-          "y": 399,
-          "frame": "__BASE",
-          "texture": "hero-rearHand",
-          "width": 48,
-          "height": 55,
-          "angle": 0,
-          "originX": 0.3125,
-          "originY": 0.41818181818181815,
-          "order": 16
-        },
-        {
-          "visible": true,
-          "x": 614.5860038639939,
-          "y": 366.4725269032182,
-          "frame": "__BASE",
-          "texture": "hero-frontHand",
-          "width": 43,
-          "height": 51,
-          "angle": 0,
-          "originX": 0.16279069767441862,
-          "originY": 0.7058823529411765,
-          "order": 17
-        }
-      ],
-      "order": 15,
-      "bodyOrder": 9
-    },
-    "phase": "idle",
-    "frame": 19,
-    "hp": 0,
-    "enemy": {
-      "pose": 9,
-      "phase": "dissolve",
-      "alpha": 0.475238095238095
-    },
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 820,
-        "y": 490
-      },
-      "elbow": {
-        "x": 858.4040685314155,
-        "y": 496.79172439328505
-      }
-    },
-    "weapon": {
-      "held": false,
-      "landed": true,
-      "x": 850.096447713431,
-      "y": 560.2,
-      "angle": 0,
-      "width": 246,
-      "height": 30.599999999999998,
-      "originX": 0.7975609756097561,
-      "originY": 0.5490196078431373,
-      "alpha": 0.475238095238095,
-      "visible": true
-    },
-    "hand": {
-      "x": 850,
-      "y": 541,
-      "angle": 10.763591170247423,
-      "visible": true,
-      "state": "open",
-      "texture": "enemy-open"
-    },
-    "arm": {
-      "shoulder": {
-        "x": 326,
-        "y": 550
-      },
-      "elbow": {
-        "x": 390.0067808856925,
-        "y": 561.3195406554751
-      },
-      "wrist": {
-        "x": 376,
-        "y": 635
-      },
-      "upperAngle": -79.97099022981105,
-      "foreAngle": 10.763591170247395,
-      "handState": "open",
-      "handAngle": 10.763591170247395,
-      "alpha": 0.475238095238095
+      "alpha": 0.4980952380952379
     }
   },
   {
     "sample": 63,
-    "time": 1792117227436,
+    "time": 1792118741566,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -33540,7 +33540,7 @@
     "enemy": {
       "pose": 9,
       "phase": "dissolve",
-      "alpha": 0.4295238095238093
+      "alpha": 0.4523809523809522
     },
     "body": {
       "x": 970,
@@ -33568,7 +33568,7 @@
       "height": 30.599999999999998,
       "originX": 0.7975609756097561,
       "originY": 0.5490196078431373,
-      "alpha": 0.4295238095238093,
+      "alpha": 0.4523809523809522,
       "visible": true
     },
     "hand": {
@@ -33596,12 +33596,12 @@
       "foreAngle": 10.763591170247395,
       "handState": "open",
       "handAngle": 10.763591170247395,
-      "alpha": 0.4295238095238093
+      "alpha": 0.4523809523809522
     }
   },
   {
     "sample": 64,
-    "time": 1792117227469,
+    "time": 1792118741599,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -34126,7 +34126,7 @@
   },
   {
     "sample": 65,
-    "time": 1792117227503,
+    "time": 1792118741633,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -34651,7 +34651,7 @@
   },
   {
     "sample": 66,
-    "time": 1792117227536,
+    "time": 1792118741666,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -35176,7 +35176,7 @@
   },
   {
     "sample": 67,
-    "time": 1792117227569,
+    "time": 1792118741699,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -35701,7 +35701,7 @@
   },
   {
     "sample": 68,
-    "time": 1792117227603,
+    "time": 1792118741733,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -36226,7 +36226,7 @@
   },
   {
     "sample": 69,
-    "time": 1792117227636,
+    "time": 1792118741766,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -36751,7 +36751,7 @@
   },
   {
     "sample": 70,
-    "time": 1792117227669,
+    "time": 1792118741799,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -37276,7 +37276,7 @@
   },
   {
     "sample": 71,
-    "time": 1792117227703,
+    "time": 1792118741833,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -37801,7 +37801,7 @@
   },
   {
     "sample": 72,
-    "time": 1792117227736,
+    "time": 1792118741866,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -38326,7 +38326,532 @@
   },
   {
     "sample": 73,
-    "time": 1792117227769,
+    "time": 1792118741899,
+    "heroArt": {
+      "action": "idle",
+      "frame": 0,
+      "transforms": {
+        "lower": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "torso": {
+          "point": [
+            430,
+            342
+          ],
+          "angle": 0
+        },
+        "rearThigh": {
+          "point": [
+            395,
+            375
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "rearShin": {
+          "point": [
+            300,
+            438.00000000000006
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "rearFoot": {
+          "point": [
+            242,
+            505
+          ],
+          "angle": 0
+        },
+        "frontThigh": {
+          "point": [
+            475,
+            378
+          ],
+          "angle": -2.5444437451708134e-14
+        },
+        "frontShin": {
+          "point": [
+            552,
+            429.99999999999994
+          ],
+          "angle": 2.5444437451708134e-14
+        },
+        "frontFoot": {
+          "point": [
+            600,
+            490
+          ],
+          "angle": 0
+        },
+        "rearUpper": {
+          "point": [
+            325,
+            255
+          ],
+          "angle": 0
+        },
+        "rearFore": {
+          "point": [
+            295,
+            288
+          ],
+          "angle": 0
+        },
+        "rearHand": {
+          "point": [
+            343,
+            309
+          ],
+          "angle": 0
+        },
+        "frontUpper": {
+          "point": [
+            505,
+            268
+          ],
+          "angle": 2.6909228839458432
+        },
+        "frontFore": {
+          "point": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "angle": -2.0179077332901145
+        },
+        "frontHand": {
+          "point": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "angle": 0
+        }
+      },
+      "arms": {
+        "rear": {
+          "shoulder": [
+            325,
+            255
+          ],
+          "elbow": [
+            295,
+            288
+          ],
+          "wrist": [
+            343,
+            309
+          ],
+          "upper": 44.59820624195551,
+          "fore": 52.39274758971894,
+          "upperAngle": 0,
+          "foreAngle": 0,
+          "grip": [
+            359,
+            313
+          ],
+          "handAngle": 0,
+          "wristDeflection": -9.59313426273034
+        },
+        "front": {
+          "shoulder": [
+            505,
+            268
+          ],
+          "elbow": [
+            542.4546532726584,
+            301.795694226113
+          ],
+          "wrist": [
+            579.5860038639939,
+            276.4725269032182
+          ],
+          "upper": 50.44799302251775,
+          "fore": 44.94441010848846,
+          "upperAngle": 2.6909228839458432,
+          "foreAngle": -2.0179077332901145,
+          "grip": [
+            591.5860038639939,
+            267.4725269032182
+          ],
+          "handAngle": 0,
+          "wristDeflection": -2.576345597976276
+        }
+      },
+      "legs": {
+        "rear": {
+          "hip": [
+            395,
+            375
+          ],
+          "knee": [
+            300,
+            438.00000000000006
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            475,
+            378
+          ],
+          "knee": [
+            552,
+            429.99999999999994
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      },
+      "root": [
+        0,
+        0
+      ],
+      "weapon": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      }
+    },
+    "heroParts": {
+      "rearFoot": {
+        "x": 277,
+        "y": 595,
+        "width": 69,
+        "height": 70,
+        "angle": 0,
+        "originX": 0.6376811594202898,
+        "originY": 0.15714285714285714,
+        "visible": true,
+        "texture": "hero-rearFoot",
+        "order": 3
+      },
+      "frontFoot": {
+        "x": 635,
+        "y": 580,
+        "width": 115,
+        "height": 69,
+        "angle": 0,
+        "originX": 0.3217391304347826,
+        "originY": 0.3188405797101449,
+        "visible": true,
+        "texture": "hero-frontFoot",
+        "order": 4
+      },
+      "rearShin": {
+        "x": 335,
+        "y": 528,
+        "width": 100,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.82,
+        "originY": 0.18627450980392157,
+        "visible": true,
+        "texture": "hero-rearShin",
+        "order": 5
+      },
+      "frontShin": {
+        "x": 587,
+        "y": 520,
+        "width": 97,
+        "height": 102,
+        "angle": 0,
+        "originX": 0.27835051546391754,
+        "originY": 0.17647058823529413,
+        "visible": true,
+        "texture": "hero-frontShin",
+        "order": 6
+      },
+      "rearThigh": {
+        "x": 430,
+        "y": 465,
+        "width": 157,
+        "height": 125,
+        "angle": 0,
+        "originX": 0.8280254777070064,
+        "originY": 0.144,
+        "visible": true,
+        "texture": "hero-rearThigh",
+        "order": 7
+      },
+      "frontThigh": {
+        "x": 510,
+        "y": 468,
+        "width": 118,
+        "height": 113,
+        "angle": 0,
+        "originX": 0.05084745762711865,
+        "originY": 0.17699115044247787,
+        "visible": true,
+        "texture": "hero-frontThigh",
+        "order": 8
+      },
+      "lower": {
+        "x": 465,
+        "y": 432,
+        "width": 305,
+        "height": 170,
+        "angle": 0,
+        "originX": 0.5606557377049181,
+        "originY": 0.07058823529411765,
+        "visible": true,
+        "texture": "hero-lower",
+        "order": 9
+      },
+      "rearUpper": {
+        "x": 360,
+        "y": 345,
+        "width": 86,
+        "height": 74,
+        "angle": 0,
+        "originX": 0.6395348837209303,
+        "originY": 0.25675675675675674,
+        "visible": true,
+        "texture": "hero-rearUpper",
+        "order": 10
+      },
+      "frontUpper": {
+        "x": 540,
+        "y": 358,
+        "width": 69,
+        "height": 61,
+        "angle": 2.690922883945859,
+        "originX": 0.2608695652173913,
+        "originY": 0.14754098360655737,
+        "visible": true,
+        "texture": "hero-frontUpper",
+        "order": 11
+      },
+      "torso": {
+        "x": 465,
+        "y": 432,
+        "width": 612,
+        "height": 269,
+        "angle": 0,
+        "originX": 0.3284313725490196,
+        "originY": 0.966542750929368,
+        "visible": true,
+        "texture": "hero-torso",
+        "order": 12
+      },
+      "rearFore": {
+        "x": 330,
+        "y": 378,
+        "width": 77,
+        "height": 58,
+        "angle": 0,
+        "originX": 0.2987012987012987,
+        "originY": 0.3448275862068966,
+        "visible": true,
+        "texture": "hero-rearFore",
+        "order": 13
+      },
+      "frontFore": {
+        "x": 577.4546532726584,
+        "y": 391.795694226113,
+        "width": 69,
+        "height": 61,
+        "angle": -2.0179077332901443,
+        "originX": 0.17391304347826086,
+        "originY": 0.7049180327868853,
+        "visible": true,
+        "texture": "hero-frontFore",
+        "order": 14
+      }
+    },
+    "heroWeapon": {
+      "visible": true,
+      "texture": "guardYari",
+      "width": 763.8829540176498,
+      "height": 218.151416627961,
+      "x": 394,
+      "y": 403,
+      "angle": -11.075307333762794,
+      "originX": 0.23979715925673703,
+      "originY": 0.4627831715210356,
+      "pose": {
+        "pose": 0,
+        "palms": [
+          {
+            "x": 394,
+            "y": 403
+          },
+          {
+            "x": 626.5860038639939,
+            "y": 357.4725269032182
+          }
+        ],
+        "rear": {
+          "x": 394,
+          "y": 403
+        },
+        "front": {
+          "x": 626.5860038639939,
+          "y": 357.4725269032182
+        },
+        "butt": {
+          "x": 217.3524021286122,
+          "y": 437.5778276684419
+        },
+        "tip": {
+          "x": 963.1978153633606,
+          "y": 291.5825552905761
+        },
+        "contact": {
+          "x": 698.226418556279,
+          "y": 343.44929679323894
+        },
+        "angle": -11.075307333762733,
+        "width": 763.8829540176498,
+        "height": 218.151416627961,
+        "originX": 0.23979715925673703,
+        "originY": 0.4627831715210356,
+        "registrationError": 0
+      },
+      "hands": [
+        {
+          "visible": true,
+          "x": 378,
+          "y": 399,
+          "frame": "__BASE",
+          "texture": "hero-rearHand",
+          "width": 48,
+          "height": 55,
+          "angle": 0,
+          "originX": 0.3125,
+          "originY": 0.41818181818181815,
+          "order": 16
+        },
+        {
+          "visible": true,
+          "x": 614.5860038639939,
+          "y": 366.4725269032182,
+          "frame": "__BASE",
+          "texture": "hero-frontHand",
+          "width": 43,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.16279069767441862,
+          "originY": 0.7058823529411765,
+          "order": 17
+        }
+      ],
+      "order": 15,
+      "bodyOrder": 9
+    },
+    "phase": "idle",
+    "frame": 29,
+    "hp": 0,
+    "enemy": {
+      "pose": 9,
+      "phase": "gone",
+      "alpha": 0
+    },
+    "body": {
+      "x": 970,
+      "y": 574,
+      "width": 691.1999999999999,
+      "height": 460.79999999999995
+    },
+    "renderedArm": {
+      "shoulder": {
+        "x": 820,
+        "y": 490
+      },
+      "elbow": {
+        "x": 858.4040685314155,
+        "y": 496.79172439328505
+      }
+    },
+    "weapon": {
+      "held": false,
+      "landed": true,
+      "x": 850.096447713431,
+      "y": 560.2,
+      "angle": 0,
+      "width": 246,
+      "height": 30.599999999999998,
+      "originX": 0.7975609756097561,
+      "originY": 0.5490196078431373,
+      "alpha": 0,
+      "visible": true
+    },
+    "hand": {
+      "x": 850,
+      "y": 541,
+      "angle": 10.763591170247423,
+      "visible": true,
+      "state": "open",
+      "texture": "enemy-open"
+    },
+    "arm": {
+      "shoulder": {
+        "x": 326,
+        "y": 550
+      },
+      "elbow": {
+        "x": 390.0067808856925,
+        "y": 561.3195406554751
+      },
+      "wrist": {
+        "x": 376,
+        "y": 635
+      },
+      "upperAngle": -79.97099022981105,
+      "foreAngle": 10.763591170247395,
+      "handState": "open",
+      "handAngle": 10.763591170247395,
+      "alpha": 0
+    }
+  },
+  {
+    "sample": 74,
+    "time": 1792118741933,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -38850,533 +39375,8 @@
     }
   },
   {
-    "sample": 74,
-    "time": 1792117227803,
-    "heroArt": {
-      "action": "idle",
-      "frame": 0,
-      "transforms": {
-        "lower": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "torso": {
-          "point": [
-            430,
-            342
-          ],
-          "angle": 0
-        },
-        "rearThigh": {
-          "point": [
-            395,
-            375
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "rearShin": {
-          "point": [
-            300,
-            438.00000000000006
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "rearFoot": {
-          "point": [
-            242,
-            505
-          ],
-          "angle": 0
-        },
-        "frontThigh": {
-          "point": [
-            475,
-            378
-          ],
-          "angle": -2.5444437451708134e-14
-        },
-        "frontShin": {
-          "point": [
-            552,
-            429.99999999999994
-          ],
-          "angle": 2.5444437451708134e-14
-        },
-        "frontFoot": {
-          "point": [
-            600,
-            490
-          ],
-          "angle": 0
-        },
-        "rearUpper": {
-          "point": [
-            325,
-            255
-          ],
-          "angle": 0
-        },
-        "rearFore": {
-          "point": [
-            295,
-            288
-          ],
-          "angle": 0
-        },
-        "rearHand": {
-          "point": [
-            343,
-            309
-          ],
-          "angle": 0
-        },
-        "frontUpper": {
-          "point": [
-            505,
-            268
-          ],
-          "angle": 2.6909228839458432
-        },
-        "frontFore": {
-          "point": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "angle": -2.0179077332901145
-        },
-        "frontHand": {
-          "point": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "angle": 0
-        }
-      },
-      "arms": {
-        "rear": {
-          "shoulder": [
-            325,
-            255
-          ],
-          "elbow": [
-            295,
-            288
-          ],
-          "wrist": [
-            343,
-            309
-          ],
-          "upper": 44.59820624195551,
-          "fore": 52.39274758971894,
-          "upperAngle": 0,
-          "foreAngle": 0,
-          "grip": [
-            359,
-            313
-          ],
-          "handAngle": 0,
-          "wristDeflection": -9.59313426273034
-        },
-        "front": {
-          "shoulder": [
-            505,
-            268
-          ],
-          "elbow": [
-            542.4546532726584,
-            301.795694226113
-          ],
-          "wrist": [
-            579.5860038639939,
-            276.4725269032182
-          ],
-          "upper": 50.44799302251775,
-          "fore": 44.94441010848846,
-          "upperAngle": 2.6909228839458432,
-          "foreAngle": -2.0179077332901145,
-          "grip": [
-            591.5860038639939,
-            267.4725269032182
-          ],
-          "handAngle": 0,
-          "wristDeflection": -2.576345597976276
-        }
-      },
-      "legs": {
-        "rear": {
-          "hip": [
-            395,
-            375
-          ],
-          "knee": [
-            300,
-            438.00000000000006
-          ],
-          "ankle": [
-            242,
-            505
-          ],
-          "thigh": 113.99122773266372,
-          "shin": 88.6171540955813
-        },
-        "front": {
-          "hip": [
-            475,
-            378
-          ],
-          "knee": [
-            552,
-            429.99999999999994
-          ],
-          "ankle": [
-            600,
-            490
-          ],
-          "thigh": 92.91393867445294,
-          "shin": 76.83749084919418
-        }
-      },
-      "root": [
-        0,
-        0
-      ],
-      "weapon": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      }
-    },
-    "heroParts": {
-      "rearFoot": {
-        "x": 277,
-        "y": 595,
-        "width": 69,
-        "height": 70,
-        "angle": 0,
-        "originX": 0.6376811594202898,
-        "originY": 0.15714285714285714,
-        "visible": true,
-        "texture": "hero-rearFoot",
-        "order": 3
-      },
-      "frontFoot": {
-        "x": 635,
-        "y": 580,
-        "width": 115,
-        "height": 69,
-        "angle": 0,
-        "originX": 0.3217391304347826,
-        "originY": 0.3188405797101449,
-        "visible": true,
-        "texture": "hero-frontFoot",
-        "order": 4
-      },
-      "rearShin": {
-        "x": 335,
-        "y": 528,
-        "width": 100,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.82,
-        "originY": 0.18627450980392157,
-        "visible": true,
-        "texture": "hero-rearShin",
-        "order": 5
-      },
-      "frontShin": {
-        "x": 587,
-        "y": 520,
-        "width": 97,
-        "height": 102,
-        "angle": 0,
-        "originX": 0.27835051546391754,
-        "originY": 0.17647058823529413,
-        "visible": true,
-        "texture": "hero-frontShin",
-        "order": 6
-      },
-      "rearThigh": {
-        "x": 430,
-        "y": 465,
-        "width": 157,
-        "height": 125,
-        "angle": 0,
-        "originX": 0.8280254777070064,
-        "originY": 0.144,
-        "visible": true,
-        "texture": "hero-rearThigh",
-        "order": 7
-      },
-      "frontThigh": {
-        "x": 510,
-        "y": 468,
-        "width": 118,
-        "height": 113,
-        "angle": 0,
-        "originX": 0.05084745762711865,
-        "originY": 0.17699115044247787,
-        "visible": true,
-        "texture": "hero-frontThigh",
-        "order": 8
-      },
-      "lower": {
-        "x": 465,
-        "y": 432,
-        "width": 305,
-        "height": 170,
-        "angle": 0,
-        "originX": 0.5606557377049181,
-        "originY": 0.07058823529411765,
-        "visible": true,
-        "texture": "hero-lower",
-        "order": 9
-      },
-      "rearUpper": {
-        "x": 360,
-        "y": 345,
-        "width": 86,
-        "height": 74,
-        "angle": 0,
-        "originX": 0.6395348837209303,
-        "originY": 0.25675675675675674,
-        "visible": true,
-        "texture": "hero-rearUpper",
-        "order": 10
-      },
-      "frontUpper": {
-        "x": 540,
-        "y": 358,
-        "width": 69,
-        "height": 61,
-        "angle": 2.690922883945859,
-        "originX": 0.2608695652173913,
-        "originY": 0.14754098360655737,
-        "visible": true,
-        "texture": "hero-frontUpper",
-        "order": 11
-      },
-      "torso": {
-        "x": 465,
-        "y": 432,
-        "width": 612,
-        "height": 269,
-        "angle": 0,
-        "originX": 0.3284313725490196,
-        "originY": 0.966542750929368,
-        "visible": true,
-        "texture": "hero-torso",
-        "order": 12
-      },
-      "rearFore": {
-        "x": 330,
-        "y": 378,
-        "width": 77,
-        "height": 58,
-        "angle": 0,
-        "originX": 0.2987012987012987,
-        "originY": 0.3448275862068966,
-        "visible": true,
-        "texture": "hero-rearFore",
-        "order": 13
-      },
-      "frontFore": {
-        "x": 577.4546532726584,
-        "y": 391.795694226113,
-        "width": 69,
-        "height": 61,
-        "angle": -2.0179077332901443,
-        "originX": 0.17391304347826086,
-        "originY": 0.7049180327868853,
-        "visible": true,
-        "texture": "hero-frontFore",
-        "order": 14
-      }
-    },
-    "heroWeapon": {
-      "visible": true,
-      "texture": "guardYari",
-      "width": 763.8829540176498,
-      "height": 218.151416627961,
-      "x": 394,
-      "y": 403,
-      "angle": -11.075307333762794,
-      "originX": 0.23979715925673703,
-      "originY": 0.4627831715210356,
-      "pose": {
-        "pose": 0,
-        "palms": [
-          {
-            "x": 394,
-            "y": 403
-          },
-          {
-            "x": 626.5860038639939,
-            "y": 357.4725269032182
-          }
-        ],
-        "rear": {
-          "x": 394,
-          "y": 403
-        },
-        "front": {
-          "x": 626.5860038639939,
-          "y": 357.4725269032182
-        },
-        "butt": {
-          "x": 217.3524021286122,
-          "y": 437.5778276684419
-        },
-        "tip": {
-          "x": 963.1978153633606,
-          "y": 291.5825552905761
-        },
-        "contact": {
-          "x": 698.226418556279,
-          "y": 343.44929679323894
-        },
-        "angle": -11.075307333762733,
-        "width": 763.8829540176498,
-        "height": 218.151416627961,
-        "originX": 0.23979715925673703,
-        "originY": 0.4627831715210356,
-        "registrationError": 0
-      },
-      "hands": [
-        {
-          "visible": true,
-          "x": 378,
-          "y": 399,
-          "frame": "__BASE",
-          "texture": "hero-rearHand",
-          "width": 48,
-          "height": 55,
-          "angle": 0,
-          "originX": 0.3125,
-          "originY": 0.41818181818181815,
-          "order": 16
-        },
-        {
-          "visible": true,
-          "x": 614.5860038639939,
-          "y": 366.4725269032182,
-          "frame": "__BASE",
-          "texture": "hero-frontHand",
-          "width": 43,
-          "height": 51,
-          "angle": 0,
-          "originX": 0.16279069767441862,
-          "originY": 0.7058823529411765,
-          "order": 17
-        }
-      ],
-      "order": 15,
-      "bodyOrder": 9
-    },
-    "phase": "idle",
-    "frame": 31,
-    "hp": 0,
-    "enemy": {
-      "pose": 9,
-      "phase": "gone",
-      "alpha": 0
-    },
-    "body": {
-      "x": 970,
-      "y": 574,
-      "width": 691.1999999999999,
-      "height": 460.79999999999995
-    },
-    "renderedArm": {
-      "shoulder": {
-        "x": 820,
-        "y": 490
-      },
-      "elbow": {
-        "x": 858.4040685314155,
-        "y": 496.79172439328505
-      }
-    },
-    "weapon": {
-      "held": false,
-      "landed": true,
-      "x": 850.096447713431,
-      "y": 560.2,
-      "angle": 0,
-      "width": 246,
-      "height": 30.599999999999998,
-      "originX": 0.7975609756097561,
-      "originY": 0.5490196078431373,
-      "alpha": 0,
-      "visible": true
-    },
-    "hand": {
-      "x": 850,
-      "y": 541,
-      "angle": 10.763591170247423,
-      "visible": true,
-      "state": "open",
-      "texture": "enemy-open"
-    },
-    "arm": {
-      "shoulder": {
-        "x": 326,
-        "y": 550
-      },
-      "elbow": {
-        "x": 390.0067808856925,
-        "y": 561.3195406554751
-      },
-      "wrist": {
-        "x": 376,
-        "y": 635
-      },
-      "upperAngle": -79.97099022981105,
-      "foreAngle": 10.763591170247395,
-      "handState": "open",
-      "handAngle": 10.763591170247395,
-      "alpha": 0
-    }
-  },
-  {
     "sample": 75,
-    "time": 1792117227836,
+    "time": 1792118741966,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -39901,7 +39901,7 @@
   },
   {
     "sample": 76,
-    "time": 1792117227869,
+    "time": 1792118741999,
     "heroArt": {
       "action": "idle",
       "frame": 0,
@@ -40426,7 +40426,7 @@
   },
   {
     "sample": 77,
-    "time": 1792117227903,
+    "time": 1792118742033,
     "heroArt": {
       "action": "idle",
       "frame": 0,

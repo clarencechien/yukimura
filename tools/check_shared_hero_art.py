@@ -25,18 +25,18 @@ for row in rig['legacyBoundaryCells']:
 checks.append('All four desktop/mobile legacy sweep boundary cells preserve visible pixels and alpha')
 budget={}
 for suffix,name in [('-hd','desktop'),('','mobile')]:
- names=[f'hero-{n}{suffix}.webp' for n in rig['layers']]+[f'{n}{suffix}.webp' for n in ['guard-yari','enemy-body-torso','enemy-body-lower','enemy-low','ghost-warrior']]+[f'enemy-{n}.webp' for n in ['upper','fore','relax','open','katana','grip']]
+ names=[f'hero-{n}{suffix}.webp' for n in rig['layers']]+[f'{n}{suffix}.webp' for n in ['guard-yari','enemy-low','ghost-warrior']+['enemy-body-'+n for n in json.loads((OUT/'enemy-body-art.json').read_text())['layers']]]+[f'enemy-{n}.webp' for n in ['upper','fore','relax','open','katana','grip']]
  rows=[]
  for n in names:
   im=Image.open(OUT/n);assert max(im.size)<=4096;rows.append({'path':n,'size':im.size,'rgba8Bytes':im.width*im.height*4,'downloadBytes':(OUT/n).stat().st_size})
  current=sum(r['rgba8Bytes'] for r in rows)
- previous=json.loads(subprocess.check_output(['git','show','8a6cfb0:docs/routes/jigoku-2d/combat/shared-hero-art-check.json'],cwd=ROOT))['memory'][name]['currentRGBA8Bytes']
+ previous=json.loads(subprocess.check_output(['git','show','0891c0d:docs/routes/jigoku-2d/combat/shared-hero-art-check.json'],cwd=ROOT))['memory'][name]['currentRGBA8Bytes']
  budget[name]={'currentRGBA8Bytes':current,'previousRGBA8Bytes':previous,'savedRGBA8Bytes':previous-current,'loadedTextures':rows}
 assert "this.load.spritesheet('enemyDuel'" not in (OUT/'game.mjs').read_text()
 checks.append('All active texture dimensions <=4096; no legacy idle/thrust/sweep/boundary/guard atlases loaded by game.mjs')
 code=(OUT/'game.mjs').read_text();assert '../yari-rigid/' not in code and "this.load.spritesheet('sweep'," not in code and "this.load.spritesheet('sweepBoundary'," not in code
 assert "this.load.spritesheet('guardBody'" not in code and "this.load.spritesheet('guardHands'" not in code
-baseline='8a6cfb0c8fd9e98967edbd26d7ae75a9927b94ab'
+baseline='0891c0d04344f84124d893fdcdd925bbae815d16'
 for row in budget.values():
  for texture in row['loadedTextures']:
   name=OUT/texture['path']
@@ -45,7 +45,7 @@ for row in budget.values():
   before=subprocess.check_output(['git','show',f'{baseline}:{name.relative_to(ROOT)}'],cwd=ROOT)
   assert name.read_bytes()==before,texture['path']
   texture['sha256']=hashlib.sha256(before).hexdigest()
-checks.append('Retained textures are byte-identical to baseline; enemy-duel atlas replaced by two mechanically cropped body parts, verified separately; no new generated art')
+checks.append('Retained textures are byte-identical to baseline; enemy body now uses eight mechanically cropped parts, verified separately; no new generated art')
 report={'baselineCommit':baseline,'passed':True,'checks':checks,'memory':budget,'scope':'RGBA8 character texture estimate only; excludes background, render targets, driver overhead and mipmaps. Not a hardware GPU measurement.'}
 (OUT/'shared-hero-art-check.json').write_text(json.dumps(report,indent=2)+'\n')
 print(checks);print({k:{n:round(v/1048576,3) for n,v in row.items() if n.endswith('Bytes')} for k,row in budget.items()})

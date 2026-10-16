@@ -21,11 +21,12 @@ export class CombatState {
     if(!this.enemyHit)return this.guardEnemy;
     const age=this.enemyAge;
     if(this.lastHitKind==='sweep'){
-      if(age<110)return {pose:12,phase:'leg-flinch',alpha:1,reaction:'sweep'};
-      if(age<(this.hp>0?260:250))return {pose:13,phase:'low-stagger',alpha:1,reaction:'sweep'};
+      const bodyReaction=this.hp>0&&this.enemyReactionFrom?{age,...this.enemyReactionFrom}:null;
+      if(age<110)return {pose:12,phase:'leg-flinch',alpha:1,reaction:'sweep',bodyReaction};
+      if(age<(this.hp>0?260:250))return {pose:13,phase:'low-stagger',alpha:1,reaction:'sweep',bodyReaction};
       if(this.hp>0){
-        if(age<340)return {pose:14,phase:'leg-rise',alpha:1,reaction:'sweep'};
-        if(age<420)return {pose:15,phase:'guard-settle',alpha:1,reaction:'sweep'};
+        if(age<340)return {pose:14,phase:'leg-rise',alpha:1,reaction:'sweep',bodyReaction};
+        if(age<420)return {pose:15,phase:'guard-settle',alpha:1,reaction:'sweep',bodyReaction};
         return this.guardEnemy;
       }
     }
@@ -81,7 +82,7 @@ export class CombatState {
         if(segmentHitsCircle(a,b,this.hurtbox,this.hurtbox.radius)){
           // Save the rule-time pose BEFORE interrupt changes the attack stage.
           // Rendering derives its own chest/arm transforms from this descriptor.
-          this.enemyReactionFrom=this.attackKind==='thrust'&&this.hp>1?{from:this.enemy,fromAge:this.enemyAge}:null;
+          this.enemyReactionFrom=this.hp>1?{from:this.enemy,fromAge:this.enemyAge,kind:this.attackKind}:null;
           this.didHit=true;this.hp--;this.hits++;this.freeze=70;this.enemyAge=0;this.enemyHit=true;this.lastHitKind=this.attackKind;
           this.onEvent({type:'hit',point:b,broken:this.hp===0,kind:this.attackKind});
           this.duel.interrupt(this.hp===0);

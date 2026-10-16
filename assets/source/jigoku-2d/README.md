@@ -69,3 +69,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 命中前由 `CombatState` 保存敵方時序姿態及已經過時間，渲染端再從原姿態求出胸甲角度與持刀手臂。`enemy-body.mjs`／`enemy-arm.mjs` 沿用同一身體、同一雙臂及刀，先保留命中瞬間的姿勢，經 95 ms 承力後於原 360 ms 邊界回防；70 ms 命中停頓沿用遊戲時鐘。只有非致命短刺採此路徑，低掃及致命倒地仍沿用原畫圖集。
 
 本輪所有使用中的角色貼圖與 `a0ddb54` 位元組相同，沒有新增生成圖、裁切、Blender、Modal 或第三方素材。`enemy-recoil-preview.gif`／MP4 是 60 張實際 Phaser 畫面；前後對照另取兩版格擋反擊影片，配對攻擊幀、血量及回復階段，時間差記錄於 `enemy-recoil-video-check.json`。
+
+
+### 非致命低掃：共用腰胯與雙腿（2026-10-16）
+
+`prepare_enemy_body.py` 在同一 `ghost-warrior-hd.webp` 待機格上，將原下身拆為腰甲、左右大腿、脛甲、足部；胸甲沿用原裁切，共八個身體部件。`enemy-body-art.json` 記錄各裁切框、遮罩與共同下身來源遮罩；只有原畫裁切及手機縮圖，未補繪解剖或生成新色彩。`check_enemy_body_art.py` 核對來源色彩、alpha、手機縮圖，以及待機組合輪廓沒有遺失不透明像素。
+
+`enemy-body.mjs` 的 `ENEMY_LEGS` 是人工標記的平面髖／膝／踝接點，不是三維人體骨架。非致命低掃前 140 ms 落胯，原畫下移 18 px、橫移 −5 px，兩段腿保持原長與膝向、雙腳固定，420 ms 內回防。持刀手臂與胸甲從命中當下接續；致命低掃仍使用舊圖集。
+
+沒有新增 image gen、Blender、Modal 或第三方素材。身體可見圖層由兩個增至八個；相較 `0891c0d`，角色 RGBA8 估算增加桌機 0.132 MiB、手機 0.059 MiB。`enemy-low-rig-comparison.json` 記錄前後實際錄影的攻擊幀、反應時間差、腳位與腰胯下沉量；近照是實際截圖放大。

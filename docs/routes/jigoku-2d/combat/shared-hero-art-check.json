@@ -1,17 +1,17 @@
 {
-  "baselineCommit": "8a6cfb0c8fd9e98967edbd26d7ae75a9927b94ab",
+  "baselineCommit": "0891c0d04344f84124d893fdcdd925bbae815d16",
   "passed": true,
   "checks": [
     "Seven rigid lower-body cutouts retain source colors and declared masks; no opaque lower silhouette holes at rest",
     "All four desktop/mobile legacy sweep boundary cells preserve visible pixels and alpha",
     "All active texture dimensions <=4096; no legacy idle/thrust/sweep/boundary/guard atlases loaded by game.mjs",
-    "Retained textures are byte-identical to baseline; enemy-duel atlas replaced by two mechanically cropped body parts, verified separately; no new generated art"
+    "Retained textures are byte-identical to baseline; enemy body now uses eight mechanically cropped parts, verified separately; no new generated art"
   ],
   "memory": {
     "desktop": {
-      "currentRGBA8Bytes": 60258740,
-      "previousRGBA8Bytes": 69841872,
-      "savedRGBA8Bytes": 9583132,
+      "currentRGBA8Bytes": 60396940,
+      "previousRGBA8Bytes": 60258740,
+      "savedRGBA8Bytes": -138200,
       "loadedTextures": [
         {
           "path": "hero-lower-hd.webp",
@@ -164,26 +164,6 @@
           "sha256": "9559ff42ed1cd996ac9fa7e52fc1407174ec3602975878f7c84dae1372c5a7f9"
         },
         {
-          "path": "enemy-body-torso-hd.webp",
-          "size": [
-            285,
-            305
-          ],
-          "rgba8Bytes": 347700,
-          "downloadBytes": 98706,
-          "sha256": "545941380060176590884170ef64d5aa0cdd150d8084a84f3da84dfd5e7b8727"
-        },
-        {
-          "path": "enemy-body-lower-hd.webp",
-          "size": [
-            490,
-            350
-          ],
-          "rgba8Bytes": 686000,
-          "downloadBytes": 158430,
-          "sha256": "978b90114294d27e2ea7fa208d637a0e4b47a2e984e9687b5342362f2a13a7ce"
-        },
-        {
           "path": "enemy-low-hd.webp",
           "size": [
             2304,
@@ -202,6 +182,86 @@
           "rgba8Bytes": 42467328,
           "downloadBytes": 2810320,
           "sha256": "92b0a9534143a242a487216549207004458264c13fb81010fd0529c0fbc71ee2"
+        },
+        {
+          "path": "enemy-body-torso-hd.webp",
+          "size": [
+            285,
+            305
+          ],
+          "rgba8Bytes": 347700,
+          "downloadBytes": 98706,
+          "sha256": "545941380060176590884170ef64d5aa0cdd150d8084a84f3da84dfd5e7b8727"
+        },
+        {
+          "path": "enemy-body-lower-hd.webp",
+          "size": [
+            390,
+            240
+          ],
+          "rgba8Bytes": 374400,
+          "downloadBytes": 74864,
+          "sha256": "f9ce0cf7a8edb7bc62d48883fecdbf4504cebdc91da312a396503029c95d1bff"
+        },
+        {
+          "path": "enemy-body-leftThigh-hd.webp",
+          "size": [
+            180,
+            140
+          ],
+          "rgba8Bytes": 100800,
+          "downloadBytes": 28886,
+          "sha256": "18ad85593c6811709bf4904c79dcf292fd58709726b9156b5a41ecc1dd7553f1"
+        },
+        {
+          "path": "enemy-body-leftShin-hd.webp",
+          "size": [
+            150,
+            150
+          ],
+          "rgba8Bytes": 90000,
+          "downloadBytes": 21920,
+          "sha256": "ee48870cbe209a0068fb1b63adc81932da431e4e0951107f7b47fc632697f345"
+        },
+        {
+          "path": "enemy-body-leftFoot-hd.webp",
+          "size": [
+            130,
+            90
+          ],
+          "rgba8Bytes": 46800,
+          "downloadBytes": 13806,
+          "sha256": "80b76da16024e9384c5ad644ccd99ebdeeb32dff581b082323e1901d3ef02698"
+        },
+        {
+          "path": "enemy-body-rightThigh-hd.webp",
+          "size": [
+            145,
+            150
+          ],
+          "rgba8Bytes": 87000,
+          "downloadBytes": 25918,
+          "sha256": "d6fd29f4852fc8f08955414a38c49644b3d2b1764c8ea127800f58022b9833f6"
+        },
+        {
+          "path": "enemy-body-rightShin-hd.webp",
+          "size": [
+            135,
+            150
+          ],
+          "rgba8Bytes": 81000,
+          "downloadBytes": 21940,
+          "sha256": "46e9d39fbb0134cc2efe4b9754963dd2d0faac414bd786834f75a69fe8fff9ad"
+        },
+        {
+          "path": "enemy-body-rightFoot-hd.webp",
+          "size": [
+            130,
+            85
+          ],
+          "rgba8Bytes": 44200,
+          "downloadBytes": 11140,
+          "sha256": "6430a620df6a984e750cfe56359b048b8effd0c604ee5bda978dda28887113a7"
         },
         {
           "path": "enemy-upper.webp",
@@ -266,9 +326,9 @@
       ]
     },
     "mobile": {
-      "currentRGBA8Bytes": 26409076,
-      "previousRGBA8Bytes": 30668624,
-      "savedRGBA8Bytes": 4259548,
+      "currentRGBA8Bytes": 26470868,
+      "previousRGBA8Bytes": 26409076,
+      "savedRGBA8Bytes": -61792,
       "loadedTextures": [
         {
           "path": "hero-lower.webp",
@@ -421,26 +481,6 @@
           "sha256": "b5dd7b574dfd4772c5826a76963af94a2d035683dbca1beb9b9c841e9f199cfe"
         },
         {
-          "path": "enemy-body-torso.webp",
-          "size": [
-            190,
-            203
-          ],
-          "rgba8Bytes": 154280,
-          "downloadBytes": 50184,
-          "sha256": "b6e23b5605bee2b0b11e7a287517938eb4a6f403bcf2ea6c2d2bb45918ef2ece"
-        },
-        {
-          "path": "enemy-body-lower.webp",
-          "size": [
-            327,
-            233
-          ],
-          "rgba8Bytes": 304764,
-          "downloadBytes": 77822,
-          "sha256": "8ad2f1842563767d8be07a46be4800f897c0323c7c41c77de9d19db3656dc109"
-        },
-        {
           "path": "enemy-low.webp",
           "size": [
             1536,
@@ -459,6 +499,86 @@
           "rgba8Bytes": 18874368,
           "downloadBytes": 1378770,
           "sha256": "48968e59f7628633482f084859e652c655f8f4a21e02ddd7f5bbed6c4f4bc481"
+        },
+        {
+          "path": "enemy-body-torso.webp",
+          "size": [
+            190,
+            203
+          ],
+          "rgba8Bytes": 154280,
+          "downloadBytes": 50184,
+          "sha256": "b6e23b5605bee2b0b11e7a287517938eb4a6f403bcf2ea6c2d2bb45918ef2ece"
+        },
+        {
+          "path": "enemy-body-lower.webp",
+          "size": [
+            260,
+            160
+          ],
+          "rgba8Bytes": 166400,
+          "downloadBytes": 39728,
+          "sha256": "eba84c97a537c088aa7f636b66113b78b3ee92fe0d8ab11167f015565f93e395"
+        },
+        {
+          "path": "enemy-body-leftThigh.webp",
+          "size": [
+            120,
+            93
+          ],
+          "rgba8Bytes": 44640,
+          "downloadBytes": 15944,
+          "sha256": "38e611c5502bc89949f0897d5cdebc59cb2da8fac4dce36f13a4e4f5856fb505"
+        },
+        {
+          "path": "enemy-body-leftShin.webp",
+          "size": [
+            100,
+            100
+          ],
+          "rgba8Bytes": 40000,
+          "downloadBytes": 11636,
+          "sha256": "e61212dfcc9e6cfbd8c1fb53e63960f2a0f9718ab1ba2416f0d4227ea2bf5f14"
+        },
+        {
+          "path": "enemy-body-leftFoot.webp",
+          "size": [
+            87,
+            60
+          ],
+          "rgba8Bytes": 20880,
+          "downloadBytes": 7170,
+          "sha256": "162624de12af6d634ae9022b882fc7f1e4a5d38956019c79fce7001919da4dbc"
+        },
+        {
+          "path": "enemy-body-rightThigh.webp",
+          "size": [
+            97,
+            100
+          ],
+          "rgba8Bytes": 38800,
+          "downloadBytes": 14828,
+          "sha256": "983fee07107c4b2be4b921117e5a1aff257e1b3a807607c006b1278b4797674e"
+        },
+        {
+          "path": "enemy-body-rightShin.webp",
+          "size": [
+            90,
+            100
+          ],
+          "rgba8Bytes": 36000,
+          "downloadBytes": 11670,
+          "sha256": "05ce35a382f04da80a107e1fc76edf81431add9fa0b6a3174d5bfccec5f18de7"
+        },
+        {
+          "path": "enemy-body-rightFoot.webp",
+          "size": [
+            87,
+            57
+          ],
+          "rgba8Bytes": 19836,
+          "downloadBytes": 5728,
+          "sha256": "d09c47936c81c6c1a9403d968303b6f7e5691e71bf26bf363d56aa9a69cabbcc"
         },
         {
           "path": "enemy-upper.webp",

@@ -10,36 +10,330 @@
   ],
   "afterSamples": [
     54,
-    59,
+    58,
     61,
     63
   ],
   "afterRenderedBindings": [
     {
       "phase": "low-stagger",
-      "texture": "enemyLow",
-      "frame": 1,
+      "texture": "warrior",
+      "frame": 0,
       "shoulder": {
-        "x": 843.904,
-        "y": 372.88
+        "x": 902.8112829069765,
+        "y": 339.2813596752534
+      },
+      "actualBodyParts": {
+        "leftFoot": {
+          "x": 861.4,
+          "y": 542.2,
+          "width": 78,
+          "height": 54,
+          "angle": 0,
+          "originX": 0.6153846153846154,
+          "originY": 0.3,
+          "visible": true,
+          "texture": "enemy-body-leftFoot",
+          "order": 23
+        },
+        "rightFoot": {
+          "x": 1066,
+          "y": 541,
+          "width": 78,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.3923076923076923,
+          "originY": 0.23529411764705882,
+          "visible": true,
+          "texture": "enemy-body-rightFoot",
+          "order": 24
+        },
+        "leftShin": {
+          "x": 871.995525282812,
+          "y": 475.6536639327056,
+          "width": 90,
+          "height": 90,
+          "angle": -15.692797602661585,
+          "originX": 0.6466666666666666,
+          "originY": 0.16666666666666666,
+          "visible": true,
+          "texture": "enemy-body-leftShin",
+          "order": 25
+        },
+        "rightShin": {
+          "x": 1054.1993981648113,
+          "y": 478.69473700940387,
+          "width": 81,
+          "height": 90,
+          "angle": 9.767824304372425,
+          "originX": 0.362962962962963,
+          "originY": 0.07333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightShin",
+          "order": 26
+        },
+        "leftThigh": {
+          "x": 942.5661807580175,
+          "y": 423.401749271137,
+          "width": 108,
+          "height": 84,
+          "angle": 14.02833520470358,
+          "originX": 0.8888888888888888,
+          "originY": -0.12857142857142856,
+          "visible": true,
+          "texture": "enemy-body-leftThigh",
+          "order": 27
+        },
+        "rightThigh": {
+          "x": 982.1661807580175,
+          "y": 419.20174927113703,
+          "width": 87,
+          "height": 90,
+          "angle": -11.441730040771404,
+          "originX": -0.06206896551724138,
+          "originY": -0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightThigh",
+          "order": 28
+        },
+        "lower": {
+          "x": 967.7661807580175,
+          "y": 399.401749271137,
+          "width": 234,
+          "height": 144,
+          "angle": 0,
+          "originX": 0.4025641025641026,
+          "originY": 0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-lower",
+          "order": 29
+        },
+        "torso": {
+          "x": 967.7661807580175,
+          "y": 399.401749271137,
+          "width": 171,
+          "height": 183,
+          "angle": -6.6122448979590445,
+          "originX": 0.5333333333333333,
+          "originY": 0.8754098360655738,
+          "visible": true,
+          "texture": "enemy-body-torso",
+          "order": 31
+        }
       }
     },
     {
       "phase": "leg-rise",
-      "texture": "enemyLow",
-      "frame": 2,
+      "texture": "warrior",
+      "frame": 0,
       "shoulder": {
-        "x": 888.52,
-        "y": 362.74
+        "x": 906.5896275845035,
+        "y": 332.6090777628695
+      },
+      "actualBodyParts": {
+        "leftFoot": {
+          "x": 861.4,
+          "y": 542.2,
+          "width": 78,
+          "height": 54,
+          "angle": 0,
+          "originX": 0.6153846153846154,
+          "originY": 0.3,
+          "visible": true,
+          "texture": "enemy-body-leftFoot",
+          "order": 23
+        },
+        "rightFoot": {
+          "x": 1066,
+          "y": 541,
+          "width": 78,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.3923076923076923,
+          "originY": 0.23529411764705882,
+          "visible": true,
+          "texture": "enemy-body-rightFoot",
+          "order": 24
+        },
+        "leftShin": {
+          "x": 876.9447612307848,
+          "y": 476.6329320597764,
+          "width": 90,
+          "height": 90,
+          "angle": -11.401971992339668,
+          "originX": 0.6466666666666666,
+          "originY": 0.16666666666666666,
+          "visible": true,
+          "texture": "enemy-body-leftShin",
+          "order": 25
+        },
+        "rightShin": {
+          "x": 1051.3142613629857,
+          "y": 479.31102950538644,
+          "width": 81,
+          "height": 90,
+          "angle": 7.101952931874052,
+          "originX": 0.362962962962963,
+          "originY": 0.07333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightShin",
+          "order": 26
+        },
+        "leftThigh": {
+          "x": 943.6439766763848,
+          "y": 419.52168396501463,
+          "width": 108,
+          "height": 84,
+          "angle": 9.9735039133609,
+          "originX": 0.8888888888888888,
+          "originY": -0.12857142857142856,
+          "visible": true,
+          "texture": "enemy-body-leftThigh",
+          "order": 27
+        },
+        "rightThigh": {
+          "x": 983.2439766763848,
+          "y": 415.3216839650146,
+          "width": 87,
+          "height": 90,
+          "angle": -7.7653917847558205,
+          "originX": -0.06206896551724138,
+          "originY": -0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightThigh",
+          "order": 28
+        },
+        "lower": {
+          "x": 968.8439766763848,
+          "y": 395.52168396501463,
+          "width": 234,
+          "height": 144,
+          "angle": 0,
+          "originX": 0.4025641025641026,
+          "originY": 0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-lower",
+          "order": 29
+        },
+        "torso": {
+          "x": 968.8439766763848,
+          "y": 395.52168396501463,
+          "width": 171,
+          "height": 183,
+          "angle": -4.0973877551020905,
+          "originX": 0.5333333333333333,
+          "originY": 0.8754098360655738,
+          "visible": true,
+          "texture": "enemy-body-torso",
+          "order": 31
+        }
       }
     },
     {
       "phase": "guard-settle",
-      "texture": "enemyLow",
-      "frame": 3,
+      "texture": "warrior",
+      "frame": 0,
       "shoulder": {
-        "x": 902.512,
-        "y": 327.52
+        "x": 911.6823936670963,
+        "y": 324.1131010873756
+      },
+      "actualBodyParts": {
+        "leftFoot": {
+          "x": 861.4,
+          "y": 542.2,
+          "width": 78,
+          "height": 54,
+          "angle": 0,
+          "originX": 0.6153846153846154,
+          "originY": 0.3,
+          "visible": true,
+          "texture": "enemy-body-leftFoot",
+          "order": 23
+        },
+        "rightFoot": {
+          "x": 1066,
+          "y": 541,
+          "width": 78,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.3923076923076923,
+          "originY": 0.23529411764705882,
+          "visible": true,
+          "texture": "enemy-body-rightFoot",
+          "order": 24
+        },
+        "leftShin": {
+          "x": 885.9964386343311,
+          "y": 479.4648805970086,
+          "width": 90,
+          "height": 90,
+          "angle": -3.330947730044045,
+          "originX": 0.6466666666666666,
+          "originY": 0.16666666666666666,
+          "visible": true,
+          "texture": "enemy-body-leftShin",
+          "order": 25
+        },
+        "rightShin": {
+          "x": 1045.8247228156395,
+          "y": 480.8821308550093,
+          "width": 81,
+          "height": 90,
+          "angle": 1.9410817323730498,
+          "originX": 0.362962962962963,
+          "originY": 0.07333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightShin",
+          "order": 26
+        },
+        "leftThigh": {
+          "x": 945.0457725947522,
+          "y": 414.4752186588921,
+          "width": 108,
+          "height": 84,
+          "angle": 2.803470910050237,
+          "originX": 0.8888888888888888,
+          "originY": -0.12857142857142856,
+          "visible": true,
+          "texture": "enemy-body-leftThigh",
+          "order": 27
+        },
+        "rightThigh": {
+          "x": 984.6457725947522,
+          "y": 410.2752186588922,
+          "width": 87,
+          "height": 90,
+          "angle": -1.903417499602483,
+          "originX": -0.06206896551724138,
+          "originY": -0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightThigh",
+          "order": 28
+        },
+        "lower": {
+          "x": 970.2457725947522,
+          "y": 390.4752186588921,
+          "width": 234,
+          "height": 144,
+          "angle": 0,
+          "originX": 0.4025641025641026,
+          "originY": 0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-lower",
+          "order": 29
+        },
+        "torso": {
+          "x": 970.2457725947522,
+          "y": 390.4752186588921,
+          "width": 171,
+          "height": 183,
+          "angle": -0.8265306122449374,
+          "originX": 0.5333333333333333,
+          "originY": 0.8754098360655738,
+          "visible": true,
+          "texture": "enemy-body-torso",
+          "order": 31
+        }
       }
     },
     {
@@ -49,8 +343,106 @@
       "shoulder": {
         "x": 913,
         "y": 322
+      },
+      "actualBodyParts": {
+        "leftFoot": {
+          "x": 861.4,
+          "y": 542.2,
+          "width": 78,
+          "height": 54,
+          "angle": 0,
+          "originX": 0.6153846153846154,
+          "originY": 0.3,
+          "visible": true,
+          "texture": "enemy-body-leftFoot",
+          "order": 23
+        },
+        "rightFoot": {
+          "x": 1066,
+          "y": 541,
+          "width": 78,
+          "height": 51,
+          "angle": 0,
+          "originX": 0.3923076923076923,
+          "originY": 0.23529411764705882,
+          "visible": true,
+          "texture": "enemy-body-rightFoot",
+          "order": 24
+        },
+        "leftShin": {
+          "x": 889.5999999999999,
+          "y": 480.99999999999994,
+          "width": 90,
+          "height": 90,
+          "angle": -1.1368683772161603e-13,
+          "originX": 0.6466666666666666,
+          "originY": 0.16666666666666666,
+          "visible": true,
+          "texture": "enemy-body-leftShin",
+          "order": 25
+        },
+        "rightShin": {
+          "x": 1043.8000000000002,
+          "y": 481.5999999999999,
+          "width": 81,
+          "height": 90,
+          "angle": 1.1368683772161603e-13,
+          "originX": 0.362962962962963,
+          "originY": 0.07333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightShin",
+          "order": 26
+        },
+        "leftThigh": {
+          "x": 945.4,
+          "y": 413.20000000000005,
+          "width": 108,
+          "height": 84,
+          "angle": 0,
+          "originX": 0.8888888888888888,
+          "originY": -0.12857142857142856,
+          "visible": true,
+          "texture": "enemy-body-leftThigh",
+          "order": 27
+        },
+        "rightThigh": {
+          "x": 985,
+          "y": 409,
+          "width": 87,
+          "height": 90,
+          "angle": 0,
+          "originX": -0.06206896551724138,
+          "originY": -0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-rightThigh",
+          "order": 28
+        },
+        "lower": {
+          "x": 970.6,
+          "y": 389.20000000000005,
+          "width": 234,
+          "height": 144,
+          "angle": 0,
+          "originX": 0.4025641025641026,
+          "originY": 0.13333333333333333,
+          "visible": true,
+          "texture": "enemy-body-lower",
+          "order": 29
+        },
+        "torso": {
+          "x": 970.6,
+          "y": 389.20000000000005,
+          "width": 171,
+          "height": 183,
+          "angle": 0,
+          "originX": 0.5333333333333333,
+          "originY": 0.8754098360655738,
+          "visible": true,
+          "texture": "enemy-body-torso",
+          "order": 31
+        }
       }
     }
   ],
-  "scope": "Static comparison of authored body poses, not optical flow or anatomy validation."
+  "scope": "Static comparison of previous authored silhouettes and current shared rigid parts; not optical flow or anatomy validation."
 }

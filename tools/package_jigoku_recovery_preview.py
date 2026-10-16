@@ -35,8 +35,9 @@ for i,row in enumerate(new_rows):
  im=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB').crop((755,165,1200,650)).resize((360,400),Image.Resampling.LANCZOS)
  inspection.paste(im,(i*360,0));ImageDraw.Draw(inspection).text((i*360+12,410),['失衡','抬身','回防','戒備'][i],font=font,fill='#e0c9a2')
 inspection.save(OUT/'recovery-sequence.jpg',quality=94)
-report={'baselineCommit':BASE,'beforeSource':'Decoded baseline combo-preview.gif, same sample indices as baseline combo-capture.json','afterSource':'Current actual Phaser PNG captures; downsampled to same 640x400 only for comparison','beforeSamples':[r['sample'] for r in old_rows],'afterSamples':[r['sample'] for r in new_rows],'afterRenderedBindings':[{'phase':r['enemy']['phase'],'texture':r['enemyTexture'],'frame':r['enemyFrame'],'shoulder':r['renderedArm']['shoulder']} for r in new_rows],'scope':'Static comparison of authored body poses, not optical flow or anatomy validation.'}
-assert [r['enemyFrame'] for r in new_rows]==[1,2,3,0]
-assert [r['enemyTexture'] for r in new_rows]==['enemyLow']*3+['warrior']
+report={'baselineCommit':BASE,'beforeSource':'Decoded baseline combo-preview.gif, same sample indices as baseline combo-capture.json','afterSource':'Current actual Phaser PNG captures; downsampled to same 640x400 only for comparison','beforeSamples':[r['sample'] for r in old_rows],'afterSamples':[r['sample'] for r in new_rows],'afterRenderedBindings':[{'phase':r['enemy']['phase'],'texture':r['enemyTexture'],'frame':r['enemyFrame'],'shoulder':r['renderedArm']['shoulder'],'actualBodyParts':r['enemyBodyParts']} for r in new_rows],'scope':'Static comparison of previous authored silhouettes and current shared rigid parts; not optical flow or anatomy validation.'}
+assert all(r['enemyBodyPose'] and not r['legacyBodyVisible'] for r in new_rows)
+assert all(len(r['enemyBodyParts'])==8 and all(p['visible'] for p in r['enemyBodyParts'].values()) for r in new_rows)
+assert [r['enemyTexture'] for r in new_rows]==['warrior']*4
 (OUT/'recovery-preview-check.json').write_text(json.dumps(report,indent=2)+'\n')
 print('Prepared equal-size before/after recovery comparison and native runtime pose plate.')
