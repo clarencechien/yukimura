@@ -2,10 +2,12 @@
   "passed": true,
   "checks": [
     "Actual Canvas arm, knee-to-ankle and ankle-to-shoe joints; hinged torso/cap shoulder alignment",
-    "Planted hand and lower-body draw matrices stay fixed after contact",
+    "Shared lower-body URLs persist across 400 ms; actual right-panel pixels checked at 399.999/400.001 ms; fixed planted hand",
     "Whole sequence captured; controls and x-ray shows occluded leg with identical transforms and alpha 1",
     "390 px touch key stepping and stacked layout without overflow"
   ],
+  "boundaryChangedPixels": 213,
+  "maxBoundaryChannelDelta": 1,
   "pageErrors": [],
   "failedRequests": [],
   "scope": "Independent rigid-foot settling review, not installed into combat; no physical phone FPS measurement."

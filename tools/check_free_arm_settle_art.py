@@ -9,8 +9,19 @@ for key,sourceKey in [('original','source'),('restored','restored')]:
  if 'box' in spec:raw=raw.crop(spec['box'])
  small=raw.resize((round(raw.width*spec['scale']),round(raw.height*spec['scale'])),Image.Resampling.LANCZOS);frame=Image.new('RGBA',(1152,768));frame.alpha_composite(small,spec['offset']);frames[key]=frame
  assert sum(a*n for a,n in enumerate(frame.getchannel('A').histogram()))==sum(a*n for a,n in enumerate(small.getchannel('A').histogram()))
+def polygon_mask(points):
+ mask=Image.new('L',(1152,768));ImageDraw.Draw(mask).polygon([tuple(v) for v in points],fill=255);return np.array(mask)
+removed=np.minimum(polygon_mask(m['vacatedLegPolygon']),255-polygon_mask(m['preservedKneePolygon']))
+assert {name for name,p in m['parts'].items() if p['source']=='restored'}=={'restore'}
 for name,p in m['parts'].items():
- frame=frames[p['source']];mask=Image.new('L',frame.size);ImageDraw.Draw(mask).polygon([tuple(v) for v in p['polygon']],fill=255);a=np.array(frame);a[:,:,3]=np.minimum(a[:,:,3],np.array(mask));expected=np.array(Image.fromarray(a).crop(p['box']));actual=np.array(Image.open(OUT/p['url']).convert('RGBA'));assert actual.shape==expected.shape;assert np.array_equal(actual[:,:,3],expected[:,:,3]);visible=expected[:,:,3]>0;assert np.array_equal(actual[:,:,:3][visible],expected[:,:,:3][visible]),name;memory+=actual.shape[0]*actual.shape[1]*4
+ frame=frames[p['source']];mask=Image.new('L',frame.size);ImageDraw.Draw(mask).polygon([tuple(v) for v in p['polygon']],fill=255);a=np.array(frame);a[:,:,3]=np.minimum(a[:,:,3],np.array(mask));
+ if name in ['lower','waist']:
+  assert p['source']=='original' and p['legMaskRule']=='subtract';a[:,:,3]=np.minimum(a[:,:,3],255-removed)
+ if name=='restore':
+  assert p['legMaskRule']=='inside';a[:,:,3]=np.minimum(a[:,:,3],removed)
+ expected=np.array(Image.fromarray(a).crop(p['box']));actual=np.array(Image.open(OUT/p['url']).convert('RGBA'));assert actual.shape==expected.shape;assert np.array_equal(actual[:,:,3],expected[:,:,3]);visible=expected[:,:,3]>0;assert np.array_equal(actual[:,:,:3][visible],expected[:,:,:3][visible]),name;memory+=actual.shape[0]*actual.shape[1]*4
+# The only generated pixels must be inside the removed-leg region and outside the retained knee.
+r=m['parts']['restore'];patch=np.zeros((768,1152),dtype=np.uint8);x0,y0,x1,y1=r['box'];patch[y0:y1,x0:x1]=np.array(Image.open(OUT/r['url']))[:,:,3];assert not np.any((patch>0)&(removed==0));assert not np.any((patch>0)&(polygon_mask(m['preservedKneePolygon'])>0))
 p=m['parts']['shoe'];alpha=np.array(Image.open(OUT/p['url']))[:,:,3];y,x=np.where(alpha>16);xy=np.stack([x-p['pivot'][0],y-p['pivot'][1]]);initial=m['ankle'][1]+xy[1].max()
 script="""import fs from 'node:fs';import {settlePose} from './docs/routes/jigoku-2d/free-arm-settle/rig.mjs';const read=p=>JSON.parse(fs.readFileSync('docs/routes/jigoku-2d/'+p)),m=read('free-arm-settle/settle.json'),tr=read('free-arm-transition/transition.json'),k=read('free-arm-parts/parts.json'),s=read('free-arm-support/support.json');const rows=[];for(let i=0;i<=1000;i++){const p=settlePose(400+i/10,m,tr,k,s);rows.push({t:p.age,leg:p.leg,torso:p.torso});}process.stdout.write(JSON.stringify(rows));"""
 rows=json.loads(subprocess.check_output(['node','--input-type=module','-e',script],cwd=ROOT));maximum=-math.inf
@@ -19,5 +30,5 @@ for row in rows:
 assert maximum<=initial+1e-6
 protected=['docs/routes/jigoku-2d/combat','docs/routes/jigoku-2d/free-arm-parts','docs/routes/jigoku-2d/free-arm-support','docs/routes/jigoku-2d/free-arm-transition','src','public']
 subprocess.run(['git','diff','--exit-code',m['baselineCommit'],'--',*protected],cwd=ROOT,check=True,stdout=subprocess.PIPE);assert not subprocess.check_output(['git','ls-files','--others','--exclude-standard','--',*protected],cwd=ROOT).strip()
-report={'passed':True,'baselineCommit':m['baselineCommit'],'checks':['Original torso/cap/shin/shoe and generated lower/waist pixels preserved under declared masks','Uniform source registration with no canvas clipping','1001 actual JS rig samples: all shoe pixels alpha > 16 stay above initial bottom in projected screen Y','Previous prototypes, production combat/src/public unchanged'],'shoeStartBottomY':float(initial),'shoeMaximumBottomY':maximum,'maxWaistTranslationPx':max(math.hypot(r['torso']['offset']['x'],r['torso']['offset']['y']) for r in rows),'newLoadedRGBA8MiB':memory/1048576,'limits':'Projected sprite clearance only, not 3D ground contact or collision physics. Memory excludes reused textures and Canvas buffers.'}
+report={'passed':True,'baselineCommit':m['baselineCommit'],'checks':['Original torso/cap/lower/waist/shin/shoe pixels retained; generated pixels only in the vacated leg region, never on the retained knee','Uniform source registration with no canvas clipping','1001 actual JS rig samples: all shoe pixels alpha > 16 stay above initial bottom in projected screen Y','Previous prototypes, production combat/src/public unchanged'],'shoeStartBottomY':float(initial),'shoeMaximumBottomY':maximum,'maxWaistTranslationPx':max(math.hypot(r['torso']['offset']['x'],r['torso']['offset']['y']) for r in rows),'settlePartsRGBA8MiB':memory/1048576,'restoredVisiblePixels':int(np.count_nonzero(patch>16)),'limits':'Projected sprite clearance only, not 3D ground contact or collision physics. Memory excludes reused textures and Canvas buffers.'}
 (OUT/'art-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

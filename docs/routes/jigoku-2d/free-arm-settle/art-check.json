@@ -1,8 +1,8 @@
 {
   "passed": true,
-  "baselineCommit": "4c114d256447e257dfc277046e1d05f87ad8afcd",
+  "baselineCommit": "7b2848b5b8471383a34a30b5a8cb57912d2f269b",
   "checks": [
-    "Original torso/cap/shin/shoe and generated lower/waist pixels preserved under declared masks",
+    "Original torso/cap/lower/waist/shin/shoe pixels retained; generated pixels only in the vacated leg region, never on the retained knee",
     "Uniform source registration with no canvas clipping",
     "1001 actual JS rig samples: all shoe pixels alpha > 16 stay above initial bottom in projected screen Y",
     "Previous prototypes, production combat/src/public unchanged"
@@ -10,6 +10,7 @@
   "shoeStartBottomY": 684.0,
   "shoeMaximumBottomY": 684.0,
   "maxWaistTranslationPx": 3.0851538612190748,
-  "newLoadedRGBA8MiB": 0.951171875,
+  "settlePartsRGBA8MiB": 0.9639205932617188,
+  "restoredVisiblePixels": 291,
   "limits": "Projected sprite clearance only, not 3D ground contact or collision physics. Memory excludes reused textures and Canvas buffers."
 }

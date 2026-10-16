@@ -13,3 +13,10 @@ test('foot rotation starts smoothly, ends smoothly and seeking stays determinist
  for(const t of [420,448,500]){const a=pose(t-1e-5).leg,b=pose(t+1e-5).leg;assert.ok(d(a.ankle,b.ankle)<.001);assert.ok(d(a.toe,b.toe)<.001);}
  assert.deepEqual(pose(470),pose(470));assert.throws(()=>pose(NaN));
 });
+
+test('shared lower body starts with the touch pose and stays active across 400 ms',()=>{
+ assert.equal(pose(388).late,false);assert.equal(pose(388.001).late,true);
+ for(let t=388.001;t<=540;t+=.1)assert.equal(pose(t).late,true);
+ for(const t of [388.001,390,395,399.999,400,400.001,410,420]){const p=pose(t),h=p.torso,q=rotate({x:m.shoulder[0]-h.pivot.x,y:m.shoulder[1]-h.pivot.y},h.angle);near(q.x+h.pivot.x+h.offset.x,p.shoulder.x);near(q.y+h.pivot.y+h.offset.y,p.shoulder.y);}
+ const a=pose(399.999).torso,b=pose(400.001).torso;assert.ok(d(a.offset,b.offset)<.001);assert.ok(Math.abs(a.angle-b.angle)<.001);
+});

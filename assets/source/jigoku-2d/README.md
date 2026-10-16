@@ -153,3 +153,10 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `prepare_free_arm_settle.py` 對生成稿只做等比例註冊，所有部件以宣告的多邊形限制 alpha；來源 SHA、縮放、膝踝／鞋尖標記在 `free-arm-settle/settle.json`。護脛與鞋以固定長度轉動，繪圖 alpha 始終為 1，由下身與衣甲實際遮擋。鞋的延後轉動經 1001 個實際骨架取樣檢查，alpha > 16 的鞋像素未超過起始投影鞋底高度；不是三維接觸或受力驗證。
 
 仍是獨立動作檢視，沒有改動先前試作素材或正式遊戲。末姿較前傾，生成下身與原圖膝甲／衣料仍有差異，不能宣稱全程無接縫。未新增 Blender／Modal 工作或第三方素材。
+
+
+### 收腳交接：保留原膝甲與腰帶（2026-10-16）
+
+本次沒有新生成圖。重新整理 `free-arm-settle` 的裁片：下身與腰甲改用原 `crouch-kneel-breakdowns.png` 近地格，只有 `restore.webp` 來自既有 `touch-shin-clean.png`。修補像素限制在護脛／鞋的移開區，明確扣除原膝甲保留多邊形；alpha > 16 的修補像素為 291 個，素材檢查逐像素確認其沒有侵入保留區。
+
+近地格開始（388 ms 之後）即使用這套部件，400 ms 前沿肩點平移，之後接到腰部轉軸，取消原本整張下身切換。膝踝、護脛與鞋的長度、手臂及掌根曲線都保留；30 fps 影片重新取自實際 Canvas。400 ms 前後實際畫布只剩最多 1／255 色階的取樣差異，不代表前段各張原畫已無跳姿。來源 SHA、裁切和遮擋記錄維持於 `free-arm-settle/settle.json`。

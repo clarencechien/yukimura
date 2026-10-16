@@ -1,5 +1,93 @@
 {
-  "baselineCommit": "4c114d256447e257dfc277046e1d05f87ad8afcd",
+  "baselineCommit": "7b2848b5b8471383a34a30b5a8cb57912d2f269b",
+  "vacatedLegPolygon": [
+    [
+      387.5,
+      591.2
+    ],
+    [
+      437.2,
+      582.8
+    ],
+    [
+      458.2,
+      592.5999999999999
+    ],
+    [
+      479.9,
+      617.0999999999999
+    ],
+    [
+      486.9,
+      639.5
+    ],
+    [
+      500.2,
+      659.0999999999999
+    ],
+    [
+      502.29999999999995,
+      677.3
+    ],
+    [
+      474.29999999999995,
+      689.2
+    ],
+    [
+      375.6,
+      691.3
+    ],
+    [
+      372.8,
+      662.5999999999999
+    ],
+    [
+      403.6,
+      640.9
+    ],
+    [
+      400.1,
+      617.0999999999999
+    ]
+  ],
+  "preservedKneePolygon": [
+    [
+      352.5,
+      533.0999999999999
+    ],
+    [
+      373.5,
+      517.0
+    ],
+    [
+      412.0,
+      511.4
+    ],
+    [
+      447.0,
+      528.2
+    ],
+    [
+      461.0,
+      556.9
+    ],
+    [
+      451.9,
+      583.5
+    ],
+    [
+      424.6,
+      594.7
+    ],
+    [
+      384.0,
+      605.2
+    ],
+    [
+      356.0,
+      589.8
+    ]
+  ],
   "source": {
     "path": "assets/source/jigoku-2d/ghost-rig/crouch-kneel-breakdowns.png",
     "sha256": "5e45eab86653d81a2e6194410a3034e3dec9b688161bc459ed8293af44180b78",
@@ -76,15 +164,16 @@
           516.3
         ]
       ],
-      "source": "original"
+      "source": "original",
+      "legMaskRule": "none"
     },
     "lower": {
       "url": "lower.webp",
       "box": [
-        336,
+        349,
         505,
-        778,
-        706
+        775,
+        693
       ],
       "polygon": [
         [
@@ -128,7 +217,8 @@
           715.8
         ]
       ],
-      "source": "restored"
+      "source": "original",
+      "legMaskRule": "subtract"
     },
     "cap": {
       "url": "cap.webp",
@@ -160,7 +250,8 @@
           503.7
         ]
       ],
-      "source": "original"
+      "source": "original",
+      "legMaskRule": "none"
     },
     "shin": {
       "url": "shin.webp",
@@ -205,6 +296,7 @@
         ]
       ],
       "source": "original",
+      "legMaskRule": "none",
       "pivot": [
         28.0,
         5.899999999999977
@@ -256,7 +348,8 @@
           590.5
         ]
       ],
-      "source": "restored"
+      "source": "original",
+      "legMaskRule": "subtract"
     },
     "shoe": {
       "url": "shoe.webp",
@@ -309,6 +402,7 @@
         ]
       ],
       "source": "original",
+      "legMaskRule": "none",
       "pivot": [
         80.69999999999999,
         13.399999999999977
@@ -317,6 +411,67 @@
         12.800000000000011,
         51.200000000000045
       ]
+    },
+    "restore": {
+      "url": "restore.webp",
+      "box": [
+        374,
+        586,
+        500,
+        682
+      ],
+      "polygon": [
+        [
+          387.5,
+          591.2
+        ],
+        [
+          437.2,
+          582.8
+        ],
+        [
+          458.2,
+          592.5999999999999
+        ],
+        [
+          479.9,
+          617.0999999999999
+        ],
+        [
+          486.9,
+          639.5
+        ],
+        [
+          500.2,
+          659.0999999999999
+        ],
+        [
+          502.29999999999995,
+          677.3
+        ],
+        [
+          474.29999999999995,
+          689.2
+        ],
+        [
+          375.6,
+          691.3
+        ],
+        [
+          372.8,
+          662.5999999999999
+        ],
+        [
+          403.6,
+          640.9
+        ],
+        [
+          400.1,
+          617.0999999999999
+        ]
+      ],
+      "source": "restored",
+      "legMaskRule": "inside"
     }
   },
   "shoulder": [
@@ -345,6 +500,6 @@
   "foldEnd": 500,
   "shinRotation": -45,
   "shoeRotation": -70,
-  "method": "Original touch torso/cap/shin/shoe pixels, generated shin-removal lower-body restoration. Rigid hip hinge; fixed knee, shin and shoe rotate only after palm contact. Lower-body alpha occludes the tucking foot; no fading. Late segment changes final body silhouette and is not a biomechanical simulation.",
+  "method": "Original touch torso/cap/lower/waist/shin/shoe pixels; existing generated restoration restricted to the vacated shin/shoe region, preserving the original knee. Shared parts from the touch frame onward; translation before 400 ms joins the hip hinge at 400 ms. Fixed knee, shin and shoe rotate only after palm contact. Lower-body alpha occludes the tucking foot; no fading. Late segment changes final body silhouette and is not a biomechanical simulation.",
   "runtimeChanged": false
 }
