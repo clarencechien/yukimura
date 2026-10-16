@@ -62,5 +62,6 @@
   "yieldExtension": "yield.json",
   "fallExtension": "fall.json",
   "bridgeExtension": "bridge.json",
-  "sharedHeadExtension": "shared-head.json"
+  "sharedHeadExtension": "shared-head.json",
+  "sharedShoulderExtension": "shared-shoulder.json"
 }

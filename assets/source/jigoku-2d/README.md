@@ -206,3 +206,7 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 ### 共用頭盔與面部拆片（2026-10-16）
 
 本輪沒有新增 image gen、Blender、Modal 或第三方來源。從既有 `free-arm-settle/torso.webp` 擷取頭盔／面部，生成 `shared-head.webp` 及五張 `headless-*.webp` 胸甲裁片；原素材與可見 RGB 不變，只處理 alpha。人工裁切邊界、兩像素頸部重疊、原檔 SHA256、軸點與頸部路徑均記錄在 `shared-head.json`，以 `tools/prepare_shared_head.py` 重建。共用頭盔保持同一大小，沿平面軸點平移與旋轉；不是立體轉頭或真實頸椎。頭部與胸甲新裁片約 1.268 MiB RGBA8；檢視頁預設啟用，前輪四格仍可用 `?helmet=baked` 比較。
+
+## 2026-10-16：側倒共用肩甲與襯布補底
+
+沒有新增生成工作或第三方素材。`tools/prepare_shared_shoulder.py` 直接重用 `free-arm-settle/fall-bridge-cap.webp` 作活動肩甲，並從既有 `headless-bridge.webp` 的 `[182,52,202,66]` 取暗色襯布，以原尺寸鋪在四張原胸部的舊肩甲區域。四張 `shoulderless-*.webp` 保留原 alpha，遮罩以外可見 RGB 不變；它們實際上是帶襯布的去甲底圖，並非挖空的透明洞。來源 SHA256、甲片遮罩與領口位置曲線見 `free-arm-settle/shared-shoulder.json`。原圖片未覆寫，未替換正式遊戲。
