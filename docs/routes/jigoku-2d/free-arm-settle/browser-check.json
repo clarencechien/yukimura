@@ -1,6 +1,7 @@
 {
   "passed": true,
   "checks": [
+    "Shared-head texture, actual Canvas pivot/matrix, rigid scale and depth ordering verified across desktop/mobile playback",
     "Handoff comparison loads four images for all six time/version choices; reports measured overlap and fits 390 px layout",
     "Far shoulder, elbow, wrist and actual fist-to-katana Canvas attachment; rigid texture scale, panel bounds, render order and independent visibility toggle",
     "Four side-fall body keys visited; baseline query retains three original keys and final sword matrices; actual shared-arm shoulder/elbow/wrist matrices, torso/cap registration and fixed lower images checked",

@@ -1,0 +1,304 @@
+{
+  "baselineCommit": "02c57d00ef3bdb94fe4f0fb2e6865f98beb7ae96",
+  "start": 1180,
+  "end": 1500,
+  "groundY": 690,
+  "head": {
+    "url": "shared-head.webp",
+    "box": [
+      345,
+      341,
+      504,
+      500
+    ],
+    "pivot": [
+      470,
+      430
+    ],
+    "polygon": [
+      [
+        330,
+        330
+      ],
+      [
+        430,
+        330
+      ],
+      [
+        455,
+        365
+      ],
+      [
+        456,
+        375
+      ],
+      [
+        503,
+        396
+      ],
+      [
+        500,
+        428
+      ],
+      [
+        475,
+        455
+      ],
+      [
+        455,
+        498
+      ],
+      [
+        375,
+        500
+      ],
+      [
+        330,
+        455
+      ]
+    ]
+  },
+  "torsos": {
+    "unload": {
+      "url": "headless-unload.webp",
+      "box": [
+        345,
+        242,
+        690,
+        560
+      ],
+      "source": "torso.webp",
+      "sourceSHA256": "7db84d70108b1b33ef67c33eb349cfe53f4885166d6aea4a22bebceba09bac1f",
+      "polygon": [
+        [
+          330,
+          330
+        ],
+        [
+          430,
+          330
+        ],
+        [
+          455,
+          365
+        ],
+        [
+          456,
+          375
+        ],
+        [
+          503,
+          396
+        ],
+        [
+          500,
+          428
+        ],
+        [
+          475,
+          455
+        ],
+        [
+          455,
+          498
+        ],
+        [
+          375,
+          500
+        ],
+        [
+          330,
+          455
+        ]
+      ],
+      "overlapPixels": 2
+    },
+    "bridge": {
+      "url": "headless-bridge.webp",
+      "box": [
+        342,
+        482,
+        614,
+        677
+      ],
+      "source": "fall-bridge-torso.webp",
+      "sourceSHA256": "573597f549c101db9ea0c348f2d191dbd7d93413cb657d486985fcde2c4402d8",
+      "polygon": [
+        [
+          312.0,
+          498.0
+        ],
+        [
+          434.5,
+          498.0
+        ],
+        [
+          462.5,
+          557.5
+        ],
+        [
+          480.0,
+          610.0
+        ],
+        [
+          445.0,
+          687.0
+        ],
+        [
+          312.0,
+          694.0
+        ]
+      ],
+      "overlapPixels": 2
+    },
+    "roll": {
+      "url": "headless-roll.webp",
+      "box": [
+        345,
+        477,
+        614,
+        675
+      ],
+      "source": "fall-roll-torso.webp",
+      "sourceSHA256": "8b2e951bd0b90d789d523ca60ed33acfc8af5175dd2c1f1025c99385ede4a09b",
+      "polygon": [
+        [
+          312.0,
+          478.0
+        ],
+        [
+          427.5,
+          478.0
+        ],
+        [
+          462.5,
+          534.0
+        ],
+        [
+          473.0,
+          597.0
+        ],
+        [
+          438.0,
+          674.0
+        ],
+        [
+          312.0,
+          681.0
+        ]
+      ],
+      "overlapPixels": 2
+    },
+    "side": {
+      "url": "headless-side.webp",
+      "box": [
+        315,
+        502,
+        576,
+        679
+      ],
+      "source": "fall-side-torso.webp",
+      "sourceSHA256": "5c973e623625c40992f4216b89fe56349f8ad76f69c2e6aad71b618efa027847",
+      "polygon": [
+        [
+          306.0,
+          511.0
+        ],
+        [
+          425.0,
+          511.0
+        ],
+        [
+          463.5,
+          563.5
+        ],
+        [
+          474.0,
+          619.5
+        ],
+        [
+          432.0,
+          686.0
+        ],
+        [
+          306.0,
+          700.0
+        ]
+      ],
+      "overlapPixels": 2
+    },
+    "rest": {
+      "url": "headless-rest.webp",
+      "box": [
+        306,
+        515,
+        561,
+        691
+      ],
+      "source": "fall-rest-torso.webp",
+      "sourceSHA256": "45f92858aaeac8a83649dce4a52d9e22c526235e34498645de37b8aa485060fd",
+      "polygon": [
+        [
+          297.0,
+          524.0
+        ],
+        [
+          423.0,
+          524.0
+        ],
+        [
+          465.0,
+          580.0
+        ],
+        [
+          475.5,
+          632.5
+        ],
+        [
+          430.0,
+          699.0
+        ],
+        [
+          297.0,
+          713.0
+        ]
+      ],
+      "overlapPixels": 2
+    }
+  },
+  "keys": [
+    {
+      "time": 1220,
+      "point": [
+        445,
+        570
+      ],
+      "angle": -40
+    },
+    {
+      "time": 1260,
+      "point": [
+        459,
+        576
+      ],
+      "angle": -30
+    },
+    {
+      "time": 1380,
+      "point": [
+        449.5,
+        585
+      ],
+      "angle": -24
+    },
+    {
+      "time": 1500,
+      "point": [
+        441.9,
+        590
+      ],
+      "angle": -20
+    }
+  ],
+  "method": "One existing helmet/face sprite, rigid rotation and translation only. Source RGB unchanged. Separate headless torso cutouts with two-pixel neck overlap. Hand-authored projected neck path; not anatomical or physical validation."
+}

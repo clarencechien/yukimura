@@ -1,16 +1,40 @@
-# 側倒：低頭過渡與同步比較
+# 側倒：共用頭盔與連續轉頭
 
 2026-10-16。分支 `art/jigoku-prerendered-2d`。
 
 [互動檢視頁原始檔](free-arm-settle/index.html) · [30 fps MP4](free-arm-settle/settle-30fps.mp4) · [手機畫面](free-arm-settle/mobile.jpg) · [前輪五姿勢](FREE_ARM_TRANSITION.md)
 
-本輪把上一輪的低頭修稿改作 **額外過渡格**，保留原本三張側倒圖及時序。共用雙臂、張掌與落地刀；沒有新 image gen、Blender 或 Modal 運算。改善幅度有限，仍是四張關鍵原畫的接續，頭盔、衣甲與腰部仍有換圖感。
+本輪把原近地圖的 **頭盔與面部拆成同一張共用部件**，從 1180 ms 起連續平移、旋轉，頭部不再隨身體換圖。衣甲仍使用前輪四格，雙臂與落刀保持原動作。沒有新 image gen、Blender 或 Modal 運算；頸部接縫與肩甲遮擋仍是平面試作，未替換正式遊戲。
 
 ![實際瀏覽器：右側從收腳、落刀、卸力接低頭過渡與原三張側倒格](free-arm-settle/settle-preview.gif)
 
 右側保留先前收腳、落刀及 860→1180 ms 卸力；1200–1240 ms 使用低頭過渡格，之後接回原側倒圖，1500 ms 到達側躺末姿，停留至 1800 ms。共用手臂的肩／肘／腕位置連續，**身體輪廓仍是原畫換格，不是連續全身動畫**。仍是獨立 Canvas 試作，未替換 Phaser 戰鬥或線上 v22；左側維持五姿勢基線作比較。
 
-## 本輪：低頭稿作過渡，不取代原側倒格
+本頁 `pose-*.png` 與動圖反映目前預設的共用頭盔版本；前輪固定截圖保留於 `handoffs/bridge/`，可透過同步比較查看。
+
+## 本輪：共用頭盔，不再每格重畫頭部
+
+[頭盔同步比較頁原始檔](free-arm-settle/head-review.html) · [手機比較](free-arm-settle/head-mobile.jpg) · [素材與換格檢查](free-arm-settle/shared-head-check.json)
+
+![同一個 1220 ms：左為前輪四格，右為同一張頭盔連續轉動](free-arm-settle/head-comparison.png)
+
+- **沿用原素材**：頭盔、面部、下顎與部分頸甲裁自既有 `torso.webp`。另製作卸力及四張側倒姿勢的去頭胸甲，原素材不覆寫；來源 SHA256、裁切多邊形與頭部軸點見 [shared-head.json](free-arm-settle/shared-head.json)。裁片保留來源可見 RGB，只改 alpha 分層。排除原先跟著頭部懸空的藍繩，頸部切口保留兩個來源像素重疊。
+- **同一頭部連續轉動**：起點使用原卸力胸甲的完整剛性轉換，之後沿人工頸部位置插值，保持頭部大小與紋理相同；只平移、旋轉，沒有拉長、壓扁或交叉淡化。近側肩甲仍繪在頭部前方，因此肩甲換圖仍可能改變頭部遮擋。
+- **身體與雙臂不變**：同步比較以相同時間讀取兩個實際 Canvas 場景；兩邊的身體／雙臂姿勢資料完全一致，差別是頭部素材與分層。完整檢視頁預設為共用頭盔，`?helmet=baked` 保留前輪四格，`?motion=baseline` 保留原三格。
+- **新增資源約 1.268 MiB RGBA8**：一張頭部及五張去頭胸甲，不含原本仍載入的貼圖、畫布和雙場景比較頁開銷；不是手機實測顯存。正式遊戲資源未變。
+
+| 身體換格 | 前輪輪廓重疊率 | 共用頭盔 | 前輪／本輪全彩平均差（0–255） |
+| --- | ---: | ---: | ---: |
+| 1200 ms | 79.57% | 85.86% | 6.728／5.068 |
+| 1240 ms | 81.74% | 91.14% | 4.882／3.625 |
+| 1320 ms | 82.24% | 84.94% | 5.205／4.289 |
+| 1440 ms | 87.50% | 90.55% | 4.705／3.760 |
+
+四次換格的身體圖層輪廓與全彩差異均改善。**頭部圖層保持連續，但衣甲、肩甲遮擋和頸部造型仍未連續。** 頭部是平面剛性部件，不是立體轉頭、頸椎變形或承重模擬。
+
+1601 個實際頭部轉換取樣中，可見像素格角點最低為 Y≈677.08，未超過設定地面 Y=690；這只驗證投影範圍。1180 ms 拆分啟用時，全畫面平均 RGB 差約 0.0027／255，53 個像素的最大色差大於 8，屬切口與濾波差異，不能稱為逐像素無縫。四個換格的頭部矩陣連續；獨立頭部圖層最多只有兩個像素的預乘色差大於 3，最大 alpha／預乘色差為 8，沒有整張頭圖切換。
+
+## 前輪：低頭稿作過渡，不取代原側倒格
 
 [同步比較頁原始檔](free-arm-settle/bridge-review.html) · [1220 ms 過渡姿勢](free-arm-settle/pose-1220.png) · [手機同步比較](free-arm-settle/bridge-mobile.jpg) · [換格量測](free-arm-settle/bridge-handoff-check.json)
 
@@ -141,7 +165,7 @@
 
 **本輪末姿比前輪更前傾，並不是原跪姿的完全相同輪廓。** 固定膝點的平面收腳只是一種可重用的動作試作，尚未處理立體腿部旋轉、膝髖連動或碰撞受力。400 ms 的整張下身切換已移除；腰甲拼接、護脛裁邊與前段三次原畫切換仍需精修。持刀側已裝配，但遠側肩點與肘部遮擋仍是人工平面配置；未作三維穿插或受力驗證。
 
-下一步仍需依同一頭盔、肩甲和腰甲標記精修頭頸與衣甲的跨格造型；本輪短暫過渡只縮小單次輪廓跳變，尚不接回戰鬥。沒有直接套用接點不一致的舊側倒原畫，前段原畫切換與離掌手形仍有精修空間。
+下一步精修肩甲遮擋、頸部接縫與腰甲跨格造型；頭盔已共用，但身體原畫仍會切換，尚不接回戰鬥。沒有直接套用接點不一致的舊側倒原畫，前段原畫切換與離掌手形仍有精修空間。
 
 ## 檢查與重建
 
@@ -150,7 +174,8 @@ python3 tools/prepare_free_arm_settle.py
 python3 tools/prepare_sword_release.py
 python3 tools/prepare_side_fall.py
 python3 tools/prepare_fall_bridge.py
-node --test tools/check_fall_bridge.mjs tools/check_side_fall.mjs tools/check_settle_yield.mjs tools/check_sword_release.mjs tools/check_settling_sword.mjs tools/check_free_arm_settle.mjs tools/check_free_arm_transition.mjs tools/check_free_arm_support.mjs tools/check_free_arm_parts.mjs tools/check_free_arm_reach.mjs
+python3 tools/prepare_shared_head.py
+node --test tools/check_shared_head.mjs tools/check_fall_bridge.mjs tools/check_side_fall.mjs tools/check_settle_yield.mjs tools/check_sword_release.mjs tools/check_settling_sword.mjs tools/check_free_arm_settle.mjs tools/check_free_arm_transition.mjs tools/check_free_arm_support.mjs tools/check_free_arm_parts.mjs tools/check_free_arm_reach.mjs
 python3 tools/check_free_arm_settle_art.py
 python3 tools/check_settle_yield_art.py
 python3 tools/check_side_fall_art.py
@@ -161,16 +186,21 @@ node tools/capture_fall_handoffs.mjs docs/routes/jigoku-2d/free-arm-settle/hando
 python3 tools/check_fall_handoffs.py
 python3 tools/check_bridge_handoffs.py
 node tools/check_bridge_review_browser.mjs
+node tools/capture_fall_handoffs.mjs docs/routes/jigoku-2d/free-arm-settle/handoffs/helmet helmet
+python3 tools/check_shared_head_art.py
+node tools/check_head_review_browser.mjs
 python3 tools/package_free_arm_settle.py
 ```
 
-- **33 項相關測試通過**：新增 3 項過渡格測試，驗證前後段保持原動作、新時序、雙臂可達性與連續接點、落刀固定及倒帶；另沿用 3 項側倒測試，涵蓋前段不變、三格選取、肩腕連續、固定雙臂及可達性、末姿停留、刀保持原位和任意跳時；另有既有 27 項卸力、落刀及收腳測試。
+- **36 項相關測試通過**：新增 3 項共用頭部測試，驗證拆分起點、頭部剛性與轉換連續、關鍵姿勢、落定與倒帶；另有 3 項過渡格測試，驗證前後段保持原動作、新時序、雙臂可達性與連續接點、落刀固定及倒帶；另沿用 3 項側倒測試，涵蓋前段不變、三格選取、肩腕連續、固定雙臂及可達性、末姿停留、刀保持原位和任意跳時；另有既有 27 項卸力、落刀及收腳測試。
 - [素材與鞋底檢查](free-arm-settle/art-check.json)：逐裁片核對可見像素，生成像素不得侵入膝甲保留區；1001 個實際 JS 骨架取樣中，鞋上 alpha > 16 的像素未超過起始鞋底 Y=684。另對 1001 個落刀取樣檢查全部可見刀像素格角點，沒有超過 Y=690，接觸時最低點吻合地面。這只驗證螢幕投影高度，不代表三維地面碰撞正確。
 - [側倒素材檢查](free-arm-settle/fall-art-check.json)：裁片逐像素對照註冊後來源；1401 個實際轉換取樣確認可見像素位於檢視區及投影地面上方，來源與正式遊戲維持隔離。這不驗證人體受力或全身輪廓連續。
 - [瀏覽器檢查](free-arm-settle/browser-check.json)：實際 Canvas 雙側肩／肘／腕、刀柄與握拳、膝／踝接點、支撐期間固定掌根與下身、400 ms 前後實際畫布像素、持刀側繪圖順序／獨立開關／完整貼圖裁切範圍、三種手形與落刀階段、放手矩陣連續、落定後刀固定、胸肩卸力、四張側倒格、共用雙臂接合及前段腿部 alpha=1；原速／慢速、逐姿勢、重播與 390 px 手機觸控均通過，無載入錯誤。
 - [換格量測](free-arm-settle/handoff-check.json)：保存三次換格的舊版、新版與未採用修稿截圖及 SHA256；檢查新版註冊參數與捕捉資料一致、第一個交接未變、後兩個交接的正規化輪廓重疊率沒有退步。全彩差異另外如實記錄，不當作全部改善。
 - [過渡素材](free-arm-settle/bridge-art-check.json)：1501 個實際動作取樣與四格裁片像素核對，最低點 Y=689，未越過設定地面 Y=690。
 - [同步比較檢查](free-arm-settle/bridge-browser-check.json)：兩個來源時間同步、過渡前及 1260 ms 後畫布像素相同、過渡期間不同；播放、暫停、重播、末端停止、390 px 排版均通過。
+- [共用頭盔檢查](free-arm-settle/shared-head-check.json)：逐裁片核對來源、1601 個頭部姿勢取樣、四次換格的實際頭部矩陣和圖層像素、啟用時的重組差異；全彩與輪廓比較均對照前輪四格，原遊戲及原始身體素材未變。
+- [頭盔同步比較](free-arm-settle/head-browser-check.json)：兩邊時間及身體姿勢相同、1180 ms 前像素相同、其後僅右側使用共用頭部；播放、暫停、重播與手機排版通過。
 - [影片檢查](free-arm-settle/video-check.json)：180 張實際瀏覽器畫布，含落刀、卸力、側倒與末姿停留的四分之一速度，均勻 30 fps／6 秒 MP4；GIF 使用共用 256 色色盤與變動區域壓縮，逐取樣核對解碼像素；完整色彩保留在 MP4 與 PNG。30 fps 是播放頻率，不是每秒三十張新原畫。
 
 五姿勢檢視頁、原手臂／撐掌部件與正式遊戲維持原基線；另對側倒段起點 `a49fc49` 確認來源和遊戲檔案未變。HTTP 靜態服務路徑 `/docs/routes/jigoku-2d/free-arm-settle/`；此分支尚未部署到 Pages，GitHub HTML 頁只顯示原始碼，可先看動圖和影片。

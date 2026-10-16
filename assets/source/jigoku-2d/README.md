@@ -202,3 +202,7 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 ### 低頭修稿改作額外過渡格（2026-10-16）
 
 本輪未新增生成圖片。重用上述 `side-fall-bowed-head.png` 第一格作 1220 ms 關鍵姿勢，只顯示於 1200–1240 ms，保留原本 `roll`／`side`／`rest` 三格；這不同於前輪被否決的整段替換方案。三張裁片與來源雜湊記錄於 `free-arm-settle/bridge.json`，製作腳本為 `tools/prepare_fall_bridge.py`。原九張裁片與原來源未改，新增約 0.469 MiB RGBA8。兩次輪廓變化稍小，但全彩差異峰值略增，頭盔仍有換圖感；後兩次換格與前輪逐像素一致。
+
+### 共用頭盔與面部拆片（2026-10-16）
+
+本輪沒有新增 image gen、Blender、Modal 或第三方來源。從既有 `free-arm-settle/torso.webp` 擷取頭盔／面部，生成 `shared-head.webp` 及五張 `headless-*.webp` 胸甲裁片；原素材與可見 RGB 不變，只處理 alpha。人工裁切邊界、兩像素頸部重疊、原檔 SHA256、軸點與頸部路徑均記錄在 `shared-head.json`，以 `tools/prepare_shared_head.py` 重建。共用頭盔保持同一大小，沿平面軸點平移與旋轉；不是立體轉頭或真實頸椎。頭部與胸甲新裁片約 1.268 MiB RGBA8；檢視頁預設啟用，前輪四格仍可用 `?helmet=baked` 比較。
