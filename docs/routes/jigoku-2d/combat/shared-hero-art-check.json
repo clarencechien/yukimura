@@ -5,13 +5,13 @@
     "Seven rigid lower-body cutouts retain source colors and declared masks; no opaque lower silhouette holes at rest",
     "All four desktop/mobile legacy sweep boundary cells preserve visible pixels and alpha",
     "All active texture dimensions <=4096; no legacy idle/thrust/sweep/boundary/guard atlases loaded by game.mjs",
-    "All active torso, arm, hand, weapon and enemy textures are byte-identical to baseline, including all lower-body parts; no new generated art"
+    "Retained textures are byte-identical to baseline; enemy-duel atlas replaced by two mechanically cropped body parts, verified separately; no new generated art"
   ],
   "memory": {
     "desktop": {
-      "currentRGBA8Bytes": 69841872,
+      "currentRGBA8Bytes": 60258740,
       "previousRGBA8Bytes": 69841872,
-      "savedRGBA8Bytes": 0,
+      "savedRGBA8Bytes": 9583132,
       "loadedTextures": [
         {
           "path": "hero-lower-hd.webp",
@@ -164,14 +164,24 @@
           "sha256": "9559ff42ed1cd996ac9fa7e52fc1407174ec3602975878f7c84dae1372c5a7f9"
         },
         {
-          "path": "enemy-duel-hd.webp",
+          "path": "enemy-body-torso-hd.webp",
           "size": [
-            3456,
-            768
+            285,
+            305
           ],
-          "rgba8Bytes": 10616832,
-          "downloadBytes": 767864,
-          "sha256": "7c7d3864031fb7fa1e244e0a946e3709bad181e28d36cc8f54d17e92ca77d0de"
+          "rgba8Bytes": 347700,
+          "downloadBytes": 98706,
+          "sha256": "545941380060176590884170ef64d5aa0cdd150d8084a84f3da84dfd5e7b8727"
+        },
+        {
+          "path": "enemy-body-lower-hd.webp",
+          "size": [
+            490,
+            350
+          ],
+          "rgba8Bytes": 686000,
+          "downloadBytes": 158430,
+          "sha256": "978b90114294d27e2ea7fa208d637a0e4b47a2e984e9687b5342362f2a13a7ce"
         },
         {
           "path": "enemy-low-hd.webp",
@@ -256,9 +266,9 @@
       ]
     },
     "mobile": {
-      "currentRGBA8Bytes": 30668624,
+      "currentRGBA8Bytes": 26409076,
       "previousRGBA8Bytes": 30668624,
-      "savedRGBA8Bytes": 0,
+      "savedRGBA8Bytes": 4259548,
       "loadedTextures": [
         {
           "path": "hero-lower.webp",
@@ -411,14 +421,24 @@
           "sha256": "b5dd7b574dfd4772c5826a76963af94a2d035683dbca1beb9b9c841e9f199cfe"
         },
         {
-          "path": "enemy-duel.webp",
+          "path": "enemy-body-torso.webp",
           "size": [
-            2304,
-            512
+            190,
+            203
           ],
-          "rgba8Bytes": 4718592,
-          "downloadBytes": 376274,
-          "sha256": "1548b9413bc440a5e60f65eda8ebaedf351149b4066c3943a762fd4a7e648a4e"
+          "rgba8Bytes": 154280,
+          "downloadBytes": 50184,
+          "sha256": "b6e23b5605bee2b0b11e7a287517938eb4a6f403bcf2ea6c2d2bb45918ef2ece"
+        },
+        {
+          "path": "enemy-body-lower.webp",
+          "size": [
+            327,
+            233
+          ],
+          "rgba8Bytes": 304764,
+          "downloadBytes": 77822,
+          "sha256": "8ad2f1842563767d8be07a46be4800f897c0323c7c41c77de9d19db3656dc109"
         },
         {
           "path": "enemy-low.webp",

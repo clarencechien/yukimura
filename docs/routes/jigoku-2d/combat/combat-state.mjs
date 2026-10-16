@@ -12,7 +12,7 @@ export class CombatState {
   reset(){this.duel.reset();this.duelRemainder=0;this.hp=3;this.hits=0;this.swings=0;this.phase='idle';this.frame=0;this.elapsed=0;this.freeze=0;this.didHit=false;this.idleTime=0;this.enemyAge=0;this.enemyHit=false;this.attackKind='thrust';this.queuedAttack=null;this.lastHitKind=null;}
   startDuel(enabled=true){if(this.paused||this.phase==='attack'||this.targetKind!=='warrior')return false;this.duel.enabled=enabled;this.reset();return true;}
   defend(){return !this.paused&&this.phase==='idle'&&this.duel.defend();}
-  get guardEnemy(){return {pose:this.duel.active?enemyDuelPose(this.duel.stage,this.duel.age,this.duel.recoveryFrom):0,phase:'guard',alpha:1,...(this.duel.active?{intent:this.duel.stage,intentAge:this.duel.age}: {})};}
+  get guardEnemy(){return {pose:this.duel.active?enemyDuelPose(this.duel.stage,this.duel.age,this.duel.recoveryFrom):0,phase:'guard',alpha:1,...(this.duel.active?{intent:this.duel.stage,intentAge:this.duel.age,recoveryFrom:this.duel.recoveryFrom}: {})};}
   get target(){return {x:this.range==='near'?970:1060,y:334,radius:32};}
   get currentTrack(){return this.attackKind==='sweep'?this.sweepTrack:this.track;}
   get hurtbox(){return this.attackKind==='sweep'&&this.targetKind==='warrior'?{x:this.target.x-55,y:535,radius:42}:this.target;}

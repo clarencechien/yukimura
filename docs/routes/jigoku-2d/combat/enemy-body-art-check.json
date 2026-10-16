@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "Both HD cutouts retain exact visible source RGB and declared alpha masks",
+    "Mobile parts equal uniform resampling of HD cutouts",
+    "Assembled rest silhouette has no missing opaque source pixels",
+    "Torso and lower overlap only at the belt; motion uses rigid transforms, no mesh deformation"
+  ],
+  "cost": {
+    "lower": {
+      "desktopRGBA8Bytes": 686000,
+      "mobileRGBA8Bytes": 304764
+    },
+    "torso": {
+      "desktopRGBA8Bytes": 347700,
+      "mobileRGBA8Bytes": 154280
+    }
+  },
+  "limits": "Rest silhouette and retained pixel checks, not an anatomical or automatic moving-seam quality judgement. Moving seam is inspected in actual browser captures."
+}

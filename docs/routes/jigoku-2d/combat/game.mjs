@@ -1,3 +1,4 @@
+import {enemyBodyPose,ENEMY_BODY_BOXES} from './enemy-body.mjs';
 import {duelContactPose,bladePointToWorld} from './duel-contact.mjs';
 import {sharedHeroPose} from './hero-rig.mjs';
 import {enemyBinding,enemyTexture} from './duel-poses.mjs';
@@ -23,7 +24,7 @@ class Battle extends Phaser.Scene {
     this.load.image('arena','arena.webp');this.load.json('track','shared-spear-track.json');
     this.hd=innerWidth>=900;
     this.load.json('duelArt','duel-art.json');
-    this.load.spritesheet('enemyDuel',`enemy-duel${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:2});
+    for(const part of ['lower','torso'])this.load.image('enemy-body-'+part,`enemy-body-${part}${this.hd?'-hd':''}.webp`);
     this.load.json('guardRig','guard-rig.json');
     this.load.json('thrustRig','thrust-rig.json');
     for(const part of ['rearFoot','frontFoot','rearShin','frontShin','rearThigh','frontThigh','lower','torso','rearUpper','rearFore','rearHand','frontUpper','frontFore','frontHand'])this.load.image('hero-'+part,`hero-${part}${this.hd?'-hd':''}.webp`);
@@ -58,6 +59,7 @@ class Battle extends Phaser.Scene {
     this.enemyKatana=component('enemyKatana',this.enemyRig.parts.katana);
     this.enemyUpper=component('enemy-upper',this.enemyRig.parts.upper);this.enemyFore=component('enemy-fore',this.enemyRig.parts.fore);
     this.enemySprite=this.add.sprite(970,574,'warrior',0).setOrigin(.5,690/768).setDisplaySize(1152*.6,768*.6);
+    this.enemyBodyParts={lower:this.add.image(0,0,'enemy-body-lower'),torso:this.add.image(0,0,'enemy-body-torso')};
     // The shared cuff must cover the painted socket opening on the body.
     this.enemyGrip=component('enemyGrip',this.enemyRig.parts.grip);
     this.flash=this.add.circle(0,0,12,0xffd69b).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
@@ -71,7 +73,7 @@ class Battle extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
     for(const id of ['attack','sweep','guard','duel','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,contact:this.contactPose,lastClash:this.lastClash??null,heroArt:this.heroArt,heroParts:Object.fromEntries(Object.entries(this.heroParts).map(([n,p])=>[n,{x:p.x,y:p.y,width:p.displayWidth,height:p.displayHeight,angle:p.angle,originX:p.originX,originY:p.originY,visible:p.visible,texture:p.texture.key,order:this.children.getIndex(p)}])),heroWeapon:{visible:this.guardYari.visible,texture:this.guardYari.texture.key,width:this.guardYari.displayWidth,height:this.guardYari.displayHeight,x:this.guardYari.x,y:this.guardYari.y,angle:this.guardYari.angle,originX:this.guardYari.originX,originY:this.guardYari.originY,pose:this.guardWeaponPose,hands:this.guardHands.map(h=>({visible:h.visible,x:h.x,y:h.y,frame:h.frame.name,texture:h.texture.key,width:h.displayWidth,height:h.displayHeight,angle:h.angle,originX:h.originX,originY:h.originY,order:this.children.getIndex(h)})),order:this.children.getIndex(this.guardYari),bodyOrder:this.children.getIndex(this.hero)},armOrder:{body:this.children.getIndex(this.enemySprite),upper:this.children.getIndex(this.enemyUpper),fore:this.children.getIndex(this.enemyFore),hand:this.children.getIndex(this.enemyGrip)},duel:{enabled:this.state.duel.enabled,stage:this.state.duel.stage,age:this.state.duel.age,playerHP:this.state.duel.playerHP,guardPose:this.state.duel.guardPose,recoveryFrom:this.state.duel.recoveryFrom,guard:this.state.duel.guard,blockAge:this.state.duel.blockAge,guardAtBlock:this.state.duel.guardAtBlock,cooldown:this.state.duel.cooldown,blocks:this.state.duel.blocks,result:this.state.duel.result},engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,height:this.enemyKatana.displayHeight,originX:this.enemyKatana.originX,originY:this.enemyKatana.originY,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,collisionTip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],tip:this.heroArt?.weapon.tip??(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
+    window.yariCombat={snapshot:()=>({ready:true,enemyBodyPose:this.enemyBodyPose,enemyBodyParts:Object.fromEntries(Object.entries(this.enemyBodyParts).map(([n,p])=>[n,{x:p.x,y:p.y,width:p.displayWidth,height:p.displayHeight,angle:p.angle,originX:p.originX,originY:p.originY,visible:p.visible,texture:p.texture.key,order:this.children.getIndex(p)}])),legacyBodyVisible:this.enemySprite.visible,contact:this.contactPose,lastClash:this.lastClash??null,heroArt:this.heroArt,heroParts:Object.fromEntries(Object.entries(this.heroParts).map(([n,p])=>[n,{x:p.x,y:p.y,width:p.displayWidth,height:p.displayHeight,angle:p.angle,originX:p.originX,originY:p.originY,visible:p.visible,texture:p.texture.key,order:this.children.getIndex(p)}])),heroWeapon:{visible:this.guardYari.visible,texture:this.guardYari.texture.key,width:this.guardYari.displayWidth,height:this.guardYari.displayHeight,x:this.guardYari.x,y:this.guardYari.y,angle:this.guardYari.angle,originX:this.guardYari.originX,originY:this.guardYari.originY,pose:this.guardWeaponPose,hands:this.guardHands.map(h=>({visible:h.visible,x:h.x,y:h.y,frame:h.frame.name,texture:h.texture.key,width:h.displayWidth,height:h.displayHeight,angle:h.angle,originX:h.originX,originY:h.originY,order:this.children.getIndex(h)})),order:this.children.getIndex(this.guardYari),bodyOrder:this.children.getIndex(this.hero)},armOrder:{body:this.children.getIndex(this.enemySprite),upper:this.children.getIndex(this.enemyUpper),fore:this.children.getIndex(this.enemyFore),hand:this.children.getIndex(this.enemyGrip)},duel:{enabled:this.state.duel.enabled,stage:this.state.duel.stage,age:this.state.duel.age,playerHP:this.state.duel.playerHP,guardPose:this.state.duel.guardPose,recoveryFrom:this.state.duel.recoveryFrom,guard:this.state.duel.guard,blockAge:this.state.duel.blockAge,guardAtBlock:this.state.duel.guardAtBlock,cooldown:this.state.duel.cooldown,blocks:this.state.duel.blocks,result:this.state.duel.result},engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,height:this.enemyKatana.displayHeight,originX:this.enemyKatana.originX,originY:this.enemyKatana.originY,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,collisionTip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],tip:this.heroArt?.weapon.tip??(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -163,13 +165,23 @@ class Battle extends Phaser.Scene {
     if(uiKey!==this.uiKey){this.uiKey=uiKey;this.refreshUI();}
     const warrior=this.state.targetKind==='warrior',enemy=this.state.enemy;
     this.seal.setVisible(!warrior);this.pedestal.setVisible(!warrior);
-    const bodyTexture=enemyTexture(enemy.pose);
-    this.enemySprite.setVisible(warrior).setPosition(this.state.target.x,574).setTexture(bodyTexture.key,bodyTexture.frame).setAlpha(enemy.alpha);
-    const actionArmFront=enemy.pose>=16;
-    if(actionArmFront!==this.actionArmFront){
-      if(actionArmFront){this.children.moveAbove(this.enemyUpper,this.enemySprite);this.children.moveAbove(this.enemyFore,this.enemyUpper);}
+    const body=this.enemyBodyPose=enemyBodyPose(enemy,this.enemyRig);
+    const bodyTexture=enemyTexture(body?0:enemy.pose);
+    this.enemySprite.setVisible(warrior&&!body).setPosition(this.state.target.x,574).setTexture(bodyTexture.key,bodyTexture.frame).setAlpha(enemy.alpha);
+    for(const [name,part] of Object.entries(this.enemyBodyParts)){
+      part.setVisible(warrior&&!!body).setAlpha(enemy.alpha);
+      if(!body)continue;
+      const [x,y,right,bottom]=ENEMY_BODY_BOXES[name],p=body.pivot;
+      const world=enemyPointToWorld(p,this.state.target.x,this.enemyRig);
+      part.setOrigin((p.x-x)/(right-x),(p.y-y)/(bottom-y)).setDisplaySize((right-x)*.6,(bottom-y)*.6).setPosition(world.x,world.y).setAngle(name==='torso'?body.angle:0);
+    }
+    // Keep the upper arm under the shoulder armor and forearm in front of the
+    // chest throughout the entire attack; no pose-index draw-order switch.
+    const sharedBody=!!body;
+    if(sharedBody!==this.sharedEnemyBody){
+      if(sharedBody){this.children.moveAbove(this.enemyUpper,this.enemyBodyParts.lower);this.children.moveBelow(this.enemyUpper,this.enemyBodyParts.torso);this.children.moveAbove(this.enemyFore,this.enemyBodyParts.torso);}
       else{this.children.moveBelow(this.enemyUpper,this.enemySprite);this.children.moveBelow(this.enemyFore,this.enemySprite);}
-      this.actionArmFront=actionArmFront;
+      this.sharedEnemyBody=sharedBody;
     }
     const encounter=duelContactPose(this.state,this.heroArt,this.guardRig,this.thrustRig,this.enemyRig);
     this.armPose=encounter.arm;this.weaponPose=encounter.weapon;this.contactPose=encounter.contact;
@@ -188,9 +200,9 @@ class Battle extends Phaser.Scene {
       // Small painted support-hand contact, separate from the broad body shadow.
       const contact=enemyBinding(enemy.pose,this.enemyRig).supportContact;
       if(contact){const p=enemyPointToWorld({x:contact[0],y:contact[1]},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x030609,.4*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y-3,35,9);}
-      const feet=enemyBinding(enemy.pose,this.enemyRig).footContacts;
+      const feet=enemyBinding(body?0:enemy.pose,this.enemyRig).footContacts;
       if(feet){for(const [x,y] of feet){const p=enemyPointToWorld({x,y},this.state.target.x,this.enemyRig);this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(p.x,p.y,55,12);}}
-      else if(enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
+      else if(body||enemy.pose<3){this.enemyShadow.fillStyle(0x05070a,.35*enemy.alpha);this.enemyShadow.fillEllipse(this.state.target.x-115,572,55,14);this.enemyShadow.fillEllipse(this.state.target.x+105,565,62,14);}
     }
     this.duelMarks.clear();
     const duel=this.state.duel,g=this.duelMarks;

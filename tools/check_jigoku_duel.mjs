@@ -1,3 +1,4 @@
+import {enemyBodyPose} from '../docs/routes/jigoku-2d/combat/enemy-body.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -51,9 +52,9 @@ test('authored enemy poses follow preparation, cut and recovery without replayin
 test('guard raises spear then absorbs on block; pause retains authored guard pose, expiry clears it',()=>{
  const {s}=setup();advance(s,1700);s.defend();assert.equal(s.duel.guardPose,0);advance(s,350);assert.equal(s.duel.guardPose,2);s.paused=true;advance(s,1000);assert.equal(s.duel.guardPose,2);s.paused=false;advance(s,230);assert.equal(s.duel.guardPose,null);s.reset();assert.equal(s.duel.guardPose,null);
 });
-test('authored shoulder sockets drive both rigid arm and shared weapon throughout an actual duel',()=>{
+test('Continuous torso sockets drive both rigid arm and shared weapon throughout an actual duel',()=>{
  const {s}=setup(),art=read('duel-art'),actionRig={...rig,duelBindings:art.enemy.bindings};const poses=new Set();
- for(let i=0;i<2700;i+=10){s.update(10);const e=s.enemy;poses.add(e.pose);const a=enemyArm(e,s.enemyAge,false,actionRig),w=enemyWeapon(e,s.enemyAge,false,actionRig);for(const [p,q,len] of [[a.shoulder,a.elbow,65],[a.elbow,a.wrist,75]])assert.ok(Math.abs(Math.hypot(p.x-q.x,p.y-q.y)-len)<1e-6);assert.deepEqual(w.grip,closedGrip(a,actionRig).grip);if(e.pose>=16)assert.deepEqual(a.shoulder,{x:art.enemy.bindings[e.pose-16].shoulder[0],y:art.enemy.bindings[e.pose-16].shoulder[1]});}
+ for(let i=0;i<2700;i+=10){s.update(10);const e=s.enemy;poses.add(e.pose);const a=enemyArm(e,s.enemyAge,false,actionRig),w=enemyWeapon(e,s.enemyAge,false,actionRig);for(const [p,q,len] of [[a.shoulder,a.elbow,65],[a.elbow,a.wrist,75]])assert.ok(Math.abs(Math.hypot(p.x-q.x,p.y-q.y)-len)<1e-6);assert.deepEqual(w.grip,closedGrip(a,actionRig).grip);assert.deepEqual(a.shoulder,enemyBodyPose(e,actionRig).shoulder);}
  assert.deepEqual([...poses],[0,16,17,18]);
 });
 test('a previous block never marks the next unguarded slash as blocked',()=>{

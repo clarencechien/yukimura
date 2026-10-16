@@ -1,5 +1,6 @@
 import {enemyBinding} from './duel-poses.mjs';
 import {DUEL_TIMING} from './duel-state.mjs';
+import {enemyBodyPose} from './enemy-body.mjs';
 const degrees=180/Math.PI;
 export function solveArm(shoulder,target,upperLength,foreLength){
   const dx=target.x-shoulder.x,dy=target.y-shoulder.y,raw=Math.hypot(dx,dy);
@@ -20,14 +21,14 @@ function localTarget(age,dead,rig,low=false){
   const from=offset(a[1]),to=offset(b[1]);return {x:from[0]+(to[0]-from[0])*blend,y:from[1]+(to[1]-from[1])*blend};
 }
 export function enemyArm(enemy,age,dead,rig){
-  const binding=enemyBinding(enemy.pose,rig),shoulder={x:binding.shoulder[0],y:binding.shoulder[1]},offset=localTarget(age,dead,rig,enemy.reaction==='sweep');
+  const body=enemyBodyPose(enemy,rig),binding=enemyBinding(body?0:enemy.pose,rig),shoulder=body?.shoulder??{x:binding.shoulder[0],y:binding.shoulder[1]},offset=localTarget(age,dead,rig,enemy.reaction==='sweep');
   if(enemy.intent){
-    // Shared rigid arm follows the authored shoulder; blade and hand use this same solve.
+    // Shoulder follows the same rigid torso transform used by the renderer.
     const ease=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);};
     let from=[3,110],to=[3,110],t=0;
     if(enemy.intent==='windup'){to=[-39,98];t=ease(enemy.intentAge/DUEL_TIMING.windup);}
     if(enemy.intent==='strike'){from=[-39,98];to=[35,110];t=ease(enemy.intentAge/DUEL_TIMING.strike);}
-    if(enemy.intent==='recovery'&&enemy.pose>=16){from=[35,110];t=ease(enemy.intentAge/360);}
+    if(enemy.intent==='recovery'&&enemy.recoveryFrom==='attack'){from=[35,110];t=ease(enemy.intentAge/520);}
     offset.x=from[0]+(to[0]-from[0])*t;offset.y=from[1]+(to[1]-from[1])*t;
   }
   const arm=solveArm(shoulder,{x:shoulder.x+offset.x,y:shoulder.y+offset.y},rig.armLengths[0],rig.armLengths[1]);

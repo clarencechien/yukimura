@@ -53,3 +53,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `duel-contact.mjs` 在既有 `enemy-katana.webp` 的鋼面內標記接觸折線 `[[14,10],[40,18],[100,30],[170,34]]`，依目標位置選取刀刃上的接觸點，再求解固定 65／75 px 雙臂。手、刀共用相同握點與角度，武器不縮放；由實際刀圖標記推回世界座標產生火星。最後 240 ms 蓄刀接近、格擋後最多 65 ms 相抵、300 ms 內鬆開接觸，並保留既有戰鬥判定時刻。
 
 本輪全部角色貼圖與 `8a6cfb0` 位元組相同，沒有新增生成圖、Blender、Modal 或第三方來源。`blade-contact-art-check.json` 記錄刀圖 SHA256 與標記透明度檢查；`blade-contact-comparison.json` 對照相同防禦剩餘時間及血量的實際瀏覽器畫面，並記錄格擋事件後的取樣時間差。此為平面接觸編排，不是自由兵器碰撞或剛體求解，軀幹仍沿用既有關鍵姿勢。
+
+
+### 共用敵方軀幹連續出刀（2026-10-16）
+
+`prepare_enemy_body.py` 從既有 `ghost-warrior-hd.webp` 待機格裁出 `enemy-body-torso` 與 `enemy-body-lower`，只修改 alpha 遮罩、裁切與手機縮圖，沒有生成或重繪色彩。來源 SHA256、原始格、腰帶遮罩與裁切框見 `enemy-body-art.json`；`check_enemy_body_art.py` 核對可見像素、手機縮圖與待機輪廓完整性。
+
+`enemy-body.mjs` 以腰帶 `[577,382]` 為支點，連續帶動原肩點 `[481,270]`；上臂、前臂、手掌與刀沿用原部件。待機／蓄刀／斬下／收勢不再載入 `enemy-duel` 圖集，舊圖保留作歷史來源。受擊／倒地仍由原圖集處理，未宣稱完成全動作連續骨架。沒有新增 image gen、Blender、Modal 或第三方素材。
+
+`shared-hero-art-check.json` 記錄目前載入成本，保留貼圖與 `8a6cfb0` 位元組相同；兩張新裁切獨立驗證。`enemy-body-comparison.json` 記錄前輪 `2f8de54` 實際影片與本輪瀏覽器畫面的配對時刻，以及出刀段肩點的 30 Hz 相鄰位移。

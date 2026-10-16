@@ -1,0 +1,117 @@
+{
+  "source": "ghost-warrior-hd.webp",
+  "sourceSHA256": "92b0a9534143a242a487216549207004458264c13fb81010fd0529c0fbc71ee2",
+  "sourceCell": [
+    0,
+    0,
+    1152,
+    768
+  ],
+  "pivot": [
+    577,
+    382
+  ],
+  "layers": {
+    "torso": {
+      "box": [
+        425,
+        115,
+        710,
+        420
+      ],
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          1152,
+          0
+        ],
+        [
+          1152,
+          377
+        ],
+        [
+          660,
+          377
+        ],
+        [
+          626,
+          387
+        ],
+        [
+          592,
+          394
+        ],
+        [
+          552,
+          402
+        ],
+        [
+          525,
+          412
+        ],
+        [
+          490,
+          417
+        ],
+        [
+          0,
+          417
+        ]
+      ]
+    },
+    "lower": {
+      "box": [
+        320,
+        350,
+        810,
+        700
+      ],
+      "polygon": [
+        [
+          0,
+          395
+        ],
+        [
+          490,
+          395
+        ],
+        [
+          525,
+          390
+        ],
+        [
+          552,
+          380
+        ],
+        [
+          592,
+          372
+        ],
+        [
+          626,
+          365
+        ],
+        [
+          660,
+          355
+        ],
+        [
+          1152,
+          355
+        ],
+        [
+          1152,
+          768
+        ],
+        [
+          0,
+          768
+        ]
+      ]
+    }
+  },
+  "method": "Only alpha masks and rectangular crops of the existing guard cell. Mobile is a uniform 2/3 resample rounded to whole pixels. No generated or repainted pixels."
+}
