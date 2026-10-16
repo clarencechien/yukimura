@@ -1,8 +1,8 @@
-# 燼關試槍：低掃受擊的腰胯與雙腿承重
+# 燼關試槍：致命命中與失衡下沉的銜接
 
 2026-10-16（UTC）。分支 `art/jigoku-prerendered-2d`。
 
-![Phaser 實際連招：短刺接低掃，鬼武者落胯屈膝再回防](combat/combo-preview.gif)
+![Phaser 實際致命短刺：保留命中姿勢、下沉，再接倒地](combat/combat-preview.gif)
 
 [本輪連招 30 fps 影片](combat/combo-30fps.mp4) · [打斷蓄刀 30 fps 影片](combat/enemy-recoil-30fps.mp4) · [交鋒 30 fps 影片](combat/duel-30fps.mp4) · [交鋒桌機](combat/duel-desktop.jpg) · [交鋒手機](combat/duel-mobile.jpg) · [手機承力格擋](combat/duel-mobile-guard.jpg) · [低掃擊倒 30 fps 影片](combat/low-hit-30fps.mp4) · [倒地 30 fps 影片](combat/combat-30fps.mp4) · [桌機截圖](combat/desktop.jpg) · [手機截圖](combat/mobile.jpg) · [試玩頁原始檔](combat/index.html)
 
@@ -28,7 +28,24 @@
 
 手機支援觸控；全螢幕依瀏覽器支援，亦可轉橫向。切到背景分頁會暫停，回來後手動繼續。偏好減少動態時，不啟用漂浮落燼與鏡頭震動。
 
-## 本輪：低掃後落胯屈膝，原腳位上回防
+## 本輪：致命命中先保留姿勢，再接屈膝
+
+[短刺擊倒 30 fps MP4](combat/combat-30fps.mp4) · [低掃擊倒 30 fps MP4](combat/low-hit-30fps.mp4) · [手機短刺](combat/enemy-fatal-thrust-mobile.jpg) · [手機低掃](combat/enemy-fatal-sweep-mobile.jpg)
+
+前輪第三次命中會立刻改成整身受擊圖，胸甲、肩臂及刀跟著跳位。現在短刺與低掃的致命一擊也保存當下姿勢，**70 ms 命中停頓期間維持同一副身體**，接著用原本八個身體部件下沉。
+
+- 前 **180 ms** 以腰胯帶動胸甲與固定長度雙腿，雙腳留在原位；持刀臂保留 65／75 px 臂長。命中當下可接待機、蓄刀、出刀或收招，不先跳回戒備。
+- 到 180 ms 對齊原 `buckle` 屈膝圖的肩點，握刀手也接到原持刀曲線。低掃增加 180–250 ms 的這張屈膝圖；250 ms 後的跪下、承手、430 ms 鬆手、500 ms 脫刀與消散時序不變。
+- **只改善命中瞬間、下沉與肩臂握刀銜接，還沒有完成連續倒地。** 180 ms 換回整身原畫時，頭盔、空手側手臂、腰甲與腿形仍有差別，腳位也會改變；後續跪地依然切換原圖。下方相鄰畫面直接展示這個限制。
+- 共用既有貼圖，不新增 image gen、Blender、Modal 或第三方素材。角色 RGBA8 估算仍為 **桌機 57.599 MiB／手機 25.245 MiB**；這不是實體手機效能量測。
+
+![致命短刺：同一命中進度的前後對照](combat/enemy-fatal-thrust-comparison.jpg)
+
+![交接前後相鄰畫面：肩與刀已接續，腿形與空手側仍有變化](combat/enemy-fatal-thrust-handoff.jpg)
+
+[低掃前後對照](combat/enemy-fatal-sweep-comparison.jpg) · [低掃交接相鄰畫面](combat/enemy-fatal-sweep-handoff.jpg) · [配對時刻與命中位移紀錄](combat/enemy-fatal-bridge-check.json)。對照來源是 `5d33b8c` 已提交 MP4 與本輪實際 Phaser 截圖；兩段新影片各 78 幀、30 fps／2.6 秒，沒有生成或補間影片畫面。交鋒影片保留前輪紀錄；非致命連招也已重錄，確認原本的回防仍正常。
+
+## 前輪：低掃後落胯屈膝，原腳位上回防
 
 [實際連招 30 fps MP4](combat/combo-30fps.mp4) · [前後對照](combat/enemy-low-rig-comparison.jpg) · [腿部近照](combat/enemy-low-rig-detail.jpg) · [手機承重](combat/mobile-sweep.jpg)
 
@@ -368,6 +385,12 @@
 
 ## 驗證與重建
 
+- 本輪新增 [4 項致命銜接測試](../../../tools/check_enemy_fatal_bridge.mjs)，連同既有規則共 **74 項通過**：跨敵方階段的命中姿勢、固定肢段與腳位、180 ms 肩肘腕及刀的邊界連續性、命中停頓／暫停／重置、脫刀落地與消散。
+- 桌機重新錄製致命短刺、致命低掃及非致命連招；[瀏覽器檢查](combat/browser-check.json) 從實際 Phaser 圖層核對關節與武器。另以 [390 px 手機觸控檢查](combat/enemy-fatal-mobile-check.json) 驗證兩種致命命中、下沉暫停、交接、落刀及重置。
+- 原畫裁切與手機縮圖檢查通過。本輪沒有改角色貼圖；新增的圖片都是遊戲截圖或其比較排版。
+
+以下保留各前輪檢查範圍與當時的測試數量：
+
 - 本輪新增 [4 項低掃承重測試](../../../tools/check_enemy_low_rig.mjs)：完整反應的固定腿長與腳位、膝向不翻轉、跨出刀階段的命中連續性、420 ms 回防邊界、命中停頓／暫停／重置，以及致命低掃分支。連同既有測試共 **70 項通過**。
 - 瀏覽器由實際八個圖層的原點、位置、尺寸、角度重算髖／膝／踝，確認髖部跟隨腰胯、兩段腿相接、踝部接在固定足部；同時核對肩臂、握點與刀槍接觸。桌機連招錄影保留 90 張畫面，手機觸控另檢查下沉、暫停及正常回防。
 - [原畫檢查](combat/enemy-body-art-check.json) 核對八層的可見原色、宣告遮罩、手機縮圖與待機輪廓不遺失不透明像素；動態接縫另以實際畫面檢視。記憶體估算以 `0891c0d` 為前輪基準。
@@ -433,7 +456,7 @@ python3 tools/check_jigoku_enemy_art.py
 python3 tools/check_jigoku_recovery_art.py
 python3 tools/prepare_yari_sweep.py
 python3 tools/check_jigoku_sweep_art.py
-node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs tools/check_shared_hero.mjs tools/check_duel_contact.mjs tools/check_enemy_body.mjs tools/check_enemy_recoil.mjs tools/check_enemy_low_rig.mjs
+node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs tools/check_shared_hero.mjs tools/check_duel_contact.mjs tools/check_enemy_body.mjs tools/check_enemy_recoil.mjs tools/check_enemy_low_rig.mjs tools/check_enemy_fatal_bridge.mjs
 node tools/check_shared_sweep_browser.mjs
 python3 tools/package_shared_sweep_preview.py
 python3 tools/package_leg_loading_comparison.py
@@ -447,14 +470,16 @@ python3 tools/package_shared_guard_comparison.py
 python3 tools/package_blade_contact_comparison.py
 python3 tools/package_jigoku_duel_comparison.py
 node tools/check_jigoku_combat.mjs
-python3 tools/package_jigoku_combat_preview.py
+python3 tools/package_jigoku_combat_preview.py --video-only
+node tools/check_enemy_fatal_browser.mjs
 python3 tools/package_jigoku_combo_preview.py
 python3 tools/package_enemy_low_rig.py
 python3 tools/package_shared_sweep_comparison.py
 python3 tools/package_jigoku_low_preview.py
+python3 tools/package_enemy_fatal_bridge.py
 python3 tools/package_jigoku_recovery_preview.py
 ```
 
 圖像重新打包需 Pillow／NumPy；瀏覽器錄影打包需 FFmpeg。瀏覽器檢查會自行啟動並關閉臨時 HTTP 伺服器。
 
-下一步銜接致命一擊到屈膝倒地，減少共用身體切回倒地關鍵圖時的跳動。
+下一步針對 180 ms 交接的腿形、腳位與空手側製作一致的屈膝素材；肩點與握刀已對齊，但不能以這兩個接點代表整個輪廓連續。

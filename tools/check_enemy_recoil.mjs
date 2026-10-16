@@ -39,9 +39,9 @@ test('70 ms hitstop and pause freeze the captured reaction; reset and target cha
  s.reset();assert.equal(s.enemyReactionFrom,null);assert.equal(pose(s).body.angle,0);
  hit(s);advance(s,1300);s.setTarget('seal');assert.equal(s.enemyReactionFrom,null);assert.equal(s.enemy.bodyReaction,undefined);
 });
-test('low hit uses shared parts, fatal thrust preserves authored reaction; next hit captures a fresh pose',()=>{
+test('low hit uses shared parts, fatal thrust captures the interrupted rig; next hit captures a fresh pose',()=>{
  const s=create(false);hit(s,'sweep');assert.equal(s.enemy.bodyReaction.kind,'sweep');assert.ok(enemyBodyPose(s.enemy,rig));advance(s,1400);
  hit(s);assert.equal(s.hp,1);assert.ok(s.enemy.bodyReaction);assert.equal(s.enemy.bodyReaction.from.phase,'guard');advance(s,1400);
- hit(s);assert.equal(s.hp,0);assert.equal(s.enemyReactionFrom,null);assert.equal(s.enemy.bodyReaction,undefined);assert.equal(enemyBodyPose(s.enemy,rig),null);
+ hit(s);assert.equal(s.hp,0);assert.equal(s.enemyReactionFrom.fatal,true);assert.ok(s.enemy.bodyReaction);assert.ok(enemyBodyPose(s.enemy,rig));
  advance(s,1500);assert.equal(s.enemy.phase,'dissolve');assert.equal(pose(s).weapon.landed,true);
 });

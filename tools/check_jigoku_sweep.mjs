@@ -34,7 +34,7 @@ test('low hit has its own recovery sequence and resets cleanly',()=>{
 test('fatal low hit joins shared crouch and death sequence; no upper-body recoil',()=>{
  const s=make();s.hp=1;s.attack('sweep');const seen=[];
  for(let t=0;t<2300;t+=10){s.update(10);if(seen.at(-1)!==s.enemy.phase)seen.push(s.enemy.phase);}
- assert.deepEqual(seen,['guard','leg-flinch','low-stagger','crouch','kneel','brace','yield','sink','lower','settle','fallen','dissolve','gone']);assert.equal(s.hp,0);assert.equal(s.enemy.alpha,0);
+ assert.deepEqual(seen,['guard','leg-flinch','low-stagger','buckle','crouch','kneel','brace','yield','sink','lower','settle','fallen','dissolve','gone']);assert.equal(s.hp,0);assert.equal(s.enemy.alpha,0);
 });
 test('low-hit reaction freezes during hitstop and pause, clears on target change',()=>{
  const s=make();s.attack('sweep');while(!s.freeze)s.update(1);const before=s.enemy;s.update(40);assert.deepEqual(s.enemy,before);assert.equal(s.enemyAge,0);

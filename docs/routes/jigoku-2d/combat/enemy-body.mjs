@@ -21,6 +21,15 @@ export function recoilValue(from,peak,rest,age){
 export function lowRecoilValue(from,peak,rest,age){
  return age<140?from+(peak-from)*ease(age/140):peak+(rest-peak)*ease((age-140)/280);
 }
+// A bounded bridge to the authored buckle socket. Texture silhouettes/feet at
+// the handoff still differ; this does not claim a continuous full-body fall.
+export const FATAL_BRIDGE_MS=180;
+export function fatalBlend(age){return ease(age/FATAL_BRIDGE_MS);}
+export function fatalBodyTarget(rig){
+ const angle=-14,a=angle*Math.PI/180,dx=rig.bindings[0].shoulder[0]-ENEMY_WAIST.x,dy=rig.bindings[0].shoulder[1]-ENEMY_WAIST.y;
+ const [x,y]=rig.bindings[3].shoulder;
+ return {angle,root:{x:x-ENEMY_WAIST.x-dx*Math.cos(a)+dy*Math.sin(a),y:y-ENEMY_WAIST.y-dx*Math.sin(a)-dy*Math.cos(a)}};
+}
 export function enemyBodyPose(enemy,rig){
  const shared=enemy.phase==='guard'||!!enemy.intent||!!enemy.bodyReaction;
  if(!shared)return null;
@@ -30,7 +39,12 @@ export function enemyBodyPose(enemy,rig){
  if(enemy.intent==='recovery'&&enemy.recoveryFrom==='attack')angle=-10*(1-ease(enemy.intentAge/520));
  if(enemy.bodyReaction){
   const {from,age}=enemy.bodyReaction,start=enemyBodyPose(from,rig)?.angle??0;
-  if(enemy.bodyReaction.kind==='sweep'){
+  if(enemy.bodyReaction.fatal){
+   const target=fatalBodyTarget(rig),t=fatalBlend(age),prior=enemyBodyPose(from,rig);
+   angle=start+(target.angle-start)*t;
+   root.x=(prior?.root.x??0)*(1-t)+target.root.x*t;
+   root.y=(prior?.root.y??0)*(1-t)+target.root.y*t;
+  }else if(enemy.bodyReaction.kind==='sweep'){
    const weight=lowRecoilValue(0,1,0,age);root.x=-5*weight;root.y=18*weight;
    angle=lowRecoilValue(start,-7,0,age);
   }else angle=recoilValue(start,Math.max(8,start+8),0,age);

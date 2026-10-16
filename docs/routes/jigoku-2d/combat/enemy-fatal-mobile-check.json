@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "thrust: real touch, mobile textures, shared fatal impact/load, pause, authored handoff, release/landing/fade",
+    "sweep: real touch, mobile textures, shared fatal impact/load, pause, authored handoff, release/landing/fade"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "scope": "390 px touch emulation and actual Phaser transforms, not physical phone performance."
+}

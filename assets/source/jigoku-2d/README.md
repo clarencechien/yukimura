@@ -78,3 +78,10 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `enemy-body.mjs` 的 `ENEMY_LEGS` 是人工標記的平面髖／膝／踝接點，不是三維人體骨架。非致命低掃前 140 ms 落胯，原畫下移 18 px、橫移 −5 px，兩段腿保持原長與膝向、雙腳固定，420 ms 內回防。持刀手臂與胸甲從命中當下接續；致命低掃仍使用舊圖集。
 
 沒有新增 image gen、Blender、Modal 或第三方素材。身體可見圖層由兩個增至八個；相較 `0891c0d`，角色 RGBA8 估算增加桌機 0.132 MiB、手機 0.059 MiB。`enemy-low-rig-comparison.json` 記錄前後實際錄影的攻擊幀、反應時間差、腳位與腰胯下沉量；近照是實際截圖放大。
+
+
+### 致命命中到屈膝的初段銜接（2026-10-16）
+
+沿用 `5d33b8c` 的全部角色貼圖，只有時序與部件變換修改。致命命中也保存中斷前姿態，前 180 ms 以固定肢段及固定腳位下沉，胸甲末端 −14°，腰胯位移由原 `buckle` 肩點反算；手臂末端接回同時刻的既有握刀曲線。這是人工平面動作曲線，並非物理模擬；交接時只保證肩臂與刀的連續，屈膝圖的腿形、腳位、空手側和輪廓仍不同。
+
+`enemy-fatal-*-comparison.jpg`／`handoff.jpg` 由前輪實際 MP4 與本輪 Phaser 截圖裁切排版；`enemy-fatal-bridge-check.json` 記錄配對時間和命中肩肘腕位移。未新增 image gen、Blender、Modal 或第三方資源，RGBA8 預估與前輪相同。

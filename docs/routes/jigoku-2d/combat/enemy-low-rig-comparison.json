@@ -147,11 +147,11 @@
     },
     {
       "beforeSample": 54,
-      "afterSample": 55,
+      "afterSample": 54,
       "attackFrame": 13,
       "beforeReactionAgeMS": 135.99999999999991,
-      "afterReactionAgeMS": 151.99999999999991,
-      "sampleOffsetMS": 16.0,
+      "afterReactionAgeMS": 135.99999999999991,
+      "sampleOffsetMS": 0.0,
       "actualParts": {
         "leftFoot": {
           "x": 861.4,
@@ -178,11 +178,11 @@
           "order": 24
         },
         "leftShin": {
-          "x": 871.3791526538082,
-          "y": 475.5584475547575,
+          "x": 871.3432654026371,
+          "y": 475.5530835437023,
           "width": 90,
           "height": 90,
-          "angle": -16.223105553783284,
+          "angle": -16.253958755079452,
           "originX": 0.6466666666666666,
           "originY": 0.16666666666666666,
           "visible": true,
@@ -190,11 +190,11 @@
           "order": 25
         },
         "rightShin": {
-          "x": 1054.5445659729971,
-          "y": 478.6303516824651,
+          "x": 1054.564549611453,
+          "y": 478.62668459660756,
           "width": 81,
           "height": 90,
-          "angle": 10.085075111248102,
+          "angle": 10.103432509515528,
           "originX": 0.362962962962963,
           "originY": 0.07333333333333333,
           "visible": true,
@@ -202,11 +202,11 @@
           "order": 26
         },
         "leftThigh": {
-          "x": 942.4160583090379,
-          "y": 423.9421900874636,
+          "x": 942.4072069970846,
+          "y": 423.97405481049566,
           "width": 108,
           "height": 84,
-          "angle": 14.542717763632254,
+          "angle": 14.572739390276979,
           "originX": 0.8888888888888888,
           "originY": -0.12857142857142856,
           "visible": true,
@@ -214,11 +214,11 @@
           "order": 27
         },
         "rightThigh": {
-          "x": 982.0160583090379,
-          "y": 419.74219008746354,
+          "x": 982.0072069970846,
+          "y": 419.7740548104956,
           "width": 87,
           "height": 90,
-          "angle": -11.921162381952968,
+          "angle": -11.949226078629636,
           "originX": -0.06206896551724138,
           "originY": -0.13333333333333333,
           "visible": true,
@@ -226,8 +226,8 @@
           "order": 28
         },
         "lower": {
-          "x": 967.616058309038,
-          "y": 399.9421900874636,
+          "x": 967.6072069970845,
+          "y": 399.97405481049566,
           "width": 234,
           "height": 144,
           "angle": 0,
@@ -238,11 +238,11 @@
           "order": 29
         },
         "torso": {
-          "x": 967.616058309038,
-          "y": 399.9421900874636,
+          "x": 967.6072069970845,
+          "y": 399.97405481049566,
           "width": 171,
           "height": 183,
-          "angle": -6.962530612244905,
+          "angle": -6.983183673469284,
           "originX": 0.5333333333333333,
           "originY": 0.8754098360655738,
           "visible": true,
@@ -253,12 +253,12 @@
       "legs": {
         "left": {
           "hip": {
-            "x": 530.0267638483965,
-            "y": 439.9036501457726
+            "x": 530.0120116618076,
+            "y": 439.9567580174927
           },
           "knee": {
-            "x": 411.63192108968025,
-            "y": 525.9307459245958
+            "x": 411.5721090043952,
+            "y": 525.9218059061706
           },
           "ankle": {
             "x": 395,
@@ -266,17 +266,17 @@
           },
           "thigh": 146.3488981851247,
           "shin": 112.30761327710603,
-          "thighAngle": 14.542717763632316,
-          "shinAngle": -16.22310555378328
+          "thighAngle": 14.572739390277011,
+          "shinAngle": -16.253958755079452
         },
         "right": {
           "hip": {
-            "x": 596.0267638483965,
-            "y": 432.9036501457726
+            "x": 596.0120116618076,
+            "y": 432.9567580174927
           },
           "knee": {
-            "x": 716.9076099549952,
-            "y": 531.0505861374419
+            "x": 716.9409160190884,
+            "y": 531.0444743276793
           },
           "ankle": {
             "x": 736,
@@ -284,8 +284,8 @@
           },
           "thigh": 155.7080601638849,
           "shin": 105.6882207249228,
-          "thighAngle": -11.921162381952982,
-          "shinAngle": 10.08507511124808
+          "thighAngle": -11.949226078629577,
+          "shinAngle": 10.103432509515512
         }
       }
     },
@@ -438,7 +438,7 @@
     "left": 0.0,
     "right": 0.0
   },
-  "actualPelvisDropWorldPX": 10.742190087463541,
+  "actualPelvisDropWorldPX": 10.774054810495613,
   "source": "Prior committed MP4 vs current real Phaser PNG; same attack frame, attack kind and health. Reaction time offsets <=17 ms, recorded per pair. Detail is an enlarged screenshot crop.",
-  "limits": "Rigid planar cutouts and fixed-length two-bone legs. No contact dynamics, stepping or three-dimensional anatomical reconstruction. Fatal hits retain authored silhouettes."
+  "limits": "Rigid planar cutouts and fixed-length two-bone legs. No contact dynamics, stepping or three-dimensional anatomical reconstruction. Fatal hits use a shared 180 ms bridge, then authored silhouettes; this comparison only measures nonfatal low hits."
 }

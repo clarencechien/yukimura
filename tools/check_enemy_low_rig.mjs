@@ -31,8 +31,8 @@ test('low impact captures every duel stage without shoulder, elbow or wrist disc
 test('low recoil clock holds during hitstop/pause; reset clears the loaded pelvis and all limbs',()=>{
  const s=create();hit(s);const frozen=enemyBodyPose(s.enemy,rig);advance(s,69);assert.deepEqual(enemyBodyPose(s.enemy,rig),frozen);advance(s,140);s.paused=true;const held=enemyBodyPose(s.enemy,rig);advance(s,1000);assert.deepEqual(enemyBodyPose(s.enemy,rig),held);s.paused=false;s.reset();assert.deepEqual(enemyBodyPose(s.enemy,rig).root,{x:0,y:0});
 });
-test('fatal low hit keeps authored knee-collapse/death/release; torso-only moves keep legs at rest',()=>{
- const s=create();for(let i=0;i<2;i++){hit(s);advance(s,1500);}hit(s);assert.equal(s.hp,0);assert.equal(enemyBodyPose(s.enemy,rig),null);advance(s,500);assert.equal(enemyBodyPose(s.enemy,rig),null);
+test('fatal low hit bridges to authored knee-collapse/death/release; torso-only moves keep legs at rest',()=>{
+ const s=create();for(let i=0;i<2;i++){hit(s);advance(s,1500);}hit(s);assert.equal(s.hp,0);assert.ok(enemyBodyPose(s.enemy,rig));advance(s,500);assert.equal(enemyBodyPose(s.enemy,rig),null);
  for(const intent of ['waiting','windup','strike','recovery'])for(const intentAge of [0,80,180,500]){
   const p=enemyBodyPose({phase:'guard',intent,intentAge,recoveryFrom:'attack'},rig);assert.deepEqual(p.root,{x:0,y:0});for(const [side,j] of Object.entries(ENEMY_LEGS))near(p.legs[side].knee,j.knee);
  }

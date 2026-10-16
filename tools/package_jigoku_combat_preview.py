@@ -1,6 +1,6 @@
 """Encode actual browser screenshots; no generated or interpolated motion frames."""
 from pathlib import Path
-import json,subprocess
+import json,subprocess,sys
 from PIL import Image, ImageChops, ImageDraw, ImageFont
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/routes/jigoku-2d/combat';TMP=ROOT/'.tmp/combat-check/frames'
 frames=sorted(TMP.glob('*.png'));assert len(frames)==78
@@ -20,6 +20,9 @@ probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames'
 assert probe['avg_frame_rate']=='30/1' and int(probe['nb_read_frames'])==78 and abs(float(probe['duration'])-2.6)<.001
 (OUT/'video-check.json').write_text(json.dumps({'passed':True,'source':'78 actual Phaser browser screenshots sampled with controlled clock at 33/33/34 ms','video':probe,'gif':'30/30/40 ms approximate 30 fps; use MP4 for uniform frame timing.','note':'This is deterministic capture, not measured real-device frame rate.'},indent=2)+'\n')
 print('Encoded and verified 78 frames / 30 fps / 2.6 seconds.')
+
+# Preserve historical comparison plates when only updating current playback.
+if '--video-only' in sys.argv: sys.exit(0)
 
 # Inspect authored enemy transitions using the exact captured browser frames.
 rows=json.loads((OUT/'capture-timing.json').read_text())

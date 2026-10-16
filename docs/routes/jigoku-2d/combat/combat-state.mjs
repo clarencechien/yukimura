@@ -21,9 +21,9 @@ export class CombatState {
     if(!this.enemyHit)return this.guardEnemy;
     const age=this.enemyAge;
     if(this.lastHitKind==='sweep'){
-      const bodyReaction=this.hp>0&&this.enemyReactionFrom?{age,...this.enemyReactionFrom}:null;
+      const bodyReaction=this.enemyReactionFrom?{age,...this.enemyReactionFrom}:null;
       if(age<110)return {pose:12,phase:'leg-flinch',alpha:1,reaction:'sweep',bodyReaction};
-      if(age<(this.hp>0?260:250))return {pose:13,phase:'low-stagger',alpha:1,reaction:'sweep',bodyReaction};
+      if(age<(this.hp>0?260:180))return {pose:13,phase:'low-stagger',alpha:1,reaction:'sweep',bodyReaction};
       if(this.hp>0){
         if(age<340)return {pose:14,phase:'leg-rise',alpha:1,reaction:'sweep',bodyReaction};
         if(age<420)return {pose:15,phase:'guard-settle',alpha:1,reaction:'sweep',bodyReaction};
@@ -37,9 +37,10 @@ export class CombatState {
       if(age<360)return {pose:1,phase:'flinch',alpha:1,bodyReaction};
       return this.guardEnemy;
     }
-    // Authored silhouettes carry the weight shift; never rotate or stretch the whole body.
+    // Keep the interrupted rig through impact/loading, then hand off at 180 ms
+    // to the authored buckle. Later kneeling silhouettes remain authored.
     const stages=[[90,1,'flinch'],[180,2,'hurt'],[250,3,'buckle'],[330,4,'crouch'],[420,5,'kneel'],[500,6,'brace'],[540,10,'yield'],[580,11,'sink'],[640,7,'lower'],[720,8,'settle'],[1000,9,'fallen']];
-    for(const [end,pose,phase] of stages)if(age<end)return {pose,phase,alpha:1};
+    for(const [end,pose,phase] of stages)if(age<end)return {pose,phase,alpha:1,...(this.lastHitKind==='sweep'&&age<250?{reaction:'sweep'}:{}),...(age<180&&this.enemyReactionFrom?{bodyReaction:{age,...this.enemyReactionFrom}}:{})};
     return {pose:9,phase:age<1700?'dissolve':'gone',alpha:Math.max(0,1-(age-1000)/700)};
   }
   setTarget(kind){if(this.phase==='attack'||!['warrior','seal'].includes(kind))return false;this.targetKind=kind;if(kind==='seal')this.duel.enabled=false;this.reset();return true;}
@@ -82,7 +83,7 @@ export class CombatState {
         if(segmentHitsCircle(a,b,this.hurtbox,this.hurtbox.radius)){
           // Save the rule-time pose BEFORE interrupt changes the attack stage.
           // Rendering derives its own chest/arm transforms from this descriptor.
-          this.enemyReactionFrom=this.hp>1?{from:this.enemy,fromAge:this.enemyAge,kind:this.attackKind}:null;
+          this.enemyReactionFrom={from:this.enemy,fromAge:this.enemyAge,kind:this.attackKind,fatal:this.hp===1};
           this.didHit=true;this.hp--;this.hits++;this.freeze=70;this.enemyAge=0;this.enemyHit=true;this.lastHitKind=this.attackKind;
           this.onEvent({type:'hit',point:b,broken:this.hp===0,kind:this.attackKind});
           this.duel.interrupt(this.hp===0);

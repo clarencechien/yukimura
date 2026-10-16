@@ -13,9 +13,9 @@
     "Fatal reaction: flinch → recoil → buckle → crouch → kneel → brace → yield → sink → lower → settle → fallen → dissolve → gone; 78 captured frames with fixed timing",
     "One fixed-size katana across all poses; hand relaxes then opens on release; dropped sword lands, fades and resets",
     "Keyboard K queues one recovery sweep; shared body/arms/spear stay visible through six timing phases; two attacks deal two hits; 90 actual browser frames",
-    "Nonfatal sweep: same eight rigid parts through planted-foot pelvis loading and continuous recovery; fatal sweep: two new textures then shared crouch, kneel, release and fade; actual body/arm/weapon checked in 78 screenshots",
+    "Nonfatal sweep: same eight rigid parts through planted-foot pelvis loading and continuous recovery; fatal sweep: interrupted shared rig for 180 ms, then authored buckle, crouch, kneel, release and fade; actual body/arm/weapon checked in 78 screenshots",
     "Standalone sweep misses out-of-range warrior",
-    "Mobile touch sweep verifies shared hero joints and enemy hip/knee/ankle attachments, planted feet, paused pelvis load, and one hit",
+    "Mobile touch sweep verifies shared hero joints and enemy hip/knee/ankle attachments, planted feet, paused pelvis load, and one hit on a controlled clock",
     "Mobile touch attack; 512px atlas; no horizontal overflow; reduced motion"
   ],
   "pageErrors": [],
