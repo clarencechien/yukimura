@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Four reused pieces retain visible source colors and alpha after declared uniform crop/resampling",
+    "Upper/fore endpoints match fixed 85/90 px attachment lengths",
+    "Generated body is registered uniformly; shoulder cap is an exact masked source crop",
+    "Production combat/src/public unchanged from baseline"
+  ],
+  "baselineCommit": "510560461411fba4ed6c0fd7161cc9df4ff2abf5",
+  "reviewRGBA8MiB": 3.5105857849121094,
+  "limits": "Pixel source and registration checks, not proof of anatomy, perfect visual seams or hardware memory usage."
+}

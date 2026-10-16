@@ -4,6 +4,8 @@
 
 [互動檢視頁原始檔](free-arm/index.html) · [檢視頁桌機](free-arm/desktop.jpg) · [手機](free-arm/mobile.jpg) · [均勻 30 fps MP4](free-arm/reach-30fps.mp4) · [完整數值](free-arm/reach-report.json) · [目前遊戲錄影](COMBAT_STUDY.md)
 
+後續已完成 [共用手臂、手掌與遮擋底圖的可動試裝](FREE_ARM_PARTS.md)。以下保留骨架可達性研究與未採用候選稿。
+
 本輪完成 **空手側固定骨架的可達性試算**，並試修一張跪地原畫。結果顯示，現有原畫的手臂比例並不一致；試修雖減少差距，仍未符合本次候選骨架。**這是製作檢視，沒有替換遊戲人物或動作。**
 
 ![實際瀏覽器骨架試算：人物原畫保留，綠線只表示降肩目標](free-arm/reach-preview.gif)

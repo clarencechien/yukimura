@@ -117,3 +117,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 新增 `ghost-rig/kneel-reach-candidate.png`，image gen 原始輸出 `exec-7e083747-c160-473d-929f-53cc4d476368.png`，保留原始位元組。參考 `494bdc1` 的 HD 圖集第 5／4 格；透明裁切只清除 alpha=0 的不可見 RGB。要求降低肩胸、縮短近側空手臂、保留膝腳與手掌接地，持刀側空缺仍由既有部件處理。結果縮短肩腕距離，但按目前人工估計仍未符合 85／90 px 候選臂長，沒有採用到遊戲。
 
 `prepare_free_arm_study.py` 僅將生成圖等比例縮至 0.75、水平平移 −12 px，輸出獨立檢視頁的 `free-arm/candidate.webp`。來源肩／肘／腕 `[710,635]`／`[708,765]`／`[653,875]` 為手工估計，不是人體關節的精確座標。檢視頁綠色降肩骨架只是補圖規劃，沒有扭曲原畫。來源 SHA 與限制見 `free-arm/provenance.json`；沒有修改正式 `combat/` 圖集、3D 模型或線上遊戲。
+
+
+### 共用空手部件與遮擋底圖試裝（2026-10-16，台北時間）
+
+上臂、前臂與半握／張掌皆重用 `ghost-rig/arm-parts-stocky.png`，原始像素只裁切及等比例縮放；未新生成手臂。`prepare_free_arm_parts.py` 記錄原圖裁切、縮放、85／90 px 端點與兩手形共用腕點。
+
+新增 `ghost-rig/crouch-arm-clean.png`，image gen 原始輸出 `exec-f616386a-1a7b-469c-9fd7-0d2976ab0b50.png`。以 `crouch-consistent.png` 為參考，移除近側空手並補回胸甲、腰帶與膝部遮擋；保留肩甲。生成稿構圖／細節仍有改變，故以 0.42 倍等比例縮放和平移 `[201,285]` 註冊，未宣稱原圖其餘像素完全保留。肩甲覆蓋片從此底圖依明確多邊形裁出；SHA 與標記在 `free-arm-parts/parts.json`。
+
+這組素材只載入獨立可動試裝頁，沒有覆蓋 `combat/` 圖集；手掌未接地，仍需處理降肩胸甲與跪地遮擋。沒有新增 Blender／Modal 工作或第三方素材。

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Actual Canvas draw matrices attach upper endpoint to fore pivot and fore endpoint to hand pivot in both panels",
+    "Both hand states share forearm orientation and wrist position",
+    "Playback, seek, pause, shoulder-cap and arm toggles; thirty screenshots",
+    "390 px touch viewport stacks panels without horizontal overflow"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "scope": "Independent fitting page, not installed into combat; no physical phone FPS claim."
+}
