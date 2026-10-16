@@ -24,16 +24,16 @@ function check(r){
   near(map(u.transform,{x:0,y:0}),map(torso.transform,{x:socket[0]-95,y:socket[1]-28}));
   near(map(u.transform,{x:0,y:65}),map(f.transform,{x:0,y:0}));
   near(map(f.transform,{x:0,y:75}),map(h.transform,{x:0,y:0}));
-  near(map(h.transform,{x:parts.grip.gripPoint[0]-h.pivot[0],y:parts.grip.gripPoint[1]-h.pivot[1]}),map(b.transform,{x:0,y:0}));
-  near(map(b.transform,{x:0,y:0}),map(base,r.weapon.grip));
+  if(r.weapon.held)near(map(h.transform,{x:parts.grip.gripPoint[0]-h.pivot[0],y:parts.grip.gripPoint[1]-h.pivot[1]}),map(b.transform,{x:0,y:0}));
+  near(map(b.transform,{x:0,y:0}),map(base,r.weapon.grip));assert.equal(h.name,r.weapon.handState);assert.ok(r.weapon.bounds.bottom<=r.release.groundY+.001);if(r.weapon.grounded)assert.ok(Math.abs(r.weapon.bounds.bottom-r.release.groundY)<.001);
   // Full texture rectangles (stricter than opaque pixels) must fit each panel's clipping window.
   const origin={x:base.e+50,y:base.f+10};
   for(const part of r.swords){assert.equal(part.alpha,1);near({x:Math.hypot(part.transform.a,part.transform.b),y:Math.hypot(part.transform.c,part.transform.d)},{x:.8,y:.8});
    for(const x of [0,part.size[0]])for(const y of [0,part.size[1]]){const v=map(part.transform,{x:x-part.pivot[0],y:y-part.pivot[1]});assert.ok(v.x>=origin.x&&v.x<=origin.x+600&&v.y>=origin.y+65&&v.y<=origin.y+615,`clipped sword part ${part.name}`);}
   }
   const order=r.drawEvents.filter(e=>e.panel===1).map(e=>e.name);
-  assert.ok(order.indexOf('sword:katana')<order.indexOf('sword:grip'));
-  assert.ok(order.indexOf('sword:grip')<order.indexOf('torso'));
+  assert.ok(order.indexOf('sword:katana')<order.indexOf('sword:'+r.weapon.handState));
+  assert.ok(order.indexOf('sword:'+r.weapon.handState)<order.indexOf('torso'));
   if(r.armVisible)assert.ok(order.indexOf('torso')<order.indexOf('palm'));
  }
 
@@ -44,7 +44,11 @@ async function ready(p){p.on('pageerror',e=>errors.push(e.message));p.on('respon
 async function seek(p,t){await p.locator('#time').evaluate((el,t)=>{el.value=t;el.dispatchEvent(new Event('input',{bubbles:true}));},t);}
 try{
  const p=await browser.newPage({viewport:{width:1280,height:1100}});await p.clock.install();await ready(p);await p.clock.pauseAt(new Date(await p.evaluate(()=>Date.now())+2000));await p.clock.runFor(33);
- for(const age of [330,376,388,389,399,400,401,410,420,440,460,480,500]){await seek(p,age);check(await state(p));if([330,389,399,400,401,420,440,460,480,500].includes(age))await p.locator('#view').screenshot({path:`${out}/pose-${age}.png`});}
+ for(const age of [330,376,388,389,399,400,401,410,420,440,460,480,500,539.999,540,540.001,600,700,860,1000]){await seek(p,age);check(await state(p));if([330,389,399,400,401,420,440,460,480,500,540,600,700,860].includes(age))await p.locator('#view').screenshot({path:`${out}/pose-${age}.png`});}
+ const releaseRows=[];for(const t of [539.999,540.001]){await seek(p,t);const r=await state(p);check(r);releaseRows.push(r);}
+ const before=releaseRows[0].swords.find(s=>s.name==='katana'),after=releaseRows[1].swords.find(s=>s.name==='katana');
+ for(const key of ['a','b','c','d','e','f'])assert.ok(Math.abs(before.transform[key]-after.transform[key])<.001,`release jump ${key}`);
+ await seek(p,860);const resting=await state(p);await seek(p,1000);assert.deepEqual((await state(p)).swords,resting.swords);await seek(p,330);await seek(p,860);assert.deepEqual((await state(p)).swords,resting.swords);
  // Compare the actual right-panel pixels just before/after the former full-lower-body swap.
  const boundary=[];for(const t of [399.999,400.001]){await seek(p,t);const r=await state(p);check(r);boundary.push({bodies:r.bodies.filter(b=>b.panel===1),pixels:await p.evaluate(()=>Array.from(document.querySelector('#view').getContext('2d').getImageData(600,0,600,720).data))});}
  assert.deepEqual(boundary[0].bodies.map(b=>b.url),boundary[1].bodies.map(b=>b.url));let boundaryChangedPixels=0;for(let i=0;i<boundary[0].pixels.length;i+=4)if(boundary[0].pixels.slice(i,i+4).some((v,j)=>v!==boundary[1].pixels[i+j]))boundaryChangedPixels++;const maxBoundaryChannelDelta=boundary[0].pixels.reduce((max,v,i)=>Math.max(max,Math.abs(v-boundary[1].pixels[i])),0);
@@ -56,11 +60,13 @@ try{
  await p.locator('#joints').check();await p.locator('#view').screenshot({path:`${out}/joints.png`});await p.locator('#joints').uncheck();await p.locator('#arm').uncheck();check(await state(p));await p.locator('#arm').check();await p.locator('#cap').uncheck();check(await state(p));await p.locator('#cap').check();
  await seek(p,352);await p.locator('#next').click();assert.equal((await state(p)).age,376);await p.locator('#prev').click();assert.equal((await state(p)).age,352);
  await seek(p,330);await p.locator('#play').click();const capture=[];
- for(let i=0;i<30;i++){await p.clock.runFor(i%3===2?34:33);const r=await state(p);check(r);await p.locator('#view').screenshot({path:`${tmp}/${String(i).padStart(3,'0')}.png`});assert.equal((await state(p)).age,r.age);capture.push({sample:i,age:r.age,pose:r.pose,records:r.records,bases:r.bases,bodies:r.bodies,legs:r.legs,swords:r.swords,weapon:r.weapon,drawEvents:r.drawEvents});}
- assert.deepEqual([...new Set(capture.map(r=>r.pose.index))],[0,1,2,3,4]);assert.equal((await state(p)).age,540);assert.equal((await state(p)).playing,false);
+ for(let i=0;i<90;i++){await p.clock.runFor(i%3===2?34:33);const r=await state(p);check(r);await p.locator('#view').screenshot({path:`${tmp}/${String(i).padStart(3,'0')}.png`});assert.equal((await state(p)).age,r.age);capture.push({sample:i,age:r.age,pose:r.pose,records:r.records,bases:r.bases,bodies:r.bodies,legs:r.legs,swords:r.swords,weapon:r.weapon,drawEvents:r.drawEvents});}
+ assert.deepEqual([...new Set(capture.map(r=>r.pose.index))],[0,1,2,3,4]);assert.equal((await state(p)).age,1000);assert.equal((await state(p)).playing,false);
+ assert.deepEqual([...new Set(capture.map(r=>r.weapon.phase))],['held','falling','contact','settled']);assert.deepEqual([...new Set(capture.map(r=>r.weapon.handState))],['grip','relax','open']);
  const planted=capture.filter(r=>r.pose.planted);for(const row of planted){assert.deepEqual(row.records.filter(r=>r.panel===1&&r.name==='palm'),planted[0].records.filter(r=>r.panel===1&&r.name==='palm'));assert.deepEqual(row.bodies.find(b=>b.panel===1&&b.name==='lower'),planted[0].bodies.find(b=>b.panel===1&&b.name==='lower'));}
  await p.locator('#play').click();await p.clock.runFor(50);assert.ok((await state(p)).age<420);await p.locator('#play').click();const held=await state(p);await p.clock.runFor(100);assert.deepEqual((await state(p)).records,held.records);
- await p.locator('#speed').selectOption('1');await seek(p,330);await p.locator('#play').click();await p.clock.runFor(270);assert.equal((await state(p)).age,540);assert.equal((await state(p)).playing,false);await seek(p,376);await p.screenshot({path:`${out}/desktop.jpg`,fullPage:true});
- const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await ready(mobile);await mobile.locator('#next').tap();assert.equal((await state(mobile)).age,352);await seek(mobile,400);check(await state(mobile));assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await mobile.screenshot({path:`${out}/mobile.jpg`,fullPage:true});
- assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);await fs.writeFile(`${out}/capture.json`,JSON.stringify(capture,null,2)+'\n');await fs.writeFile(`${out}/browser-check.json`,JSON.stringify({passed:true,checks:['Far shoulder, elbow, wrist and actual fist-to-katana Canvas attachment; rigid texture scale, panel bounds, render order and independent visibility toggle','Actual Canvas arm, knee-to-ankle and ankle-to-shoe joints; hinged torso/cap shoulder alignment','Shared lower-body URLs persist across 400 ms; actual right-panel pixels checked at 399.999/400.001 ms; fixed planted hand','Whole sequence captured; controls and x-ray shows occluded leg with identical transforms and alpha 1','390 px touch key stepping and stacked layout without overflow'],boundaryChangedPixels,maxBoundaryChannelDelta,pageErrors:errors,failedRequests:failed,scope:'Independent two-arm held-katana settling review, not installed into combat; no physical phone FPS measurement.'},null,2)+'\n');console.log('Settle browser checks passed.');
+ await p.locator('#speed').selectOption('1');await seek(p,330);await p.locator('#play').click();await p.clock.runFor(750);assert.equal((await state(p)).age,1000);assert.equal((await state(p)).playing,false);await seek(p,376);await p.screenshot({path:`${out}/desktop.jpg`,fullPage:true});
+ await seek(p,860);await p.screenshot({path:`${out}/desktop.jpg`,fullPage:true});
+ const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await ready(mobile);await mobile.locator('#next').tap();assert.equal((await state(mobile)).age,352);await seek(mobile,700);check(await state(mobile));assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await mobile.screenshot({path:`${out}/mobile.jpg`,fullPage:true});
+ assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);await fs.writeFile(`${out}/capture.json`,JSON.stringify(capture,null,2)+'\n');await fs.writeFile(`${out}/browser-check.json`,JSON.stringify({passed:true,checks:['Far shoulder, elbow, wrist and actual fist-to-katana Canvas attachment; rigid texture scale, panel bounds, render order and independent visibility toggle','Actual Canvas arm, knee-to-ankle and ankle-to-shoe joints; hinged torso/cap shoulder alignment','Shared lower-body URLs persist across 400 ms; actual right-panel pixels checked at 399.999/400.001 ms; fixed planted hand','Held, released, contact and settled phases plus three hand states captured; katana stays above alpha-hull ground and hand separates; whole sequence captured; controls and x-ray shows occluded leg with identical transforms and alpha 1','390 px touch key stepping and stacked layout without overflow'],boundaryChangedPixels,maxBoundaryChannelDelta,pageErrors:errors,failedRequests:failed,scope:'Independent two-arm sword-release settling review, not installed into combat; no physical phone FPS measurement.'},null,2)+'\n');console.log('Settle browser checks passed.');
 }finally{await browser.close();await new Promise(r=>server.close(r));}

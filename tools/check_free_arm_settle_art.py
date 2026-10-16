@@ -37,5 +37,24 @@ for asset in [weapon['rig'],*weapon['textures']]:
  if 'size' in asset:
   im=Image.open(path);assert list(im.size)==asset['size'];weaponMemory+=im.width*im.height*4
 subprocess.run(['git','diff','--exit-code',weapon['baselineCommit'],'--',*protected],cwd=ROOT,check=True,stdout=subprocess.PIPE)
-report={'passed':True,'baselineCommit':m['baselineCommit'],'checks':['Original torso/cap/lower/waist/shin/shoe pixels retained; generated pixels only in the vacated leg region, never on the retained knee','Uniform source registration with no canvas clipping','1001 actual JS rig samples: all shoe pixels alpha > 16 stay above initial bottom in projected screen Y','Four sword-side textures and existing rig hashes and dimensions verified; no new images or modified production assets','Previous prototypes, production combat/src/public unchanged'],'shoeStartBottomY':float(initial),'shoeMaximumBottomY':maximum,'maxWaistTranslationPx':max(math.hypot(r['torso']['offset']['x'],r['torso']['offset']['y']) for r in rows),'settlePartsRGBA8MiB':memory/1048576,'reusedSwordPartsRGBA8MiB':weaponMemory/1048576,'swordSourceHashesVerified':True,'restoredVisiblePixels':int(np.count_nonzero(patch>16)),'limits':'Projected sprite clearance only, not 3D ground contact or collision physics. Memory excludes reused textures and Canvas buffers.'}
+release=json.loads((OUT/'release.json').read_text());handMemory=0
+for asset in release['textures']:
+ path=(OUT/asset['url']).resolve();assert path.is_relative_to(ROOT)
+ assert hashlib.sha256(path.read_bytes()).hexdigest()==asset['sha256']
+ im=Image.open(path);assert list(im.size)==asset['size'];handMemory+=im.width*im.height*4
+blade=OUT.parent/'combat/enemy-katana.webp';assert hashlib.sha256(blade.read_bytes()).hexdigest()==release['bladeSha256']
+alpha=np.array(Image.open(blade).convert('RGBA'))[:,:,3];y,x=np.where(alpha>0)
+# Use all four pixel-cell corners, including translucent edge pixels, not just marked hull points.
+points=np.concatenate([np.stack([x+dx,y+dy]) for dx,dy in [(0,0),(1,0),(0,1),(1,1)]],axis=1)
+hull=np.array(release['bladeHull'])
+for a,b in zip(hull,np.roll(hull,-1,axis=0)):
+ assert np.all((b[0]-a[0])*(points[1]-a[1])-(b[1]-a[1])*(points[0]-a[0])>=0), 'hull must contain every visible pixel cell'
+rig=json.loads((OUT.parent/'combat/enemy-rig.json').read_text());points=points-np.array(rig['parts']['katana']['pivot'])[:,None]
+releaseScript="""import fs from 'node:fs';import {settlePose} from './docs/routes/jigoku-2d/free-arm-settle/rig.mjs';import {releasingSword} from './docs/routes/jigoku-2d/free-arm-settle/release.mjs';const read=p=>JSON.parse(fs.readFileSync('docs/routes/jigoku-2d/'+p)),m=read('free-arm-settle/settle.json'),tr=read('free-arm-transition/transition.json'),k=read('free-arm-parts/parts.json'),s=read('free-arm-support/support.json'),rig=read('combat/enemy-rig.json'),meta=read('free-arm-settle/release.json'),rows=[];for(let i=0;i<=1000;i++){const t=540+i*.46;rows.push(releasingSword(t,settlePose(t,m,tr,k,s),m,rig,meta));}process.stdout.write(JSON.stringify(rows));"""
+releaseRows=json.loads(subprocess.check_output(['node','--input-type=module','-e',releaseScript],cwd=ROOT));bladeMax=-math.inf
+for pose in releaseRows:
+ angle=math.radians(pose['bladeAngle']);bottom=points[0]*math.sin(angle)+points[1]*math.cos(angle)+pose['grip']['y'];bladeMax=max(bladeMax,float(bottom.max()))
+ assert bottom.max()<=release['groundY']+1e-6
+ if pose['grounded']:assert abs(float(bottom.max())-release['groundY'])<1e-6
+report={'passed':True,'baselineCommit':m['baselineCommit'],'checks':['Original torso/cap/lower/waist/shin/shoe pixels retained; generated pixels only in the vacated leg region, never on the retained knee','Uniform source registration with no canvas clipping','1001 actual JS rig samples: all shoe pixels alpha > 16 stay above initial bottom in projected screen Y','Existing sword-side and two release-hand texture hashes and dimensions verified; no new images or modified production assets','1001 release samples: all visible katana pixel-cell corners above projected ground, contact matches bottom edge','Previous prototypes, production combat/src/public unchanged'],'shoeStartBottomY':float(initial),'shoeMaximumBottomY':maximum,'maxWaistTranslationPx':max(math.hypot(r['torso']['offset']['x'],r['torso']['offset']['y']) for r in rows),'settlePartsRGBA8MiB':memory/1048576,'reusedSwordPartsRGBA8MiB':weaponMemory/1048576,'swordSourceHashesVerified':True,'releaseHandPartsRGBA8MiB':handMemory/1048576,'bladeMaximumBottomY':bladeMax,'releasePixelSamples':len(releaseRows),'restoredVisiblePixels':int(np.count_nonzero(patch>16)),'limits':'Projected sprite clearance only, not 3D ground contact or collision physics. Memory excludes reused textures and Canvas buffers.'}
 (OUT/'art-check.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

@@ -1,8 +1,8 @@
 import {transitionPose} from '../free-arm-transition/rig.mjs';
 import {settlePose} from './rig.mjs';
-import {settlingSword} from './sword.mjs';
+import {releasingSword} from './release.mjs';
 const $=s=>document.querySelector(s),canvas=$('#view'),ctx=canvas.getContext('2d');
-let meta,kit,support,settle,swordRig,images,swords,drawEvents,age=330,playing=false,last,records,bodies,bases,legs;
+let meta,kit,support,settle,swordRig,release,images,swords,drawEvents,age=330,playing=false,last,records,bodies,bases,legs;
 const load=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error('無法載入 '+src));im.src=src;});
 const matrix=()=>{const {a,b,c,d,e,f}=ctx.getTransform();return {a,b,c,d,e,f};};
 function body(name,p,panel){const m=meta.frames[p.index].parts[name],delta=name==='lower'?{x:0,y:0}:p.bodyOffset;ctx.save();ctx.translate(delta.x,delta.y);ctx.drawImage(images['old:'+m.url],m.box[0],m.box[1],m.box[2]-m.box[0],m.box[3]-m.box[1]);drawEvents.push({name,panel});bodies.push({name,panel,frame:p.index,offset:delta,transform:matrix(),box:m.box});ctx.restore();}
@@ -17,20 +17,20 @@ function swordPart(name,point,angle){
 }
 function sword(p){
  swordPart('upper',p.shoulder,p.upperAngle);swordPart('fore',p.elbow,p.foreAngle);
- swordPart('katana',p.grip,p.bladeAngle);swordPart('grip',p.wrist,p.handAngle);
+ swordPart('katana',p.grip,p.bladeAngle);swordPart(p.handState,p.wrist,p.handAngle);
 }
 function draw(){
  if(!images)return;
- const pose=settlePose(age,settle,meta,kit,support),old=transitionPose(age,meta,kit,support),weapon=settlingSword(pose,settle,swordRig),stacked=innerWidth<650,w=stacked?600:1200,h=stacked?1440:720;
+ const pose=settlePose(age,settle,meta,kit,support),old=transitionPose(age,meta,kit,support),weapon=releasingSword(age,pose,settle,swordRig,release),stacked=innerWidth<650,w=stacked?600:1200,h=stacked?1440:720;
  if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
  ctx.fillStyle='#19252c';ctx.fillRect(0,0,w,h);records=[];bodies=[];bases=[];legs=[];swords=[];drawEvents=[];
  for(let panel=0;panel<2;panel++){
   const p=panel?pose:old;
-  ctx.save();ctx.translate(stacked?0:panel*600,stacked?panel*720:0);ctx.fillStyle='#e7d9bf';ctx.font='21px sans-serif';ctx.fillText(panel?'雙手裝配・持刀接續收腳':'上一輪五姿勢・末段換圖',24,38);
+  ctx.save();ctx.translate(stacked?0:panel*600,stacked?panel*720:0);ctx.fillStyle='#e7d9bf';ctx.font='21px sans-serif';ctx.fillText(panel?'撐地收腳・鬆手落刀':'上一輪五姿勢・末段換圖',24,38);
   ctx.save();ctx.beginPath();ctx.rect(0,65,600,550);ctx.clip();ctx.translate(-50,-10);ctx.scale(.8,.8);bases.push(matrix());
   ctx.fillStyle='#101b21';ctx.beginPath();ctx.ellipse(610,686,190,26,0,0,Math.PI*2);ctx.fill();
   ctx.fillStyle=`rgba(0,0,0,${p.shadowAlpha})`;ctx.beginPath();ctx.ellipse(p.contact.x,p.contact.y+12,p.shadowWidth/2,6,0,0,Math.PI*2);ctx.fill();
-  if(panel&&$('#sword').checked)sword(weapon);
+  if(panel&&$('#sword').checked){if(!weapon.held){ctx.fillStyle=`rgba(0,0,0,${weapon.grounded ? .23 : .10})`;ctx.beginPath();ctx.ellipse((weapon.bounds.left+weapon.bounds.right)/2,release.groundY+4,(weapon.bounds.right-weapon.bounds.left)/2,5,0,0,Math.PI*2);ctx.fill();}sword(weapon);}
   if(panel&&p.late){
    lower(p,panel,'restore');if(!$('#xray').checked)for(const t of p.leg.parts)leg(t,panel);lower(p,panel);hinged('torso',p,panel);lower(p,panel,'waist');if($('#xray').checked)for(const t of p.leg.parts)leg(t,panel);
   }else{body('lower',p,panel);body('torso',p,panel);}
@@ -40,16 +40,16 @@ function draw(){
 
   if(panel&&$('#sword').checked&&$('#joints').checked){ctx.strokeStyle='#f4aa80';ctx.beginPath();[weapon.shoulder,weapon.elbow,weapon.wrist,weapon.grip].forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();for(const q of [weapon.shoulder,weapon.elbow,weapon.wrist,weapon.grip])ctx.strokeRect(q.x-3,q.y-3,6,6);}
   if($('#joints').checked){ctx.strokeStyle='#8ee0c6';ctx.lineWidth=1.6;ctx.beginPath();[p.shoulder,p.elbow,p.wrist,p.heel].forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));ctx.stroke();for(const q of [p.shoulder,p.elbow,p.wrist]){ctx.fillStyle='#f4e6bf';ctx.fillRect(q.x-3,q.y-3,6,6);}ctx.strokeStyle='#e9b260';ctx.strokeRect(p.contact.x-4,p.contact.y-4,8,8);if(p.index<4){const q=meta.frames[p.index].registration.frontSole;ctx.strokeRect(q[0]-4,q[1]-4,8,8);}}
-  ctx.restore();ctx.fillStyle='#b9c9cd';ctx.font='18px sans-serif';ctx.fillText(panel&&p.late?(p.planted?'掌根固定・護脛與鞋收進衣甲後':'先伸手・前腳仍承接'):`${['蹲低','重心前移','後膝降低','近地','跪地'][p.index]}`,24,640);ctx.font='15px sans-serif';ctx.fillText(panel?'遠側手持刀、近側撐地；刀柄鎖在握拳內':'保留前輪末段突然收腳的行為供比較',24,673);ctx.restore();
+  ctx.restore();ctx.fillStyle='#b9c9cd';ctx.font='18px sans-serif';ctx.fillText(panel&&p.late?(p.planted?'掌根固定・護脛與鞋收進衣甲後':'先伸手・前腳仍承接'):`${['蹲低','重心前移','後膝降低','近地','跪地'][p.index]}`,24,640);ctx.font='15px sans-serif';ctx.fillText(panel?(weapon.held?'遠側手持刀、近側撐地；刀柄鎖在握拳內':weapon.phase==='settled'?'刀已落定；身體暫停在收腳末姿':'鬆手後刀獨立下落；掌根仍固定'):'保留前輪末段突然收腳的行為供比較',24,673);ctx.restore();
  }
- $('#age').textContent=`${Math.round(age)} ms`;$('#time').value=age;$('#status').textContent=`${pose.late?'末段共用身體':'前段沿用原畫'}｜持刀側 ${$('#sword').checked?'已裝配':'隱藏'}｜收腳 ${Math.round(pose.leg.progress*100)}%｜踝部相對轉角 ${pose.leg.ankleDeflection.toFixed(1)}°。`;
- window.freeArmSettle={ready:true,age,playing,pose,old,records,bodies,bases,legs,swords,drawEvents,weapon,swordRig,swordVisible:$('#sword').checked,meta,kit,support,settle,xray:$('#xray').checked,armVisible:$('#arm').checked,capVisible:$('#cap').checked};
+ $('#age').textContent=`${Math.round(age)} ms`;$('#time').value=age;$('#status').textContent=`${pose.late?'末段共用身體':'前段沿用原畫'}｜持刀側 ${$('#sword').checked?'已裝配':'隱藏'}｜${({held:'握刀',falling:'鬆手落刀',contact:'刀碰地轉平',settled:'刀已落定'})[weapon.phase]}｜收腳 ${Math.round(pose.leg.progress*100)}%｜踝部相對轉角 ${pose.leg.ankleDeflection.toFixed(1)}°。`;
+ window.freeArmSettle={ready:true,age,playing,pose,old,records,bodies,bases,legs,swords,drawEvents,weapon,swordRig,release,swordVisible:$('#sword').checked,meta,kit,support,settle,xray:$('#xray').checked,armVisible:$('#arm').checked,capVisible:$('#cap').checked};
 }
 function stop(){playing=false;$('#play').textContent='播放';}
-$('#play').onclick=()=>{if(age>=540)age=330;playing=!playing;last=undefined;$('#play').textContent=playing?'暫停':'播放';draw();};
+$('#play').onclick=()=>{if(age>=release.endAge)age=330;playing=!playing;last=undefined;$('#play').textContent=playing?'暫停':'播放';draw();};
 $('#time').oninput=()=>{stop();age=Number($('#time').value);draw();};
 for(const id of ['joints','arm','cap','xray','patch','sword'])$('#'+id).onchange=draw;
-for(const [id,delta] of [['prev',-1],['next',1]])$('#'+id).onclick=()=>{stop();const keys=[330,352,376,400,420,440,460,480,500,540];age=delta>0?(keys.find(t=>t>age+.01)??540):([...keys].reverse().find(t=>t<age-.01)??330);draw();};
+for(const [id,delta] of [['prev',-1],['next',1]])$('#'+id).onclick=()=>{stop();const keys=[330,352,376,400,420,440,460,480,500,540,600,700,860,1000];age=delta>0?(keys.find(t=>t>age+.01)??release.endAge):([...keys].reverse().find(t=>t<age-.01)??330);draw();};
 window.addEventListener('resize',draw);document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();draw();}});
-function tick(now){if(playing){if(last!==undefined){age=Math.min(540,age+Math.min(now-last,60)*Number($('#speed').value));if(age>=540)stop();}draw();}last=now;requestAnimationFrame(tick);}
-try{const urls=['../free-arm-transition/transition.json','../free-arm-parts/parts.json','../free-arm-support/support.json','settle.json','../combat/enemy-rig.json'];[meta,kit,support,settle,swordRig]=await Promise.all(urls.map(async url=>{const r=await fetch(url);if(!r.ok)throw Error('無法載入 '+url);return r.json();}));const paths=[...new Set(meta.frames.flatMap(f=>Object.values(f.parts).map(p=>p.url)))];images=Object.fromEntries(await Promise.all([...['upper','fore','grip','katana'].map(async n=>['sword:'+n,await load(`../combat/enemy-${n}.webp`)]),...paths.map(async url=>['old:'+url,await load('../free-arm-transition/'+url)]),...Object.entries(settle.parts).map(async ([name,p])=>['new:'+name,await load(p.url)]),...['upper','fore','palm'].map(async n=>[n,await load(`../free-arm-${n==='palm'?'support':'parts'}/${n}.webp`)])]));$('#controls').disabled=false;draw();requestAnimationFrame(tick);}catch(e){$('#status').textContent=e.message;throw e;}
+function tick(now){if(playing){if(last!==undefined){age=Math.min(release.endAge,age+Math.min(now-last,60)*Number($('#speed').value));if(age>=release.endAge)stop();}draw();}last=now;requestAnimationFrame(tick);}
+try{const urls=['../free-arm-transition/transition.json','../free-arm-parts/parts.json','../free-arm-support/support.json','settle.json','../combat/enemy-rig.json','release.json'];[meta,kit,support,settle,swordRig,release]=await Promise.all(urls.map(async url=>{const r=await fetch(url);if(!r.ok)throw Error('無法載入 '+url);return r.json();}));const paths=[...new Set(meta.frames.flatMap(f=>Object.values(f.parts).map(p=>p.url)))];images=Object.fromEntries(await Promise.all([...['upper','fore','grip','relax','open','katana'].map(async n=>['sword:'+n,await load(`../combat/enemy-${n}.webp`)]),...paths.map(async url=>['old:'+url,await load('../free-arm-transition/'+url)]),...Object.entries(settle.parts).map(async ([name,p])=>['new:'+name,await load(p.url)]),...['upper','fore','palm'].map(async n=>[n,await load(`../free-arm-${n==='palm'?'support':'parts'}/${n}.webp`)])]));$('#controls').disabled=false;draw();requestAnimationFrame(tick);}catch(e){$('#status').textContent=e.message;throw e;}

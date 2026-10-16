@@ -1,0 +1,150 @@
+{
+  "releaseAge": 540,
+  "openAge": 600,
+  "landAge": 860,
+  "endAge": 1000,
+  "groundY": 690,
+  "driftX": 140,
+  "fallDistance": 220,
+  "handReturn": [
+    12,
+    16
+  ],
+  "handReturnMs": 220,
+  "bladeHull": [
+    [
+      5,
+      8
+    ],
+    [
+      8,
+      5
+    ],
+    [
+      217,
+      2
+    ],
+    [
+      218,
+      2
+    ],
+    [
+      304,
+      4
+    ],
+    [
+      352,
+      6
+    ],
+    [
+      399,
+      12
+    ],
+    [
+      403,
+      15
+    ],
+    [
+      405,
+      19
+    ],
+    [
+      405,
+      31
+    ],
+    [
+      404,
+      33
+    ],
+    [
+      400,
+      37
+    ],
+    [
+      396,
+      38
+    ],
+    [
+      305,
+      51
+    ],
+    [
+      296,
+      51
+    ],
+    [
+      139,
+      40
+    ],
+    [
+      126,
+      39
+    ],
+    [
+      114,
+      38
+    ],
+    [
+      103,
+      37
+    ],
+    [
+      86,
+      35
+    ],
+    [
+      70,
+      33
+    ],
+    [
+      55,
+      31
+    ],
+    [
+      37,
+      28
+    ],
+    [
+      29,
+      26
+    ],
+    [
+      24,
+      24
+    ],
+    [
+      18,
+      21
+    ],
+    [
+      14,
+      18
+    ],
+    [
+      5,
+      9
+    ]
+  ],
+  "bladeSha256": "5e91dcb37d058dc13f6f85f648eb99287e1c990ce300090a2ce3aa5f4cc37c76",
+  "textures": [
+    {
+      "name": "relax",
+      "url": "../combat/enemy-relax.webp",
+      "sha256": "a49974f00dba66d0c835a31a422f1d26c544019844797c9d7f8b86abf2c62549",
+      "size": [
+        62,
+        67
+      ]
+    },
+    {
+      "name": "open",
+      "url": "../combat/enemy-open.webp",
+      "sha256": "5824977cab35750d5a668bf342cdb25f6d46af0f9904969b57d099e7f8b5938e",
+      "size": [
+        61,
+        71
+      ]
+    }
+  ],
+  "method": "Held transform at 540 ms is the release origin. Authored fall and rotation, alpha-hull ground constraint, then horizontal rest. Hand returns independently. Projected contact only, no rigid-body dynamics or new artwork."
+}

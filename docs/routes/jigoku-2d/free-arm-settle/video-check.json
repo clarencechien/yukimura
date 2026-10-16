@@ -1,9 +1,9 @@
 {
   "passed": true,
-  "frames": 30,
-  "gifStoredFrames": 21,
+  "frames": 90,
+  "gifStoredFrames": 60,
   "fps": 30,
-  "durationSeconds": 1,
+  "durationSeconds": 3,
   "sourceSize": [
     1200,
     721
@@ -12,6 +12,6 @@
     1200,
     722
   ],
-  "source": "Actual two-arm held-katana settling Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
-  "limits": "Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing held-katana parts. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses 30/30/40 ms timing and merges identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
+  "source": "Actual sword-release settling Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
+  "limits": "Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing sword arm, released blade and three hand states. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses 30/30/40 ms timing and merges identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
 }

@@ -167,3 +167,10 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 沒有新增 image gen、Blender／Modal 工作或第三方素材。`free-arm-settle` 直接重用 `combat/enemy-upper.webp`、`enemy-fore.webp`、`enemy-grip.webp`、`enemy-katana.webp` 及 `enemy-rig.json`，來源檔均未修改。新增來源雜湊及尺寸清單 `free-arm-settle/sword-kit.json`；四張貼圖 RGBA8 約 0.140 MiB，不含其他共用素材和畫布。
 
 以固定 65／75 px 投影臂長跟隨胸甲的人工遠側肩點；握拳與刀以同一握點及旋轉接合。330→540 ms 保持握刀，未沿用正式倒地動作的舊放刀座標；落刀與後續倒地留待接續。仍是獨立檢視，非正式遊戲更新；30 fps 影片重新取自實際 Canvas。
+
+
+### 收腳後鬆手與落刀（2026-10-16）
+
+沒有新增生成圖或修改來源素材。`free-arm-settle` 多讀取既有 `combat/enemy-relax.webp` 與 `enemy-open.webp`，以原腕點接續閉拳；兩張 RGBA8 約 0.0324 MiB。雜湊和尺寸記錄於 `free-arm-settle/release.json`。
+
+`prepare_sword_release.py` 從原刀貼圖 alpha > 0 像素格四角建立接地凸包。540 ms 從收腳段實際握點放刀，600 ms 張掌，860 ms 刀轉平落定；採人工下降／轉角曲線與投影地面限制，非物理模擬。1001 個落刀取樣核對全部可見刀像素格均在 Y=690 上方。重新錄製 90 張實際 Canvas 畫布，30 fps／3 秒；身體仍停於收腳末姿，未接側倒或替換正式遊戲。

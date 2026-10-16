@@ -4,12 +4,12 @@
     "Far shoulder, elbow, wrist and actual fist-to-katana Canvas attachment; rigid texture scale, panel bounds, render order and independent visibility toggle",
     "Actual Canvas arm, knee-to-ankle and ankle-to-shoe joints; hinged torso/cap shoulder alignment",
     "Shared lower-body URLs persist across 400 ms; actual right-panel pixels checked at 399.999/400.001 ms; fixed planted hand",
-    "Whole sequence captured; controls and x-ray shows occluded leg with identical transforms and alpha 1",
+    "Held, released, contact and settled phases plus three hand states captured; katana stays above alpha-hull ground and hand separates; whole sequence captured; controls and x-ray shows occluded leg with identical transforms and alpha 1",
     "390 px touch key stepping and stacked layout without overflow"
   ],
   "boundaryChangedPixels": 304,
   "maxBoundaryChannelDelta": 1,
   "pageErrors": [],
   "failedRequests": [],
-  "scope": "Independent two-arm held-katana settling review, not installed into combat; no physical phone FPS measurement."
+  "scope": "Independent two-arm sword-release settling review, not installed into combat; no physical phone FPS measurement."
 }
