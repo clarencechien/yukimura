@@ -6,7 +6,7 @@ import {enemyArm,solveArm} from '../docs/routes/jigoku-2d/combat/enemy-arm.mjs';
 import {CombatState} from '../docs/routes/jigoku-2d/combat/combat-state.mjs';
 const base=new URL('../docs/routes/jigoku-2d/combat/',import.meta.url);
 const rig=JSON.parse(fs.readFileSync(new URL('enemy-rig.json',base)));
-const track=JSON.parse(fs.readFileSync(new URL('spear-track.json',base)));
+const track=JSON.parse(fs.readFileSync(new URL('shared-spear-track.json',base)));
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
 test('all held poses keep the same wrist-to-grip distance and valid sockets',()=>{
  const hand=rig.parts.grip,length=Math.hypot(hand.gripPoint[0]-hand.pivot[0],hand.gripPoint[1]-hand.pivot[1]);

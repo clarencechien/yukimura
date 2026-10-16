@@ -1,4 +1,4 @@
-# 燼關試槍：共用槍與格擋交接
+# 燼關試槍：共用槍與固定雙臂短刺
 
 2026-10-16（UTC）。分支 `art/jigoku-prerendered-2d`。
 
@@ -28,9 +28,28 @@
 
 手機支援觸控；全螢幕依瀏覽器支援，亦可轉橫向。切到背景分頁會暫停，回來後手動繼續。偏好減少動態時，不啟用漂浮落燼與鏡頭震動。
 
-## 本輪：固定槍長，補抬槍與放槍
+## 本輪：待機、短刺與格擋接上同一把槍
 
-![左：上一輪兩張整圖；右：四姿勢與共用槍](combat/duel-motion-comparison.jpg)
+![同一人物的實際短刺：收槍、送槍、回防](combat/shared-hero-preview.gif)
+
+[短刺 30 fps MP4](combat/shared-hero-30fps.mp4) · [待機畫面](combat/shared-hero-idle.jpg) · [命中畫面](combat/shared-hero-contact.jpg) · [手機畫面](combat/shared-hero-mobile.jpg)
+
+前輪格擋換成赤甲新造型，但待機與短刺仍使用舊 Blender 圖集，換動作時人物比例、甲片與槍都會跳變。這輪以格擋的「放槍」圖為基準：**保留原有下身、雙臂與雙手，僅補一張移除雙臂的胸甲底圖**，拆成八個可重用部件。待機、短刺和四個格擋姿勢使用同一把 **760 px 槍、237 px 握點間距**。
+
+- 短刺使用平面兩段手臂 IK：上臂與前臂長度固定，手掌與槍一起轉動，禁止把手臂拉長以追上握點。腰身最多前傾 10°；**雙腳與下身保留同一張圖、相同位置及尺寸**。後手沿收槍／送槍曲線移動，前手維持固定握距。
+- 保留 **36 個 30 Hz 動作幀、1.2 秒短刺、14／15 有效幀、70 ms 命中停頓與原有接招時間**。部件在各幀改變位置及角度；沒有逐幀生成新人物，也沒有把整張人物拉伸。待機保持穩定戒備，尚未新增呼吸、步法或下身承重動畫。
+- **槍尖判定由畫面上同一把槍的端點計算**，替換舊造型的短刺座標。瀏覽器另從實際 sprite 尺寸、原點與旋轉重算槍尖，核對判定資料；近距一擊、遠距落空與原有連招維持通過。這仍是槍尖線段／目標圓判定，敵人出刀仍非真正刀身碰撞。
+- 平面投影下，手背方向與前臂方向的最大夾角：後手約 **28.54°**、前手約 **18.36°**。這是人工關節標記的平面檢查，**不是完整人體手腕角度或三維解剖驗證**。肩甲與腰甲接縫仍需進一步修飾。
+- 這輪共三次 image gen：兩版全身動作候選圖因握距、身高與站距不一致而捨棄；第三次只製作清理後胸甲。沒有新增 Blender 或 Modal 渲染。原下身的可見像素與 alpha 已核對相同。
+- **橫掃仍使用舊六姿勢與烘焙武器**，進出橫掃仍有造型差異。四張格擋圖仍為關鍵姿勢切換，尚未改成這套連續雙臂控制。
+
+![左：前輪待機／短刺；右：同造型與共用槍](combat/duel-motion-comparison.jpg)
+
+[相同遊戲時刻對照](combat/duel-motion-check.json) · [部件、關節與來源](combat/thrust-rig.json) · [實際短刺擷取](combat/shared-hero-capture.json) · [瀏覽器檢查](combat/shared-hero-browser-check.json) · [素材與記憶體核對](combat/shared-hero-art-check.json)
+
+## 前輪：固定槍長，補抬槍與放槍
+
+![前輪格擋改造：兩張整圖對照四姿勢與共用槍](combat/guard-motion-comparison.jpg)
 
 前輪的槍直接畫在兩張格擋圖中，架槍換到承力時，槍長和手距也會改變。本輪把它拆成 **四張不含槍的身體圖、同一把槍、八個前景手指／袖口圖層**，接成「抬槍 → 架槍 → 承力 → 放槍」。手指疊在槍身上方，讓握槍的遮擋關係可見。
 
@@ -39,11 +58,11 @@
 - 前 80 ms 抬槍，之後架槍；成功格擋時切承力，最後 100 ms 放槍。仍沿用 **580 ms 防禦、1100 ms 回氣**，沒有靠延長無敵時間補動作。暫停凍結所有圖層，重置／出槍時會隱藏共用槍與手指層。
 - 身體圖以固定腳距等比例對齊，人工腳位距既有標記小於 8 px。格擋火星與弧線現在跟隨槍上的接觸標記；敵方傷害仍按間合與時刻判定，刀身尚未真正撞上槍身。
 - 本輪用了三次 image gen：乾淨槍身、四姿勢草稿、前手抬高修正。第一版前手太低，保留為來源研究，遊戲只載入修正版。沒有重新跑 Blender 或 Modal。
-- **目前只有四個格擋姿勢共用這把槍。** 待機、短刺、低掃仍使用原有烘焙武器；交接到那些動作時，槍刃畫法、人物體格與肩甲輪廓仍有差異。身體仍是關鍵圖切換，尚非連續骨架動作。
+- **當時只有四個格擋姿勢共用這把槍。** 待機、短刺、低掃仍使用原有烘焙武器；交接到那些動作時，槍刃畫法、人物體格與肩甲輪廓仍有差異。身體仍是關鍵圖切換，尚非連續骨架動作。
 
 ![四張不含槍的身體層；槍與手指在遊戲中組合](combat/guard-body-poses.jpg)
 
-[共用槍與握點](combat/guard-rig.json) · [實際對照擷取資料](combat/duel-motion-check.json) · [修正版母圖](../../../assets/source/jigoku-2d/guard-rig/bodies.png) · [乾淨槍身](../../../assets/source/jigoku-2d/guard-rig/yari.png)
+[共用槍與握點](combat/guard-rig.json) · [前輪格擋對照擷取資料](combat/guard-motion-check.json) · [修正版母圖](../../../assets/source/jigoku-2d/guard-rig/bodies.png) · [乾淨槍身](../../../assets/source/jigoku-2d/guard-rig/yari.png)
 
 ## 前輪：身體一起出刀與架槍
 
@@ -194,10 +213,10 @@
 
 ## 從動作到命中
 
-沿用上一輪的 **15 個固定肢段與骨盆／雙膝連動**。待機與短刺沿用原有 Blender 動作；橫掃使用上述六張姿勢，敵人使用十二個共用姿勢與四個低掃受擊／回穩姿勢。
+待機與短刺改用上述八個插畫部件，取代舊 Blender 十五肢段圖集。橫掃使用六張姿勢；敵人使用十二個共用姿勢、四個低掃受擊／回穩姿勢與三個出刀姿勢。
 
-1. 待機／短刺仍為 30 fps 貼圖；Phaser 負責場景、貼圖渲染、輸入、粒子與 tween。
-2. 在原插畫手動標記槍尖 `(1520, 350)`，套用與 Blender 動畫相同的槍位移，再換算為場景座標。碰撞資料來自 [spear-track.json](combat/spear-track.json)。
+1. 短刺以 30 Hz 更新固定長度雙臂與腰身變換；Phaser 負責即時合成圖層、場景、輸入、粒子與 tween。
+2. 使用共用槍的實際軸線端點，套用與畫面相同的位移及角度；短刺碰撞資料為 [shared-spear-track.json](combat/shared-spear-track.json)。舊 `spear-track.json` 只保留作歷史造型與橫掃交接素材來源。
 3. 僅在第 **15–16 幀**有效（零起算 14–15）。使用前後槍尖位置的線段對圓判定，避免低更新頻率越過碰撞位置。每次攻擊最多傷害一次。
 4. 命中時角色動畫停頓 70 ms，同時觸發火星與封印震動；收槍完成才開始下一招；短刺收勢期間可預約一次橫掃。
 5. 前腳與後腳腳尖沿用固定接觸點，在對應位置加接地陰影；背景是新生成的一張空場景畫，沒有預先畫死的人物。
@@ -210,16 +229,23 @@
 
 使用 **Phaser 3.90.0／MIT**，從 npm 官方套件取得，將固定版本與授權一併放在 [vendor](combat/vendor/)。已核對 npm 套件 SHA512，並保存 [來源與檔案 SHA256](combat/vendor/PROVENANCE.json)。執行時不依賴外部 CDN，不修改主遊戲的 Babylon.js 或根目錄依賴。
 
-| 載入方式 | 角色每幀 | 角色圖集 RGBA8 記憶體 |
-| --- | --- | --- |
-| 小於 900 px 的視窗 | 512×320 | 待機＋短刺，共約 45 MiB |
-| 桌機視窗 ≥ 900 px | 1024×640，兩頁／動作 | 待機＋短刺，共約 180 MiB |
+| 載入方式 | 前輪角色貼圖 RGBA8 估算 | 本輪角色貼圖 RGBA8 估算 |
+| --- | ---: | ---: |
+| 手機視窗 < 900 px | 78.988 MiB | **35.581 MiB** |
+| 桌機視窗 ≥ 900 px | 265.563 MiB | **91.938 MiB** |
 
-敵人另加一張十二姿勢圖集，改排為 3 欄 × 4 列，兩邊尺寸均小於 4096：手機 2304×2048，約 **18 MiB**；桌機 3456×3072，約 **40.5 MiB**。共用刀、兩段手臂與三張手圖另加 180,396 bytes（約 0.172 MiB），橫掃只將四張中段姿勢打包成 2 欄 × 2 列，兩端直接引用已載入的短刺／待機圖集。仍為手機 2.5／桌機 10 MiB，另加低掃敵人圖集：手機 1536×1024 約 6 MiB，桌機 2304×1536 約 13.5 MiB（前輪增加 3／6.75 MiB）；前輪另加出刀與格擋圖集手機 5.75／桌機 15.125 MiB；本輪以格擋身體／手指／槍約 2.816／11.266 MiB，替換原格擋圖集 1.25／5 MiB（不再載入舊 guard 圖集）；合計角色貼圖約 78.99／265.56 MiB，尚不含背景、渲染緩衝與可能的 mipmap。此頁只載入暖火光一種角色補光。壓縮檔案大小不等於顯示記憶體；正式手機遊戲還需要 KTX2／更小圖集、按需換動作，以及實機效能量測。圖集規格在進入頁面時選擇，旋轉或調整視窗不會中途重新載入另一套。
+本輪不再載入待機＋短刺的完整 72 幀圖集（手機 45 MiB／桌機 180 MiB）。改載入八個身體／手臂／手部部件，以及橫掃仍需的兩張舊交接格子，合計約 **1.593／6.375 MiB**。兩張交接格子由舊圖集原樣擷取，桌機與手機可見像素及 alpha 都通過比較；舊圖集保留為歷史資產，但遊戲沒有再請求它們。格擋、鬼武者與其他圖集沿用，合計節省約 **43.407／173.625 MiB**。
 
-新背景母圖為 1536×1024，參考既有地獄概念圖，以 image gen 生成一次無人物石台，再輸出 WebP。來源見 [原圖](../../../assets/source/jigoku-2d/combat-arena.png) 與 [素材紀錄](combat/art-provenance.json)。幸村待機／短刺重用既有 Blender CPU 輸出；幸村沿用兩張過渡圖、兩張低掃圖與兩張既有動畫共用幀。前輪以一次 image gen 新增鬼武者兩張回穩圖，保留原低掃反應，沿用前輪手臂與武器部件，沒有重新建模或打光。沒有使用 Modal／GPU 建模。
+逐張載入貼圖的尺寸與估算見 [素材檢查](combat/shared-hero-art-check.json)。這只計算角色貼圖的 RGBA8，尚不含背景、渲染緩衝、驅動程式額外配置與可能的 mipmap；壓縮下載大小也不等於顯示記憶體。尚未量測實體手機 FPS。圖集規格在進入頁面時選擇，旋轉或調整視窗不會中途重新載入另一套。
+
+
+新背景母圖為 1536×1024，參考既有地獄概念圖，以 image gen 生成一次無人物石台，再輸出 WebP。來源見 [原圖](../../../assets/source/jigoku-2d/combat-arena.png) 與 [素材紀錄](combat/art-provenance.json)。幸村待機／短刺目前使用上方共用插畫部件；舊 Blender CPU 圖集只保留兩張橫掃交接格子；幸村沿用兩張過渡圖、兩張低掃圖與兩張既有動畫共用幀。前輪以一次 image gen 新增鬼武者兩張回穩圖，保留原低掃反應，沿用前輪手臂與武器部件，沒有重新建模或打光。沒有使用 Modal／GPU 建模。
 
 ## 驗證與重建
+
+- 本輪 [4 項共用人物規則檢查](../../../tools/check_shared_hero.mjs)：固定臂長／可達範圍、平面腕角、完整 36 幀槍尖判定一致、起收勢與格擋交接、停頓／暫停／重置。
+- [共用人物瀏覽器檢查](combat/shared-hero-browser-check.json)：60 張桌機實際畫面，逐幀核對真實 sprite 的肩、肘、腕、握點與槍尖；390 px 手機觸控亦核對同樣的變換，關閉特效仍能命中，沒有溢出或舊圖集請求。
+- [素材檢查](combat/shared-hero-art-check.json)：下身像素不變、橫掃兩張交接格子的桌機／手機像素不變、實際載入貼圖尺寸與 RGBA8 估算；[短刺影片檢查](combat/shared-hero-video-check.json) 確認 60 幀、30 fps、2 秒，GIF 依時間逐段核對解碼像素。
 
 - [回穩美術檢查](combat/recovery-art-check.json)：四項舊圖像素保留、舊接點／共用部件未變、人工肩點與鞋底步距比較。新增規則檢查涵蓋不同 30 Hz 取樣起點下兩姿勢皆可顯示、420 ms 恢復戒備、暫停／重置與手臂局部曲線連續。瀏覽器逐幀確認回穩圖集索引、固定臂長、持刀與身體根位置。
 
@@ -233,7 +259,7 @@
 
 - [兩套圖集邊界檢查](combat/art-check.json)：桌機／手機各十二個身體輪廓，確認近距站位下不被 1200×750 畫面裁切，兩張圖集均在 4096 尺寸內。曾發現落胯過渡的後腳超出右緣，已調整等比例縮放並加入此回歸檢查；不包含獨立手臂／武器，也不驗證人體解剖。另外檢查後仰、下沉與屈膝的人工鞋底中心標記，避免重新出現大於 35 px 的相鄰位移。
 - 本輪另有 [3 項共用槍檢查](../../../tools/check_guard_rig.mjs)，驗證槍長、握點、四姿勢、放槍與回氣時間；瀏覽器另以實際 sprite 的尺寸、原點與角度重算兩端與握點，確認手指圖層順序。
-- 沿用 [12 項交鋒規則檢查](../../../tools/check_jigoku_duel.mjs)：預兆先於傷害、格擋／回氣、早擋失效、打斷、暫停／停頓、不同更新步長、遠距落空、勝敗與共用握點。另涵蓋新姿勢選擇、打斷後不錯播、架槍／承力切換與新肩接點的固定臂長；加上以下原有規則，共 **42 項**。
+- 沿用 [12 項交鋒規則檢查](../../../tools/check_jigoku_duel.mjs)：預兆先於傷害、格擋／回氣、早擋失效、打斷、暫停／停頓、不同更新步長、遠距落空、勝敗與共用握點。另涵蓋新姿勢選擇、打斷後不錯播、架槍／承力切換與新肩接點的固定臂長；連同以下原有規則與本輪 4 項共用人物檢查，共 **46 項**。
 - 原有 **27 項**規則檢查（[9 項低掃與接招檢查](../../../tools/check_jigoku_sweep.mjs)，涵蓋命中／落空、單次接招、暫停與重置、不同更新步長、命中停頓與擊倒後輸入）：[10 項戰鬥規則檢查](../../../tools/check_jigoku_combat_state.mjs)：三擊破封、防重複傷害、有效幀與停頓、遠距離刺空、不同更新間隔、暫停與重置、線段碰撞邊界、敵人反應順序、反應暫停與重置、目標切換、非致命受擊回正且不進入倒地姿勢；另有 [8 項手臂與共用武器檢查](../../../tools/check_jigoku_enemy_weapon.mjs)，驗證握點距離、脫手瞬間連續、落地高度、暫停與重置、各姿勢固定臂長、不可達目標、局部曲線連續、鬆手時序、承重段最大肩位移下降，以及不同 30 Hz 取樣起點都會顯示兩張新姿勢。
 - [瀏覽器檢查結果](combat/browser-check.json)：實際 Phaser 載入、桌機 HD 與手機圖集、鍵盤／觸控、命中／刺空／破封、暫停、特效關閉、鬼武者受擊姿勢、錄影逐幀核對實際圖集索引、身體位置／尺寸固定與零旋轉、實際上臂／前臂圖層接點跟隨骨架、固定刀圖尺寸、握緊／半開／張開貼圖確實切換、逐幀臂長與武器透明度、完整死亡順序、閃光到期清除與錯誤請求檢查。
 - [影片檢查](combat/video-check.json)：78 張實際瀏覽器畫面、固定 30 fps、2.6 秒；影片從敵人剩一點生命開始，呈現最後一擊與倒地。錄影在 Phaser 啟動前安裝可控時鐘，再取樣畫面，避免更換時鐘打亂 TweenManager 的時間基準；不代表實體手機可以穩定 30／60 fps。GIF 以 30／30／40 ms 近似，均勻幀間隔請看 MP4。
@@ -246,13 +272,18 @@ python3 -m http.server 8080
 python3 tools/prepare_jigoku_combat.py
 python3 tools/prepare_ghost_warrior.py
 python3 tools/prepare_jigoku_duel_art.py  # 保留上一輪出刀與兩張舊格擋圖的重建
-python3 tools/prepare_guard_rig.py  # 目前使用的四姿勢／共用槍／手指圖層
+python3 tools/prepare_guard_rig.py  # 四姿勢／共用槍／手指圖層
+python3 tools/prepare_shared_thrust.py  # 清理胸甲 + 原下身／雙臂；擷取橫掃兩格
+node tools/prepare_shared_spear_track.mjs
+python3 tools/check_shared_hero_art.py
 python3 tools/prepare_enemy_low_hit.py  # 在共用圖集後執行，追加四個接點；可重複執行
 python3 tools/check_jigoku_enemy_art.py
 python3 tools/check_jigoku_recovery_art.py
 python3 tools/prepare_yari_sweep.py
 python3 tools/check_jigoku_sweep_art.py
-node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs
+node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs tools/check_shared_hero.mjs
+node tools/check_shared_hero_browser.mjs
+python3 tools/package_shared_hero_preview.py
 node tools/check_jigoku_duel_browser.mjs
 python3 tools/package_jigoku_duel_preview.py
 python3 tools/package_jigoku_duel_comparison.py
@@ -265,4 +296,4 @@ python3 tools/package_jigoku_recovery_preview.py
 
 圖像重新打包需 Pillow／NumPy；瀏覽器錄影打包需 FFmpeg。瀏覽器檢查會自行啟動並關閉臨時 HTTP 伺服器。
 
-下一步把共用槍擴展到待機／短刺交接，統一槍刃畫法與握姿；再讓敵方刀路和槍身接觸對齊。人物比例、肩甲與腳底仍需跨姿勢精修。
+下一步統一橫掃的人物造型與武器，減少進出橫掃時的落差；再精修肩腰接縫、格擋交接，以及敵方刀路與槍身的接觸。

@@ -1,0 +1,421 @@
+{
+  "passed": true,
+  "checks": [
+    "Original planted lower-body visible pixels and alpha retained exactly in HD",
+    "All four desktop/mobile legacy sweep boundary cells preserve visible pixels and alpha",
+    "All active texture dimensions <=4096; no full idle/thrust atlases loaded by game.mjs"
+  ],
+  "memory": {
+    "desktop": {
+      "currentRGBA8Bytes": 96403696,
+      "previousRGBA8Bytes": 278462636,
+      "savedRGBA8Bytes": 182058940,
+      "loadedTextures": [
+        {
+          "path": "hero-lower-hd.webp",
+          "size": [
+            734,
+            234
+          ],
+          "rgba8Bytes": 687024,
+          "downloadBytes": 106218
+        },
+        {
+          "path": "hero-torso-hd.webp",
+          "size": [
+            612,
+            269
+          ],
+          "rgba8Bytes": 658512,
+          "downloadBytes": 77280
+        },
+        {
+          "path": "hero-rearUpper-hd.webp",
+          "size": [
+            86,
+            74
+          ],
+          "rgba8Bytes": 25456,
+          "downloadBytes": 9736
+        },
+        {
+          "path": "hero-rearFore-hd.webp",
+          "size": [
+            77,
+            58
+          ],
+          "rgba8Bytes": 17864,
+          "downloadBytes": 7004
+        },
+        {
+          "path": "hero-rearHand-hd.webp",
+          "size": [
+            48,
+            55
+          ],
+          "rgba8Bytes": 10560,
+          "downloadBytes": 4592
+        },
+        {
+          "path": "hero-frontUpper-hd.webp",
+          "size": [
+            69,
+            61
+          ],
+          "rgba8Bytes": 16836,
+          "downloadBytes": 6244
+        },
+        {
+          "path": "hero-frontFore-hd.webp",
+          "size": [
+            69,
+            61
+          ],
+          "rgba8Bytes": 16836,
+          "downloadBytes": 6504
+        },
+        {
+          "path": "hero-frontHand-hd.webp",
+          "size": [
+            43,
+            51
+          ],
+          "rgba8Bytes": 8772,
+          "downloadBytes": 3990
+        },
+        {
+          "path": "sweep-boundary-hd.webp",
+          "size": [
+            2048,
+            640
+          ],
+          "rgba8Bytes": 5242880,
+          "downloadBytes": 226166
+        },
+        {
+          "path": "guard-body-hd.webp",
+          "size": [
+            2048,
+            1280
+          ],
+          "rgba8Bytes": 10485760,
+          "downloadBytes": 829920
+        },
+        {
+          "path": "guard-hands-hd.webp",
+          "size": [
+            256,
+            128
+          ],
+          "rgba8Bytes": 131072,
+          "downloadBytes": 29896
+        },
+        {
+          "path": "guard-yari-hd.webp",
+          "size": [
+            1024,
+            292
+          ],
+          "rgba8Bytes": 1196032,
+          "downloadBytes": 54536
+        },
+        {
+          "path": "enemy-duel-hd.webp",
+          "size": [
+            3456,
+            768
+          ],
+          "rgba8Bytes": 10616832,
+          "downloadBytes": 767864
+        },
+        {
+          "path": "enemy-low-hd.webp",
+          "size": [
+            2304,
+            1536
+          ],
+          "rgba8Bytes": 14155776,
+          "downloadBytes": 1076442
+        },
+        {
+          "path": "ghost-warrior-hd.webp",
+          "size": [
+            3456,
+            3072
+          ],
+          "rgba8Bytes": 42467328,
+          "downloadBytes": 2810320
+        },
+        {
+          "path": "sweep-hd.webp",
+          "size": [
+            2048,
+            1280
+          ],
+          "rgba8Bytes": 10485760,
+          "downloadBytes": 988872
+        },
+        {
+          "path": "enemy-upper.webp",
+          "size": [
+            62,
+            88
+          ],
+          "rgba8Bytes": 21824,
+          "downloadBytes": 9148
+        },
+        {
+          "path": "enemy-fore.webp",
+          "size": [
+            69,
+            94
+          ],
+          "rgba8Bytes": 25944,
+          "downloadBytes": 9974
+        },
+        {
+          "path": "enemy-relax.webp",
+          "size": [
+            62,
+            67
+          ],
+          "rgba8Bytes": 16616,
+          "downloadBytes": 6030
+        },
+        {
+          "path": "enemy-open.webp",
+          "size": [
+            61,
+            71
+          ],
+          "rgba8Bytes": 17324,
+          "downloadBytes": 6936
+        },
+        {
+          "path": "enemy-katana.webp",
+          "size": [
+            410,
+            51
+          ],
+          "rgba8Bytes": 83640,
+          "downloadBytes": 16612
+        },
+        {
+          "path": "enemy-grip.webp",
+          "size": [
+            66,
+            57
+          ],
+          "rgba8Bytes": 15048,
+          "downloadBytes": 5802
+        }
+      ]
+    },
+    "mobile": {
+      "currentRGBA8Bytes": 37309868,
+      "previousRGBA8Bytes": 82825388,
+      "savedRGBA8Bytes": 45515520,
+      "loadedTextures": [
+        {
+          "path": "hero-lower.webp",
+          "size": [
+            367,
+            117
+          ],
+          "rgba8Bytes": 171756,
+          "downloadBytes": 31338
+        },
+        {
+          "path": "hero-torso.webp",
+          "size": [
+            306,
+            134
+          ],
+          "rgba8Bytes": 164016,
+          "downloadBytes": 24372
+        },
+        {
+          "path": "hero-rearUpper.webp",
+          "size": [
+            43,
+            37
+          ],
+          "rgba8Bytes": 6364,
+          "downloadBytes": 3520
+        },
+        {
+          "path": "hero-rearFore.webp",
+          "size": [
+            38,
+            29
+          ],
+          "rgba8Bytes": 4408,
+          "downloadBytes": 2560
+        },
+        {
+          "path": "hero-rearHand.webp",
+          "size": [
+            24,
+            28
+          ],
+          "rgba8Bytes": 2688,
+          "downloadBytes": 1706
+        },
+        {
+          "path": "hero-frontUpper.webp",
+          "size": [
+            34,
+            30
+          ],
+          "rgba8Bytes": 4080,
+          "downloadBytes": 2310
+        },
+        {
+          "path": "hero-frontFore.webp",
+          "size": [
+            34,
+            30
+          ],
+          "rgba8Bytes": 4080,
+          "downloadBytes": 2298
+        },
+        {
+          "path": "hero-frontHand.webp",
+          "size": [
+            22,
+            26
+          ],
+          "rgba8Bytes": 2288,
+          "downloadBytes": 1398
+        },
+        {
+          "path": "sweep-boundary.webp",
+          "size": [
+            1024,
+            320
+          ],
+          "rgba8Bytes": 1310720,
+          "downloadBytes": 68066
+        },
+        {
+          "path": "guard-body.webp",
+          "size": [
+            1024,
+            640
+          ],
+          "rgba8Bytes": 2621440,
+          "downloadBytes": 238626
+        },
+        {
+          "path": "guard-hands.webp",
+          "size": [
+            128,
+            64
+          ],
+          "rgba8Bytes": 32768,
+          "downloadBytes": 11284
+        },
+        {
+          "path": "guard-yari.webp",
+          "size": [
+            512,
+            146
+          ],
+          "rgba8Bytes": 299008,
+          "downloadBytes": 16454
+        },
+        {
+          "path": "enemy-duel.webp",
+          "size": [
+            2304,
+            512
+          ],
+          "rgba8Bytes": 4718592,
+          "downloadBytes": 376274
+        },
+        {
+          "path": "enemy-low.webp",
+          "size": [
+            1536,
+            1024
+          ],
+          "rgba8Bytes": 6291456,
+          "downloadBytes": 522460
+        },
+        {
+          "path": "ghost-warrior.webp",
+          "size": [
+            2304,
+            2048
+          ],
+          "rgba8Bytes": 18874368,
+          "downloadBytes": 1378770
+        },
+        {
+          "path": "sweep.webp",
+          "size": [
+            1024,
+            640
+          ],
+          "rgba8Bytes": 2621440,
+          "downloadBytes": 278376
+        },
+        {
+          "path": "enemy-upper.webp",
+          "size": [
+            62,
+            88
+          ],
+          "rgba8Bytes": 21824,
+          "downloadBytes": 9148
+        },
+        {
+          "path": "enemy-fore.webp",
+          "size": [
+            69,
+            94
+          ],
+          "rgba8Bytes": 25944,
+          "downloadBytes": 9974
+        },
+        {
+          "path": "enemy-relax.webp",
+          "size": [
+            62,
+            67
+          ],
+          "rgba8Bytes": 16616,
+          "downloadBytes": 6030
+        },
+        {
+          "path": "enemy-open.webp",
+          "size": [
+            61,
+            71
+          ],
+          "rgba8Bytes": 17324,
+          "downloadBytes": 6936
+        },
+        {
+          "path": "enemy-katana.webp",
+          "size": [
+            410,
+            51
+          ],
+          "rgba8Bytes": 83640,
+          "downloadBytes": 16612
+        },
+        {
+          "path": "enemy-grip.webp",
+          "size": [
+            66,
+            57
+          ],
+          "rgba8Bytes": 15048,
+          "downloadBytes": 5802
+        }
+      ]
+    }
+  },
+  "scope": "RGBA8 character texture estimate only; excludes background, render targets, driver overhead and mipmaps. Not a hardware GPU measurement."
+}

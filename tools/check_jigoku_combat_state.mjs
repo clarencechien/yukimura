@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {CombatState,segmentHitsCircle} from '../docs/routes/jigoku-2d/combat/combat-state.mjs';
-const track=JSON.parse(fs.readFileSync(new URL('../docs/routes/jigoku-2d/combat/spear-track.json',import.meta.url)));
+const track=JSON.parse(fs.readFileSync(new URL('../docs/routes/jigoku-2d/combat/shared-spear-track.json',import.meta.url)));
 const finish=(s,step=16.67)=>{for(let elapsed=0;elapsed<1500;elapsed+=step)s.update(step);};
 test('three distinct strikes break seal; spam cannot add damage',()=>{
  const events=[];const s=new CombatState(track,e=>events.push(e));

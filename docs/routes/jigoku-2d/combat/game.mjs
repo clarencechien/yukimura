@@ -1,3 +1,4 @@
+import {sharedHeroPose} from './hero-rig.mjs';
 import {guardRigPose} from './guard-rig.mjs';
 import {enemyBinding,enemyTexture} from './duel-poses.mjs';
 import {enemyArm} from './enemy-arm.mjs';
@@ -20,11 +21,14 @@ class Battle extends Phaser.Scene {
   preload(){
     for(const part of ['upper','fore','relax','open'])this.load.image('enemy-'+part,`enemy-${part}.webp`);
     this.load.json('enemyRig','enemy-rig.json');this.load.image('enemyKatana','enemy-katana.webp');this.load.image('enemyGrip','enemy-grip.webp');
-    this.load.image('arena','arena.webp');this.load.json('track','spear-track.json');
+    this.load.image('arena','arena.webp');this.load.json('track','shared-spear-track.json');
     this.hd=innerWidth>=900;
     this.load.json('duelArt','duel-art.json');
     this.load.spritesheet('enemyDuel',`enemy-duel${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:2});
     this.load.json('guardRig','guard-rig.json');
+    this.load.json('thrustRig','thrust-rig.json');
+    for(const part of ['lower','torso','rearUpper','rearFore','rearHand','frontUpper','frontFore','frontHand'])this.load.image('hero-'+part,`hero-${part}${this.hd?'-hd':''}.webp`);
+    this.load.spritesheet('sweepBoundary',`sweep-boundary${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:1});
     this.load.spritesheet('guardBody',`guard-body${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:3});
     this.load.spritesheet('guardHands',`guard-hands${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?64:32,frameHeight:this.hd?64:32,endFrame:7});
     this.load.image('guardYari',`guard-yari${this.hd?'-hd':''}.webp`);
@@ -32,12 +36,6 @@ class Battle extends Phaser.Scene {
     this.load.spritesheet('sweep',`sweep${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:3});
     this.load.spritesheet('enemyLow',`enemy-low${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:3});
     this.load.spritesheet('warrior',`ghost-warrior${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:11});
-    for(const clip of ['idle','thrust']){
-      if(this.hd){
-        this.load.spritesheet(clip,`../yari-rigid/${clip}-warm-left-hd.webp`,{frameWidth:1024,frameHeight:640,endFrame:23});
-        this.load.spritesheet(clip+'-2',`../yari-rigid/${clip}-warm-left-hd-2.webp`,{frameWidth:1024,frameHeight:640,endFrame:11});
-      }else this.load.spritesheet(clip,`../yari-rigid/${clip}-warm-left.webp`,{frameWidth:512,frameHeight:320,endFrame:35});
-    }
     this.load.on('progress',p=>$('#loading').textContent=`正在載入赤甲與燼關… ${Math.round(p*100)}%`);
     this.load.on('loaderror',()=>{this.failed=true;$('#loading').textContent='素材載入失敗，請重新整理。';});
   }
@@ -49,8 +47,10 @@ class Battle extends Phaser.Scene {
     // Fixed contact patches under actual planted feet, plus a softer body shadow.
     const shadow=this.add.graphics();for(let i=5;i>0;i--){shadow.fillStyle(0x060708,.035);shadow.fillEllipse(453,628,375+i*12,32+i*7);}
     shadow.fillStyle(0x050607,.5);shadow.fillEllipse(263,648,62,17);shadow.fillEllipse(661,606,91,18);
-    this.hero=this.add.sprite(35,90,'idle',0).setOrigin(0).setDisplaySize(1024,640);
-    this.guardRig=this.cache.json.get('guardRig');
+    this.hero=this.add.sprite(35,90,'guardBody',3).setOrigin(0).setDisplaySize(1024,640);
+    this.guardRig=this.cache.json.get('guardRig');this.thrustRig=this.cache.json.get('thrustRig');
+    this.heroParts={lower:this.hero};
+    for(const part of ['rearUpper','frontUpper','torso','rearFore','frontFore'])this.heroParts[part]=this.add.image(0,0,'hero-'+part).setVisible(false);
     this.guardYari=this.add.image(0,0,'guardYari').setVisible(false);
     this.guardHands=[0,1].map(i=>this.add.sprite(0,0,'guardHands',i).setDisplaySize(64,64).setVisible(false));
     this.pedestal=this.add.graphics();this.seal=this.add.container(970,334);this.sealArt=this.add.graphics();this.seal.add(this.sealArt);this.drawSeal();
@@ -73,7 +73,7 @@ class Battle extends Phaser.Scene {
     this.input.keyboard.on('keydown-SPACE',event=>{if(/INPUT|SELECT|BUTTON/.test(document.activeElement?.tagName))return;event.preventDefault();this.attack();});
     for(const id of ['attack','sweep','guard','duel','pause','reset','range','target'])$('#'+id).disabled=false;
     $('#loading').style.display='none';this.refreshUI();
-    window.yariCombat={snapshot:()=>({ready:true,guardWeapon:{visible:this.guardYari.visible,texture:this.guardYari.texture.key,width:this.guardYari.displayWidth,height:this.guardYari.displayHeight,x:this.guardYari.x,y:this.guardYari.y,angle:this.guardYari.angle,originX:this.guardYari.originX,originY:this.guardYari.originY,pose:this.guardWeaponPose,hands:this.guardHands.map(h=>({visible:h.visible,x:h.x,y:h.y,frame:h.frame.name,texture:h.texture.key,width:h.displayWidth,order:this.children.getIndex(h)})),order:this.children.getIndex(this.guardYari),bodyOrder:this.children.getIndex(this.hero)},armOrder:{body:this.children.getIndex(this.enemySprite),upper:this.children.getIndex(this.enemyUpper),fore:this.children.getIndex(this.enemyFore),hand:this.children.getIndex(this.enemyGrip)},duel:{enabled:this.state.duel.enabled,stage:this.state.duel.stage,age:this.state.duel.age,playerHP:this.state.duel.playerHP,guardPose:this.state.duel.guardPose,recoveryFrom:this.state.duel.recoveryFrom,guard:this.state.duel.guard,cooldown:this.state.duel.cooldown,blocks:this.state.duel.blocks,result:this.state.duel.result},engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
+    window.yariCombat={snapshot:()=>({ready:true,heroArt:this.heroArt,heroParts:Object.fromEntries(Object.entries(this.heroParts).map(([n,p])=>[n,{x:p.x,y:p.y,width:p.displayWidth,height:p.displayHeight,angle:p.angle,originX:p.originX,originY:p.originY,visible:p.visible,texture:p.texture.key,order:this.children.getIndex(p)}])),heroWeapon:{visible:this.guardYari.visible,texture:this.guardYari.texture.key,width:this.guardYari.displayWidth,height:this.guardYari.displayHeight,x:this.guardYari.x,y:this.guardYari.y,angle:this.guardYari.angle,originX:this.guardYari.originX,originY:this.guardYari.originY,pose:this.guardWeaponPose,hands:this.guardHands.map(h=>({visible:h.visible,x:h.x,y:h.y,frame:h.frame.name,texture:h.texture.key,width:h.displayWidth,height:h.displayHeight,angle:h.angle,originX:h.originX,originY:h.originY,order:this.children.getIndex(h)})),order:this.children.getIndex(this.guardYari),bodyOrder:this.children.getIndex(this.hero)},armOrder:{body:this.children.getIndex(this.enemySprite),upper:this.children.getIndex(this.enemyUpper),fore:this.children.getIndex(this.enemyFore),hand:this.children.getIndex(this.enemyGrip)},duel:{enabled:this.state.duel.enabled,stage:this.state.duel.stage,age:this.state.duel.age,playerHP:this.state.duel.playerHP,guardPose:this.state.duel.guardPose,recoveryFrom:this.state.duel.recoveryFrom,guard:this.state.duel.guard,cooldown:this.state.duel.cooldown,blocks:this.state.duel.blocks,result:this.state.duel.result},engine:Phaser.VERSION,phase:this.state.phase,frame:this.state.frame,hp:this.state.hp,hits:this.state.hits,swings:this.state.swings,paused:this.state.paused,freeze:this.state.freeze,range:this.state.range,targetKind:this.state.targetKind,flashAlpha:this.flash.alpha,enemyAge:this.state.enemyAge,enemy:this.state.enemy,enemyFrame:this.enemySprite.frame.name,enemyTexture:this.enemySprite.texture.key,enemyAlpha:this.enemySprite.alpha,enemyAngle:this.enemySprite.angle,body:{x:this.enemySprite.x,y:this.enemySprite.y,width:this.enemySprite.displayWidth,height:this.enemySprite.displayHeight},renderedArm:{shoulder:{x:this.enemyUpper.x,y:this.enemyUpper.y},elbow:{x:this.enemyFore.x,y:this.enemyFore.y}},weapon:{held:this.weaponPose?.held,landed:this.weaponPose?.landed,x:this.enemyKatana.x,y:this.enemyKatana.y,angle:this.enemyKatana.angle,width:this.enemyKatana.displayWidth,alpha:this.enemyKatana.alpha,visible:this.enemyKatana.visible},arm:this.armPose,hand:{x:this.enemyGrip.x,y:this.enemyGrip.y,angle:this.enemyGrip.angle,visible:this.enemyGrip.visible,state:this.armPose?.handState,texture:this.enemyGrip.texture.key},hd:this.hd,texture:this.hero.texture.key,particles:this.sparks.getAliveParticleCount(),target:this.state.target,tip:this.heroArt?.weapon.tip??(this.state.phase==='attack'?this.state.currentTrack:this.track).frames[this.state.frame],attackKind:this.state.attackKind,queuedAttack:this.state.queuedAttack,canQueueSweep:this.state.canQueueSweep,heroFrame:this.hero.frame.name,sweepPose:this.state.phase==='attack'&&this.state.attackKind==='sweep'?this.state.currentTrack.poseFrames[this.state.frame]:null,hurtbox:this.state.hurtbox})};
   }
   drawSeal(){
     const g=this.sealArt;g.clear();
@@ -140,20 +140,35 @@ class Battle extends Phaser.Scene {
     }
     this.refreshUI();
   }
+  placeHeroPart(sprite,name,transform){
+    const layer=this.thrustRig.layers[name],w=layer.size[0],h=layer.size[1];
+    sprite.setTexture('hero-'+name).setOrigin((layer.pivot[0]-layer.box[0])/w,(layer.pivot[1]-layer.box[1])/h).setDisplaySize(w,h).setPosition(35+transform.point[0],90+transform.point[1]).setAngle(transform.angle);
+  }
   update(_time,delta){
     if(!this.state)return;
     this.state.update(delta);
-    const sweeping=this.state.phase==='attack'&&this.state.attackKind==='sweep';
-    let clip=this.state.phase==='attack'?this.state.attackKind:'idle',frame=this.state.frame;
-    if(sweeping){const source=this.state.currentTrack.poseSources[this.state.currentTrack.poseFrames[frame]];clip=source.clip;frame=source.frame;}
-    if(this.state.duel.guardPose!==null){clip='guardBody';frame=this.state.duel.guardPose;}
-    const paged=this.hd&&['idle','thrust'].includes(clip),page=paged&&frame>=24?'-2':'';
-    this.hero.setTexture(clip+page,paged?frame%24:frame);
-    this.guardWeaponPose=guardRigPose(this.state.duel.guardPose,this.guardRig);
+    this.heroArt=sharedHeroPose(this.state,this.guardRig,this.thrustRig);
+    const rigged=this.heroArt&&this.heroArt.action!=='guard';
+    for(const [name,part] of Object.entries(this.heroParts))if(name!=='lower')part.setVisible(!!rigged);
+    if(rigged){
+      for(const [name,part] of Object.entries(this.heroParts))this.placeHeroPart(part,name,this.heroArt.transforms[name]);
+    }else{
+      this.hero.setOrigin(0).setPosition(35,90).setAngle(0);
+      if(this.heroArt)this.hero.setTexture('guardBody',this.heroArt.frame);
+      else{
+        const source=this.state.currentTrack.poseSources[this.state.currentTrack.poseFrames[this.state.frame]];
+        this.hero.setTexture(source.clip==='sweep'?'sweep':'sweepBoundary',source.clip==='sweep'?source.frame:source.clip==='thrust'?0:1);
+      }
+      this.hero.setDisplaySize(1024,640);
+    }
+    this.guardWeaponPose=this.heroArt?.weapon??null;
     const guarded=this.guardWeaponPose;this.guardYari.setVisible(!!guarded);this.guardHands.forEach(h=>h.setVisible(!!guarded));
     if(guarded){
       this.guardYari.setOrigin(guarded.originX,guarded.originY).setDisplaySize(guarded.width,guarded.height).setPosition(guarded.rear.x,guarded.rear.y).setAngle(guarded.angle);
-      this.guardHands.forEach((h,i)=>h.setFrame(guarded.pose*2+i).setPosition(guarded.palms[i].x,guarded.palms[i].y));
+      this.guardHands.forEach((h,i)=>{
+        if(rigged){const name=(i===0?'rear':'front')+'Hand';this.placeHeroPart(h,name,this.heroArt.transforms[name]);}
+        else h.setTexture('guardHands',this.heroArt.frame*2+i).setOrigin(.5).setDisplaySize(64,64).setAngle(0).setPosition(guarded.palms[i].x,guarded.palms[i].y);
+      });
     }
     const uiKey=[this.state.phase,this.state.canQueueSweep,this.state.queuedAttack,this.state.duel.stage,this.state.duel.guarding,this.state.duel.cooldown>0,this.state.duel.result].join(':');
     if(uiKey!==this.uiKey){this.uiKey=uiKey;this.refreshUI();}
@@ -205,7 +220,7 @@ class Battle extends Phaser.Scene {
         g.lineStyle(13,0xb94028,.28);g.lineBetween(this.state.target.x-85,startY,end,contactY);
         g.lineStyle(3,0xffd9ac,.95);g.lineBetween(this.state.target.x-85,startY,end,contactY);
       }
-      if(guarded){g.lineStyle(4,0x8adddc,.9);g.beginPath();g.arc(guarded.contact.x-105,guarded.contact.y,105,-.8,.8);g.strokePath();}
+      if(duel.guarding&&guarded){g.lineStyle(4,0x8adddc,.9);g.beginPath();g.arc(guarded.contact.x-105,guarded.contact.y,105,-.8,.8);g.strokePath();}
     }
     this.trail.clear();this.debug.clear();
     const track=this.state.phase==='attack'?this.state.currentTrack:this.track,tip=track.frames[this.state.frame];

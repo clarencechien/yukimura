@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {CombatState} from '../docs/routes/jigoku-2d/combat/combat-state.mjs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../docs/routes/jigoku-2d/combat/'+n,import.meta.url)));
-const make=()=>new CombatState(read('spear-track.json'),()=>{},read('sweep-track.json'));
+const make=()=>new CombatState(read('shared-spear-track.json'),()=>{},read('sweep-track.json'));
 function advance(s,ms,step=10){while(ms>0){const dt=Math.min(ms,step);s.update(dt);ms-=dt;}}
 test('low sweep hits the near warrior once, misses far warrior and suspended seal',()=>{
  for(const [range,target,hits] of [['near','warrior',1],['far','warrior',0],['near','seal',0]]){

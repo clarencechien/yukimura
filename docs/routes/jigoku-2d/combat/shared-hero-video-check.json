@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "video": {
+    "width": 1200,
+    "height": 750,
+    "avg_frame_rate": "30/1",
+    "duration": "2.000000",
+    "nb_read_frames": "60"
+  },
+  "source": "60 actual controlled browser frames, not per-frame generated art or a hardware frame-rate benchmark",
+  "gif": {
+    "frames": 60,
+    "decodedTimelineMatches": true,
+    "durationMS": 2000
+  }
+}

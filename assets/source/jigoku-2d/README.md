@@ -23,3 +23,9 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `guard-rig/yari.png` is one image_gen reconstruction of the existing spear without the original hand/cloth remnants. `guard-rig/body-first-study.png` is the first four-pose body edit referencing idle and the previous two guards; its front hands were too low. A targeted image_gen edit produced `guard-rig/bodies.png`, the runtime source with higher front hands. These three calls preserve the painterly armor direction but do not provide pixel-identical geometry or reproducible seeds.
 
 `tools/prepare_guard_rig.py` uniformly registers the soles, crops foreground finger/cuff layers from the same body images and packs one fixed-length spear. It records manually marked palm centers and the reference study in `docs/routes/jigoku-2d/combat/guard-rig.json`. Phaser places the single 760 px spear along the palm axis, using fixed 237 px grip anchors; the front drawn palm is within 3 px of its anchor. The arm/body images are not warped to fit. Idle/thrust/sweep retain their earlier baked weapon; sharing does not yet extend to those clips. No Blender/Modal job or new third-party asset was used for this step.
+
+### 共用人物短刺（2026-10-16）
+
+`thrust-rig/first-study.png` 與 `bodies-study.png` 是兩次 image gen 的全身動作候選稿；握距、身高與站距不一致，未進入遊戲。第三次 image gen 以既有 guard-lower 裁切圖作參考，產出 `body-clean.png`，只取對齊後的胸甲／頭盔層。下身、雙臂及手掌則從原 `guard-body-hd.webp` 的第四格切出，保留原圖造型。沒有使用外部角色資產或新增 Blender／Modal 渲染。
+
+`tools/prepare_shared_thrust.py` 記錄手工關節、遮罩、單一等比例對齊、來源 SHA256 與生成檔名，輸出八個部件與 `combat/thrust-rig.json`。`hero-rig.mjs` 用固定長度平面 IK 與腰身剛性旋轉控制短刺；同一槍長、握點與槍尖判定由共用變換提供。原下身可見像素、alpha 與兩張舊橫掃交接格子均有像素檢查；本輪仍非三維人體或承重模擬。
