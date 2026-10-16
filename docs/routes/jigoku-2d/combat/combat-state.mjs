@@ -9,7 +9,7 @@ export function segmentHitsCircle(a,b,c,r){
 }
 export class CombatState {
   constructor(track,onEvent=()=>{},sweepTrack=null){this.track=track;this.sweepTrack=sweepTrack;this.onEvent=onEvent;this.range='near';this.targetKind='warrior';this.paused=false;this.duel=new DuelState(onEvent);this.reset();}
-  reset(){this.duel.reset();this.duelRemainder=0;this.hp=3;this.hits=0;this.swings=0;this.phase='idle';this.frame=0;this.elapsed=0;this.freeze=0;this.didHit=false;this.idleTime=0;this.enemyAge=0;this.enemyHit=false;this.attackKind='thrust';this.queuedAttack=null;this.lastHitKind=null;}
+  reset(){this.duel.reset();this.duelRemainder=0;this.hp=3;this.hits=0;this.swings=0;this.phase='idle';this.frame=0;this.elapsed=0;this.freeze=0;this.didHit=false;this.idleTime=0;this.enemyAge=0;this.enemyHit=false;this.attackKind='thrust';this.queuedAttack=null;this.lastHitKind=null;this.enemyReactionFrom=null;}
   startDuel(enabled=true){if(this.paused||this.phase==='attack'||this.targetKind!=='warrior')return false;this.duel.enabled=enabled;this.reset();return true;}
   defend(){return !this.paused&&this.phase==='idle'&&this.duel.defend();}
   get guardEnemy(){return {pose:this.duel.active?enemyDuelPose(this.duel.stage,this.duel.age,this.duel.recoveryFrom):0,phase:'guard',alpha:1,...(this.duel.active?{intent:this.duel.stage,intentAge:this.duel.age,recoveryFrom:this.duel.recoveryFrom}: {})};}
@@ -30,9 +30,10 @@ export class CombatState {
       }
     }
     if(this.hp>0){
-      if(age<90)return {pose:1,phase:'flinch',alpha:1};
-      if(age<220)return {pose:2,phase:'hurt',alpha:1};
-      if(age<360)return {pose:1,phase:'flinch',alpha:1};
+      const bodyReaction=this.enemyReactionFrom?{age,...this.enemyReactionFrom}:null;
+      if(age<90)return {pose:1,phase:'flinch',alpha:1,bodyReaction};
+      if(age<220)return {pose:2,phase:'hurt',alpha:1,bodyReaction};
+      if(age<360)return {pose:1,phase:'flinch',alpha:1,bodyReaction};
       return this.guardEnemy;
     }
     // Authored silhouettes carry the weight shift; never rotate or stretch the whole body.
@@ -78,6 +79,9 @@ export class CombatState {
       if(this.currentTrack.activeFrames.includes(this.frame)&&!this.didHit&&this.hp>0){
         const a=this.currentTrack.frames[this.frame-1],b=this.currentTrack.frames[this.frame];
         if(segmentHitsCircle(a,b,this.hurtbox,this.hurtbox.radius)){
+          // Save the rule-time pose BEFORE interrupt changes the attack stage.
+          // Rendering derives its own chest/arm transforms from this descriptor.
+          this.enemyReactionFrom=this.attackKind==='thrust'&&this.hp>1?{from:this.enemy,fromAge:this.enemyAge}:null;
           this.didHit=true;this.hp--;this.hits++;this.freeze=70;this.enemyAge=0;this.enemyHit=true;this.lastHitKind=this.attackKind;
           this.onEvent({type:'hit',point:b,broken:this.hp===0,kind:this.attackKind});
           this.duel.interrupt(this.hp===0);

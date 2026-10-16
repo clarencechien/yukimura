@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "video": {
+    "width": 1200,
+    "height": 750,
+    "avg_frame_rate": "30/1",
+    "duration": "2.000000",
+    "nb_read_frames": "60"
+  },
+  "source": "60 actual Phaser screenshots at controlled 33/33/34 ms, no effects; windup interrupted by thrust, one hit, no player damage. Not a hardware FPS benchmark.",
+  "gif": "60 frames, 30/30/40 ms, decoded pixel equality passed",
+  "comparison": {
+    "baselineCommit": "a0ddb54c47f808650a3a706e6cc0732593acf806",
+    "selected": [
+      {
+        "beforeSample": 52,
+        "afterSample": 52,
+        "attackFrame": 14,
+        "beforeRecoveryAgeMS": 1,
+        "afterRecoveryAgeMS": 1,
+        "stageOffsetMS": 0,
+        "reactionAgeMS": 0
+      },
+      {
+        "beforeSample": 56,
+        "afterSample": 56,
+        "attackFrame": 17,
+        "beforeRecoveryAgeMS": 104,
+        "afterRecoveryAgeMS": 104,
+        "stageOffsetMS": 0,
+        "reactionAgeMS": 103.33333333333331
+      },
+      {
+        "beforeSample": 62,
+        "afterSample": 62,
+        "attackFrame": 22,
+        "beforeRecoveryAgeMS": 296,
+        "afterRecoveryAgeMS": 296,
+        "stageOffsetMS": 0,
+        "reactionAgeMS": 295.3333333333333
+      }
+    ],
+    "source": "Separate existing counterattack sequence: baseline MP4 vs current native PNG, matched attack frame, HP and hit-recovery stage; <=17 ms timing offset explicitly recorded."
+  },
+  "limits": "Nonfatal upper thrust only. Low hits, fatal transition and death retain authored silhouettes. Planar rigid parts, not anatomical force simulation."
+}

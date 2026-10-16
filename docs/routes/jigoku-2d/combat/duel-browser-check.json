@@ -5,7 +5,10 @@
     "Pause freezes both contacting weapons, arms and clash point; reset returns to the shared lower-ready pose",
     "Windup pause resumes without extra damage; three unblocked attacks end duel; reset restores health",
     "Far slash misses; seal practice disables enemy offense",
+    "60 actual 30 Hz frames: thrust interrupts windup, hitstop holds the same torso, rigid chest/arm recoil and return to ready; no effects required, no player damage",
+    "Separate fine clock check: actual chest, arm and weapon remain identical across rendered hitstop frames",
     "390 px touch: visible warning and successful block with feedback off/reduced motion; cooldown rejects repeat; no horizontal overflow",
+    "390 px touch nonfatal thrust uses the same chest without effects; pause holds actual rendered body parts",
     "No full-body enemy duel atlas requested; actual rigid chest transform carries shoulder socket and lower body stays planted on desktop/mobile",
     "No legacy guard body or finger atlas requested; guard, ready and counterattack share the same fourteen parts"
   ],

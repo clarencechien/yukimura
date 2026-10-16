@@ -1,6 +1,6 @@
 import {enemyBinding} from './duel-poses.mjs';
 import {DUEL_TIMING} from './duel-state.mjs';
-import {enemyBodyPose} from './enemy-body.mjs';
+import {enemyBodyPose,recoilValue} from './enemy-body.mjs';
 const degrees=180/Math.PI;
 export function solveArm(shoulder,target,upperLength,foreLength){
   const dx=target.x-shoulder.x,dy=target.y-shoulder.y,raw=Math.hypot(dx,dy);
@@ -30,6 +30,11 @@ export function enemyArm(enemy,age,dead,rig){
     if(enemy.intent==='strike'){from=[-39,98];to=[35,110];t=ease(enemy.intentAge/DUEL_TIMING.strike);}
     if(enemy.intent==='recovery'&&enemy.recoveryFrom==='attack'){from=[35,110];t=ease(enemy.intentAge/520);}
     offset.x=from[0]+(to[0]-from[0])*t;offset.y=from[1]+(to[1]-from[1])*t;
+  }
+  if(enemy.bodyReaction){
+    const {from,fromAge,age:hitAge}=enemy.bodyReaction,start=enemyArm(from,fromAge,false,rig);
+    const x=start.wrist.x-start.shoulder.x,y=start.wrist.y-start.shoulder.y;
+    offset.x=recoilValue(x,x+6,3,hitAge);offset.y=recoilValue(y,y-5,110,hitAge);
   }
   const arm=solveArm(shoulder,{x:shoulder.x+offset.x,y:shoulder.y+offset.y},rig.armLengths[0],rig.armLengths[1]);
   const handState=dead?(age>=rig.releaseAge?'open':age>=rig.relaxAge?'relax':'grip'):'grip';

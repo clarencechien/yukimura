@@ -1,10 +1,10 @@
-# 燼關試槍：鬼武者連續蓄刀與收勢
+# 燼關試槍：從出刀接續受擊與回防
 
 2026-10-16（UTC）。分支 `art/jigoku-prerendered-2d`。
 
-![Phaser 實際場景：刀槍交會、承力退刀、收槍反擊](combat/duel-preview.gif)
+![Phaser 實際場景：短刺打斷蓄刀，同一軀幹受擊並回防](combat/enemy-recoil-preview.gif)
 
-[交鋒 30 fps 影片](combat/duel-30fps.mp4) · [交鋒桌機](combat/duel-desktop.jpg) · [交鋒手機](combat/duel-mobile.jpg) · [手機承力格擋](combat/duel-mobile-guard.jpg) · [低掃擊倒 30 fps 影片](combat/low-hit-30fps.mp4) · [連招 30 fps 影片](combat/combo-30fps.mp4) · [倒地 30 fps 影片](combat/combat-30fps.mp4) · [桌機截圖](combat/desktop.jpg) · [手機截圖](combat/mobile.jpg) · [試玩頁原始檔](combat/index.html)
+[打斷蓄刀 30 fps 影片](combat/enemy-recoil-30fps.mp4) · [交鋒 30 fps 影片](combat/duel-30fps.mp4) · [交鋒桌機](combat/duel-desktop.jpg) · [交鋒手機](combat/duel-mobile.jpg) · [手機承力格擋](combat/duel-mobile-guard.jpg) · [低掃擊倒 30 fps 影片](combat/low-hit-30fps.mp4) · [連招 30 fps 影片](combat/combo-30fps.mp4) · [倒地 30 fps 影片](combat/combat-30fps.mp4) · [桌機截圖](combat/desktop.jpg) · [手機截圖](combat/mobile.jpg) · [試玩頁原始檔](combat/index.html)
 
 上方為 **實際 Phaser 場景錄製**，不是新生成的動作影片。GitHub 可看 GIF 與截圖；HTML 要透過 HTTP 靜態伺服器開啟，目前此分支尚未部署到 GitHub Pages。線上 v22 遊戲沒有替換。
 
@@ -28,7 +28,23 @@
 
 手機支援觸控；全螢幕依瀏覽器支援，亦可轉橫向。切到背景分頁會暫停，回來後手動繼續。偏好減少動態時，不啟用漂浮落燼與鏡頭震動。
 
-## 本輪：讓肩膀跟著同一副胸甲出刀
+## 本輪：命中後沿用當下姿勢，再承力回防
+
+[實際打斷蓄刀影片](combat/enemy-recoil-30fps.mp4) · [前後對照](combat/enemy-recoil-comparison.jpg) · [手機受擊](combat/enemy-recoil-mobile.jpg)
+
+前輪的出刀已連續，但被短刺打中後仍會跳到另一張整身受擊圖。現在 **非致命短刺命中時，先保存當下蓄刀／斬下／收勢的時序姿態**，由同一副胸甲、同一組肩臂與同一把刀接續反應；待機練習也沿用這條路徑。
+
+- 命中瞬間保持原本胸甲角度、肩肘腕與握刀位置，原有 **70 ms 命中停頓** 凍結整個姿勢。停頓結束後，前 **95 ms** 後仰承力、收回持刀手；到原有 **360 ms** 反應結束點回正，沒有延長反擊空隙或改變傷害時機。
+- 保持固定 **65／75 px** 臂長、同一握點與刀身尺寸，下半身仍固定站位。受擊期間保留同一圖層順序，不切成另一個體格或以透明疊化掩蓋交接。
+- 上方新增影片為 **關閉命中特效的實際 Phaser 錄影**：幸村短刺打斷蓄刀，鬼武者停頓、受力、回防。共 60 張畫面，30 fps／2 秒；不是新生成的影片，也不是實體手機效能測試。
+- **這輪只替換非致命上身短刺反應。** 低掃、致命一擊及倒地仍保留原關鍵圖；空手側仍畫在軀幹上，敵方腿部也尚未加入承重或退步。這是平面部件動作，不是人體力學模擬。
+- 沒有新增貼圖、image gen、Blender、Modal 或第三方來源。所有使用中的角色貼圖與 `a0ddb54` 位元組相同，角色 RGBA8 估算維持 **桌機 57.467 MiB／手機 25.186 MiB**。
+
+![相同反擊動作幀：左為切換整身受擊圖，右為共用軀幹承力與回防](combat/enemy-recoil-comparison.jpg)
+
+對照使用前輪與本輪的「格擋後反擊」實際畫面，配對相同幸村攻擊幀、血量與受擊回復階段；這與上方新錄的「蓄刀被打斷」片段是兩個情境。各組取樣時間差與影片驗證見 [錄影及對照紀錄](combat/enemy-recoil-video-check.json)。
+
+## 前輪：讓肩膀跟著同一副胸甲出刀
 
 [實際交鋒 30 fps MP4](combat/duel-30fps.mp4) · [前後對照大圖](combat/enemy-body-comparison.jpg) · [手機格擋](combat/duel-mobile-guard.jpg)
 
@@ -324,10 +340,10 @@
 
 | 載入方式 | 前輪角色貼圖 RGBA8 估算 | 本輪角色貼圖 RGBA8 估算 |
 | --- | ---: | ---: |
-| 手機視窗 < 900 px | 29.248 MiB | **25.186 MiB** |
-| 桌機視窗 ≥ 900 px | 66.606 MiB | **57.467 MiB** |
+| 手機視窗 < 900 px | 25.186 MiB | **25.186 MiB** |
+| 桌機視窗 ≥ 900 px | 57.467 MiB | **57.467 MiB** |
 
-本輪將三格 `enemy-duel` 圖集替換為兩張裁切部件，節省桌機 9.139 MiB／手機 4.062 MiB。其餘使用中的角色貼圖與 `8a6cfb0` 完全相同；新增部件另核對來源像素。身體由一層變成兩層，尚未量測實體手機效能。
+前輪已將三格 `enemy-duel` 圖集替換為兩張裁切部件。本輪沿用全部角色貼圖與圖層，只修改命中時姿態保存及受擊曲線；未新增生成圖或渲染工作，也尚未量測實體手機效能。
 
 逐張載入貼圖的尺寸與估算見 [素材檢查](combat/shared-hero-art-check.json)。這只計算角色貼圖的 RGBA8，尚不含背景、渲染緩衝、驅動程式額外配置與可能的 mipmap；壓縮下載大小也不等於顯示記憶體。尚未量測實體手機 FPS。圖集規格在進入頁面時選擇，旋轉或調整視窗不會中途重新載入另一套。
 
@@ -335,6 +351,10 @@
 新背景母圖為 1536×1024，參考既有地獄概念圖，以 image gen 生成一次無人物石台，再輸出 WebP。來源見 [原圖](../../../assets/source/jigoku-2d/combat-arena.png) 與 [素材紀錄](combat/art-provenance.json)。幸村待機／短刺目前使用上方共用插畫部件；舊 Blender CPU 圖集與六張舊橫掃姿勢僅保留為歷史素材，目前皆不再載入。前輪以一次 image gen 新增鬼武者兩張回穩圖，保留原低掃反應，沿用前輪手臂與武器部件，沒有重新建模或打光。沒有使用 Modal／GPU 建模。
 
 ## 驗證與重建
+
+- 本輪新增 [4 項受擊連續性測試](../../../tools/check_enemy_recoil.mjs)：四種敵方階段及待機的命中瞬間銜接、逐毫秒肩肘腕／臂長／握點、360 ms 回防邊界、命中停頓與暫停、重置及目標切換、低掃與致命分支。連同既有規則，共 **66 項通過**。
+- 瀏覽器新增 60 張無特效的蓄刀打斷畫面，從實際胸甲圖層反算肩點，檢查固定臂長、命中停頓、正常回防及無玩家傷害；390 px 手機觸控另檢查受擊與暫停。
+- 本輪也重跑原本格擋／反擊，以及練習／連招／低掃／倒地的桌機與手機檢查。
 
 - 本輪新增 [3 項敵方軀幹測試](../../../tools/check_enemy_body.mjs)：逐毫秒跨階段肩腕連續、胸甲剛性半徑、受擊不錯播、暫停與重置；連同既有規則及接觸測試，共 **62 項通過**。
 - 桌機及 390 px 手機由實際胸甲 sprite 的原點、尺寸、角度反算肩位，核對腳位、圖層順序、固定臂長與刀槍接觸；確認不再請求整身出刀圖集。交鋒錄影為 105 張實際畫面、30 fps／3.5 秒。
@@ -393,7 +413,7 @@ python3 tools/check_jigoku_enemy_art.py
 python3 tools/check_jigoku_recovery_art.py
 python3 tools/prepare_yari_sweep.py
 python3 tools/check_jigoku_sweep_art.py
-node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs tools/check_shared_hero.mjs tools/check_duel_contact.mjs tools/check_enemy_body.mjs
+node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs tools/check_shared_hero.mjs tools/check_duel_contact.mjs tools/check_enemy_body.mjs tools/check_enemy_recoil.mjs
 node tools/check_shared_sweep_browser.mjs
 python3 tools/package_shared_sweep_preview.py
 python3 tools/package_leg_loading_comparison.py
@@ -401,6 +421,7 @@ node tools/check_shared_hero_browser.mjs
 python3 tools/package_shared_hero_preview.py
 node tools/check_jigoku_duel_browser.mjs
 python3 tools/package_jigoku_duel_preview.py
+python3 tools/package_enemy_recoil_preview.py
 python3 tools/package_enemy_body_comparison.py
 python3 tools/package_shared_guard_comparison.py
 python3 tools/package_blade_contact_comparison.py
@@ -415,4 +436,4 @@ python3 tools/package_jigoku_recovery_preview.py
 
 圖像重新打包需 Pillow／NumPy；瀏覽器錄影打包需 FFmpeg。瀏覽器檢查會自行啟動並關閉臨時 HTTP 伺服器。
 
-下一步銜接敵方出刀被打斷時的受擊反應與回防，再延伸承重、轉身與步法。
+下一步處理低掃受擊時的腰胯與腿部承重，再銜接致命一擊及倒地。

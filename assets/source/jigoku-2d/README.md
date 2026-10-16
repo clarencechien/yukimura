@@ -62,3 +62,10 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `enemy-body.mjs` 以腰帶 `[577,382]` 為支點，連續帶動原肩點 `[481,270]`；上臂、前臂、手掌與刀沿用原部件。待機／蓄刀／斬下／收勢不再載入 `enemy-duel` 圖集，舊圖保留作歷史來源。受擊／倒地仍由原圖集處理，未宣稱完成全動作連續骨架。沒有新增 image gen、Blender、Modal 或第三方素材。
 
 `shared-hero-art-check.json` 記錄目前載入成本，保留貼圖與 `8a6cfb0` 位元組相同；兩張新裁切獨立驗證。`enemy-body-comparison.json` 記錄前輪 `2f8de54` 實際影片與本輪瀏覽器畫面的配對時刻，以及出刀段肩點的 30 Hz 相鄰位移。
+
+
+### 非致命短刺受擊銜接（2026-10-16）
+
+命中前由 `CombatState` 保存敵方時序姿態及已經過時間，渲染端再從原姿態求出胸甲角度與持刀手臂。`enemy-body.mjs`／`enemy-arm.mjs` 沿用同一身體、同一雙臂及刀，先保留命中瞬間的姿勢，經 95 ms 承力後於原 360 ms 邊界回防；70 ms 命中停頓沿用遊戲時鐘。只有非致命短刺採此路徑，低掃及致命倒地仍沿用原畫圖集。
+
+本輪所有使用中的角色貼圖與 `a0ddb54` 位元組相同，沒有新增生成圖、裁切、Blender、Modal 或第三方素材。`enemy-recoil-preview.gif`／MP4 是 60 張實際 Phaser 畫面；前後對照另取兩版格擋反擊影片，配對攻擊幀、血量及回復階段，時間差記錄於 `enemy-recoil-video-check.json`。

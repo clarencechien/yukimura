@@ -23,9 +23,9 @@ test('rigid chest preserves socket-to-waist distance; waiting and hit recovery d
  for(const intent of ['waiting','recovery'])assert.equal(enemyBodyPose({phase:'guard',intent,intentAge:80,recoveryFrom:'hit'},rig).angle,0);
  for(const phase of ['flinch','hurt','leg-flinch','fallen','gone'])assert.equal(enemyBodyPose({phase,pose:1},rig),null);
 });
-test('pause freezes torso; reset restores neutral; interrupted attacks retain authored hit and death poses',()=>{
+test('pause freezes torso; reset restores neutral; nonfatal hit retains shared torso',()=>{
  const s=create();for(let i=0;i<1800;i++)s.update(1);const before=enemyBodyPose(s.enemy,rig);
  s.paused=true;s.update(1000);assert.deepEqual(enemyBodyPose(s.enemy,rig),before);s.paused=false;s.reset();assert.ok(Math.abs(enemyBodyPose(s.enemy,rig).angle)<1e-8);
- s.attack();for(let i=0;i<600;i++)s.update(1);assert.equal(s.hp,2);assert.equal(enemyBodyPose(s.enemy,rig),null);
+ s.attack();for(let i=0;i<600;i++)s.update(1);assert.equal(s.hp,2);assert.ok(enemyBodyPose(s.enemy,rig));assert.ok(s.enemy.bodyReaction);
  for(let i=0;i<600;i++)s.update(1);assert.ok(Math.abs(enemyBodyPose(s.enemy,rig).angle)<1e-8);
 });
