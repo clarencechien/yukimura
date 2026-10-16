@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "samples": 1401,
+  "partsRGBA8MiB": 1.1330642700195312,
+  "maximumVisibleBodyY": 689.3233852809287,
+  "maxTorsoTranslationPx": 19.79631290328955,
+  "sourceSHA256": "464e82d4c5a28f294f65dcafdf7da862fbbecc349d3e414b86b1dfc846766082",
+  "checks": [
+    "New body/cap/lower parts match uniformly registered source pixels and declared alpha cleanup/masks; their alpha union preserves the full registered silhouette",
+    "1401 actual rig samples inside review panel and above projected ground Y=690; ground cloth retained in lower layer",
+    "Previous assets and production game unchanged"
+  ],
+  "limits": "Body drawings switch at key midpoints. Shoulder continuity is not silhouette continuity. Projected ground bounds do not validate 3D collisions; no anatomy or force validation."
+}

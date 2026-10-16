@@ -183,3 +183,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 860→1180 ms 以相同腰軸轉換降低胸肩，固定 85／90 px 手臂保持掌根直到 1000 ms，之後切為張掌並收回。地上的刀維持原放刀計算，只有遠側手臂跟隨胸甲。1001 個胸甲／肩甲像素取樣確認未超過投影地面 Y=690；這不是全身物理或解剖驗證。未採用接點不一致的現有側倒原畫，末姿仍是低伏卸力，完整側倒與翻掌需後續補圖。
 
 重新錄製 150 張實際 Canvas 畫布，30 fps／5 秒。沒有替換正式 Phaser 戰鬥或線上遊戲。
+
+
+### 卸力接側倒三張原畫（2026-10-16）
+
+新增 `ghost-rig/side-fall-breakdowns.png`，image gen 原始輸出 `exec-0e52d796-7d7c-4260-8516-1c2cde90b2c6.png`，2172×724 RGBA，原始位元組保留。參考上一輪 `free-arm-settle/pose-1180.png` 右側低伏人物及 `ghost-rig/crouch-arm-clean.png`，要求三張低姿態側倒、移除雙臂及武器、保留黑金甲與藍繩。甲片、頭盔及姿態仍有生成差異，不代表相同三維拓撲。
+
+`prepare_side_fall.py` 清除 alpha ≤ 16 的低透明雜點，以 0.70／0.64／0.64 等比例註冊三格，按人工多邊形拆出胸甲、下身與肩甲；來源 SHA、縮放、位移及人工肩點見 `free-arm-settle/fall.json`。貼地衣料留在下身層，避免胸甲平移時衣料穿地。裁片保留註冊後可見 RGB，沒有非等比變形或交叉淡化。
+
+新增九張裁片 RGBA8 約 1.133 MiB；雙臂、張掌及刀均共用既有素材。180 張實際 Canvas 畫布錄為 30 fps／6 秒影片。1401 個新側倒取樣確認可見像素不超過 Y=690，但原畫換格仍有輪廓及腰甲接縫；這是獨立動畫試作，未替換正式遊戲，也未新增 Blender／Modal 工作。

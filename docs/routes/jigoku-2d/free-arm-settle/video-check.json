@@ -1,9 +1,9 @@
 {
   "passed": true,
-  "frames": 150,
-  "gifStoredFrames": 99,
+  "frames": 180,
+  "gifStoredFrames": 137,
   "fps": 30,
-  "durationSeconds": 5,
+  "durationSeconds": 6,
   "sourceSize": [
     1200,
     721
@@ -12,6 +12,6 @@
     1200,
     722
   ],
-  "source": "Actual unloading and sword-release Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
-  "limits": "Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing sword arm, released blade, unloading torso and released support hand. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses one 256-color palette with changed rectangles, 30/30/40 ms timing and merged identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
+  "source": "Actual side-fall breakdown Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
+  "limits": "Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing sword arm, released blade, unloading torso, released support hand and three new side-fall body drawings. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses one 256-color palette with changed rectangles, 30/30/40 ms timing and merged identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
 }

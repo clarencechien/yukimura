@@ -2,6 +2,7 @@
   "passed": true,
   "checks": [
     "Far shoulder, elbow, wrist and actual fist-to-katana Canvas attachment; rigid texture scale, panel bounds, render order and independent visibility toggle",
+    "Three side-fall body keys visited; actual shared-arm shoulder/elbow/wrist matrices, torso/cap registration and fixed lower images checked",
     "Yielded shoulder/arm joints, fixed palm heel during roll, open-hand wrist after lift, resting blade matrix unchanged while both arms move",
     "Actual Canvas arm, knee-to-ankle and ankle-to-shoe joints; hinged torso/cap shoulder alignment",
     "Shared lower-body URLs persist across 400 ms; actual right-panel pixels checked at 399.999/400.001 ms; fixed planted hand",
@@ -12,5 +13,5 @@
   "maxBoundaryChannelDelta": 1,
   "pageErrors": [],
   "failedRequests": [],
-  "scope": "Independent two-arm unloading and sword-release review, not installed into combat; no physical phone FPS measurement."
+  "scope": "Independent shared-arm side-fall breakdown review, not installed into combat; no physical phone FPS measurement."
 }

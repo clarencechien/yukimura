@@ -59,5 +59,6 @@
   },
   "scope": "Base held-sword kit: existing enemy arm and katana artwork reused without edits, rigid transforms only. Far arm/weapon behind body. Authored 2D socket and reach, not anatomy. Release extension is in release.json; independent review, not installed into combat.",
   "releaseExtension": "release.json",
-  "yieldExtension": "yield.json"
+  "yieldExtension": "yield.json",
+  "fallExtension": "fall.json"
 }
