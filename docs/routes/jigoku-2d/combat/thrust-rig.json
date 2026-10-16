@@ -44,38 +44,404 @@
     430,
     342
   ],
+  "legs": {
+    "rear": {
+      "hip": [
+        395,
+        375
+      ],
+      "knee": [
+        300,
+        438
+      ],
+      "ankle": [
+        242,
+        505
+      ],
+      "bend": 1
+    },
+    "front": {
+      "hip": [
+        475,
+        378
+      ],
+      "knee": [
+        552,
+        430
+      ],
+      "ankle": [
+        600,
+        490
+      ],
+      "bend": -1
+    }
+  },
   "layers": {
     "lower": {
       "box": [
-        65,
+        259,
         330,
-        799,
-        564
+        564,
+        500
       ],
       "pivot": [
-        0,
-        0
+        430,
+        342
       ],
       "size": [
-        734,
-        234
+        305,
+        170
       ],
       "polygon": [
         [
-          0,
+          240,
           330
         ],
         [
-          1024,
+          570,
           330
         ],
         [
-          1024,
-          640
+          572,
+          378
         ],
         [
-          0,
-          640
+          548,
+          403
+        ],
+        [
+          480,
+          370
+        ],
+        [
+          484,
+          407
+        ],
+        [
+          510,
+          456
+        ],
+        [
+          522,
+          503
+        ],
+        [
+          468,
+          496
+        ],
+        [
+          441,
+          448
+        ],
+        [
+          396,
+          438
+        ],
+        [
+          398,
+          374
+        ],
+        [
+          354,
+          415
+        ],
+        [
+          250,
+          410
+        ]
+      ],
+      "source": "guard-lower"
+    },
+    "rearThigh": {
+      "box": [
+        265,
+        357,
+        422,
+        482
+      ],
+      "pivot": [
+        395,
+        375
+      ],
+      "size": [
+        157,
+        125
+      ],
+      "polygon": [
+        [
+          390,
+          358
+        ],
+        [
+          413,
+          369
+        ],
+        [
+          420,
+          410
+        ],
+        [
+          380,
+          475
+        ],
+        [
+          330,
+          485
+        ],
+        [
+          295,
+          458
+        ],
+        [
+          269,
+          437
+        ],
+        [
+          266,
+          396
+        ],
+        [
+          345,
+          370
+        ]
+      ],
+      "source": "guard-lower"
+    },
+    "rearShin": {
+      "box": [
+        218,
+        419,
+        318,
+        521
+      ],
+      "pivot": [
+        300,
+        438
+      ],
+      "size": [
+        100,
+        102
+      ],
+      "polygon": [
+        [
+          271,
+          420
+        ],
+        [
+          316,
+          442
+        ],
+        [
+          310,
+          470
+        ],
+        [
+          277,
+          515
+        ],
+        [
+          232,
+          519
+        ],
+        [
+          218,
+          496
+        ],
+        [
+          249,
+          447
+        ]
+      ],
+      "source": "guard-lower"
+    },
+    "rearFoot": {
+      "box": [
+        198,
+        494,
+        267,
+        564
+      ],
+      "pivot": [
+        242,
+        505
+      ],
+      "size": [
+        69,
+        70
+      ],
+      "polygon": [
+        [
+          224,
+          494
+        ],
+        [
+          258,
+          502
+        ],
+        [
+          272,
+          528
+        ],
+        [
+          272,
+          570
+        ],
+        [
+          195,
+          569
+        ],
+        [
+          195,
+          531
+        ]
+      ],
+      "source": "guard-lower"
+    },
+    "frontThigh": {
+      "box": [
+        469,
+        358,
+        587,
+        471
+      ],
+      "pivot": [
+        475,
+        378
+      ],
+      "size": [
+        118,
+        113
+      ],
+      "polygon": [
+        [
+          470,
+          359
+        ],
+        [
+          516,
+          371
+        ],
+        [
+          566,
+          384
+        ],
+        [
+          586,
+          420
+        ],
+        [
+          570,
+          457
+        ],
+        [
+          525,
+          470
+        ],
+        [
+          485,
+          443
+        ],
+        [
+          473,
+          399
+        ]
+      ],
+      "source": "guard-lower"
+    },
+    "frontShin": {
+      "box": [
+        525,
+        412,
+        622,
+        514
+      ],
+      "pivot": [
+        552,
+        430
+      ],
+      "size": [
+        97,
+        102
+      ],
+      "polygon": [
+        [
+          552,
+          413
+        ],
+        [
+          580,
+          416
+        ],
+        [
+          607,
+          464
+        ],
+        [
+          620,
+          490
+        ],
+        [
+          610,
+          512
+        ],
+        [
+          567,
+          500
+        ],
+        [
+          534,
+          467
+        ],
+        [
+          526,
+          437
+        ]
+      ],
+      "source": "guard-lower"
+    },
+    "frontFoot": {
+      "box": [
+        563,
+        468,
+        678,
+        537
+      ],
+      "pivot": [
+        600,
+        490
+      ],
+      "size": [
+        115,
+        69
+      ],
+      "polygon": [
+        [
+          575,
+          480
+        ],
+        [
+          618,
+          468
+        ],
+        [
+          644,
+          491
+        ],
+        [
+          680,
+          509
+        ],
+        [
+          677,
+          538
+        ],
+        [
+          560,
+          536
+        ],
+        [
+          560,
+          504
         ]
       ],
       "source": "guard-lower"
@@ -458,8 +824,8 @@
     }
   ],
   "rgba8Bytes": {
-    "hd": 6684740,
-    "mobile": 1670400
+    "hd": 6468388,
+    "mobile": 1615524
   },
   "sources": [
     {
@@ -475,7 +841,7 @@
     {
       "path": "assets/source/jigoku-2d/thrust-rig/body-clean.png",
       "sha256": "d06c90e60355b1ae30069723553a72d2fe055b46c929be4e4881615605452e66",
-      "status": "Runtime clean torso; original guard-lower limbs and lower body retained"
+      "status": "Runtime clean torso; original guard-lower arms and segmented pelvis/legs retained"
     }
   ],
   "generatedFiles": [
@@ -483,5 +849,5 @@
     "exec-efeee8ff-aa83-43cb-a485-cd32afbe92bc.png",
     "exec-6690fe86-90e5-4610-a012-2579997d0d75.png"
   ],
-  "method": "Three image_gen calls including two rejected multi-pose studies. Runtime uses one clean torso plus original lower-body/arm/hand cutouts and the existing spear. Fixed-length projected two-link arm IK; rigid torso turn about waist, feet never transformed. No new Blender/Modal render. Not anatomical 3D or force simulation."
+  "method": "Three image_gen calls including two rejected multi-pose studies. Runtime uses one clean torso plus original segmented lower-body/arm/hand cutouts and the existing spear. Fixed-length projected two-link arm IK; rigid torso turn about waist, small pelvis translation with fixed-length two-link legs and planted, unrotated feet. No new Blender/Modal render. Not anatomical 3D or force simulation."
 }

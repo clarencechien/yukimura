@@ -35,3 +35,9 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 低掃延用 `thrust-rig` 的同一套八個部件、`guard-rig` 的同一把槍；本輪沒有新增生成圖、Blender／Modal 渲染或角色貼圖。`hero-rig.mjs` 新增固定臂長低掃曲線，`prepare_shared_spear_track.mjs` 同時輸出短刺及低掃的實際槍尖座標。`shared-sweep-track.json` 保留原 32 幀、9–16 有效幀；六個時段只是動作時間標記，並非六張人物圖。
 
 原 `sweep*.webp`、`sweep-boundary*.webp` 與 `sweep-track.json` 保留作歷史重建與對照，不再載入遊戲。`shared-hero-art-check.json` 記錄目前實際載入貼圖，逐一核對與 `d44c03f` 位元組完全相同，並重新計算記憶體估算。`thrust-rig.json` 的 `rgba8Bytes` 仍記錄前輪打包產物（含已不載入的交接圖），不是目前遊戲的載入成本。
+
+### 共用腰胯與雙腿（2026-10-16）
+
+`prepare_shared_thrust.py` 將原 `guard-body-hd.webp` 第四格下身重新分為腰甲、左右大腿、脛甲與足部，共七層；連同既有上身共十四層。新增手工髖／膝／踝標記、遮罩及圖層原點記錄於 `thrust-rig.json`。只有既有原畫裁切、遮罩與打包，未生成新像素或新增 Blender／Modal 渲染。`hero-rig.mjs` 以小幅骨盆平移、固定肢長雙腿 IK 與足部鎖定支撐短刺及低掃；上身跟隨骨盆，再反解雙臂至同一握點。
+
+素材檢查改以 `a972f3e` 為基準：下身核對原色與宣告遮罩、待機不遺失不透明輪廓，其餘角色貼圖檔案完全相同。記憶體估算見 `shared-hero-art-check.json`；本輪下身共七層，不能再把 `hero-lower.webp` 當作完整下身。此方法是平面部件動畫，不是人體三維骨骼或力學模擬。

@@ -41,6 +41,19 @@ export function assertHeroWeapon(row,guardRig){
   }
   assert.ok(upper.order<row.heroParts.torso.order);assert.ok(fore.order>row.heroParts.torso.order);assert.ok(fore.order<w.order);
  }
- if(rigged)for(const point of guardRig.poses[3].rearSole?[guardRig.poses[3].rearSole,guardRig.poses[3].frontSole]:[])near(mapPart(row.heroParts.lower,'lower',point),{x:point[0]+35,y:point[1]+90});
- else for(const [name,part] of Object.entries(row.heroParts))if(name!=='lower')assert.equal(part.visible,false);
+ if(rigged){
+  for(const [side,j] of Object.entries(rig.legs)){
+   const thigh=row.heroParts[side+'Thigh'],shin=row.heroParts[side+'Shin'],foot=row.heroParts[side+'Foot'];
+   near(mapPart(row.heroParts.lower,'lower',j.hip),thigh);
+   near(mapPart(thigh,side+'Thigh',j.knee),shin);
+   near(mapPart(shin,side+'Shin',j.ankle),foot);
+   near(foot,{x:j.ankle[0]+35,y:j.ankle[1]+90});assert.equal(foot.angle,0);
+   for(const name of [side+'Thigh',side+'Shin',side+'Foot']){
+    const part=row.heroParts[name];assert.equal(part.visible,true);assert.equal(part.texture,'hero-'+name);
+    assert.equal(part.width,rig.layers[name].size[0]);assert.equal(part.height,rig.layers[name].size[1]);
+   }
+   assert.ok(foot.order<shin.order);assert.ok(shin.order<thigh.order);assert.ok(thigh.order<row.heroParts.lower.order);
+  }
+  for(const [side,point] of [['rear',guardRig.poses[3].rearSole],['front',guardRig.poses[3].frontSole]])if(point)near(mapPart(row.heroParts[side+'Foot'],side+'Foot',point),{x:point[0]+35,y:point[1]+90});
+ }else for(const [name,part] of Object.entries(row.heroParts))if(name!=='lower')assert.equal(part.visible,false);
 }

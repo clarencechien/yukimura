@@ -1,0 +1,95 @@
+{
+  "baselineCommit": "a972f3ec02cf9d57e3831f52f18988b1c57de772",
+  "selected": [
+    {
+      "beforeSample": 14,
+      "afterSample": 14,
+      "sharedAttackFrame": 9,
+      "hp": 2,
+      "root": [
+        2,
+        8
+      ],
+      "legs": {
+        "rear": {
+          "hip": [
+            397,
+            383
+          ],
+          "knee": [
+            295.0692552839424,
+            434.0306112214023
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            477,
+            386
+          ],
+          "knee": [
+            562.1789796248422,
+            423.1152452513886
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      }
+    },
+    {
+      "beforeSample": 23,
+      "afterSample": 23,
+      "sharedAttackFrame": 16,
+      "hp": 2,
+      "root": [
+        5,
+        6
+      ],
+      "legs": {
+        "rear": {
+          "hip": [
+            400,
+            381
+          ],
+          "knee": [
+            302.7717852569788,
+            440.5035650855052
+          ],
+          "ankle": [
+            242,
+            505
+          ],
+          "thigh": 113.99122773266372,
+          "shin": 88.6171540955813
+        },
+        "front": {
+          "hip": [
+            480,
+            384
+          ],
+          "knee": [
+            564.958018870739,
+            421.61828052369174
+          ],
+          "ankle": [
+            600,
+            490
+          ],
+          "thigh": 92.91393867445294,
+          "shin": 76.83749084919418
+        }
+      }
+    }
+  ],
+  "source": "Previous committed MP4 decoded and current browser PNG, identical 540x490 crops at matched attack frame/HP. Baseline video compression may differ.",
+  "limits": "Small planar pelvis translation with fixed-length legs, not mass/force simulation or a stepping animation."
+}

@@ -27,7 +27,7 @@ class Battle extends Phaser.Scene {
     this.load.spritesheet('enemyDuel',`enemy-duel${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1152:768,frameHeight:this.hd?768:512,endFrame:2});
     this.load.json('guardRig','guard-rig.json');
     this.load.json('thrustRig','thrust-rig.json');
-    for(const part of ['lower','torso','rearUpper','rearFore','rearHand','frontUpper','frontFore','frontHand'])this.load.image('hero-'+part,`hero-${part}${this.hd?'-hd':''}.webp`);
+    for(const part of ['rearFoot','frontFoot','rearShin','frontShin','rearThigh','frontThigh','lower','torso','rearUpper','rearFore','rearHand','frontUpper','frontFore','frontHand'])this.load.image('hero-'+part,`hero-${part}${this.hd?'-hd':''}.webp`);
     this.load.spritesheet('guardBody',`guard-body${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?1024:512,frameHeight:this.hd?640:320,endFrame:3});
     this.load.spritesheet('guardHands',`guard-hands${this.hd?'-hd':''}.webp`,{frameWidth:this.hd?64:32,frameHeight:this.hd?64:32,endFrame:7});
     this.load.image('guardYari',`guard-yari${this.hd?'-hd':''}.webp`);
@@ -47,7 +47,10 @@ class Battle extends Phaser.Scene {
     shadow.fillStyle(0x050607,.5);shadow.fillEllipse(263,648,62,17);shadow.fillEllipse(661,606,91,18);
     this.hero=this.add.sprite(35,90,'guardBody',3).setOrigin(0).setDisplaySize(1024,640);
     this.guardRig=this.cache.json.get('guardRig');this.thrustRig=this.cache.json.get('thrustRig');
-    this.heroParts={lower:this.hero};
+    this.heroParts={};
+    for(const part of ['rearFoot','frontFoot','rearShin','frontShin','rearThigh','frontThigh'])this.heroParts[part]=this.add.image(0,0,'hero-'+part).setVisible(false);
+    this.children.bringToTop(this.hero);
+    this.heroParts.lower=this.hero;
     for(const part of ['rearUpper','frontUpper','torso','rearFore','frontFore'])this.heroParts[part]=this.add.image(0,0,'hero-'+part).setVisible(false);
     this.guardYari=this.add.image(0,0,'guardYari').setVisible(false);
     this.guardHands=[0,1].map(i=>this.add.sprite(0,0,'guardHands',i).setDisplaySize(64,64).setVisible(false));

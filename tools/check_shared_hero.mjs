@@ -6,6 +6,19 @@ import {CombatState} from '../docs/routes/jigoku-2d/combat/combat-state.mjs';
 const read=n=>JSON.parse(fs.readFileSync(`docs/routes/jigoku-2d/combat/${n}.json`));
 const guard=read('guard-rig'),rig=read('thrust-rig'),track=read('shared-spear-track');
 const distance=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+function assertPlantedLegs(p){
+ for(const [side,j] of Object.entries(rig.legs)){
+  const leg=p.legs[side];
+  assert.ok(Math.abs(distance(leg.hip,leg.knee)-distance(j.hip,j.knee))<1e-6);
+  assert.ok(Math.abs(distance(leg.knee,leg.ankle)-distance(j.knee,j.ankle))<1e-6);
+  assert.deepEqual(leg.ankle,j.ankle);
+  assert.deepEqual(p.transforms[side+'Foot'],{point:j.ankle,angle:0});
+  assert.ok(distance(leg.hip,[j.hip[0]+p.root[0],j.hip[1]+p.root[1]])<1e-6);
+  const v=[leg.ankle[0]-leg.hip[0],leg.ankle[1]-leg.hip[1]],k=[leg.knee[0]-leg.hip[0],leg.knee[1]-leg.hip[1]];
+  assert.equal(Math.sign(v[0]*k[1]-v[1]*k[0]),j.bend,'knee must retain its bend branch');
+ }
+ assert.deepEqual(p.transforms.lower.point,p.transforms.torso.point);
+}
 test('continuous short-thrust envelope stays reachable, fixed-length and within projected wrist limits',()=>{
  for(let f=0;f<=350;f++){
   const p=thrustPose(f/10,guard,rig);
@@ -14,7 +27,7 @@ test('continuous short-thrust envelope stays reachable, fixed-length and within 
    assert.ok(Math.abs(a.wristDeflection)<35,side+' projected wrist angle');
   }
   assert.ok(Math.abs(Math.hypot(p.weapon.tip.x-p.weapon.butt.x,p.weapon.tip.y-p.weapon.butt.y)-760)<1e-6);
-  assert.ok(p.weapon.registrationError<1e-6);assert.deepEqual(p.transforms.lower,{point:[0,0],angle:0});
+  assert.ok(p.weapon.registrationError<1e-6);assertPlantedLegs(p);
  }
 });
 test('collision track equals the shared rendered spear endpoint throughout all 36 frames',()=>{
@@ -41,7 +54,7 @@ test('low sweep preserves limb lengths, wrist envelope and planted feet througho
   for(const a of Object.values(p.arms)){
    assert.ok(Math.abs(distance(a.shoulder,a.elbow)-a.upper)<1e-6);assert.ok(Math.abs(distance(a.elbow,a.wrist)-a.fore)<1e-6);assert.ok(Math.abs(a.wristDeflection)<35);
   }
-  assert.ok(p.weapon.registrationError<1e-6);assert.deepEqual(p.transforms.lower,{point:[0,0],angle:0});
+  assert.ok(p.weapon.registrationError<1e-6);assertPlantedLegs(p);
   assert.ok(Math.abs(Math.hypot(p.weapon.tip.x-p.weapon.butt.x,p.weapon.tip.y-p.weapon.butt.y)-760)<1e-6);
  }
 });
@@ -58,4 +71,11 @@ test('sweep key boundaries are continuous and pause, hitstop and reset preserve 
  const s=new CombatState(track,()=>{},read('shared-sweep-track'));s.attack('sweep');s.update(250);s.update(50);assert.equal(s.frame,9);assert.equal(s.hits,1);
  const hit=sharedHeroPose(s,guard,rig);s.update(40);assert.deepEqual(sharedHeroPose(s,guard,rig),hit);s.paused=true;s.update(200);assert.deepEqual(sharedHeroPose(s,guard,rig),hit);
  s.paused=false;s.reset();assert.deepEqual(sharedHeroPose(s,guard,rig).transforms,thrustPose(0,guard,rig).transforms);
+});
+
+test('pelvis loads before contact, knees respond, and neither leg is stretched to move the torso',()=>{
+ const ready=sweepPose(0,guard,rig),load=sweepPose(3,guard,rig),contact=sweepPose(9,guard,rig);
+ assert.ok(load.root[1]>0);assert.ok(contact.root[1]>load.root[1]);
+ for(const side of ['rear','front'])assert.ok(distance(contact.legs[side].knee,ready.legs[side].knee)>2);
+ assertPlantedLegs(contact);
 });

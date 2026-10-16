@@ -20,9 +20,9 @@ try{
   capture.push({sample:i,time,...row});
  }
  assert.ok(contact);assert.equal((await state(p)).hits,1);assert.equal((await state(p)).hp,2);assert.equal((await state(p)).phase,'idle');
- checks.push('60 real desktop frames: fixed arm lengths, source-size rigid layers, palm/shaft registration, visible spear tip equals collision track, feet fixed');
+ checks.push('60 real desktop frames: fixed arm/leg lengths, connected hip/knee/ankle sockets, source-size rigid layers, palm/shaft registration, visible spear tip equals collision track, feet fixed');
  await click(p,'#reset');await click(p,'#attack');await p.clock.runFor(350);await click(p,'#pause');const held=await state(p);await p.clock.runFor(500);const paused=await state(p);assert.deepEqual(paused.heroParts,held.heroParts);assert.deepEqual(paused.heroWeapon,held.heroWeapon);await click(p,'#pause');await click(p,'#reset');await p.clock.runFor(33);assert.equal((await state(p)).heroArt.action,'idle');
- checks.push('Pause freezes torso, all arm joints, hands and spear; reset restores ready stance');await p.close();
+ checks.push('Pause freezes torso, hip, all arm/leg joints, feet, hands and spear; reset restores ready stance');await p.close();
  const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});await ready(mobile);assert.equal((await state(mobile)).hd,false);await mobile.locator('#feedback').uncheck();await mobile.locator('#attack').tap();let mobileContact=false;
  for(let i=0;i<45;i++){
   await mobile.clock.runFor(i%3===2?34:33);const row=await state(mobile);assertHeroWeapon(row,guard);

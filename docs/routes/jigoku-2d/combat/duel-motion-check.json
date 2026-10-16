@@ -7,7 +7,7 @@
       "stage": "waiting",
       "enemyPose": 0,
       "heroAction": "idle",
-      "heroFrame": 33,
+      "heroFrame": 34,
       "heroArms": {
         "rear": {
           "shoulder": [
@@ -59,10 +59,10 @@
         }
       },
       "armOrder": {
-        "body": 18,
-        "upper": 16,
-        "fore": 17,
-        "hand": 19
+        "body": 24,
+        "upper": 22,
+        "fore": 23,
+        "hand": 25
       },
       "guardWeaponWidth": 763.8829540176498,
       "frontRegistrationError": 0
@@ -72,16 +72,16 @@
       "stage": "recovery",
       "enemyPose": 18,
       "heroAction": "thrust",
-      "heroFrame": 6,
+      "heroFrame": 5,
       "heroArms": {
         "rear": {
           "shoulder": [
-            320.5906706576336,
-            260.6145058818612
+            317.5906706576336,
+            263.6145058818612
           ],
           "elbow": [
-            279.74023137014615,
-            278.50980163296015
+            276.9371816638012,
+            281.95282185220987
           ],
           "wrist": [
             318.9326272517486,
@@ -89,23 +89,23 @@
           ],
           "upper": 44.59820624195551,
           "fore": 52.39274758971894,
-          "upperAngle": 24.069593316732025,
-          "foreAngle": 17.948876505546536,
+          "upperAngle": 23.44672913445063,
+          "foreAngle": 13.09217897162521,
           "grip": [
             335,
             317
           ],
           "handAngle": -0.9999999999999999,
-          "wristDeflection": -28.54201076827683
+          "wristDeflection": -23.685313234355505
         },
         "front": {
           "shoulder": [
-            501.0243543446152,
-            264.1762177099407
+            498.0243543446152,
+            267.1762177099407
           ],
           "elbow": [
-            523.8885059976686,
-            309.14543572833827
+            524.7612419992994,
+            309.9563397123473
           ],
           "wrist": [
             554.9149152405612,
@@ -113,21 +113,21 @@
           ],
           "upper": 50.44799302251775,
           "fore": 44.94441010848846,
-          "upperAngle": 23.68007547156741,
-          "foreAngle": -14.06823399355139,
+          "upperAngle": 18.625962740722144,
+          "foreAngle": -15.586984983043683,
           "grip": [
             566.7560159245023,
             267.4202754868301
           ],
           "handAngle": -0.9999999999999999,
-          "wristDeflection": 8.47398066228505
+          "wristDeflection": 9.992731651777342
         }
       },
       "armOrder": {
-        "body": 16,
-        "upper": 17,
-        "fore": 18,
-        "hand": 19
+        "body": 22,
+        "upper": 23,
+        "fore": 24,
+        "hand": 25
       },
       "guardWeaponWidth": 763.8829540176498,
       "frontRegistrationError": 0
@@ -141,12 +141,12 @@
       "heroArms": {
         "rear": {
           "shoulder": [
-            341.7025773907411,
-            238.0886668329102
+            346.7025773907411,
+            242.0886668329102
           ],
           "elbow": [
-            323.354884582603,
-            278.73792474271954
+            322.8155699746902,
+            279.75046281644677
           ],
           "wrist": [
             369.3247262343269,
@@ -154,23 +154,23 @@
           ],
           "upper": 44.59820624195551,
           "fore": 52.39274758971894,
-          "upperAngle": -17.980891031596688,
-          "foreAngle": 5.039308083629366,
+          "upperAngle": -9.888761250511333,
+          "foreAngle": 3.784713170044788,
           "grip": [
             385,
             309
           ],
           "handAngle": 4.075307333762728,
-          "wristDeflection": -10.557135012596984
+          "wristDeflection": -9.302540099012406
         },
         "front": {
           "shoulder": [
-            516.7105466232684,
-            282.1478396021164
+            521.7105466232684,
+            286.1478396021164
           ],
           "elbow": [
-            564.0993618869504,
-            299.4481340477212
+            567.217671931449,
+            307.921712619693
           ],
           "wrist": [
             607.6241717468888,
@@ -178,21 +178,21 @@
           ],
           "upper": 50.44799302251775,
           "fore": 44.94441010848846,
-          "upperAngle": -19.313632334305918,
-          "foreAngle": 17.83679369792754,
+          "upperAngle": -13.799520420940084,
+          "foreAngle": 6.306870002143298,
           "grip": [
             620.2334379389933,
             280.11696561298004
           ],
           "handAngle": 4.075307333762728,
-          "wristDeflection": -18.355739695431286
+          "wristDeflection": -6.825815999647044
         }
       },
       "armOrder": {
-        "body": 18,
-        "upper": 16,
-        "fore": 17,
-        "hand": 19
+        "body": 24,
+        "upper": 22,
+        "fore": 23,
+        "hand": 25
       },
       "guardWeaponWidth": 763.8829540176498,
       "frontRegistrationError": 2.842170943040401e-14
@@ -254,14 +254,14 @@
         }
       },
       "armOrder": {
-        "body": 18,
-        "upper": 16,
-        "fore": 17,
-        "hand": 19
+        "body": 24,
+        "upper": 22,
+        "fore": 23,
+        "hand": 25
       },
       "guardWeaponWidth": 763.8829540176498,
       "frontRegistrationError": 0
     }
   ],
-  "limits": "Idle and thrust use fixed-length projected arm IK and one shared spear; guard retains four authored body keys; sweep still uses legacy baked-weapon art. No 3D anatomy/force simulation."
+  "limits": "Idle, thrust and sweep share fixed-length arm/leg IK, planted feet and one spear; guard retains four authored body keys. No 3D anatomy/force simulation."
 }
