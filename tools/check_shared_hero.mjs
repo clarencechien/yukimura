@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {thrustPose,sweepPose,sharedHeroPose} from '../docs/routes/jigoku-2d/combat/hero-rig.mjs';
+import {thrustPose,sweepPose,sharedHeroPose,sharedGuardPose} from '../docs/routes/jigoku-2d/combat/hero-rig.mjs';
 import {CombatState} from '../docs/routes/jigoku-2d/combat/combat-state.mjs';
 const read=n=>JSON.parse(fs.readFileSync(`docs/routes/jigoku-2d/combat/${n}.json`));
 const guard=read('guard-rig'),rig=read('thrust-rig'),track=read('shared-spear-track');
@@ -42,8 +42,8 @@ test('idle and attack boundaries share rig transforms; hitstop, pause and reset 
  s.paused=false;s.reset();assert.deepEqual(sharedHeroPose(s,guard,rig),idle);
 });
 test('guard, ready and sweep share identical weapon transforms at handoff',()=>{
- const s=new CombatState(track,()=>{},read('shared-sweep-track'));s.startDuel();s.defend();s.duel.guard=50;
- const lowered=sharedHeroPose(s,guard,rig);s.duel.guard=0;const ready=sharedHeroPose(s,guard,rig);
+ const s=new CombatState(track,()=>{},read('shared-sweep-track'));s.startDuel();s.defend();s.duel.guard=0;
+ const lowered=sharedGuardPose(580,null,guard,rig);s.duel.guard=0;const ready=sharedHeroPose(s,guard,rig);
  assert.ok(Math.hypot(lowered.weapon.tip.x-ready.weapon.tip.x,lowered.weapon.tip.y-ready.weapon.tip.y)<1e-6);
  s.attack('sweep');const sweep=sharedHeroPose(s,guard,rig);assert.equal(sweep.action,'sweep');assert.deepEqual(sweep.weapon.tip,ready.weapon.tip);assert.deepEqual(sweep.transforms,ready.transforms);
 });
@@ -78,4 +78,40 @@ test('pelvis loads before contact, knees respond, and neither leg is stretched t
  assert.ok(load.root[1]>0);assert.ok(contact.root[1]>load.root[1]);
  for(const side of ['rear','front'])assert.ok(distance(contact.legs[side].knee,ready.legs[side].knee)>2);
  assertPlantedLegs(contact);
+});
+
+test('continuous guard keeps fixed limbs, planted feet and natural projected wrist angles for early/late blocks',()=>{
+ for(const hitAt of [null,0,30,140,350,479,550,579])for(let ms=0;ms<=580;ms++){
+  const impactAge=hitAt===null||ms<hitAt?null:ms-hitAt,p=sharedGuardPose(ms,impactAge,guard,rig);
+  assertPlantedLegs(p);
+  for(const a of Object.values(p.arms)){
+   assert.ok(Math.abs(distance(a.shoulder,a.elbow)-a.upper)<1e-6);
+   assert.ok(Math.abs(distance(a.elbow,a.wrist)-a.fore)<1e-6);
+   assert.ok(Math.abs(a.wristDeflection)<35);
+  }
+  assert.ok(p.weapon.registrationError<1e-6);
+ }
+});
+test('guard starts and ends at ready, and blocking never jumps to another pose',()=>{
+ const ready=thrustPose(0,guard,rig);
+ for(const ms of [0,140,480,580]){
+  const a=sharedGuardPose(ms-1e-5,null,guard,rig),b=sharedGuardPose(ms+1e-5,null,guard,rig);
+  for(const name of Object.keys(a.transforms)){
+   assert.ok(distance(a.transforms[name].point,b.transforms[name].point)<1e-5);
+   assert.ok(Math.abs(a.transforms[name].angle-b.transforms[name].angle)<1e-5);
+  }
+ }
+ for(const ms of [0,580]){
+  const p=sharedGuardPose(ms,null,guard,rig);assert.deepEqual(p.transforms,ready.transforms);assert.deepEqual(p.weapon.tip,ready.weapon.tip);
+ }
+ for(const ms of [0,30,140,350,479,550,579]){
+  const before=sharedGuardPose(ms,null,guard,rig),after=sharedGuardPose(ms,0,guard,rig);
+  assert.deepEqual(before.transforms,after.transforms);assert.deepEqual(before.weapon.tip,after.weapon.tip);
+ }
+});
+test('guard recoil clock freezes with pause/hitstop and clears on reset/new guard',()=>{
+ const s=new CombatState(track,()=>{},read('shared-sweep-track'));s.startDuel();s.duel.stage='windup';s.duel.age=500;s.defend();s.update(250);s.update(100);
+ assert.equal(s.duel.blockAge,0);s.update(30);assert.equal(s.duel.blockAge,30);const held=sharedHeroPose(s,guard,rig);
+ s.paused=true;s.update(200);assert.deepEqual(sharedHeroPose(s,guard,rig),held);s.paused=false;s.freeze=70;s.update(40);assert.deepEqual(sharedHeroPose(s,guard,rig),held);
+ s.reset();assert.equal(s.duel.blockAge,null);s.duel.blockAge=30;s.defend();assert.equal(s.duel.blockAge,null);
 });

@@ -1,4 +1,5 @@
-import {guardRigPose,rigidSpearPose} from './guard-rig.mjs';
+import {rigidSpearPose} from './guard-rig.mjs';
+import {DUEL_TIMING} from './duel-state.mjs';
 const rad=d=>d*Math.PI/180,deg=a=>a*180/Math.PI;
 const add=(a,b)=>[a[0]+b[0],a[1]+b[1]],sub=(a,b)=>[a[0]-b[0],a[1]-b[1]];
 const rot=(v,a)=>[v[0]*Math.cos(a)-v[1]*Math.sin(a),v[0]*Math.sin(a)+v[1]*Math.cos(a)];
@@ -68,8 +69,20 @@ export function sweepPose(frame,guardRig,rig){
  const [x,y,axis,turn,dx,dy]=values;
  return articulatedPose([x,y],axis,rad(turn),frame,guardRig,rig,'sweep',[dx,dy]);
 }
+// Continuous raised guard using the same shoulders, fixed limbs and planted feet.
+// Recoil starts at zero on impact, so a block cannot jump to a different silhouette.
+export function sharedGuardPose(elapsed,impactAge,guardRig,rig){
+ const t=Math.max(0,Math.min(DUEL_TIMING.guard,elapsed));
+ const lift=smooth(Math.min(1,t/140)),lower=smooth(Math.max(0,(t-(DUEL_TIMING.guard-100))/100));
+ const weight=lift*(1-lower);
+ const recoil=impactAge===null?0:impactAge<55?smooth(Math.max(0,impactAge)/55):1-smooth(Math.min(1,(impactAge-55)/105));
+ const absorb=recoil*weight,rest=guardRig.poses[3].grips;
+ const axis=angle(sub(rest[1],rest[0]));
+ const p=articulatedPose([rest[0][0]-9*weight-2*absorb,rest[0][1]-43*weight+3*absorb],axis+(rad(-20)-axis)*weight,rad(3*weight),t,guardRig,rig,'guard',[-3*weight-absorb,4*weight+2*absorb]);
+ p.guard={elapsed:t,weight,recoil:absorb,impactAge};return p;
+}
 export function sharedHeroPose(state,guardRig,rig){
- if(state.duel.guardPose!==null){const frame=state.duel.guardPose;return {action:'guard',frame,weapon:guardRigPose(frame,guardRig)};}
+ if(state.duel.guardPose!==null)return sharedGuardPose(DUEL_TIMING.guard-state.duel.guard,state.duel.blockAge,guardRig,rig);
  if(state.phase==='attack'&&state.attackKind==='sweep')return sweepPose(state.frame,guardRig,rig);
  const p=thrustPose(state.phase==='attack'?state.frame:0,guardRig,rig);p.action=state.phase==='attack'?'thrust':'idle';return p;
 }

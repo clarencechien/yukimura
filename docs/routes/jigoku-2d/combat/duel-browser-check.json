@@ -1,10 +1,11 @@
 {
   "checks": [
-    "Keyboard L guards one telegraphed slash; counterattack damages enemy; all 3 authored enemy poses and four hero guard poses render with one 760 px spear, fixed 237 px grip anchors and foreground finger layers; actual shoulder/elbow sprites follow rigid sockets in 105 actual 30 Hz frames",
+    "Keyboard L guards one telegraphed slash; counterattack damages enemy; all 3 authored enemy poses and continuous shared hero guard renders with one 760 px spear, fixed 237 px grip anchors and foreground finger layers; actual shoulder/elbow sprites follow rigid sockets in 105 actual 30 Hz frames",
     "Pause freezes shared spear/finger transforms; reset returns to the shared lower-ready pose",
     "Windup pause resumes without extra damage; three unblocked attacks end duel; reset restores health",
     "Far slash misses; seal practice disables enemy offense",
-    "390 px touch: visible warning and successful block with feedback off/reduced motion; cooldown rejects repeat; no horizontal overflow"
+    "390 px touch: visible warning and successful block with feedback off/reduced motion; cooldown rejects repeat; no horizontal overflow",
+    "No legacy guard body or finger atlas requested; guard, ready and counterattack share the same fourteen parts"
   ],
   "pageErrors": [],
   "failedRequests": [],

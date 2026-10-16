@@ -7,7 +7,7 @@
       "stage": "waiting",
       "enemyPose": 0,
       "heroAction": "idle",
-      "heroFrame": 34,
+      "heroFrame": 33,
       "heroArms": {
         "rear": {
           "shoulder": [
@@ -263,5 +263,5 @@
       "frontRegistrationError": 0
     }
   ],
-  "limits": "Idle, thrust and sweep share fixed-length arm/leg IK, planted feet and one spear; guard retains four authored body keys. No 3D anatomy/force simulation."
+  "limits": "Idle, thrust and sweep share fixed-length arm/leg IK, planted feet and one spear; guard now uses the same continuous articulated rig. No 3D anatomy/force simulation."
 }

@@ -1,17 +1,17 @@
 {
-  "baselineCommit": "a972f3ec02cf9d57e3831f52f18988b1c57de772",
+  "baselineCommit": "cd2ae3687948a846f80318c167f1cf5a37fa4a0a",
   "passed": true,
   "checks": [
     "Seven rigid lower-body cutouts retain source colors and declared masks; no opaque lower silhouette holes at rest",
     "All four desktop/mobile legacy sweep boundary cells preserve visible pixels and alpha",
-    "All active texture dimensions <=4096; no legacy idle/thrust/sweep or sweep-boundary atlases loaded by game.mjs",
-    "Torso, arms, hands, weapon, guard and enemy textures are byte-identical to baseline; lower body only resegmented, no new generated art"
+    "All active texture dimensions <=4096; no legacy idle/thrust/sweep/boundary/guard atlases loaded by game.mjs",
+    "All active torso, arm, hand, weapon and enemy textures are byte-identical to baseline, including all lower-body parts; no new generated art"
   ],
   "memory": {
     "desktop": {
-      "currentRGBA8Bytes": 80458704,
-      "previousRGBA8Bytes": 80675056,
-      "savedRGBA8Bytes": 216352,
+      "currentRGBA8Bytes": 69841872,
+      "previousRGBA8Bytes": 80458704,
+      "savedRGBA8Bytes": 10616832,
       "loadedTextures": [
         {
           "path": "hero-lower-hd.webp",
@@ -154,26 +154,6 @@
           "sha256": "5c99a9fe69837aef1a0018facc51bf3227b3e586e0a133be511b6dc987f06956"
         },
         {
-          "path": "guard-body-hd.webp",
-          "size": [
-            2048,
-            1280
-          ],
-          "rgba8Bytes": 10485760,
-          "downloadBytes": 829920,
-          "sha256": "79425974ffdaae0ac312272fd1c5be2b2fd0038ee39809f3c24f22ee3ff6a43d"
-        },
-        {
-          "path": "guard-hands-hd.webp",
-          "size": [
-            256,
-            128
-          ],
-          "rgba8Bytes": 131072,
-          "downloadBytes": 29896,
-          "sha256": "4ec4fdab7d88812488ec3fa8ea18f8563d69bbe8e64f35ad4ff6a3c917306934"
-        },
-        {
           "path": "guard-yari-hd.webp",
           "size": [
             1024,
@@ -276,9 +256,9 @@
       ]
     },
     "mobile": {
-      "currentRGBA8Bytes": 33322832,
-      "previousRGBA8Bytes": 33377708,
-      "savedRGBA8Bytes": 54876,
+      "currentRGBA8Bytes": 30668624,
+      "previousRGBA8Bytes": 33322832,
+      "savedRGBA8Bytes": 2654208,
       "loadedTextures": [
         {
           "path": "hero-lower.webp",
@@ -419,26 +399,6 @@
           "rgba8Bytes": 2288,
           "downloadBytes": 1398,
           "sha256": "5976289d6583b8823ac4c536cb7ff6930ffb904b817c94ffca5ac1bc56db12b1"
-        },
-        {
-          "path": "guard-body.webp",
-          "size": [
-            1024,
-            640
-          ],
-          "rgba8Bytes": 2621440,
-          "downloadBytes": 238626,
-          "sha256": "e8ef3d3096d81532d5b5600f1c2528bf48c09002e9d4ee5afe40e5c323956941"
-        },
-        {
-          "path": "guard-hands.webp",
-          "size": [
-            128,
-            64
-          ],
-          "rgba8Bytes": 32768,
-          "downloadBytes": 11284,
-          "sha256": "ef8bb01b3eab97f2d391d57b148e2b7d334730eb6653b8744b3a895623b85152"
         },
         {
           "path": "guard-yari.webp",

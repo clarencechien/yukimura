@@ -41,3 +41,9 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `prepare_shared_thrust.py` 將原 `guard-body-hd.webp` 第四格下身重新分為腰甲、左右大腿、脛甲與足部，共七層；連同既有上身共十四層。新增手工髖／膝／踝標記、遮罩及圖層原點記錄於 `thrust-rig.json`。只有既有原畫裁切、遮罩與打包，未生成新像素或新增 Blender／Modal 渲染。`hero-rig.mjs` 以小幅骨盆平移、固定肢長雙腿 IK 與足部鎖定支撐短刺及低掃；上身跟隨骨盆，再反解雙臂至同一握點。
 
 素材檢查改以 `a972f3e` 為基準：下身核對原色與宣告遮罩、待機不遺失不透明輪廓，其餘角色貼圖檔案完全相同。記憶體估算見 `shared-hero-art-check.json`；本輪下身共七層，不能再把 `hero-lower.webp` 當作完整下身。此方法是平面部件動畫，不是人體三維骨骼或力學模擬。
+
+### 共用人物連續格擋（2026-10-16）
+
+格擋現由 `hero-rig.mjs` 的連續曲線控制同一十四個人物部件及 `guard-yari`，不再載入 `guard-body`／`guard-hands` 圖集。這些圖仍保留供原畫裁切與歷史重建；`guard-rig.json` 的待機握點、武器規格亦繼續使用。其餘三組格擋握點僅作歷史資料，不能當成現行動作路徑。
+
+本輪沒有新增 image gen、Blender、Modal 或第三方素材。`shared-hero-art-check.json` 以 `cd2ae36` 核對全部使用中的角色貼圖位元組相同，重新計算移除舊圖集後的成本。架槍路徑經平面固定臂長檢查，擋中承力使用遊戲時鐘；不是動捕、三維骨骼或力學求解。新增對照來自同一格擋時間與血量的實際瀏覽器錄影。

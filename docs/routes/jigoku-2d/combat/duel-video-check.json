@@ -10,5 +10,5 @@
   "source": "105 actual Phaser screenshots at controlled 33/33/34 ms; not a hardware FPS benchmark",
   "rules": "Telegraph, one successful block, one counterattack; no player damage",
   "gif": "30/30/40 ms; decoded pixel comparison passed",
-  "art": "Same hero spear across ready, fixed-length two-arm thrust and four guard poses; actual rendered palm/shaft contacts and blade-tip collision alignment verified; enemy arm/hand/katana shared"
+  "art": "Same fourteen hero parts and spear across ready, thrust and continuous guard; planted feet and fixed arm/leg lengths; actual rendered palm/shaft contacts and blade-tip collision alignment verified; enemy arm/hand/katana shared"
 }
