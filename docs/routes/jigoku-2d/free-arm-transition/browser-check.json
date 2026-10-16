@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Actual Canvas arm endpoints and torso/cap shoulder alignment across all five poses",
+    "Planted hand and lower-body draw matrices stay fixed after contact",
+    "All five poses captured; play, pause, restart, auto-stop, speeds, key stepping, seeking and toggles",
+    "390 px touch key stepping and stacked layout without overflow"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "scope": "Independent five-pose review, not installed into combat; no physical phone FPS measurement."
+}

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "baselineCommit": "44f0f796d747789f03d6b7f26244d5dd16624379",
+  "checks": [
+    "Generated sheet hash; uniform per-pose scale/translation and no canvas clipping",
+    "Every packed torso/lower/cap preserves source alpha and visible RGB under declared masks",
+    "Torso/lower union covers all source pixels with alpha > 1",
+    "Previous arm/support kit and production combat/src/public unchanged"
+  ],
+  "newLoadedRGBA8MiB": 4.195026397705078,
+  "limits": "Memory estimate excludes reused arm, palm, kneel textures and Canvas buffers. Source landmarks are manual; no anatomy or force validation."
+}

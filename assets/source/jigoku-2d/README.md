@@ -135,3 +135,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 新增 `ghost-rig/support-palm.png`，image gen 原始輸出 `exec-be1e0169-e038-4c54-b3bc-2f1f54981d25.png`，參考 `arm-parts-stocky.png` 產生單獨的手背朝上的撐掌手形，等比例縮至 0.06。上臂和前臂直接重用前輪貼圖，未重畫。兩張新 PNG 均保留生成原始位元組；來源 SHA、裁切、人工肩腕／掌根標記見 `free-arm-support/support.json`。
 
 這是獨立跪姿接地段，沒有蹲跪全身過渡、力學模擬或正式遊戲替換。新增瀏覽器 30 fps 錄影為真實畫布截圖，沒有生成動畫中間幀；未新增 Blender／Modal 工作或第三方素材。
+
+
+### 蹲跪三張過渡原畫（2026-10-16）
+
+新增 `ghost-rig/crouch-kneel-breakdowns.png`，image gen 原始輸出 `exec-1da5004b-81c8-48ae-948d-5a1ab8c55945.png`，2172×724 RGBA，保留原始位元組。參考 `crouch-arm-clean.png` 與 `kneel-arm-clean.png`，要求同一人物三張重心前移、後膝下降及近地姿勢，肩甲以下不畫手臂，以便重用現有部件。
+
+生成稿的尺度與構圖仍不一致。`prepare_free_arm_transition.py` 分格裁切，分別以 0.62／0.64／0.70 等比例縮放，依人工前鞋底標記註冊；以明確多邊形拆出胸甲、下身與肩甲，腰部重疊 48 px。沒有非等比變形或整圖扭曲。來源 SHA、原圖肩點／腳點與裁片遮擋資訊在 `free-arm-transition/transition.json`。
+
+檢視頁直接載入既有上臂、前臂、撐掌和末段跪姿；前四個姿勢的前腳標記差異小於 1 px，不等於鞋形或受力準確。末段前腳收進身下仍跳姿，衣甲尺度及接縫待精修。只有獨立五姿勢檢視，沒有替換正式遊戲。30 fps 影片取自實際 Canvas；未新增 Blender／Modal 工作或第三方素材。

@@ -48,3 +48,5 @@ python3 tools/package_free_arm_support.py
 HTTP 靜態服務路徑為 `/docs/routes/jigoku-2d/free-arm-support/`。此分支尚未部署到 Pages，GitHub HTML 頁只會顯示原始碼；可先看本頁 GIF 與 MP4。
 
 下一步處理蹲姿到跪姿之間的全身接續與腰甲遮擋，再將空手臂加入正式倒地動作。
+
+後續已製作 [五姿勢蹲跪接續](FREE_ARM_TRANSITION.md)，在接地前加入三張過渡原畫，接地後直接重用本輪曲線；末段收腳與遊戲整合仍待處理。
