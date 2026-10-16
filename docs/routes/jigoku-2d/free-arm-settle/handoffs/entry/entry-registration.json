@@ -1,0 +1,101 @@
+{
+  "baselineCommit": "dbb559d49f57f1836b181cc1f4545c325fb38dae",
+  "start": 1000,
+  "end": 1200,
+  "cap": {
+    "url": "cap.webp",
+    "box": [
+      503,
+      388,
+      595,
+      504
+    ],
+    "polygon": [
+      [
+        503,
+        405
+      ],
+      [
+        548.5,
+        388.9
+      ],
+      [
+        583.5,
+        412
+      ],
+      [
+        594,
+        488.29999999999995
+      ],
+      [
+        517,
+        503.7
+      ]
+    ],
+    "source": "original",
+    "legMaskRule": "none",
+    "pivot": [
+      531,
+      454
+    ]
+  },
+  "target": {
+    "angle": -24.65,
+    "offset": [
+      -18.55,
+      43.64
+    ]
+  },
+  "lining": {
+    "source": "headless-bridge.webp",
+    "sourceSHA256": "61cdd605484573a665bac6e569a077a54c751d9708c9daf288553c0d61d27026",
+    "box": [
+      182,
+      52,
+      202,
+      66
+    ]
+  },
+  "collar": {
+    "source": "shoulderless-bridge.webp",
+    "sourceSHA256": "1b140e25cd359f87aafe9432c11d8de66406461f24bf980e8ef6f058f3fbda2e",
+    "box": [
+      342,
+      482,
+      614,
+      677
+    ],
+    "shoulder": [
+      494,
+      541
+    ],
+    "referenceTorsoAngle": -49.329225410141966
+  },
+  "torsos": {
+    "headed": {
+      "url": "entry-headed.webp",
+      "box": [
+        345,
+        242,
+        690,
+        560
+      ],
+      "source": "torso.webp",
+      "sourceSHA256": "7db84d70108b1b33ef67c33eb349cfe53f4885166d6aea4a22bebceba09bac1f",
+      "maskAlphaThreshold": 250
+    },
+    "headless": {
+      "url": "entry-headless.webp",
+      "box": [
+        345,
+        242,
+        690,
+        560
+      ],
+      "source": "headless-unload.webp",
+      "sourceSHA256": "c8cba748a35851e130d5be89abadf422da819e0201207aaaf2d10eddbdcbd03b",
+      "maskAlphaThreshold": 250
+    }
+  },
+  "method": "Drop the original rigid cap after palm lift; start in its exact torso transform and approach the first side-fall plate before body handoff. Target fitted by gold-edge registration against fall-bridge-cap.webp, reviewed visually. No scale, morph, or crossfade; torso alpha retained with a rigidly registered existing bridge collar and quilted lining fallback restricted to the vacated plate footprint."
+}

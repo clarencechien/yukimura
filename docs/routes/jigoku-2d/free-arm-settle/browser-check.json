@@ -1,6 +1,7 @@
 {
   "passed": true,
   "checks": [
+    "Early original cap rotation has a rigid actual Canvas transform, is drawn above the upper arm, and preserves the existing skeleton",
     "Shared shoulder uses the original bridge cap at rigid scale and the actual collar mount; drawn between upper arm and forearm",
     "Shared-head texture, actual Canvas pivot/matrix, rigid scale and depth ordering verified across desktop/mobile playback",
     "Handoff comparison loads four images for all six time/version choices; reports measured overlap and fits 390 px layout",

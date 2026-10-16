@@ -210,3 +210,7 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 ## 2026-10-16：側倒共用肩甲與襯布補底
 
 沒有新增生成工作或第三方素材。`tools/prepare_shared_shoulder.py` 直接重用 `free-arm-settle/fall-bridge-cap.webp` 作活動肩甲，並從既有 `headless-bridge.webp` 的 `[182,52,202,66]` 取暗色襯布，以原尺寸鋪在四張原胸部的舊肩甲區域。四張 `shoulderless-*.webp` 保留原 alpha，遮罩以外可見 RGB 不變；它們實際上是帶襯布的去甲底圖，並非挖空的透明洞。來源 SHA256、甲片遮罩與領口位置曲線見 `free-arm-settle/shared-shoulder.json`。原圖片未覆寫，未替換正式遊戲。
+
+## 2026-10-16：離掌後的肩甲轉落與頸肩內層接續
+
+沒有新增生成工作。`tools/prepare_shoulder_entry.py` 直接重用原 `cap.webp`，從 1000 ms 起獨立轉動至第一個身體換圖前。`entry-headed.webp`／`entry-headless.webp` 以原胸部為底，只在舊肩甲 alpha ≥ 250 的範圍內，重用固定旋轉對齊的 `shoulderless-bridge.webp` 頸肩結構及原暗色襯布；保留原透明度與範圍外可見 RGB。來源 SHA256、遮擋範圍與人工投影路徑見 `free-arm-settle/shoulder-entry.json`。原姿勢、來源圖片與正式遊戲未覆寫。`tools/fit_shoulder_entry.py` 提供金色甲緣的唯讀剛性對齊種子，不能作為人體或品質驗證。
