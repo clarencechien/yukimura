@@ -1,0 +1,191 @@
+{
+  "baselineCommit": "366ca9458d3db36c4ac2127540aea68565501572",
+  "start": 1000,
+  "end": 1200,
+  "groundY": 690,
+  "target": {
+    "angle": 15,
+    "offset": [
+      -8,
+      -7.805820747132543
+    ]
+  },
+  "parts": {
+    "lower": {
+      "url": "leg-entry-lower.webp",
+      "box": [
+        349,
+        505,
+        775,
+        693
+      ],
+      "source": "lower.webp",
+      "sourceSHA256": "f98dda567d96fb25390b749f287a3f482359f7d399a46c9467dd770caf17833c"
+    }
+  },
+  "calf": {
+    "url": "entry-calf.webp",
+    "box": [
+      668,
+      592,
+      772,
+      671
+    ],
+    "pivot": [
+      680,
+      635
+    ],
+    "source": "lower.webp",
+    "sourceSHA256": "f98dda567d96fb25390b749f287a3f482359f7d399a46c9467dd770caf17833c",
+    "overlapPixels": 12,
+    "alphaCutoff": 16,
+    "hull": [
+      [
+        -12,
+        20
+      ],
+      [
+        -6,
+        -1
+      ],
+      [
+        15,
+        -32
+      ],
+      [
+        18,
+        -35
+      ],
+      [
+        22,
+        -38
+      ],
+      [
+        30,
+        -42
+      ],
+      [
+        33,
+        -43
+      ],
+      [
+        45,
+        -43
+      ],
+      [
+        48,
+        -42
+      ],
+      [
+        52,
+        -40
+      ],
+      [
+        55,
+        -38
+      ],
+      [
+        56,
+        -37
+      ],
+      [
+        82,
+        -6
+      ],
+      [
+        89,
+        4
+      ],
+      [
+        92,
+        10
+      ],
+      [
+        92,
+        24
+      ],
+      [
+        90,
+        28
+      ],
+      [
+        86,
+        32
+      ],
+      [
+        84,
+        33
+      ],
+      [
+        81,
+        34
+      ],
+      [
+        76,
+        35
+      ],
+      [
+        67,
+        36
+      ],
+      [
+        53,
+        36
+      ],
+      [
+        13,
+        32
+      ],
+      [
+        8,
+        31
+      ],
+      [
+        -12,
+        21
+      ]
+    ]
+  },
+  "preservedWaist": {
+    "source": "waist.webp",
+    "box": [
+      478,
+      533,
+      700,
+      647
+    ],
+    "alphaThreshold": 16,
+    "sourceSHA256": "43328e5e27b4fa59b5402225a58a9d740a979db4e96473db74f684947c0939b9"
+  },
+  "seam": [
+    [
+      669,
+      586
+    ],
+    [
+      684,
+      616
+    ],
+    [
+      687,
+      644
+    ],
+    [
+      680,
+      655
+    ],
+    [
+      700,
+      665
+    ],
+    [
+      725,
+      670
+    ]
+  ],
+  "cropY": [
+    586,
+    670
+  ],
+  "method": "Original tucked calf and boot turn together before the first side-fall cut; 12 px thigh overlap, no resizing, repainting or blending. Authored 2D motion, not knee or ankle biomechanics."
+}

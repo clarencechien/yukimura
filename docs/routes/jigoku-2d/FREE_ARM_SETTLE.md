@@ -1,18 +1,40 @@
-# 側倒：共用護脛與靴，減少下身換圖跳位
+# 側倒：護脛先放低，再接共用部件
 
 2026-10-16。分支 `art/jigoku-prerendered-2d`。
 
 [互動檢視頁原始檔](free-arm-settle/index.html) · [30 fps MP4](free-arm-settle/settle-30fps.mp4) · [手機畫面](free-arm-settle/mobile.jpg) · [前輪五姿勢](FREE_ARM_TRANSITION.md)
 
-本輪把**末張側躺原畫的護脛與靴子拆成同一組部件**，在四張大腿／腰甲底圖後方逐漸滑出。1200 ms 進入側倒之後，靴子不再跟著每張下身原畫換造型。未新增 image gen、Blender 或 Modal 工作；仍是獨立 Canvas 試作，未替換正式遊戲。
+本輪先修**首次側倒時靴尖突然往下跳**：1000–1200 ms 離掌後，讓原護脛與靴子以固定大小逐漸放低，再接上一輪的共用側倒部件。沒有新增生成圖片、Blender 或 Modal 工作；仍是獨立 Canvas 試作，未替換正式遊戲。
 
 ![實際瀏覽器：右側從收腳、落刀、卸力接低頭過渡與原三張側倒格](free-arm-settle/settle-preview.gif)
 
 右側保留先前收腳、落刀及 860→1180 ms 卸力；1200–1240 ms 使用低頭過渡格，之後接回原側倒圖，1500 ms 到達側躺末姿，停留至 1800 ms。共用手臂的肩／肘／腕位置連續，**身體輪廓仍是原畫換格，不是連續全身動畫**。仍是獨立 Canvas 試作，未替換 Phaser 戰鬥或線上 v22；左側維持五姿勢基線作比較。
 
-本頁 `pose-*.png` 與動圖反映目前預設的共用護脛版本；本輪交接截圖在 `handoffs/leg/`，前輪胸肩接續在 `handoffs/entry/`。前輪共用肩甲截圖在 `handoffs/shoulder/`、共用頭盔在 `handoffs/helmet/`、四格烘焙頭部在 `handoffs/bridge/`；各輪都有保留的比較頁。
+本頁 `pose-*.png` 與動圖反映目前預設的護脛提前放低版本；本輪交接截圖在 `handoffs/calf/`，前輪共用護脛在 `handoffs/leg/`，胸肩接續在 `handoffs/entry/`。前輪共用肩甲截圖在 `handoffs/shoulder/`、共用頭盔在 `handoffs/helmet/`、四格烘焙頭部在 `handoffs/bridge/`；各輪都有保留的比較頁。
 
-## 本輪：共用護脛與靴，藏在大腿後方滑出
+## 本輪：原護脛先放低，減輕第一次靴尖跳位
+
+[首次護脛接續比較頁原始檔](free-arm-settle/calf-review.html) · [手機比較](free-arm-settle/calf-mobile.jpg) · [裁切與路徑](free-arm-settle/leg-entry.json) · [素材與交接量測](free-arm-settle/leg-entry-check.json)
+
+![1199.999 ms 腳部放大：左側靴尖固定，右側先放低](free-arm-settle/calf-foot-comparison.png)
+
+[同時刻完整人物比較](free-arm-settle/calf-comparison.png)；放大圖直接裁自實際 Canvas，沒有另生成動作。
+
+- **拆出原護脛與靴，保留原尺寸**：從既有 `lower.webp` 裁出 `entry-calf.webp`，膝邊向內留 12 px 遮擋重疊；`leg-entry-lower.webp` 只移除原小腿範圍，其餘可見 RGBA 逐像素保留。裁切時明確排除原 `waist.webp` 的 alpha > 16 範圍，腰甲圖層直接沿用原檔，避免把裙甲邊角帶進移動裁片。沒有補畫材質、拉伸或影像淡化。
+- **離掌後準備接地**：1000→1200 ms 的旋轉從 0° 到 15°，平移與旋轉採同一平滑進度。這是原護脛與靴整組轉動，不是踝部單獨彎折。末端最低可見像素格為 Y=681，設定投影地面為 Y=690；1001 個姿勢以實際像素格角點驗證未越界，不等於三維碰撞或人體受力正確。
+- **原路徑可以比較**：`?calf=fixed` 保留前輪共用護脛；預設及 `?calf=lower` 提前放低。1000 ms 前畫面相同；1200 ms 身體換圖之後，兩版的完整畫布相同。原共用護脛比較頁與捕捉模式已固定舊路徑，保留歷史比較。
+- **新增約 0.337 MiB RGBA8**：一張裁切底圖、一張護脛部件；不包含既有資源、畫布或同步比較的兩個繪圖來源，也不是實機顯存量測。
+
+| 1200 ms 交接量測 | 前輪 | 本輪 | 變化 |
+| --- | ---: | ---: | --- |
+| 完整右側畫布平均 RGB 差 | 4.505 | 4.406 | 降低約 2.2% |
+| 靴子區域平均 RGB 差 | 26.646 | 22.580 | 降低約 15% |
+
+局部區域在 600×550 捕捉畫布的 `[500,415,590,485]`，完整前後 PNG、SHA256 與矩陣已保存。啟用拆分的 1000 ms，與相同時間前版相比平均 RGB 差約 0.0024／255，29 個像素最大通道差超過 8，仍有裁邊與重疊取樣差異。**兩組小腿仍在 1200 ms 換片，腰甲、大腿與膝部輪廓也仍會換圖**；本輪只減輕局部跳位，沒有消除首次身體交接。
+
+曾試兩片腰甲一起轉斜，再試分別轉動；前者會外翹，後者整體差異只改善約 1%，且露出不自然的布料補底，因此未採用。最終腰甲保留原畫。下一步需要針對腰甲、大腿與膝部投影補出一致的過渡造型，不能只靠平移／旋轉宣稱全身連續。
+
+## 前輪：共用護脛與靴，藏在大腿後方滑出
 
 [同步比較頁原始檔](free-arm-settle/leg-review.html) · [手機比較](free-arm-settle/leg-mobile.jpg) · [分層與路徑](free-arm-settle/shared-rear-leg.json) · [素材與交接量測](free-arm-settle/shared-rear-leg-check.json)
 
@@ -233,7 +255,7 @@
 
 **本輪末姿比前輪更前傾，並不是原跪姿的完全相同輪廓。** 固定膝點的平面收腳只是一種可重用的動作試作，尚未處理立體腿部旋轉、膝髖連動或碰撞受力。400 ms 的整張下身切換已移除；腰甲拼接、護脛裁邊與前段三次原畫切換仍需精修。持刀側已裝配，但遠側肩點與肘部遮擋仍是人工平面配置；未作三維穿插或受力驗證。
 
-下一步精修腰甲、骨盆與膝部轉側的造型交接；本輪先共用後段護脛與靴，首次側倒交接尚未改善，身體原畫仍會切換，尚不接回戰鬥。沒有直接套用接點不一致的舊側倒原畫，前段原畫切換與離掌手形仍有精修空間。
+下一步精修腰甲、骨盆與膝部轉側的造型交接；本輪減輕首次側倒的靴尖跳位，但腰甲與大腿交接尚未改善，身體原畫仍會切換，尚不接回戰鬥。沒有直接套用接點不一致的舊側倒原畫，前段原畫切換與離掌手形仍有精修空間。
 
 ## 檢查與重建
 
@@ -246,7 +268,8 @@ python3 tools/prepare_shared_head.py
 python3 tools/prepare_shared_shoulder.py
 python3 tools/prepare_shoulder_entry.py
 python3 tools/prepare_shared_rear_leg.py
-node --test tools/check_shared_rear_leg.mjs tools/check_shoulder_entry.mjs tools/check_shared_shoulder.mjs tools/check_shared_head.mjs tools/check_fall_bridge.mjs tools/check_side_fall.mjs tools/check_settle_yield.mjs tools/check_sword_release.mjs tools/check_settling_sword.mjs tools/check_free_arm_settle.mjs tools/check_free_arm_transition.mjs tools/check_free_arm_support.mjs tools/check_free_arm_parts.mjs tools/check_free_arm_reach.mjs
+python3 tools/prepare_leg_entry.py
+node --test tools/check_leg_entry.mjs tools/check_shared_rear_leg.mjs tools/check_shoulder_entry.mjs tools/check_shared_shoulder.mjs tools/check_shared_head.mjs tools/check_fall_bridge.mjs tools/check_side_fall.mjs tools/check_settle_yield.mjs tools/check_sword_release.mjs tools/check_settling_sword.mjs tools/check_free_arm_settle.mjs tools/check_free_arm_transition.mjs tools/check_free_arm_support.mjs tools/check_free_arm_parts.mjs tools/check_free_arm_reach.mjs
 python3 tools/check_free_arm_settle_art.py
 python3 tools/check_settle_yield_art.py
 python3 tools/check_side_fall_art.py
@@ -271,10 +294,14 @@ node tools/capture_fall_handoffs.mjs .tmp/rear-leg-baseline leg previous
 node tools/capture_fall_handoffs.mjs docs/routes/jigoku-2d/free-arm-settle/handoffs/leg leg
 python3 tools/check_shared_rear_leg_art.py
 node tools/check_leg_review_browser.mjs
+node tools/capture_fall_handoffs.mjs .tmp/calf-entry-baseline calf previous
+node tools/capture_fall_handoffs.mjs docs/routes/jigoku-2d/free-arm-settle/handoffs/calf calf
+python3 tools/check_leg_entry_art.py
+node tools/check_calf_review_browser.mjs
 python3 tools/package_free_arm_settle.py
 ```
 
-- **44 項相關測試通過**：新增 2 項共用護脛測試，檢查單調平移、可見像素格的投影高度、換格時的部件連續與倒帶；另有 3 項肩甲提前轉落測試，驗證離掌起點重組、原骨架不變、位置角度連續、目標對齊與倒帶；另有 3 項共用肩甲測試，驗證接入時的原片位置、領口固定點與角度連續、原骨架不變、停留及任意跳時；另有 3 項共用頭部測試，驗證拆分起點、頭部剛性與轉換連續、關鍵姿勢、落定與倒帶；另有 3 項過渡格測試，驗證前後段保持原動作、新時序、雙臂可達性與連續接點、落刀固定及倒帶；另沿用 3 項側倒測試，涵蓋前段不變、三格選取、肩腕連續、固定雙臂及可達性、末姿停留、刀保持原位和任意跳時；另有既有 27 項卸力、落刀及收腳測試。
+- **46 項相關測試通過**：新增 2 項護脛提前放低測試，檢查起點重組、投影地面、角度單調、首尾平滑及倒帶；另有 2 項共用護脛測試，檢查單調平移、可見像素格的投影高度、換格時的部件連續與倒帶；另有 3 項肩甲提前轉落測試，驗證離掌起點重組、原骨架不變、位置角度連續、目標對齊與倒帶；另有 3 項共用肩甲測試，驗證接入時的原片位置、領口固定點與角度連續、原骨架不變、停留及任意跳時；另有 3 項共用頭部測試，驗證拆分起點、頭部剛性與轉換連續、關鍵姿勢、落定與倒帶；另有 3 項過渡格測試，驗證前後段保持原動作、新時序、雙臂可達性與連續接點、落刀固定及倒帶；另沿用 3 項側倒測試，涵蓋前段不變、三格選取、肩腕連續、固定雙臂及可達性、末姿停留、刀保持原位和任意跳時；另有既有 27 項卸力、落刀及收腳測試。
 - [素材與鞋底檢查](free-arm-settle/art-check.json)：逐裁片核對可見像素，生成像素不得侵入膝甲保留區；1001 個實際 JS 骨架取樣中，鞋上 alpha > 16 的像素未超過起始鞋底 Y=684。另對 1001 個落刀取樣檢查全部可見刀像素格角點，沒有超過 Y=690，接觸時最低點吻合地面。這只驗證螢幕投影高度，不代表三維地面碰撞正確。
 - [側倒素材檢查](free-arm-settle/fall-art-check.json)：裁片逐像素對照註冊後來源；1401 個實際轉換取樣確認可見像素位於檢視區及投影地面上方，來源與正式遊戲維持隔離。這不驗證人體受力或全身輪廓連續。
 - [瀏覽器檢查](free-arm-settle/browser-check.json)：實際 Canvas 雙側肩／肘／腕、刀柄與握拳、膝／踝接點、支撐期間固定掌根與下身、400 ms 前後實際畫布像素、持刀側繪圖順序／獨立開關／完整貼圖裁切範圍、三種手形與落刀階段、放手矩陣連續、落定後刀固定、胸肩卸力、四張側倒格、共用雙臂接合及前段腿部 alpha=1；原速／慢速、逐姿勢、重播與 390 px 手機觸控均通過，無載入錯誤。
@@ -288,6 +315,7 @@ python3 tools/package_free_arm_settle.py
 - [提前轉落素材與交接](free-arm-settle/shoulder-entry-check.json)：兩張底圖保留原透明度與遮擋區外 RGB，來源雜湊可核對。1001 個實際甲片姿勢未越過投影地面；啟用、頭部分層及第一個換圖均與前輪實際畫布比較，後段像素保持原樣。
 - [胸肩同步比較](free-arm-settle/entry-browser-check.json)：相同骨架與頭盔，指定區間以外畫面相同；播放、重播、倒帶、手機排版、肩甲開關及延遲載入時縮放視窗通過。
 - [共用護脛檢查](free-arm-settle/shared-rear-leg-check.json)：原畫雜湊、保留像素與裁切 alpha 核對，四次實際換圖差異如實記錄；[同步比較](free-arm-settle/leg-browser-check.json) 檢查時間一致、骨架與刀不變、播放／暫停／手機排版與延遲載入。主瀏覽器檢查另核對實際腿部矩陣、固定比例與大腿後方繪圖順序。
+- [首次護脛接續](free-arm-settle/leg-entry-check.json)：逐像素驗證原素材、裁切範圍與原圖雜湊，1001 個實際姿勢檢查全部可見像素格，首次接續及啟用差異如實記錄，後段完整畫布與前輪相同；[同步比較](free-arm-settle/calf-browser-check.json) 驗證時間、骨架、頭盔與刀一致，播放／暫停／倒帶、390 px 排版及延遲貼圖載入均通過。
 - [影片檢查](free-arm-settle/video-check.json)：180 張實際瀏覽器畫布，含落刀、卸力、側倒與末姿停留的四分之一速度，均勻 30 fps／6 秒 MP4；GIF 使用共用 256 色色盤與變動區域壓縮，逐取樣核對解碼像素；完整色彩保留在 MP4 與 PNG。30 fps 是播放頻率，不是每秒三十張新原畫。
 
 五姿勢檢視頁、原手臂／撐掌部件與正式遊戲維持原基線；另對側倒段起點 `a49fc49` 確認來源和遊戲檔案未變。HTTP 靜態服務路徑 `/docs/routes/jigoku-2d/free-arm-settle/`；此分支尚未部署到 Pages，GitHub HTML 頁只顯示原始碼，可先看動圖和影片。

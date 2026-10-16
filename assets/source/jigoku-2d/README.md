@@ -218,3 +218,7 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 ## 2026-10-16：側倒共用護脛與靴
 
 沒有新增生成工作或第三方來源。`tools/prepare_shared_rear_leg.py` 從既有 `fall-rest-lower.webp` 裁出 `shared-rear-leg.webp`，保留原尺寸及可見 RGBA，只清除 alpha ≤ 16 的邊緣。四張 `legless-*.webp` 僅移除原護脛／靴區域，保留其餘原畫像素。裁切線、12 px 遮擋重疊、原檔 SHA256、像素格角點凸包與水平路徑見 `free-arm-settle/shared-rear-leg.json`。本輪角度保持 0°，採大腿遮擋下的平移；不是三維腿部模型或受力模擬。新增約 0.874 MiB RGBA8，未覆寫原圖片或正式遊戲。
+
+## 2026-10-16：首次側倒前的原護脛放低
+
+沒有新增生成圖片、Blender／Modal 或第三方來源。`tools/prepare_leg_entry.py` 從既有 `lower.webp` 裁出 `entry-calf.webp`，保持原尺寸與可見 RGBA，去除 alpha ≤ 16 的邊緣；`leg-entry-lower.webp` 只裁除原小腿遮罩；明確排除原 `waist.webp` 的 alpha > 16 區域，腰甲沿用原檔。來源雜湊、裁切線、12 px 重疊、像素格凸包與路徑見 `free-arm-settle/leg-entry.json`。1000–1200 ms 整組旋轉至 15°，再接上一輪共用護脛；不是踝關節或真實受力模擬。新增約 0.337 MiB RGBA8；腰甲轉動試作因外翹與補底接縫不自然未採用，正式遊戲與原始素材未覆寫。
