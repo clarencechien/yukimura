@@ -85,3 +85,10 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 沿用 `5d33b8c` 的全部角色貼圖，只有時序與部件變換修改。致命命中也保存中斷前姿態，前 180 ms 以固定肢段及固定腳位下沉，胸甲末端 −14°，腰胯位移由原 `buckle` 肩點反算；手臂末端接回同時刻的既有握刀曲線。這是人工平面動作曲線，並非物理模擬；交接時只保證肩臂與刀的連續，屈膝圖的腿形、腳位、空手側和輪廓仍不同。
 
 `enemy-fatal-*-comparison.jpg`／`handoff.jpg` 由前輪實際 MP4 與本輪 Phaser 截圖裁切排版；`enemy-fatal-bridge-check.json` 記錄配對時間和命中肩肘腕位移。未新增 image gen、Blender、Modal 或第三方資源，RGBA8 預估與前輪相同。
+
+
+### 致命收步與鞋底接觸陰影（2026-10-16）
+
+角色貼圖與 `78d090c` 位元組相同。新增 `enemy-footwork.mjs`，在待機原畫手工標記鞋底中心左 `[373,686]`、右 `[775,674]`，末端沿用 `enemy-rig.json` 屈膝圖原有的鞋底標記。先右腳 10–75 ms、後左腳 85–175 ms，兩步間保留 10 ms 雙腳支撐；離地高度分別為原畫 10／18 px，腿長固定，保留既有膝向。
+
+同一足部變換用於腿部求解、腳部 sprite 與接觸陰影；陰影留在腳下平面，抬腳時變淡而不是貼在鞋上。這些是人工二維註冊點與動作曲線，不是解剖、壓力或力學量測。空手側及頭盔等輪廓仍需修圖。`enemy-footwork-check.json` 記錄前後真實錄影配對時刻、實際腳部圖層投影鞋底中心距離與陰影命令。新圖皆為實際截圖裁切排版；沒有新增 image gen、Blender、Modal 或第三方資源。

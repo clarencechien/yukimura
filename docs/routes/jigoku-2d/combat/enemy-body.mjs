@@ -1,3 +1,4 @@
+import {ENEMY_SOLES,enemyFootstep,restingEnemyFoot} from './enemy-footwork.mjs';
 import {DUEL_TIMING} from './duel-state.mjs';
 // Source-space pivot at the belt, shared by the visible chest and shoulder socket.
 export const ENEMY_WAIST={x:577,y:382};
@@ -5,8 +6,8 @@ export const ENEMY_BODY_BOXES={leftFoot:[315,610,445,700],rightFoot:[685,615,815
 export const ENEMY_LEGS={left:{hip:{x:535,y:422},knee:{x:442,y:535},ankle:{x:395,y:637},bend:1},right:{hip:{x:601,y:415},knee:{x:699,y:536},ankle:{x:736,y:635},bend:-1}};
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const direction=(a,b)=>Math.atan2(b.y-a.y,b.x-a.x);
-function leg(j,root){
- const hip={x:j.hip.x+root.x,y:j.hip.y+root.y},ankle=j.ankle,thigh=distance(j.hip,j.knee),shin=distance(j.knee,j.ankle),d=distance(hip,ankle);
+function leg(j,root,ankle){
+ const hip={x:j.hip.x+root.x,y:j.hip.y+root.y},thigh=distance(j.hip,j.knee),shin=distance(j.knee,j.ankle),d=distance(hip,ankle);
  if(d>=thigh+shin||d<=Math.abs(thigh-shin))throw Error('Unreachable fixed enemy leg target');
  const dx=(ankle.x-hip.x)/d,dy=(ankle.y-hip.y)/d,along=(thigh*thigh-shin*shin+d*d)/(2*d),off=Math.sqrt(Math.max(0,thigh*thigh-along*along))*j.bend;
  const knee={x:hip.x+dx*along-dy*off,y:hip.y+dy*along+dx*off};
@@ -50,12 +51,14 @@ export function enemyBodyPose(enemy,rig){
   }else angle=recoilValue(start,Math.max(8,start+8),0,age);
  }
  const a=angle*Math.PI/180,[x,y]=rig.bindings[0].shoulder,dx=x-ENEMY_WAIST.x,dy=y-ENEMY_WAIST.y;
- const pivot={x:ENEMY_WAIST.x+root.x,y:ENEMY_WAIST.y+root.y},transforms={lower:{pivot:ENEMY_WAIST,point:pivot,angle:0},torso:{pivot:ENEMY_WAIST,point:pivot,angle}},legs={};
+ const pivot={x:ENEMY_WAIST.x+root.x,y:ENEMY_WAIST.y+root.y},transforms={lower:{pivot:ENEMY_WAIST,point:pivot,angle:0},torso:{pivot:ENEMY_WAIST,point:pivot,angle}},legs={},feet={};
  for(const [side,j] of Object.entries(ENEMY_LEGS)){
-  const p=legs[side]=leg(j,root);
+  const foot=feet[side]=enemy.bodyReaction?.fatal?enemyFootstep(side,enemy.bodyReaction.age,rig):restingEnemyFoot(side);
+  const ankle={x:j.ankle.x+foot.sole.x-ENEMY_SOLES[side].x,y:j.ankle.y+foot.sole.y-ENEMY_SOLES[side].y};
+  const p=legs[side]=leg(j,root,ankle);
   transforms[side+'Thigh']={pivot:j.hip,point:p.hip,angle:p.thighAngle};
   transforms[side+'Shin']={pivot:j.knee,point:p.knee,angle:p.shinAngle};
   transforms[side+'Foot']={pivot:j.ankle,point:p.ankle,angle:0};
  }
- return {angle,pivot,root,transforms,legs,shoulder:{x:pivot.x+dx*Math.cos(a)-dy*Math.sin(a),y:pivot.y+dx*Math.sin(a)+dy*Math.cos(a)}};
+ return {angle,pivot,root,transforms,legs,feet,shoulder:{x:pivot.x+dx*Math.cos(a)-dy*Math.sin(a),y:pivot.y+dx*Math.sin(a)+dy*Math.cos(a)}};
 }

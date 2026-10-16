@@ -1,3 +1,4 @@
+import {ENEMY_SOLES} from '../docs/routes/jigoku-2d/combat/enemy-footwork.mjs';
 import assert from 'node:assert/strict';
 import {ENEMY_BODY_BOXES,ENEMY_LEGS} from '../docs/routes/jigoku-2d/combat/enemy-body.mjs';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-5,`${a} != ${b}`);
@@ -23,7 +24,11 @@ export function assertEnemyBody(row){
   const thigh=parts[side+'Thigh'],shin=parts[side+'Shin'],foot=parts[side+'Foot'];
   const hip=mapped(thigh,ENEMY_BODY_BOXES[side+'Thigh'],j.hip),knee=mapped(thigh,ENEMY_BODY_BOXES[side+'Thigh'],j.knee),ankle=mapped(shin,ENEMY_BODY_BOXES[side+'Shin'],j.ankle);
   same(hip,{x:lower.x+(j.hip.x-577)*.6,y:lower.y+(j.hip.y-382)*.6});same(knee,mapped(shin,ENEMY_BODY_BOXES[side+'Shin'],j.knee));same(ankle,mapped(foot,ENEMY_BODY_BOXES[side+'Foot'],j.ankle));
-  same(ankle,{x:row.target.x+(j.ankle.x-576)*.6,y:574+(j.ankle.y-690)*.6});near(foot.angle,0);
+  if(!row.enemy.bodyReaction?.fatal)same(ankle,{x:row.target.x+(j.ankle.x-576)*.6,y:574+(j.ankle.y-690)*.6});near(foot.angle,0);
+  const sole=mapped(foot,ENEMY_BODY_BOXES[side+'Foot'],ENEMY_SOLES[side]),index=side==='left'?0:1,shadow=row.enemyFootShadows[index];
+  near(sole.x,shadow.x);near(sole.y+row.enemyBodyPose.feet[side].lift*.6,shadow.y);
+  near(shadow.alpha,.35*row.enemy.alpha*(1-.65*Math.min(1,row.enemyBodyPose.feet[side].lift/18)));
+  if(row.enemy.bodyReaction?.fatal)assert.ok(row.enemyBodyPose.feet.left.lift===0||row.enemyBodyPose.feet.right.lift===0);
   for(const [name,p] of [[side+'Thigh',thigh],[side+'Shin',shin],[side+'Foot',foot]]){const box=ENEMY_BODY_BOXES[name];near(p.width,(box[2]-box[0])*.6);near(p.height,(box[3]-box[1])*.6);}
  }
  assert.ok(row.armOrder.upper<torso.order&&row.armOrder.upper>lower.order);

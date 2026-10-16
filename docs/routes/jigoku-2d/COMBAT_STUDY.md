@@ -1,8 +1,8 @@
-# 燼關試槍：致命命中與失衡下沉的銜接
+# 燼關試槍：失衡收步與腳下接觸陰影
 
 2026-10-16（UTC）。分支 `art/jigoku-prerendered-2d`。
 
-![Phaser 實際致命短刺：保留命中姿勢、下沉，再接倒地](combat/combat-preview.gif)
+![Phaser 實際致命短刺：下沉、交替收步，再接屈膝倒地](combat/combat-preview.gif)
 
 [本輪連招 30 fps 影片](combat/combo-30fps.mp4) · [打斷蓄刀 30 fps 影片](combat/enemy-recoil-30fps.mp4) · [交鋒 30 fps 影片](combat/duel-30fps.mp4) · [交鋒桌機](combat/duel-desktop.jpg) · [交鋒手機](combat/duel-mobile.jpg) · [手機承力格擋](combat/duel-mobile-guard.jpg) · [低掃擊倒 30 fps 影片](combat/low-hit-30fps.mp4) · [倒地 30 fps 影片](combat/combat-30fps.mp4) · [桌機截圖](combat/desktop.jpg) · [手機截圖](combat/mobile.jpg) · [試玩頁原始檔](combat/index.html)
 
@@ -28,7 +28,27 @@
 
 手機支援觸控；全螢幕依瀏覽器支援，亦可轉橫向。切到背景分頁會暫停，回來後手動繼續。偏好減少動態時，不啟用漂浮落燼與鏡頭震動。
 
-## 本輪：致命命中先保留姿勢，再接屈膝
+## 本輪：下沉時交替收步，減少腳位突然切換
+
+[短刺擊倒 30 fps MP4](combat/combat-30fps.mp4) · [低掃擊倒 30 fps MP4](combat/low-hit-30fps.mp4) · [手機短刺收步](combat/enemy-footwork-thrust-mobile.jpg) · [手機低掃收步](combat/enemy-footwork-sweep-mobile.jpg)
+
+前輪已讓致命命中的肩臂與握刀接續，但下沉時雙腳固定，180 ms 切到屈膝原畫後卻突然收窄。現在用**先右腳、再左腳的短促失衡收步**，把腳位變化放進實際動作；另一腳留在地面，腿部仍保持固定長度。
+
+- 右腳於受擊後 **10–75 ms** 收進，接著 **10 ms 雙腳支撐**；左腳於 **85–175 ms** 收進。兩腳各有小幅抬離地面的弧線，不同時騰空，命中停頓與暫停會凍結整副姿勢。
+- 到 175 ms，兩個人工標記的鞋底中心對齊既有屈膝圖；180 ms 的原畫交接時間不變。仍保留原肩臂、刀與後續跪下、鬆手、落刀時序。
+- **接觸陰影跟著腳下位置移動**，抬腳時變淡、略放寬，落地後恢復。待機、非致命受擊及出刀也改由同一鞋底標記定位陰影，不再只用粗略固定偏移。
+- 這是固定視角的平面動作與人工接點，**不是真正受力、步態或三維腳掌模擬**。鞋型、膝甲與大腿輪廓仍來自不同原畫，頭盔與空手側的跳動也尚未修完；對齊鞋底中心不等於輪廓完全一致。
+- 沒有新增角色貼圖、生成圖、Blender、Modal 或第三方素材。角色 RGBA8 估算維持 **桌機 57.599 MiB／手機 25.245 MiB**，未量測實體手機 FPS。
+
+![短刺致命下沉：前輪固定腳位與本輪交替收步](combat/enemy-footwork-thrust-comparison.jpg)
+
+![交接相鄰畫面：腳位已靠近，頭盔與空手側輪廓仍不同](combat/enemy-footwork-thrust-handoff.jpg)
+
+[低掃收步對照](combat/enemy-footwork-sweep-comparison.jpg) · [低掃交接相鄰畫面](combat/enemy-footwork-sweep-handoff.jpg) · [人工鞋底標記、實際圖層與陰影紀錄](combat/enemy-footwork-check.json)。前後對照取 `78d090c` 已提交影片與本輪實際 Phaser 截圖，配對反應進度，時間差另列於紀錄；這不是自動像素追蹤或生成動畫。兩段新擊倒影片各 78 幀、30 fps／2.6 秒。
+
+本次 30 Hz 錄影在交接前的最後取樣，左鞋底標記距屈膝目標由約 **43.20 px** 降至短刺 **9.88 px**／低掃 **5.75 px**，右側由約 **30.24 px** 降至接近 0。最後取樣分別在 151.33／158 ms，早於 175 ms 落穩，所以不能把錄影中的剩餘距離當成落地端點誤差；這些也只是人工標記距離，不代表鞋子輪廓已相同。
+
+## 前輪：致命命中先保留姿勢，再接屈膝
 
 [短刺擊倒 30 fps MP4](combat/combat-30fps.mp4) · [低掃擊倒 30 fps MP4](combat/low-hit-30fps.mp4) · [手機短刺](combat/enemy-fatal-thrust-mobile.jpg) · [手機低掃](combat/enemy-fatal-sweep-mobile.jpg)
 
@@ -385,6 +405,12 @@
 
 ## 驗證與重建
 
+- 本輪新增 [3 項收步測試](../../../tools/check_enemy_footwork.mjs)，連同既有測試共 **77 項通過**：交替抬腳與雙腳支撐、腳位落在屈膝原畫標記、固定腿長與膝向、步伐起訖連續、支撐腳不漂移，非致命／出刀保持原腳位。
+- 桌機與 390 px 手機檢查以實際腳部 sprite 的原點、尺寸與旋轉重算鞋底位置，核對真正送入 Phaser 的陰影繪製位置與透明度，並檢查暫停／重置與後續落刀。[桌機與觸控檢查](combat/browser-check.json) · [手機致命收步檢查](combat/enemy-fatal-mobile-check.json)。
+- 本輪角色貼圖與 `78d090c` 相同；新比較圖僅裁切、排版真實錄影畫面。
+
+以下為前輪致命命中銜接的驗證：
+
 - 本輪新增 [4 項致命銜接測試](../../../tools/check_enemy_fatal_bridge.mjs)，連同既有規則共 **74 項通過**：跨敵方階段的命中姿勢、固定肢段與腳位、180 ms 肩肘腕及刀的邊界連續性、命中停頓／暫停／重置、脫刀落地與消散。
 - 桌機重新錄製致命短刺、致命低掃及非致命連招；[瀏覽器檢查](combat/browser-check.json) 從實際 Phaser 圖層核對關節與武器。另以 [390 px 手機觸控檢查](combat/enemy-fatal-mobile-check.json) 驗證兩種致命命中、下沉暫停、交接、落刀及重置。
 - 原畫裁切與手機縮圖檢查通過。本輪沒有改角色貼圖；新增的圖片都是遊戲截圖或其比較排版。
@@ -456,7 +482,7 @@ python3 tools/check_jigoku_enemy_art.py
 python3 tools/check_jigoku_recovery_art.py
 python3 tools/prepare_yari_sweep.py
 python3 tools/check_jigoku_sweep_art.py
-node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs tools/check_shared_hero.mjs tools/check_duel_contact.mjs tools/check_enemy_body.mjs tools/check_enemy_recoil.mjs tools/check_enemy_low_rig.mjs tools/check_enemy_fatal_bridge.mjs
+node --test tools/check_jigoku_combat_state.mjs tools/check_jigoku_enemy_weapon.mjs tools/check_jigoku_sweep.mjs tools/check_jigoku_duel.mjs tools/check_guard_rig.mjs tools/check_shared_hero.mjs tools/check_duel_contact.mjs tools/check_enemy_body.mjs tools/check_enemy_recoil.mjs tools/check_enemy_low_rig.mjs tools/check_enemy_fatal_bridge.mjs tools/check_enemy_footwork.mjs
 node tools/check_shared_sweep_browser.mjs
 python3 tools/package_shared_sweep_preview.py
 python3 tools/package_leg_loading_comparison.py
@@ -477,9 +503,10 @@ python3 tools/package_enemy_low_rig.py
 python3 tools/package_shared_sweep_comparison.py
 python3 tools/package_jigoku_low_preview.py
 python3 tools/package_enemy_fatal_bridge.py
+python3 tools/package_enemy_footwork.py
 python3 tools/package_jigoku_recovery_preview.py
 ```
 
 圖像重新打包需 Pillow／NumPy；瀏覽器錄影打包需 FFmpeg。瀏覽器檢查會自行啟動並關閉臨時 HTTP 伺服器。
 
-下一步針對 180 ms 交接的腿形、腳位與空手側製作一致的屈膝素材；肩點與握刀已對齊，但不能以這兩個接點代表整個輪廓連續。
+下一步針對屈膝原畫的頭盔、空手側與膝甲輪廓修整。腳位標記已由收步接近，但仍需一致的造型素材，不能以接點對齊代替完整輪廓連續。

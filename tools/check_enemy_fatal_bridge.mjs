@@ -15,13 +15,13 @@ test('fatal thrust and sweep preserve the interrupted torso, legs, wrist and bla
   }assert.deepEqual([...stages].sort(),['recovery','strike','waiting','windup']);
  }
 });
-test('fatal loading retains limb lengths and planted ankles, with continuous arm and blade through the 180 ms buckle handoff',()=>{
+test('fatal loading retains limb lengths and sequential recovery steps, with continuous arm and blade through the 180 ms buckle handoff',()=>{
  for(const kind of ['thrust','sweep'])for(const start of [0,1700,1900]){
   const s=hit(kind,start),descriptor=s.enemy.bodyReaction;advance(s,70);let prev=pose(s);
   for(let age=0;age<=181;age++){
    const p=pose(s);for(const n of ['shoulder','elbow','wrist'])assert.ok(dist(p.arm[n],prev.arm[n])<2,`${kind} ${age} ${n}`);
    assert.ok(dist(p.weapon.grip,prev.weapon.grip)<2);assert.ok(Math.abs(dist(p.arm.shoulder,p.arm.elbow)-65)<1e-6);assert.ok(Math.abs(dist(p.arm.elbow,p.arm.wrist)-75)<1e-6);
-   if(age<180){assert.ok(p.body);for(const [side,j] of Object.entries(ENEMY_LEGS)){const leg=p.body.legs[side];near(leg.ankle,j.ankle);assert.ok(Math.abs(dist(leg.hip,leg.knee)-dist(j.hip,j.knee))<1e-6);assert.ok(Math.abs(dist(leg.knee,leg.ankle)-dist(j.knee,j.ankle))<1e-6);}}
+   if(age<180){assert.ok(p.body);for(const [side,j] of Object.entries(ENEMY_LEGS)){const leg=p.body.legs[side];assert.ok(p.body.feet.left.lift===0||p.body.feet.right.lift===0);assert.ok(Math.abs(dist(leg.hip,leg.knee)-dist(j.hip,j.knee))<1e-6);assert.ok(Math.abs(dist(leg.knee,leg.ankle)-dist(j.knee,j.ankle))<1e-6);}}
    else{assert.equal(p.body,null);assert.equal(s.enemy.phase,'buckle');
     if(age===180){const endpoint={...s.enemy,bodyReaction:{...descriptor,age:180}},arm=enemyArm(endpoint,180,true,rig),weapon=enemyWeapon(endpoint,180,true,rig),authoredArm=enemyArm(s.enemy,180,true,rig),authoredWeapon=enemyWeapon(s.enemy,180,true,rig);for(const n of ['shoulder','elbow','wrist'])near(arm[n],authoredArm[n]);near(weapon.grip,authoredWeapon.grip);assert.ok(Math.abs(weapon.angle-authoredWeapon.angle)<1e-6);}
    }
