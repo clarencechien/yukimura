@@ -174,3 +174,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 沒有新增生成圖或修改來源素材。`free-arm-settle` 多讀取既有 `combat/enemy-relax.webp` 與 `enemy-open.webp`，以原腕點接續閉拳；兩張 RGBA8 約 0.0324 MiB。雜湊和尺寸記錄於 `free-arm-settle/release.json`。
 
 `prepare_sword_release.py` 從原刀貼圖 alpha > 0 像素格四角建立接地凸包。540 ms 從收腳段實際握點放刀，600 ms 張掌，860 ms 刀轉平落定；採人工下降／轉角曲線與投影地面限制，非物理模擬。1001 個落刀取樣核對全部可見刀像素格均在 Y=690 上方。重新錄製 90 張實際 Canvas 畫布，30 fps／3 秒；身體仍停於收腳末姿，未接側倒或替換正式遊戲。
+
+
+### 胸肩卸力與撐掌離地（2026-10-16）
+
+沒有新增或改寫美術素材。`free-arm-settle` 繼續使用原胸甲、肩甲與下身，近側空手離地後直接讀取 `free-arm-parts/open.webp`；來源雜湊及人工曲線參數記錄於 `free-arm-settle/yield.json`。
+
+860→1180 ms 以相同腰軸轉換降低胸肩，固定 85／90 px 手臂保持掌根直到 1000 ms，之後切為張掌並收回。地上的刀維持原放刀計算，只有遠側手臂跟隨胸甲。1001 個胸甲／肩甲像素取樣確認未超過投影地面 Y=690；這不是全身物理或解剖驗證。未採用接點不一致的現有側倒原畫，末姿仍是低伏卸力，完整側倒與翻掌需後續補圖。
+
+重新錄製 150 張實際 Canvas 畫布，30 fps／5 秒。沒有替換正式 Phaser 戰鬥或線上遊戲。

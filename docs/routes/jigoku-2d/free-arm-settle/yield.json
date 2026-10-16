@@ -1,0 +1,25 @@
+{
+  "baselineCommit": "0dd8414910cf9ead545679b603bcdee0d12e0d25",
+  "parameters": {
+    "start": 860,
+    "release": 1000,
+    "end": 1180,
+    "reviewEnd": 1500,
+    "torsoRotation": -18,
+    "torsoShift": {
+      "x": -16,
+      "y": 3
+    },
+    "palmRoll": 10,
+    "freeWrist": {
+      "x": 445,
+      "y": 650
+    },
+    "farReachLift": 30
+  },
+  "nearHand": {
+    "url": "../free-arm-parts/open.webp",
+    "sha256": "a3ecefc2758a344fbc97b82b9871841ee9e73f048918c5ffe11e3cfbd67d6f7f"
+  },
+  "method": "Existing torso/cap rotate further at the waist with a small authored offset. Fixed lower body, independent near-arm IK. Palm rolls around its heel until 1000 ms, then existing open hand replaces it at the same wrist. Released katana remains in world space, former sword arm follows the torso. No new art; low unloading pose only, not completed side fall or biomechanical simulation."
+}
