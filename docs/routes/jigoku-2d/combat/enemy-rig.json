@@ -210,31 +210,29 @@
     {
       "pose": "crouch",
       "wrist": [
-        331,
-        536
+        327.79999999999995,
+        546.1
       ],
       "shoulder": [
-        396,
-        415
+        392.79999999999995,
+        425.1
       ],
-      "sourceWrist": [
-        1025,
-        381
-      ],
+      "sourceWrist": null,
       "sourceShoulder": [
-        1090,
-        260
+        520,
+        390
       ],
       "footContacts": [
         [
-          448,
-          684
+          447.19,
+          679.41
         ],
         [
-          729,
-          686
+          728.9399999999999,
+          689.7
         ]
-      ]
+      ],
+      "registrationNote": "Manually inspected far shoulder and sole centers. Far sword arm is absent from artwork; previous local wrist target is retained, not measured on the new image."
     },
     {
       "pose": "kneel",

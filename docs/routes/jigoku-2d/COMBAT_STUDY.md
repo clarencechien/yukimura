@@ -1,8 +1,8 @@
-# 燼關試槍：屈膝原畫的造型一致性
+# 燼關試槍：蹲低原畫與伸手過渡
 
 2026-10-16（UTC）。分支 `art/jigoku-prerendered-2d`。
 
-![Phaser 實際致命短刺：屈膝原畫修稿後的完整倒地](combat/combat-preview.gif)
+![Phaser 實際致命短刺：蹲低原畫修稿後的完整倒地](combat/combat-preview.gif)
 
 [本輪連招 30 fps 影片](combat/combo-30fps.mp4) · [打斷蓄刀 30 fps 影片](combat/enemy-recoil-30fps.mp4) · [交鋒 30 fps 影片](combat/duel-30fps.mp4) · [交鋒桌機](combat/duel-desktop.jpg) · [交鋒手機](combat/duel-mobile.jpg) · [手機承力格擋](combat/duel-mobile-guard.jpg) · [低掃擊倒 30 fps 影片](combat/low-hit-30fps.mp4) · [倒地 30 fps 影片](combat/combat-30fps.mp4) · [桌機截圖](combat/desktop.jpg) · [手機截圖](combat/mobile.jpg) · [試玩頁原始檔](combat/index.html)
 
@@ -28,7 +28,25 @@
 
 手機支援觸控；全螢幕依瀏覽器支援，亦可轉橫向。切到背景分頁會暫停，回來後手動繼續。偏好減少動態時，不啟用漂浮落燼與鏡頭震動。
 
-## 本輪：讓屈膝時的頭盔與空手側更接近前姿勢
+## 本輪：蹲低時保留同一套鎧甲，收攏伸出的手指
+
+[短刺擊倒 30 fps MP4](combat/combat-30fps.mp4) · [低掃擊倒 30 fps MP4](combat/low-hit-30fps.mp4) · [手機蹲低・短刺](combat/crouch-consistency-thrust-mobile.jpg) · [手機蹲低・低掃](combat/crouch-consistency-sweep-mobile.jpg)
+
+前輪修了屈膝圖，下一張蹲低仍換成不同的膝部衣料、腰甲和張開手掌。本輪用 **一次 image gen 修稿**，以目前的屈膝、蹲低及接續跪地三格為參考，只替換桌機／手機圖集的 **第 4 格（零起算）**。
+
+- 膝部改為更接近屈膝圖的菱格衣料，整理頭盔、面罩、腰甲與藍色衣帶；空手側向前膝伸下，手指比原稿收攏。**手掌仍偏張開，尚未完成由握拳逐漸鬆開的連續動作。**
+- 原圖 1536×1024，使用 **0.49 倍等比例縮放與平移 `[138,234]`**，沒有非等比拉伸。手工重標持刀側肩點及鞋底；持刀臂仍接既有 65／75 px 部件，局部腕目標 `[-65,121]` 保留。
+- 相對 `f97f3a1`，肩點移動 **10.595 px**，兩個鞋底中心移動 **4.661／3.700 px**（原畫座標；遊戲中乘 0.6）。這些是人工接點註冊差異，並非自動追蹤或解剖正確性的證明。
+- 其餘 **11 格 × 兩種解析度，共 22 格**的可見 RGB 與 alpha 保留，包括前輪屈膝修稿。沒有增加動畫格或貼圖尺寸，角色 RGBA8 估算維持 **桌機 57.599 MiB／手機 25.245 MiB**；沒有實體手機 FPS 測量。
+- 命中、收步、250–330 ms 蹲低、鬆手及落刀時序保留。**後續跪地原畫尚未重畫，手臂移動、肩位與衣帶輪廓仍會切換**；本輪是插畫一致性修稿，沒有完成連續全身倒地動畫。
+
+![實際遊戲三姿勢：前輪屈膝、本輪蹲低、原畫跪下](combat/crouch-consistency-thrust-sequence.jpg)
+
+![同一反應階段的前後對照：只替換中間蹲低圖](combat/crouch-consistency-thrust-comparison.jpg)
+
+[低掃前後對照](combat/crouch-consistency-sweep-comparison.jpg) · [低掃三姿勢](combat/crouch-consistency-sweep-sequence.jpg) · [素材與接點檢查](combat/crouch-consistency-art-check.json) · [錄影配對紀錄](combat/crouch-consistency-check.json) · [新原畫](../../../assets/source/jigoku-2d/ghost-rig/crouch-consistent.png)。左側取 `f97f3a1` 已提交的影片，右側為本輪實際 Phaser 截圖；依反應階段與最近時間配對，差異記錄於 JSON。兩段擊倒影片各 78 幀、30 fps／2.6 秒；image gen 只修角色原畫，沒有生成遊戲錄影。
+
+## 前輪：讓屈膝時的頭盔與空手側更接近前姿勢
 
 [短刺擊倒 30 fps MP4](combat/combat-30fps.mp4) · [低掃擊倒 30 fps MP4](combat/low-hit-30fps.mp4) · [手機屈膝・短刺](combat/buckle-consistency-thrust-mobile.jpg) · [手機屈膝・低掃](combat/buckle-consistency-sweep-mobile.jpg)
 
@@ -423,9 +441,9 @@
 
 ## 驗證與重建
 
-- 本輪 **77 項規則與動作測試通過**。新增 [屈膝素材檢查](../../../tools/check_buckle_consistency_art.py)：核對修稿來源、等比例註冊、手機縮圖、其餘 22 格的像素保留、肩與鞋底位移，以及原持刀臂偏移。
+- 本輪 **77 項規則與動作測試通過**。新增 [蹲低素材檢查](../../../tools/check_crouch_consistency_art.py)：核對修稿來源、等比例註冊、手機縮圖、其餘 22 格（含已修屈膝）的像素保留、肩與鞋底位移，以及原持刀臂偏移。既有屈膝來源檢查仍保留；兩個檢查各自使用其修稿前的提交作為基線。
 - [桌機與觸控檢查](combat/browser-check.json) 重錄短刺／低掃／連招；對僅持續 40 ms 的短暫倒地姿勢，另以每次不超過 10 ms 的觀察驗證姿勢及實際圖集格，避免 30 Hz 截圖漏拍造成誤判。影片仍按 33／33／34 ms 擷取，不補畫中間幀。
-- [手機檢查](combat/enemy-fatal-mobile-check.json) 另外停在實際屈膝第 3 格檢查顯示與武器，並保存手機截圖。圖集邊界、共用部件來源與角色貼圖記憶體檢查通過。
+- [手機檢查](combat/enemy-fatal-mobile-check.json) 另外停在實際屈膝第 3 格與蹲低第 4 格檢查顯示與武器，並保存手機截圖。圖集邊界、共用部件來源與角色貼圖記憶體檢查通過。
 
 以下保留前輪收步驗證：
 
@@ -492,7 +510,9 @@
 
 ```sh
 python3 tools/prepare_buckle_consistency.py
+python3 tools/prepare_crouch_consistency.py
 python3 tools/check_buckle_consistency_art.py
+python3 tools/check_crouch_consistency_art.py
 python3 tools/check_enemy_body_art.py
 python3 tools/check_jigoku_enemy_art.py
 python3 tools/check_shared_hero_art.py
@@ -500,10 +520,10 @@ node tools/check_jigoku_combat.mjs
 node tools/check_enemy_fatal_browser.mjs
 python3 tools/package_jigoku_combat_preview.py --video-only
 python3 tools/package_jigoku_low_preview.py
-python3 tools/package_buckle_consistency.py
+python3 tools/package_crouch_consistency.py
 ```
 
-以下完整管線包含歷史比較產物；`prepare_ghost_warrior.py` 已接續本輪修稿步驟，重新製作基礎圖集時不會把屈膝圖退回舊版。
+以下完整管線包含歷史比較產物；`prepare_ghost_warrior.py` 已接續本輪修稿步驟，重新製作基礎圖集時依序套用屈膝與蹲低修稿。前輪比較圖片保留當時畫面，不必重新生成。
 
 ```sh
 python3 -m http.server 8080
@@ -550,4 +570,4 @@ python3 tools/package_jigoku_recovery_preview.py
 
 圖像重新打包需 Pillow／NumPy；瀏覽器錄影打包需 FFmpeg。瀏覽器檢查會自行啟動並關閉臨時 HTTP 伺服器。
 
-下一步銜接屈膝到蹲低時的空手側伸手與膝甲遮擋；本輪只修整一張屈膝原畫，後續支撐動作仍沿用原關鍵圖。
+下一步處理蹲低到跪地的空手臂路徑與承重接點，優先試算共用固定長度手臂是否可達，再決定補圖；本輪只替換蹲低原畫，尚未做到連續手指與全身動畫。

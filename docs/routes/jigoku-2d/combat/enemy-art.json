@@ -29,6 +29,11 @@
       "path": "assets/source/jigoku-2d/ghost-rig/buckle-consistent.png",
       "sha256": "223d37276ac580cd3adb755d1235209794f67ed2b182095e3218bbfe78c76993",
       "generatedFile": "exec-e2f2ffcf-0b34-4107-a70a-094c83b50f53.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/crouch-consistent.png",
+      "sha256": "37fe47946c7205f2456bbd0121831232b0162ffc63f176774b04f9cb0a05a777",
+      "generatedFile": "exec-d9a88a36-94da-45fd-b3bb-72108e302d19.png"
     }
   ],
   "method": "Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.",
@@ -132,18 +137,18 @@
     },
     {
       "pose": "crouch",
-      "source": 1,
+      "source": 6,
       "sourceBox": [
-        765,
+        0,
         0,
         1536,
-        595
+        1024
       ],
       "sourceAnchor": [
-        1270,
-        535
+        893.8775510204082,
+        930.6122448979592
       ],
-      "uniformScale": 1,
+      "uniformScale": 0.49,
       "alignedAnchor": [
         576,
         690
@@ -329,5 +334,40 @@
       ]
     ],
     "method": "One image_gen edit matching shared torso helmet/face and closed free fist. Uniform resize and translation only; pose 3 replaced in both existing atlases. Shoulder/soles remeasured, detached sword-arm reach retained. Anatomy and knee silhouette still differ."
+  },
+  "crouchConsistency": {
+    "baselineCommit": "f97f3a1e63af572be6d4ea904e1de0ff07e2f4da",
+    "source": {
+      "path": "assets/source/jigoku-2d/ghost-rig/crouch-consistent.png",
+      "sha256": "37fe47946c7205f2456bbd0121831232b0162ffc63f176774b04f9cb0a05a777",
+      "generatedFile": "exec-d9a88a36-94da-45fd-b3bb-72108e302d19.png"
+    },
+    "referenceAtlasAtBaseline": "docs/routes/jigoku-2d/combat/ghost-warrior-hd.webp",
+    "referenceFrames": [
+      4,
+      3,
+      5
+    ],
+    "referencePreparation": "HD cells cropped without visible-pixel edits; RGB under alpha=0 cleared for references only.",
+    "uniformScale": 0.49,
+    "offsetHD": [
+      138,
+      234
+    ],
+    "sourceShoulder": [
+      520,
+      390
+    ],
+    "sourceSoleCenters": [
+      [
+        631,
+        909
+      ],
+      [
+        1206,
+        930
+      ]
+    ],
+    "method": "One image_gen edit of crouch using buckle identity and kneel as next-pose reference. Uniform resize and translation only. More consistent knee fabric, helmet and waist armor; fingers less splayed but still mostly open. Only frame 4 replaced. Separate sword arm and timing retained. No continuous finger animation or anatomical guarantee."
   }
 }

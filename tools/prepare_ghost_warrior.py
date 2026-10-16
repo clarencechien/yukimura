@@ -109,3 +109,6 @@ print('Packed shared two-bone arm, three hand states, katana and twelve shoulder
 # Apply the later registered pose-3 consistency repair after the base atlas/rig.
 import runpy
 runpy.run_path(str(ROOT/'tools/prepare_buckle_consistency.py'))
+
+# Register pose 4 after pose 3; final inspection sheet and atlas hash include both.
+runpy.run_path(str(ROOT/'tools/prepare_crouch_consistency.py'))

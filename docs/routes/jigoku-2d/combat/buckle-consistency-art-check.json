@@ -2,9 +2,9 @@
   "passed": true,
   "baselineCommit": "893bb9df5ef78290a2e2b8e963e215e2abfde1ac",
   "checks": [
-    "Only pose 3 changed in both atlases; all 22 retained cells preserve visible RGB and alpha",
+    "Pose 3 matches its source; 20 original cells preserve visible RGB and alpha. Pose 4 is independently checked by check_crouch_consistency_art.py.",
     "HD cell matches uniform source resize and translation; mobile matches HD resample",
-    "Other shoulder/foot bindings and shared arm/weapon metadata unchanged",
+    "Other bindings unchanged except independently checked pose 4; shared arm/weapon metadata unchanged",
     "New shoulder and soles manually registered; previous detached-arm local reach retained"
   ],
   "shoulderShiftHD": 0.1425219281373683,

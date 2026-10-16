@@ -101,3 +101,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 生成圖尺寸為 1536×1024，但人物在畫布中變大；`prepare_buckle_consistency.py` 以 0.5025 等比例縮放並平移 `[184,198]` 到 1152×768 原畫格。肩點 `[553,319]`、鞋底中心 `[520,971]`／`[1080,975]` 為手工標記；原持刀臂局部目標 `[-20.1,97.15]` 保留，因該手臂不在新原畫裡，未宣稱重新量到其腕關節。只替換兩個解析度的第 3 格，未改其餘 22 格的可見像素。來源 SHA、註冊與參考檔記錄於 `enemy-art.json` 的 `buckleConsistency`。
 
 既有圖集尺寸不變；未新增 Blender／Modal 渲染或第三方素材。修稿仍有空手臂角度、膝甲、衣帶及頭部位置的差異，不能以接點誤差小於 1 px 宣稱整個輪廓連續。`buckle-consistency-*-comparison.jpg` 與 `sequence.jpg` 是實際 Phaser 錄影裁切排版，不是生成動畫。
+
+
+### 蹲低原畫一致性修稿（2026-10-16）
+
+新增 `ghost-rig/crouch-consistent.png`，保留 image gen 原始輸出位元組，生成檔名 `exec-d9a88a36-94da-45fd-b3bb-72108e302d19.png`。參考 `f97f3a1` 的 `ghost-warrior-hd.webp` 第 4／3／5 格：先以原尺寸裁出透明格，僅清除 alpha=0 區域的不可見 RGB。要求維持蹲姿、統一屈膝到蹲低的鎧甲與衣料、空手由拳鬆開準備撐地，並保留空缺的持刀側下臂。結果手指較收攏，但仍偏張開，沒有完整達成逐漸鬆拳。
+
+`prepare_crouch_consistency.py` 以 0.49 等比例縮放、平移 `[138,234]`，只替換兩個解析度的第 4 格。手工標記來源肩點 `[520,390]`、鞋底中心 `[631,909]`／`[1206,930]`；原持刀臂局部目標 `[-65,121]` 保留，因新圖沒有這隻手臂，未宣稱量到新腕關節。肩點、鞋底相對前輪的原畫位移分別為 10.595、4.661、3.700 px；沒有為了強行重合而非等比變形。來源 SHA、參考格、註冊資訊在 `enemy-art.json.crouchConsistency`。
+
+素材檢查以 `f97f3a1` 為基線，逐一核對其餘 22 格可見像素、原手臂和武器資料，包含前輪已修的屈膝格。原屈膝檢查仍比對其修稿來源與原基線，蹲低改由獨立檢查負責。完整基礎圖集製作會依序套用兩次修稿，避免重建退版。沒有新 Blender／Modal 工作或第三方素材；`crouch-consistency-*-comparison.jpg`、`sequence.jpg` 為真實 Phaser 錄影畫面的裁切排版。
