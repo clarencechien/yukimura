@@ -5,12 +5,15 @@
     "Original torso/cap/lower/waist/shin/shoe pixels retained; generated pixels only in the vacated leg region, never on the retained knee",
     "Uniform source registration with no canvas clipping",
     "1001 actual JS rig samples: all shoe pixels alpha > 16 stay above initial bottom in projected screen Y",
+    "Four sword-side textures and existing rig hashes and dimensions verified; no new images or modified production assets",
     "Previous prototypes, production combat/src/public unchanged"
   ],
   "shoeStartBottomY": 684.0,
   "shoeMaximumBottomY": 684.0,
   "maxWaistTranslationPx": 3.0851538612190748,
   "settlePartsRGBA8MiB": 0.9639205932617188,
+  "reusedSwordPartsRGBA8MiB": 0.13967132568359375,
+  "swordSourceHashesVerified": true,
   "restoredVisiblePixels": 291,
   "limits": "Projected sprite clearance only, not 3D ground contact or collision physics. Memory excludes reused textures and Canvas buffers."
 }

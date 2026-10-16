@@ -160,3 +160,10 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 本次沒有新生成圖。重新整理 `free-arm-settle` 的裁片：下身與腰甲改用原 `crouch-kneel-breakdowns.png` 近地格，只有 `restore.webp` 來自既有 `touch-shin-clean.png`。修補像素限制在護脛／鞋的移開區，明確扣除原膝甲保留多邊形；alpha > 16 的修補像素為 291 個，素材檢查逐像素確認其沒有侵入保留區。
 
 近地格開始（388 ms 之後）即使用這套部件，400 ms 前沿肩點平移，之後接到腰部轉軸，取消原本整張下身切換。膝踝、護脛與鞋的長度、手臂及掌根曲線都保留；30 fps 影片重新取自實際 Canvas。400 ms 前後實際畫布只剩最多 1／255 色階的取樣差異，不代表前段各張原畫已無跳姿。來源 SHA、裁切和遮擋記錄維持於 `free-arm-settle/settle.json`。
+
+
+### 收腳試作加入持刀側與刀（2026-10-16）
+
+沒有新增 image gen、Blender／Modal 工作或第三方素材。`free-arm-settle` 直接重用 `combat/enemy-upper.webp`、`enemy-fore.webp`、`enemy-grip.webp`、`enemy-katana.webp` 及 `enemy-rig.json`，來源檔均未修改。新增來源雜湊及尺寸清單 `free-arm-settle/sword-kit.json`；四張貼圖 RGBA8 約 0.140 MiB，不含其他共用素材和畫布。
+
+以固定 65／75 px 投影臂長跟隨胸甲的人工遠側肩點；握拳與刀以同一握點及旋轉接合。330→540 ms 保持握刀，未沿用正式倒地動作的舊放刀座標；落刀與後續倒地留待接續。仍是獨立檢視，非正式遊戲更新；30 fps 影片重新取自實際 Canvas。

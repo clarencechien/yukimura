@@ -12,6 +12,6 @@
     1200,
     722
   ],
-  "source": "Actual rigid-foot settling Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
-  "limits": "Previous five-pose study compared with a shared torso hinge and rigid shin/shoe. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses 30/30/40 ms timing and merges identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
+  "source": "Actual two-arm held-katana settling Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
+  "limits": "Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing held-katana parts. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses 30/30/40 ms timing and merges identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
 }

@@ -1,4 +1,4 @@
-"""Encode actual rigid-foot settling-page screenshots; no generated animation frames."""
+"""Encode actual two-arm held-katana settling-page screenshots; no generated animation frames."""
 from pathlib import Path
 import json,subprocess
 from PIL import Image
@@ -9,6 +9,7 @@ frames=[];size=Image.open(TMP/'000.png').size;assert size[0]>=1200
 for i,r in enumerate(rows):
  assert r['sample']==i
  pose=r['pose'];assert np.hypot(pose['wrist']['x']-pose['target']['x'],pose['wrist']['y']-pose['target']['y'])<1e-6
+ assert len(r['swords'])==4 and r['weapon']['held']
  if pose['planted']: assert np.hypot(pose['heel']['x']-pose['contact']['x'],pose['heel']['y']-pose['contact']['y'])<1e-6
  im=Image.open(TMP/f'{i:03d}.png').convert('RGB');assert im.size==size;frames.append(im)
 paletted=[im.convert('P',palette=Image.Palette.ADAPTIVE,colors=256) for im in frames]
@@ -29,5 +30,5 @@ with Image.open(OUT/'settle-preview.gif') as gif:
   assert np.array_equal(actual,np.array(frame.convert('RGB'))), ('GIF frame mismatch',i)
   sample_time += [30,30,40][i%3]
  gif_frames=len(decoded)
-(OUT/'video-check.json').write_text(json.dumps({'passed':True,'frames':30,'gifStoredFrames':gif_frames,'fps':30,'durationSeconds':1,'sourceSize':size,'videoSize':[probe['width'],probe['height']],'source':'Actual rigid-foot settling Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.','limits':'Previous five-pose study compared with a shared torso hinge and rigid shin/shoe. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses 30/30/40 ms timing and merges identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping.'},indent=2)+'\n')
-print('Encoded 30 actual rigid-foot settling canvas frames, 30 fps / 1 second.')
+(OUT/'video-check.json').write_text(json.dumps({'passed':True,'frames':30,'gifStoredFrames':gif_frames,'fps':30,'durationSeconds':1,'sourceSize':size,'videoSize':[probe['width'],probe['height']],'source':'Actual two-arm held-katana settling Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.','limits':'Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing held-katana parts. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses 30/30/40 ms timing and merges identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping.'},indent=2)+'\n')
+print('Encoded 30 actual two-arm held-katana settling canvas frames, 30 fps / 1 second.')

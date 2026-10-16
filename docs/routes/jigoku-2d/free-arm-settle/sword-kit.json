@@ -1,0 +1,61 @@
+{
+  "baselineCommit": "d8e21e8179bde3df9e9889ceff2c4503199de297",
+  "rig": {
+    "url": "../combat/enemy-rig.json",
+    "sha256": "f6bb2f0418dd7cbd3ab9c8c6a77311f2f89d5927db6f82218c2d3709b72962f0"
+  },
+  "textures": [
+    {
+      "name": "upper",
+      "url": "../combat/enemy-upper.webp",
+      "sha256": "a47466448e374f60a86f3e56e6c3675ec8892b1f6b233529c6649e310c4d50f4",
+      "size": [
+        62,
+        88
+      ]
+    },
+    {
+      "name": "fore",
+      "url": "../combat/enemy-fore.webp",
+      "sha256": "f6c8ae3dbb1a3825f7bb058f4a5594ed4796ca655184a4be92364b1e70e59f63",
+      "size": [
+        69,
+        94
+      ]
+    },
+    {
+      "name": "grip",
+      "url": "../combat/enemy-grip.webp",
+      "sha256": "405690eaaa41b909dede83963148c9eeef8ad17b997cb605d544516043bb7610",
+      "size": [
+        66,
+        57
+      ]
+    },
+    {
+      "name": "katana",
+      "url": "../combat/enemy-katana.webp",
+      "sha256": "5e91dcb37d058dc13f6f85f648eb99287e1c990ce300090a2ce3aa5f4cc37c76",
+      "size": [
+        410,
+        51
+      ]
+    }
+  ],
+  "farSocketOffset": [
+    -95,
+    -28
+  ],
+  "armLengths": [
+    65,
+    75
+  ],
+  "camera": {
+    "scale": 0.8,
+    "translate": [
+      -50,
+      -10
+    ]
+  },
+  "scope": "Existing enemy arm and katana artwork reused without edits, rigid transforms only. Far arm/weapon behind body, closed grip throughout 330\u2013540 ms. Authored 2D socket and reach, not anatomy or collision simulation; no release yet. Independent review, not installed into combat."
+}
