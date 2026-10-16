@@ -2,12 +2,14 @@
 import {chromium} from '@playwright/test';
 import http from 'node:http';import fs from 'node:fs/promises';import path from 'node:path';
 const root=process.cwd(),out=process.argv[2]??'.tmp/fall-handoffs';await fs.mkdir(out,{recursive:true});
+const mode=process.argv[3]??'bridge';if(!['baseline','bridge'].includes(mode))throw Error('mode must be baseline or bridge');
 const server=http.createServer(async(req,res)=>{try{let file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);if(!file.startsWith(root+'/'))throw Error('path');if((await fs.stat(file)).isDirectory())file=path.join(file,'index.html');res.setHeader('Content-Type',({'.html':'text/html','.mjs':'text/javascript','.json':'application/json','.webp':'image/webp'})[path.extname(file)]||'application/octet-stream');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
 try{
- const page=await browser.newPage({viewport:{width:1280,height:1100}});await page.goto(`http://127.0.0.1:${server.address().port}/docs/routes/jigoku-2d/free-arm-settle/`);await page.waitForFunction(()=>window.freeArmSettle?.ready);
+ const page=await browser.newPage({viewport:{width:1280,height:1100}});await page.goto(`http://127.0.0.1:${server.address().port}/docs/routes/jigoku-2d/free-arm-settle/${mode==='baseline'?'?motion=baseline':''}`);await page.waitForFunction(()=>window.freeArmSettle?.ready);
  await fs.writeFile(`${out}/registration.json`,JSON.stringify(await page.evaluate(()=>window.freeArmSettle.fall),null,2)+'\n');
- for(const time of [1220,1320,1440])for(const [suffix,delta] of [['before',-.001],['after',.001]]){
+ const meta=await page.evaluate(()=>window.freeArmSettle.fall),keys=[meta.start,...meta.frames.map(f=>f.time)],times=keys.slice(1).map((t,i)=>(t+keys[i])/2);
+ for(const time of times)for(const [suffix,delta] of [['before',-.001],['after',.001]]){
   await page.locator('#time').evaluate((el,t)=>{el.value=t;el.dispatchEvent(new Event('input'));},time+delta);
   const data=await page.evaluate(()=>{const c=document.createElement('canvas');c.width=600;c.height=550;c.getContext('2d').drawImage(document.querySelector('#view'),600,65,600,550,0,0,600,550);return c.toDataURL('image/png').split(',')[1];});
   await fs.writeFile(`${out}/${time}-${suffix}.png`,Buffer.from(data,'base64'));

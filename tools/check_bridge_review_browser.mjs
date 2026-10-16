@@ -1,0 +1,18 @@
+import {chromium} from '@playwright/test';import http from 'node:http';import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';
+const root=process.cwd(),out='docs/routes/jigoku-2d/free-arm-settle';
+const server=http.createServer(async(req,res)=>{try{let file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);if(!file.startsWith(root+'/'))throw Error('path');if((await fs.stat(file)).isDirectory())file=path.join(file,'index.html');res.setHeader('Content-Type',({'.html':'text/html','.mjs':'text/javascript','.json':'application/json','.webp':'image/webp'})[path.extname(file)]||'application/octet-stream');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']}),errors=[],failed=[];
+try{
+ const page=await browser.newPage({viewport:{width:1280,height:900}});page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)failed.push(r.url());});await page.goto(`http://127.0.0.1:${server.address().port}/${out}/bridge-review.html`);await page.waitForFunction(()=>window.bridgeReview?.ready);
+ const seek=async t=>page.locator('#time').evaluate((el,t)=>{el.value=t;el.dispatchEvent(new Event('input'));},t);
+ for(const t of [1180,1210,1220,1240.001,1260,1320,1500]){
+  await seek(t);const r=await page.evaluate(()=>({state:window.bridgeReview,same:document.querySelector('#before').toDataURL()===document.querySelector('#after').toDataURL()}));
+  assert.deepEqual(r.state.sourceAges,[t,t]);if(t===1180||t>=1260)assert.equal(r.same,true);else if(t<=1220)assert.equal(r.same,false);
+  if(t===1210)assert.deepEqual(r.state.frameIds,['unload','bridge']);if(t===1220)await page.locator('#views').screenshot({path:`${out}/bridge-comparison.png`});
+ }
+ await page.locator('[data-time="1220"]').click();assert.equal(await page.evaluate(()=>window.bridgeReview.age),1220);
+ await seek(1180);await page.locator('#play').click();await page.waitForFunction(()=>window.bridgeReview.age===1540&&!window.bridgeReview.playing,{},{timeout:5000});
+ await page.locator('#play').click();await page.waitForFunction(()=>window.bridgeReview.playing&&window.bridgeReview.age<1540);await page.locator('#play').click();const stopped=await page.evaluate(()=>window.bridgeReview.age);await page.waitForTimeout(100);assert.equal(await page.evaluate(()=>window.bridgeReview.age),stopped);
+ await page.setViewportSize({width:390,height:844});await page.locator('[data-time="1220"]').click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.deepEqual(await page.evaluate(()=>window.bridgeReview.sourceAges),[1220,1220]);await page.screenshot({path:`${out}/bridge-mobile.jpg`,fullPage:true});
+ assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);await fs.writeFile(`${out}/bridge-browser-check.json`,JSON.stringify({passed:true,checks:['Two actual same-origin Canvas renderers seek to identical time; no image morphing','Pixel-identical panels before bridge and from 1260 ms onward; visibly different during bridge','Original unloaded / new bridge pose IDs at 1210 ms','Play, stop at endpoint, replay, pause, key buttons, 390 px stacked layout'],pageErrors:errors,failedRequests:failed,limits:'Review playback only; two source iframes add memory and are not a production game renderer or phone performance benchmark.'},null,2)+'\n');console.log('Synchronized bridge review passed.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}

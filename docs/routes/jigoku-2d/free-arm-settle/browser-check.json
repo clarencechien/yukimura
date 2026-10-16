@@ -3,7 +3,7 @@
   "checks": [
     "Handoff comparison loads four images for all six time/version choices; reports measured overlap and fits 390 px layout",
     "Far shoulder, elbow, wrist and actual fist-to-katana Canvas attachment; rigid texture scale, panel bounds, render order and independent visibility toggle",
-    "Three side-fall body keys visited; actual shared-arm shoulder/elbow/wrist matrices, torso/cap registration and fixed lower images checked",
+    "Four side-fall body keys visited; baseline query retains three original keys and final sword matrices; actual shared-arm shoulder/elbow/wrist matrices, torso/cap registration and fixed lower images checked",
     "Yielded shoulder/arm joints, fixed palm heel during roll, open-hand wrist after lift, resting blade matrix unchanged while both arms move",
     "Actual Canvas arm, knee-to-ankle and ankle-to-shoe joints; hinged torso/cap shoulder alignment",
     "Shared lower-body URLs persist across 400 ms; actual right-panel pixels checked at 399.999/400.001 ms; fixed planted hand",

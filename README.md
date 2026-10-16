@@ -6,7 +6,7 @@
 
 ## 並行美術路線
 
-本分支新增 [《真田・六文劫》預渲染 2D 研究與參考圖](docs/routes/jigoku-2d/README.md)：Blender → 透明動畫貼圖 → 2D 引擎的另一條路線。已有文案、概念圖、[Blender 補光對照](docs/routes/jigoku-2d/RELIGHT_STUDY.md)，以及 [持槍待機／短刺動畫](docs/routes/jigoku-2d/YARI_MOTION.md)。最新為 [Phaser 燼關試槍：側倒比例與換格對照](docs/routes/jigoku-2d/COMBAT_STUDY.md)，沿用 [固定肢段、骨盆先行與雙腿連動](docs/routes/jigoku-2d/YARI_RIGID_MOTION.md)，舊模型三幀另留作歷史比較；下列 v22 仍是既有遊戲基線。
+本分支新增 [《真田・六文劫》預渲染 2D 研究與參考圖](docs/routes/jigoku-2d/README.md)：Blender → 透明動畫貼圖 → 2D 引擎的另一條路線。已有文案、概念圖、[Blender 補光對照](docs/routes/jigoku-2d/RELIGHT_STUDY.md)，以及 [持槍待機／短刺動畫](docs/routes/jigoku-2d/YARI_MOTION.md)。最新為 [Phaser 燼關試槍：低頭過渡與同步比較](docs/routes/jigoku-2d/COMBAT_STUDY.md)，沿用 [固定肢段、骨盆先行與雙腿連動](docs/routes/jigoku-2d/YARI_RIGID_MOTION.md)，舊模型三幀另留作歷史比較；下列 v22 仍是既有遊戲基線。
 
 ## 目前版本
 

@@ -1,13 +1,13 @@
 <!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>側倒換格對照</title>
 <style>:root{color-scheme:dark;font-family:system-ui;background:#11191d;color:#e8deca}body{max-width:1200px;margin:auto;padding:24px}a{color:#ddbb7e}p{line-height:1.7;color:#bcc8c9}select,button{font:inherit;padding:10px;background:#283b43;color:inherit;border:1px solid #60767d}section{display:grid;grid-template-columns:1fr 1fr;gap:12px}figure{margin:0;background:#19252c}img{width:100%;display:block}figcaption{padding:12px}table{border-collapse:collapse;margin:20px 0}th,td{padding:10px;border:1px solid #42535b}@media(max-width:650px){body{padding:12px}section{grid-template-columns:1fr}}</style>
-<body><a href="index.html">← 動作檢視</a> · <a href="../FREE_ARM_SETTLE.md">製作紀錄</a><h1>側倒換格：原比例與統一比例</h1>
+<body><a href="index.html">← 動作檢視</a> · <a href="../FREE_ARM_SETTLE.md">製作紀錄</a><h1>前輪對照：原比例與統一比例</h1>
 <p>每組都是切換前後相差 0.002 ms 的實際 Canvas 截圖，方便看出換圖跳位。舊版固定為 800ab1f；新版三格統一 0.70 倍。沒有交叉淡化。第一個交接維持原樣，後兩個交接仍有甲片、膝部與光影差異。</p>
 <label>換格時間 <select id="time"><option>1220</option><option selected>1320</option><option>1440</option></select> ms</label>
 <label>比較版本 <select id="version"><option value="current">採用：統一比例</option><option value="rejected">未採用：低頭修稿</option></select></label>
 <table><thead><tr><th>版本</th><th>身體圖層輪廓重疊率 ↑</th><th>全彩平均差 ↓</th></tr></thead><tbody id="metrics"></tbody></table>
 <section id="frames"></section>
 <p>重疊率只比較身體圖層 alpha &gt; 16 的交集／聯集，不含獨立手臂、刀及原護脛圖層。全彩差異包含畫面中的所有部件，範圍 0–255。比例修正改善了後段輪廓重疊，但全彩差異反而增加；這不是全身連續性或人體受力驗證。</p>
-<p>未採用的低頭修稿雖改善第一個交接，第二個交接卻更差，保留作比較，沒有載入動作檢視頁。</p>
+<p>未採用的低頭修稿雖改善第一個交接，第二個交接卻更差，保留作比較，前輪未作整段替換。本輪動作檢視頁已改用其中第一格作額外短暫過渡；此頁保留前輪結果。</p>
 <script type="module">
 const data=await fetch('handoff-check.json').then(r=>r.json()),time=document.querySelector('#time'),version=document.querySelector('#version');
 function draw(){const t=Number(time.value),row=data.times.find(r=>r.time===t),versions=['baseline',version.value],name=v=>v==='baseline'?'舊版':v==='current'?'統一比例':'未採用修稿';document.querySelector('#metrics').innerHTML=versions.map(v=>`<tr><td>${name(v)}</td><td>${(row[v].bodyAlphaIoU*100).toFixed(2)}%</td><td>${row[v].meanRGBDelta.toFixed(3)}</td></tr>`).join('');document.querySelector('#frames').innerHTML=versions.flatMap(v=>['before','after'].map(side=>`<figure><figcaption>${name(v)} · ${side==='before'?'切換前':'切換後'} ${t+(side==='before'?-.001:.001)} ms</figcaption><img src="handoffs/${v}/${t}-${side}.png" alt="${name(v)} ${t} ms ${side}"></figure>`)).join('');}time.onchange=version.onchange=draw;draw();

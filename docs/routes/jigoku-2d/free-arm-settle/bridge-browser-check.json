@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Two actual same-origin Canvas renderers seek to identical time; no image morphing",
+    "Pixel-identical panels before bridge and from 1260 ms onward; visibly different during bridge",
+    "Original unloaded / new bridge pose IDs at 1210 ms",
+    "Play, stop at endpoint, replay, pause, key buttons, 390 px stacked layout"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "limits": "Review playback only; two source iframes add memory and are not a production game renderer or phone performance benchmark."
+}
