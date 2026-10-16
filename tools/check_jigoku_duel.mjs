@@ -49,7 +49,7 @@ test('authored enemy poses follow preparation, cut and recovery without replayin
  s.reset();advance(s,1250);s.attack();advance(s,1000);assert.equal(s.duel.recoveryFrom,'hit');assert.equal(s.enemy.pose,0);
 });
 test('guard raises spear then absorbs on block; pause retains authored guard pose, expiry clears it',()=>{
- const {s}=setup();advance(s,1700);s.defend();assert.equal(s.duel.guardPose,0);advance(s,350);assert.equal(s.duel.guardPose,1);s.paused=true;advance(s,1000);assert.equal(s.duel.guardPose,1);s.paused=false;advance(s,230);assert.equal(s.duel.guardPose,null);s.reset();assert.equal(s.duel.guardPose,null);
+ const {s}=setup();advance(s,1700);s.defend();assert.equal(s.duel.guardPose,0);advance(s,350);assert.equal(s.duel.guardPose,2);s.paused=true;advance(s,1000);assert.equal(s.duel.guardPose,2);s.paused=false;advance(s,230);assert.equal(s.duel.guardPose,null);s.reset();assert.equal(s.duel.guardPose,null);
 });
 test('authored shoulder sockets drive both rigid arm and shared weapon throughout an actual duel',()=>{
  const {s}=setup(),art=read('duel-art'),actionRig={...rig,duelBindings:art.enemy.bindings};const poses=new Set();

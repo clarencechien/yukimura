@@ -5,7 +5,7 @@ export class DuelState {
   reset(){this.playerHP=3;this.blocks=0;this.stage='waiting';this.age=0;this.guard=0;this.cooldown=0;this.result=null;this.blocked=false;this.recoveryFrom=null;}
   get active(){return this.enabled&&!this.result;}
   get guarding(){return this.guard>0;}
-  get guardPose(){return this.guarding?(this.blocked||this.guard<100?1:0):null;}
+  get guardPose(){if(!this.guarding)return null;if(this.guard<100)return 3;if(this.blocked)return 2;return this.guard>DUEL_TIMING.guard-80?0:1;}
   defend(){if(!this.active||this.cooldown>0)return false;this.blocked=false;this.guard=DUEL_TIMING.guard;this.cooldown=DUEL_TIMING.cooldown;this.emit({type:'guard'});return true;}
   interrupt(dead=false){
     if(!this.active)return;

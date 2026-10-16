@@ -10,5 +10,5 @@
   "source": "105 actual Phaser screenshots at controlled 33/33/34 ms; not a hardware FPS benchmark",
   "rules": "Telegraph, one successful block, one counterattack; no player damage",
   "gif": "30/30/40 ms; decoded pixel comparison passed",
-  "art": "Three authored enemy body poses and two hero guard poses; enemy arm/hand/katana remain shared; actual atlas indices verified"
+  "art": "Three enemy body poses, four hero guard poses; one fixed-length hero spear plus foreground fingers; enemy arm/hand/katana shared; actual sprite transforms and indices verified"
 }

@@ -1,0 +1,312 @@
+{
+  "baselineGripStudy": {
+    "atlas": "guard-hd.webp",
+    "frameSize": [
+      1024,
+      640
+    ],
+    "palmCenters": [
+      [
+        [
+          358,
+          230
+        ],
+        [
+          585,
+          158
+        ]
+      ],
+      [
+        [
+          353,
+          289
+        ],
+        [
+          493,
+          259
+        ]
+      ]
+    ],
+    "spreads": [
+      238.14491386548653,
+      143.17821063276352
+    ],
+    "note": "Manual estimates on previous published body+weapon atlas; not automated pixel tracking."
+  },
+  "firstStudy": {
+    "path": "assets/source/jigoku-2d/guard-rig/body-first-study.png",
+    "sha256": "d53808623811ca6fe07851e7ef2d303eb3870aa509cbb2ef007d17a87690fccf",
+    "generatedFile": "exec-72243455-d6d5-44f6-92cb-f5228e48fe60.png",
+    "status": "Rejected front-hand heights; superseded by bodies.png"
+  },
+  "referenceCommit": "833111fcbb9b7872efed08f00110cd9ab4b71b89",
+  "poses": [
+    {
+      "name": "lift",
+      "sourceBox": [
+        0,
+        0,
+        793,
+        504
+      ],
+      "uniformScale": 0.9476190476190476,
+      "pasteOffset": [
+        -14,
+        82
+      ],
+      "sourceGrips": [
+        [
+          392,
+          221
+        ],
+        [
+          630,
+          145
+        ]
+      ],
+      "grips": [
+        [
+          357,
+          291
+        ],
+        [
+          583,
+          219
+        ]
+      ],
+      "fingerSourceBoxes": [
+        [
+          370,
+          202,
+          413,
+          242
+        ],
+        [
+          605,
+          122,
+          654,
+          164
+        ]
+      ],
+      "rearSole": [
+        227.64285714285714,
+        551.0714285714286
+      ],
+      "frontSole": [
+        625.6428571428571,
+        522.6428571428571
+      ],
+      "gripSpread": 237.19190542680835,
+      "frontRegistrationError": 0.1919054268083471
+    },
+    {
+      "name": "brace",
+      "sourceBox": [
+        793,
+        0,
+        1586,
+        504
+      ],
+      "uniformScale": 0.9590361445783132,
+      "pasteOffset": [
+        58,
+        77
+      ],
+      "sourceGrips": [
+        [
+          1106,
+          217
+        ],
+        [
+          1327,
+          104
+        ]
+      ],
+      "grips": [
+        [
+          358,
+          285
+        ],
+        [
+          570,
+          177
+        ]
+      ],
+      "fingerSourceBoxes": [
+        [
+          1083,
+          199,
+          1134,
+          236
+        ],
+        [
+          1303,
+          80,
+          1352,
+          123
+        ]
+      ],
+      "rearSole": [
+        227.74939759036144,
+        551.722891566265
+      ],
+      "frontSole": [
+        625.7493975903615,
+        522.9518072289156
+      ],
+      "gripSpread": 237.92435772740882,
+      "frontRegistrationError": 0.9243577274088182
+    },
+    {
+      "name": "absorb",
+      "sourceBox": [
+        0,
+        504,
+        793,
+        992
+      ],
+      "uniformScale": 0.9544364508393285,
+      "pasteOffset": [
+        -14,
+        111
+      ],
+      "sourceGrips": [
+        [
+          390,
+          713
+        ],
+        [
+          631,
+          642
+        ]
+      ],
+      "grips": [
+        [
+          358,
+          310
+        ],
+        [
+          588,
+          243
+        ]
+      ],
+      "fingerSourceBoxes": [
+        [
+          367,
+          693,
+          410,
+          735
+        ],
+        [
+          607,
+          618,
+          654,
+          661
+        ]
+      ],
+      "rearSole": [
+        228.42685851318944,
+        550.9952038369304
+      ],
+      "frontSole": [
+        626.4268585131894,
+        523.31654676259
+      ],
+      "gripSpread": 239.5600133578223,
+      "frontRegistrationError": 2.5600133578222994
+    },
+    {
+      "name": "lower",
+      "sourceBox": [
+        793,
+        504,
+        1586,
+        992
+      ],
+      "uniformScale": 0.961352657004831,
+      "pasteOffset": [
+        56,
+        108
+      ],
+      "sourceGrips": [
+        [
+          1108,
+          717
+        ],
+        [
+          1353,
+          669
+        ]
+      ],
+      "grips": [
+        [
+          359,
+          313
+        ],
+        [
+          594,
+          267
+        ]
+      ],
+      "fingerSourceBoxes": [
+        [
+          1086,
+          697,
+          1130,
+          739
+        ],
+        [
+          1328,
+          647,
+          1378,
+          689
+        ]
+      ],
+      "rearSole": [
+        228.08212560386474,
+        551.1835748792271
+      ],
+      "frontSole": [
+        626.0821256038647,
+        522.3429951690821
+      ],
+      "gripSpread": 239.459808736247,
+      "frontRegistrationError": 2.4598087362469983
+    }
+  ],
+  "weapon": {
+    "sourceBox": [
+      0,
+      73,
+      2164,
+      691
+    ],
+    "axisY": 286,
+    "axisLeft": 9,
+    "axisRight": 2162,
+    "sourceSize": [
+      2164,
+      618
+    ],
+    "length": 760,
+    "rearGripFromButt": 180,
+    "gripDistance": 237
+  },
+  "rgba8Bytes": {
+    "-hd": 11812864,
+    "mobile": 2953216
+  },
+  "sources": [
+    {
+      "path": "assets/source/jigoku-2d/guard-rig/bodies.png",
+      "sha256": "17ab61e74e20392c4ededb33f351cafd689c515a36ea6cb5b0a405dd98fe7eb8",
+      "generatedFile": "exec-c15ebaf5-04d7-46ba-a24a-695e52d85e29.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/guard-rig/yari.png",
+      "sha256": "6a1e5ea52caed65b852f41ed1293648f787106d51df02c323a674184dfd6599d",
+      "generatedFile": "exec-bcdd9862-041d-45d8-8232-8c6008fac0a0.png"
+    }
+  ],
+  "method": "One new clean spear, one four-body study and one targeted front-arm correction via image_gen. Uniform sole registration, cropped foreground finger layers. Same 760 px spear and 237 px grip anchors at every guard pose; drawn palm centers differ from the front anchor by under 5 px. No stretching, independent body rotation or new Blender render. This is manually registered 2D art, not verified anatomical motion."
+}
