@@ -8,7 +8,7 @@
     "nb_read_frames": "90"
   },
   "source": "90 actual Phaser screenshots with controlled 33/33/34 ms clock; not a device FPS benchmark",
-  "sweep": "Six silhouettes held over 32 simulation frames: two shared boundary frames, two preserved low poses, two new transitions; no interpolated body frames",
+  "sweep": "32 simulation frames through six timing phases, using the same rigid body/arms and weapon as thrust; no body texture swap",
   "gif": "30/30/40 ms timings, decoded pixels checked against palette frames",
-  "residentTextureChecks": "Every captured start/end sweep sample binds extracted sweepBoundary cells 0 / 1; old full idle/thrust atlases are no longer loaded"
+  "residentTextureChecks": "Every captured sweep phase reuses hero-lower plus the same limb parts and spear; old sweep/boundary textures are no longer loaded"
 }

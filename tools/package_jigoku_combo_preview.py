@@ -16,13 +16,13 @@ for i,expected in enumerate(gifs):
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=width,height,avg_frame_rate,nb_read_frames,duration','-of','json',str(OUT/'combo-30fps.mp4')]))['streams'][0]
 assert probe['avg_frame_rate']=='30/1' and int(probe['nb_read_frames'])==90 and abs(float(probe['duration'])-3)<.001
 rows=json.loads((OUT/'combo-capture.json').read_text())
-for pose,texture,frame in [(0,'sweepBoundary',0),(5,'sweepBoundary',1)]:
- samples=[r for r in rows if r['sweepPose']==pose];assert samples
- assert all(r['texture']==texture and r['heroFrame']==frame for r in samples),'Rendered boundary must use resident source cell'
+for phase in range(6):
+ samples=[r for r in rows if r['sweepPose']==phase];assert samples
+ assert all(r['texture']=='hero-lower' and r['heroArt']['action']=='sweep' and r['heroWeapon']['visible'] for r in samples),'Every sweep phase uses the shared body, arms and spear'
 plate=Image.new('RGB',(1200,1125))
 for i in range(6):
  row=next(r for r in rows if r['sweepPose']==i)
  im=Image.open(TMP/f"{row['sample']:03}.png").convert('RGB');plate.paste(im.resize((600,375),Image.Resampling.LANCZOS),((i%2)*600,(i//2)*375))
 plate.save(OUT/'combo-sequence.jpg',quality=94)
-(OUT/'combo-video-check.json').write_text(json.dumps({'passed':True,'video':probe,'source':'90 actual Phaser screenshots with controlled 33/33/34 ms clock; not a device FPS benchmark','sweep':'Six silhouettes held over 32 simulation frames: two shared boundary frames, two preserved low poses, two new transitions; no interpolated body frames','gif':'30/30/40 ms timings, decoded pixels checked against palette frames','residentTextureChecks':'Every captured start/end sweep sample binds extracted sweepBoundary cells 0 / 1; old full idle/thrust atlases are no longer loaded'},indent=2)+'\n')
+(OUT/'combo-video-check.json').write_text(json.dumps({'passed':True,'video':probe,'source':'90 actual Phaser screenshots with controlled 33/33/34 ms clock; not a device FPS benchmark','sweep':'32 simulation frames through six timing phases, using the same rigid body/arms and weapon as thrust; no body texture swap','gif':'30/30/40 ms timings, decoded pixels checked against palette frames','residentTextureChecks':'Every captured sweep phase reuses hero-lower plus the same limb parts and spear; old sweep/boundary textures are no longer loaded'},indent=2)+'\n')
 print('Verified combo capture: 90 frames, 30 fps, 3 seconds.')

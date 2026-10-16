@@ -5,9 +5,6 @@ import assert from 'node:assert/strict';
 // This does not simply trust the pose module's exported tip or length.
 export function assertHeroWeapon(row,guardRig){
  const w=row.heroWeapon;
- if(row.phase==='attack'&&row.attackKind==='sweep'){
-  assert.equal(w.visible,false);assert.ok(w.hands.every(h=>!h.visible));return;
- }
  assert.equal(w.visible,true);assert.equal(w.texture,'guardYari');
  const rigged=row.heroArt.action!=='guard';
  assert.equal(row.texture,rigged?'hero-lower':'guardBody');
@@ -19,7 +16,7 @@ export function assertHeroWeapon(row,guardRig){
  const scale=760/(r.axisRight-r.axisLeft),rear=map(r.axisLeft+180/scale,r.axisY),front=map(r.axisLeft+417/scale,r.axisY);
  assert.ok(Math.hypot(rear.x-p.palms[0].x,rear.y-p.palms[0].y)<1e-6);
  assert.ok(Math.hypot(front.x-p.palms[1].x,front.y-p.palms[1].y)<3);
- if(row.phase==='attack'&&row.attackKind==='thrust')assert.ok(Math.hypot(tip.x-row.tip.x,tip.y-row.tip.y)<1e-6,'Visible blade endpoint equals collision track');
+ if(row.phase==='attack')assert.ok(Math.hypot(tip.x-row.collisionTip.x,tip.y-row.collisionTip.y)<1e-6,'Visible blade endpoint equals collision track');
  assert.ok(w.order>w.bodyOrder);
  const mapPart=(sprite,name,point)=>{
   const layer=rig.layers[name],a=sprite.angle*Math.PI/180;

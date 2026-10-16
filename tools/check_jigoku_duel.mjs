@@ -6,7 +6,7 @@ import {enemyArm,closedGrip} from '../docs/routes/jigoku-2d/combat/enemy-arm.mjs
 import {enemyWeapon} from '../docs/routes/jigoku-2d/combat/enemy-weapon.mjs';
 const read=name=>JSON.parse(fs.readFileSync(`docs/routes/jigoku-2d/combat/${name}.json`));
 const rig=read('enemy-rig');
-function setup(){const events=[];const s=new CombatState(read('shared-spear-track'),e=>events.push(e),read('sweep-track'));s.startDuel();return {s,events};}
+function setup(){const events=[];const s=new CombatState(read('shared-spear-track'),e=>events.push(e),read('shared-sweep-track'));s.startDuel();return {s,events};}
 function advance(s,ms,step=10){while(ms>0){const dt=Math.min(ms,step);s.update(dt);ms-=dt;}}
 test('practice stays passive; duel warns before one timed hit; no repeated strike damage',()=>{
  const {s,events}=setup();s.startDuel(false);advance(s,10000);assert.equal(s.duel.playerHP,3);assert.equal(events.length,0);

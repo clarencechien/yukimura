@@ -29,3 +29,9 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `thrust-rig/first-study.png` 與 `bodies-study.png` 是兩次 image gen 的全身動作候選稿；握距、身高與站距不一致，未進入遊戲。第三次 image gen 以既有 guard-lower 裁切圖作參考，產出 `body-clean.png`，只取對齊後的胸甲／頭盔層。下身、雙臂及手掌則從原 `guard-body-hd.webp` 的第四格切出，保留原圖造型。沒有使用外部角色資產或新增 Blender／Modal 渲染。
 
 `tools/prepare_shared_thrust.py` 記錄手工關節、遮罩、單一等比例對齊、來源 SHA256 與生成檔名，輸出八個部件與 `combat/thrust-rig.json`。`hero-rig.mjs` 用固定長度平面 IK 與腰身剛性旋轉控制短刺；同一槍長、握點與槍尖判定由共用變換提供。原下身可見像素、alpha 與兩張舊橫掃交接格子均有像素檢查；本輪仍非三維人體或承重模擬。
+
+### 共用人物低掃（2026-10-16）
+
+低掃延用 `thrust-rig` 的同一套八個部件、`guard-rig` 的同一把槍；本輪沒有新增生成圖、Blender／Modal 渲染或角色貼圖。`hero-rig.mjs` 新增固定臂長低掃曲線，`prepare_shared_spear_track.mjs` 同時輸出短刺及低掃的實際槍尖座標。`shared-sweep-track.json` 保留原 32 幀、9–16 有效幀；六個時段只是動作時間標記，並非六張人物圖。
+
+原 `sweep*.webp`、`sweep-boundary*.webp` 與 `sweep-track.json` 保留作歷史重建與對照，不再載入遊戲。`shared-hero-art-check.json` 記錄目前實際載入貼圖，逐一核對與 `d44c03f` 位元組完全相同，並重新計算記憶體估算。`thrust-rig.json` 的 `rgba8Bytes` 仍記錄前輪打包產物（含已不載入的交接圖），不是目前遊戲的載入成本。

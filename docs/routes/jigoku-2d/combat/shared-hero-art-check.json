@@ -1,15 +1,17 @@
 {
+  "baselineCommit": "d44c03f275e5e4749c0edbfbfe2d6f36067edd48",
   "passed": true,
   "checks": [
     "Original planted lower-body visible pixels and alpha retained exactly in HD",
     "All four desktop/mobile legacy sweep boundary cells preserve visible pixels and alpha",
-    "All active texture dimensions <=4096; no full idle/thrust atlases loaded by game.mjs"
+    "All active texture dimensions <=4096; no legacy idle/thrust/sweep or sweep-boundary atlases loaded by game.mjs",
+    "Every active character texture is byte-identical to baseline; no newly generated character art"
   ],
   "memory": {
     "desktop": {
-      "currentRGBA8Bytes": 96403696,
-      "previousRGBA8Bytes": 278462636,
-      "savedRGBA8Bytes": 182058940,
+      "currentRGBA8Bytes": 80675056,
+      "previousRGBA8Bytes": 96403696,
+      "savedRGBA8Bytes": 15728640,
       "loadedTextures": [
         {
           "path": "hero-lower-hd.webp",
@@ -18,7 +20,8 @@
             234
           ],
           "rgba8Bytes": 687024,
-          "downloadBytes": 106218
+          "downloadBytes": 106218,
+          "sha256": "57dcf5b9d0daebd6bb5f31f03cde54d8bdc21d6a230013ae32917886c59f5029"
         },
         {
           "path": "hero-torso-hd.webp",
@@ -27,7 +30,8 @@
             269
           ],
           "rgba8Bytes": 658512,
-          "downloadBytes": 77280
+          "downloadBytes": 77280,
+          "sha256": "70a77b98dc6d30ea34bdb4c4ead3fa8d0ca1f2dee88983528d2ccc1835868ba7"
         },
         {
           "path": "hero-rearUpper-hd.webp",
@@ -36,7 +40,8 @@
             74
           ],
           "rgba8Bytes": 25456,
-          "downloadBytes": 9736
+          "downloadBytes": 9736,
+          "sha256": "501aec9afae59fe318e87d4474a47c0af6da994326cd4ea9de5f29205cfec781"
         },
         {
           "path": "hero-rearFore-hd.webp",
@@ -45,7 +50,8 @@
             58
           ],
           "rgba8Bytes": 17864,
-          "downloadBytes": 7004
+          "downloadBytes": 7004,
+          "sha256": "549af79bd7ed9e00aab67a891d3098ccf6bce661282f2ae5163382fba8d0b00f"
         },
         {
           "path": "hero-rearHand-hd.webp",
@@ -54,7 +60,8 @@
             55
           ],
           "rgba8Bytes": 10560,
-          "downloadBytes": 4592
+          "downloadBytes": 4592,
+          "sha256": "526302756e2e45af98ee2d65e98b96cf256afd071ce3fc8afc73655f049127b8"
         },
         {
           "path": "hero-frontUpper-hd.webp",
@@ -63,7 +70,8 @@
             61
           ],
           "rgba8Bytes": 16836,
-          "downloadBytes": 6244
+          "downloadBytes": 6244,
+          "sha256": "fea33c12015b3b5793924ec522dfc6d5ce1fc3aff52356097ba4f8124d0ff91f"
         },
         {
           "path": "hero-frontFore-hd.webp",
@@ -72,7 +80,8 @@
             61
           ],
           "rgba8Bytes": 16836,
-          "downloadBytes": 6504
+          "downloadBytes": 6504,
+          "sha256": "c858dabfa67198c19c37f21d310f3d63e211d95a0f95f7a7fb6d8c36b610ad68"
         },
         {
           "path": "hero-frontHand-hd.webp",
@@ -81,16 +90,8 @@
             51
           ],
           "rgba8Bytes": 8772,
-          "downloadBytes": 3990
-        },
-        {
-          "path": "sweep-boundary-hd.webp",
-          "size": [
-            2048,
-            640
-          ],
-          "rgba8Bytes": 5242880,
-          "downloadBytes": 226166
+          "downloadBytes": 3990,
+          "sha256": "5c99a9fe69837aef1a0018facc51bf3227b3e586e0a133be511b6dc987f06956"
         },
         {
           "path": "guard-body-hd.webp",
@@ -99,7 +100,8 @@
             1280
           ],
           "rgba8Bytes": 10485760,
-          "downloadBytes": 829920
+          "downloadBytes": 829920,
+          "sha256": "79425974ffdaae0ac312272fd1c5be2b2fd0038ee39809f3c24f22ee3ff6a43d"
         },
         {
           "path": "guard-hands-hd.webp",
@@ -108,7 +110,8 @@
             128
           ],
           "rgba8Bytes": 131072,
-          "downloadBytes": 29896
+          "downloadBytes": 29896,
+          "sha256": "4ec4fdab7d88812488ec3fa8ea18f8563d69bbe8e64f35ad4ff6a3c917306934"
         },
         {
           "path": "guard-yari-hd.webp",
@@ -117,7 +120,8 @@
             292
           ],
           "rgba8Bytes": 1196032,
-          "downloadBytes": 54536
+          "downloadBytes": 54536,
+          "sha256": "9559ff42ed1cd996ac9fa7e52fc1407174ec3602975878f7c84dae1372c5a7f9"
         },
         {
           "path": "enemy-duel-hd.webp",
@@ -126,7 +130,8 @@
             768
           ],
           "rgba8Bytes": 10616832,
-          "downloadBytes": 767864
+          "downloadBytes": 767864,
+          "sha256": "7c7d3864031fb7fa1e244e0a946e3709bad181e28d36cc8f54d17e92ca77d0de"
         },
         {
           "path": "enemy-low-hd.webp",
@@ -135,7 +140,8 @@
             1536
           ],
           "rgba8Bytes": 14155776,
-          "downloadBytes": 1076442
+          "downloadBytes": 1076442,
+          "sha256": "9c36b38bb5556426f8907b8a75cd19d882576d6f06f8dab284b4840432dafbfc"
         },
         {
           "path": "ghost-warrior-hd.webp",
@@ -144,16 +150,8 @@
             3072
           ],
           "rgba8Bytes": 42467328,
-          "downloadBytes": 2810320
-        },
-        {
-          "path": "sweep-hd.webp",
-          "size": [
-            2048,
-            1280
-          ],
-          "rgba8Bytes": 10485760,
-          "downloadBytes": 988872
+          "downloadBytes": 2810320,
+          "sha256": "92b0a9534143a242a487216549207004458264c13fb81010fd0529c0fbc71ee2"
         },
         {
           "path": "enemy-upper.webp",
@@ -162,7 +160,8 @@
             88
           ],
           "rgba8Bytes": 21824,
-          "downloadBytes": 9148
+          "downloadBytes": 9148,
+          "sha256": "a47466448e374f60a86f3e56e6c3675ec8892b1f6b233529c6649e310c4d50f4"
         },
         {
           "path": "enemy-fore.webp",
@@ -171,7 +170,8 @@
             94
           ],
           "rgba8Bytes": 25944,
-          "downloadBytes": 9974
+          "downloadBytes": 9974,
+          "sha256": "f6c8ae3dbb1a3825f7bb058f4a5594ed4796ca655184a4be92364b1e70e59f63"
         },
         {
           "path": "enemy-relax.webp",
@@ -180,7 +180,8 @@
             67
           ],
           "rgba8Bytes": 16616,
-          "downloadBytes": 6030
+          "downloadBytes": 6030,
+          "sha256": "a49974f00dba66d0c835a31a422f1d26c544019844797c9d7f8b86abf2c62549"
         },
         {
           "path": "enemy-open.webp",
@@ -189,7 +190,8 @@
             71
           ],
           "rgba8Bytes": 17324,
-          "downloadBytes": 6936
+          "downloadBytes": 6936,
+          "sha256": "5824977cab35750d5a668bf342cdb25f6d46af0f9904969b57d099e7f8b5938e"
         },
         {
           "path": "enemy-katana.webp",
@@ -198,7 +200,8 @@
             51
           ],
           "rgba8Bytes": 83640,
-          "downloadBytes": 16612
+          "downloadBytes": 16612,
+          "sha256": "5e91dcb37d058dc13f6f85f648eb99287e1c990ce300090a2ce3aa5f4cc37c76"
         },
         {
           "path": "enemy-grip.webp",
@@ -207,14 +210,15 @@
             57
           ],
           "rgba8Bytes": 15048,
-          "downloadBytes": 5802
+          "downloadBytes": 5802,
+          "sha256": "405690eaaa41b909dede83963148c9eeef8ad17b997cb605d544516043bb7610"
         }
       ]
     },
     "mobile": {
-      "currentRGBA8Bytes": 37309868,
-      "previousRGBA8Bytes": 82825388,
-      "savedRGBA8Bytes": 45515520,
+      "currentRGBA8Bytes": 33377708,
+      "previousRGBA8Bytes": 37309868.0,
+      "savedRGBA8Bytes": 3932160.0,
       "loadedTextures": [
         {
           "path": "hero-lower.webp",
@@ -223,7 +227,8 @@
             117
           ],
           "rgba8Bytes": 171756,
-          "downloadBytes": 31338
+          "downloadBytes": 31338,
+          "sha256": "e1b2b3644c32d42dff7aae13393e867e3413ca2de78e2de6d25fda0236de0576"
         },
         {
           "path": "hero-torso.webp",
@@ -232,7 +237,8 @@
             134
           ],
           "rgba8Bytes": 164016,
-          "downloadBytes": 24372
+          "downloadBytes": 24372,
+          "sha256": "9b5db740546d7aefe2964ae8285fae436e10aaf534d933e05339ae9c8d58dca8"
         },
         {
           "path": "hero-rearUpper.webp",
@@ -241,7 +247,8 @@
             37
           ],
           "rgba8Bytes": 6364,
-          "downloadBytes": 3520
+          "downloadBytes": 3520,
+          "sha256": "f1f39d5a4d9ca6dffc88a58c43f62a0ec5056f9a1d6caf3f22424aa0a3e575cc"
         },
         {
           "path": "hero-rearFore.webp",
@@ -250,7 +257,8 @@
             29
           ],
           "rgba8Bytes": 4408,
-          "downloadBytes": 2560
+          "downloadBytes": 2560,
+          "sha256": "96fe25ea4911572ecc6a6f55a1e060efe1c774134491413dd0363ac03d17c773"
         },
         {
           "path": "hero-rearHand.webp",
@@ -259,7 +267,8 @@
             28
           ],
           "rgba8Bytes": 2688,
-          "downloadBytes": 1706
+          "downloadBytes": 1706,
+          "sha256": "be3d204b2f7736a8c6674776a5323a8c852b0a2a74fb7c49ce4239507005aed7"
         },
         {
           "path": "hero-frontUpper.webp",
@@ -268,7 +277,8 @@
             30
           ],
           "rgba8Bytes": 4080,
-          "downloadBytes": 2310
+          "downloadBytes": 2310,
+          "sha256": "efe636a8ede7c5a4043bf7f959553e8564b7e70a008d3c3ad3aec0c557b57198"
         },
         {
           "path": "hero-frontFore.webp",
@@ -277,7 +287,8 @@
             30
           ],
           "rgba8Bytes": 4080,
-          "downloadBytes": 2298
+          "downloadBytes": 2298,
+          "sha256": "f21affbe972eef0f411385cebb79012b970a6444928dbc035a8e85c5527e8877"
         },
         {
           "path": "hero-frontHand.webp",
@@ -286,16 +297,8 @@
             26
           ],
           "rgba8Bytes": 2288,
-          "downloadBytes": 1398
-        },
-        {
-          "path": "sweep-boundary.webp",
-          "size": [
-            1024,
-            320
-          ],
-          "rgba8Bytes": 1310720,
-          "downloadBytes": 68066
+          "downloadBytes": 1398,
+          "sha256": "5976289d6583b8823ac4c536cb7ff6930ffb904b817c94ffca5ac1bc56db12b1"
         },
         {
           "path": "guard-body.webp",
@@ -304,7 +307,8 @@
             640
           ],
           "rgba8Bytes": 2621440,
-          "downloadBytes": 238626
+          "downloadBytes": 238626,
+          "sha256": "e8ef3d3096d81532d5b5600f1c2528bf48c09002e9d4ee5afe40e5c323956941"
         },
         {
           "path": "guard-hands.webp",
@@ -313,7 +317,8 @@
             64
           ],
           "rgba8Bytes": 32768,
-          "downloadBytes": 11284
+          "downloadBytes": 11284,
+          "sha256": "ef8bb01b3eab97f2d391d57b148e2b7d334730eb6653b8744b3a895623b85152"
         },
         {
           "path": "guard-yari.webp",
@@ -322,7 +327,8 @@
             146
           ],
           "rgba8Bytes": 299008,
-          "downloadBytes": 16454
+          "downloadBytes": 16454,
+          "sha256": "b5dd7b574dfd4772c5826a76963af94a2d035683dbca1beb9b9c841e9f199cfe"
         },
         {
           "path": "enemy-duel.webp",
@@ -331,7 +337,8 @@
             512
           ],
           "rgba8Bytes": 4718592,
-          "downloadBytes": 376274
+          "downloadBytes": 376274,
+          "sha256": "1548b9413bc440a5e60f65eda8ebaedf351149b4066c3943a762fd4a7e648a4e"
         },
         {
           "path": "enemy-low.webp",
@@ -340,7 +347,8 @@
             1024
           ],
           "rgba8Bytes": 6291456,
-          "downloadBytes": 522460
+          "downloadBytes": 522460,
+          "sha256": "1b81f129999222009cdc347af90419e7720e64a1fc63449814fdd1ac1e698438"
         },
         {
           "path": "ghost-warrior.webp",
@@ -349,16 +357,8 @@
             2048
           ],
           "rgba8Bytes": 18874368,
-          "downloadBytes": 1378770
-        },
-        {
-          "path": "sweep.webp",
-          "size": [
-            1024,
-            640
-          ],
-          "rgba8Bytes": 2621440,
-          "downloadBytes": 278376
+          "downloadBytes": 1378770,
+          "sha256": "48968e59f7628633482f084859e652c655f8f4a21e02ddd7f5bbed6c4f4bc481"
         },
         {
           "path": "enemy-upper.webp",
@@ -367,7 +367,8 @@
             88
           ],
           "rgba8Bytes": 21824,
-          "downloadBytes": 9148
+          "downloadBytes": 9148,
+          "sha256": "a47466448e374f60a86f3e56e6c3675ec8892b1f6b233529c6649e310c4d50f4"
         },
         {
           "path": "enemy-fore.webp",
@@ -376,7 +377,8 @@
             94
           ],
           "rgba8Bytes": 25944,
-          "downloadBytes": 9974
+          "downloadBytes": 9974,
+          "sha256": "f6c8ae3dbb1a3825f7bb058f4a5594ed4796ca655184a4be92364b1e70e59f63"
         },
         {
           "path": "enemy-relax.webp",
@@ -385,7 +387,8 @@
             67
           ],
           "rgba8Bytes": 16616,
-          "downloadBytes": 6030
+          "downloadBytes": 6030,
+          "sha256": "a49974f00dba66d0c835a31a422f1d26c544019844797c9d7f8b86abf2c62549"
         },
         {
           "path": "enemy-open.webp",
@@ -394,7 +397,8 @@
             71
           ],
           "rgba8Bytes": 17324,
-          "downloadBytes": 6936
+          "downloadBytes": 6936,
+          "sha256": "5824977cab35750d5a668bf342cdb25f6d46af0f9904969b57d099e7f8b5938e"
         },
         {
           "path": "enemy-katana.webp",
@@ -403,7 +407,8 @@
             51
           ],
           "rgba8Bytes": 83640,
-          "downloadBytes": 16612
+          "downloadBytes": 16612,
+          "sha256": "5e91dcb37d058dc13f6f85f648eb99287e1c990ce300090a2ce3aa5f4cc37c76"
         },
         {
           "path": "enemy-grip.webp",
@@ -412,7 +417,8 @@
             57
           ],
           "rgba8Bytes": 15048,
-          "downloadBytes": 5802
+          "downloadBytes": 5802,
+          "sha256": "405690eaaa41b909dede83963148c9eeef8ad17b997cb605d544516043bb7610"
         }
       ]
     }

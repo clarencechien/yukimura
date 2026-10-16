@@ -12,10 +12,10 @@
     "All captured arm segments retain 65/75 px length; closed, half-open and open hand textures actually render",
     "Fatal reaction: flinch → recoil → buckle → crouch → kneel → brace → yield → sink → lower → settle → fallen → dissolve → gone; 78 captured frames with fixed timing",
     "One fixed-size katana across all poses; hand relaxes then opens on release; dropped sword lands, fades and resets",
-    "Keyboard K queues one recovery sweep; rendered six sweep poses match timeline; two attacks deal two hits; 90 actual browser frames",
+    "Keyboard K queues one recovery sweep; shared body/arms/spear stay visible through six timing phases; two attacks deal two hits; 90 actual browser frames",
     "Nonfatal sweep: leg flinch, low stagger, authored rise and guard-settle; fatal sweep: two new textures then shared crouch, kneel, release and fade; actual body/arm/weapon checked in 78 screenshots",
     "Standalone sweep misses out-of-range warrior",
-    "Mobile touch sweep uses four 512px frames plus two extracted legacy boundary cells and deals one hit",
+    "Mobile touch sweep reuses hero cutouts and shared spear, verifies rendered joints and blade tip, and deals one hit",
     "Mobile touch attack; 512px atlas; no horizontal overflow; reduced motion"
   ],
   "pageErrors": [],

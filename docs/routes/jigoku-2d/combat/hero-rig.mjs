@@ -24,8 +24,12 @@ export function thrustPose(frame,guardRig,rig){
  const drive=envelope(frame),rest=guardRig.poses[3].grips,restAngle=angle(sub(rest[1],rest[0]));
  const axis=drive>=0?restAngle+(rad(-7)-restAngle)*drive:restAngle+rad(1)*drive;
  const shift=drive>=0?[26*drive,-4*drive]:[24*drive,-4*drive];
- const rear=add(rest[0],shift),front=add(rear,[Math.cos(axis)*237,Math.sin(axis)*237]);
- const turn=rad(drive>=0?10*drive:3*drive),handTurn=axis-restAngle;
+ const rear=add(rest[0],shift);
+ return articulatedPose(rear,axis,rad(drive>=0?10*drive:3*drive),frame,guardRig,rig,'thrust');
+}
+export function articulatedPose(rear,axis,turn,frame,guardRig,rig,action){
+ const rest=guardRig.poses[3].grips,restAngle=angle(sub(rest[1],rest[0]));
+ const front=add(rear,[Math.cos(axis)*guardRig.weapon.gripDistance,Math.sin(axis)*guardRig.weapon.gripDistance]),handTurn=axis-restAngle;
  const transforms={lower:{point:[0,0],angle:0},torso:{point:rig.hip,angle:deg(turn)}};const arms={};
  for(const [side,grip] of [['rear',rear],['front',front]]){
   const j=rig.joints[side],shoulder=add(rig.hip,rot(sub(j.shoulder,rig.hip),turn));
@@ -34,10 +38,30 @@ export function thrustPose(frame,guardRig,rig){
   solved.wristDeflection=deg(angle(sub(grip,wrist))-angle(sub(wrist,solved.elbow)));
   transforms[side+'Upper']={point:shoulder,angle:solved.upperAngle};transforms[side+'Fore']={point:solved.elbow,angle:solved.foreAngle};transforms[side+'Hand']={point:wrist,angle:deg(handTurn)};
  }
- return {action:'thrust',frame,transforms,arms,weapon:rigidSpearPose({grips:[rear,front]},guardRig.weapon,frame)};
+ return {action,frame,transforms,arms,weapon:rigidSpearPose({grips:[rear,front]},guardRig.weapon,frame)};
+}
+// Low arc in the fixed camera plane. Waist leads the blade, with identical
+// endpoints to ready/thrust. No pose swap or independent spear interpolation.
+export function sweepPose(frame,guardRig,rig){
+ const rest=guardRig.poses[3].grips,restAngle=angle(sub(rest[1],rest[0]));
+ const keys=[
+  [0,...rest[0],restAngle,0],
+  [3,351,314,rad(-15),-2],
+  [9,340,275,rad(17),12],
+  [16,350,278,rad(20),16],
+  [24,...rest[0],restAngle,0],
+  [31,...rest[0],restAngle,0]
+ ];
+ let values=keys.at(-1).slice(1);
+ for(let i=1;i<keys.length;i++)if(frame<=keys[i][0]){
+  const a=keys[i-1],b=keys[i],t=smooth((frame-a[0])/(b[0]-a[0]));
+  values=a.slice(1).map((v,j)=>v+(b[j+1]-v)*t);break;
+ }
+ const [x,y,axis,turn]=values;
+ return articulatedPose([x,y],axis,rad(turn),frame,guardRig,rig,'sweep');
 }
 export function sharedHeroPose(state,guardRig,rig){
  if(state.duel.guardPose!==null){const frame=state.duel.guardPose;return {action:'guard',frame,weapon:guardRigPose(frame,guardRig)};}
- if(state.phase==='attack'&&state.attackKind==='sweep')return null;
+ if(state.phase==='attack'&&state.attackKind==='sweep')return sweepPose(state.frame,guardRig,rig);
  const p=thrustPose(state.phase==='attack'?state.frame:0,guardRig,rig);p.action=state.phase==='attack'?'thrust':'idle';return p;
 }
