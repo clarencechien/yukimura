@@ -192,3 +192,9 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `prepare_side_fall.py` 清除 alpha ≤ 16 的低透明雜點，以 0.70／0.64／0.64 等比例註冊三格，按人工多邊形拆出胸甲、下身與肩甲；來源 SHA、縮放、位移及人工肩點見 `free-arm-settle/fall.json`。貼地衣料留在下身層，避免胸甲平移時衣料穿地。裁片保留註冊後可見 RGB，沒有非等比變形或交叉淡化。
 
 新增九張裁片 RGBA8 約 1.133 MiB；雙臂、張掌及刀均共用既有素材。180 張實際 Canvas 畫布錄為 30 fps／6 秒影片。1401 個新側倒取樣確認可見像素不超過 Y=690，但原畫換格仍有輪廓及腰甲接縫；這是獨立動畫試作，未替換正式遊戲，也未新增 Blender／Modal 工作。
+
+### 側倒低頭修稿，未採用（2026-10-16）
+
+- `ghost-rig/side-fall-bowed-head.png`：一次 image gen，以既有 `side-fall-breakdowns.png` 和上一輪 `free-arm-settle/pose-1180.png` 為參考；要求只把第一格頭盔壓低並略微放大，保留其餘身體及三格版面。原始生成檔 `exec-f6ae6579-5f55-4f2c-be52-6e2b59e42618.png`，2172×724 RGBA，原檔完整保存。
+- 實驗只取第一格，第二、三格仍取原來源；等比例 0.70／0.64／0.64，手臂仍沿用原素材。來源、肩點、偏移與裁切記錄在 `docs/routes/jigoku-2d/free-arm-settle/handoffs/rejected/registration.json`。先以地面檢查調整位置，再量測換格。
+- 未採用：1220 ms 的身體圖層輪廓重疊改善，但 1320 ms 從 77.38% 降至 69.24%，不能只看第一格就替換。實際截圖與比較報告保留；正式動作檢視仍使用原來源三格，統一比例為 0.70。沒有新增第三方素材、Blender 或 Modal 運算。

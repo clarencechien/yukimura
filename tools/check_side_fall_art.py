@@ -4,6 +4,7 @@ from PIL import Image,ImageDraw
 import numpy as np,json,hashlib,subprocess
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/routes/jigoku-2d/free-arm-settle';m=json.loads((OUT/'fall.json').read_text());source=ROOT/m['source'];assert hashlib.sha256(source.read_bytes()).hexdigest()==m['sha256'];sheet=Image.open(source).convert('RGBA');memory=0;bounds={}
 for i,f in enumerate(m['frames']):
+ source=ROOT/f['source'];assert hashlib.sha256(source.read_bytes()).hexdigest()==f['sha256'];sheet=Image.open(source).convert('RGBA')
  r=f['registration'];raw=sheet.crop(r['box']);a=np.array(raw);a[a[:,:,3]<=m['alphaCleanupThreshold'],3]=0;raw=Image.fromarray(a);small=raw.resize((round(raw.width*r['scale']),round(raw.height*r['scale'])),Image.Resampling.LANCZOS);frame=Image.new('RGBA',(1152,768));frame.alpha_composite(small,r['offset']);assert sum(a*n for a,n in enumerate(frame.getchannel('A').histogram()))==sum(a*n for a,n in enumerate(small.getchannel('A').histogram()))
  union=np.zeros((768,1152),dtype=np.uint8)
  for name,p in f['parts'].items():

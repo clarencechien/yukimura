@@ -1,9 +1,9 @@
 {
   "passed": true,
   "samples": 1401,
-  "partsRGBA8MiB": 1.1330642700195312,
-  "maximumVisibleBodyY": 689.3233852809287,
-  "maxTorsoTranslationPx": 19.79631290328955,
+  "partsRGBA8MiB": 1.2536354064941406,
+  "maximumVisibleBodyY": 689.0,
+  "maxTorsoTranslationPx": 15.660148068529956,
   "sourceSHA256": "464e82d4c5a28f294f65dcafdf7da862fbbecc349d3e414b86b1dfc846766082",
   "checks": [
     "New body/cap/lower parts match uniformly registered source pixels and declared alpha cleanup/masks; their alpha union preserves the full registered silhouette",

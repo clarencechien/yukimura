@@ -1,0 +1,110 @@
+{
+  "baselineCommit": "800ab1ff49c7314ba8aa9acf4d4cee0b044fb6a0",
+  "passed": true,
+  "times": [
+    {
+      "time": 1220,
+      "baseline": {
+        "bodyAlphaIoU": 0.7786245523827013,
+        "bodyAlphaXorPixels": 9644,
+        "meanRGBDelta": 6.677517171717172
+      },
+      "current": {
+        "bodyAlphaIoU": 0.7786245523827013,
+        "bodyAlphaXorPixels": 9644,
+        "meanRGBDelta": 6.677517171717172
+      },
+      "rejected": {
+        "bodyAlphaIoU": 0.7956557986525765,
+        "bodyAlphaXorPixels": 9069,
+        "meanRGBDelta": 6.730678787878788
+      }
+    },
+    {
+      "time": 1320,
+      "baseline": {
+        "bodyAlphaIoU": 0.7738427746291726,
+        "bodyAlphaXorPixels": 8340,
+        "meanRGBDelta": 4.872543434343434
+      },
+      "current": {
+        "bodyAlphaIoU": 0.8224097129334293,
+        "bodyAlphaXorPixels": 6904,
+        "meanRGBDelta": 5.204780808080808
+      },
+      "rejected": {
+        "bodyAlphaIoU": 0.6923853512026451,
+        "bodyAlphaXorPixels": 12188,
+        "meanRGBDelta": 4.862795959595959
+      }
+    },
+    {
+      "time": 1440,
+      "baseline": {
+        "bodyAlphaIoU": 0.8728071571842465,
+        "bodyAlphaXorPixels": 3995,
+        "meanRGBDelta": 3.836708080808081
+      },
+      "current": {
+        "bodyAlphaIoU": 0.8750100109453002,
+        "bodyAlphaXorPixels": 4682,
+        "meanRGBDelta": 4.704990909090909
+      },
+      "rejected": {
+        "bodyAlphaIoU": 0.8294866196743809,
+        "bodyAlphaXorPixels": 5467,
+        "meanRGBDelta": 3.8945747474747474
+      }
+    }
+  ],
+  "capture": {
+    "beforeOffsetMs": -0.001,
+    "afterOffsetMs": 0.001,
+    "canvasCrop": [
+      600,
+      65,
+      600,
+      550
+    ],
+    "bodyMaskAlphaThreshold": 16
+  },
+  "imageSHA256": {
+    "handoffs/baseline/1220-before-body.png": "5c55cacef3db69f275ee6fa012d7f579aac29c4288212dd1cd548fd3d9c3ab67",
+    "handoffs/baseline/1220-after-body.png": "0fcf6152ad8fa350edae922b5c50b3bc6e621c81993a996af98ae36ae930bd73",
+    "handoffs/baseline/1220-before.png": "1f5bccd05e468a16796c6c34c3ba12d93ca34e4b55f1e7ab71ba301e114ce25d",
+    "handoffs/baseline/1220-after.png": "52e7c50d1e0ffc55ba930d37b8a63d47063e9853896ff9cba0315da17f5a06b0",
+    "handoffs/current/1220-before-body.png": "5c55cacef3db69f275ee6fa012d7f579aac29c4288212dd1cd548fd3d9c3ab67",
+    "handoffs/current/1220-after-body.png": "0fcf6152ad8fa350edae922b5c50b3bc6e621c81993a996af98ae36ae930bd73",
+    "handoffs/current/1220-before.png": "1f5bccd05e468a16796c6c34c3ba12d93ca34e4b55f1e7ab71ba301e114ce25d",
+    "handoffs/current/1220-after.png": "52e7c50d1e0ffc55ba930d37b8a63d47063e9853896ff9cba0315da17f5a06b0",
+    "handoffs/rejected/1220-before-body.png": "5c55cacef3db69f275ee6fa012d7f579aac29c4288212dd1cd548fd3d9c3ab67",
+    "handoffs/rejected/1220-after-body.png": "aeaecd7553604d438bd0d3ff586eb9b76561b0bcff26c2617a17a5c1c386c104",
+    "handoffs/rejected/1220-before.png": "1f5bccd05e468a16796c6c34c3ba12d93ca34e4b55f1e7ab71ba301e114ce25d",
+    "handoffs/rejected/1220-after.png": "7d650672865af93ac9acc9a8d9a2b774db24e552c364f2033d868b41795d67da",
+    "handoffs/baseline/1320-before-body.png": "98dd40c7dc239e03d7ee4767f2b6d747aa77260149003c0d8679c91ddfb3cc6f",
+    "handoffs/baseline/1320-after-body.png": "b2ce42a49b28aaea2f2263dd47bb282288fcebf82feca915f441500b7dbc13e2",
+    "handoffs/baseline/1320-before.png": "cb426b856094a94499681fe4dd5adc556bd62f4c6029d7888b4d2f08200e026b",
+    "handoffs/baseline/1320-after.png": "8c1982fcfd495bf93b5950d002df4a26de9c0050cf55d29e0eee92dd88cfa402",
+    "handoffs/current/1320-before-body.png": "ac060359b536abee3f07aa52e51fcc2c8e8be66de1a4d369eb1d02b53e74be7d",
+    "handoffs/current/1320-after-body.png": "12a5cb14a0f3a5eb780b650dbc159137284775c8e0952f3e7114f1c1baf3033c",
+    "handoffs/current/1320-before.png": "5290a01f180b9bbee9cde7e0aaaa1a0f30e16dbc380de8a92cd0623115d11772",
+    "handoffs/current/1320-after.png": "4ae428abdfe095accfe30ed183628c67e20f1fe6662649c26460b4bf0125f363",
+    "handoffs/rejected/1320-before-body.png": "7783e2f383557f8af19e2ef105dd7a4a5809ec73fd2f1d7c0cb0b6febac601e8",
+    "handoffs/rejected/1320-after-body.png": "3b95f4f436b886e862773f3960520f40df2149810c341135ade608f8ff8e311d",
+    "handoffs/rejected/1320-before.png": "b72dd09d4b3a67cf73c2a498ee1e34f297663e13a0a1ea581a0224b400567dce",
+    "handoffs/rejected/1320-after.png": "3a09f07f6b9c3d5a5e2d9171bd1a7632ac43905ec44d848f510c858e1604b9c6",
+    "handoffs/baseline/1440-before-body.png": "b057e189e6f3e899acc2d4f4202a8fc2b981720f4668bf4fff3d68a47e63fda0",
+    "handoffs/baseline/1440-after-body.png": "6a64ae2c8d4b7bfa3b7355180733cb4b83d6d9cac218b4980983ccc94635b186",
+    "handoffs/baseline/1440-before.png": "14edb27cacefd84a67ae63d32ad592619944c1ad92d3e55e712f8a6c4afe7c55",
+    "handoffs/baseline/1440-after.png": "f8e0d6baa6b878baa7481fd3393e5231ac5b0f0c314f66f2e5cd730a780e5424",
+    "handoffs/current/1440-before-body.png": "a0cbc69da5035550f38f28f54ef652a859e42ccf2cf13216271c5dc831534f33",
+    "handoffs/current/1440-after-body.png": "1ec20a6b290fadc63285797f4b8474a47dcdce04d4bafcc366a0cb5f03f79cb3",
+    "handoffs/current/1440-before.png": "cd09a1cce518e7166dd794a40155d94fe0f25635ebd850a26f9e996895aeee49",
+    "handoffs/current/1440-after.png": "64f6877a4ed3ca743e75fe1abb7976414d4a806eca6200d79178d7830b8e924b",
+    "handoffs/rejected/1440-before-body.png": "a7cfe3672426e28373be494ba79bee8d5401e14231e108641873f051200ce921",
+    "handoffs/rejected/1440-after-body.png": "013883605e7d45e048899929cc953b96f6c4f55e7897216886a1b09e1230878b",
+    "handoffs/rejected/1440-before.png": "c019783df53b6113fb05b92b50c0450884e7a927a86ff34c5a32245c4ffad28a",
+    "handoffs/rejected/1440-after.png": "099cc680df0f4ef3d9b2b7629a3483351ae6048dab099c4f020c13eba234b112"
+  },
+  "limits": "Body-layer alpha excludes separate arms, weapon and articulated leg draw calls. RGB uses the complete cropped render. Higher IoU does not validate anatomy, reduce all color changes, or imply continuous animation. Current first handoff is unchanged; later RGB differences increase despite improved normalized silhouette overlap. Rejected redraw is retained only for comparison."
+}
