@@ -1,8 +1,8 @@
 {
   "passed": true,
   "checks": [
-    "thrust: real touch, mobile textures, shared fatal impact/load, sequential foot lift and contact shadows, pause, authored handoff, release/landing/fade",
-    "sweep: real touch, mobile textures, shared fatal impact/load, sequential foot lift and contact shadows, pause, authored handoff, release/landing/fade"
+    "thrust: real touch, mobile textures, shared fatal impact/load, sequential foot lift and contact shadows, pause, pose-3 buckle sprite and weapon after handoff, release/landing/fade",
+    "sweep: real touch, mobile textures, shared fatal impact/load, sequential foot lift and contact shadows, pause, pose-3 buckle sprite and weapon after handoff, release/landing/fade"
   ],
   "pageErrors": [],
   "failedRequests": [],

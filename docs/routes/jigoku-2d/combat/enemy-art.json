@@ -24,6 +24,11 @@
       "path": "assets/source/jigoku-2d/ghost-rig/recoil-buckle.png",
       "sha256": "5dc033021a73ee3e414f60f42b4c5a49ed7247b30647de674b323587d8cd822c",
       "generatedFile": "exec-17f529c0-11a1-4b9e-9f13-1f1dd94f658e.png"
+    },
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/buckle-consistent.png",
+      "sha256": "223d37276ac580cd3adb755d1235209794f67ed2b182095e3218bbfe78c76993",
+      "generatedFile": "exec-e2f2ffcf-0b34-4107-a70a-094c83b50f53.png"
     }
   ],
   "method": "Three image_gen arm removal edits of bodies-a/b/c.png, followed by three repairs restoring mistakenly removed near arms. Far arms are now separate runtime upper/forearm/grip layers. Generative cleanup can change details and proportions. Manual shoulder anchors and fixed-length 2D IK, no new Blender rendering.",
@@ -108,7 +113,7 @@
     },
     {
       "pose": "buckle",
-      "source": 4,
+      "source": 5,
       "sourceBox": [
         0,
         0,
@@ -116,10 +121,10 @@
         1024
       ],
       "sourceAnchor": [
-        760.5223880597015,
-        920
+        780.0995024875623,
+        979.1044776119404
       ],
-      "uniformScale": 0.67,
+      "uniformScale": 0.5025,
       "alignedAnchor": [
         576,
         690
@@ -291,5 +296,38 @@
   "worldScaleFromHD": 0.6,
   "worldGroundY": 574,
   "hdRGBA8Bytes": 42467328,
-  "mobileRGBA8Bytes": 18874368
+  "mobileRGBA8Bytes": 18874368,
+  "buckleConsistency": {
+    "baselineCommit": "893bb9df5ef78290a2e2b8e963e215e2abfde1ac",
+    "source": {
+      "path": "assets/source/jigoku-2d/ghost-rig/buckle-consistent.png",
+      "sha256": "223d37276ac580cd3adb755d1235209794f67ed2b182095e3218bbfe78c76993",
+      "generatedFile": "exec-e2f2ffcf-0b34-4107-a70a-094c83b50f53.png"
+    },
+    "referenceFilesAtBaseline": [
+      "assets/source/jigoku-2d/ghost-rig/recoil-buckle.png",
+      "docs/routes/jigoku-2d/combat/enemy-body-torso-hd.webp",
+      "docs/routes/jigoku-2d/combat/enemy-footwork-thrust-handoff.jpg"
+    ],
+    "uniformScale": 0.5025,
+    "offsetHD": [
+      184,
+      198
+    ],
+    "sourceShoulder": [
+      553,
+      319
+    ],
+    "sourceSoleCenters": [
+      [
+        520,
+        971
+      ],
+      [
+        1080,
+        975
+      ]
+    ],
+    "method": "One image_gen edit matching shared torso helmet/face and closed free fist. Uniform resize and translation only; pose 3 replaced in both existing atlases. Shoulder/soles remeasured, detached sword-arm reach retained. Anatomy and knee silhouette still differ."
+  }
 }

@@ -92,3 +92,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 角色貼圖與 `78d090c` 位元組相同。新增 `enemy-footwork.mjs`，在待機原畫手工標記鞋底中心左 `[373,686]`、右 `[775,674]`，末端沿用 `enemy-rig.json` 屈膝圖原有的鞋底標記。先右腳 10–75 ms、後左腳 85–175 ms，兩步間保留 10 ms 雙腳支撐；離地高度分別為原畫 10／18 px，腿長固定，保留既有膝向。
 
 同一足部變換用於腿部求解、腳部 sprite 與接觸陰影；陰影留在腳下平面，抬腳時變淡而不是貼在鞋上。這些是人工二維註冊點與動作曲線，不是解剖、壓力或力學量測。空手側及頭盔等輪廓仍需修圖。`enemy-footwork-check.json` 記錄前後真實錄影配對時刻、實際腳部圖層投影鞋底中心距離與陰影命令。新圖皆為實際截圖裁切排版；沒有新增 image gen、Blender、Modal 或第三方資源。
+
+
+### 屈膝原畫一致性修稿（2026-10-16）
+
+新增 `ghost-rig/buckle-consistent.png`，保留 image gen 原始輸出位元組，生成檔名 `exec-e2f2ffcf-0b34-4107-a70a-094c83b50f53.png`。參考 `893bb9d` 的舊 `recoil-buckle.png`、實際共用 `enemy-body-torso-hd.webp` 及 `enemy-footwork-thrust-handoff.jpg`；要求保留屈膝姿勢、縮小頭盔／肩甲的視覺差異、面罩朝前、空手側改為與前姿勢一致的握拳。持刀側下臂刻意不畫，遊戲仍接既有手臂。
+
+生成圖尺寸為 1536×1024，但人物在畫布中變大；`prepare_buckle_consistency.py` 以 0.5025 等比例縮放並平移 `[184,198]` 到 1152×768 原畫格。肩點 `[553,319]`、鞋底中心 `[520,971]`／`[1080,975]` 為手工標記；原持刀臂局部目標 `[-20.1,97.15]` 保留，因該手臂不在新原畫裡，未宣稱重新量到其腕關節。只替換兩個解析度的第 3 格，未改其餘 22 格的可見像素。來源 SHA、註冊與參考檔記錄於 `enemy-art.json` 的 `buckleConsistency`。
+
+既有圖集尺寸不變；未新增 Blender／Modal 渲染或第三方素材。修稿仍有空手臂角度、膝甲、衣帶及頭部位置的差異，不能以接點誤差小於 1 px 宣稱整個輪廓連續。`buckle-consistency-*-comparison.jpg` 與 `sequence.jpg` 是實際 Phaser 錄影裁切排版，不是生成動畫。

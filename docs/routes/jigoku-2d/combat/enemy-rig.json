@@ -183,31 +183,29 @@
     {
       "pose": "buckle",
       "wrist": [
-        441.65,
-        455.5
+        441.78249999999997,
+        455.4475
       ],
       "shoulder": [
-        461.75,
-        358.34999999999997
+        461.8825,
+        358.2975
       ],
-      "sourceWrist": [
-        560,
-        570
-      ],
+      "sourceWrist": null,
       "sourceShoulder": [
-        590,
-        425
+        553,
+        319
       ],
       "footContacts": [
         [
-          445.0,
-          686.65
+          445.29999999999995,
+          685.9275
         ],
         [
-          726.4,
-          687.32
+          726.6999999999999,
+          687.9375
         ]
-      ]
+      ],
+      "registrationNote": "Shoulder and soles manually inspected on new body; detached far arm is absent, so local wrist reach retains the prior authored offset, not a new anatomical landmark."
     },
     {
       "pose": "crouch",

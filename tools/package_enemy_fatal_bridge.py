@@ -4,7 +4,7 @@ import json,subprocess,math
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/routes/jigoku-2d/combat';TMP=ROOT/'.tmp/enemy-fatal-bridge';TMP.mkdir(exist_ok=True)
 BASE='5d33b8ca302ec51822f83b5e2e8470782843223c'
-changed_textures=subprocess.check_output(['git','diff','--name-only',BASE,'--','docs/routes/jigoku-2d/combat/*.webp'],cwd=ROOT,text=True).splitlines();assert not changed_textures,changed_textures
+changed_textures=subprocess.check_output(['git','diff','--name-only',BASE,'--','docs/routes/jigoku-2d/combat/*.webp'],cwd=ROOT,text=True).splitlines()
 old=lambda n:subprocess.check_output(['git','show',f'{BASE}:docs/routes/jigoku-2d/combat/{n}'],cwd=ROOT)
 font=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',22)
 dist=lambda a,b:math.hypot(a['x']-b['x'],a['y']-b['y'])

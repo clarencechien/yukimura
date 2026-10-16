@@ -5,7 +5,7 @@ from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'docs/routes/jigoku-2d/combat';TMP=ROOT/'.tmp/enemy-footwork';TMP.mkdir(exist_ok=True)
 BASE='78d090ccb51826fcaa4bbffee31b620a7f26c773'
 old=lambda n:subprocess.check_output(['git','show',f'{BASE}:docs/routes/jigoku-2d/combat/{n}'],cwd=ROOT)
-assert not subprocess.check_output(['git','diff','--name-only',BASE,'--','docs/routes/jigoku-2d/combat/*.webp'],cwd=ROOT)
+changed_textures=subprocess.check_output(['git','diff','--name-only',BASE,'--','docs/routes/jigoku-2d/combat/*.webp'],cwd=ROOT,text=True).splitlines()
 font=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',22)
 soles={'left':(373,686),'right':(775,674)};boxes={'left':(315,610,445,700),'right':(685,615,815,700)}
 rig=json.loads((OUT/'enemy-rig.json').read_text())
@@ -14,7 +14,7 @@ def mapped(row,side):
  return [p['x']+x*math.cos(a)-y*math.sin(a),p['y']+x*math.sin(a)+y*math.cos(a)]
 def target(row,i):
  x,y=rig['bindings'][3]['footContacts'][i];return [row['target']['x']+(x-576)*.6,574+(y-690)*.6]
-report={'baselineCommit':BASE,'source':'Previous committed MP4 and current actual Phaser screenshots. No synthesized or interpolated frames.','soleLandmarksHD':soles,'unchangedCharacterTextures':True,'scope':'Manual source sole centers projected through actual sprite transforms. Not optical flow, actual pressure, contact dynamics, or physical phone FPS. Only fatal first 180 ms changes. Helmet/empty arm/silhouette and later authored collapse remain discontinuous.','attacks':{}}
+report={'baselineCommit':BASE,'source':'Previous committed MP4 and current actual Phaser screenshots. No synthesized or interpolated frames.','soleLandmarksHD':soles,'unchangedCharacterTextures':not changed_textures,'changedCharacterTextureFiles':changed_textures,'scope':'Manual source sole centers projected through actual sprite transforms. Not optical flow, actual pressure, contact dynamics, or physical phone FPS. Only fatal first 180 ms changes. Helmet/empty arm/silhouette and later authored collapse remain discontinuous.','attacks':{}}
 for kind,video,meta,frames in [('thrust','combat-30fps.mp4','capture-timing.json','frames'),('sweep','low-hit-30fps.mp4','low-capture.json','low-frames')]:
  (TMP/f'{kind}-before.mp4').write_bytes(old(video));subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(TMP/f'{kind}-before.mp4'),'-start_number','0',str(TMP/f'{kind}-before-%03d.png')],check=True)
  previous=json.loads(old(meta));current=json.loads((OUT/meta).read_text());shared=[r for r in current if r['hp']==0 and r['enemyBodyPose']]

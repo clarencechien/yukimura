@@ -41,11 +41,11 @@ for row in budget.values():
  for texture in row['loadedTextures']:
   name=OUT/texture['path']
   texture['sha256']=hashlib.sha256(name.read_bytes()).hexdigest()
-  if texture['path'].startswith('enemy-body-'):continue # Independently verified by check_enemy_body_art.py
+  if texture['path'].startswith(('enemy-body-','ghost-warrior')):continue # Independently verified by check_enemy_body_art.py / check_buckle_consistency_art.py
   before=subprocess.check_output(['git','show',f'{baseline}:{name.relative_to(ROOT)}'],cwd=ROOT)
   assert name.read_bytes()==before,texture['path']
   texture['sha256']=hashlib.sha256(before).hexdigest()
-checks.append('Retained textures are byte-identical to baseline; enemy body now uses eight mechanically cropped parts, verified separately; no new generated art')
+checks.append('Retained hero/arm/weapon textures are byte-identical to baseline; shared body cutouts and the one redrawn buckle atlas cell are verified separately')
 report={'baselineCommit':baseline,'passed':True,'checks':checks,'memory':budget,'scope':'RGBA8 character texture estimate only; excludes background, render targets, driver overhead and mipmaps. Not a hardware GPU measurement.'}
 (OUT/'shared-hero-art-check.json').write_text(json.dumps(report,indent=2)+'\n')
 print(checks);print({k:{n:round(v/1048576,3) for n,v in row.items() if n.endswith('Bytes')} for k,row in budget.items()})

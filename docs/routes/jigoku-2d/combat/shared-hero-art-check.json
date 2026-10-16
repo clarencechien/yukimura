@@ -5,7 +5,7 @@
     "Seven rigid lower-body cutouts retain source colors and declared masks; no opaque lower silhouette holes at rest",
     "All four desktop/mobile legacy sweep boundary cells preserve visible pixels and alpha",
     "All active texture dimensions <=4096; no legacy idle/thrust/sweep/boundary/guard atlases loaded by game.mjs",
-    "Retained textures are byte-identical to baseline; enemy body now uses eight mechanically cropped parts, verified separately; no new generated art"
+    "Retained hero/arm/weapon textures are byte-identical to baseline; shared body cutouts and the one redrawn buckle atlas cell are verified separately"
   ],
   "memory": {
     "desktop": {
@@ -180,8 +180,8 @@
             3072
           ],
           "rgba8Bytes": 42467328,
-          "downloadBytes": 2810320,
-          "sha256": "92b0a9534143a242a487216549207004458264c13fb81010fd0529c0fbc71ee2"
+          "downloadBytes": 2814508,
+          "sha256": "821cd2374c01bd6b6721bdf12ffd23da9e7afc22526532c14495d40208cb0e21"
         },
         {
           "path": "enemy-body-torso-hd.webp",
@@ -497,8 +497,8 @@
             2048
           ],
           "rgba8Bytes": 18874368,
-          "downloadBytes": 1378770,
-          "sha256": "48968e59f7628633482f084859e652c655f8f4a21e02ddd7f5bbed6c4f4bc481"
+          "downloadBytes": 1382590,
+          "sha256": "2c25b5eec41b5edfb24270d983523fc51912f61359f52733a4d077e1b81ec3f5"
         },
         {
           "path": "enemy-body-torso.webp",

@@ -105,3 +105,7 @@ rig={'parts':parts,'bindings':bindings,'armLengths':[65,75],'relaxAge':430,'rele
  'extraRGBA8Bytes':sum(v['size'][0]*v['size'][1]*4 for v in parts.values())}
 (OUT/'enemy-rig.json').write_text(json.dumps(rig,indent=2)+'\n')
 print('Packed shared two-bone arm, three hand states, katana and twelve shoulder bindings.')
+
+# Apply the later registered pose-3 consistency repair after the base atlas/rig.
+import runpy
+runpy.run_path(str(ROOT/'tools/prepare_buckle_consistency.py'))
