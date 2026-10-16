@@ -10,10 +10,13 @@ font=ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc'
 plate=Image.new('RGB',(1200,1720),'#1b2328');draw=ImageDraw.Draw(plate);draw.text((18,12),'前輪 · 待機與短刺使用舊圖集',font=font,fill='#e0c9a2');draw.text((618,12),'本輪 · 同造型、固定雙臂與共用槍',font=font,fill='#e0c9a2')
 report=[]
 for i,(row,label) in enumerate(zip(selected,['同一待機造型','收槍蓄勢','送槍命中','回到戒備'])):
- sample=row['sample'];before=previous[sample];assert before['duel']['stage']==row['duel']['stage'];assert before['hp']==row['hp'] and before['duel']['playerHP']==row['duel']['playerHP']
- old.seek(sample);a=old.convert('RGB').resize((600,375),Image.Resampling.LANCZOS);b=Image.open(TMP/f'{sample:03}.png').convert('RGB').resize((600,375),Image.Resampling.LANCZOS)
+ sample=row['sample']
+ candidates=[b for b in previous if b['phase']==row['phase'] and b['duel']['stage']==row['duel']['stage'] and b['hp']==row['hp'] and b['duel']['playerHP']==row['duel']['playerHP'] and (row['phase']!='attack' or b['frame']==row['frame'])]
+ assert candidates,(row['phase'],row['frame'],row['hp'])
+ before=min(candidates,key=lambda b:abs(b['sample']-sample))
+ old.seek(before['sample']);a=old.convert('RGB').resize((600,375),Image.Resampling.LANCZOS);b=Image.open(TMP/f'{sample:03}.png').convert('RGB').resize((600,375),Image.Resampling.LANCZOS)
  y=50+i*415;plate.paste(a,(0,y));plate.paste(b,(600,y));draw.text((18,y+378),label,font=font,fill='#e0c9a2')
- report.append({'sample':sample,'stage':row['duel']['stage'],'enemyPose':row['enemy']['pose'],'heroAction':row['heroArt']['action'],'heroFrame':row['frame'],'heroArms':row['heroArt'].get('arms'),'armOrder':row['armOrder'],'guardWeaponWidth':row['heroWeapon']['width'],'frontRegistrationError':row['heroWeapon']['pose']['registrationError']})
+ report.append({'sample':sample,'beforeSample':before['sample'],'stage':row['duel']['stage'],'enemyPose':row['enemy']['pose'],'heroAction':row['heroArt']['action'],'heroFrame':row['frame'],'heroArms':row['heroArt'].get('arms'),'armOrder':row['armOrder'],'guardWeaponWidth':row['heroWeapon']['width'],'frontRegistrationError':row['heroWeapon']['pose']['registrationError']})
 plate.save(OUT/'duel-motion-comparison.jpg',quality=94)
-(OUT/'duel-motion-check.json').write_text(json.dumps({'baselineCommit':BASE,'source':'Previous committed GIF decoded at matching sample; new actual browser PNG resized identically. Same stage and health asserted, palette/noise can differ.','selected':report,'limits':'Idle, thrust and sweep share fixed-length arm/leg IK, planted feet and one spear; guard now uses the same continuous articulated rig. No 3D anatomy/force simulation.'},indent=2)+'\n')
+(OUT/'duel-motion-check.json').write_text(json.dumps({'baselineCommit':BASE,'source':'Previous committed GIF matched by phase, rule stage, health and exact attack frame (idle uses ready pose); new actual browser PNG resized identically. Sample indices may differ and are recorded; palette/noise can differ.','selected':report,'limits':'Idle, thrust and sweep share fixed-length arm/leg IK, planted feet and one spear; guard now uses the same continuous articulated rig. No 3D anatomy/force simulation.'},indent=2)+'\n')
 print('Compared four actual gameplay samples against 37e0c12; matching rule stages and HP verified.')

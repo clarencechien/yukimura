@@ -30,12 +30,12 @@ for suffix,name in [('-hd','desktop'),('','mobile')]:
  for n in names:
   im=Image.open(OUT/n);assert max(im.size)<=4096;rows.append({'path':n,'size':im.size,'rgba8Bytes':im.width*im.height*4,'downloadBytes':(OUT/n).stat().st_size})
  current=sum(r['rgba8Bytes'] for r in rows)
- previous=json.loads(subprocess.check_output(['git','show','cd2ae36:docs/routes/jigoku-2d/combat/shared-hero-art-check.json'],cwd=ROOT))['memory'][name]['currentRGBA8Bytes']
+ previous=json.loads(subprocess.check_output(['git','show','8a6cfb0:docs/routes/jigoku-2d/combat/shared-hero-art-check.json'],cwd=ROOT))['memory'][name]['currentRGBA8Bytes']
  budget[name]={'currentRGBA8Bytes':current,'previousRGBA8Bytes':previous,'savedRGBA8Bytes':previous-current,'loadedTextures':rows}
 checks.append('All active texture dimensions <=4096; no legacy idle/thrust/sweep/boundary/guard atlases loaded by game.mjs')
 code=(OUT/'game.mjs').read_text();assert '../yari-rigid/' not in code and "this.load.spritesheet('sweep'," not in code and "this.load.spritesheet('sweepBoundary'," not in code
 assert "this.load.spritesheet('guardBody'" not in code and "this.load.spritesheet('guardHands'" not in code
-baseline='cd2ae3687948a846f80318c167f1cf5a37fa4a0a'
+baseline='8a6cfb0c8fd9e98967edbd26d7ae75a9927b94ab'
 for row in budget.values():
  for texture in row['loadedTextures']:
   name=OUT/texture['path']

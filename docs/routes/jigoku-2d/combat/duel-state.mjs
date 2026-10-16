@@ -2,11 +2,11 @@
 export const DUEL_TIMING={waiting:1200,windup:850,strike:180,recovery:1400,guard:580,cooldown:1100};
 export class DuelState {
   constructor(emit){this.emit=emit;this.enabled=false;this.reset();}
-  reset(){this.playerHP=3;this.blocks=0;this.stage='waiting';this.age=0;this.guard=0;this.cooldown=0;this.result=null;this.blocked=false;this.blockAge=null;this.recoveryFrom=null;}
+  reset(){this.playerHP=3;this.blocks=0;this.stage='waiting';this.age=0;this.guard=0;this.cooldown=0;this.result=null;this.blocked=false;this.blockAge=null;this.guardAtBlock=null;this.recoveryFrom=null;}
   get active(){return this.enabled&&!this.result;}
   get guarding(){return this.guard>0;}
   get guardPose(){if(!this.guarding)return null;if(this.guard<100)return 3;if(this.blocked)return 2;return this.guard>DUEL_TIMING.guard-80?0:1;}
-  defend(){if(!this.active||this.cooldown>0)return false;this.blocked=false;this.blockAge=null;this.guard=DUEL_TIMING.guard;this.cooldown=DUEL_TIMING.cooldown;this.emit({type:'guard'});return true;}
+  defend(){if(!this.active||this.cooldown>0)return false;this.blocked=false;this.blockAge=null;this.guardAtBlock=null;this.guard=DUEL_TIMING.guard;this.cooldown=DUEL_TIMING.cooldown;this.emit({type:'guard'});return true;}
   interrupt(dead=false){
     if(!this.active)return;
     if(dead){this.result='victory';this.guard=0;this.emit({type:'victory'});return;}
@@ -22,9 +22,9 @@ export class DuelState {
     if(this.stage==='waiting'||this.stage==='recovery'){
       this.stage='windup';this.emit({type:'warning'});
     }else if(this.stage==='windup'){
-      this.stage='strike';this.blocked=false;this.blockAge=null;
+      this.stage='strike';this.blocked=false;this.blockAge=null;this.guardAtBlock=null;
       if(range==='far')this.emit({type:'enemy-miss'});
-      else if(this.guarding){this.blocks++;this.blocked=true;this.blockAge=0;this.emit({type:'block'});}
+      else if(this.guarding){this.blocks++;this.blocked=true;this.blockAge=0;this.guardAtBlock=this.guard;this.emit({type:'block'});}
       else{this.playerHP--;if(this.playerHP===0)this.result='defeat';this.emit({type:this.result?'defeat':'player-hit'});}
     }else{this.stage='recovery';this.recoveryFrom='attack';}
   }

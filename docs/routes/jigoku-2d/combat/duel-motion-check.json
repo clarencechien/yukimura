@@ -1,9 +1,10 @@
 {
   "baselineCommit": "37e0c1293bd9b97d3a5fc76719f94498139635cb",
-  "source": "Previous committed GIF decoded at matching sample; new actual browser PNG resized identically. Same stage and health asserted, palette/noise can differ.",
+  "source": "Previous committed GIF matched by phase, rule stage, health and exact attack frame (idle uses ready pose); new actual browser PNG resized identically. Sample indices may differ and are recorded; palette/noise can differ.",
   "selected": [
     {
       "sample": 0,
+      "beforeSample": 0,
       "stage": "waiting",
       "enemyPose": 0,
       "heroAction": "idle",
@@ -68,7 +69,8 @@
       "frontRegistrationError": 0
     },
     {
-      "sample": 43,
+      "sample": 42,
+      "beforeSample": 42,
       "stage": "recovery",
       "enemyPose": 18,
       "heroAction": "thrust",
@@ -133,7 +135,8 @@
       "frontRegistrationError": 0
     },
     {
-      "sample": 52,
+      "sample": 51,
+      "beforeSample": 52,
       "stage": "recovery",
       "enemyPose": 1,
       "heroAction": "thrust",
@@ -198,7 +201,8 @@
       "frontRegistrationError": 2.842170943040401e-14
     },
     {
-      "sample": 64,
+      "sample": 63,
+      "beforeSample": 64,
       "stage": "recovery",
       "enemyPose": 1,
       "heroAction": "thrust",

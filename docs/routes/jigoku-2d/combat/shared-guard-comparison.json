@@ -134,59 +134,59 @@
       "guard": {
         "elapsed": 336,
         "weight": 1,
-        "recoil": 0.877962434259955,
-        "impactAge": 43
+        "recoil": 0.7487843726521413,
+        "impactAge": 37
       },
       "hp": 3,
       "playerHP": 3,
       "arms": {
         "rear": {
           "shoulder": [
-            325.8191646096459,
-            255.37987993936287
+            325.9483426712537,
+            255.12152381614726
           ],
           "elbow": [
-            281.26647279364647,
-            257.3942413638777
+            281.41016857536425,
+            257.4347570953993
           ],
           "wrist": [
-            331.8172409462208,
-            271.16449332906234
+            332.0755970694364,
+            270.7769591442389
           ],
           "upper": 44.59820624195551,
           "fore": 52.39274758971894,
-          "upperAngle": 45.13755921162931,
-          "foreAngle": -8.391478652665027,
+          "upperAngle": 44.75314198817696,
+          "foreAngle": -8.876090962336246,
           "grip": [
-            348.2440751314801,
-            272.63388730277984
+            348.5024312546957,
+            272.2463531179564
           ],
           "handAngle": -8.92469266623727,
-          "wristDeflection": -10.126348276302647
+          "wristDeflection": -9.64173596663143
         },
         "front": {
           "shoulder": [
-            504.89211343431094,
-            277.78253601490223
+            505.0212914959187,
+            277.52417989168663
           ],
           "elbow": [
-            541.4839916002376,
-            243.05452927264903
+            541.279141693123,
+            242.44757374061936
           ],
           "wrist": [
-            560.4927344347469,
-            202.3277850392649
+            560.7510905579626,
+            201.94025085444147
           ],
           "upper": 50.44799302251775,
           "fore": 44.94441010848846,
-          "upperAngle": -82.87229206039802,
-          "foreAngle": -32.704078744726175,
+          "upperAngle": -83.42062965526274,
+          "foreAngle": -32.05067152554575,
           "grip": [
-            570.9512262577404,
-            191.57511333459635
+            571.209582380956,
+            191.18757914977292
           ],
           "handAngle": -8.92469266623727,
-          "wristDeflection": 19.18513274722256
+          "wristDeflection": 18.531725528042134
         }
       }
     },
@@ -198,7 +198,7 @@
         "elapsed": 528,
         "weight": 0.529984,
         "recoil": 0,
-        "impactAge": 235
+        "impactAge": 229
       },
       "hp": 3,
       "playerHP": 3,
@@ -255,5 +255,5 @@
     }
   ],
   "source": "Baseline committed MP4 decoded and new actual browser PNG, matched at equal remaining guard time, block count and health. Identical resize; baseline video compression may differ.",
-  "limits": "Planar rig, not 3D anatomy or force simulation. Enemy attack damage still uses timing/range rather than physical blade contact."
+  "limits": "Planar rig, not 3D anatomy or force simulation. Block timing/range drives the authored planar blade/shaft alignment; this is not a general collision or force solver."
 }

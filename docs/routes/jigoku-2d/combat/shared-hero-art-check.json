@@ -1,5 +1,5 @@
 {
-  "baselineCommit": "cd2ae3687948a846f80318c167f1cf5a37fa4a0a",
+  "baselineCommit": "8a6cfb0c8fd9e98967edbd26d7ae75a9927b94ab",
   "passed": true,
   "checks": [
     "Seven rigid lower-body cutouts retain source colors and declared masks; no opaque lower silhouette holes at rest",
@@ -10,8 +10,8 @@
   "memory": {
     "desktop": {
       "currentRGBA8Bytes": 69841872,
-      "previousRGBA8Bytes": 80458704,
-      "savedRGBA8Bytes": 10616832,
+      "previousRGBA8Bytes": 69841872,
+      "savedRGBA8Bytes": 0,
       "loadedTextures": [
         {
           "path": "hero-lower-hd.webp",
@@ -257,8 +257,8 @@
     },
     "mobile": {
       "currentRGBA8Bytes": 30668624,
-      "previousRGBA8Bytes": 33322832,
-      "savedRGBA8Bytes": 2654208,
+      "previousRGBA8Bytes": 30668624,
+      "savedRGBA8Bytes": 0,
       "loadedTextures": [
         {
           "path": "hero-lower.webp",

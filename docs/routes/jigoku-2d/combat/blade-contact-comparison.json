@@ -1,0 +1,232 @@
+{
+  "baselineCommit": "8a6cfb0c8fd9e98967edbd26d7ae75a9927b94ab",
+  "selected": [
+    {
+      "beforeSample": 28,
+      "afterSample": 28,
+      "beforeBlockAge": 11,
+      "afterBlockAge": 5,
+      "blockSampleOffsetMS": -6,
+      "remainingGuardMS": 276,
+      "hp": 3,
+      "playerHP": 3,
+      "contact": {
+        "weight": 1,
+        "target": {
+          "x": 676.2581309259757,
+          "y": 254.04362784552654
+        },
+        "point": {
+          "x": 676.2581309259756,
+          "y": 254.04362784552666
+        },
+        "mark": {
+          "x": 44.91160682588816,
+          "y": 18.982321365177633
+        },
+        "gap": 1.6077746776921858e-13
+      },
+      "clashEvent": {
+        "weight": 1,
+        "target": {
+          "x": 676.3047124436316,
+          "y": 253.97375556904274
+        },
+        "point": {
+          "x": 676.3047124436315,
+          "y": 253.9737555690428
+        },
+        "mark": {
+          "x": 44.922824673354626,
+          "y": 18.984564934670924
+        },
+        "gap": 1.2710574864626038e-13,
+        "weapon": {
+          "held": true,
+          "landed": false,
+          "wrist": {
+            "x": 282.96832381368614,
+            "y": 385.6937518951598
+          },
+          "grip": {
+            "x": 250.33304094696248,
+            "y": 386.42744952288837
+          },
+          "angle": 52.68473530208375,
+          "alpha": 1
+        },
+        "arm": {
+          "shoulder": {
+            "x": 394.94,
+            "y": 330.55999999999995
+          },
+          "elbow": {
+            "x": 357.9493774380072,
+            "y": 384.0080480698424
+          },
+          "wrist": {
+            "x": 282.96832381368614,
+            "y": 385.6937518951598
+          },
+          "upperAngle": 34.686549224916945,
+          "foreAngle": 88.71210868718737,
+          "handState": "grip",
+          "handAngle": 52.68473530208375,
+          "alpha": 1
+        }
+      }
+    },
+    {
+      "beforeSample": 29,
+      "afterSample": 29,
+      "beforeBlockAge": 43,
+      "afterBlockAge": 37,
+      "blockSampleOffsetMS": -6,
+      "remainingGuardMS": 244,
+      "hp": 3,
+      "playerHP": 3,
+      "contact": {
+        "weight": 1,
+        "target": {
+          "x": 674.8071436983273,
+          "y": 256.2201086869991
+        },
+        "point": {
+          "x": 674.8071436983273,
+          "y": 256.2201086869991
+        },
+        "mark": {
+          "x": 44.53266406804323,
+          "y": 18.906532813608646
+        },
+        "gap": 0
+      },
+      "clashEvent": {
+        "weight": 1,
+        "target": {
+          "x": 676.3047124436316,
+          "y": 253.97375556904274
+        },
+        "point": {
+          "x": 676.3047124436315,
+          "y": 253.9737555690428
+        },
+        "mark": {
+          "x": 44.922824673354626,
+          "y": 18.984564934670924
+        },
+        "gap": 1.2710574864626038e-13,
+        "weapon": {
+          "held": true,
+          "landed": false,
+          "wrist": {
+            "x": 282.96832381368614,
+            "y": 385.6937518951598
+          },
+          "grip": {
+            "x": 250.33304094696248,
+            "y": 386.42744952288837
+          },
+          "angle": 52.68473530208375,
+          "alpha": 1
+        },
+        "arm": {
+          "shoulder": {
+            "x": 394.94,
+            "y": 330.55999999999995
+          },
+          "elbow": {
+            "x": 357.9493774380072,
+            "y": 384.0080480698424
+          },
+          "wrist": {
+            "x": 282.96832381368614,
+            "y": 385.6937518951598
+          },
+          "upperAngle": 34.686549224916945,
+          "foreAngle": 88.71210868718737,
+          "handState": "grip",
+          "handAngle": 52.68473530208375,
+          "alpha": 1
+        }
+      }
+    },
+    {
+      "beforeSample": 33,
+      "afterSample": 33,
+      "beforeBlockAge": 171,
+      "afterBlockAge": 165,
+      "blockSampleOffsetMS": -6,
+      "remainingGuardMS": 116,
+      "hp": 3,
+      "playerHP": 3,
+      "contact": {
+        "weight": 0.6108762027681728,
+        "target": {
+          "x": 676.3047124436316,
+          "y": 253.97375556904274
+        },
+        "point": {
+          "x": 689.2249112919408,
+          "y": 288.0518884272512
+        },
+        "mark": {
+          "x": 44.922824673354626,
+          "y": 18.984564934670924
+        },
+        "gap": 36.44517358144362
+      },
+      "clashEvent": {
+        "weight": 1,
+        "target": {
+          "x": 676.3047124436316,
+          "y": 253.97375556904274
+        },
+        "point": {
+          "x": 676.3047124436315,
+          "y": 253.9737555690428
+        },
+        "mark": {
+          "x": 44.922824673354626,
+          "y": 18.984564934670924
+        },
+        "gap": 1.2710574864626038e-13,
+        "weapon": {
+          "held": true,
+          "landed": false,
+          "wrist": {
+            "x": 282.96832381368614,
+            "y": 385.6937518951598
+          },
+          "grip": {
+            "x": 250.33304094696248,
+            "y": 386.42744952288837
+          },
+          "angle": 52.68473530208375,
+          "alpha": 1
+        },
+        "arm": {
+          "shoulder": {
+            "x": 394.94,
+            "y": 330.55999999999995
+          },
+          "elbow": {
+            "x": 357.9493774380072,
+            "y": 384.0080480698424
+          },
+          "wrist": {
+            "x": 282.96832381368614,
+            "y": 385.6937518951598
+          },
+          "upperAngle": 34.686549224916945,
+          "foreAngle": 88.71210868718737,
+          "handState": "grip",
+          "handAngle": 52.68473530208375,
+          "alpha": 1
+        }
+      }
+    }
+  ],
+  "source": "Previous committed MP4 and new actual browser PNG, matched at identical remaining guard time, rule stage, block count and health. Block-event sample times may differ by up to 16 ms and are recorded per pair; resized identically. Detail is an enlarged crop of the same screenshot.",
+  "limits": "Authored planar geometric contact after rule timing determines a block. No general collision/force solver. Torso still uses discrete poses."
+}

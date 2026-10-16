@@ -47,3 +47,9 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 格擋現由 `hero-rig.mjs` 的連續曲線控制同一十四個人物部件及 `guard-yari`，不再載入 `guard-body`／`guard-hands` 圖集。這些圖仍保留供原畫裁切與歷史重建；`guard-rig.json` 的待機握點、武器規格亦繼續使用。其餘三組格擋握點僅作歷史資料，不能當成現行動作路徑。
 
 本輪沒有新增 image gen、Blender、Modal 或第三方素材。`shared-hero-art-check.json` 以 `cd2ae36` 核對全部使用中的角色貼圖位元組相同，重新計算移除舊圖集後的成本。架槍路徑經平面固定臂長檢查，擋中承力使用遊戲時鐘；不是動捕、三維骨骼或力學求解。新增對照來自同一格擋時間與血量的實際瀏覽器錄影。
+
+### 刀槍接觸對齊（2026-10-16）
+
+`duel-contact.mjs` 在既有 `enemy-katana.webp` 的鋼面內標記接觸折線 `[[14,10],[40,18],[100,30],[170,34]]`，依目標位置選取刀刃上的接觸點，再求解固定 65／75 px 雙臂。手、刀共用相同握點與角度，武器不縮放；由實際刀圖標記推回世界座標產生火星。最後 240 ms 蓄刀接近、格擋後最多 65 ms 相抵、300 ms 內鬆開接觸，並保留既有戰鬥判定時刻。
+
+本輪全部角色貼圖與 `8a6cfb0` 位元組相同，沒有新增生成圖、Blender、Modal 或第三方來源。`blade-contact-art-check.json` 記錄刀圖 SHA256 與標記透明度檢查；`blade-contact-comparison.json` 對照相同防禦剩餘時間及血量的實際瀏覽器畫面，並記錄格擋事件後的取樣時間差。此為平面接觸編排，不是自由兵器碰撞或剛體求解，軀幹仍沿用既有關鍵姿勢。
