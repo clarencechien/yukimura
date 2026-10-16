@@ -110,3 +110,10 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `prepare_crouch_consistency.py` 以 0.49 等比例縮放、平移 `[138,234]`，只替換兩個解析度的第 4 格。手工標記來源肩點 `[520,390]`、鞋底中心 `[631,909]`／`[1206,930]`；原持刀臂局部目標 `[-65,121]` 保留，因新圖沒有這隻手臂，未宣稱量到新腕關節。肩點、鞋底相對前輪的原畫位移分別為 10.595、4.661、3.700 px；沒有為了強行重合而非等比變形。來源 SHA、參考格、註冊資訊在 `enemy-art.json.crouchConsistency`。
 
 素材檢查以 `f97f3a1` 為基線，逐一核對其餘 22 格可見像素、原手臂和武器資料，包含前輪已修的屈膝格。原屈膝檢查仍比對其修稿來源與原基線，蹲低改由獨立檢查負責。完整基礎圖集製作會依序套用兩次修稿，避免重建退版。沒有新 Blender／Modal 工作或第三方素材；`crouch-consistency-*-comparison.jpg`、`sequence.jpg` 為真實 Phaser 錄影畫面的裁切排版。
+
+
+### 空手承重試算與未採用跪地候選（2026-10-16）
+
+新增 `ghost-rig/kneel-reach-candidate.png`，image gen 原始輸出 `exec-7e083747-c160-473d-929f-53cc4d476368.png`，保留原始位元組。參考 `494bdc1` 的 HD 圖集第 5／4 格；透明裁切只清除 alpha=0 的不可見 RGB。要求降低肩胸、縮短近側空手臂、保留膝腳與手掌接地，持刀側空缺仍由既有部件處理。結果縮短肩腕距離，但按目前人工估計仍未符合 85／90 px 候選臂長，沒有採用到遊戲。
+
+`prepare_free_arm_study.py` 僅將生成圖等比例縮至 0.75、水平平移 −12 px，輸出獨立檢視頁的 `free-arm/candidate.webp`。來源肩／肘／腕 `[710,635]`／`[708,765]`／`[653,875]` 為手工估計，不是人體關節的精確座標。檢視頁綠色降肩骨架只是補圖規劃，沒有扭曲原畫。來源 SHA 與限制見 `free-arm/provenance.json`；沒有修改正式 `combat/` 圖集、3D 模型或線上遊戲。

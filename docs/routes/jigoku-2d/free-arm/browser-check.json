@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Original/candidate unreachable targets are reported, not silently stretched",
+    "Actual review state preserves both segment lengths and solved target",
+    "Slider, source selection, playback, pause and 30 actual canvas screenshots",
+    "390 px mobile controls and no horizontal overflow"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "scope": "Diagnostic page only; production combat is unchanged. Desktop/mobile emulation is not hardware performance measurement."
+}

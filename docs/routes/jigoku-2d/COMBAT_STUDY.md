@@ -1,4 +1,4 @@
-# 燼關試槍：蹲低原畫與伸手過渡
+# 燼關試槍：空手承重的固定骨架試算
 
 2026-10-16（UTC）。分支 `art/jigoku-prerendered-2d`。
 
@@ -7,6 +7,16 @@
 [本輪連招 30 fps 影片](combat/combo-30fps.mp4) · [打斷蓄刀 30 fps 影片](combat/enemy-recoil-30fps.mp4) · [交鋒 30 fps 影片](combat/duel-30fps.mp4) · [交鋒桌機](combat/duel-desktop.jpg) · [交鋒手機](combat/duel-mobile.jpg) · [手機承力格擋](combat/duel-mobile-guard.jpg) · [低掃擊倒 30 fps 影片](combat/low-hit-30fps.mp4) · [倒地 30 fps 影片](combat/combat-30fps.mp4) · [桌機截圖](combat/desktop.jpg) · [手機截圖](combat/mobile.jpg) · [試玩頁原始檔](combat/index.html)
 
 上方為 **實際 Phaser 場景錄製**，不是新生成的動作影片。GitHub 可看 GIF 與截圖；HTML 要透過 HTTP 靜態伺服器開啟，目前此分支尚未部署到 GitHub Pages。線上 v22 遊戲沒有替換。
+
+## 最新：先檢查空手臂能否自然接地
+
+[骨架試算與未採用修稿](FREE_ARM_STUDY.md) · [互動檢視頁原始檔](free-arm/index.html)
+
+![獨立檢視頁錄影，綠線是降肩目標，沒有驅動原畫](free-arm/reach-preview.gif)
+
+這輪新增固定長度空手臂的可達性檢查與可播放檢視頁。以候選 85／90 px 臂長計算，現行跪地圖的肩腕距離超出約 33 px；一次 image gen 試修減到約 10 px，但仍不足以確認可直接共用骨架。原畫關節是人工估計，試修稿保留作比較，**尚未替換遊戲或原圖集**。綠色骨架顯示需重畫的肩部位置，不是完成的全身動畫。
+
+已完成 3 項新骨架測試、桌機／手機檢視與素材隔離檢查；完整數值、限制與下一步見上方紀錄。以下遊戲畫面維持 `494bdc1` 的蹲低修稿版本。
 
 ## 這輪能玩什麼
 
@@ -28,7 +38,7 @@
 
 手機支援觸控；全螢幕依瀏覽器支援，亦可轉橫向。切到背景分頁會暫停，回來後手動繼續。偏好減少動態時，不啟用漂浮落燼與鏡頭震動。
 
-## 本輪：蹲低時保留同一套鎧甲，收攏伸出的手指
+## 前輪：蹲低時保留同一套鎧甲，收攏伸出的手指
 
 [短刺擊倒 30 fps MP4](combat/combat-30fps.mp4) · [低掃擊倒 30 fps MP4](combat/low-hit-30fps.mp4) · [手機蹲低・短刺](combat/crouch-consistency-thrust-mobile.jpg) · [手機蹲低・低掃](combat/crouch-consistency-sweep-mobile.jpg)
 
@@ -439,7 +449,9 @@
 
 新背景母圖為 1536×1024，參考既有地獄概念圖，以 image gen 生成一次無人物石台，再輸出 WebP。來源見 [原圖](../../../assets/source/jigoku-2d/combat-arena.png) 與 [素材紀錄](combat/art-provenance.json)。幸村待機／短刺目前使用上方共用插畫部件；舊 Blender CPU 圖集與六張舊橫掃姿勢僅保留為歷史素材，目前皆不再載入。前輪以一次 image gen 新增鬼武者兩張回穩圖，保留原低掃反應，沿用前輪手臂與武器部件，沒有重新建模或打光。沒有使用 Modal／GPU 建模。
 
-## 驗證與重建
+## 遊戲基線的驗證與重建
+
+以下保留前輪遊戲基線的驗證紀錄；本輪獨立骨架試算的 3 項測試與檢視頁重建見 [FREE_ARM_STUDY](FREE_ARM_STUDY.md)，未重跑未變動的戰鬥測試。
 
 - 本輪 **77 項規則與動作測試通過**。新增 [蹲低素材檢查](../../../tools/check_crouch_consistency_art.py)：核對修稿來源、等比例註冊、手機縮圖、其餘 22 格（含已修屈膝）的像素保留、肩與鞋底位移，以及原持刀臂偏移。既有屈膝來源檢查仍保留；兩個檢查各自使用其修稿前的提交作為基線。
 - [桌機與觸控檢查](combat/browser-check.json) 重錄短刺／低掃／連招；對僅持續 40 ms 的短暫倒地姿勢，另以每次不超過 10 ms 的觀察驗證姿勢及實際圖集格，避免 30 Hz 截圖漏拍造成誤判。影片仍按 33／33／34 ms 擷取，不補畫中間幀。

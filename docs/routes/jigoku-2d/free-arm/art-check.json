@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Candidate original SHA matches; WebP is only uniform rescale/translation of generated PNG",
+    "Candidate joint marks map to registered frame coordinates",
+    "Production combat, src and public unchanged from baseline, including no untracked runtime assets"
+  ],
+  "baselineCommit": "494bdc135e901e01831c0baccbfbf6da3791d2bd",
+  "limits": "Registration/source preservation only. Manual landmarks and reach limits are planning assumptions, not proof of anatomy."
+}

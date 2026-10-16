@@ -1,0 +1,35 @@
+{
+  "baselineCommit": "494bdc135e901e01831c0baccbfbf6da3791d2bd",
+  "candidate": {
+    "path": "assets/source/jigoku-2d/ghost-rig/kneel-reach-candidate.png",
+    "sha256": "b96084214abfe2cb42df2de65f65d882696b3d7a85dae269915e07e7971c7094",
+    "generatedFile": "exec-7e083747-c160-473d-929f-53cc4d476368.png",
+    "uniformScale": 0.75,
+    "offset": [
+      -12,
+      0
+    ],
+    "sourceNearShoulder": [
+      710,
+      635
+    ],
+    "sourceElbow": [
+      708,
+      765
+    ],
+    "sourceWrist": [
+      653,
+      875
+    ]
+  },
+  "references": {
+    "atlas": "docs/routes/jigoku-2d/combat/ghost-warrior-hd.webp",
+    "frames": [
+      5,
+      4
+    ]
+  },
+  "landmarks": "Manual projected estimates inside armor; not motion capture, 3D joint centers or a biomechanical measurement. Approximate marking uncertainty +/-8 source-frame pixels per endpoint.",
+  "method": "One image_gen kneel repair aimed at lowering shoulder and shortening near arm. Candidate remains outside the proposed fixed-arm reach and is not installed into the game. Review only: uniform resize and translation, no stretching. Green skeleton is a shoulder-lowering authoring target, not a repainted or animated body.",
+  "runtimeChanged": false
+}

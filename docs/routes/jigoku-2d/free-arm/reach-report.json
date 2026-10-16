@@ -1,0 +1,195 @@
+{
+  "lengths": [
+    85,
+    90
+  ],
+  "marks": {
+    "buckle": {
+      "frame": 3,
+      "shoulder": [
+        600,
+        341
+      ],
+      "elbow": [
+        640,
+        407
+      ],
+      "wrist": [
+        563,
+        430
+      ]
+    },
+    "crouch": {
+      "frame": 4,
+      "shoulder": [
+        507,
+        384
+      ],
+      "elbow": [
+        510,
+        470
+      ],
+      "wrist": [
+        476,
+        537
+      ]
+    },
+    "kneel": {
+      "frame": 5,
+      "shoulder": [
+        523,
+        448
+      ],
+      "elbow": [
+        517,
+        558
+      ],
+      "wrist": [
+        473,
+        650
+      ]
+    },
+    "candidate": {
+      "frame": 5,
+      "shoulder": [
+        520.5,
+        476.25
+      ],
+      "elbow": [
+        519,
+        573.75
+      ],
+      "wrist": [
+        477.75,
+        656.25
+      ]
+    }
+  },
+  "measurements": {
+    "buckle": {
+      "distance": 96.38464608017192,
+      "reachable": true,
+      "overreach": 0,
+      "miss": 0,
+      "paintedLengths": [
+        77.17512552629896,
+        80.36168241145776
+      ],
+      "pose": {
+        "shoulder": {
+          "x": 600,
+          "y": 341
+        },
+        "elbow": {
+          "x": 650.5887017163525,
+          "y": 409.306538915787
+        },
+        "wrist": {
+          "x": 563,
+          "y": 430
+        },
+        "upperAngle": -36.5241242964512,
+        "foreAngle": 76.70720569467852
+      },
+      "plannedShoulder": [
+        600,
+        341
+      ],
+      "lowering": 0
+    },
+    "crouch": {
+      "distance": 156.10893632332522,
+      "reachable": true,
+      "overreach": 0,
+      "miss": 0,
+      "paintedLengths": [
+        86.05230967266365,
+        75.13321502504735
+      ],
+      "pose": {
+        "shoulder": {
+          "x": 507,
+          "y": 384
+        },
+        "elbow": {
+          "x": 530.7933878416676,
+          "y": 465.60192825550126
+        },
+        "wrist": {
+          "x": 476,
+          "y": 537
+        },
+        "upperAngle": -16.25556200868506,
+        "foreAngle": 37.50389935112031
+      },
+      "plannedShoulder": [
+        507,
+        384
+      ],
+      "lowering": 0
+    },
+    "kneel": {
+      "distance": 208.09613163151306,
+      "reachable": false,
+      "overreach": 33.09613163151306,
+      "miss": 33.09623163151303,
+      "paintedLengths": [
+        110.16351483136329,
+        101.9803902718557
+      ],
+      "pose": {
+        "shoulder": {
+          "x": 523,
+          "y": 448
+        },
+        "elbow": {
+          "x": 502.6675231669516,
+          "y": 530.5323596284121
+        },
+        "wrist": {
+          "x": 480.9521496560345,
+          "y": 617.8733153896205
+        },
+        "upperAngle": 13.8396595645805,
+        "foreAngle": 13.962213132028197
+      },
+      "plannedShoulder": [
+        523,
+        487.51923190728075
+      ],
+      "lowering": 39.519231907280755
+    },
+    "candidate": {
+      "distance": 185.00692554604544,
+      "reachable": false,
+      "overreach": 10.006925546045437,
+      "miss": 10.007025546045513,
+      "paintedLengths": [
+        97.51153777887004,
+        92.23780407186634
+      ],
+      "pose": {
+        "shoulder": {
+          "x": 520.5,
+          "y": 476.25
+        },
+        "elbow": {
+          "x": 500.9498279793624,
+          "y": 558.971162793831
+        },
+        "wrist": {
+          "x": 480.06234771796136,
+          "y": 646.513799082268
+        },
+        "upperAngle": 13.297190895124402,
+        "foreAngle": 13.419744462572154
+      },
+      "plannedShoulder": [
+        520.5,
+        491.71296009712586
+      ],
+      "lowering": 15.462960097125858
+    }
+  },
+  "scope": "Manual 2D reach diagnosis and authoring targets only; not installed in combat, no anatomical or force validation."
+}
