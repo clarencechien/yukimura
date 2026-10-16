@@ -1,6 +1,6 @@
-# 燼關試槍：空手部件的可動試裝
+# 燼關試槍：跪地撐掌與屈肘下沉
 
-2026-10-16（UTC）。分支 `art/jigoku-prerendered-2d`。
+2026-10-16（台北時間）。分支 `art/jigoku-prerendered-2d`。
 
 ![Phaser 實際致命短刺：蹲低原畫修稿後的完整倒地](combat/combat-preview.gif)
 
@@ -8,7 +8,15 @@
 
 上方為 **實際 Phaser 場景錄製**，不是新生成的動作影片。GitHub 可看 GIF 與截圖；HTML 要透過 HTTP 靜態伺服器開啟，目前此分支尚未部署到 GitHub Pages。線上 v22 遊戲沒有替換。
 
-## 最新：共用空手部件已能實際轉動
+## 最新：跪地撐掌與屈肘下沉
+
+[接地試作、30 fps 影片與驗證](FREE_ARM_SUPPORT.md) · [檢視頁原始檔](free-arm-support/index.html)
+
+![實際貼圖動作：掌根固定、肩胸下沉](free-arm-support/support-preview.gif)
+
+沿用 85／90 px 上臂與前臂，新增跪姿遮擋底圖和專用撐掌。掌根接地後固定，肩胸再下降 8 px，肘部彎曲承接位移，膝腳保持原位。8 項相關測試與桌機／手機實際繪圖矩陣檢查通過。這是獨立跪姿段，**蹲跪全身過渡尚未完成，也未替換戰鬥動作**。
+
+## 前輪：共用空手部件已能實際轉動
 
 [可動試裝、接縫放大與驗證](FREE_ARM_PARTS.md) · [試裝頁原始檔](free-arm-parts/index.html)
 

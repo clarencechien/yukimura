@@ -126,3 +126,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 新增 `ghost-rig/crouch-arm-clean.png`，image gen 原始輸出 `exec-f616386a-1a7b-469c-9fd7-0d2976ab0b50.png`。以 `crouch-consistent.png` 為參考，移除近側空手並補回胸甲、腰帶與膝部遮擋；保留肩甲。生成稿構圖／細節仍有改變，故以 0.42 倍等比例縮放和平移 `[201,285]` 註冊，未宣稱原圖其餘像素完全保留。肩甲覆蓋片從此底圖依明確多邊形裁出；SHA 與標記在 `free-arm-parts/parts.json`。
 
 這組素材只載入獨立可動試裝頁，沒有覆蓋 `combat/` 圖集；手掌未接地，仍需處理降肩胸甲與跪地遮擋。沒有新增 Blender／Modal 工作或第三方素材。
+
+
+### 跪地撐掌與分層下沉（2026-10-16，台北時間）
+
+新增 `ghost-rig/kneel-arm-clean.png`，image gen 原始輸出 `exec-93997f27-c8eb-48c6-a599-c0d945062db7.png`，參考 `kneel-reach-candidate.png` 移除近側手臂並補回衣甲。生成稿構圖仍有改變，以 0.64 等比例縮放、平移 `[43,65]` 註冊；胸甲／下身／肩甲只作明確多邊形 alpha 裁切，腰部保留 24 px 重疊。
+
+新增 `ghost-rig/support-palm.png`，image gen 原始輸出 `exec-be1e0169-e038-4c54-b3bc-2f1f54981d25.png`，參考 `arm-parts-stocky.png` 產生單獨的手背朝上的撐掌手形，等比例縮至 0.06。上臂和前臂直接重用前輪貼圖，未重畫。兩張新 PNG 均保留生成原始位元組；來源 SHA、裁切、人工肩腕／掌根標記見 `free-arm-support/support.json`。
+
+這是獨立跪姿接地段，沒有蹲跪全身過渡、力學模擬或正式遊戲替換。新增瀏覽器 30 fps 錄影為真實畫布截圖，沒有生成動畫中間幀；未新增 Blender／Modal 工作或第三方素材。

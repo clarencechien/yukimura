@@ -49,3 +49,5 @@ python3 tools/package_free_arm_parts.py
 HTTP 靜態服務路徑為 `/docs/routes/jigoku-2d/free-arm-parts/`；GitHub 的 HTML 檔案頁只顯示原始碼，可先看上方 GIF。沒有新增 Blender／Modal 渲染或第三方素材。
 
 下一步讓胸甲與肩帶隨降肩曲線下沉，接上跪地底圖，並處理肩甲遮擋與掌根接觸位置；本輪部件可沿用，無須再生成整隻手臂。
+
+後續已完成 [獨立跪姿的掌根固定與屈肘下沉試作](FREE_ARM_SUPPORT.md)，直接沿用本頁的上臂與前臂；蹲跪全身接續仍待處理。

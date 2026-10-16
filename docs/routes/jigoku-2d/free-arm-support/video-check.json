@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "frames": 30,
+  "gifStoredFrames": 26,
+  "fps": 30,
+  "durationSeconds": 1,
+  "sourceSize": [
+    1200,
+    661
+  ],
+  "videoSize": [
+    1200,
+    662
+  ],
+  "source": "Actual kneeling-support Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
+  "limits": "Standalone kneeling support segment, not a full crouch transition or installed combat animation. GIF uses 30/30/40 ms timing and merges identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
+}

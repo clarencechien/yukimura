@@ -1,0 +1,182 @@
+{
+  "baselineCommit": "75a55debb368c2627a299800c3d6cec74dd5717e",
+  "body": {
+    "source": "assets/source/jigoku-2d/ghost-rig/kneel-arm-clean.png",
+    "sha256": "119c0d14ac27477b61e23021fe6465bb8e6870d1438b31bde6dec3e8301b43f8",
+    "generatedFile": "exec-93997f27-c8eb-48c6-a599-c0d945062db7.png",
+    "scale": 0.64,
+    "offset": [
+      43,
+      65
+    ],
+    "shoulderSource": [
+      730,
+      675
+    ],
+    "shoulder": [
+      510.2,
+      497.0
+    ],
+    "boxes": {
+      "torso": [
+        320,
+        330,
+        760,
+        590
+      ],
+      "lower": [
+        320,
+        510,
+        850,
+        720
+      ],
+      "cap": [
+        455,
+        422,
+        555,
+        543
+      ]
+    },
+    "polygons": {
+      "torso": [
+        [
+          0,
+          0
+        ],
+        [
+          1152,
+          0
+        ],
+        [
+          1152,
+          574
+        ],
+        [
+          700,
+          574
+        ],
+        [
+          615,
+          559
+        ],
+        [
+          555,
+          579
+        ],
+        [
+          460,
+          554
+        ],
+        [
+          0,
+          554
+        ]
+      ],
+      "lower": [
+        [
+          0,
+          530
+        ],
+        [
+          460,
+          530
+        ],
+        [
+          555,
+          555
+        ],
+        [
+          615,
+          535
+        ],
+        [
+          700,
+          550
+        ],
+        [
+          1152,
+          550
+        ],
+        [
+          1152,
+          768
+        ],
+        [
+          0,
+          768
+        ]
+      ],
+      "cap": [
+        [
+          459.0,
+          445.8
+        ],
+        [
+          501.24,
+          426.6
+        ],
+        [
+          525.56,
+          449.0
+        ],
+        [
+          545.4000000000001,
+          521.3199999999999
+        ],
+        [
+          480.76,
+          534.12
+        ],
+        [
+          470.52,
+          498.92
+        ]
+      ]
+    },
+    "overlap": 24
+  },
+  "palm": {
+    "source": "assets/source/jigoku-2d/ghost-rig/support-palm.png",
+    "sha256": "f4c5754fbb203677862df3bbab90e99f75e1ba4a9846ecdd9fba7b1e0dd73a82",
+    "generatedFile": "exec-be1e0169-e038-4c54-b3bc-2f1f54981d25.png",
+    "box": [
+      200,
+      0,
+      1420,
+      1024
+    ],
+    "scale": 0.06,
+    "size": [
+      73,
+      61
+    ],
+    "displaySize": [
+      73.2,
+      61.44
+    ],
+    "pivot": [
+      52.199999999999996,
+      15.6
+    ],
+    "heel": [
+      48.0,
+      28.2
+    ],
+    "sourceWrist": [
+      1070,
+      260
+    ],
+    "sourceHeel": [
+      1000,
+      470
+    ],
+    "axisDegrees": 108.43494882292201
+  },
+  "contact": [
+    470,
+    668
+  ],
+  "armMetadata": "../free-arm-parts/parts.json",
+  "method": "Two image_gen edits: armless kneel occlusion restoration and a planted-palm sprite. Manual sockets/contact marker; rigid overlapping chest/lower crops, no mesh warp. Reuses previous 85/90 upper and forearm textures. Kneeling support segment only, not a crouch-to-kneel full-body transition or force simulation.",
+  "runtimeChanged": false
+}
