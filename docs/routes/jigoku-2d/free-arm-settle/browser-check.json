@@ -1,6 +1,7 @@
 {
   "passed": true,
   "checks": [
+    "Shared rear leg uses a rigid actual Canvas transform behind the trimmed thigh, keeping one texture across four body cuts",
     "Early original cap rotation has a rigid actual Canvas transform, is drawn above the upper arm, and preserves the existing skeleton",
     "Shared shoulder uses the original bridge cap at rigid scale and the actual collar mount; drawn between upper arm and forearm",
     "Shared-head texture, actual Canvas pivot/matrix, rigid scale and depth ordering verified across desktop/mobile playback",

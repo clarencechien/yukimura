@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Actual synchronized Canvas time, unchanged skeleton/head/weapon, one right-side leg URL across all four drawings",
+    "Identical before side fall; replay, pause, key buttons and 390 px layout",
+    "No partial ready state when final leg texture is delayed and viewport resizes"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "limits": "Independent review; not a physical phone FPS benchmark."
+}

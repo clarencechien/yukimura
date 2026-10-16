@@ -214,3 +214,7 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 ## 2026-10-16：離掌後的肩甲轉落與頸肩內層接續
 
 沒有新增生成工作。`tools/prepare_shoulder_entry.py` 直接重用原 `cap.webp`，從 1000 ms 起獨立轉動至第一個身體換圖前。`entry-headed.webp`／`entry-headless.webp` 以原胸部為底，只在舊肩甲 alpha ≥ 250 的範圍內，重用固定旋轉對齊的 `shoulderless-bridge.webp` 頸肩結構及原暗色襯布；保留原透明度與範圍外可見 RGB。來源 SHA256、遮擋範圍與人工投影路徑見 `free-arm-settle/shoulder-entry.json`。原姿勢、來源圖片與正式遊戲未覆寫。`tools/fit_shoulder_entry.py` 提供金色甲緣的唯讀剛性對齊種子，不能作為人體或品質驗證。
+
+## 2026-10-16：側倒共用護脛與靴
+
+沒有新增生成工作或第三方來源。`tools/prepare_shared_rear_leg.py` 從既有 `fall-rest-lower.webp` 裁出 `shared-rear-leg.webp`，保留原尺寸及可見 RGBA，只清除 alpha ≤ 16 的邊緣。四張 `legless-*.webp` 僅移除原護脛／靴區域，保留其餘原畫像素。裁切線、12 px 遮擋重疊、原檔 SHA256、像素格角點凸包與水平路徑見 `free-arm-settle/shared-rear-leg.json`。本輪角度保持 0°，採大腿遮擋下的平移；不是三維腿部模型或受力模擬。新增約 0.874 MiB RGBA8，未覆寫原圖片或正式遊戲。

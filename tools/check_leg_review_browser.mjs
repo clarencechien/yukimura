@@ -1,0 +1,22 @@
+import {chromium} from '@playwright/test';import http from 'node:http';import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';
+const root=process.cwd(),out='docs/routes/jigoku-2d/free-arm-settle';
+const server=http.createServer(async(req,res)=>{try{let file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);if(!file.startsWith(root+'/'))throw Error('path');if((await fs.stat(file)).isDirectory())file=path.join(file,'index.html');res.setHeader('Content-Type',({'.html':'text/html','.mjs':'text/javascript','.json':'application/json','.webp':'image/webp'})[path.extname(file)]||'application/octet-stream');res.end(await fs.readFile(file));}catch{res.statusCode=404;res.end();}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']}),errors=[],failed=[];
+try{
+ const page=await browser.newPage({viewport:{width:1280,height:900}});page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)failed.push(r.url());});await page.goto(`http://127.0.0.1:${server.address().port}/${out}/leg-review.html`);await page.waitForFunction(()=>window.legReview?.ready);
+ const seek=async t=>page.locator('#time').evaluate((el,t)=>{el.value=t;el.dispatchEvent(new Event('input'));},t);
+ for(const t of [1180,1200,1200.001,1220,1240,1240.001,1260,1320,1320.001,1380,1440,1440.001,1500,1540]){
+  await seek(t);const r=await page.evaluate(()=>({state:window.legReview,same:document.querySelector('#before').toDataURL()===document.querySelector('#after').toDataURL()}));
+  assert.deepEqual(r.state.sourceAges,[t,t]);assert.equal(r.state.poseEqual,true);assert.equal(r.state.headEqual,true);assert.equal(r.state.weaponEqual,true);
+  if(t<=1200){assert.equal(r.same,true);assert.deepEqual(r.state.legURLs,[null,null]);}else{assert.equal(r.same,false);assert.deepEqual(r.state.legURLs,[null,'shared-rear-leg.webp']);}
+  if(t===1320.001)await page.locator('#views').screenshot({path:`${out}/leg-comparison.png`});
+ }
+ await page.locator('[data-time="1260"]').click();assert.equal(await page.evaluate(()=>window.legReview.age),1260);
+ await seek(1180);await page.locator('#play').click();await page.waitForFunction(()=>window.legReview.age===1540&&!window.legReview.playing,{},{timeout:5000});
+ await page.locator('#play').click();await page.waitForFunction(()=>window.legReview.playing&&window.legReview.age<1540);await page.locator('#play').click();const stopped=await page.evaluate(()=>window.legReview.age);await page.waitForTimeout(100);assert.equal(await page.evaluate(()=>window.legReview.age),stopped);
+ await page.setViewportSize({width:390,height:844});await page.locator('[data-time="1320.001"]').click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.screenshot({path:`${out}/leg-mobile.jpg`,fullPage:true});
+ const loading=await browser.newPage();loading.on('pageerror',e=>errors.push(e.message));let release,arrived;const gate=new Promise(r=>release=r),seen=new Promise(r=>arrived=r);
+ await loading.route('**/legless-rest.webp',async route=>{arrived();await gate;await route.continue();});
+ await loading.goto(`http://127.0.0.1:${server.address().port}/${out}/index.html`,{waitUntil:'domcontentloaded'});await seen;await loading.setViewportSize({width:390,height:844});await loading.waitForTimeout(100);assert.equal(await loading.evaluate(()=>window.freeArmSettle?.ready??false),false);release();await loading.waitForFunction(()=>window.freeArmSettle?.ready);await loading.locator('#time').evaluate(el=>{el.value=1380;el.dispatchEvent(new Event('input'));});assert.equal(await loading.evaluate(()=>window.freeArmSettle.rearLeg.url),'shared-rear-leg.webp');
+ assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);await fs.writeFile(`${out}/leg-browser-check.json`,JSON.stringify({passed:true,checks:['Actual synchronized Canvas time, unchanged skeleton/head/weapon, one right-side leg URL across all four drawings','Identical before side fall; replay, pause, key buttons and 390 px layout','No partial ready state when final leg texture is delayed and viewport resizes'],pageErrors:errors,failedRequests:failed,limits:'Independent review; not a physical phone FPS benchmark.'},null,2)+'\n');console.log('Shared rear leg synchronized browser checks passed.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}

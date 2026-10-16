@@ -1,7 +1,7 @@
 {
   "passed": true,
   "frames": 180,
-  "gifStoredFrames": 137,
+  "gifStoredFrames": 139,
   "fps": 30,
   "durationSeconds": 6,
   "sourceSize": [
@@ -13,5 +13,5 @@
     720
   ],
   "source": "Actual side-fall breakdown Canvas screenshots; controlled browser clock, quarter-speed reaction time, no interpolated image frames.",
-  "limits": "Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing sword arm, released blade, unloading torso, released support hand and four side-fall body keys including a reused bowed-head bridge and a single shared helmet/face sprite, an original plate drop during 1000\u20131200 ms with a registered existing collar underneath, and a shared shoulder plate with existing quilted lining after 1220 ms. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses one 256-color palette with changed rectangles, 30/30/40 ms timing and merged identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
+  "limits": "Previous five-pose study compared with a shared torso hinge, rigid shin/shoe and existing sword arm, released blade, unloading torso, released support hand and four side-fall body keys including a reused bowed-head bridge and a single shared helmet/face sprite, an original plate drop during 1000\u20131200 ms with a registered existing collar underneath, and a shared shoulder plate with existing quilted lining after 1220 ms, plus a single native-size rest shin/boot sliding behind four trimmed thigh drawings after 1200 ms. 30 fps is playback cadence, not thirty distinct body drawings; independent review, not installed combat. GIF uses one 256-color palette with changed rectangles, 30/30/40 ms timing and merged identical holds; MP4 is uniform 30 fps, padded to even dimensions without scaling or cropping."
 }

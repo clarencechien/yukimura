@@ -64,5 +64,6 @@
   "bridgeExtension": "bridge.json",
   "sharedHeadExtension": "shared-head.json",
   "sharedShoulderExtension": "shared-shoulder.json",
-  "shoulderEntryExtension": "shoulder-entry.json"
+  "shoulderEntryExtension": "shoulder-entry.json",
+  "sharedRearLegExtension": "shared-rear-leg.json"
 }
