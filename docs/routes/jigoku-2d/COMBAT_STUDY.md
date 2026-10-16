@@ -1,4 +1,4 @@
-# 燼關試槍：五姿勢蹲跪接續
+# 燼關試槍：固定部件收腳與腰甲遮擋
 
 2026-10-16（台北時間）。分支 `art/jigoku-prerendered-2d`。
 
@@ -8,7 +8,15 @@
 
 上方為 **實際 Phaser 場景錄製**，不是新生成的動作影片。GitHub 可看 GIF 與截圖；HTML 要透過 HTTP 靜態伺服器開啟，目前此分支尚未部署到 GitHub Pages。線上 v22 遊戲沒有替換。
 
-## 最新：五姿勢蹲跪接續
+## 最新：固定部件收腳與腰甲遮擋
+
+[對照動圖、30 fps 影片與驗證](FREE_ARM_SETTLE.md) · [檢視頁原始檔](free-arm-settle/index.html)
+
+![前輪換圖與本輪共用胸甲、固定護脛／鞋的實際比較](free-arm-settle/settle-preview.gif)
+
+末段改用同一胸甲繞腰前傾；手掌接地後，護脛與鞋繞膝踝收進衣甲後方，沒有縮放或淡出。空手軌跡完全沿用前輪，17 項相關測試、素材和瀏覽器檢查通過。末姿更前傾，400 ms 下身交接與腰甲接縫仍待精修；仍為獨立試作，未替換正式遊戲。
+
+## 前輪：五姿勢蹲跪接續
 
 [動圖、30 fps 比較與驗證](FREE_ARM_TRANSITION.md) · [檢視頁原始檔](free-arm-transition/index.html)
 

@@ -144,3 +144,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 生成稿的尺度與構圖仍不一致。`prepare_free_arm_transition.py` 分格裁切，分別以 0.62／0.64／0.70 等比例縮放，依人工前鞋底標記註冊；以明確多邊形拆出胸甲、下身與肩甲，腰部重疊 48 px。沒有非等比變形或整圖扭曲。來源 SHA、原圖肩點／腳點與裁片遮擋資訊在 `free-arm-transition/transition.json`。
 
 檢視頁直接載入既有上臂、前臂、撐掌和末段跪姿；前四個姿勢的前腳標記差異小於 1 px，不等於鞋形或受力準確。末段前腳收進身下仍跳姿，衣甲尺度及接縫待精修。只有獨立五姿勢檢視，沒有替換正式遊戲。30 fps 影片取自實際 Canvas；未新增 Blender／Modal 工作或第三方素材。
+
+
+### 固定護脛與鞋、腰部轉軸（2026-10-16）
+
+新增 `ghost-rig/touch-shin-clean.png`，image gen 原始輸出 `exec-6683c82d-6114-4d5b-bb98-f4e354602e91.png`，保留原始位元組。參考 `crouch-kneel-breakdowns.png` 的 `[1500,0,2172,724]` 原尺寸透明裁格，移除近側護脛及鞋、補出被遮藍色衣料。生成稿只用於下身和腰甲覆蓋片；頭盔／胸甲、肩甲、護脛、鞋均保留原近地格可見像素。
+
+`prepare_free_arm_settle.py` 對生成稿只做等比例註冊，所有部件以宣告的多邊形限制 alpha；來源 SHA、縮放、膝踝／鞋尖標記在 `free-arm-settle/settle.json`。護脛與鞋以固定長度轉動，繪圖 alpha 始終為 1，由下身與衣甲實際遮擋。鞋的延後轉動經 1001 個實際骨架取樣檢查，alpha > 16 的鞋像素未超過起始投影鞋底高度；不是三維接觸或受力驗證。
+
+仍是獨立動作檢視，沒有改動先前試作素材或正式遊戲。末姿較前傾，生成下身與原圖膝甲／衣料仍有差異，不能宣稱全程無接縫。未新增 Blender／Modal 工作或第三方素材。

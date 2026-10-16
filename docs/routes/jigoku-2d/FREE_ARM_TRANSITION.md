@@ -56,3 +56,5 @@ python3 tools/package_free_arm_transition.py
 - [影片檢查](free-arm-transition/video-check.json)：實際截圖、GIF 逐取樣像素核對、MP4 幀數／幀率／尺寸核對。
 
 HTTP 靜態服務路徑 `/docs/routes/jigoku-2d/free-arm-transition/`。此分支尚未部署到 Pages；GitHub HTML 頁只顯示原始碼，可先看本頁動圖和影片。
+
+後續已試作 [固定護脛／鞋收腳與腰部轉軸](FREE_ARM_SETTLE.md)：末段共用胸甲，掌根接地後才收腳，以衣甲遮擋隱藏腳部；下身交接及正式遊戲整合仍待處理。
