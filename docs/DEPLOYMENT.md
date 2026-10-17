@@ -1,5 +1,13 @@
 # GitHub Pages 部署
 
+## 2D《燼關突圍》
+
+入口：<https://clarencechien.github.io/yukimura/jigoku/>。同一份 Pages artifact 同時包含根目錄的 3D v22 與 `jigoku/` 的 2D 遊戲。
+
+工作流程固定取用 2D 分支已驗證提交 `44d6f935102fc9361146504a06467841fd25a663`，執行 10 項規則測試、單檔建置及桌機／手機瀏覽器檢查，再把單檔 HTML、Phaser 授權、下載 ZIP 與 `version.txt` 加入 `dist/jigoku/`。引擎及 32 份素材內嵌，不依賴 GitHub 原始檔網址。
+
+後續 2D 發版需在 `.github/workflows/pages.yml` 更新這個固定提交，再由 main 的工作流程發佈；單純推送美術分支不會修改線上版。
+
 [公開遊戲 v22](https://clarencechien.github.io/yukimura/?v=22) 已部署。Repository 的 Pages Source **已設為 GitHub Actions**，不需再次設定。
 
 ## 最新驗證基線
