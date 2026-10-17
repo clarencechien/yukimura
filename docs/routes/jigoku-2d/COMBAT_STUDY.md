@@ -1,4 +1,4 @@
-# 燼關試槍：完整胸腰過渡原畫試作
+# 燼關試槍：胸腰三姿勢與貼地接續
 
 2026-10-17（台北時間）。分支 `art/jigoku-prerendered-2d`。
 
@@ -8,7 +8,15 @@
 
 上方為 **實際 Phaser 場景錄製**，不是新生成的動作影片。GitHub 可看 GIF 與截圖；HTML 要透過 HTTP 靜態伺服器開啟，目前此分支尚未部署到 GitHub Pages。線上 v22 遊戲沒有替換。
 
-## 最新：胸腰到膝部完整過渡原畫（候選，未採用）
+## 最新：胸腰三姿勢與貼地接續（候選，未採用）
+
+[同組原畫、原速／慢速 30 fps 比較與驗證](BODY_SEQUENCE.md) · [比較頁原始檔](free-arm-settle/sequence-review.html) · [目前預設動作](FREE_ARM_SETTLE.md)
+
+![同組三姿勢接回共用四肢的實際比較](free-arm-settle/sequence-detail-1260.png)
+
+一起製作低伏、翻側、側倒三張胸腰原畫，共用比例與原有四肢、頭盔、武器；新增剛性微轉，保持肩點連續與身體下緣貼地。49 項測試及素材、瀏覽器檢查通過。三張新圖約 0.624 MiB，僅 `?body=sequence` 載入；換格差異仍未優於預設，因此保留候選與實際比較影片。
+
+## 前輪：胸腰到膝部完整過渡原畫（候選，未採用）
 
 [原畫、原速／¼ 倍速 30 fps 比較與驗證](BODY_TRANSITION.md) · [比較頁原始檔](free-arm-settle/body-review.html) · [目前預設動作](FREE_ARM_SETTLE.md)
 

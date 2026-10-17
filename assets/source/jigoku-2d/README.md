@@ -237,3 +237,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 `ghost-rig/body-transition-folded.png`（`exec-89c595a1-b373-4f06-bad0-93b8a21a1051.png`）以第一稿及既有實際裝配畫面修稿，要求去掉抬高的空心領口、頸部藏在左下、整體低伏，維持兩片裙甲與大腿。兩次原始 1536×1024 RGBA 輸出完整保留。沒有新增 Blender／Modal 或第三方來源。
 
 `tools/prepare_body_transition.py` 採單一比例 0.26、−3° 剛性旋轉、人工肩點註冊；清除 alpha ≤ 16 的微弱邊緣，生成 291×207 的獨立身體部件。`free-arm-settle/body-transition.json` 記錄兩次生成來源、參考雜湊、矩陣與裁切。候選約 0.230 MiB RGBA8，僅 `?body=paint` 載入並取代 bridge 胸部及下身，其他部件共用。兩端色差及輪廓跳動增加，因此未替換預設或正式遊戲；完整結果見 `BODY_TRANSITION.md`。
+
+
+## 2026-10-17：同組胸腰三姿勢與貼地接續（候選）
+
+`ghost-rig/body-sequence.png` 是一次 image gen 的原始 2172×724 RGBA 輸出，對應 `exec-443e12af-0e96-4fe3-a9fb-c729b95a17d4.png`。參考 `body-transition-folded.png` 的甲片造型及 `side-fall-breakdowns.png` 的動作方向，要求同一體格、鏡頭、胸甲、兩片裙甲及膝部的低伏／翻側／側倒三格，只含胸腰到膝部，不畫頭、手、肩甲、護脛或刀。生成圖仍有格間投影及輪廓差異，不能當作幾何一致的模型。
+
+`tools/prepare_body_sequence.py` 依透明間隙裁分，三格皆以 0.46 比例及 10° 預旋轉註冊，清除 alpha ≤ 16 的微弱邊緣，再從可見像素格四角建立凸包。`free-arm-settle/body-sequence.json` 記錄參考雜湊、原檔、矩陣、肩點、凸包與裁切。執行時圍繞原肩點剛性微轉，使凸包下緣保持 y=687；未變形原畫或生成補幀。三張貼圖約 0.624 MiB RGBA8，僅 `?body=sequence` 啟用，沿用共用頭盔、四肢、肩甲、護脛與武器。
+
+沒有新增 Blender／Modal 或第三方來源。四個主要換圖邊界的全彩差異仍未優於預設，因此候選未取代預設或正式遊戲。見 `BODY_SEQUENCE.md` 的實際 30 fps 比較與完整量測。

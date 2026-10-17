@@ -1,0 +1,869 @@
+[
+  {
+    "sample": 0,
+    "ready": true,
+    "age": 1016,
+    "playing": true,
+    "sourceAges": [
+      1016,
+      1016
+    ],
+    "bodyURLs": [
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ],
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 1,
+    "ready": true,
+    "age": 1048,
+    "playing": true,
+    "sourceAges": [
+      1048,
+      1048
+    ],
+    "bodyURLs": [
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ],
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 2,
+    "ready": true,
+    "age": 1080,
+    "playing": true,
+    "sourceAges": [
+      1080,
+      1080
+    ],
+    "bodyURLs": [
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ],
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 3,
+    "ready": true,
+    "age": 1112,
+    "playing": true,
+    "sourceAges": [
+      1112,
+      1112
+    ],
+    "bodyURLs": [
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ],
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 4,
+    "ready": true,
+    "age": 1144,
+    "playing": true,
+    "sourceAges": [
+      1144,
+      1144
+    ],
+    "bodyURLs": [
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ],
+      [
+        "leg-entry-lower.webp",
+        "entry-headed.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 5,
+    "ready": true,
+    "age": 1192,
+    "playing": true,
+    "sourceAges": [
+      1192,
+      1192
+    ],
+    "bodyURLs": [
+      [
+        "leg-entry-lower.webp",
+        "entry-headless.webp"
+      ],
+      [
+        "leg-entry-lower.webp",
+        "entry-headless.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 6,
+    "ready": true,
+    "age": 1224,
+    "playing": true,
+    "sourceAges": [
+      1224,
+      1224
+    ],
+    "bodyURLs": [
+      [
+        "legless-bridge.webp",
+        "shoulderless-bridge.webp"
+      ],
+      [
+        "sequence-bridge.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": {
+      "point": {
+        "x": 494,
+        "y": 541
+      },
+      "angle": -4.470348358154297e-8,
+      "bounds": {
+        "left": 424.0000000031209,
+        "right": 709.0000000951871,
+        "top": 492.9999999399229,
+        "bottom": 686.9999998697027
+      },
+      "id": "bridge",
+      "url": "sequence-bridge.webp",
+      "transform": {
+        "a": 0.800000011920929,
+        "b": -6.241783897883041e-10,
+        "c": 6.241783897883041e-10,
+        "d": 0.800000011920929,
+        "e": 945.2000058889389,
+        "f": 422.80000644922256
+      }
+    },
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 7,
+    "ready": true,
+    "age": 1256,
+    "playing": true,
+    "sourceAges": [
+      1256,
+      1256
+    ],
+    "bodyURLs": [
+      [
+        "legless-roll.webp",
+        "shoulderless-roll.webp"
+      ],
+      [
+        "sequence-roll.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": {
+      "point": {
+        "x": 494,
+        "y": 541
+      },
+      "angle": 0.35031352937221527,
+      "bounds": {
+        "left": 411.9403918143974,
+        "right": 709.3784399733453,
+        "top": 506.06790914252616,
+        "bottom": 686.9999999468243
+      },
+      "id": "roll",
+      "url": "sequence-roll.webp",
+      "transform": {
+        "a": 0.7999850589599183,
+        "b": 0.004891269199554589,
+        "c": -0.004891269199554589,
+        "d": 0.7999850589599183,
+        "e": 945.2000058889389,
+        "f": 422.80000644922256
+      }
+    },
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 8,
+    "ready": true,
+    "age": 1288,
+    "playing": true,
+    "sourceAges": [
+      1288,
+      1288
+    ],
+    "bodyURLs": [
+      [
+        "legless-roll.webp",
+        "shoulderless-roll.webp"
+      ],
+      [
+        "sequence-roll.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": {
+      "point": {
+        "x": 490.56564444444444,
+        "y": 543.6205925925926
+      },
+      "angle": -0.6240684539079666,
+      "bounds": {
+        "left": 408.59229217042025,
+        "right": 707.750933533964,
+        "top": 508.40483203670107,
+        "bottom": 687.0000000949458
+      },
+      "id": "roll",
+      "url": "sequence-roll.webp",
+      "transform": {
+        "a": 0.7999525576943816,
+        "b": -0.00871346726072359,
+        "c": 0.00871346726072359,
+        "d": 0.7999525576943816,
+        "e": 942.4525204964357,
+        "f": 424.8964908554626
+      }
+    },
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 9,
+    "ready": true,
+    "age": 1320,
+    "playing": true,
+    "sourceAges": [
+      1320,
+      1320
+    ],
+    "bodyURLs": [
+      [
+        "legless-roll.webp",
+        "shoulderless-roll.webp"
+      ],
+      [
+        "sequence-roll.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": {
+      "point": {
+        "x": 481.55,
+        "y": 550.5
+      },
+      "angle": -3.204531714320183,
+      "bounds": {
+        "left": 399.7900205817617,
+        "right": 703.3613029563761,
+        "top": 514.4367183951723,
+        "bottom": 686.9999998880567
+      },
+      "id": "roll",
+      "url": "sequence-roll.webp",
+      "transform": {
+        "a": 0.798749088662252,
+        "b": -0.04472038052955653,
+        "c": 0.04472038052955653,
+        "d": 0.798749088662252,
+        "e": 935.2399959748982,
+        "f": 430.4000065624714
+      }
+    },
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 10,
+    "ready": true,
+    "age": 1352,
+    "playing": true,
+    "sourceAges": [
+      1352,
+      1352
+    ],
+    "bodyURLs": [
+      [
+        "legless-side.webp",
+        "shoulderless-side.webp"
+      ],
+      [
+        "sequence-side.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": {
+      "point": {
+        "x": 472.5343555555556,
+        "y": 557.3794074074074
+      },
+      "angle": 0.7045480459928513,
+      "bounds": {
+        "left": 398.3907722637872,
+        "right": 731.3941072897287,
+        "top": 520.7006807950285,
+        "bottom": 687.0000000320829
+      },
+      "id": "side",
+      "url": "sequence-side.webp",
+      "transform": {
+        "a": 0.799939529315648,
+        "b": 0.009837098746381594,
+        "c": -0.009837098746381594,
+        "d": 0.799939529315648,
+        "e": 928.0274958674236,
+        "f": 435.90352226948016
+      }
+    },
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 11,
+    "ready": true,
+    "age": 1384,
+    "playing": true,
+    "sourceAges": [
+      1384,
+      1384
+    ],
+    "bodyURLs": [
+      [
+        "legless-side.webp",
+        "shoulderless-side.webp"
+      ],
+      [
+        "sequence-side.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": {
+      "point": {
+        "x": 469.0683851851852,
+        "y": 560.0309629629629
+      },
+      "angle": -0.009390905499458313,
+      "bounds": {
+        "left": 394.968877887154,
+        "right": 728.984444111774,
+        "top": 523.0252432724686,
+        "bottom": 687.0000001277494
+      },
+      "id": "side",
+      "url": "sequence-side.webp",
+      "transform": {
+        "a": 0.8000000011753536,
+        "b": -0.00013112177793414426,
+        "c": 0.00013112177793414426,
+        "d": 0.8000000011753536,
+        "e": 925.2547175057935,
+        "f": 438.0247625354641
+      }
+    },
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 12,
+    "ready": true,
+    "age": 1416,
+    "playing": true,
+    "sourceAges": [
+      1416,
+      1416
+    ],
+    "bodyURLs": [
+      [
+        "legless-side.webp",
+        "shoulderless-side.webp"
+      ],
+      [
+        "sequence-side.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": {
+      "point": {
+        "x": 467.0048,
+        "y": 562.052
+      },
+      "angle": -0.6201535016298294,
+      "bounds": {
+        "left": 392.9416110008922,
+        "right": 727.95028002118,
+        "top": 524.6764268391729,
+        "bottom": 686.9999999864809
+      },
+      "id": "side",
+      "url": "sequence-side.webp",
+      "transform": {
+        "a": 0.7999531512077869,
+        "b": -0.008658807436251893,
+        "c": 0.008658807436251893,
+        "d": 0.7999531512077869,
+        "e": 923.6038385749434,
+        "f": 439.641608262682
+      }
+    },
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 13,
+    "ready": true,
+    "age": 1448,
+    "playing": true,
+    "sourceAges": [
+      1448,
+      1448
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 14,
+    "ready": true,
+    "age": 1480,
+    "playing": true,
+    "sourceAges": [
+      1480,
+      1480
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 15,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 16,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 17,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 18,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 19,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 20,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 21,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 22,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 23,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 24,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 25,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 26,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 27,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 28,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  },
+  {
+    "sample": 29,
+    "ready": true,
+    "age": 1500,
+    "playing": false,
+    "sourceAges": [
+      1500,
+      1500
+    ],
+    "bodyURLs": [
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ],
+      [
+        "legless-rest.webp",
+        "shoulderless-rest.webp"
+      ]
+    ],
+    "weaponEqual": true,
+    "contact": null,
+    "headEqual": true,
+    "poseEqual": true
+  }
+]
