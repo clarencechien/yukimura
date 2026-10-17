@@ -66,5 +66,6 @@
   "sharedShoulderExtension": "shared-shoulder.json",
   "shoulderEntryExtension": "shoulder-entry.json",
   "sharedRearLegExtension": "shared-rear-leg.json",
-  "legEntryExtension": "leg-entry.json"
+  "legEntryExtension": "leg-entry.json",
+  "waistTransitionStudy": "waist-transition.json"
 }

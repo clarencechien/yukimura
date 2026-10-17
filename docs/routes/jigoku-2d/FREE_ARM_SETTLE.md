@@ -1,18 +1,26 @@
-# 側倒：護脛先放低，再接共用部件
+# 側倒：腰甲過渡原畫試作與比較
 
-2026-10-16。分支 `art/jigoku-prerendered-2d`。
+2026-10-17（台北時間）。分支 `art/jigoku-prerendered-2d`。
+
+本輪完成兩張 image gen 腰甲稿，將直立雙片裙甲接成可播放候選版本，並檢查前後兩次交接。**局部造型改變，但交接色差基本持平、略增，因此未採用為預設。** 完整過程與 30 fps 比較見 [腰甲過渡試作](WAIST_TRANSITION.md)。
+
+![1220 ms 實際腰甲放大比較：左為預設，右為試作](free-arm-settle/hip-detail.png)
+
+[腰甲同步比較頁原始檔](free-arm-settle/hip-review.html) · [候選版 30 fps 影片](free-arm-settle/hip-30fps.mp4) · [素材與量測](free-arm-settle/waist-transition-check.json)
+
+以下動圖與影片繼續顯示目前預設的護脛放低版本，並非本輪候選腰甲。
 
 [互動檢視頁原始檔](free-arm-settle/index.html) · [30 fps MP4](free-arm-settle/settle-30fps.mp4) · [手機畫面](free-arm-settle/mobile.jpg) · [前輪五姿勢](FREE_ARM_TRANSITION.md)
 
-本輪先修**首次側倒時靴尖突然往下跳**：1000–1200 ms 離掌後，讓原護脛與靴子以固定大小逐漸放低，再接上一輪的共用側倒部件。沒有新增生成圖片、Blender 或 Modal 工作；仍是獨立 Canvas 試作，未替換正式遊戲。
+目前預設沿用前輪修正的**首次側倒時靴尖突然往下跳**：1000–1200 ms 離掌後，讓原護脛與靴子以固定大小逐漸放低，再接上一輪的共用側倒部件。沒有新增生成圖片、Blender 或 Modal 工作；仍是獨立 Canvas 試作，未替換正式遊戲。
 
 ![實際瀏覽器：右側從收腳、落刀、卸力接低頭過渡與原三張側倒格](free-arm-settle/settle-preview.gif)
 
 右側保留先前收腳、落刀及 860→1180 ms 卸力；1200–1240 ms 使用低頭過渡格，之後接回原側倒圖，1500 ms 到達側躺末姿，停留至 1800 ms。共用手臂的肩／肘／腕位置連續，**身體輪廓仍是原畫換格，不是連續全身動畫**。仍是獨立 Canvas 試作，未替換 Phaser 戰鬥或線上 v22；左側維持五姿勢基線作比較。
 
-本頁 `pose-*.png` 與動圖反映目前預設的護脛提前放低版本；本輪交接截圖在 `handoffs/calf/`，前輪共用護脛在 `handoffs/leg/`，胸肩接續在 `handoffs/entry/`。前輪共用肩甲截圖在 `handoffs/shoulder/`、共用頭盔在 `handoffs/helmet/`、四格烘焙頭部在 `handoffs/bridge/`；各輪都有保留的比較頁。
+本頁 `pose-*.png` 與動圖反映目前預設的護脛提前放低版本；護脛交接截圖在 `handoffs/calf/`；本輪腰甲候選在 `handoffs/hip/`，前輪共用護脛在 `handoffs/leg/`，胸肩接續在 `handoffs/entry/`。前輪共用肩甲截圖在 `handoffs/shoulder/`、共用頭盔在 `handoffs/helmet/`、四格烘焙頭部在 `handoffs/bridge/`；各輪都有保留的比較頁。
 
-## 本輪：原護脛先放低，減輕第一次靴尖跳位
+## 前輪：原護脛先放低，減輕第一次靴尖跳位
 
 [首次護脛接續比較頁原始檔](free-arm-settle/calf-review.html) · [手機比較](free-arm-settle/calf-mobile.jpg) · [裁切與路徑](free-arm-settle/leg-entry.json) · [素材與交接量測](free-arm-settle/leg-entry-check.json)
 

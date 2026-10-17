@@ -222,3 +222,9 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 ## 2026-10-16：首次側倒前的原護脛放低
 
 沒有新增生成圖片、Blender／Modal 或第三方來源。`tools/prepare_leg_entry.py` 從既有 `lower.webp` 裁出 `entry-calf.webp`，保持原尺寸與可見 RGBA，去除 alpha ≤ 16 的邊緣；`leg-entry-lower.webp` 只裁除原小腿遮罩；明確排除原 `waist.webp` 的 alpha > 16 區域，腰甲沿用原檔。來源雜湊、裁切線、12 px 重疊、像素格凸包與路徑見 `free-arm-settle/leg-entry.json`。1000–1200 ms 整組旋轉至 15°，再接上一輪共用護脛；不是踝關節或真實受力模擬。新增約 0.337 MiB RGBA8；腰甲轉動試作因外翹與補底接縫不自然未採用，正式遊戲與原始素材未覆寫。
+
+## 2026-10-17：腰甲局部過渡原畫（候選，未採用為預設）
+
+兩次 image gen 皆以既有 `free-arm-settle/legless-bridge.webp` 與 `waist.webp` 為參考，PNG 輸入僅清除完全透明像素的隱藏 RGB。第一稿 `waist-transition-study.png` 對應 `exec-f95b20de-3367-4f4c-9128-e2654bcf0e3f.png`，保持較斜的造型，僅留作來源比較。第二稿 `waist-transition-upright.png` 對應 `exec-8bd538a8-c204-487a-a0df-d6421c07e8dd.png`，明確要求兩片近垂直長矩形裙甲，作本次候選。兩張原始來源均保留。
+
+`tools/prepare_waist_transition.py` 以同一比例將第二稿從 1536×1024 註冊成 292×195，寫入下身與兩張重疊胸部變體的局部不透明 RGB；原 alpha 與遮罩外可見像素不變。來源、參考圖 SHA256、註冊與遮罩見 `free-arm-settle/waist-transition.json`。沒有新增 Blender／Modal 或第三方素材；候選額外約 0.629 MiB RGBA8。兩端換圖差異均未改善，因此只保留 `?hip=paint` 與同步比較入口，未替換預設或正式遊戲。

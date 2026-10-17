@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "frames": 90,
+  "fps": 30,
+  "durationSeconds": 3,
+  "sourceSize": [
+    1232,
+    313
+  ],
+  "videoSize": [
+    1232,
+    314
+  ],
+  "gifStoredFrames": 61,
+  "source": "Actual synchronized Canvas comparison captured with controlled browser clock; quarter-speed reaction time and final hold.",
+  "limits": "Only waist artwork is generated. Video is not imagegen output or interpolated frame synthesis. 30 fps playback does not create thirty new drawings. Comparison candidate is not the default game or review artwork."
+}

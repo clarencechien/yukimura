@@ -1,12 +1,12 @@
 # 真田・六文劫：預渲染 2D 美術路線
 
-## 最新：護脛先放低，再接側倒
+## 最新：腰甲過渡原畫試作（未採用為預設）
 
-[側倒動圖、30 fps 影片及驗證](FREE_ARM_SETTLE.md) · [檢視頁原始檔](free-arm-settle/index.html)
+[腰甲原畫、30 fps 比較與驗證](WAIST_TRANSITION.md) · [同步比較頁原始檔](free-arm-settle/hip-review.html) · [目前預設動作](FREE_ARM_SETTLE.md)
 
-![右側落刀卸力後接低頭過渡與側倒，雙臂共用](free-arm-settle/settle-preview.gif)
+![目前預設與直立雙片腰甲候選的實際放大比較](free-arm-settle/hip-detail.png)
 
-1000–1200 ms 離掌後，先讓原護脛與靴子逐漸放低，再接共用側倒部件。首次交接靴子區域平均色差降低約 15%，完整畫面約降低 2.2%；腰甲、大腿與膝部仍會換圖。46 項動作測試、原素材／投影地面及桌機／手機檢查通過，更新 30 fps 影片與[首次護脛接續比較](free-arm-settle/calf-review.html)。未替換正式遊戲。
+新增兩張 image gen 局部腰甲稿，第二稿接入既有 1200–1240 ms 過渡格，保留原骨架與外輪廓。兩端換圖的全彩差異基本持平、略增，候選只以 `?hip=paint` 啟用，未取代目前預設或正式遊戲。46 項既有動作測試及新素材、同步播放、手機版面檢查通過；另錄製 90 張實際 Canvas 畫面的 30 fps 比較影片。
 
 ## 前輪：五姿勢蹲跪接續
 

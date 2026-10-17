@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "adopted": false,
+  "checks": [
+    "Original default and opt-in candidate have identical times, geometry matrices, arm and head poses, weapon, shared calf and render order",
+    "Only bridge body RGB URLs change; all other times are pixel-identical",
+    "Waist closeups are exact actual Canvas crops; step controls, replay, pause, 390 px layout and delayed texture readiness",
+    "90 actual browser frames captured at controlled 30 fps with quarter-speed reaction time"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "limits": "Browser comparison, not physical phone performance or anatomy validation."
+}

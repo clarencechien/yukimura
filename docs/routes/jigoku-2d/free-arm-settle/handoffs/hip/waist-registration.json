@@ -1,0 +1,109 @@
+{
+  "baselineCommit": "2bf6c569fe5a7dafa91af9ac37a1fc4550d1efe1",
+  "source": "assets/source/jigoku-2d/ghost-rig/waist-transition-upright.png",
+  "sourceSHA256": "08cb047c79c9f464c99a7e682f7ac8333655a542bcd6e6c4ccf905444fe2f838",
+  "generatedFile": "exec-8bd538a8-c204-487a-a0df-d6421c07e8dd.png",
+  "registration": {
+    "scale": 0.1931216931216931,
+    "offset": [
+      480,
+      487
+    ],
+    "sourceSize": [
+      1512,
+      1040
+    ],
+    "resizedSize": [
+      292,
+      201
+    ]
+  },
+  "part": {
+    "url": "waist-transition-bridge.webp",
+    "box": [
+      480,
+      487,
+      772,
+      688
+    ],
+    "original": "legless-bridge.webp",
+    "originalSHA256": "8028df1a365390a17cce3da3a083dad0aa7e94b5705e79e8ddc91202b5ff983d"
+  },
+  "polygon": [
+    [
+      565,
+      532
+    ],
+    [
+      626,
+      530
+    ],
+    [
+      666,
+      558
+    ],
+    [
+      679,
+      604
+    ],
+    [
+      626,
+      633
+    ],
+    [
+      568,
+      624
+    ],
+    [
+      541,
+      580
+    ]
+  ],
+  "alphaThreshold": 250,
+  "replacedPixels": 8758,
+  "method": "Uniformly registered imagegen waist study; replace opaque interior RGB in bridge lower body and its two overlapping torso variants. Preserve original alpha and visible exterior pixels, source images and rig transforms. Hard image key, no fade or morph. Opt-in only.",
+  "torsos": {
+    "headless": {
+      "url": "waist-transition-headless.webp",
+      "box": [
+        342,
+        482,
+        614,
+        677
+      ],
+      "original": "headless-bridge.webp",
+      "originalSHA256": "61cdd605484573a665bac6e569a077a54c751d9708c9daf288553c0d61d27026",
+      "replacedPixels": 4885
+    },
+    "shoulderless": {
+      "url": "waist-transition-shoulderless.webp",
+      "box": [
+        342,
+        482,
+        614,
+        677
+      ],
+      "original": "shoulderless-bridge.webp",
+      "originalSHA256": "1b140e25cd359f87aafe9432c11d8de66406461f24bf980e8ef6f058f3fbda2e",
+      "replacedPixels": 4885
+    }
+  },
+  "adopted": false,
+  "query": "hip=paint",
+  "references": [
+    {
+      "path": "docs/routes/jigoku-2d/free-arm-settle/legless-bridge.webp",
+      "sha256": "8028df1a365390a17cce3da3a083dad0aa7e94b5705e79e8ddc91202b5ff983d"
+    },
+    {
+      "path": "docs/routes/jigoku-2d/free-arm-settle/waist.webp",
+      "sha256": "43328e5e27b4fa59b5402225a58a9d740a979db4e96473db74f684947c0939b9"
+    }
+  ],
+  "earlierStudy": {
+    "path": "assets/source/jigoku-2d/ghost-rig/waist-transition-study.png",
+    "sha256": "7e243527b2511a7b31220c826256567b5c7e742055a2e0ee4c8d6631d0d4b3e4",
+    "generatedFile": "exec-f95b20de-3367-4f4c-9128-e2654bcf0e3f.png",
+    "note": "Earlier diagonal design retained as source reference only; not used by the runtime candidate."
+  }
+}
