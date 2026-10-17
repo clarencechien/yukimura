@@ -1,0 +1,15 @@
+{
+  "url": "https://clarencechien.github.io/yukimura/jigoku/",
+  "source": "44d6f935102fc9361146504a06467841fd25a663",
+  "checkedAt": "2026-10-17T09:25:04.347Z",
+  "passed": true,
+  "checks": [
+    "HTTP 200: game, version and Phaser license",
+    "Published HTML matches the locally tested build",
+    "Desktop start, movement, dash, pause and resume",
+    "Mobile viewport start, touch command, pause and resume"
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "proxyCertificateBypass": true
+}

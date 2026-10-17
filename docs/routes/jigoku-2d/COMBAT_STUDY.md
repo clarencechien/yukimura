@@ -8,7 +8,7 @@
 
 [本輪連招 30 fps 影片](combat/combo-30fps.mp4) · [打斷蓄刀 30 fps 影片](combat/enemy-recoil-30fps.mp4) · [交鋒 30 fps 影片](combat/duel-30fps.mp4) · [交鋒桌機](combat/duel-desktop.jpg) · [交鋒手機](combat/duel-mobile.jpg) · [手機承力格擋](combat/duel-mobile-guard.jpg) · [低掃擊倒 30 fps 影片](combat/low-hit-30fps.mp4) · [倒地 30 fps 影片](combat/combat-30fps.mp4) · [桌機截圖](combat/desktop.jpg) · [手機截圖](combat/mobile.jpg) · [試玩頁原始檔](combat/index.html)
 
-上方為 **實際 Phaser 場景錄製**，不是新生成的動作影片。GitHub 可看 GIF 與截圖；HTML 要透過 HTTP 靜態伺服器開啟，目前此分支尚未部署到 GitHub Pages。線上 v22 遊戲沒有替換。
+上方為 **實際 Phaser 場景錄製**，不是新生成的動作影片。GitHub 可看 GIF 與截圖；HTML 要透過 HTTP 靜態伺服器開啟，這個歷史研究頁未部署；新版完整關卡已上線至 [GitHub Pages](https://clarencechien.github.io/yukimura/jigoku/)。線上 v22 遊戲沒有替換。
 
 ## 最新：胸腰三姿勢與貼地接續（候選，未採用）
 

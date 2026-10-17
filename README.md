@@ -6,6 +6,8 @@
 
 ## 並行美術路線
 
+**[直接玩 2D《燼關突圍》](https://clarencechien.github.io/yukimura/jigoku/)**（手機／電腦）。
+
 本分支新增 [《真田・六文劫》預渲染 2D 研究與參考圖](docs/routes/jigoku-2d/README.md)：Blender → 透明動畫貼圖 → 2D 引擎的另一條路線。已有文案、概念圖、[Blender 補光對照](docs/routes/jigoku-2d/RELIGHT_STUDY.md)，以及 [持槍待機／短刺動畫](docs/routes/jigoku-2d/YARI_MOTION.md)。最新為 [可玩的 2D 三段關卡《燼關突圍》](docs/routes/jigoku-2d/PLAYABLE_LEVEL.md)，提供離線遊戲 ZIP、手機操作與家康決戰；下列 v22 仍是既有遊戲基線。
 
 ## 目前版本

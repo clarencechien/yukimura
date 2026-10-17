@@ -2,7 +2,7 @@
 
 ## 最新：完整可玩關卡 — 燼關突圍
 
-[下載、操作與驗證](PLAYABLE_LEVEL.md) · [遊戲原始檔](play/index.html)
+[線上直接玩](https://clarencechien.github.io/yukimura/jigoku/) · [下載、操作與驗證](PLAYABLE_LEVEL.md) · [遊戲原始檔](play/index.html)
 
 幸村率十名赤備，從四面鬼軍中破陣、護送軍旗，再迎戰家康。提供三種難度、六周目上限、無雙、勝敗重試及手機雙指操作；已有可下載的離線單檔包。
 

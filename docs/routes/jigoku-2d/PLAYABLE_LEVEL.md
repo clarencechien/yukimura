@@ -2,11 +2,17 @@
 
 這一輪把既有插畫與穩定槍術接成可玩的完整關卡。使用 **Phaser 3.90**，預計一局約 3–5 分鐘：破陣、護送赤備軍旗、擊敗家康。美術試作頁另行保留。
 
+## 線上遊玩
+
+**[直接開玩《燼關突圍》](https://clarencechien.github.io/yukimura/jigoku/)** — 手機或電腦開啟即可，不需下載或架伺服器。
+
+Pages 使用固定版本 `44d6f935102fc9361146504a06467841fd25a663`；[部署流程](https://github.com/clarencechien/yukimura/actions/runs/39020488133) 與 [線上操作驗證](play/pages-verification.json) 可查。原有 3D v22 位於網站根目錄。公開站已驗證桌機移動／衝刺、手機觸控指令、暫停／繼續，HTML 與本機建置一致，下載 ZIP 也包含相同 HTML；原 3D 首頁校驗值維持不變。雲端瀏覽器檢查使用測試專用的代理憑證略過選項，HTTP 檔案驗證仍使用正常憑證檢查，網站本身未改動 TLS 設定。
+
 ## 下載與啟動
 
 **[下載遊戲 ZIP](https://github.com/clarencechien/yukimura/raw/refs/heads/art/jigoku-prerendered-2d/docs/routes/jigoku-2d/play/sanada-jigoku.zip)** → 解壓縮 → 用桌面 Chrome、Edge 或 Firefox 開啟 `index.html`。單檔包含引擎、32 份圖片／骨架資料，不需要安裝、連網或開伺服器；Chromium 已驗證單檔載入、斷網後開始與移動。雲端受管瀏覽器禁止 `file://`，因此這次改由 HTTP 載入同一份單檔，不能宣稱已實測雙擊開檔。其他瀏覽器尚未逐一實測。
 
-手機建議使用 HTTP 版本；手機系統可能限制直接執行下載的 HTML。本分支尚未部署至 GitHub Pages，線上 v22 仍為原本的 3D 遊戲。GitHub 的 HTML 原始碼頁不會執行遊戲。
+手機建議直接使用上方 Pages 網址；手機系統可能限制直接執行下載的 HTML。GitHub 的 HTML 原始碼頁不會執行遊戲。
 
 本機 HTTP 啟動：
 
