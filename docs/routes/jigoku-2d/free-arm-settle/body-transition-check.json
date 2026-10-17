@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "adopted": false,
+  "registration": "Single uniform scale and rigid rotation; inverse anchor and visible pixels reproduced exactly; source hashes checked.",
+  "ground": "Registered body exclusive bottom 687 <= ground 690; browser separately validates actual moving body bounds.",
+  "textureRGBA8MiB": 0.22978591918945312,
+  "measurements": [
+    {
+      "time": 1200,
+      "default": {
+        "meanRGBDifference": 4.4055060606060605,
+        "bodyMaskXorPixels": 7607,
+        "bodyMaskIoU": 0.8239283399685214
+      },
+      "candidate": {
+        "meanRGBDifference": 4.996410101010101,
+        "bodyMaskXorPixels": 7647,
+        "bodyMaskIoU": 0.820678172779289
+      }
+    },
+    {
+      "time": 1220,
+      "default": {
+        "meanRGBDifference": 0.00958989898989899,
+        "bodyMaskXorPixels": 0,
+        "bodyMaskIoU": 1.0
+      },
+      "candidate": {
+        "meanRGBDifference": 9.696969696969698e-05,
+        "bodyMaskXorPixels": 0,
+        "bodyMaskIoU": 1.0
+      }
+    },
+    {
+      "time": 1240,
+      "default": {
+        "meanRGBDifference": 2.289608080808081,
+        "bodyMaskXorPixels": 1899,
+        "bodyMaskIoU": 0.948532401008212
+      },
+      "candidate": {
+        "meanRGBDifference": 3.0875434343434343,
+        "bodyMaskXorPixels": 3679,
+        "bodyMaskIoU": 0.9012667060275884
+      }
+    },
+    {
+      "time": 1320,
+      "default": {
+        "meanRGBDifference": 2.5910161616161616,
+        "bodyMaskXorPixels": 3310,
+        "bodyMaskIoU": 0.9103976611353239
+      },
+      "candidate": {
+        "meanRGBDifference": 2.5910161616161616,
+        "bodyMaskXorPixels": 3310,
+        "bodyMaskIoU": 0.9103976611353239
+      }
+    }
+  ],
+  "limits": "RGB changes and alpha silhouettes quantify image cuts, not anatomy or aesthetic quality. New drawing worsens both endpoint changes; opt-in only."
+}

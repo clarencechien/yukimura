@@ -1,6 +1,14 @@
 # 真田・六文劫：預渲染 2D 美術路線
 
-## 最新：腰甲過渡原畫試作（未採用為預設）
+## 最新：胸腰到膝部完整過渡原畫（候選，未採用）
+
+[原畫、原速／¼ 倍速 30 fps 比較與驗證](BODY_TRANSITION.md) · [比較頁原始檔](free-arm-settle/body-review.html) · [目前預設動作](FREE_ARM_SETTLE.md)
+
+![完整胸腰候選與目前預設的實際放大比較](free-arm-settle/body-detail.png)
+
+新增完整胸甲、骨盆、大腿與膝部原畫，修掉第一稿浮起的領口，接回共用頭盔、雙臂、肩甲、護脛與刀。新裁片約 0.230 MiB，僅 `?body=paint` 載入；兩端換圖仍更跳，因此保留候選而未替換預設。46 項既有動作測試及素材、瀏覽器檢查通過，另提供原速與慢速實際錄影。
+
+## 前輪：腰甲過渡原畫試作（未採用為預設）
 
 [腰甲原畫、30 fps 比較與驗證](WAIST_TRANSITION.md) · [同步比較頁原始檔](free-arm-settle/hip-review.html) · [目前預設動作](FREE_ARM_SETTLE.md)
 

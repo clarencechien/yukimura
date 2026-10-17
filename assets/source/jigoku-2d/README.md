@@ -228,3 +228,12 @@ All source pixels, including the original alpha, are retained in this PNG. The i
 兩次 image gen 皆以既有 `free-arm-settle/legless-bridge.webp` 與 `waist.webp` 為參考，PNG 輸入僅清除完全透明像素的隱藏 RGB。第一稿 `waist-transition-study.png` 對應 `exec-f95b20de-3367-4f4c-9128-e2654bcf0e3f.png`，保持較斜的造型，僅留作來源比較。第二稿 `waist-transition-upright.png` 對應 `exec-8bd538a8-c204-487a-a0df-d6421c07e8dd.png`，明確要求兩片近垂直長矩形裙甲，作本次候選。兩張原始來源均保留。
 
 `tools/prepare_waist_transition.py` 以同一比例將第二稿從 1536×1024 註冊成 292×195，寫入下身與兩張重疊胸部變體的局部不透明 RGB；原 alpha 與遮罩外可見像素不變。來源、參考圖 SHA256、註冊與遮罩見 `free-arm-settle/waist-transition.json`。沒有新增 Blender／Modal 或第三方素材；候選額外約 0.629 MiB RGBA8。兩端換圖差異均未改善，因此只保留 `?hip=paint` 與同步比較入口，未替換預設或正式遊戲。
+
+
+## 2026-10-17：胸腰到膝部完整原畫（候選，未採用為預設）
+
+`ghost-rig/body-transition-study.png`（`exec-3ba8f6fe-2092-4a3a-bc29-bbb85bbab158.png`）以既有動作 1199.999／1240.001 ms 的胸腰圖層裁切為參考，要求一張完整胸甲—腰甲—大腿—膝部原畫，沿用黑金甲與藍繩，不畫頭、手、刀或小腿。兩張參考保留為 `body-transition-reference-before.png`／`body-transition-reference-after.png`，可用 `tools/capture_body_transition_references.mjs` 擷取至 `.tmp` 比對。第一稿領口浮在共用頭盔上方，沒有接入最終候選。
+
+`ghost-rig/body-transition-folded.png`（`exec-89c595a1-b373-4f06-bad0-93b8a21a1051.png`）以第一稿及既有實際裝配畫面修稿，要求去掉抬高的空心領口、頸部藏在左下、整體低伏，維持兩片裙甲與大腿。兩次原始 1536×1024 RGBA 輸出完整保留。沒有新增 Blender／Modal 或第三方來源。
+
+`tools/prepare_body_transition.py` 採單一比例 0.26、−3° 剛性旋轉、人工肩點註冊；清除 alpha ≤ 16 的微弱邊緣，生成 291×207 的獨立身體部件。`free-arm-settle/body-transition.json` 記錄兩次生成來源、參考雜湊、矩陣與裁切。候選約 0.230 MiB RGBA8，僅 `?body=paint` 載入並取代 bridge 胸部及下身，其他部件共用。兩端色差及輪廓跳動增加，因此未替換預設或正式遊戲；完整結果見 `BODY_TRANSITION.md`。
