@@ -1,5 +1,5 @@
 {
-  "status": "blocked_at_dispatch",
+  "status": "blocked_at_model_access",
   "reference_sha256": "c84b28641b60b6593a85922881c030840b72fbf6584ea298c697bd002ad106a8",
   "reference_size": [
     1024,
@@ -10,7 +10,7 @@
   "modal_authentication": "passed with system trust and TLS verification",
   "gpu_inference_started": false,
   "model_produced": false,
-  "blocker": "Modal dispatch: configured proxy CONNECT returns 403 for input-plane.us-east.modal.com",
+  "blocker": "DINOv3 gated model: Hugging Face 401 GatedRepo; no HF token or Modal Secret configured",
   "required_domains": [
     "e29e5794c3a8abd52b1549c7703408b1.r2.cloudflarestorage.com",
     "modal-blobs.s3-accelerate.amazonaws.com",
@@ -33,11 +33,15 @@
     "blender_render_helper": "passed on existing v22 model, 128px / 1 sample / 5 views; not a TRELLIS result",
     "modal_authentication": "passed",
     "modal_blob_upload": "passed: actual 2192353-byte reference uploaded",
-    "trellis_inference": "not run",
+    "trellis_inference": "not reached: stopped during DINOv3 model loading",
     "new_model_viewer": "not run",
     "trellis_native_image_build": "passed",
     "h100_gpu_environment": "passed",
-    "modal_dispatch": "proxy CONNECT 403; remote generate function did not start"
+    "modal_dispatch": "passed: H100 worker started",
+    "credential_preflight": "passed negative check: missing named Modal Secret exits before any app/GPU launch",
+    "alpha_preprocessing": "passed: pinned upstream method processed actual RGBA input to 1010x1010 RGB with rembg_model=None",
+    "alpha_pipeline_load": "not run end-to-end; requires authorized DINOv3 token",
+    "updated_modal_build_only": "passed: CPU preflight image built; both Modal functions registered; inference skipped"
   },
   "image_id": "im-CWPfod9BzDeCjqD07JU8Ui",
   "build_run": "https://modal.com/apps/clarence-chien/main/ap-kjWiE0TfzsHTOjb0R09Blg",
@@ -52,8 +56,8 @@
     "image_step_seconds": 74.51,
     "note": "Environment test only; did not load generation weights or generate the character"
   },
-  "updated_at": "2026-10-18T06:19:25.214168+00:00",
-  "inference_attempt_run": "https://modal.com/apps/clarence-chien/main/ap-soshP2pEPPy8xpY8mp93il",
+  "updated_at": "2026-10-18T10:18:08.218208+00:00",
+  "inference_attempt_run": "https://modal.com/apps/clarence-chien/main/ap-nHdcCT6DN389ycIcEm9qKW",
   "proxy_check": {
     "https_proxy_present": true,
     "sdk_uses_proxy": true,
@@ -61,8 +65,29 @@
     "no_proxy_bypass": false,
     "api_connect": "accepted",
     "blob_hosts_connect": "accepted",
-    "input_plane_connect": 403,
+    "input_plane_connect": "accepted",
     "draft_saved_with_input_plane": true,
-    "note": "Runtime blob access now works; draft publication status is not inferred from connectivity."
+    "note": "Dispatch verified on H100; network access blocker resolved."
+  },
+  "gpu_worker_started": true,
+  "runtime_tasks": 0,
+  "huggingface_access": {
+    "model": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+    "http_status": 401,
+    "error_code": "GatedRepo",
+    "local_hf_token_present": false,
+    "modal_secret_present": false,
+    "required_modal_secret": "trellis-huggingface",
+    "required_key": "HF_TOKEN",
+    "background_removal": "provided alpha; new loader skips unused gated RMBG-2.0"
+  },
+  "preflight_build_run": "https://modal.com/apps/clarence-chien/main/ap-AOvojzEVcHHi5sLQmAUrQw",
+  "official_demo_fallback": {
+    "space": "microsoft/TRELLIS.2",
+    "client": "gradio_client 2.0.3",
+    "session": "passed",
+    "upload_and_preprocessing": "passed",
+    "image_to_3d": "AppError: upstream exception with verbose error reporting disabled",
+    "model_produced": false
   }
 }

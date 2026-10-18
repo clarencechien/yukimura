@@ -16,6 +16,10 @@ os.environ.setdefault("MODAL_SERVER_URL", "https://api.modal.com")
 TRELLIS_COMMIT = "75fbf0183001ed9876c8dbb35de6b68552ee08bd"
 app = modal.App("yukimura-trellis2-study")
 cache = modal.Volume.from_name("yukimura-trellis2-cache", create_if_missing=True)
+hf_secrets = [] if os.environ.get('TRELLIS_ENVIRONMENT_CHECK_ONLY') == '1' else [
+    modal.Secret.from_name(os.environ.get('TRELLIS_HF_SECRET', 'trellis-huggingface'),
+                          required_keys=['HF_TOKEN'])
+]
 GPU_CHECK = """python - <<'CHECK'
 import torch, xformers, cumesh, flex_gemm, o_voxel
 import nvdiffrast.torch as dr
@@ -55,9 +59,40 @@ image = (
     .run_commands(GPU_CHECK, gpu="H100")
 )
 
+@app.function(image=modal.Image.debian_slim(python_version='3.11').pip_install(
+                  'huggingface-hub==0.36.0', 'pillow'),
+              secrets=hf_secrets, timeout=120, max_containers=1, retries=0)
+def check_access(input_png: bytes) -> dict:
+    """Check gated access on CPU before allocating the inference GPU."""
+    import io
+    from PIL import Image
+    from huggingface_hub import HfApi, get_hf_file_metadata, hf_hub_url
+    from huggingface_hub.errors import HfHubHTTPError
+    picture = Image.open(io.BytesIO(input_png))
+    if picture.mode != 'RGBA':
+        raise ValueError('This study requires a transparent RGBA reference.')
+    low, high = picture.getchannel('A').getextrema()
+    if low >= 255 or high <= 204:
+        raise ValueError('Reference needs both transparent background and visible foreground.')
+    repo = 'facebook/dinov3-vitl16-pretrain-lvd1689m'
+    token = os.environ['HF_TOKEN']
+    try:
+        info = HfApi().model_info(repo, token=token)
+        weight = next(f.rfilename for f in info.siblings if f.rfilename.endswith('.safetensors'))
+        for filename in ['config.json', weight]:
+            get_hf_file_metadata(hf_hub_url(repo, filename), token=token)
+    except HfHubHTTPError as error:
+        raise RuntimeError(
+            f'Hugging Face access check failed for {repo} (HTTP {error.response.status_code}). '
+            'Approve access with the token owner account and allow this model in token permissions. '
+            'GPU inference was not started.'
+        ) from None
+    return {'dinov3_access': 'passed', 'input_alpha': 'passed', 'background_removal': 'provided alpha'}
+
+
 @app.function(image=image, gpu="H100", cpu=4, memory=49152, timeout=1200,
               startup_timeout=1200, max_containers=1, scaledown_window=2,
-              volumes={"/cache": cache}, retries=0)
+              volumes={"/cache": cache}, secrets=hf_secrets, retries=0)
 def generate(input_png: bytes, seed: int = 1615, resolution: str = "1024_cascade") -> dict:
     import io, json, time, hashlib
     import torch
@@ -69,7 +104,23 @@ def generate(input_png: bytes, seed: int = 1615, resolution: str = "1024_cascade
               "pipeline": resolution, "gpu": torch.cuda.get_device_name(), "torch": torch.__version__,
               "input_sha256": hashlib.sha256(input_png).hexdigest(), "status": "running"}
     print("GPU:", report["gpu"], "pipeline:", resolution, flush=True)
-    pipeline = Trellis2ImageTo3DPipeline.from_pretrained("microsoft/TRELLIS.2-4B")
+    # The input already has alpha. Configure a null remover instead of loading
+    # the unused, separately gated RMBG-2.0 model. The pinned pipeline supports
+    # rembg_model=None and uses the input's alpha in preprocess_image.
+    import tempfile
+    from huggingface_hub import hf_hub_download
+    from trellis2.pipelines import rembg
+    repo = 'microsoft/TRELLIS.2-4B'
+    config = json.loads(Path(hf_hub_download(repo, 'pipeline.json')).read_text())
+    for key, path in config['args']['models'].items():
+        if path.startswith('ckpts/'):
+            config['args']['models'][key] = f'{repo}/{path}'
+    config['args']['rembg_model'] = {'name': 'ProvidedAlpha', 'args': {}}
+    rembg.ProvidedAlpha = lambda: None
+    with tempfile.TemporaryDirectory() as directory:
+        Path(directory, 'pipeline.json').write_text(json.dumps(config))
+        pipeline = Trellis2ImageTo3DPipeline.from_pretrained(directory)
+    report['background_removal'] = 'provided alpha; RMBG-2.0 not loaded'
     pipeline.cuda()
     report["load_seconds"] = time.monotonic() - started
     inference_started = time.monotonic()
@@ -109,6 +160,7 @@ def main(input: str = "docs/experiments/future-sanada/reference.png",
         return
     target = Path(output)
     target.mkdir(parents=True, exist_ok=True)
+    print('CPU access check:', check_access.remote(Path(input).read_bytes()))
     for name, data in generate.remote(Path(input).read_bytes(), seed, resolution).items():
         (target/name).write_bytes(data)
         print("Saved", target/name, len(data), "bytes")
