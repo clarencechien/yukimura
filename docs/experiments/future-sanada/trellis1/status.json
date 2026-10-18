@@ -1,0 +1,32 @@
+{
+  "status": "generated_remotely_download_blocked",
+  "updated_at": "2026-10-18T10:40:47.367941+00:00",
+  "modal_run": "https://modal.com/apps/clarence-chien/main/ap-6QJzjDmxPNyuoWuQGe1SD3",
+  "image_id": "im-1PwTa5cIEyAcYtT4xW8vIP",
+  "engine": "TRELLIS first generation",
+  "dinov3_required": false,
+  "huggingface_token_required": false,
+  "model_produced_on_modal": true,
+  "model_downloaded": false,
+  "local_renders_produced": false,
+  "generation_report_source": "Captured JSON printed after GLB write and Volume commit; local GLB hash not yet verified",
+  "volume": "yukimura-trellis2-cache",
+  "volume_path": "results/future-sanada-trellis1/future-sanada.glb",
+  "volume_file_size_verified": 7822076,
+  "download_host": "clobber.modal-storage.com",
+  "download_proxy_CONNECT_status": 403,
+  "network_draft_saved": true,
+  "runtime_access_after_save": "not assumed",
+  "validation": {
+    "anonymous_weight_access": "passed on CPU, TRELLIS checkpoints and DINOv2 URL",
+    "cpu_imports": "passed",
+    "h100_inference": "passed",
+    "uv_texture_export": "passed on H100",
+    "volume_file_metadata": "passed: GLB exists with expected size",
+    "local_geometry_check": "not run: download blocked",
+    "blender_render": "not run: download blocked",
+    "viewer": "not run: download blocked",
+    "script_syntax": "passed"
+  },
+  "resume_command": "/workspace/yukimura-tools/bin/python tools/run_trellis1.py --download-only"
+}

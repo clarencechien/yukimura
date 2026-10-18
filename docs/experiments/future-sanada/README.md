@@ -4,6 +4,8 @@
 
 ## 目前狀態
 
+**新增：[TRELLIS 第一代＋DINOv2 替代路線](trellis1/README.md)已在 H100 產出 7.82 MB GLB 與 2048 色彩貼圖**；目前下載受儲存網域阻擋，尚未完成視覺檢查。以下是第二代路線的狀態。
+
 2D 參考圖已完成。Modal 登入與 TLS 已驗證，CUDA 執行環境已完成，且通過 **NVIDIA H100 80GB** 的 TRELLIS.2 匯入、CuMesh 網格與 CUDA 光柵化檢查；**尚未產生 GLB，沒有 3D 成果圖**。
 
 2026-10-18（台灣時間）更新：proxy 與派送網域已實測通過，參考圖上傳成功，**H100 上的 `generate` 已啟動**。載入 DINOv3 時遇到 Hugging Face `401 GatedRepo`；這次是模型帳號權限，已不是 proxy 阻擋。未進入圖片轉網格推論、沒有 GLB。執行已結束，確認工作數為 0。

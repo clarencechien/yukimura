@@ -1,0 +1,23 @@
+{
+  "engine": "TRELLIS first generation",
+  "model": "microsoft/TRELLIS-image-large",
+  "trellis_commit": "442aa1e1afb9014e80681d3bf604e8d728a86ee7",
+  "dinov2_commit": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+  "seed": 1615,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "input_sha256": "c84b28641b60b6593a85922881c030840b72fbf6584ea298c697bd002ad106a8",
+  "material": "baked base color; not TRELLIS.2 metallic/roughness prediction",
+  "load_seconds": 53.46647722600001,
+  "inference_seconds": 4.543790837000003,
+  "source_triangles": 294104,
+  "source_vertices": 147032,
+  "status": "completed",
+  "export_seconds": 42.12758074000001,
+  "elapsed_seconds": 104.20306904200001,
+  "texture_size": 2048,
+  "simplification_ratio": 0.4899763349019395,
+  "fill_holes": false,
+  "export_bytes": 7822076,
+  "export_sha256": "309d958058890464b1dc2040aaab226a017f64e2687f646d5c264f5c5ec4d813",
+  "peak_gpu_gib": 9.850888729095459
+}

@@ -6,7 +6,7 @@
 
 ## 並行美術路線
 
-另有 [未來戰士版幸村 × TRELLIS.2 試作](docs/experiments/future-sanada/README.md)：2D 參考圖完成，H100 派送成功，3D 轉檔等待 DINOv3 的 Hugging Face 存取權與 Modal Secret。
+另有 [未來戰士版幸村 × TRELLIS.2 試作](docs/experiments/future-sanada/README.md)：2D 參考圖完成，第二代等待 DINOv3 權限；[第一代替代路線](docs/experiments/future-sanada/trellis1/README.md)已在 H100 生成 GLB，等待下載網域放行以完成視覺驗證。
 
 **[直接玩 2D《燼關突圍》](https://clarencechien.github.io/yukimura/jigoku/)**（手機／電腦）。
 

@@ -89,5 +89,13 @@
     "upload_and_preprocessing": "passed",
     "image_to_3d": "AppError: upstream exception with verbose error reporting disabled",
     "model_produced": false
+  },
+  "alternative_route": {
+    "engine": "TRELLIS first generation with DINOv2",
+    "status": "generated_remotely_download_blocked",
+    "details": "trellis1/status.json",
+    "dinov3_required": false,
+    "model_produced_on_modal": true,
+    "model_downloaded": false
   }
 }
