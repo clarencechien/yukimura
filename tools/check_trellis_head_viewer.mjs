@@ -2,9 +2,8 @@ import {chromium} from '@playwright/test';
 import http from 'node:http';
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-const bodyStudy=process.argv.includes('--body-study');
-const out=bodyStudy?'docs/experiments/future-sanada/body-study':'docs/experiments/future-sanada/head-study';
-const html=await fs.readFile(bodyStudy?'.tmp/future-sanada-body-viewer/index.html':'.tmp/future-sanada-head-viewer/index.html');
+const out='docs/experiments/future-sanada/head-study';
+const html=await fs.readFile('.tmp/future-sanada-head-viewer/index.html');
 const expected=JSON.parse(await fs.readFile(`${out}/refined/preview-inspection.json`));
 const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/html');res.end(html);});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
@@ -20,9 +19,8 @@ try{
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await page.context().setOffline(true);
   for(const selector of ['[data-angle="0"]','[data-angle="270"]','#clay','#wire','#wire','#clay','[data-angle="90"]','#spin','#spin','[data-angle="90"]'])await page.locator(selector).click();
-  if(bodyStudy){for(const focus of ['torso','hands','legs','all']){await page.locator(`[data-focus="${focus}"]`).click();assert.equal(await page.evaluate(()=>window.modelStudy.focus),focus);}}
   await page.screenshot({path:`${out}/viewer-${viewport.width}.png`});
-  checks.push({viewport,loaded:state,controls:'front/side/back/clay/wireframe/autorotate toggles work offline',bodyFocusChecks:bodyStudy?['torso','hands','legs','all']:[],noHorizontalOverflow:true});await page.close();
+  checks.push({viewport,loaded:state,controls:'front/side/back/clay/wireframe/autorotate toggles work offline',noHorizontalOverflow:true});await page.close();
  }
  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
  const report={passed:true,checks,consoleErrors:errors,externalRequests:external,limitation:'Headless Chromium; no physical mobile performance measurement'};

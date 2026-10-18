@@ -41,8 +41,6 @@
 
 ## 研究與離線渲染
 
-- [未來赤備：全身第一輪修整與下載](experiments/future-sanada/body-study/README.md)
-
 - [寫實人物與甲冑資源試載](CHARACTER_ASSET_RESEARCH.md)
 - [手部與鎧甲精修：skill 與替代方法調查](HAND_ARMOR_METHODS.md)
 - [手腕／雙手握武器：v21 問題與下一步](WRIST_RIG_REVIEW.md)

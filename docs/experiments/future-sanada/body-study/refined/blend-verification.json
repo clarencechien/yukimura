@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "file_sha256": "d03d2785490adf36762f2b49a0a9cfe001ebe4206fac549d87e0d4fb6877294d",
-  "mesh_objects": 472,
-  "used_images_packed": 21,
-  "triangles": 471378,
-  "static_only": true
-}
