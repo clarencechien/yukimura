@@ -1,0 +1,43 @@
+{
+  "file": "head-light.glb",
+  "sha256": "72de4d28eb8747bc91ab880b34f9805102a8092ac9d0b0271411eef985d84cff",
+  "bytes": 19464540,
+  "vertices": 132436,
+  "triangles": 148229,
+  "degenerate_triangles": 2,
+  "bounds": [
+    [
+      -0.42625224590301514,
+      -0.4996728301048279,
+      -0.3341025114059448
+    ],
+    [
+      0.42626717686653137,
+      0.49744635820388794,
+      0.34078946709632874
+    ]
+  ],
+  "extent": [
+    0.8525193929672241,
+    0.9971191883087158,
+    0.6748919486999512
+  ],
+  "materials": [
+    {
+      "name": null,
+      "baseColorTexture": {
+        "index": 0
+      },
+      "metallicRoughnessTexture": {
+        "index": 1
+      },
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 2,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "pbr",
+  "primitives_without_normals": 0
+}

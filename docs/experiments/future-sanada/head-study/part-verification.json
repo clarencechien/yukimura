@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "file": "refined/head-refined.glb",
+      "coins": [
+        "Six coins / row 1 coin 1",
+        "Six coins / row 1 coin 2",
+        "Six coins / row 1 coin 3",
+        "Six coins / row 2 coin 1",
+        "Six coins / row 2 coin 2",
+        "Six coins / row 2 coin 3"
+      ],
+      "pupils": [
+        "Pupil -1",
+        "Pupil 1"
+      ],
+      "irises": [
+        "Iris -1",
+        "Iris 1"
+      ],
+      "skins": 0,
+      "animations": 0
+    },
+    {
+      "file": "refined/head-preview.glb",
+      "coins": [
+        "Six coins / row 1 coin 1",
+        "Six coins / row 1 coin 2",
+        "Six coins / row 1 coin 3",
+        "Six coins / row 2 coin 1",
+        "Six coins / row 2 coin 2",
+        "Six coins / row 2 coin 3"
+      ],
+      "pupils": [
+        "Pupil -1",
+        "Pupil 1"
+      ],
+      "irises": [
+        "Iris -1",
+        "Iris 1"
+      ],
+      "skins": 0,
+      "animations": 0
+    }
+  ],
+  "scope": "Actual exported named parts; does not certify anatomy, watertightness or rig readiness"
+}

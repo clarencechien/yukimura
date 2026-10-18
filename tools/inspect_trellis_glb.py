@@ -5,6 +5,7 @@ import numpy as np
 p=argparse.ArgumentParser()
 p.add_argument('--model',default='docs/experiments/future-sanada/future-sanada.glb')
 p.add_argument('--material-profile',choices=['pbr','basecolor'],default='pbr')
+p.add_argument('--report',help='Optional output report path for multi-model studies')
 args=p.parse_args()
 path=Path(args.model);data=path.read_bytes()
 magic,version,total=struct.unpack_from('<III',data);assert magic==0x46546c67 and version==2 and total==len(data)
@@ -18,8 +19,13 @@ positions=[];triangles=0;degenerate=0;missing_normals=0
 for mesh in j['meshes']:
  for p in mesh['primitives']:
   assert p.get('mode',4)==4
-  a=p['attributes'];pos=accessor(a['POSITION']);assert np.isfinite(pos).all();assert 'TEXCOORD_0' in a
-  assert np.isfinite(accessor(a['TEXCOORD_0'])).all()
+  a=p['attributes'];pos=accessor(a['POSITION']);assert np.isfinite(pos).all()
+  material=j.get('materials',[])[p['material']] if 'material' in p else {}
+  texture_slots=[value for value in material.get('pbrMetallicRoughness',{}).values() if isinstance(value,dict) and 'index' in value]
+  texture_slots += [material[k] for k in ['normalTexture','occlusionTexture','emissiveTexture'] if k in material]
+  for slot in texture_slots:assert 'TEXCOORD_'+str(slot.get('texCoord',0)) in a, 'Textured primitive missing required UVs'
+  for key in a:
+   if key.startswith('TEXCOORD_'):assert np.isfinite(accessor(a[key])).all()
   if 'NORMAL' in a:assert np.isfinite(accessor(a['NORMAL'])).all()
   else:missing_normals+=1  # NORMAL is optional in glTF; importers derive it from triangles.
   idx=accessor(p['indices']).reshape(-1,3);assert idx.max()<len(pos)
@@ -35,4 +41,4 @@ if args.material_profile=='pbr':
 report={'file':path.name,'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data),'vertices':len(allpos),'triangles':triangles,'degenerate_triangles':degenerate,'bounds':bounds,'extent':extent,'materials':materials,'embedded_images':len(j['images']),'skins':len(j.get('skins',[])),'animations':len(j.get('animations',[])),'validated':True}
 report['material_profile']=args.material_profile
 report['primitives_without_normals']=missing_normals
-path.with_name('mesh-inspection.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+(Path(args.report) if args.report else path.with_name('mesh-inspection.json')).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

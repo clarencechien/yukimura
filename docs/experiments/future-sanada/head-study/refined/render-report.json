@@ -1,0 +1,101 @@
+{
+  "model": "docs/experiments/future-sanada/head-study/refined/head-refined.glb",
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "size": 1000,
+  "samples": 20,
+  "normalization": {
+    "scale": 1.0,
+    "original_low": [
+      -0.8553466796875,
+      -0.6769160628318787,
+      0.0
+    ],
+    "original_high": [
+      0.8553466200828552,
+      0.6769161224365234,
+      2.0
+    ]
+  },
+  "geometry_vertices": 512193,
+  "geometry_triangles": 536910,
+  "views": [
+    {
+      "name": "front",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 20.217606297999737
+    },
+    {
+      "name": "eyes",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.74
+      ],
+      "span": 0.83,
+      "seconds": 76.55811947700568
+    },
+    {
+      "name": "crest",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.1
+      ],
+      "span": 0.9,
+      "seconds": 56.220472367000184
+    },
+    {
+      "name": "three-quarter",
+      "angle": 0.4886921905584123,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 32.70997537999938
+    },
+    {
+      "name": "side",
+      "angle": 1.5707963267948966,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 28.139653056001407
+    },
+    {
+      "name": "back",
+      "angle": 3.141592653589793,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 19.58833097400202
+    },
+    {
+      "name": "clay",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 22.51369235000311
+    }
+  ]
+}

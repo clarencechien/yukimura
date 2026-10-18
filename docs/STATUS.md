@@ -1,5 +1,11 @@
 # 狀態與交接
 
+## 2026-10-18：未來赤備頭部精修研究
+
+[逐項成果與下載](experiments/future-sanada/head-study/README.md)：單獨頭部參考以 TRELLIS.2／DINOv3、H100、1536 生成；原始 3,455 萬面在匯出前保存至 Modal Volume。發現原網格只有四枚錢紋，眼部也未完整形成；已使用 Blender 重建六枚方孔錢紋與獨立眼部、調整前盔沿、拆分材質並烘焙新增零件。提供約 53.7 萬面精修版、19.1 萬面檢視版及可編輯 Blender 原檔。
+
+已有同燈光近拍、側背面及接回原身體的靜態比例試看。眼眶／皮膚銜接、面罩碎邊與頸肩接縫仍需修整；沒有綁骨架，沒有替換線上遊戲。下一步先修這些局部，再處理身體、權重與 LOD。原始大型資料未加入 Git；下載方式與 GPU／CPU 紀錄見研究文件。
+
 ## 2026-10-17：2D 分支已進入可玩關卡
 
 `art/jigoku-prerendered-2d` 新增 [燼關突圍](routes/jigoku-2d/PLAYABLE_LEVEL.md)：Phaser 三段關卡、四面來敵、十名赤備、護旗、家康、勝敗重試、三難度與最多六周目。已部署至 [GitHub Pages 的 jigoku 路徑](https://clarencechien.github.io/yukimura/jigoku/)，也可下載單檔遊戲 ZIP。`npm test` 38 項通過，另完成桌機／雙指觸控／直橫向／單檔斷網操作檢查；詳見該頁的驗證及限制。

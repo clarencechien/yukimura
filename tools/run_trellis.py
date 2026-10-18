@@ -18,7 +18,11 @@ def main():
                 'approved for facebook/dinov3-vitl16-pretrain-lvd1689m. '
                 'No GPU job was started. See docs/experiments/future-sanada/README.md.'
             )
-    sys.argv = ['modal', 'run', 'tools/trellis_modal.py', *sys.argv[1:]]
+    script = 'tools/trellis_modal.py'
+    if '--head-study' in sys.argv:
+        sys.argv.remove('--head-study')
+        script = 'tools/trellis_head_modal.py'
+    sys.argv = ['modal', 'run', script, *sys.argv[1:]]
     runpy.run_module('modal', run_name='__main__')
 
 if __name__ == '__main__':

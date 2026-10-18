@@ -1,0 +1,66 @@
+{
+  "method": "5000 deterministic source vertex samples per region; nearest exported triangle, one directional; geometry only, not texture or semantic correctness",
+  "normalized_height": 2,
+  "source_vertices": 16986199,
+  "source_triangles": 34550544,
+  "variants": {
+    "high": {
+      "eyes": {
+        "samples": 5000,
+        "median_normalized": 0.00014770877099221568,
+        "p95_normalized": 0.0005680441055641118,
+        "maximum_normalized": 0.009331598908574022
+      },
+      "crest": {
+        "samples": 5000,
+        "median_normalized": 6.689861726419372e-05,
+        "p95_normalized": 0.0003900229641381963,
+        "maximum_normalized": 0.004342139613939217
+      },
+      "mask": {
+        "samples": 5000,
+        "median_normalized": 0.0001459532398537889,
+        "p95_normalized": 0.0005577653522499795,
+        "maximum_normalized": 0.00787642529001183
+      },
+      "antlers": {
+        "samples": 5000,
+        "median_normalized": 0.00021458090483107974,
+        "p95_normalized": 0.0006424821574432336,
+        "maximum_normalized": 0.0013377746189139658
+      }
+    },
+    "light": {
+      "eyes": {
+        "samples": 5000,
+        "median_normalized": 0.0003952465930390735,
+        "p95_normalized": 0.0012592575927112843,
+        "maximum_normalized": 0.007858240709967847
+      },
+      "crest": {
+        "samples": 5000,
+        "median_normalized": 0.00022492650772490674,
+        "p95_normalized": 0.000905941070533419,
+        "maximum_normalized": 0.014105855326432546
+      },
+      "mask": {
+        "samples": 5000,
+        "median_normalized": 0.0003952650537267947,
+        "p95_normalized": 0.0012619662965854016,
+        "maximum_normalized": 0.008873693997844526
+      },
+      "antlers": {
+        "samples": 5000,
+        "median_normalized": 0.0005063034051788937,
+        "p95_normalized": 0.0011907307785439815,
+        "maximum_normalized": 0.0018807400743014282
+      }
+    }
+  },
+  "source_crop": {
+    "vertices": 4013729,
+    "triangles": 8083931,
+    "unchanged_vertex_positions": true,
+    "boundary": "cropped for inspection; not a replacement head mesh"
+  }
+}
