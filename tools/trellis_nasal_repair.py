@@ -119,4 +119,4 @@ def add_panels(object_mesh,mat):
     lip=shell('Menpo reconstructed upper lip',coords,nu,nv,object_mesh,red)
     return {'nose_object':nose.name,'lip_object':lip.name,'nostrils':holes,
             'plate_thickness':.006,'cleanup_vertices':cleanup_vertices,'material':red.name,
-            'limits':['Local overlapping repair, not welded to cheeks','Original cheek vents and lower jaw remain generated','Static model; no rig or collision certification']},red,nose,lip
+            'limits':['Local overlapping repair, not welded to cheeks','Nasal repair is fitted separately from cheek and chin panels','Static model; no rig or collision certification']},red,nose,lip

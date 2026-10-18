@@ -1,6 +1,6 @@
 # 文件索引
 
-2026-10-17 更新。2D 分支已提供完整關卡，線上 3D 遊戲維持 v22；先讀 [狀態與交接](STATUS.md)。歷史文件保留當時的數據、比較圖、來源與限制，不應混作目前規格。一般啟動見 [README](../README.md)。
+2026-10-18 更新。2D 分支已提供完整關卡，線上 3D 遊戲維持 v22；先讀 [狀態與交接](STATUS.md)。歷史文件保留當時的數據、比較圖、來源與限制，不應混作目前規格。一般啟動見 [README](../README.md)。
 
 ## 目前狀態、操作與部署
 
@@ -70,4 +70,4 @@
 
 - [短刺修正：固定肢段與肩肘腕連動](routes/jigoku-2d/YARI_RIGID_MOTION.md)（取代整圖拉伸，30 fps 前後對照，未接入正式遊戲）。
 
-另有 [未來赤備：TRELLIS 兩代實測比較](experiments/future-sanada/README.md)：第一代＋DINOv2 與第二代＋DINOv3 均已生成、下載與五視角渲染；附 GLB、Blender 場景及互動檢視器。最新為[頭部逐項精修與身體試接](experiments/future-sanada/head-study/README.md)，包含原網格檢查、Rocketbox 人臉眼眶／薄浮雕六文錢／面罩上緣／鼻翼與上唇修整及近拍。仍需手部／甲片精修與骨架，未替換線上遊戲。
+另有 [未來赤備：TRELLIS 兩代實測比較](experiments/future-sanada/README.md)：第一代＋DINOv2 與第二代＋DINOv3 均已生成、下載與五視角渲染；附 GLB、Blender 場景及互動檢視器。最新為[頭部逐項精修與身體試接](experiments/future-sanada/head-study/README.md)，包含原網格檢查、Rocketbox 人臉眼眶／薄浮雕六文錢／面罩上緣／鼻翼與上唇／通氣框與下巴修整及近拍。仍需手部／甲片精修與骨架，未替換線上遊戲。

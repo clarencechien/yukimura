@@ -1,5 +1,46 @@
 {
-  "iteration": 22,
+  "iteration": 26,
+  "lower_repair": {
+    "vent_frames": [
+      "Menpo cheek vent frame -1",
+      "Menpo cheek vent frame 1"
+    ],
+    "vent_apertures": [
+      {
+        "center_xz": [
+          -0.202,
+          0.48
+        ],
+        "half_opening_xz": [
+          0.03,
+          0.084
+        ],
+        "lining_depth": 0.048
+      },
+      {
+        "center_xz": [
+          0.202,
+          0.48
+        ],
+        "half_opening_xz": [
+          0.03,
+          0.084
+        ],
+        "lining_depth": 0.048
+      }
+    ],
+    "chin": "Menpo reconstructed chin shield",
+    "inlay": "Menpo chin brass inlay",
+    "limits": [
+      "Local overlapping panels, not welded to the whole mask",
+      "Side jaw and helmet still contain generated geometry",
+      "Vent cloth backing is a separate recessed part"
+    ],
+    "removed_source_faces": {
+      "vent_faces": 4354,
+      "chin_faces": 5152
+    }
+  },
   "nasal_repair": {
     "nose_object": "Menpo reconstructed nasal shell",
     "lip_object": "Menpo reconstructed upper lip",
@@ -34,7 +75,7 @@
     "material": "Menpo repaired lacquer",
     "limits": [
       "Local overlapping repair, not welded to cheeks",
-      "Original cheek vents and lower jaw remain generated",
+      "Nasal repair is fitted separately from cheek and chin panels",
       "Static model; no rig or collision certification"
     ],
     "removed_source_faces": 5335
@@ -87,6 +128,7 @@
   "coin_count": 6,
   "eye_landmarks": [],
   "changes": [
+    "Rebuilt both cheek vent frames and central chin shield; shared baked lacquer/brass color and roughness",
     "Rebuilt nasal shell with two through-cut nostrils and recessed backing; replaced broken upper-lip band",
     "Clipped eye-opening triangles at a continuous contour with UV interpolation; rebuilt rolled menpo rim and return",
     "Raised only front visor by up to 0.02 normalized units",
@@ -100,7 +142,7 @@
   "limitations": [
     "Artist-directed procedural edits, not hand-sculpted anatomical retopology",
     "Eye appearance and anatomy inherited from Rocketbox; no independent gaze controls",
-    "Cheek vents and lower jaw remain generated; nasal repair is not welded into the full mask",
+    "Outer side jaw and helmet retain generated defects; repair parts are not welded into the full mask",
     "No skeleton, weights or facial animation"
   ]
 }

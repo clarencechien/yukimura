@@ -5,7 +5,7 @@
   "tasks": 0,
   "local_render_device": "CPU",
   "local_refinement": {
-    "iteration": 22,
+    "iteration": 26,
     "modeling": "Blender bpy / CPU",
     "texture_baking": "Cycles / CPU",
     "inspection_renders": "Cycles / CPU",

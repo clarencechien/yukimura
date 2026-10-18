@@ -1,9 +1,9 @@
 {
   "file": "static-fit.glb",
-  "sha256": "ae3d740c4ed7ad9482342e883c123b4b74aaa925833ca9bf9cae9740b231776f",
-  "bytes": 47473720,
-  "vertices": 370885,
-  "triangles": 328512,
+  "sha256": "52e4ac863a73de8f9af45b7785779eae55bef990c7efa24a0921ed74ac43f18d",
+  "bytes": 48371496,
+  "vertices": 374838,
+  "triangles": 338716,
   "degenerate_triangles": 5,
   "bounds": [
     [
@@ -72,22 +72,18 @@
       "alphaMode": "OPAQUE"
     },
     {
-      "name": "Menpo edge / oxblood lacquer",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
+      "name": "Menpo repaired lacquer",
+      "baseColorTexture": {
+        "index": 6
+      },
+      "metallicRoughnessTexture": {
+        "index": 7
+      },
       "alphaMode": "OPAQUE"
     },
     {
       "name": "Menpo rolled lip / muted brass",
       "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Menpo repaired lacquer",
-      "baseColorTexture": {
-        "index": 6
-      },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
     },
@@ -98,9 +94,25 @@
       "alphaMode": "OPAQUE"
     },
     {
+      "name": "Menpo aged brass shared finish",
+      "baseColorTexture": {
+        "index": 8
+      },
+      "metallicRoughnessTexture": {
+        "index": 9
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Vent recessed cloth lining",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
       "name": "Crest oxblood lacquer",
       "baseColorTexture": {
-        "index": 7
+        "index": 10
       },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
@@ -108,7 +120,7 @@
     {
       "name": "Crest aged brass",
       "baseColorTexture": {
-        "index": 9
+        "index": 12
       },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
@@ -128,7 +140,7 @@
     {
       "name": "Human orbital skin and eyes / Rocketbox",
       "baseColorTexture": {
-        "index": 12
+        "index": 15
       },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
@@ -136,15 +148,15 @@
     {
       "name": "Material_0.001",
       "baseColorTexture": {
-        "index": 13
+        "index": 16
       },
       "metallicRoughnessTexture": {
-        "index": 14
+        "index": 17
       },
       "alphaMode": "OPAQUE"
     }
   ],
-  "embedded_images": 11,
+  "embedded_images": 14,
   "skins": 0,
   "animations": 0,
   "validated": true,

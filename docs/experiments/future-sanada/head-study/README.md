@@ -2,20 +2,26 @@
 
 本次先處理頭部，不以整個人物增加面數代替修形。這是沿用原設計的頭部重製試作，新的頭部參考有細節改寫，並非原圖的精確幾何還原。
 
-## 最新：鼻翼、鼻孔與上唇修補
+## 最新：頰部通氣框、下巴與共用漆面
 
-上一輪保留的鼻翼與鼻下仍有裂片、白色破面和不連續反光。本輪依原模型正側面的輪廓位置重建鼻殼及上唇，清除對應舊面，將鼻孔做成實際穿過鼻殼的開口，後方另外放置內縮的暗色襯底。鼻殼與上唇為獨立可編輯零件；這是由程式依指定輪廓參數重建的局部模型，不是再次 image-to-3D 生成。
+重建左右主要通氣框與中央下巴護片，清除對應區域的舊碎面。通氣框以赤漆為主、細黃銅邊收口；框內保留實際開口，後方另放內縮的暗色布襯。下巴改為連續曲面，邊緣依原殼位置配適，中央薄黃銅飾片再投射到新護片上。這是 Blender 局部重建，沒有重新執行 image-to-3D。
 
-| 修補前 | 修補後 |
+| 上一輪 | 本輪 |
 | --- | --- |
-| ![先前鼻翼與鼻下破面](iterations/pass16/mask.png) | ![鼻殼與上唇修補](refined/mask.png) |
-| ![先前側面](iterations/pass16/side.png) | ![目前側面](refined/side.png) |
+| ![先前通氣框與下巴碎面](iterations/pass22/mask.png) | ![通氣框與中央下巴修補](refined/mask.png) |
+| ![先前側面](iterations/pass22/side.png) | ![目前側面](refined/side.png) |
 
-鼻殼與上唇共用一張完整烘焙的 512² 漆色貼圖。鼻孔切割與倒角後另外清除細碎面，並以接回身體的縮放、位移及 float32 精度檢查；新增零件縮小後沒有近零面積三角形。檢查包括兩個新零件的封閉／連通狀態、鼻孔中心射線、嘴部與側面通氣位置未被新零件遮住，以及共用貼圖沒有未烘焙的黑色區域。這些檢查只涵蓋新增零件，**不代表整個面罩已經封閉或可直接套動畫**。
+鼻殼、上唇、眼眶折邊、頰框與下巴共用 512² 漆色及粗糙度貼圖；頰框金邊與下巴飾片共用黃銅色彩及粗糙度。漆面粗糙度約 0.47–0.53，黃銅約 0.40–0.48，並降低原赤漆的過亮反光。這些是細微材質變化，尚未補齊原甲片的磨損與接縫細節。
 
-本輪模型修整、貼圖烘焙及 Cycles 檢查圖均使用本機 **CPU**；原始頭部的 TRELLIS.2 生成才使用 Modal H100 GPU。本輪沒有啟動新的 Modal GPU 作業。GPU 可加快渲染／推論，造型配適、接縫和拓樸仍需逐項修正。
+新增框體、下巴及飾片在匯出高版／檢視版檢查為單一連通、封閉零件，縮放到身體後未出現近零面積三角形；另檢查框內取樣射線、嘴部留空及 GLB 內確實包含共用粗糙度貼圖。框後布襯是另一零件，**不代表通氣孔穿透整個頭，也不代表全頭已封閉或可直接套動畫**。
 
-**仍需處理**：鼻殼與頰甲仍是局部搭接，兩側通氣框、下巴及盔沿保留原生成缺陷；新增漆面也比舊甲片乾淨，磨損與粗糙度尚未完全一致。
+本輪修整、烘焙與 Cycles 檢查圖使用本機 **CPU**；原始頭部的 TRELLIS.2 生成才使用 Modal H100 GPU。本輪沒有啟動新的 Modal GPU 作業。
+
+**仍需處理**：新舊面罩是搭接零件，外側下顎、通氣框上方頰甲、盔沿與頸肩仍保留生成破面；眼眶兩側皮膚接合及新舊磨損也不一致。尚未焊接、綁骨架或替換遊戲。
+
+## 前一階段：鼻翼、鼻孔與上唇修補
+
+依原模型正側面輪廓重建鼻殼及上唇，清除對應舊面，鼻孔實際穿過鼻殼，後方另有內縮的暗色襯底。鼻孔切割與倒角後清除細碎面，並檢查接回身體的縮放、位移及 float32 精度。新增零件縮小後沒有近零面積三角形，鼻孔取樣射線留空；漆色貼圖沒有未烘焙黑色區域。此階段對照可見[修補前](iterations/pass16/mask.png)及[修補後](iterations/pass22/mask.png)。
 
 ## 前一階段：眼眶上緣與鼻樑收邊
 
@@ -26,7 +32,7 @@
 | ![先前眼眶鋸齒](iterations/pass12/eyes.png) | ![連續面罩上緣](refined/eyes.png) |
 | ![先前側面](iterations/pass12/side.png) | ![目前側面](refined/side.png) |
 
-這次修的是**面罩上緣局部**。該階段保留鼻翼、下半面罩及盔沿的生成破面；鼻翼／上唇已於本輪局部重建；新折邊目前使用實色 PBR 漆甲／黃銅材質，尚未補上磨損貼圖；新舊漆面接合也尚未完成整體重拓樸。眼眶仍沿用上一輪的 Rocketbox 靜態表情，六文錢保留六枚薄浮雕與實際方孔。沒有宣稱整個頭部已經封閉或可直接套動畫。
+這次修的是**面罩上緣局部**。該階段保留鼻翼、下半面罩及盔沿的生成破面；鼻翼／上唇及主要通氣框／下巴已於後續局部重建；折邊目前共用新漆色與粗糙度，尚未補齊磨損貼圖；新舊漆面接合也尚未完成整體重拓樸。眼眶仍沿用上一輪的 Rocketbox 靜態表情，六文錢保留六枚薄浮雕與實際方孔。沒有宣稱整個頭部已經封閉或可直接套動畫。
 
 ## 前一階段：眼神與六文錢再調整
 
@@ -89,6 +95,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 - **材質**：拆分漆甲、金屬、布與皮膚；額頭修補面投射烘焙原盔漆色，錢紋增加 512² 色彩與法線貼圖。局部仍需更多不規則磨損與邊緣修整。
 - **面罩上緣**：曲線裁切與 UV 內插，另建連續漆甲折邊、黃銅唇邊和內襯；匯出後檢查新增折邊是單一連通且封閉的零件，不代表原下半面罩也封閉。
 - **鼻殼／上唇**：重建有厚度的鼻殼與漸薄上唇，鼻孔實際穿透鼻殼，凹腔襯底是另外的零件；尚未焊接到舊頰甲。
+- **通氣框／下巴**：重建主要頰框、凹腔布襯、中央下巴護片及薄黃銅飾片；共用漆色與粗糙度貼圖，保留外側原殼待修。
 - **清理**：精修高版檢查未見近零面積三角形；此檢查不等於無自相交、全封閉或動畫合格。
 
 第一輪眼皮太亮、像貼上去；第二輪嘗試借用原 UV，造成錢紋拉花。已棄用這兩個結果，留存失敗近拍便於追蹤：
@@ -97,7 +104,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 | --- | --- |
 | ![第一輪問題](iterations/pass1/eyes.png) | ![第二輪問題](iterations/pass2/crest.png) |
 
-**仍需細修**：眼部已有來源人臉結構，但面罩上緣已局部重建，但兩側皮膚接合仍不夠自然，來源眼部的烘焙高光也不是完整的物理角膜；面罩有破碎邊緣、漆面高光不連續；嘴部開口比參考圖更大。不能把這些誤稱為完成的戰損。後腦與遮蔽區域是單圖推測，沒有背面真值；面罩尚未重建成乾淨、獨立、有壁厚的零件。
+**仍需細修**：眼部已有來源人臉結構，面罩上緣已局部重建，但兩側皮膚接合仍不夠自然，來源眼部的烘焙高光也不是完整的物理角膜；面罩有破碎邊緣、漆面高光不連續；嘴部開口比參考圖更大。不能把這些誤稱為完成的戰損。後腦與遮蔽區域是單圖推測，沒有背面真值；面罩尚未重建成乾淨、獨立、有壁厚的零件。
 
 | 精修斜側 | 側面 | 背面 |
 | --- | --- | --- |
@@ -111,7 +118,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 
 移除身體上原頭部區域，以縮放 0.26 的新頭部接入。**這是獨立靜態組裝，尚未焊接頸部、綁骨架或驗證動態穿插。** 護頸與肩甲附近仍有重疊接縫，不能當作可直接套動畫的角色。原身體材質、手指和甲片仍有舊缺陷，接合檢查保留原身體的 5 個近零面積三角形；頭部高版與檢視版則為 0。沒有替換線上遊戲。
 
-下一輪順序：接著修兩側通氣框、下巴破面與盔沿，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
+下一輪順序：接著修通氣框上方頰甲、外側下顎與盔沿，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
 
 ## 下載與檢查
 
@@ -119,15 +126,15 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 | --- | --- | ---: | --- |
 | [生成高版 GLB](head-high.glb) | 保留生成結果，66.29 MB | 494,558 | 4096² |
 | [生成輕版 GLB](head-light.glb) | 減面比較，19.46 MB | 148,229 | 2048² |
-| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 528,160 | 原 4096²＋眼眶素材＋新增 512² |
-| [精修檢視版 GLB](refined/head-preview.glb) | 約 28.6 MB、保留人臉眼眶與獨立錢紋 | 195,549 | 2048²＋眼眶素材＋512² |
+| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 531,710 | 原 4096²＋眼眶素材＋新增 512² |
+| [精修檢視版 GLB](refined/head-preview.glb) | 約 29.5 MB、保留人臉眼眶與獨立錢紋 | 205,753 | 2048²＋眼眶素材＋512² |
 | [Blender 原檔](refined/head-refined.blend) | 已內嵌材質，物件可分別編輯 | 高版 | 內嵌 |
 | [互動檢視器 ZIP](viewer.zip) | 解壓後開啟 index.html、旋轉／白模／線框 | 檢視版 | 內嵌 |
 | [接合 GLB](fitting/static-fit.glb) | 僅供靜態比例檢查 | 見檢查報告 | 內嵌 |
 
 GitHub 檔案頁請按 **Download raw file**。本頁圖片可直接在 GitHub 文件查看；這次成果不在 Pages 遊戲內，也沒有把研究頁部署成網站。檢視器程式與模型均內嵌，測試詳見 [瀏覽器報告](viewer-verification.json)；手機尺寸模擬不代表實機效能。檢視版仍偏重，不是已驗證的手機 LOD。
 
-[高版幾何檢查](high-inspection.json) · [輕版幾何檢查](light-inspection.json) · [精修幾何檢查](refined/mesh-inspection.json) · [檢視版檢查](refined/preview-inspection.json) · [匯出零件數驗證](part-verification.json) · [鼻殼／上唇檢查](refined/nasal-verification.json) · [檢視版鼻殼檢查](refined/nasal-preview-verification.json) · [修整參數](refined/refinement-report.json) · [接合參數](fitting/fit-report.json) · [接合幾何檢查](fitting/mesh-inspection.json) · [生成紀錄](generation.json) · [下載大小及 SHA-256](downloads.json) · [運算停止狀態](compute-status.json)
+[高版幾何檢查](high-inspection.json) · [輕版幾何檢查](light-inspection.json) · [精修幾何檢查](refined/mesh-inspection.json) · [檢視版檢查](refined/preview-inspection.json) · [匯出零件數驗證](part-verification.json) · [鼻殼／上唇檢查](refined/nasal-verification.json) · [檢視版鼻殼檢查](refined/nasal-preview-verification.json) · [通氣框／下巴檢查](refined/lower-verification.json) · [檢視版下巴檢查](refined/lower-preview-verification.json) · [修整參數](refined/refinement-report.json) · [接合參數](fitting/fit-report.json) · [接合幾何檢查](fitting/mesh-inspection.json) · [生成紀錄](generation.json) · [下載大小及 SHA-256](downloads.json) · [運算停止狀態](compute-status.json)
 
 ## 計算與重現
 
@@ -148,6 +155,8 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/head-study --
 python3 tools/verify_trellis_head_parts.py
 python3 tools/verify_trellis_nasal.py --model docs/experiments/future-sanada/head-study/refined/head-refined.glb --report docs/experiments/future-sanada/head-study/refined/nasal-verification.json
 python3 tools/verify_trellis_nasal.py --model docs/experiments/future-sanada/head-study/refined/head-preview.glb --report docs/experiments/future-sanada/head-study/refined/nasal-preview-verification.json
+python3 tools/verify_trellis_lower_mask.py --model docs/experiments/future-sanada/head-study/refined/head-refined.glb --report docs/experiments/future-sanada/head-study/refined/lower-verification.json
+python3 tools/verify_trellis_lower_mask.py --model docs/experiments/future-sanada/head-study/refined/head-preview.glb --report docs/experiments/future-sanada/head-study/refined/lower-preview-verification.json
 node tools/check_trellis_head_viewer.mjs
 ```
 

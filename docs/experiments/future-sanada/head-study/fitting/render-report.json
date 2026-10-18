@@ -6,10 +6,10 @@
     1000,
     1000
   ],
-  "geometry_objects": 22,
-  "vertices": 370885,
-  "triangles": 328512,
-  "material_count": 16,
+  "geometry_objects": 28,
+  "vertices": 374838,
+  "triangles": 338716,
+  "material_count": 17,
   "images": [
     {
       "name": "Bitmaptexture",
@@ -82,7 +82,28 @@
       ]
     },
     {
+      "name": "menpo-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-brass-roughness",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
       "name": "menpo-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer-roughness",
       "size": [
         512,
         512
@@ -93,27 +114,27 @@
     {
       "name": "front",
       "degrees": 0,
-      "seconds": 20.55
+      "seconds": 15.29
     },
     {
       "name": "three-quarter",
       "degrees": 35,
-      "seconds": 20.28
+      "seconds": 13.93
     },
     {
       "name": "side",
       "degrees": 90,
-      "seconds": 18.03
+      "seconds": 13.46
     },
     {
       "name": "back",
       "degrees": 180,
-      "seconds": 19.18
+      "seconds": 14.38
     },
     {
       "name": "clay",
       "degrees": 0,
-      "seconds": 14.28
+      "seconds": 15.88
     }
   ],
   "display_override": null
