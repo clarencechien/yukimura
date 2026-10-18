@@ -1,12 +1,12 @@
 # GitHub Pages 部署
 
-## 2D 燼關突圍
+## 2D《燼關突圍》
 
-[線上直接玩](https://clarencechien.github.io/yukimura/jigoku/) · [部署流程](https://github.com/clarencechien/yukimura/actions/runs/39020488133) · [公開站驗證](routes/jigoku-2d/play/pages-verification.json)。
+入口：<https://clarencechien.github.io/yukimura/jigoku/>。同一份 Pages artifact 同時包含根目錄的 3D v22 與 `jigoku/` 的 2D 遊戲。
 
-main 的 Pages workflow 固定取用美術分支提交 `44d6f935102fc9361146504a06467841fd25a663`，完成 2D 規則及瀏覽器測試，將單檔 HTML、Phaser 授權、下載 ZIP 與 `version.txt` 加入 `dist/jigoku/`，再與既有 3D 網站一起發佈。後續更新要調整 main 工作流程中的固定提交；只推送美術分支不會改動線上版。
+工作流程固定取用 2D 分支已驗證提交 `44d6f935102fc9361146504a06467841fd25a663`，執行 10 項規則測試、單檔建置及桌機／手機瀏覽器檢查，再把單檔 HTML、Phaser 授權、下載 ZIP 與 `version.txt` 加入 `dist/jigoku/`。引擎及 32 份素材內嵌，不依賴 GitHub 原始檔網址。
 
-以下保留 3D v22 的部署細節。
+後續 2D 發版需在 `.github/workflows/pages.yml` 更新這個固定提交，再由 main 的工作流程發佈；單純推送美術分支不會修改線上版。
 
 [公開遊戲 v22](https://clarencechien.github.io/yukimura/?v=22) 已部署。Repository 的 Pages Source **已設為 GitHub Actions**，不需再次設定。
 

@@ -24,6 +24,31 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - run: npm run test:pages
+      - name: Check out the approved 2D game
+        uses: actions/checkout@v4
+        with:
+          ref: 44d6f935102fc9361146504a06467841fd25a663
+          path: .jigoku
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /docs/routes/jigoku-2d/play/
+            /docs/routes/jigoku-2d/combat/
+            /tests/jigoku-battle.test.mjs
+            /tools/build_jigoku_play.mjs
+            /tools/check_jigoku_level_browser.mjs
+      - name: Build and verify the 2D game
+        working-directory: .jigoku
+        run: |
+          node --test tests/jigoku-battle.test.mjs
+          node tools/build_jigoku_play.mjs
+          CHROMIUM_PATH="$(node -p "require('@playwright/test').chromium.executablePath()")" node tools/check_jigoku_level_browser.mjs
+      - name: Add the 2D game to the Pages site
+        run: |
+          mkdir -p dist/jigoku
+          cp .jigoku/.tmp/jigoku-release/index.html dist/jigoku/index.html
+          cp .jigoku/.tmp/jigoku-release/PHASER-LICENSE.md dist/jigoku/PHASER-LICENSE.md
+          cp .jigoku/docs/routes/jigoku-2d/play/sanada-jigoku.zip dist/jigoku/sanada-jigoku.zip
+          git -C .jigoku rev-parse HEAD > dist/jigoku/version.txt
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
