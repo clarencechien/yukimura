@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "fullDecode": "900 frames, ffmpeg -xerror",
+  "faststart": true,
+  "bytes": 10007986,
+  "sampleCompressionSSIM": [
+    {
+      "frame": 0,
+      "ssim": 0.996331
+    },
+    {
+      "frame": 450,
+      "ssim": 0.99304
+    },
+    {
+      "frame": 600,
+      "ssim": 0.989757
+    },
+    {
+      "frame": 750,
+      "ssim": 0.99654
+    }
+  ],
+  "browserChecks": [
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "state": {
+        "width": 1920,
+        "height": 1080,
+        "duration": 30,
+        "codec": "probably"
+      },
+      "playback": "advanced successfully",
+      "seekSeconds": [
+        3,
+        6,
+        9,
+        15,
+        20,
+        25,
+        29
+      ],
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "state": {
+        "width": 1920,
+        "height": 1080,
+        "duration": 30,
+        "codec": "probably"
+      },
+      "playback": "advanced successfully",
+      "seekSeconds": [
+        3,
+        6,
+        9,
+        15,
+        20,
+        25,
+        29
+      ],
+      "horizontalOverflow": false
+    }
+  ],
+  "pageErrors": [],
+  "limitation": "Chromium desktop and mobile viewport; not a physical iPhone/Android device test"
+}

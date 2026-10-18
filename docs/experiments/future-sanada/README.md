@@ -4,6 +4,8 @@
 
 ## 直接看成果
 
+新增 **[1080p／30fps 左右對照影片](comparison/README.md)**：同步 360°、頭盔／胸甲／手部近拍，提供壓縮 MP4 下載。
+
 | TRELLIS 第一代＋DINOv2 | TRELLIS.2＋DINOv3 |
 | --- | --- |
 | ![第一代實際模型渲染](trellis1/three-quarter.png) | ![第二代實際模型渲染](three-quarter.png) |
