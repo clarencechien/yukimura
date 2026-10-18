@@ -70,4 +70,4 @@
 
 - [短刺修正：固定肢段與肩肘腕連動](routes/jigoku-2d/YARI_RIGID_MOTION.md)（取代整圖拉伸，30 fps 前後對照，未接入正式遊戲）。
 
-- [未來赤備：幸村 × TRELLIS.2](experiments/future-sanada/README.md)（第二代待 DINOv3 權限；[第一代替代路線](experiments/future-sanada/trellis1/README.md)已遠端生成 GLB，下載與視覺驗證待完成）。
+另有 [未來赤備：TRELLIS 兩代實測比較](experiments/future-sanada/README.md)：第一代＋DINOv2 與第二代＋DINOv3 均已生成、下載與五視角渲染；附 GLB、Blender 場景及互動檢視器。仍需手部／甲片精修與骨架，未替換線上遊戲。

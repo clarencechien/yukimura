@@ -101,7 +101,7 @@ def generate(input_png: bytes, seed: int = 1615, resolution: str = "1024_cascade
     import o_voxel
     started = time.monotonic()
     report = {"trellis_commit": TRELLIS_COMMIT, "model": "microsoft/TRELLIS.2-4B", "seed": seed,
-              "pipeline": resolution, "gpu": torch.cuda.get_device_name(), "torch": torch.__version__,
+              "pipeline": resolution, "gpu": torch.cuda.get_device_name(), "torch": str(torch.__version__),
               "input_sha256": hashlib.sha256(input_png).hexdigest(), "status": "running"}
     print("GPU:", report["gpu"], "pipeline:", resolution, flush=True)
     # The input already has alpha. Configure a null remover instead of loading
@@ -149,18 +149,32 @@ def generate(input_png: bytes, seed: int = 1615, resolution: str = "1024_cascade
     (directory/'generation.json').write_text(json.dumps(report, indent=2)+'\n')
     cache.commit()
     print(json.dumps(report), flush=True)
-    return {"future-sanada.glb": output, "generation.json": (json.dumps(report,indent=2)+'\n').encode()}
+    return report  # Large artifacts are downloaded through the committed Volume.
 
 @app.local_entrypoint()
 def main(input: str = "docs/experiments/future-sanada/reference.png",
          output: str = "docs/experiments/future-sanada", seed: int = 1615,
-         resolution: str = "1024_cascade", build_only: bool = False):
+         resolution: str = "1024_cascade", build_only: bool = False,
+         download_only: bool = False):
     if build_only:
         print("TRELLIS.2 image build completed; inference intentionally not started.")
         return
     target = Path(output)
     target.mkdir(parents=True, exist_ok=True)
-    print('CPU access check:', check_access.remote(Path(input).read_bytes()))
-    for name, data in generate.remote(Path(input).read_bytes(), seed, resolution).items():
-        (target/name).write_bytes(data)
-        print("Saved", target/name, len(data), "bytes")
+    if not download_only:
+        print('CPU access check:', check_access.remote(Path(input).read_bytes()))
+        print('Generation completed:', generate.remote(Path(input).read_bytes(), seed, resolution))
+    import hashlib, json
+    for name in ['generation.json', 'future-sanada.glb']:
+        temporary = target/(name+'.part')
+        try:
+            with temporary.open('wb') as output_file:
+                for chunk in cache.read_file('results/future-sanada/'+name):
+                    output_file.write(chunk)
+            if name.endswith('.glb'):
+                report=json.loads((target/'generation.json').read_text())
+                assert hashlib.sha256(temporary.read_bytes()).hexdigest()==report['export_sha256']
+            temporary.replace(target/name)
+        finally:
+            temporary.unlink(missing_ok=True)
+        print('Saved',target/name,(target/name).stat().st_size,'bytes')

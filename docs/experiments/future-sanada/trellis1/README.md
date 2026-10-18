@@ -21,20 +21,34 @@
 
 [Modal 執行紀錄](https://modal.com/apps/clarence-chien/main/ap-6QJzjDmxPNyuoWuQGe1SD3) · [生成紀錄](generation.json) · [驗證狀態](status.json)
 
-**目前還沒有本機成果圖或可下載的 repo GLB。** 遠端匯出成功，函式回傳大檔時遇到代理 403；另查詢正式 Volume API，確認 GLB 存在且大小一致，但其下載端點 `clobber.modal-storage.com` 也回傳 proxy CONNECT 403。該精確網域已加入環境草稿，需儲存並發布使其生效。`generation.json` 目前取自遠端完成 Volume commit 後印出的紀錄；GLB 本機雜湊、幾何品質、Blender 多視角與網頁檢視器都尚未驗證，不能據此宣稱造型已接近插畫。
+**GLB 已下載並通過 SHA-256、幾何與貼圖檢查。** 簡化後有 93,993 頂點、149,998 三角面，沒有退化三角形；內嵌 2048 色彩貼圖。glTF 沒有儲存法線，載入器會依三角形產生法線。沒有骨架或動畫。
 
-成果位置：Volume `yukimura-trellis2-cache` 下的 `results/future-sanada-trellis1/`。其中 GLB、生成報告、原始網格 NPZ 與 Gaussian PLY 已保存。工作已停止，沒有常駐 GPU。
+- [原始 GLB](future-sanada.glb) · [可編輯 Blender 場景](future-sanada-studio.blend)
+- [互動檢視器 ZIP](viewer.zip)：解壓縮後開啟 `index.html`，可轉向、縮放、看白模與網格。
+- [幾何檢查](mesh-inspection.json) · [渲染紀錄](render-report.json) · [檢視器驗證](viewer-verification.json)
 
-放行後**只下載既有成果**，不要再次支付生成費用：
+![斜側面：實際 GLB 的 Blender 渲染](three-quarter.png)
+
+| 正面 | 背面 | 白模 |
+| --- | --- | --- |
+| ![正面](front.png) | ![背面](back.png) | ![白模](clay.png) |
+
+這是 Blender 4.3.0／Cycles CPU 的實際幾何渲染，每張 1000 × 1000、32 samples。赤備與鹿角輪廓保留，但甲片層次、六文錢、面罩與手指細節明顯簡化；背面是單圖推測，還不是插畫品質或可直接動畫的遊戲角色。
+
+展示時將第一代材質設為 `metallic=0`，避免未指定金屬度時 glTF 預設值 1 令全身偏黑。這是明確的展示設定，不是預測出的 PBR 材質；原始 GLB 完全保留下載內容與雜湊。
+
+檢視器已測試 1280 × 900 與 390 × 844 的 Chromium，模型載入、正／側／背面、白模、網格、自動旋轉與離線操作通過，無頁面錯誤或外部資源請求。使用本機 HTTP 載入後切離線及軟體 WebGL 測試，未驗證各瀏覽器的 file:// 行為，不能當成實體手機效能證明。
+
+## 重新下載與渲染
+
+成果仍在 Volume `yukimura-trellis2-cache` 的 `results/future-sanada-trellis1/`。以下命令不重新生成：
 
 ```sh
 /workspace/yukimura-tools/bin/python tools/run_trellis1.py --download-only
 /workspace/yukimura-tools/render-env/bin/python tools/inspect_trellis_glb.py --model docs/experiments/future-sanada/trellis1/future-sanada.glb --material-profile basecolor
-/workspace/yukimura-tools/render-env/bin/python tools/render_trellis_study.py --model docs/experiments/future-sanada/trellis1/future-sanada.glb --output docs/experiments/future-sanada/trellis1
+/workspace/yukimura-tools/render-env/bin/python tools/render_trellis_study.py --model docs/experiments/future-sanada/trellis1/future-sanada.glb --output docs/experiments/future-sanada/trellis1 --basecolor-only
 node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/trellis1
 ```
-
-下載工具使用官方 Volume API，先寫暫存檔並比對生成報告中的 SHA-256，再保留 GLB。`--download-only` 不呼叫預檢或生成函式；目前只通過語法檢查，端到端傳輸仍受網路阻擋。
 
 ## 執行
 

@@ -5,11 +5,16 @@ from pathlib import Path
 import argparse,json,math,time
 import bpy
 from mathutils import Vector
-p=argparse.ArgumentParser();p.add_argument('--model',default='docs/experiments/future-sanada/future-sanada.glb');p.add_argument('--output',default='docs/experiments/future-sanada');p.add_argument('--size',type=int,default=1000);p.add_argument('--samples',type=int,default=32);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--model',default='docs/experiments/future-sanada/future-sanada.glb');p.add_argument('--output',default='docs/experiments/future-sanada');p.add_argument('--size',type=int,default=1000);p.add_argument('--samples',type=int,default=32);p.add_argument('--basecolor-only',action='store_true',help='Display baked-color assets with metallic=0; leave source GLB unchanged');a=p.parse_args()
 out=Path(a.output).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=str(Path(a.model).resolve()))
 meshes=[o for o in bpy.context.scene.objects if o.type=='MESH'];assert meshes,'GLB has no meshes'
+if a.basecolor_only:
+ for material in {m for o in meshes for m in o.data.materials if m and m.use_nodes}:
+  bsdf=material.node_tree.nodes.get('Principled BSDF')
+  if bsdf:bsdf.inputs['Metallic'].default_value=0
+
 points=[o.matrix_world@Vector(c) for o in meshes for c in o.bound_box]
 low=Vector(tuple(min(v[i] for v in points) for i in range(3)));high=Vector(tuple(max(v[i] for v in points) for i in range(3)));height=high.z-low.z
 assert height>0
@@ -30,6 +35,7 @@ area('Large warm key',(3,-4,5),650,(1,.88,.73),4);area('Soft cool fill',(-4,-2,3
 bpy.ops.mesh.primitive_plane_add(size=200,location=(0,0,-.006));floor=bpy.context.object;floor.name='Studio floor';mat=bpy.data.materials.new('Slate');mat.diffuse_color=(.035,.042,.055,1);mat.use_nodes=True;bsdf=mat.node_tree.nodes.get('Principled BSDF');bsdf.inputs['Base Color'].default_value=(.035,.042,.055,1);bsdf.inputs['Roughness'].default_value=.73;floor.data.materials.append(mat)
 bpy.ops.object.camera_add();camera=bpy.context.object;scene.camera=camera;camera.data.type='ORTHO';camera.data.ortho_scale=2.35;camera.data.lens=60
 report={'renderer':bpy.app.version_string,'device':'CPU','samples':a.samples,'image_size':[a.size,a.size],'geometry_objects':len(meshes),'vertices':sum(len(o.data.vertices) for o in meshes),'triangles':sum(sum(len(poly.vertices)-2 for poly in o.data.polygons) for o in meshes),'material_count':len({m.name for o in meshes for m in o.data.materials if m}),'images':[{'name':im.name,'size':list(im.size)} for im in bpy.data.images if im.type=='IMAGE'],'views':[]}
+report['display_override']='metallic=0 for baked-color-only source' if a.basecolor_only else None
 original_materials={o.name:list(o.data.materials) for o in meshes}
 clay=bpy.data.materials.new('Geometry inspection clay');clay.use_nodes=True;clay.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.45,.47,.5,1);clay.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.8
 # glTF +Z is front; Blender's import maps this to -Y.

@@ -1,70 +1,85 @@
-# 未來赤備：真田幸村 × TRELLIS.2
+# 未來赤備：真田幸村 × TRELLIS 兩代比較
 
-目標：先用 image gen 設計未來戰士版幸村，再用 Microsoft TRELLIS.2 由單張圖重建真實 3D 網格與 PBR 材質。這是獨立角色試作，不替換目前的 Pages 遊戲。
+**2026-10-18：先取回 TRELLIS 第一代＋DINOv2，再完成 TRELLIS.2＋DINOv3 生成；兩版模型均已下載、驗證與渲染。** 使用同一張透明參考圖及 seed 1615。這是獨立角色試作，不替換目前的 Pages 遊戲。
 
-## 目前狀態
+## 直接看成果
 
-**新增：[TRELLIS 第一代＋DINOv2 替代路線](trellis1/README.md)已在 H100 產出 7.82 MB GLB 與 2048 色彩貼圖**；目前下載受儲存網域阻擋，尚未完成視覺檢查。以下是第二代路線的狀態。
+| TRELLIS 第一代＋DINOv2 | TRELLIS.2＋DINOv3 |
+| --- | --- |
+| ![第一代實際模型渲染](trellis1/three-quarter.png) | ![第二代實際模型渲染](three-quarter.png) |
+| [GLB](trellis1/future-sanada.glb) · [Blender 場景](trellis1/future-sanada-studio.blend) · [互動檢視器 ZIP](trellis1/viewer.zip) | [GLB](future-sanada.glb) · [Blender 場景](future-sanada-studio.blend) · [互動檢視器 ZIP](viewer.zip) |
+| ![第一代白模](trellis1/clay.png) | ![第二代白模](clay.png) |
 
-2D 參考圖已完成。Modal 登入與 TLS 已驗證，CUDA 執行環境已完成，且通過 **NVIDIA H100 80GB** 的 TRELLIS.2 匯入、CuMesh 網格與 CUDA 光柵化檢查；**尚未產生 GLB，沒有 3D 成果圖**。
+下載檢視器 ZIP 後解壓縮、開啟 `index.html`，可旋轉、縮放、切換白模與網格。模型及程式內嵌，無外部資源依賴。實測方式為本機 HTTP 載入後切離線；未驗證各瀏覽器的 `file://` 行為。GitHub 的 ZIP／GLB 頁面需按 **Download raw file** 下載。
 
-2026-10-18（台灣時間）更新：proxy 與派送網域已實測通過，參考圖上傳成功，**H100 上的 `generate` 已啟動**。載入 DINOv3 時遇到 Hugging Face `401 GatedRepo`；這次是模型帳號權限，已不是 proxy 阻擋。未進入圖片轉網格推論、沒有 GLB。執行已結束，確認工作數為 0。
+兩版都用 Blender 4.3.0／Cycles CPU，以相同鏡位與燈光渲染，每張 1000 × 1000、32 samples、降噪。第一代只有烘焙色彩，展示時明確設 `metallic=0`；第二代沿用生成的 PBR 材質。這是兩套完整流程的展示，不是只更換 DINO 編碼器的對照實驗，亦非公平的效能基準。
 
-[本次 H100 執行紀錄](https://modal.com/apps/clarence-chien/main/ap-nHdcCT6DN389ycIcEm9qKW)。原生 CUDA 映像仍可重用。官方載入器也會載入 RMBG-2.0，但此輸入已有透明背景：新版腳本透過設定覆寫使用現有 alpha，不再載入未使用的去背模型；無須申請 RMBG-2.0 存取權。已用實際參考圖驗證上游 alpha 前處理，輸出 1010 × 1010 RGB；新版完整權重載入仍待下列權限驗證。
+## 實際改善與限制
 
-亦測試官方 Hugging Face Space：使用官方 `gradio_client 2.0.3` 成功建立 session、上傳與前處理；`image_to_3d` 回傳未公開詳細原因的上游 `AppError`，沒有成果，不能把它視為已成功的替代路線。
+第二代的胸甲、肩甲及裙甲起伏更清楚，鹿角分叉與手指形狀也保留更多；金屬邊緣與黑色內襯能呈現不同反光。建議以第二代作為後續精修基底。
 
-### 繼續前的必要設定
+仍未達參考插畫精度：甲片邊緣有融化般的凹凸，六文錢和面罩變形，手指仍有黏連，金屬反光偏強，部分未來機械細節遺失。背面是單張圖推測，沒有背面真值。增加面數不會自動修正這些形狀。
 
-1. 使用你的 Hugging Face 帳號，在 [DINOv3 模型頁](https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m) 申請並取得存取權。
-2. 在該帳號建立能讀取此 gated model 的 token；在 **Modal → Secrets → main** 建立名為 `trellis-huggingface` 的 Secret，加入鍵 `HF_TOKEN`。值只填入安全設定介面，不貼在聊天、程式或 Git。
-3. 重跑下方命令。啟動器先檢查 Secret 是否存在；CPU 預檢再驗證 DINOv3 設定與權重檔的讀取權，通過後才呼叫 H100 生成。缺少 Secret 的實測已確認會先退出，沒有啟動 GPU。成功權限路徑尚未驗證。新版 `--build-only` 也已通過，CPU 預檢映像與兩個函式註冊成功。
+| 第二代正面 | 背面 | 側面 |
+| --- | --- | --- |
+| ![正面](front.png) | ![背面](back.png) | ![側面](side.png) |
 
-如果已有別名 Secret，可用非機密環境變數 `TRELLIS_HF_SECRET` 指定名稱。Token 留在 Modal Secret，僅注入遠端預檢與推論函式；不透過前端或函式參數傳送。
+| 項目 | 第一代 | 第二代 |
+| --- | --- | --- |
+| 官方模型 | TRELLIS-image-large | TRELLIS.2-4B |
+| 原始三角面 | 294,104 | 5,931,928 |
+| 匯出 GLB 三角面 | 149,998 | 148,107 |
+| 匯出頂點 | 93,993 | 138,656 |
+| 檔案大小（十進位） | 7.82 MB | 19.52 MB |
+| 貼圖 | 2048² 色彩 | 2048² 色彩＋金屬度／粗糙度 |
+| 骨架／動畫 | 無 | 無 |
+| 權重載入 | 53.47 秒 | 91.24 秒 |
+| 推論 | 4.54 秒 | 163.53 秒 |
+| 網格處理、UV、貼圖匯出 | 42.13 秒 | 21.31 秒 |
+| 函式內總時間 | 104.20 秒 | 276.08 秒 |
 
-[機器狀態紀錄](status.json) · [成功的 Modal 環境建置／GPU 檢查](https://modal.com/apps/clarence-chien/main/ap-kjWiE0TfzsHTOjb0R09Blg)。環境映像為 `im-CWPfod9BzDeCjqD07JU8Ui`，GPU 檢查所在建置步驟約 74.51 秒，這不是圖片轉 3D 的耗時。
+推論使用 Modal NVIDIA H100 80GB；Blender 預覽使用本機 CPU。以上時間不含環境建置、容器啟動、傳輸或 Blender 渲染。第二代首次執行包含核心暖機並使用低顯存卸載，不可直接與官方暖機後基準比較。生成紀錄的 PyTorch 峰值配置量不涵蓋所有自訂 CUDA 配置，不能拿來推算最低顯存需求。
 
-Blender 渲染工具已用既有 v22 模型做 128px／1 sample／五視角的流程檢查；這些暫存圖不是 TRELLIS 成果，所以不放在此頁。新模型的幾何檢查與互動檢視器仍要等真實 GLB 產生後才能驗證。
+兩版均通過 SHA-256、有限幾何／UV、內嵌貼圖及實際瀏覽器載入檢查。第二代有法線；第一代未儲存法線，由載入器推導。第二代檢出 **5 個近零面積三角形**（叉積長度 < 1e-12），保留原始輸出供重現；進遊戲前需清理，`validated` 只代表結構檢查通過，不代表動畫拓樸合格。
+
+檢視器已通過 Chromium 1280 × 900、390 × 844 載入、離線切換視角／白模／線框／自轉檢查，沒有頁面錯誤、外部請求或水平溢出。使用軟體 WebGL，未測實體手機效能。尚須網格清理、關節拓樸、骨架／權重、動作與 LOD，才適合加入遊戲。
+
+[第二代生成紀錄](generation.json) · [幾何檢查](mesh-inspection.json) · [渲染紀錄](render-report.json) · [檢視器驗證](viewer-verification.json) · [機器狀態](status.json) · [第一代完整紀錄](trellis1/README.md)
 
 ## 輸入設計
 
 ![未來幸村參考圖](reference.png)
 
-赤紅漆甲、金色六文錢與鹿角盔、覆面頬、黑色機械內骨架、少量橙色能源接縫。強壯成年武士比例，四肢稍微分開，沒有披風、武器或底座，以降低遮擋與薄片黏合。輸入為 image gen 產生的 **1024 × 1536 RGBA** 圖，已確認背景透明。
+image gen 產生的 1024 × 1536 RGBA 透明圖：赤紅漆甲、金色六文錢與鹿角盔、覆面頬、黑色機械內骨架、少量橙色能源接縫。沒有武器、披風或底座，以降低遮擋。
 
-## 為什麼試 TRELLIS.2
+## 重現與取回成果
 
-官方模型為 4B 參數的 image-to-3D 系統，使用 O-Voxel 表示形狀與表面屬性，能輸出 base color、roughness、metallic、opacity 等 PBR 資料。對甲冑的輪廓、疊片與金屬質感有實用潛力。
-
-官方列出 512³／1024³／1536³ 的生成解析度，這指空間表示解析度，不是螢幕畫素、貼圖尺寸或模型面數。README 的 H100 約 3／17／60 秒是作者推論基準，不包含本次首次安裝、權重下載、UV、材質烘焙、檔案傳輸與 Blender 渲染。
-
-單張圖沒有背面真值；背面與被遮住的部分是生成推測。手指、鹿角尖端、甲片細縫仍需實測。模型也不會直接提供遊戲需要的骨架、權重、動作、碰撞或 LOD。
-
-## 重現流程
-
-本機為 CPU 環境，推論腳本使用 Modal 的 **單一 H100**，無常駐容器、無自動重試，單次函式上限 20 分鐘。首次 CUDA 編譯在 CPU 建置環境完成，最後會用 H100 檢查匯入、CuMesh 網格與 CUDA 光柵化；這個小型檢查不載入生成權重。推論使用的權重快取位置為 Modal Volume `yukimura-trellis2-cache`，不放進 Git。
+在 `/workspace/yukimura` 執行。既有成果存於 Modal Volume `yukimura-trellis2-cache`，只取回檔案不需重跑 GPU：
 
 ```sh
-/workspace/yukimura-tools/bin/python -m pip install 'modal[api-proxy-support]==1.6.1' 'truststore==0.10.5'
-/workspace/yukimura-tools/bin/python tools/run_trellis.py
-# 只建置環境、不啟動 GPU 推論：加上 --build-only
-```
-
-`tools/run_trellis.py` 先載入系統憑證信任並映射環境變數，再執行 Modal CLI。
-
-腳本讀取環境既有 `modal_token_id`／`modal_token_secret` 並映射為 SDK 使用名稱。不要把金鑰放入檔案、前端或 Git。系統信任修正保留 TLS 憑證驗證；不使用 `verify=False`。Hugging Face 已可連線；DINOv3 權重仍需要上述帳號權限與 Modal Secret。
-
-選定 TRELLIS.2 程式提交 `75fbf0183001ed9876c8dbb35de6b68552ee08bd`，PyTorch 2.6.0 / CUDA 12.4、xformers 0.0.29.post3。計畫設定 `1024_cascade`、seed 1615、150,000 面簡化目標、2048 貼圖；實際結果以生成紀錄為準。
-
-模型生成成功後：
-
-```sh
+/workspace/yukimura-tools/bin/python tools/run_trellis1.py --download-only
+/workspace/yukimura-tools/bin/python tools/run_trellis.py --download-only
 /workspace/yukimura-tools/render-env/bin/python tools/inspect_trellis_glb.py
 /workspace/yukimura-tools/render-env/bin/python tools/render_trellis_study.py
 node tools/build_trellis_viewer.mjs
 ```
 
-渲染使用 Blender 4.3.0 / Cycles CPU，直接匯入 GLB 幾何與材質。檢視器沿用專案的 Babylon.js，可旋轉、縮放、顯示白模與網格。
+第一代使用 `results/future-sanada-trellis1/`，第二代使用 `results/future-sanada/`。下載經支援的 Volume API，驗證 GLB 雜湊後才替換目的檔。
+
+需要重新生成第二代時才執行：
+
+```sh
+/workspace/yukimura-tools/bin/python -m pip install 'modal[api-proxy-support]==1.6.1' 'truststore==0.10.5'
+/workspace/yukimura-tools/bin/python tools/run_trellis.py
+```
+
+啟動器使用系統 CA 信任、保留 TLS 與平台 proxy，映射既有 `modal_token_id`／`modal_token_secret`。不要在聊天、程式、前端或 Git 放入金鑰。DINOv3 已以 Modal `main` 的 Secret **`trellis-huggingface`**／鍵 **`HF_TOKEN`** 通過 CPU 權限預檢，再完成 H100 全流程。其他帳號重現時，需先取得 [DINOv3 gated model](https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m) 的讀取權；`TRELLIS_HF_SECRET` 可指定其他 Secret 名稱。
+
+此輸入已有 alpha，完整載入與生成流程已驗證可跳過未使用的 RMBG-2.0。使用單一 H100、20 分鐘上限、無自動重試、無常駐部署。`--build-only` 僅建置環境。
+
+第二代固定程式提交 `75fbf0183001ed9876c8dbb35de6b68552ee08bd`、PyTorch 2.6.0／CUDA 12.4、xformers 0.0.29.post3；實際使用 `1024_cascade`、seed 1615、150,000 面簡化目標與 2048 貼圖。1024 指空間表示解析度，不是螢幕畫素或面數。
+
+[第二代生成執行](https://modal.com/apps/clarence-chien/main/ap-YwgcT6SN8yjPADqOnS0g8B) 已完成遠端生成和 Volume 儲存，但本機接收摘要時因 `TorchVersion` 型別反序列化失敗；已將回傳值改成字串，並以[下載專用執行](https://modal.com/apps/clarence-chien/main/ap-Kp2aCksY9D70pWrGVwsbSs)成功取回成果，沒有再次推論。新字串回傳路徑已做語法檢查，未為重測摘要另開 GPU。既往 proxy／DINOv3 權限阻擋均已解除。
 
 ## 來源與授權
 

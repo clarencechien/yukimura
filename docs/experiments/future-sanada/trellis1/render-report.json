@@ -1,0 +1,50 @@
+{
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "samples": 32,
+  "image_size": [
+    1000,
+    1000
+  ],
+  "geometry_objects": 1,
+  "vertices": 93993,
+  "triangles": 149998,
+  "material_count": 1,
+  "images": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "front",
+      "degrees": 0,
+      "seconds": 27.64
+    },
+    {
+      "name": "three-quarter",
+      "degrees": 35,
+      "seconds": 26.69
+    },
+    {
+      "name": "side",
+      "degrees": 90,
+      "seconds": 19.47
+    },
+    {
+      "name": "back",
+      "degrees": 180,
+      "seconds": 19.4
+    },
+    {
+      "name": "clay",
+      "degrees": 0,
+      "seconds": 20.53
+    }
+  ],
+  "display_override": "metallic=0 for baked-color-only source"
+}
