@@ -6,7 +6,13 @@
 
 2D 參考圖已完成。Modal 登入與 TLS 已驗證，CUDA 執行環境已完成，且通過 **NVIDIA H100 80GB** 的 TRELLIS.2 匯入、CuMesh 網格與 CUDA 光柵化檢查；**尚未產生 GLB，沒有 3D 成果圖**。
 
-實際上傳參考圖時，環境代理對 Modal blob 儲存回傳 `403 Forbidden`。已保留現有白名單並存入網路設定草稿，需在環境設定儲存／套用後才能繼續；不是缺少金鑰或 GPU 算力。需要的傳檔網域：
+2026-10-18 再次確認：Modal SDK 已使用環境提供的 `HTTPS_PROXY`，代理依賴已安裝，TLS 憑證驗證保持開啟，沒有 `NO_PROXY` 繞過。**2,192,353 bytes 的參考圖實際上傳已成功**，先前的 blob 403 已解除。
+
+接續執行真正的生成工作時，Modal 回傳的派送網域 `input-plane.us-east.modal.com` 在代理 CONNECT 階段遭 `403 Forbidden`；遠端 `generate` 尚未啟動，沒有角色推論或 GLB。已保留現有網路設定並把此精確網域存入草稿。需在環境設定儲存、套用並發布；儲存草稿不代表執行環境已放行。不需要另架 proxy 或重填金鑰。
+
+[本次派送失敗紀錄](https://modal.com/apps/clarence-chien/main/ap-soshP2pEPPy8xpY8mp93il)。所需網域：
+
+- `input-plane.us-east.modal.com`（目前的阻擋點）
 
 - `e29e5794c3a8abd52b1549c7703408b1.r2.cloudflarestorage.com`
 - `modal-blobs.s3-accelerate.amazonaws.com`

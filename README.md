@@ -6,7 +6,7 @@
 
 ## 並行美術路線
 
-另有 [未來戰士版幸村 × TRELLIS.2 試作](docs/experiments/future-sanada/README.md)：2D 參考圖完成，3D 轉檔等待 Modal 傳檔網域的環境設定套用。
+另有 [未來戰士版幸村 × TRELLIS.2 試作](docs/experiments/future-sanada/README.md)：2D 參考圖完成，參考圖已成功傳至 Modal；3D 轉檔等待工作派送網域的環境設定套用。
 
 **[直接玩 2D《燼關突圍》](https://clarencechien.github.io/yukimura/jigoku/)**（手機／電腦）。
 
