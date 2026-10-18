@@ -23,8 +23,10 @@ def ray_hits(x,z,positions,faces):
     d=cross(u,v);valid=abs(d)>1e-12;s=cross(q,v)[valid]/d[valid];r=cross(u,q)[valid]/d[valid]
     return bool(((s>=-1e-6)&(r>=-1e-6)&(s+r<=1+1e-6)).any())
 
+plates=['Menpo continuous '+kind+' plate '+str(sign) for kind in ['cheek','jaw'] for sign in [-1,1]]
+rivets=['Menpo jaw rivet '+str(sign)+' '+str(i) for sign in [-1,1] for i in range(3)]
 checks=[]
-for name in ['Menpo cheek vent frame -1','Menpo cheek vent frame 1','Menpo reconstructed chin shield','Menpo chin brass inlay']:
+for name in ['Menpo cheek vent frame -1','Menpo cheek vent frame 1','Menpo reconstructed chin shield','Menpo chin brass inlay']+plates+rivets:
     positions,faces,materials=get_mesh(name);unique,inverse=np.unique(positions,axis=0,return_inverse=True);triangles=inverse[faces]
     edges=np.concatenate([triangles[:,[0,1]],triangles[:,[1,2]],triangles[:,[2,0]]]);_,counts=np.unique(np.sort(edges,axis=1),axis=0,return_counts=True)
     assert (counts==2).all(),name+' is not closed/manifold'
@@ -38,7 +40,10 @@ for name in ['Menpo cheek vent frame -1','Menpo cheek vent frame 1','Menpo recon
     area=np.linalg.norm(np.cross(fitted[:,1]-fitted[:,0],fitted[:,2]-fitted[:,0]),axis=1)
     assert (area>=1e-12).all(),name+' has slivers after fitting'
     for z in [.405,.420]:assert not ray_hits(0,z,positions,faces),name+' covers the mouth opening'
-    if 'vent frame' in name:
+    if 'vent frame' in name or name in plates:
+        for sign in [-1,1]:
+            for x,z in [(.074,.550),(.12,.71),(.17,.71),(.23,.73)]:assert not ray_hits(sign*x,z,positions,faces),name+' obstructs nostril/eye test ray'
+    if 'vent frame' in name or name in plates:
         sign=-1 if name.endswith('-1') else 1
         for z in [.43,.48,.53]:
             for x in [sign*.19,sign*.202,sign*.214]:assert not ray_hits(x,z,positions,faces),name+' aperture is obstructed'
@@ -54,8 +59,10 @@ for name in ['Menpo repaired lacquer','Menpo aged brass shared finish']:
     finish_checks.append({'material':name,'roughness_min':float(rough.min()),'roughness_max':float(rough.max()),'embedded':True})
 # Required surfaces must actually use the same exported lacquer material.
 red=next(i for i,m in enumerate(doc['materials']) if m.get('name')=='Menpo repaired lacquer')
-for name in ['Menpo reconstructed nasal shell','Menpo reconstructed upper lip','Menpo continuous eye rim and return','Menpo reconstructed chin shield','Menpo cheek vent frame -1','Menpo cheek vent frame 1']:
+for name in ['Menpo reconstructed nasal shell','Menpo reconstructed upper lip','Menpo continuous eye rim and return','Menpo reconstructed chin shield','Menpo cheek vent frame -1','Menpo cheek vent frame 1']+plates:
     assert red in get_mesh(name)[2],name+' does not share the lacquer finish'
-report={'model':a.model,'sha256':hashlib.sha256(data).hexdigest(),'passed':True,'checks':checks,'vent_aperture_test_rays_clear':True,'shared_finish':finish_checks,
+gold=next(i for i,m in enumerate(doc['materials']) if m.get('name')=='Menpo aged brass shared finish')
+for name in rivets:assert gold in get_mesh(name)[2],name+' does not share the brass finish'
+report={'model':a.model,'sha256':hashlib.sha256(data).hexdigest(),'passed':True,'checks':checks,'vent_aperture_test_rays_clear':True,'eye_nostril_test_rays_clear':True,'cheek_jaw_plates':len(plates),'jaw_rivets':len(rivets),'shared_finish':finish_checks,
         'scope':'New repair pieces only; recessed cloth backings are separate. Does not certify the entire generated head or animation.'}
 Path(a.report).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

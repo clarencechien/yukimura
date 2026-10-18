@@ -1,9 +1,9 @@
 {
   "file": "static-fit.glb",
-  "sha256": "52e4ac863a73de8f9af45b7785779eae55bef990c7efa24a0921ed74ac43f18d",
-  "bytes": 48371496,
-  "vertices": 374838,
-  "triangles": 338716,
+  "sha256": "e9f74cc539777db22a6c43f60196eefd2d24c338d7da4c3e154360b3e55f1177",
+  "bytes": 48773704,
+  "vertices": 383550,
+  "triangles": 360705,
   "degenerate_triangles": 5,
   "bounds": [
     [

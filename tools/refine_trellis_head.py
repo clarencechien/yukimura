@@ -7,6 +7,7 @@ from trellis_human_eyes import add_human_eyes
 from trellis_mask_rim import trim_opening,add_rim,contour
 from trellis_nasal_repair import remove_old_panels,add_panels
 from trellis_lower_mask import remove_old_lower,add_lower_parts,finish_uv
+from trellis_cheek_repair import remove_old_cheeks,add_cheeks
 import bpy,bmesh
 import numpy as np
 from mathutils import Matrix,Vector
@@ -78,11 +79,13 @@ tiny=[f for f in bm.faces if f.calc_area()<1e-12];bmesh.ops.delete(bm,geom=tiny,
 # A spatial opening removes the old eyes as a whole. Color-only selection leaves
 # islands over the new brows and can accidentally remove the gold visor.
 mask_trim=trim_opening(bm,skinidx)
-removed_skin_count=mask_trim['removed_faces'];removed_nasal_faces=remove_old_panels(bm);lower_removed=remove_old_lower(bm);bm.to_mesh(mesh);bm.free()
+removed_skin_count=mask_trim['removed_faces'];removed_nasal_faces=remove_old_panels(bm);lower_removed=remove_old_lower(bm);cheek_removed=remove_old_cheeks(bm);bm.to_mesh(mesh);bm.free()
 mask_rim=add_rim(surface,object_mesh,mat)
 nasal_repair,nasal_material,nasal_shell,lip_shell=add_panels(object_mesh,mat)
 nasal_repair['removed_source_faces']=removed_nasal_faces
 lower_repair,lower_brass=add_lower_parts(object_mesh,mat,nasal_material,surface)
+cheek_repair=add_cheeks(object_mesh,nasal_material,lower_brass,surface)
+cheek_repair['removed_source_faces']=cheek_removed
 lower_repair['removed_source_faces']=lower_removed
 # Keep all repaired lacquer pieces on the same finish; retain the eye-rim gold.
 eye_rim=bpy.data.objects['Menpo continuous eye rim and return']
@@ -236,5 +239,5 @@ for ob in bpy.context.scene.objects:
  if ob.type=='MESH':ob.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str((out/'head-refined.glb').resolve()),export_format='GLB',use_selection=True,export_yup=True,export_apply=True)
 bpy.ops.wm.save_as_mainfile(filepath=str((out/'head-refined.blend').resolve()),compress=True)
-report={'iteration':26,'lower_repair':lower_repair,'nasal_repair':nasal_repair,'mask_trim':mask_trim,'mask_rim':mask_rim,'removed_generated_skin_faces':removed_skin_count,'human_eyes':human_eyes,'socket_vertices_recessed':socket_count,'source':a.model,'normalization_scale':scale,'generated_source_preserved':True,'material_face_counts':material_counts,'visor_vertices_adjusted':int(brim.sum()),'crest_vertices_recessed':int(flatten.sum()),'removed_near_zero_faces':len(tiny),'coin_objects':coins,'coin_count':len(coins),'eye_landmarks':landmarks,'changes':['Rebuilt both cheek vent frames and central chin shield; shared baked lacquer/brass color and roughness','Rebuilt nasal shell with two through-cut nostrils and recessed backing; replaced broken upper-lip band','Clipped eye-opening triangles at a continuous contour with UV interpolation; rebuilt rolled menpo rim and return','Raised only front visor by up to 0.02 normalized units','Recessed incorrect four-coin relief and rebuilt six separate square-hole coins','Replaced procedural eye caps with licensed Rocketbox orbital skin and eye geometry','Separated lacquer, gold, cloth and skin material response','Baked independent crest lacquer and brass textures in Blender','Rebuilt thin six coins with raised outer rims, recessed faces and square-hole lips; flush helmet backing','Projected original helmet lacquer onto repair and baked coin micro-normal texture'],'limitations':['Artist-directed procedural edits, not hand-sculpted anatomical retopology','Eye appearance and anatomy inherited from Rocketbox; no independent gaze controls','Outer side jaw and helmet retain generated defects; repair parts are not welded into the full mask','No skeleton, weights or facial animation']}
+report={'iteration':29,'cheek_repair':cheek_repair,'lower_repair':lower_repair,'nasal_repair':nasal_repair,'mask_trim':mask_trim,'mask_rim':mask_rim,'removed_generated_skin_faces':removed_skin_count,'human_eyes':human_eyes,'socket_vertices_recessed':socket_count,'source':a.model,'normalization_scale':scale,'generated_source_preserved':True,'material_face_counts':material_counts,'visor_vertices_adjusted':int(brim.sum()),'crest_vertices_recessed':int(flatten.sum()),'removed_near_zero_faces':len(tiny),'coin_objects':coins,'coin_count':len(coins),'eye_landmarks':landmarks,'changes':['Rebuilt continuous cheek and lateral jaw plates with six brass rivets','Rebuilt both cheek vent frames and central chin shield; shared baked lacquer/brass color and roughness','Rebuilt nasal shell with two through-cut nostrils and recessed backing; replaced broken upper-lip band','Clipped eye-opening triangles at a continuous contour with UV interpolation; rebuilt rolled menpo rim and return','Raised only front visor by up to 0.02 normalized units','Recessed incorrect four-coin relief and rebuilt six separate square-hole coins','Replaced procedural eye caps with licensed Rocketbox orbital skin and eye geometry','Separated lacquer, gold, cloth and skin material response','Baked independent crest lacquer and brass textures in Blender','Rebuilt thin six coins with raised outer rims, recessed faces and square-hole lips; flush helmet backing','Projected original helmet lacquer onto repair and baked coin micro-normal texture'],'limitations':['Artist-directed procedural edits, not hand-sculpted anatomical retopology','Eye appearance and anatomy inherited from Rocketbox; no independent gaze controls','Outer side jaw and helmet retain generated defects; repair parts are not welded into the full mask','No skeleton, weights or facial animation']}
 (out/'refinement-report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report),flush=True)

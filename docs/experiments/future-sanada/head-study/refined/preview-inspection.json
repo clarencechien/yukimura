@@ -1,9 +1,9 @@
 {
   "file": "head-preview.glb",
-  "sha256": "2f334d4adc347f5a0b339ebe0c92729f1416ff24e34178be3f35a3daa7ac2fa5",
-  "bytes": 29462916,
-  "vertices": 249643,
-  "triangles": 205753,
+  "sha256": "607c7faa20e3c4bc97da395e8f7abc4cc105d704703090fa562fe8ec5153e535",
+  "bytes": 29865144,
+  "vertices": 258356,
+  "triangles": 227742,
   "degenerate_triangles": 0,
   "bounds": [
     [

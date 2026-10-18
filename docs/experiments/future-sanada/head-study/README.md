@@ -2,14 +2,29 @@
 
 本次先處理頭部，不以整個人物增加面數代替修形。這是沿用原設計的頭部重製試作，新的頭部參考有細節改寫，並非原圖的精確幾何還原。
 
-## 最新：頰部通氣框、下巴與共用漆面
+## 最新：頰甲與下顎側邊連續曲面
+
+眼眶折邊下方、通氣框上方及下巴兩側仍有碎裂的舊甲片。本輪清除這些局部原面，重建左右頰甲與下顎側板，共四個有厚度的零件；新曲面收進鼻殼、眼眶折邊、頰框與中央下巴的搭接處。下顎各重新配置三枚小黃銅鉚釘，沿用現有共用漆甲／黃銅貼圖。
+
+| 上一輪 | 本輪 |
+| --- | --- |
+| ![上輪頰甲與下顎裂片](iterations/pass26/mask.png) | ![連續頰甲與下顎側板](refined/mask.png) |
+| ![上輪斜側面](iterations/pass26/three-quarter.png) | ![目前斜側面](refined/three-quarter.png) |
+
+第一個試算直接平滑原表面取樣，仍帶入通氣框附近的凹坑與鉚釘起伏；採用版本改以穩健三次曲面配適，保留大的曲率變化，再依既有修補件的位置調整搭接深度。這是程式輔助的局部造型修整，不是新一輪神經生成或全頭重拓樸。
+
+新增四塊甲片與六枚鉚釘納入匯出驗證：封閉、單一連通、縮放後無近零面積三角形；並檢查眼部、鼻孔、嘴部及頰框內的取樣射線未被新甲片遮擋。高版、檢視版、全身試裝與離線檢視器同步更新。
+
+**限制**：新舊件仍為搭接，尚未焊接；鼻側窄縫、嘴角內側、側邊扣件、盔沿與頸肩仍有待修區域。磨損分布仍不一致，未綁骨架或替換遊戲。本輪模型修整、烘焙與 Cycles 渲染均使用 CPU，沒有啟動 Modal GPU。
+
+## 前一階段：頰部通氣框、下巴與共用漆面
 
 重建左右主要通氣框與中央下巴護片，清除對應區域的舊碎面。通氣框以赤漆為主、細黃銅邊收口；框內保留實際開口，後方另放內縮的暗色布襯。下巴改為連續曲面，邊緣依原殼位置配適，中央薄黃銅飾片再投射到新護片上。這是 Blender 局部重建，沒有重新執行 image-to-3D。
 
 | 上一輪 | 本輪 |
 | --- | --- |
-| ![先前通氣框與下巴碎面](iterations/pass22/mask.png) | ![通氣框與中央下巴修補](refined/mask.png) |
-| ![先前側面](iterations/pass22/side.png) | ![目前側面](refined/side.png) |
+| ![先前通氣框與下巴碎面](iterations/pass22/mask.png) | ![通氣框與中央下巴修補](iterations/pass26/mask.png) |
+| ![先前側面](iterations/pass22/side.png) | ![目前側面](iterations/pass26/side.png) |
 
 鼻殼、上唇、眼眶折邊、頰框與下巴共用 512² 漆色及粗糙度貼圖；頰框金邊與下巴飾片共用黃銅色彩及粗糙度。漆面粗糙度約 0.47–0.53，黃銅約 0.40–0.48，並降低原赤漆的過亮反光。這些是細微材質變化，尚未補齊原甲片的磨損與接縫細節。
 
@@ -17,7 +32,7 @@
 
 本輪修整、烘焙與 Cycles 檢查圖使用本機 **CPU**；原始頭部的 TRELLIS.2 生成才使用 Modal H100 GPU。本輪沒有啟動新的 Modal GPU 作業。
 
-**仍需處理**：新舊面罩是搭接零件，外側下顎、通氣框上方頰甲、盔沿與頸肩仍保留生成破面；眼眶兩側皮膚接合及新舊磨損也不一致。尚未焊接、綁骨架或替換遊戲。
+**該階段限制**：新舊面罩是搭接零件；頰甲與下顎側邊於後續階段局部重建，盔沿與頸肩仍保留生成破面；眼眶兩側皮膚接合及新舊磨損也不一致。尚未焊接、綁骨架或替換遊戲。
 
 ## 前一階段：鼻翼、鼻孔與上唇修補
 
@@ -95,7 +110,8 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 - **材質**：拆分漆甲、金屬、布與皮膚；額頭修補面投射烘焙原盔漆色，錢紋增加 512² 色彩與法線貼圖。局部仍需更多不規則磨損與邊緣修整。
 - **面罩上緣**：曲線裁切與 UV 內插，另建連續漆甲折邊、黃銅唇邊和內襯；匯出後檢查新增折邊是單一連通且封閉的零件，不代表原下半面罩也封閉。
 - **鼻殼／上唇**：重建有厚度的鼻殼與漸薄上唇，鼻孔實際穿透鼻殼，凹腔襯底是另外的零件；尚未焊接到舊頰甲。
-- **通氣框／下巴**：重建主要頰框、凹腔布襯、中央下巴護片及薄黃銅飾片；共用漆色與粗糙度貼圖，保留外側原殼待修。
+- **通氣框／下巴**：重建主要頰框、凹腔布襯、中央下巴護片及薄黃銅飾片；共用漆色與粗糙度貼圖，側邊原殼於後續階段部分替換。
+- **頰甲／下顎側板**：左右共四個連續厚殼與六枚小鉚釘，以曲面配適移除原凹坑起伏；與既有修補件仍為搭接。
 - **清理**：精修高版檢查未見近零面積三角形；此檢查不等於無自相交、全封閉或動畫合格。
 
 第一輪眼皮太亮、像貼上去；第二輪嘗試借用原 UV，造成錢紋拉花。已棄用這兩個結果，留存失敗近拍便於追蹤：
@@ -118,7 +134,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 
 移除身體上原頭部區域，以縮放 0.26 的新頭部接入。**這是獨立靜態組裝，尚未焊接頸部、綁骨架或驗證動態穿插。** 護頸與肩甲附近仍有重疊接縫，不能當作可直接套動畫的角色。原身體材質、手指和甲片仍有舊缺陷，接合檢查保留原身體的 5 個近零面積三角形；頭部高版與檢視版則為 0。沒有替換線上遊戲。
 
-下一輪順序：接著修通氣框上方頰甲、外側下顎與盔沿，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
+下一輪順序：接著修鼻側窄縫、嘴角內側及盔沿，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
 
 ## 下載與檢查
 
@@ -126,15 +142,15 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 | --- | --- | ---: | --- |
 | [生成高版 GLB](head-high.glb) | 保留生成結果，66.29 MB | 494,558 | 4096² |
 | [生成輕版 GLB](head-light.glb) | 減面比較，19.46 MB | 148,229 | 2048² |
-| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 531,710 | 原 4096²＋眼眶素材＋新增 512² |
-| [精修檢視版 GLB](refined/head-preview.glb) | 約 29.5 MB、保留人臉眼眶與獨立錢紋 | 205,753 | 2048²＋眼眶素材＋512² |
+| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 548,932 | 原 4096²＋眼眶素材＋新增 512² |
+| [精修檢視版 GLB](refined/head-preview.glb) | 約 29.9 MB、保留人臉眼眶與獨立錢紋 | 227,742 | 2048²＋眼眶素材＋512² |
 | [Blender 原檔](refined/head-refined.blend) | 已內嵌材質，物件可分別編輯 | 高版 | 內嵌 |
 | [互動檢視器 ZIP](viewer.zip) | 解壓後開啟 index.html、旋轉／白模／線框 | 檢視版 | 內嵌 |
 | [接合 GLB](fitting/static-fit.glb) | 僅供靜態比例檢查 | 見檢查報告 | 內嵌 |
 
 GitHub 檔案頁請按 **Download raw file**。本頁圖片可直接在 GitHub 文件查看；這次成果不在 Pages 遊戲內，也沒有把研究頁部署成網站。檢視器程式與模型均內嵌，測試詳見 [瀏覽器報告](viewer-verification.json)；手機尺寸模擬不代表實機效能。檢視版仍偏重，不是已驗證的手機 LOD。
 
-[高版幾何檢查](high-inspection.json) · [輕版幾何檢查](light-inspection.json) · [精修幾何檢查](refined/mesh-inspection.json) · [檢視版檢查](refined/preview-inspection.json) · [匯出零件數驗證](part-verification.json) · [鼻殼／上唇檢查](refined/nasal-verification.json) · [檢視版鼻殼檢查](refined/nasal-preview-verification.json) · [通氣框／下巴檢查](refined/lower-verification.json) · [檢視版下巴檢查](refined/lower-preview-verification.json) · [修整參數](refined/refinement-report.json) · [接合參數](fitting/fit-report.json) · [接合幾何檢查](fitting/mesh-inspection.json) · [生成紀錄](generation.json) · [下載大小及 SHA-256](downloads.json) · [運算停止狀態](compute-status.json)
+[高版幾何檢查](high-inspection.json) · [輕版幾何檢查](light-inspection.json) · [精修幾何檢查](refined/mesh-inspection.json) · [檢視版檢查](refined/preview-inspection.json) · [匯出零件數驗證](part-verification.json) · [鼻殼／上唇檢查](refined/nasal-verification.json) · [檢視版鼻殼檢查](refined/nasal-preview-verification.json) · [通氣框／下巴／頰甲檢查](refined/lower-verification.json) · [檢視版面罩檢查](refined/lower-preview-verification.json) · [修整參數](refined/refinement-report.json) · [接合參數](fitting/fit-report.json) · [接合幾何檢查](fitting/mesh-inspection.json) · [生成紀錄](generation.json) · [下載大小及 SHA-256](downloads.json) · [運算停止狀態](compute-status.json)
 
 ## 計算與重現
 
