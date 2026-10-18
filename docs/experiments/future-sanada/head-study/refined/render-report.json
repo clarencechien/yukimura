@@ -17,8 +17,8 @@
       2.0
     ]
   },
-  "geometry_vertices": 509791,
-  "geometry_triangles": 508691,
+  "geometry_vertices": 507607,
+  "geometry_triangles": 506947,
   "views": [
     {
       "name": "front",
@@ -29,29 +29,7 @@
         1
       ],
       "span": 2.22,
-      "seconds": 23.09124594799505
-    },
-    {
-      "name": "eyes",
-      "angle": 0.0,
-      "target": [
-        0,
-        0,
-        0.74
-      ],
-      "span": 0.83,
-      "seconds": 56.823247585998615
-    },
-    {
-      "name": "crest",
-      "angle": 0.0,
-      "target": [
-        0,
-        0,
-        1.1
-      ],
-      "span": 0.9,
-      "seconds": 49.31225779699889
+      "seconds": 13.574629228998674
     },
     {
       "name": "three-quarter",
@@ -62,7 +40,7 @@
         1
       ],
       "span": 2.22,
-      "seconds": 35.90884158400149
+      "seconds": 14.540290326003742
     },
     {
       "name": "side",
@@ -73,7 +51,7 @@
         1
       ],
       "span": 2.22,
-      "seconds": 25.79472520299896
+      "seconds": 10.53558775199781
     },
     {
       "name": "back",
@@ -84,7 +62,40 @@
         1
       ],
       "span": 2.22,
-      "seconds": 17.283570348998182
+      "seconds": 11.33364312699996
+    },
+    {
+      "name": "eyes",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.74
+      ],
+      "span": 0.83,
+      "seconds": 25.62241755099967
+    },
+    {
+      "name": "crest",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.1
+      ],
+      "span": 0.9,
+      "seconds": 19.362663373998657
+    },
+    {
+      "name": "mask",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.43
+      ],
+      "span": 0.85,
+      "seconds": 24.838312088002567
     },
     {
       "name": "clay",
@@ -95,7 +106,7 @@
         1
       ],
       "span": 2.22,
-      "seconds": 17.914829067995015
+      "seconds": 12.338744314998621
     }
   ]
 }

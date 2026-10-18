@@ -1,9 +1,9 @@
 {
   "file": "static-fit.glb",
-  "sha256": "3f1f1e7e8f33edd5addc2c0fbcc4b1d2f3e83fb9540b059783df67bb3d2f52d2",
-  "bytes": 46673684,
-  "vertices": 358606,
-  "triangles": 301894,
+  "sha256": "47b9e367fddd7d89ebe5695c179ddb7ef7087dbbddfb1f5a80a9fa17666c2b1e",
+  "bytes": 46678548,
+  "vertices": 359066,
+  "triangles": 303529,
   "degenerate_triangles": 5,
   "bounds": [
     [
@@ -67,6 +67,18 @@
     },
     {
       "name": "Dark visor underside",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo edge / oxblood lacquer",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo rolled lip / muted brass",
       "baseColorTexture": null,
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"

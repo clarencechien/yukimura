@@ -1,6 +1,17 @@
 {
-  "iteration": 12,
-  "removed_generated_skin_faces": 9171,
+  "iteration": 16,
+  "mask_trim": {
+    "removed_faces": 15139,
+    "clipped_faces": 758,
+    "boundary_intersections": 1516
+  },
+  "mask_rim": {
+    "object": "Menpo continuous eye rim and return",
+    "stations": 193,
+    "closed_cross_section": true,
+    "scope": "Upper eye-opening rim only; lower generated mask is retained"
+  },
+  "removed_generated_skin_faces": 15139,
   "human_eyes": {
     "source": "public/review/candidates/rocketbox.glb",
     "source_sha256": "142e74c396085ae990391803f28d178b2f41266e153f454d23ebebfe7f51e6e7",
@@ -37,6 +48,7 @@
   "coin_count": 6,
   "eye_landmarks": [],
   "changes": [
+    "Clipped eye-opening triangles at a continuous contour with UV interpolation; rebuilt rolled menpo rim and return",
     "Raised only front visor by up to 0.02 normalized units",
     "Recessed incorrect four-coin relief and rebuilt six separate square-hole coins",
     "Replaced procedural eye caps with licensed Rocketbox orbital skin and eye geometry",

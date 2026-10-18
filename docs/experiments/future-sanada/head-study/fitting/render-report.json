@@ -6,10 +6,10 @@
     1000,
     1000
   ],
-  "geometry_objects": 17,
-  "vertices": 358606,
-  "triangles": 301894,
-  "material_count": 12,
+  "geometry_objects": 18,
+  "vertices": 359066,
+  "triangles": 303529,
+  "material_count": 14,
   "images": [
     {
       "name": "Bitmaptexture",
@@ -86,27 +86,27 @@
     {
       "name": "front",
       "degrees": 0,
-      "seconds": 31.07
+      "seconds": 21.21
     },
     {
       "name": "three-quarter",
       "degrees": 35,
-      "seconds": 35.15
+      "seconds": 22.97
     },
     {
       "name": "side",
       "degrees": 90,
-      "seconds": 36.39
+      "seconds": 20.31
     },
     {
       "name": "back",
       "degrees": 180,
-      "seconds": 34.38
+      "seconds": 21.82
     },
     {
       "name": "clay",
       "degrees": 0,
-      "seconds": 37.14
+      "seconds": 19.33
     }
   ],
   "display_override": null

@@ -8,7 +8,7 @@
 
 ## 並行美術路線
 
-最新：[未來赤備頭部逐項精修](docs/experiments/future-sanada/head-study/README.md)，包含 H100／1536 生成、Rocketbox 人臉眼眶與薄浮雕六文錢修整、前後對照及接回身體的比例試看。
+最新：[未來赤備頭部逐項精修](docs/experiments/future-sanada/head-study/README.md)，包含 H100／1536 生成、Rocketbox 人臉眼眶、薄浮雕六文錢與連續面罩上緣修整、前後對照及接回身體的比例試看。
 
 另有 [未來赤備：TRELLIS 兩代實測比較](docs/experiments/future-sanada/README.md)：第一代＋DINOv2 與第二代＋DINOv3 均已生成、下載與五視角渲染；附 GLB、Blender 場景及互動檢視器。仍需手部／甲片精修與骨架，未替換線上遊戲。
 

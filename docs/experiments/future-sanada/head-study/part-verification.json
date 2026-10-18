@@ -36,6 +36,7 @@
         }
       ],
       "orbital_patch": "Human eyes and orbital skin / Rocketbox",
+      "menpo_rim_closed_and_connected": true,
       "skin_color_and_normal_textures": true,
       "procedural_eye_caps_removed": true
     },
@@ -74,9 +75,10 @@
         }
       ],
       "orbital_patch": "Human eyes and orbital skin / Rocketbox",
+      "menpo_rim_closed_and_connected": true,
       "skin_color_and_normal_textures": true,
       "procedural_eye_caps_removed": true
     }
   ],
-  "scope": "Coin closure/center opening and exported human-eye patch. Does not certify full-head topology, likeness, rig or performance."
+  "scope": "Coin closure/center opening, connected closed menpo rim and exported human-eye patch. Does not certify full-head topology, likeness, rig or performance."
 }

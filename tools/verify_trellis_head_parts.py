@@ -42,12 +42,32 @@ for relative in ['refined/head-refined.glb','refined/head-preview.glb']:
         aa=cross(q,v)[valid]/determinant[valid];bb=cross(u,q)[valid]/determinant[valid]
         assert not ((aa>=-1e-6)&(bb>=-1e-6)&(aa+bb<=1+1e-6)).any(),node['name']+' center hole is covered'
         coin_checks.append({'name':node['name'],'closed_after_logical_weld':True,'center_hole_open':True})
+    rims=[n for n in document['nodes'] if n.get('name')=='Menpo continuous eye rim and return']
+    assert len(rims)==1, 'Missing rebuilt menpo opening rim'
+    positions=[];indices=[];count=0
+    rim_primitives=document['meshes'][rims[0]['mesh']]['primitives']
+    for primitive in rim_primitives:
+        p=accessor(primitive['attributes']['POSITION']);positions.append(p)
+        indices.append(accessor(primitive['indices']).reshape(-1,3)+count);count+=len(p)
+    positions=np.concatenate(positions);indices=np.concatenate(indices)
+    unique,inverse=np.unique(np.round(positions,7),axis=0,return_inverse=True)
+    triangles=inverse[indices]
+    edges=np.concatenate([triangles[:,[0,1]],triangles[:,[1,2]],triangles[:,[2,0]]])
+    _,incidence=np.unique(np.sort(edges,axis=1),axis=0,return_counts=True)
+    assert (incidence==2).all(), 'Menpo rim has an open/nonmanifold seam'
+    neighbours=[set() for _ in unique]
+    for a,b in edges:neighbours[a].add(b);neighbours[b].add(a)
+    reached={0};pending=[0]
+    while pending:
+        for n in neighbours[pending.pop()]-reached:reached.add(n);pending.append(n)
+    assert len(reached)==len(unique), 'Menpo rim contains detached pieces'
+    assert len({p['material'] for p in rim_primitives})==2, 'Missing lacquer/brass separation'
     human_mesh=document['meshes'][orbital[0]['mesh']]
     materials=[document['materials'][p['material']] for p in human_mesh['primitives']]
     assert any(m.get('normalTexture') and m['pbrMetallicRoughness'].get('baseColorTexture') for m in materials)
     checks.append({'file':relative,'coins':coin_checks,'orbital_patch':orbital[0]['name'],
-                   'skin_color_and_normal_textures':True,'procedural_eye_caps_removed':True})
+                   'menpo_rim_closed_and_connected':True,'skin_color_and_normal_textures':True,'procedural_eye_caps_removed':True})
 report={'passed':True,'checks':checks,
-        'scope':'Coin closure/center opening and exported human-eye patch. Does not certify full-head topology, likeness, rig or performance.'}
+        'scope':'Coin closure/center opening, connected closed menpo rim and exported human-eye patch. Does not certify full-head topology, likeness, rig or performance.'}
 (root/'part-verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({'passed':True,'variants':len(checks),'coins_per_variant':6}))

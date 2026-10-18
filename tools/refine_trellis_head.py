@@ -4,6 +4,7 @@ Uses inspected landmarks on the normalized head; does not claim anatomical retop
 from pathlib import Path
 import argparse,json,math
 from trellis_human_eyes import add_human_eyes
+from trellis_mask_rim import trim_opening,add_rim,contour
 import bpy,bmesh
 import numpy as np
 from mathutils import Matrix,Vector
@@ -74,15 +75,9 @@ base_before=len(mesh.polygons);bm=bmesh.new();bm.from_mesh(mesh)
 tiny=[f for f in bm.faces if f.calc_area()<1e-12];bmesh.ops.delete(bm,geom=tiny,context='FACES')
 # A spatial opening removes the old eyes as a whole. Color-only selection leaves
 # islands over the new brows and can accidentally remove the gold visor.
-old_skin=[]
-for f in bm.faces:
- c=f.calc_center_median();ax=abs(c.x)
- lower=float(np.interp(ax,[0,.04,.065,.10,.17,.23,.29,.32],[.79,.78,.735,.68,.65,.67,.73,.79]))
- opening=ax<.31 and lower<c.z<.865 and -.48<c.y<-.20
- residual_skin=f.material_index==skinidx and ax<.31 and .63<c.z<.84 and -.48<c.y<-.20
- old_bridge=ax<.062 and .752<c.z<.82 and -.57<c.y<-.20
- if opening or residual_skin or old_bridge:old_skin.append(f)
-removed_skin_count=len(old_skin);bmesh.ops.delete(bm,geom=old_skin,context='FACES');bm.to_mesh(mesh);bm.free()
+mask_trim=trim_opening(bm,skinidx)
+removed_skin_count=mask_trim['removed_faces'];bm.to_mesh(mesh);bm.free()
+mask_rim=add_rim(surface,object_mesh,mat)
 
 lacquer=mat('Crest oxblood lacquer',(.13,.012,.007),0,.65,0);brass=mat('Crest aged brass',(.38,.23,.07),.82,.42);dark=mat('Lid edge and brow',(.026,.012,.007),0,.8)
 skin=mat('Matte eyelid skin',(.16,.085,.05),0,.65)
@@ -142,7 +137,7 @@ orbital=bpy.data.objects['Human eyes and orbital skin / Rocketbox']
 orbital_bm=bmesh.new();orbital_bm.from_mesh(orbital.data);orbital_bvh=BVHTree.FromBMesh(orbital_bm);orbital_bm.free()
 liner_verts=[];liner_faces=[]
 for j in range(161):
- x=-.31+.62*j/160;z=float(np.interp(abs(x),[0,.04,.065,.10,.17,.23,.29,.31],[.752,.75,.72,.675,.65,.67,.73,.77]))
+ x=-.31+.62*j/160;z=contour(x)-.006
  hit=orbital_bvh.ray_cast(Vector((x,-2,z)),Vector((0,1,0)))[0]
  rear=(hit.y if hit else -.32)+.008;front=min(surface(x,z)+.003,rear-.012)
  liner_verts.extend([(x,front,z-.004),(x,rear,z-.004)])
@@ -214,5 +209,5 @@ for ob in bpy.context.scene.objects:
  if ob.type=='MESH':ob.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str((out/'head-refined.glb').resolve()),export_format='GLB',use_selection=True,export_yup=True,export_apply=True)
 bpy.ops.wm.save_as_mainfile(filepath=str((out/'head-refined.blend').resolve()),compress=True)
-report={'iteration':12,'removed_generated_skin_faces':removed_skin_count,'human_eyes':human_eyes,'socket_vertices_recessed':socket_count,'source':a.model,'normalization_scale':scale,'generated_source_preserved':True,'material_face_counts':material_counts,'visor_vertices_adjusted':int(brim.sum()),'crest_vertices_recessed':int(flatten.sum()),'removed_near_zero_faces':len(tiny),'coin_objects':coins,'coin_count':len(coins),'eye_landmarks':landmarks,'changes':['Raised only front visor by up to 0.02 normalized units','Recessed incorrect four-coin relief and rebuilt six separate square-hole coins','Replaced procedural eye caps with licensed Rocketbox orbital skin and eye geometry','Separated lacquer, gold, cloth and skin material response','Baked independent crest lacquer and brass textures in Blender','Rebuilt thin six coins with raised outer rims, recessed faces and square-hole lips; flush helmet backing','Projected original helmet lacquer onto repair and baked coin micro-normal texture'],'limitations':['Artist-directed procedural edits, not hand-sculpted anatomical retopology','Eye appearance and anatomy inherited from Rocketbox; no independent gaze controls','Mask ventilation remains generated and is not certified as a separate hollow mask','No skeleton, weights or facial animation']}
+report={'iteration':16,'mask_trim':mask_trim,'mask_rim':mask_rim,'removed_generated_skin_faces':removed_skin_count,'human_eyes':human_eyes,'socket_vertices_recessed':socket_count,'source':a.model,'normalization_scale':scale,'generated_source_preserved':True,'material_face_counts':material_counts,'visor_vertices_adjusted':int(brim.sum()),'crest_vertices_recessed':int(flatten.sum()),'removed_near_zero_faces':len(tiny),'coin_objects':coins,'coin_count':len(coins),'eye_landmarks':landmarks,'changes':['Clipped eye-opening triangles at a continuous contour with UV interpolation; rebuilt rolled menpo rim and return','Raised only front visor by up to 0.02 normalized units','Recessed incorrect four-coin relief and rebuilt six separate square-hole coins','Replaced procedural eye caps with licensed Rocketbox orbital skin and eye geometry','Separated lacquer, gold, cloth and skin material response','Baked independent crest lacquer and brass textures in Blender','Rebuilt thin six coins with raised outer rims, recessed faces and square-hole lips; flush helmet backing','Projected original helmet lacquer onto repair and baked coin micro-normal texture'],'limitations':['Artist-directed procedural edits, not hand-sculpted anatomical retopology','Eye appearance and anatomy inherited from Rocketbox; no independent gaze controls','Mask ventilation remains generated and is not certified as a separate hollow mask','No skeleton, weights or facial animation']}
 (out/'refinement-report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report),flush=True)
