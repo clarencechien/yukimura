@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "high_sha256": "9084deb3853e446f92382cc5c340b9de23e0b7e642c4d2e972bf1b29464fb7b5",
+  "preview_sha256": "a8eb6f283ea96ec6a3e0071bfda4d3b05195fd4fde897699977bee53beb6c60e",
+  "regions": {
+    "torso": {
+      "closed_parts": 52,
+      "triangles": 31472
+    },
+    "arms": {
+      "closed_parts": 32,
+      "triangles": 41480
+    },
+    "shoulders": {
+      "closed_parts": 86,
+      "triangles": 23712
+    },
+    "waist": {
+      "closed_parts": 199,
+      "triangles": 62152
+    },
+    "legs": {
+      "closed_parts": 34,
+      "triangles": 38640
+    },
+    "feet": {
+      "closed_parts": 26,
+      "triangles": 16896
+    },
+    "hands": {
+      "closed_parts": 6,
+      "triangles": 29284
+    }
+  },
+  "head_meshes_preserved": 37,
+  "hands": [
+    {
+      "side": -1,
+      "finger_chains": 5,
+      "max_tip_to_vertex_distance": 0.0017069727264989699,
+      "closed": true
+    },
+    {
+      "side": 1,
+      "finger_chains": 5,
+      "max_tip_to_vertex_distance": 0.0017069727264989699,
+      "closed": true
+    }
+  ],
+  "knees": [
+    {
+      "side": -1,
+      "max_shield_vertex_to_lining_vertex_distance": 0.011681298725306988
+    },
+    {
+      "side": 1,
+      "max_shield_vertex_to_lining_vertex_distance": 0.011509975418448448
+    }
+  ],
+  "preview_groups": 24,
+  "high_meshes": 472,
+  "preview_meshes": 61,
+  "embedded_pbr_textures": true,
+  "limits": [
+    "Logical edge checks use 1e-7 position rounding; no global self-intersection proof",
+    "Knee fit uses nearest vertices, not a signed collision or binding test",
+    "Static fitting only, no rigging or weapon-contact animation",
+    "No physical mobile performance measurement"
+  ]
+}

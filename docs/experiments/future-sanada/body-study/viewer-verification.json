@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "loaded": {
+        "loaded": true,
+        "triangles": 471378,
+        "meshes": 77,
+        "materials": 77
+      },
+      "controls": "front/side/back/clay/wireframe/autorotate toggles work offline",
+      "bodyFocusChecks": [
+        "torso",
+        "hands",
+        "legs",
+        "all"
+      ],
+      "noHorizontalOverflow": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "loaded": {
+        "loaded": true,
+        "triangles": 471378,
+        "meshes": 77,
+        "materials": 77
+      },
+      "controls": "front/side/back/clay/wireframe/autorotate toggles work offline",
+      "bodyFocusChecks": [
+        "torso",
+        "hands",
+        "legs",
+        "all"
+      ],
+      "noHorizontalOverflow": true
+    }
+  ],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitation": "Headless Chromium; no physical mobile performance measurement"
+}

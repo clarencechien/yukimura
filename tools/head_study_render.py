@@ -4,7 +4,7 @@ from pathlib import Path
 import bpy
 import numpy as np
 from mathutils import Vector,Matrix
-p=argparse.ArgumentParser();p.add_argument('--model',required=True);p.add_argument('--output',required=True);p.add_argument('--raw',action='store_true');p.add_argument('--normalization-report');p.add_argument('--body',action='store_true');p.add_argument('--views',default='front,three-quarter,side,back,eyes,crest,mask,clay');p.add_argument('--samples',type=int,default=24);p.add_argument('--size',type=int,default=1000);p.add_argument('--save-scene',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--model',required=True);p.add_argument('--output',required=True);p.add_argument('--raw',action='store_true');p.add_argument('--normalization-report');p.add_argument('--body',action='store_true');p.add_argument('--fullbody',action='store_true');p.add_argument('--views',default='front,three-quarter,side,back,eyes,crest,mask,clay');p.add_argument('--samples',type=int,default=24);p.add_argument('--size',type=int,default=1000);p.add_argument('--save-scene',action='store_true');a=p.parse_args()
 out=Path(a.output);out.mkdir(parents=True,exist_ok=True);bpy.ops.wm.read_factory_settings(use_empty=True)
 if a.raw:
  arrays=np.load(a.model,allow_pickle=False);vertices=arrays['vertices'];faces=arrays['faces'];mesh=bpy.data.meshes.new('Unmodified source topology');mesh.vertices.add(len(vertices));mesh.vertices.foreach_set('co',vertices.ravel());mesh.loops.add(faces.size);mesh.loops.foreach_set('vertex_index',faces.ravel());mesh.polygons.add(len(faces));mesh.polygons.foreach_set('loop_start',np.arange(0,faces.size,3));mesh.polygons.foreach_set('loop_total',np.full(len(faces),3));mesh.update();obj=bpy.data.objects.new('Raw head',mesh);bpy.context.collection.objects.link(obj)
@@ -30,7 +30,9 @@ original={o.name:list(o.data.materials) for o in objects}
 if a.raw:
  for obj in objects:obj.data.materials.append(clay)
 bpy.ops.object.camera_add();camera=bpy.context.object;scene.camera=camera;camera.data.type='ORTHO';camera.data.clip_start=.01
-if a.body:
+if a.fullbody:
+ views={'front':(0,(0,0,1),2.22),'three-quarter':(30,(0,0,1),2.22),'side':(90,(0,0,1),2.22),'back':(180,(0,0,1),2.22),'clay':(0,(0,0,1),2.22),'torso':(0,(0,0,1.39),.78),'shoulder':(70,(.30,.02,1.44),.44),'rear-armor':(180,(0,0,1.28),.88),'hands':(0,(.40,-.02,.94),.40),'hand-back':(180,(.40,-.02,.94),.40),'waist':(0,(0,0,.87),.78),'legs':(0,(0,0,.34),.88),'boots':(35,(.04,0,.10),.88)}
+elif a.body:
  views={'front':(0,(0,0,1.73),.66),'three-quarter':(25,(0,0,1.73),.66),'eyes':(0,(0,-.03,1.675),.25),'clay':(0,(0,0,1.73),.66)}
 else:
  views={'front':(0,(0,0,1),2.22),'three-quarter':(28,(0,0,1),2.22),'side':(90,(0,0,1),2.22),'back':(180,(0,0,1),2.22),'eyes':(0,(0,0,.74),.83),'crest':(0,(0,0,1.1),.90),'mask':(0,(0,0,.43),.85),'clay':(0,(0,0,1),2.22)}

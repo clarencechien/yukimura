@@ -1,0 +1,22 @@
+[
+  {
+    "file": "refined/body-refined.glb",
+    "bytes": 36704008,
+    "sha256": "9084deb3853e446f92382cc5c340b9de23e0b7e642c4d2e972bf1b29464fb7b5"
+  },
+  {
+    "file": "refined/body-preview.glb",
+    "bytes": 37476016,
+    "sha256": "a8eb6f283ea96ec6a3e0071bfda4d3b05195fd4fde897699977bee53beb6c60e"
+  },
+  {
+    "file": "refined/body-refined.blend",
+    "bytes": 48342777,
+    "sha256": "d03d2785490adf36762f2b49a0a9cfe001ebe4206fac549d87e0d4fb6877294d"
+  },
+  {
+    "file": "viewer.zip",
+    "bytes": 37294097,
+    "sha256": "9b77a725a0175a5ca4c50b7659a6c2d29efb9b7f920600a877726c2770743c9c"
+  }
+]

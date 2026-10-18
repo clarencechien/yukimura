@@ -1,0 +1,167 @@
+{
+  "model": "docs/experiments/future-sanada/head-study/fitting/static-fit.glb",
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "size": 1000,
+  "samples": 20,
+  "normalization": {
+    "scale": 1.0201927085588305,
+    "original_low": [
+      -0.4613558351993561,
+      -0.22362478077411652,
+      0.0
+    ],
+    "original_high": [
+      0.4613558053970337,
+      0.22362478077411652,
+      1.960413932800293
+    ]
+  },
+  "geometry_vertices": 383550,
+  "geometry_triangles": 360705,
+  "views": [
+    {
+      "name": "front",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 13.012624595998204
+    },
+    {
+      "name": "three-quarter",
+      "angle": 0.5235987755982988,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 10.744432965002488
+    },
+    {
+      "name": "side",
+      "angle": 1.5707963267948966,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 9.342763773995102
+    },
+    {
+      "name": "back",
+      "angle": 3.141592653589793,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 12.13141005000216
+    },
+    {
+      "name": "clay",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 16.164071502993465
+    },
+    {
+      "name": "torso",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.39
+      ],
+      "span": 0.78,
+      "seconds": 30.406447229994228
+    },
+    {
+      "name": "shoulder",
+      "angle": 1.2217304763960306,
+      "target": [
+        0.3,
+        0.02,
+        1.44
+      ],
+      "span": 0.44,
+      "seconds": 25.05361938700662
+    },
+    {
+      "name": "rear-armor",
+      "angle": 3.141592653589793,
+      "target": [
+        0,
+        0,
+        1.28
+      ],
+      "span": 0.88,
+      "seconds": 28.939587402011966
+    },
+    {
+      "name": "hands",
+      "angle": 0.0,
+      "target": [
+        0.4,
+        -0.02,
+        0.94
+      ],
+      "span": 0.4,
+      "seconds": 18.069495506002568
+    },
+    {
+      "name": "hand-back",
+      "angle": 3.141592653589793,
+      "target": [
+        0.4,
+        -0.02,
+        0.94
+      ],
+      "span": 0.4,
+      "seconds": 17.17837942201004
+    },
+    {
+      "name": "waist",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.87
+      ],
+      "span": 0.78,
+      "seconds": 25.49476572900312
+    },
+    {
+      "name": "legs",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.34
+      ],
+      "span": 0.88,
+      "seconds": 19.26904291800747
+    },
+    {
+      "name": "boots",
+      "angle": 0.6108652381980153,
+      "target": [
+        0.04,
+        0,
+        0.1
+      ],
+      "span": 0.88,
+      "seconds": 16.43170676700538
+    }
+  ]
+}

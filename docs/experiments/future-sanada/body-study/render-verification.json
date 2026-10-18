@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "same_camera_normalization_and_settings": true,
+  "size": 1000,
+  "samples": 20,
+  "source_sha256": "e9f74cc539777db22a6c43f60196eefd2d24c338d7da4c3e154360b3e55f1177",
+  "refined_sha256": "a8eb6f283ea96ec6a3e0071bfda4d3b05195fd4fde897699977bee53beb6c60e",
+  "images": [
+    {
+      "file": "baseline/front.png",
+      "sha256": "3a631db3ed41e96284da5557560369eb19d60101ff4f386bae9174f6218a680c"
+    },
+    {
+      "file": "baseline/three-quarter.png",
+      "sha256": "44315f9972ed778bc3faf9546684d335e04d7d57648998409d54e3825193d3fa"
+    },
+    {
+      "file": "baseline/side.png",
+      "sha256": "d9f22925f01723b571361c031556c2da2e13b36a058477f1eaa7fa663345aa36"
+    },
+    {
+      "file": "baseline/back.png",
+      "sha256": "84ab2d5080cf80536b83b383a6c1d63544e34c9b9e7998ea0dd6b328882ad667"
+    },
+    {
+      "file": "baseline/clay.png",
+      "sha256": "010bed88ea5e059b9e0004e150dc2aaeac4add804f1e2292f17d07910ce1536f"
+    },
+    {
+      "file": "baseline/torso.png",
+      "sha256": "bdeca64057c8cfda07af18edb61db2a0b5491352ee5555af4fbae0bdd19907b5"
+    },
+    {
+      "file": "baseline/shoulder.png",
+      "sha256": "34f340f0968aa0994542ad500bf63796a3d9e097454d877fab553fb224e17a6e"
+    },
+    {
+      "file": "baseline/rear-armor.png",
+      "sha256": "2ec7dc898a1f6fe1f07eb32dd57dad6eab2890f3a252b17515a9de771cdaf755"
+    },
+    {
+      "file": "baseline/hands.png",
+      "sha256": "77e87a272969c8e605993cef77bb7e4f491c9e1b905ed10c8890ac2ca0787ebe"
+    },
+    {
+      "file": "baseline/hand-back.png",
+      "sha256": "6f60ec4b083eb1fce7723294d4ba7cb401142ae681b2b74169eece355977fa59"
+    },
+    {
+      "file": "baseline/waist.png",
+      "sha256": "f31e48aa7327c131309cb09a0ed8e61bbeec48ce12b18a04a99d224ea74e06ac"
+    },
+    {
+      "file": "baseline/legs.png",
+      "sha256": "4e69d6c590037c40d84eb4c2ce10e9dabba275dde2b4007dbb19abb632edf574"
+    },
+    {
+      "file": "baseline/boots.png",
+      "sha256": "7c6e0699849dec0f6dce29debb63b18bd391a5f87c8d5f8c71505f3b637e206e"
+    },
+    {
+      "file": "refined/front.png",
+      "sha256": "1bde891b65dad6268a944ce1bf0939b093a14f534d571bf01b2e36520acbeb75"
+    },
+    {
+      "file": "refined/three-quarter.png",
+      "sha256": "0374541723441b79e76939779097bf9d6eddf3ca6d9ee03d797be70e28b20226"
+    },
+    {
+      "file": "refined/side.png",
+      "sha256": "9e6caea802dfcf57660735a7eb4a1b6158a63c8457b8fca2855fea52e250a00c"
+    },
+    {
+      "file": "refined/back.png",
+      "sha256": "b6d9deb30edf9aa37a718b44c8dd01d4b35382a4f760b85a10bbce600a0ef006"
+    },
+    {
+      "file": "refined/clay.png",
+      "sha256": "7142cbf321c6fe58a3491f10002d158e9a655edfc2138fad5a48f75438e74630"
+    },
+    {
+      "file": "refined/torso.png",
+      "sha256": "ecc1778d129135264fc863d0c32ef5c2dce064ff9aaac9222ff4cdbab8a4d45d"
+    },
+    {
+      "file": "refined/shoulder.png",
+      "sha256": "c4a7253bd0694612eb6a025fc702412d2488063a50270858959230ee7533fb42"
+    },
+    {
+      "file": "refined/rear-armor.png",
+      "sha256": "bab86ff59844221f4c862fe3d8fbb94dbbb865f1b58c7965184a610cb65fcc92"
+    },
+    {
+      "file": "refined/hands.png",
+      "sha256": "b6d10e6af665e3a5b43503f8c1e7bd5201ce606ec336100470cd85b3a9db6af7"
+    },
+    {
+      "file": "refined/hand-back.png",
+      "sha256": "711c3b34ef2fb5e49223e1f115b55862001564b777b8762decf394b4d147da5b"
+    },
+    {
+      "file": "refined/waist.png",
+      "sha256": "816dc70ba4533a0cc40e8c8537a2e9421acfc5807ffcfba2181e6e16974bbc37"
+    },
+    {
+      "file": "refined/legs.png",
+      "sha256": "a9e5661da7d6bb565e645185aea5626c5f246f8b3cedd5fe53314d41d83d0ea1"
+    },
+    {
+      "file": "refined/boots.png",
+      "sha256": "344617f73e91e6accd8e1d29dc263e25498174415ab30b0957ea82efbe913c52"
+    }
+  ]
+}
