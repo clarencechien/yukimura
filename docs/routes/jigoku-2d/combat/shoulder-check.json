@@ -1,0 +1,68 @@
+{
+  "scope": "Only brace \u2192 yield \u2192 sink \u2192 lower; manually authored shoulder anchors. Not a measurement of mesh continuity, foot sliding, or every body transition.",
+  "previousDirectWorldStep": 81.4827589125454,
+  "currentWorldSteps": [
+    32.396555372446606,
+    26.86673779974049,
+    27.057065620647002
+  ],
+  "maxStepReductionPercent": 60.241214454683,
+  "samples": [
+    {
+      "phase": "brace",
+      "sample": 34,
+      "body": {
+        "x": 970,
+        "y": 574,
+        "width": 691.1999999999999,
+        "height": 460.79999999999995
+      },
+      "shoulder": {
+        "x": 871,
+        "y": 449.8
+      }
+    },
+    {
+      "phase": "yield",
+      "sample": 37,
+      "body": {
+        "x": 970,
+        "y": 574,
+        "width": 691.1999999999999,
+        "height": 460.79999999999995
+      },
+      "shoulder": {
+        "x": 850.4200000000001,
+        "y": 474.82000000000005
+      }
+    },
+    {
+      "phase": "sink",
+      "sample": 38,
+      "body": {
+        "x": 970,
+        "y": 574,
+        "width": 691.1999999999999,
+        "height": 460.79999999999995
+      },
+      "shoulder": {
+        "x": 824.92,
+        "y": 483.28
+      }
+    },
+    {
+      "phase": "lower",
+      "sample": 39,
+      "body": {
+        "x": 970,
+        "y": 574,
+        "width": 691.1999999999999,
+        "height": 460.79999999999995
+      },
+      "shoulder": {
+        "x": 798,
+        "y": 486
+      }
+    }
+  ]
+}

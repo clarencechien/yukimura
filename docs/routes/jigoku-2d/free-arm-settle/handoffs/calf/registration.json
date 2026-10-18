@@ -1,0 +1,545 @@
+{
+  "baselineCommit": "a639af6bb3ae0ca0aa4c0ae7a835e98eb6312912",
+  "source": "assets/source/jigoku-2d/ghost-rig/side-fall-breakdowns.png",
+  "sha256": "464e82d4c5a28f294f65dcafdf7da862fbbecc349d3e414b86b1dfc846766082",
+  "generatedFile": "exec-0e52d796-7d7c-4260-8516-1c2cde90b2c6.png",
+  "alphaCleanupThreshold": 16,
+  "groundY": 690,
+  "frames": [
+    {
+      "id": "bridge",
+      "time": 1220,
+      "shoulder": [
+        494,
+        541
+      ],
+      "parts": {
+        "lower": {
+          "url": "fall-bridge-lower.webp",
+          "box": [
+            480,
+            487,
+            772,
+            688
+          ],
+          "polygon": [
+            [
+              565,
+              0
+            ],
+            [
+              1152,
+              0
+            ],
+            [
+              1152,
+              768
+            ],
+            [
+              480,
+              768
+            ],
+            [
+              480,
+              648
+            ],
+            [
+              565,
+              648
+            ]
+          ]
+        },
+        "torso": {
+          "url": "fall-bridge-torso.webp",
+          "box": [
+            342,
+            482,
+            614,
+            677
+          ],
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              613,
+              0
+            ],
+            [
+              613,
+              670
+            ],
+            [
+              480,
+              670
+            ],
+            [
+              480,
+              768
+            ],
+            [
+              0,
+              768
+            ]
+          ]
+        },
+        "cap": {
+          "url": "fall-bridge-cap.webp",
+          "box": [
+            448,
+            522,
+            551,
+            632
+          ],
+          "polygon": [
+            [
+              448.5,
+              524.6
+            ],
+            [
+              494,
+              522.5
+            ],
+            [
+              541.6,
+              575
+            ],
+            [
+              550,
+              608.5999999999999
+            ],
+            [
+              516.4,
+              631
+            ],
+            [
+              469.5,
+              601.5999999999999
+            ]
+          ]
+        }
+      },
+      "source": "assets/source/jigoku-2d/ghost-rig/side-fall-bowed-head.png",
+      "sha256": "381137b4a6a1e77456bbf517808994594264f78c8c1c9db10ec6424530967e6d",
+      "registration": {
+        "box": [
+          0,
+          0,
+          675,
+          724
+        ],
+        "scale": 0.7,
+        "offset": [
+          312,
+          288
+        ],
+        "sourceShoulder": [
+          260,
+          361.42857142857144
+        ]
+      },
+      "label": "低頭過渡"
+    },
+    {
+      "id": "roll",
+      "time": 1260,
+      "shoulder": [
+        494,
+        541
+      ],
+      "parts": {
+        "lower": {
+          "url": "fall-roll-lower.webp",
+          "box": [
+            483,
+            496,
+            765,
+            693
+          ],
+          "polygon": [
+            [
+              565,
+              0
+            ],
+            [
+              1152,
+              0
+            ],
+            [
+              1152,
+              768
+            ],
+            [
+              480,
+              768
+            ],
+            [
+              480,
+              650
+            ],
+            [
+              565,
+              650
+            ]
+          ]
+        },
+        "torso": {
+          "url": "fall-roll-torso.webp",
+          "box": [
+            345,
+            477,
+            614,
+            675
+          ],
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              613,
+              0
+            ],
+            [
+              613,
+              674
+            ],
+            [
+              480,
+              674
+            ],
+            [
+              480,
+              768
+            ],
+            [
+              0,
+              768
+            ]
+          ]
+        },
+        "cap": {
+          "url": "fall-roll-cap.webp",
+          "box": [
+            455,
+            516,
+            541,
+            620
+          ],
+          "polygon": [
+            [
+              455.5,
+              516.5
+            ],
+            [
+              500.29999999999995,
+              520
+            ],
+            [
+              530.4,
+              562.7
+            ],
+            [
+              540.2,
+              603.3
+            ],
+            [
+              491.2,
+              619.4
+            ],
+            [
+              466,
+              604
+            ]
+          ]
+        }
+      },
+      "source": "assets/source/jigoku-2d/ghost-rig/side-fall-breakdowns.png",
+      "sha256": "464e82d4c5a28f294f65dcafdf7da862fbbecc349d3e414b86b1dfc846766082",
+      "registration": {
+        "box": [
+          0,
+          0,
+          675,
+          724
+        ],
+        "scale": 0.7,
+        "offset": [
+          312,
+          296
+        ],
+        "sourceShoulder": [
+          260,
+          350
+        ]
+      }
+    },
+    {
+      "id": "side",
+      "time": 1380,
+      "shoulder": [
+        469.1,
+        560
+      ],
+      "parts": {
+        "lower": {
+          "url": "fall-side-lower.webp",
+          "box": [
+            500,
+            517,
+            808,
+            691
+          ],
+          "polygon": [
+            [
+              527.5,
+              0
+            ],
+            [
+              1152,
+              0
+            ],
+            [
+              1152,
+              768
+            ],
+            [
+              500,
+              768
+            ],
+            [
+              500,
+              655
+            ],
+            [
+              527.5,
+              655
+            ]
+          ]
+        },
+        "torso": {
+          "url": "fall-side-torso.webp",
+          "box": [
+            315,
+            502,
+            576,
+            679
+          ],
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              575.5,
+              0
+            ],
+            [
+              575.5,
+              678
+            ],
+            [
+              500,
+              678
+            ],
+            [
+              500,
+              768
+            ],
+            [
+              0,
+              768
+            ]
+          ]
+        },
+        "cap": {
+          "url": "fall-side-cap.webp",
+          "box": [
+            410,
+            530,
+            505,
+            628
+          ],
+          "polygon": [
+            [
+              410.3,
+              534.1
+            ],
+            [
+              450.9,
+              530.6
+            ],
+            [
+              491.5,
+              574
+            ],
+            [
+              504.1,
+              603.4
+            ],
+            [
+              450.2,
+              627.2
+            ],
+            [
+              422.9,
+              588.7
+            ]
+          ]
+        }
+      },
+      "source": "assets/source/jigoku-2d/ghost-rig/side-fall-breakdowns.png",
+      "sha256": "464e82d4c5a28f294f65dcafdf7da862fbbecc349d3e414b86b1dfc846766082",
+      "registration": {
+        "box": [
+          675,
+          0,
+          1408,
+          724
+        ],
+        "scale": 0.7,
+        "offset": [
+          306,
+          301
+        ],
+        "sourceShoulder": [
+          908,
+          370
+        ]
+      }
+    },
+    {
+      "id": "rest",
+      "time": 1500,
+      "shoulder": [
+        459.4,
+        569.5
+      ],
+      "parts": {
+        "lower": {
+          "url": "fall-rest-lower.webp",
+          "box": [
+            512,
+            532,
+            802,
+            692
+          ],
+          "polygon": [
+            [
+              512.9,
+              0
+            ],
+            [
+              1152,
+              0
+            ],
+            [
+              1152,
+              768
+            ],
+            [
+              512.9,
+              768
+            ]
+          ]
+        },
+        "torso": {
+          "url": "fall-rest-torso.webp",
+          "box": [
+            306,
+            515,
+            561,
+            691
+          ],
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              560.9,
+              0
+            ],
+            [
+              560.9,
+              768
+            ],
+            [
+              0,
+              768
+            ]
+          ]
+        },
+        "cap": {
+          "url": "fall-rest-cap.webp",
+          "box": [
+            413,
+            528,
+            519,
+            627
+          ],
+          "polygon": [
+            [
+              413.9,
+              541.5
+            ],
+            [
+              466.4,
+              528.2
+            ],
+            [
+              498.6,
+              567.4
+            ],
+            [
+              518.2,
+              605.2
+            ],
+            [
+              472.7,
+              626.2
+            ],
+            [
+              438.4,
+              594
+            ]
+          ]
+        }
+      },
+      "source": "assets/source/jigoku-2d/ghost-rig/side-fall-breakdowns.png",
+      "sha256": "464e82d4c5a28f294f65dcafdf7da862fbbecc349d3e414b86b1dfc846766082",
+      "registration": {
+        "box": [
+          1408,
+          0,
+          2172,
+          724
+        ],
+        "scale": 0.7,
+        "offset": [
+          297,
+          300
+        ],
+        "sourceShoulder": [
+          1640,
+          385
+        ]
+      }
+    }
+  ],
+  "start": 1180,
+  "end": 1500,
+  "reviewEnd": 1800,
+  "nearWrist": [
+    420,
+    665
+  ],
+  "farWrist": [
+    365,
+    655
+  ],
+  "method": "Reuse the previously rejected first bowed-head drawing only as a 1220 ms bridge key. Keep the original roll/side/rest keys and their timing. Nearest-key image selection; no crossfade, morph, or new image generation. Continuous shared arms do not imply continuous body silhouettes.",
+  "comparison": "fall.json",
+  "comparisonSHA256": "24e17fb93e1563988c27cfebd1b4c06815041908fa4c6ec52ba4096734801cd0"
+}

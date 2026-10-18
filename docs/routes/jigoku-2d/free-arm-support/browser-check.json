@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Actual Canvas draw matrices attach upper endpoint to fore pivot and fore endpoint to hand pivot in both panels",
+    "Painted heel contact stays fixed after 420 ms while torso and shoulder descend; lower body stays fixed",
+    "Torso/cap shoulder transforms, contact shadow, playback/seek/pause/toggles; thirty screenshots",
+    "390 px touch viewport stacks panels without horizontal overflow"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "scope": "Independent fitting page, not installed into combat; no physical phone FPS claim."
+}

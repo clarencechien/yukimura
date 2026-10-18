@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "Same actual time, body pose, head and weapon in both renderers; original calf alone moves during 1000–1200 ms",
+    "Pixels identical before 1000 ms and after 1200 ms; reverse seek, play, replay, pause and 390 px layout",
+    "Delayed final calf texture plus resize exposes no partial ready state"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "limits": "Review playback only; two source iframes add memory and are not a production game renderer or phone performance benchmark."
+}

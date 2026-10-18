@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-15",
+  "timezone": "Asia/Taipei",
+  "method": "fixed illustration multiplied by bounded linear RGB gain from Blender diffuse-light passes on a manually authored image-aligned relief",
+  "source": "assets/source/jigoku-2d/yukimura-yari-ready.png",
+  "source_sha256": "29be91e9db5fbd09e3e07eb4399a90a05ee2604ddd9a0e1f3d50639e76a9c29a",
+  "surface_config": "assets/source/jigoku-2d/yari-surfaces.json",
+  "surface_config_sha256": "cdb8fa8cbf6ce30f008fca0ea6e06dc65e54bae5bf6154b39e5432870e57861e",
+  "source_dimensions": [
+    1536,
+    1024
+  ],
+  "source_cleanup": "image_gen derived transparent cutout from original reference sheet; not pixel-identical extraction",
+  "engine": "Cycles",
+  "device": "CPU",
+  "blender": "4.3.2",
+  "samples": 64,
+  "threads": 4,
+  "denoising": false,
+  "camera": {
+    "type": "ORTHO",
+    "scale": 3,
+    "sensor_fit": "HORIZONTAL",
+    "locked": true
+  },
+  "proxy": {
+    "vertices": 38801,
+    "triangles": 76800,
+    "maximum_relief": 0.1599796204381818,
+    "estimated_by_neural_model": false
+  },
+  "gain": {
+    "strength": 0.72,
+    "minimum": 0.72,
+    "maximum": 2.15,
+    "color_space": "linear"
+  },
+  "reference_render_seconds": 21.350016308002523,
+  "files": [
+    {
+      "name": "neutral",
+      "file": "neutral.png",
+      "frame": 1,
+      "seconds": 20.602,
+      "sha256": "a2ac974fbb2c114bdc399ef2118b539c3e76f450f703ea0b24e488eafed6a745"
+    },
+    {
+      "name": "warm-left",
+      "file": "warm-left.png",
+      "frame": 2,
+      "seconds": 23.445,
+      "sha256": "7ea7f3ad4365a49ef4f39e6436957df679f70736ab1af25c6868cdf5b3df9892"
+    },
+    {
+      "name": "cool-right",
+      "file": "cool-right.png",
+      "frame": 3,
+      "seconds": 21.922,
+      "sha256": "293e992f909e5bc1661fab0d794f999948af1086b38ec2db0019260f7324e581"
+    }
+  ],
+  "limitations": [
+    "Original painted shadows and highlights remain.",
+    "Broad hand-authored surface directions, not recovered material or true depth.",
+    "Single fixed view; no new perspective or body animation.",
+    "No Marigold, IC-Light, Modal or GPU inference was used."
+  ],
+  "scene": "assets/optimized/jigoku-2d/yari-relight.blend",
+  "scene_sha256": "66128b699b0d1e4d18fa0e20fcaa53f7632c6b90fb022f143d44a2e472af1330"
+}

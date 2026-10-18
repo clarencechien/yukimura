@@ -1,0 +1,223 @@
+{
+  "version": 2,
+  "frameSize": [
+    512,
+    320
+  ],
+  "fps": 30,
+  "framesPerClip": 36,
+  "direction": "single source view, facing screen-right",
+  "pivot": {
+    "x": 0.5,
+    "y": 0.85
+  },
+  "pivotNote": "Stable canvas anchor. No root motion. Weapon-tip markers are reference data, not a collision system.",
+  "gpuBytesPerAtlasRGBA8": 23592960,
+  "gpuBytesWithMipmapsApprox": 31457280,
+  "atlases": [
+    {
+      "clip": "thrust",
+      "light": "neutral",
+      "image": "thrust-neutral.webp",
+      "data": "thrust-neutral.json",
+      "bytes": 2062628,
+      "sha256": "4c8334c5ee24be3a294d2e81349aae3538e0c328fea94369a58b9be3f4fb53d2"
+    },
+    {
+      "clip": "idle",
+      "light": "neutral",
+      "image": "idle-neutral.webp",
+      "data": "idle-neutral.json",
+      "bytes": 2080884,
+      "sha256": "1344a519d64048f72c9e66b110e312769ebd2135de9a7ac8774f418780b9852e"
+    },
+    {
+      "clip": "thrust",
+      "light": "warm-left",
+      "image": "thrust-warm-left.webp",
+      "data": "thrust-warm-left.json",
+      "bytes": 2132560,
+      "sha256": "b0f13947054e576b13ed8698bb1fe0b2f56d8f586e4256c190e65dc4a8e6df93"
+    },
+    {
+      "clip": "idle",
+      "light": "warm-left",
+      "image": "idle-warm-left.webp",
+      "data": "idle-warm-left.json",
+      "bytes": 2162988,
+      "sha256": "4167fcb5b71a2cdd1df5a11e3374f6f1e000116333541adbda9f59f32aff005a"
+    },
+    {
+      "clip": "thrust",
+      "light": "cool-right",
+      "image": "thrust-cool-right.webp",
+      "data": "thrust-cool-right.json",
+      "bytes": 2098356,
+      "sha256": "b9ac41822bea1986a42b59e4a32f16853dc6b9429571a0bea3b779c9710cc262"
+    },
+    {
+      "clip": "idle",
+      "light": "cool-right",
+      "image": "idle-cool-right.webp",
+      "data": "idle-cool-right.json",
+      "bytes": 2118722,
+      "sha256": "8b0a8965c540cda0d436e73d22c00f8ae98c6a28b8b1e148aeb86496e99a9787"
+    }
+  ],
+  "clips": {
+    "idle": {
+      "loop": true
+    },
+    "thrust": {
+      "loop": false,
+      "contactFramesZeroBased": [
+        14,
+        15
+      ],
+      "durationMs": 1200
+    }
+  },
+  "desktopAtlases": [
+    {
+      "clip": "thrust",
+      "light": "neutral",
+      "pages": [
+        {
+          "firstFrame": 0,
+          "frameCount": 24,
+          "image": "thrust-neutral-hd.webp",
+          "data": "thrust-neutral-hd.json",
+          "bytes": 4638840,
+          "sha256": "e69fc382c19c4dbba2e4a38831a84d9256432d5d81ff9a1209c2765da3bc383e"
+        },
+        {
+          "firstFrame": 24,
+          "frameCount": 12,
+          "image": "thrust-neutral-hd-2.webp",
+          "data": "thrust-neutral-hd-2.json",
+          "bytes": 2470200,
+          "sha256": "2ce71845e7c276fe89de4959f091dc3e07ff7ab5018b97d982cade87b4ba53b5"
+        }
+      ]
+    },
+    {
+      "clip": "idle",
+      "light": "neutral",
+      "pages": [
+        {
+          "firstFrame": 0,
+          "frameCount": 24,
+          "image": "idle-neutral-hd.webp",
+          "data": "idle-neutral-hd.json",
+          "bytes": 4834638,
+          "sha256": "1a616c99cb7df7705fb33df7999c4c0ab11405fe00b93f5305a86f176a9840aa"
+        },
+        {
+          "firstFrame": 24,
+          "frameCount": 12,
+          "image": "idle-neutral-hd-2.webp",
+          "data": "idle-neutral-hd-2.json",
+          "bytes": 2375864,
+          "sha256": "79a4abb41975f3117452423310cdd1a1f5aa12a5d23e78d5914241f02601f7df"
+        }
+      ]
+    },
+    {
+      "clip": "thrust",
+      "light": "warm-left",
+      "pages": [
+        {
+          "firstFrame": 0,
+          "frameCount": 24,
+          "image": "thrust-warm-left-hd.webp",
+          "data": "thrust-warm-left-hd.json",
+          "bytes": 4788524,
+          "sha256": "c6ed6a288d97b67791e961b41fb200b289c30aedf3eaabf2fccd9d06aa7a5fd7"
+        },
+        {
+          "firstFrame": 24,
+          "frameCount": 12,
+          "image": "thrust-warm-left-hd-2.webp",
+          "data": "thrust-warm-left-hd-2.json",
+          "bytes": 2560282,
+          "sha256": "c09516c0bbecc555bffa1da5314e7ff960ad162319980df626e80e17c3df65e3"
+        }
+      ]
+    },
+    {
+      "clip": "idle",
+      "light": "warm-left",
+      "pages": [
+        {
+          "firstFrame": 0,
+          "frameCount": 24,
+          "image": "idle-warm-left-hd.webp",
+          "data": "idle-warm-left-hd.json",
+          "bytes": 5029964,
+          "sha256": "93eaf317ea27b6cd88d17ff2fe70ad582d9a73ace9299f30970efb2982c5cb3a"
+        },
+        {
+          "firstFrame": 24,
+          "frameCount": 12,
+          "image": "idle-warm-left-hd-2.webp",
+          "data": "idle-warm-left-hd-2.json",
+          "bytes": 2483096,
+          "sha256": "8e940208c8c168dcb6781526d4479112d1d9227555ceb3d21a365d37f46a034d"
+        }
+      ]
+    },
+    {
+      "clip": "thrust",
+      "light": "cool-right",
+      "pages": [
+        {
+          "firstFrame": 0,
+          "frameCount": 24,
+          "image": "thrust-cool-right-hd.webp",
+          "data": "thrust-cool-right-hd.json",
+          "bytes": 4725208,
+          "sha256": "38e264bcef03de948610001d1219df95aa9fdb882f1adcaa028e7b0c7276317e"
+        },
+        {
+          "firstFrame": 24,
+          "frameCount": 12,
+          "image": "thrust-cool-right-hd-2.webp",
+          "data": "thrust-cool-right-hd-2.json",
+          "bytes": 2527722,
+          "sha256": "dbe5f09d62af958223a13d5687c951e4ffbd233896ffbc8aecfc9bcc191785d9"
+        }
+      ]
+    },
+    {
+      "clip": "idle",
+      "light": "cool-right",
+      "pages": [
+        {
+          "firstFrame": 0,
+          "frameCount": 24,
+          "image": "idle-cool-right-hd.webp",
+          "data": "idle-cool-right-hd.json",
+          "bytes": 4938124,
+          "sha256": "6a7d814d77ea60b147056cb77eb7b062d00a56b925c5dd6f82a545c386dd6628"
+        },
+        {
+          "firstFrame": 24,
+          "frameCount": 12,
+          "image": "idle-cool-right-hd-2.webp",
+          "data": "idle-cool-right-hd-2.json",
+          "bytes": 2429952,
+          "sha256": "e1e3b474b52c6e9cb1e0870e6791b31f012ec8324cdc082350db1e974feaba2c"
+        }
+      ]
+    }
+  ],
+  "desktopFrameSize": [
+    1024,
+    640
+  ],
+  "desktopGPUBytesPerClipRGBA8": 94371840,
+  "desktopMaxPageSize": [
+    4096,
+    3840
+  ]
+}

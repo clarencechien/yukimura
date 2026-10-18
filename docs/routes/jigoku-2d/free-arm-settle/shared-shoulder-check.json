@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "torsoAlphaPreserved": true,
+  "sourceRGBOutsidePlatePreserved": true,
+  "newTexturesRGBA8MiB": 0.7529411315917969,
+  "reusedCap": "fall-bridge-cap.webp",
+  "lining": {
+    "source": "headless-bridge.webp",
+    "sourceSHA256": "61cdd605484573a665bac6e569a077a54c751d9708c9daf288553c0d61d27026",
+    "box": [
+      182,
+      52,
+      202,
+      66
+    ]
+  },
+  "activation": {
+    "meanRGBDelta": 0.00958989898989899,
+    "pixelsOver8": 127
+  },
+  "handoffs": [
+    {
+      "time": 1200,
+      "previous": {
+        "bodyAlphaIoU": 0.858645341643371,
+        "meanRGBDelta": 5.067651515151515
+      },
+      "sharedShoulder": {
+        "bodyAlphaIoU": 0.858645341643371,
+        "meanRGBDelta": 5.067651515151515
+      },
+      "capLayer": null
+    },
+    {
+      "time": 1240,
+      "previous": {
+        "bodyAlphaIoU": 0.9114252961406191,
+        "meanRGBDelta": 3.6247
+      },
+      "sharedShoulder": {
+        "bodyAlphaIoU": 0.911807413068399,
+        "meanRGBDelta": 3.0280343434343435
+      },
+      "capLayer": {
+        "matrixMaxDelta": 0.0003906250058207661,
+        "maxPremultipliedRGBDelta": 1.984313725490189,
+        "pixelsOver3": 0
+      }
+    },
+    {
+      "time": 1320,
+      "previous": {
+        "bodyAlphaIoU": 0.8493661634617808,
+        "meanRGBDelta": 4.288993939393939
+      },
+      "sharedShoulder": {
+        "bodyAlphaIoU": 0.853981965598242,
+        "meanRGBDelta": 3.5348838383838386
+      },
+      "capLayer": {
+        "matrixMaxDelta": 0.0007080078230501385,
+        "maxPremultipliedRGBDelta": 1.9843137254902103,
+        "pixelsOver3": 0
+      }
+    },
+    {
+      "time": 1440,
+      "previous": {
+        "bodyAlphaIoU": 0.9055393112410657,
+        "meanRGBDelta": 3.759710101010101
+      },
+      "sharedShoulder": {
+        "bodyAlphaIoU": 0.9134981759221726,
+        "meanRGBDelta": 2.868537373737374
+      },
+      "capLayer": {
+        "matrixMaxDelta": 1.365751716442265e-06,
+        "maxPremultipliedRGBDelta": 0.9921568627451052,
+        "pixelsOver3": 0
+      }
+    }
+  ],
+  "limits": "First body handoff unchanged. Plate moves rigidly; collar mount and cloth tile are authored 2D assembly, not anatomical simulation. Body outline and neck edges still change with four drawings. Not integrated into the game or measured on a phone."
+}

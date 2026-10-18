@@ -1,0 +1,324 @@
+{
+  "baselineCommit": "78d090ccb51826fcaa4bbffee31b620a7f26c773",
+  "source": "Previous committed MP4 and current actual Phaser screenshots. No synthesized or interpolated frames.",
+  "soleLandmarksHD": {
+    "left": [
+      373,
+      686
+    ],
+    "right": [
+      775,
+      674
+    ]
+  },
+  "unchangedCharacterTextures": true,
+  "scope": "Manual source sole centers projected through actual sprite transforms. Not optical flow, actual pressure, contact dynamics, or physical phone FPS. Only fatal first 180 ms changes. Helmet/empty arm/silhouette and later authored collapse remain discontinuous.",
+  "attacks": {
+    "thrust": {
+      "pairs": [
+        {
+          "beforeSample": 23,
+          "afterSample": 23,
+          "reactionAgeMS": 55.33333333333333,
+          "sampleOffsetMS": -16.0,
+          "feet": {
+            "left": {
+              "sole": {
+                "x": 373,
+                "y": 686
+              },
+              "ground": {
+                "x": 373,
+                "y": 686
+              },
+              "lift": 0
+            },
+            "right": {
+              "sole": {
+                "x": 737.0549971779699,
+                "y": 677.275094092445
+              },
+              "ground": {
+                "x": 737.0549971779699,
+                "y": 684.3997415141861
+              },
+              "lift": 7.124647421741036
+            }
+          },
+          "shadowDrawCommands": [
+            {
+              "x": 848.2,
+              "y": 571.6,
+              "alpha": 0.35,
+              "width": 55,
+              "height": 12
+            },
+            {
+              "x": 1066.632998306782,
+              "y": 570.6398449085117,
+              "alpha": 0.25995237286410633,
+              "width": 57.84985896869642,
+              "height": 12
+            }
+          ]
+        },
+        {
+          "beforeSample": 24,
+          "afterSample": 25,
+          "reactionAgeMS": 119.33333333333331,
+          "sampleOffsetMS": 16.0,
+          "feet": {
+            "left": {
+              "sole": {
+                "x": 396.43972930955647,
+                "y": 670.1774999915325
+              },
+              "ground": {
+                "x": 396.43972930955647,
+                "y": 686.211608667378
+              },
+              "lift": 16.034108675845474
+            },
+            "right": {
+              "sole": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "ground": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "lift": 0
+            }
+          },
+          "shadowDrawCommands": [
+            {
+              "x": 862.2638375857339,
+              "y": 571.7269652004268,
+              "alpha": 0.1473466820136197,
+              "width": 61.41364347033819,
+              "height": 12
+            },
+            {
+              "x": 1060.24,
+              "y": 572.392,
+              "alpha": 0.35,
+              "width": 55,
+              "height": 12
+            }
+          ]
+        },
+        {
+          "beforeSample": 25,
+          "afterSample": 26,
+          "reactionAgeMS": 151.33333333333331,
+          "sampleOffsetMS": 16.0,
+          "feet": {
+            "left": {
+              "sole": {
+                "x": 432.68216552354824,
+                "y": 675.7204659215228
+              },
+              "ground": {
+                "x": 432.68216552354824,
+                "y": 686.5387973276431
+              },
+              "lift": 10.818331406120352
+            },
+            "right": {
+              "sole": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "ground": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "lift": 0
+            }
+          },
+          "shadowDrawCommands": [
+            {
+              "x": 884.009299314129,
+              "y": 571.9232783965858,
+              "alpha": 0.21326831139486774,
+              "width": 59.32733256244814,
+              "height": 12
+            },
+            {
+              "x": 1060.24,
+              "y": 572.392,
+              "alpha": 0.35,
+              "width": 55,
+              "height": 12
+            }
+          ]
+        }
+      ],
+      "lastSharedReactionAgeMS": 151.33333333333331,
+      "lastSharedSoleDistanceToBuckleWorldPX": {
+        "before": {
+          "left": 43.20176038079934,
+          "right": 30.235371074289894
+        },
+        "after": {
+          "left": 9.880594824719328,
+          "right": 2.2737367544323206e-13
+        }
+      }
+    },
+    "sweep": {
+      "pairs": [
+        {
+          "beforeSample": 17,
+          "afterSample": 17,
+          "reactionAgeMS": 29.99999999999997,
+          "sampleOffsetMS": 0.0,
+          "feet": {
+            "left": {
+              "sole": {
+                "x": 373,
+                "y": 686
+              },
+              "ground": {
+                "x": 373,
+                "y": 686
+              },
+              "lift": 0
+            },
+            "right": {
+              "sole": {
+                "x": 764.0279472007282,
+                "y": 669.7469052204054
+              },
+              "ground": {
+                "x": 764.0279472007282,
+                "y": 677.0071552116523
+              },
+              "lift": 7.260249991246795
+            }
+          },
+          "shadowDrawCommands": [
+            {
+              "x": 848.2,
+              "y": 571.6,
+              "alpha": 0.35,
+              "width": 55,
+              "height": 12
+            },
+            {
+              "x": 1082.816768320437,
+              "y": 566.2042931269914,
+              "alpha": 0.25823850705507523,
+              "width": 57.904099996498715,
+              "height": 12
+            }
+          ]
+        },
+        {
+          "beforeSample": 20,
+          "afterSample": 20,
+          "reactionAgeMS": 125.99999999999997,
+          "sampleOffsetMS": 0.0,
+          "feet": {
+            "left": {
+              "sole": {
+                "x": 404.2126419753086,
+                "y": 668.5651015089163
+              },
+              "ground": {
+                "x": 404.2126419753086,
+                "y": 686.2817807956104
+              },
+              "lift": 17.716679286694095
+            },
+            "right": {
+              "sole": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "ground": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "lift": 0
+            }
+          },
+          "shadowDrawCommands": [
+            {
+              "x": 866.9275851851852,
+              "y": 571.7690684773662,
+              "alpha": 0.12608085901539404,
+              "width": 62.086671714677635,
+              "height": 12
+            },
+            {
+              "x": 1060.24,
+              "y": 572.392,
+              "alpha": 0.35,
+              "width": 55,
+              "height": 12
+            }
+          ]
+        },
+        {
+          "beforeSample": 21,
+          "afterSample": 21,
+          "reactionAgeMS": 157.99999999999997,
+          "sampleOffsetMS": 0.0,
+          "feet": {
+            "left": {
+              "sole": {
+                "x": 438.2638024691358,
+                "y": 679.828886419753
+              },
+              "ground": {
+                "x": 438.2638024691358,
+                "y": 686.5891871056241
+              },
+              "lift": 6.760300685871075
+            },
+            "right": {
+              "sole": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "ground": {
+                "x": 726.4,
+                "y": 687.32
+              },
+              "lift": 0
+            }
+          },
+          "shadowDrawCommands": [
+            {
+              "x": 887.3582814814815,
+              "y": 571.9535122633745,
+              "alpha": 0.26455731077579614,
+              "width": 57.704120274348426,
+              "height": 12
+            },
+            {
+              "x": 1060.24,
+              "y": 572.392,
+              "alpha": 0.35,
+              "width": 55,
+              "height": 12
+            }
+          ]
+        }
+      ],
+      "lastSharedReactionAgeMS": 157.99999999999997,
+      "lastSharedSoleDistanceToBuckleWorldPX": {
+        "before": {
+          "left": 43.20176038079934,
+          "right": 30.235371074289894
+        },
+        "after": {
+          "left": 5.751992798483266,
+          "right": 2.2737367544323206e-13
+        }
+      }
+    }
+  }
+}

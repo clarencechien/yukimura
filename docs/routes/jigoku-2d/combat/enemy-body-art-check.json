@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "checks": [
+    "All eight HD cutouts retain exact visible source RGB and declared alpha masks",
+    "Mobile parts equal uniform resampling of HD cutouts",
+    "Assembled rest silhouette has no missing opaque source pixels",
+    "Rigid pieces overlap at belt, skirt, knee armor and ankle cuffs; no mesh deformation"
+  ],
+  "cost": {
+    "leftFoot": {
+      "desktopRGBA8Bytes": 46800,
+      "mobileRGBA8Bytes": 20880
+    },
+    "rightFoot": {
+      "desktopRGBA8Bytes": 44200,
+      "mobileRGBA8Bytes": 19836
+    },
+    "leftShin": {
+      "desktopRGBA8Bytes": 90000,
+      "mobileRGBA8Bytes": 40000
+    },
+    "rightShin": {
+      "desktopRGBA8Bytes": 81000,
+      "mobileRGBA8Bytes": 36000
+    },
+    "leftThigh": {
+      "desktopRGBA8Bytes": 100800,
+      "mobileRGBA8Bytes": 44640
+    },
+    "rightThigh": {
+      "desktopRGBA8Bytes": 87000,
+      "mobileRGBA8Bytes": 38800
+    },
+    "lower": {
+      "desktopRGBA8Bytes": 374400,
+      "mobileRGBA8Bytes": 166400
+    },
+    "torso": {
+      "desktopRGBA8Bytes": 347700,
+      "mobileRGBA8Bytes": 154280
+    }
+  },
+  "limits": "Rest silhouette and retained pixel checks, not an anatomical or automatic moving-seam quality judgement. Moving seam is inspected in actual browser captures."
+}

@@ -6,6 +6,14 @@
 
 手機與 laptop 的斜俯視 3D 戰鬥原型。以大坂冬之陣的藝術化場景，演繹幸村與傳說中的十勇士自修羅戰境重返大坂的架空故事。
 
+## 並行美術路線
+
+另有 [未來赤備：TRELLIS 兩代實測比較](docs/experiments/future-sanada/README.md)：第一代＋DINOv2 與第二代＋DINOv3 均已生成、下載與五視角渲染；附 GLB、Blender 場景及互動檢視器。仍需手部／甲片精修與骨架，未替換線上遊戲。
+
+**[直接玩 2D《燼關突圍》](https://clarencechien.github.io/yukimura/jigoku/)**（手機／電腦）。
+
+本分支新增 [《真田・六文劫》預渲染 2D 研究與參考圖](docs/routes/jigoku-2d/README.md)：Blender → 透明動畫貼圖 → 2D 引擎的另一條路線。已有文案、概念圖、[Blender 補光對照](docs/routes/jigoku-2d/RELIGHT_STUDY.md)，以及 [持槍待機／短刺動畫](docs/routes/jigoku-2d/YARI_MOTION.md)。最新為 [可玩的 2D 三段關卡《燼關突圍》](docs/routes/jigoku-2d/PLAYABLE_LEVEL.md)，提供離線遊戲 ZIP、手機操作與家康決戰；下列 v22 仍是既有遊戲基線。
+
 ## 目前版本
 
 2026-10-14 依使用者指示暫停開發，保留已上線的 **v22**。幸村與家康已採用 v21 面具及 v22 握姿，並接入遊戲；不是只有比較頁更新。程式基線為 `1ecbcc5`。
@@ -27,7 +35,7 @@ npm run dev
 `npm run build` 建置；`npm run preview` 檢查建置結果。依賴由 npm 安裝，執行時模型、貼圖及概念圖由網站本身提供。
 
 ```sh
-npm test           # 規則、模型與動畫資料：28 項
+npm test           # 規則、模型與動畫資料：38 項（含 2D 關卡 10 項）
 npm run test:e2e   # 桌面、手機尺寸、通關與敗北：10 項
 npm run test:pages # /yukimura/ 子路徑與資產：7 項
 ```

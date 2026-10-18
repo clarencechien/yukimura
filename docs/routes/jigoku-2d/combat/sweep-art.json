@@ -1,0 +1,228 @@
+{
+  "sources": [
+    {
+      "source": "assets/source/jigoku-2d/yari-sweep-poses.png",
+      "sha256": "eadf51358a8bf646fd76e7b5aae579fd9ec4a16de82c160caf04828bc6141660"
+    },
+    {
+      "source": "assets/source/jigoku-2d/yari-sweep-transitions.png",
+      "sha256": "6698c45c1673b89400e042a6d9f3797d46e358d53d07f24bb26330536f2ad4e8"
+    }
+  ],
+  "newGeneratedFile": "exec-b5a2bcbb-2a47-4201-bad2-701bf0629a72.png",
+  "referenceCommit": "a6bf7a6ba0978ad81c3bd2b6e78c6bd6363c0950",
+  "reference": "Neutral composite of original thrust frame 35 and previous sweep contact/follow/windup frames.",
+  "method": "Two new image_gen inbetweens; uniform foot-span registration. First/last poses directly reference resident thrust 35 / idle 0 textures in both resolutions, no duplicate texture cells. No new Blender render, no anatomy warping. Drawn pole projection and armor details still vary inside the sweep.",
+  "poses": [
+    {
+      "pose": "shared-thrust-end",
+      "source": "docs/routes/jigoku-2d/yari-rigid/thrust-warm-left-hd-2.webp",
+      "sourceFrame": 35,
+      "sourceBox": [
+        3072,
+        1280,
+        4096,
+        1920
+      ],
+      "uniformScale": 1,
+      "pasteOffset": [
+        0,
+        0
+      ],
+      "worldTip": {
+        "x": 923.0,
+        "y": 329.0
+      },
+      "method": "Reference to the resident source atlas cell in each resolution; no duplicate texture."
+    },
+    {
+      "pose": "descend",
+      "source": "assets/source/jigoku-2d/yari-sweep-transitions.png",
+      "sourceBox": [
+        0,
+        0,
+        1060,
+        783
+      ],
+      "uniformScale": 0.7928286852589641,
+      "pasteOffset": [
+        70,
+        -3
+      ],
+      "sourceRearSole": [
+        199,
+        708
+      ],
+      "sourceFrontSole": [
+        701,
+        664
+      ],
+      "sourceTip": [
+        1044,
+        466
+      ],
+      "rearSole": [
+        227.77290836653387,
+        558.3227091633465
+      ],
+      "frontSole": [
+        625.7729083665338,
+        523.4382470119522
+      ],
+      "worldTip": {
+        "x": 932.7131474103585,
+        "y": 456.45816733067727
+      }
+    },
+    {
+      "pose": "contact",
+      "source": "assets/source/jigoku-2d/yari-sweep-poses.png",
+      "sourceBox": [
+        805,
+        0,
+        1536,
+        510
+      ],
+      "uniformScale": 1.0473684210526315,
+      "pasteOffset": [
+        155,
+        61
+      ],
+      "sourceRearSole": [
+        875,
+        475
+      ],
+      "sourceFrontSole": [
+        1255,
+        443
+      ],
+      "sourceTip": [
+        1530,
+        385
+      ],
+      "rearSole": [
+        228.31578947368422,
+        558.5
+      ],
+      "frontSole": [
+        626.3157894736842,
+        524.9842105263158
+      ],
+      "worldTip": {
+        "x": 949.3421052631578,
+        "y": 554.2368421052631
+      }
+    },
+    {
+      "pose": "follow",
+      "source": "assets/source/jigoku-2d/yari-sweep-poses.png",
+      "sourceBox": [
+        0,
+        510,
+        830,
+        1024
+      ],
+      "uniformScale": 0.9925187032418953,
+      "pasteOffset": [
+        116,
+        93
+      ],
+      "sourceRearSole": [
+        113,
+        979
+      ],
+      "sourceFrontSole": [
+        514,
+        947
+      ],
+      "sourceTip": [
+        810,
+        853
+      ],
+      "rearSole": [
+        228.15461346633418,
+        558.4912718204489
+      ],
+      "frontSole": [
+        626.1546134663342,
+        526.7306733167082
+      ],
+      "worldTip": {
+        "x": 954.9401496259352,
+        "y": 523.4339152119701
+      }
+    },
+    {
+      "pose": "rise",
+      "source": "assets/source/jigoku-2d/yari-sweep-transitions.png",
+      "sourceBox": [
+        1060,
+        0,
+        2009,
+        783
+      ],
+      "uniformScale": 0.8122448979591836,
+      "pasteOffset": [
+        126,
+        -19
+      ],
+      "sourceRearSole": [
+        1185,
+        710
+      ],
+      "sourceFrontSole": [
+        1675,
+        665
+      ],
+      "sourceTip": [
+        1967,
+        403
+      ],
+      "rearSole": [
+        227.53061224489795,
+        557.6938775510204
+      ],
+      "frontSole": [
+        625.530612244898,
+        521.1428571428571
+      ],
+      "worldTip": {
+        "x": 897.7061224489796,
+        "y": 398.334693877551
+      }
+    },
+    {
+      "pose": "shared-idle-start",
+      "source": "docs/routes/jigoku-2d/yari-rigid/idle-warm-left-hd.webp",
+      "sourceFrame": 0,
+      "sourceBox": [
+        0,
+        0,
+        1024,
+        640
+      ],
+      "uniformScale": 1,
+      "pasteOffset": [
+        0,
+        0
+      ],
+      "worldTip": {
+        "x": 923.0,
+        "y": 329.0
+      },
+      "method": "Reference to the resident source atlas cell in each resolution; no duplicate texture."
+    }
+  ],
+  "frameSizeHD": [
+    1024,
+    640
+  ],
+  "frameSizeMobile": [
+    512,
+    320
+  ],
+  "newTextureCells": 4,
+  "logicalPoseCount": 6,
+  "hdRGBA8Bytes": 10485760,
+  "mobileRGBA8Bytes": 2621440
+}

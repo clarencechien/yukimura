@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "60 real desktop low-sweep frames: fixed arm/leg lengths, connected hip/knee/ankle sockets, source-size rigid layers, palm/shaft registration, visible spear tip equals collision track, feet fixed",
+    "Pause freezes torso, hip, all arm/leg joints, feet, hands and spear; reset restores ready stance",
+    "390 px touch low sweep: same rendered arm, hand and blade checks; one hit; feedback off; no horizontal overflow",
+    "No request for old idle/thrust/sweep atlases or sweep boundary cells; zero page errors and failed asset requests"
+  ],
+  "frames": 60,
+  "errors": []
+}

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "baselineCommit": "a6bf7a6ba0978ad81c3bd2b6e78c6bd6363c0950",
+  "sharedPixelChecks": [
+    {
+      "resolution": "HD",
+      "sweepPose": 0,
+      "sourceClip": "thrust",
+      "sourceFrame": 35,
+      "sharedResidentTexture": true,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    },
+    {
+      "resolution": "HD",
+      "sweepPose": 5,
+      "sourceClip": "idle",
+      "sourceFrame": 0,
+      "sharedResidentTexture": true,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    },
+    {
+      "resolution": "mobile",
+      "sweepPose": 0,
+      "sourceClip": "thrust",
+      "sourceFrame": 35,
+      "sharedResidentTexture": true,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    },
+    {
+      "resolution": "mobile",
+      "sweepPose": 5,
+      "sourceClip": "idle",
+      "sourceFrame": 0,
+      "sharedResidentTexture": true,
+      "visiblePixelMismatch": 0,
+      "alphaMismatch": 0
+    }
+  ],
+  "previousTipSteps": [
+    39.868840369699996,
+    246.92479747172686,
+    31.30748162789813,
+    188.9561316670072,
+    38.92719953323099
+  ],
+  "currentTipSteps": [
+    127.82773428294144,
+    99.18261682343538,
+    31.30748162789813,
+    137.57016044684426,
+    73.80433602885212
+  ],
+  "maxTipStepReductionPercent": 44.286616064716554,
+  "timing": "32 simulation frames, active 9..16, unchanged",
+  "scope": "Boundary sources resolve to the exact resident source cell in both resolutions; identity by reference, with desktop renderer bindings checked separately in browser capture. Tip positions are manually marked projected points; this is not anatomical correctness, continuous motion or fixed physical shaft-length verification. Mid-action armor and shaft projection still vary."
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "Resizing during delayed texture loading does not expose a partial renderer; final shoulder pose draws after readiness",
+    "Two actual same-origin Canvas renderers seek to identical time; no image morphing",
+    "Pixel-identical panels before 1220 ms; shared shoulder visibly differs afterward",
+    "Both source bodies, arms and helmets have identical poses; only right uses shared shoulder after 1220 ms",
+    "Play, stop at endpoint, replay, pause, key buttons, 390 px stacked layout"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "limits": "Review playback only; two source iframes add memory and are not a production game renderer or phone performance benchmark."
+}

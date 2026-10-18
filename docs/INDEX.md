@@ -1,8 +1,10 @@
 # 文件索引
 
-2026-10-14 整理。遊戲停在 v22，先讀 [狀態與交接](STATUS.md)。歷史文件保留當時的數據、比較圖、來源與限制，不應混作目前規格。一般啟動見 [README](../README.md)。
+2026-10-17 更新。2D 分支已提供完整關卡，線上 3D 遊戲維持 v22；先讀 [狀態與交接](STATUS.md)。歷史文件保留當時的數據、比較圖、來源與限制，不應混作目前規格。一般啟動見 [README](../README.md)。
 
 ## 目前狀態、操作與部署
+
+- [2D 燼關突圍：下載、操作、三段關卡與驗證](routes/jigoku-2d/PLAYABLE_LEVEL.md)
 
 - [v22 狀態與交接](STATUS.md)
 - [開發計畫與暫停點](PLAN.md)
@@ -53,3 +55,19 @@
 - [Rocketbox MIT 授權](../public/models/LICENSE-Rocketbox.txt)
 
 上游授權文件原文保留；文件整理不修改第三方授權。
+
+## 並行路線（2026-10-15）
+
+- [真田・六文劫：預渲染 2D 研究、文案與三張參考圖](routes/jigoku-2d/README.md)（獨立分支，未替換 v22）。
+
+- [六文劫：Blender 三幀試渲與 512／1024 比較](routes/jigoku-2d/BLENDER_STUDY.md)（實際 CPU 渲染，造型尚未達概念圖目標）。
+
+- [路線修正：保留插畫的 2.5D 重打光](routes/jigoku-2d/ILLUSTRATION_RELIGHT.md)（目前優先方向；工具已查文件，尚未推論）。
+
+- [插畫 2.5D 補光：中性／暖光／冷光實際結果](routes/jigoku-2d/RELIGHT_STUDY.md)（同一插畫，Blender 光照差異合成）。
+
+- [赤槍初動：插畫持槍待機、短刺與補光圖集](routes/jigoku-2d/YARI_MOTION.md)（30 fps／36 幀，兩動作、三光照、手機／桌機解析度，未接入正式遊戲）。
+
+- [短刺修正：固定肢段與肩肘腕連動](routes/jigoku-2d/YARI_RIGID_MOTION.md)（取代整圖拉伸，30 fps 前後對照，未接入正式遊戲）。
+
+另有 [未來赤備：TRELLIS 兩代實測比較](experiments/future-sanada/README.md)：第一代＋DINOv2 與第二代＋DINOv3 均已生成、下載與五視角渲染；附 GLB、Blender 場景及互動檢視器。仍需手部／甲片精修與骨架，未替換線上遊戲。

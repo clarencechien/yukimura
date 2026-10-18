@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "baselineCommit": "893bb9df5ef78290a2e2b8e963e215e2abfde1ac",
+  "checks": [
+    "Pose 3 matches its source; 20 original cells preserve visible RGB and alpha. Pose 4 is independently checked by check_crouch_consistency_art.py.",
+    "HD cell matches uniform source resize and translation; mobile matches HD resample",
+    "Other bindings unchanged except independently checked pose 4; shared arm/weapon metadata unchanged",
+    "New shoulder and soles manually registered; previous detached-arm local reach retained"
+  ],
+  "shoulderShiftHD": 0.1425219281373683,
+  "soleShiftsHD": [
+    0.7823082832233893,
+    0.686517479748266
+  ],
+  "source": {
+    "baselineCommit": "893bb9df5ef78290a2e2b8e963e215e2abfde1ac",
+    "source": {
+      "path": "assets/source/jigoku-2d/ghost-rig/buckle-consistent.png",
+      "sha256": "223d37276ac580cd3adb755d1235209794f67ed2b182095e3218bbfe78c76993",
+      "generatedFile": "exec-e2f2ffcf-0b34-4107-a70a-094c83b50f53.png"
+    },
+    "referenceFilesAtBaseline": [
+      "assets/source/jigoku-2d/ghost-rig/recoil-buckle.png",
+      "docs/routes/jigoku-2d/combat/enemy-body-torso-hd.webp",
+      "docs/routes/jigoku-2d/combat/enemy-footwork-thrust-handoff.jpg"
+    ],
+    "uniformScale": 0.5025,
+    "offsetHD": [
+      184,
+      198
+    ],
+    "sourceShoulder": [
+      553,
+      319
+    ],
+    "sourceSoleCenters": [
+      [
+        520,
+        971
+      ],
+      [
+        1080,
+        975
+      ]
+    ],
+    "method": "One image_gen edit matching shared torso helmet/face and closed free fist. Uniform resize and translation only; pose 3 replaced in both existing atlases. Shoulder/soles remeasured, detached sword-arm reach retained. Anatomy and knee silhouette still differ."
+  },
+  "limits": "Pixel preservation and manual registration checks, not proof of anatomy or silhouette continuity."
+}

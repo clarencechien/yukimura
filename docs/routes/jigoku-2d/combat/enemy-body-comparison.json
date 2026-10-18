@@ -1,0 +1,95 @@
+{
+  "baselineCommit": "2f8de54071a44c6159c2a2b18f98092c2d5aca66",
+  "selected": [
+    {
+      "stage": "windup",
+      "beforeSample": 24,
+      "afterSample": 23,
+      "beforeStageAgeMS": 711,
+      "afterStageAgeMS": 701,
+      "sampleOffsetMS": -10,
+      "beforeShoulder": {
+        "x": 476.68,
+        "y": 264.14
+      },
+      "afterShoulder": {
+        "x": 488.3749300534697,
+        "y": 264.0780046938968
+      },
+      "actualTorso": {
+        "x": 970.6,
+        "y": 389.20000000000005,
+        "width": 171,
+        "height": 183,
+        "angle": 3.6743552078160064,
+        "originX": 0.5333333333333333,
+        "originY": 0.8754098360655738,
+        "visible": true,
+        "texture": "enemy-body-torso",
+        "order": 25
+      }
+    },
+    {
+      "stage": "strike",
+      "beforeSample": 31,
+      "afterSample": 31,
+      "beforeStageAgeMS": 101,
+      "afterStageAgeMS": 107,
+      "sampleOffsetMS": 6,
+      "beforeShoulder": {
+        "x": 394.94,
+        "y": 330.55999999999995
+      },
+      "afterShoulder": {
+        "x": 471.67640213418133,
+        "y": 278.71912213483404
+      },
+      "actualTorso": {
+        "x": 970.6,
+        "y": 389.20000000000005,
+        "width": 171,
+        "height": 183,
+        "angle": -4.959745541838174,
+        "originX": 0.5333333333333333,
+        "originY": 0.8754098360655738,
+        "visible": true,
+        "texture": "enemy-body-torso",
+        "order": 25
+      }
+    },
+    {
+      "stage": "recovery",
+      "beforeSample": 40,
+      "afterSample": 40,
+      "beforeStageAgeMS": 225,
+      "afterStageAgeMS": 231,
+      "sampleOffsetMS": 6,
+      "beforeShoulder": {
+        "x": 438.4,
+        "y": 278.9
+      },
+      "afterShoulder": {
+        "x": 470.1144517474436,
+        "y": 280.33643929730556
+      },
+      "actualTorso": {
+        "x": 970.6,
+        "y": 389.20000000000005,
+        "width": 171,
+        "height": 183,
+        "angle": -5.833069384387954,
+        "originX": 0.5333333333333333,
+        "originY": 0.8754098360655738,
+        "visible": true,
+        "texture": "enemy-body-torso",
+        "order": 25
+      }
+    }
+  ],
+  "maxShoulderStepWorldPXAt30Hz": {
+    "before": 63.194112383987154,
+    "after": 6.648715809668199
+  },
+  "source": "Before: committed real Phaser MP4. After: actual browser PNGs. Same stage, health and block count; stage-time offsets recorded, <=17 ms. Both resized equally.",
+  "limits": "Maximum shoulder step is a 30 Hz sample metric for this captured attack, not a general animation quality score. Hit/death retain authored silhouettes; no general physics."
+}

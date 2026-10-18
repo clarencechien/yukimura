@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "loaded": {
+        "loaded": true,
+        "triangles": 149998,
+        "meshes": 1,
+        "materials": 1
+      },
+      "controls": "front/side/back/clay/wireframe/autorotate toggles work offline",
+      "noHorizontalOverflow": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "loaded": {
+        "loaded": true,
+        "triangles": 149998,
+        "meshes": 1,
+        "materials": 1
+      },
+      "controls": "front/side/back/clay/wireframe/autorotate toggles work offline",
+      "noHorizontalOverflow": true
+    }
+  ],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "limitation": "Headless Chromium; no physical mobile performance measurement",
+  "transport": "Local HTTP initial load, then browser offline; direct file:// not tested"
+}

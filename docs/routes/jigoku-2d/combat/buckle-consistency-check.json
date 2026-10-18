@@ -1,0 +1,334 @@
+{
+  "baselineCommit": "893bb9df5ef78290a2e2b8e963e215e2abfde1ac",
+  "source": "Previous committed MP4 vs current actual Phaser screenshots. Same reaction phase and nearest reaction age; offsets recorded.",
+  "artCheck": {
+    "passed": true,
+    "baselineCommit": "893bb9df5ef78290a2e2b8e963e215e2abfde1ac",
+    "checks": [
+      "Only pose 3 changed in both atlases; all 22 retained cells preserve visible RGB and alpha",
+      "HD cell matches uniform source resize and translation; mobile matches HD resample",
+      "Other shoulder/foot bindings and shared arm/weapon metadata unchanged",
+      "New shoulder and soles manually registered; previous detached-arm local reach retained"
+    ],
+    "shoulderShiftHD": 0.1425219281373683,
+    "soleShiftsHD": [
+      0.7823082832233893,
+      0.686517479748266
+    ],
+    "source": {
+      "baselineCommit": "893bb9df5ef78290a2e2b8e963e215e2abfde1ac",
+      "source": {
+        "path": "assets/source/jigoku-2d/ghost-rig/buckle-consistent.png",
+        "sha256": "223d37276ac580cd3adb755d1235209794f67ed2b182095e3218bbfe78c76993",
+        "generatedFile": "exec-e2f2ffcf-0b34-4107-a70a-094c83b50f53.png"
+      },
+      "referenceFilesAtBaseline": [
+        "assets/source/jigoku-2d/ghost-rig/recoil-buckle.png",
+        "docs/routes/jigoku-2d/combat/enemy-body-torso-hd.webp",
+        "docs/routes/jigoku-2d/combat/enemy-footwork-thrust-handoff.jpg"
+      ],
+      "uniformScale": 0.5025,
+      "offsetHD": [
+        184,
+        198
+      ],
+      "sourceShoulder": [
+        553,
+        319
+      ],
+      "sourceSoleCenters": [
+        [
+          520,
+          971
+        ],
+        [
+          1080,
+          975
+        ]
+      ],
+      "method": "One image_gen edit matching shared torso helmet/face and closed free fist. Uniform resize and translation only; pose 3 replaced in both existing atlases. Shoulder/soles remeasured, detached sword-arm reach retained. Anatomy and knee silhouette still differ."
+    },
+    "limits": "Pixel preservation and manual registration checks, not proof of anatomy or silhouette continuity."
+  },
+  "limits": "Only authored buckle body pose 3 is repainted. Detached sword arm remains shared. Other 11 authored frames are unchanged; knees/helmet/free-hand continuity is a visual judgement, not a biomechanical measurement.",
+  "attacks": {
+    "thrust": {
+      "pairs": [
+        {
+          "phase": "hurt",
+          "beforeSample": 26,
+          "afterSample": 26,
+          "reactionAgeMS": 151.33333333333331,
+          "sampleOffsetMS": 0.0,
+          "body": {
+            "x": 970,
+            "y": 574,
+            "width": 691.1999999999999,
+            "height": 460.79999999999995
+          },
+          "arm": {
+            "shoulder": {
+              "x": 462.9704207026051,
+              "y": 352.11166835290305
+            },
+            "elbow": {
+              "x": 479.9803376317091,
+              "y": 414.84652888566416
+            },
+            "wrist": {
+              "x": 428.6908921754497,
+              "y": 469.5675740583341
+            },
+            "upperAngle": -15.170425548870213,
+            "foreAngle": 43.14596132407243,
+            "handState": "grip",
+            "handAngle": 7.118587938968815,
+            "alpha": 1
+          },
+          "weapon": {
+            "held": true,
+            "landed": false,
+            "x": 868.2203872134419,
+            "y": 456.0308487317669,
+            "angle": 7.118587938968858,
+            "width": 246,
+            "height": 30.599999999999998,
+            "originX": 0.7975609756097561,
+            "originY": 0.5490196078431373,
+            "alpha": 1,
+            "visible": true
+          }
+        },
+        {
+          "phase": "buckle",
+          "beforeSample": 27,
+          "afterSample": 27,
+          "reactionAgeMS": 183.33333333333331,
+          "sampleOffsetMS": 0.0,
+          "body": {
+            "x": 970,
+            "y": 574,
+            "width": 691.1999999999999,
+            "height": 460.79999999999995
+          },
+          "arm": {
+            "shoulder": {
+              "x": 461.8825,
+              "y": 358.2975
+            },
+            "elbow": {
+              "x": 476.4910446682512,
+              "y": 421.63461725896366
+            },
+            "wrist": {
+              "x": 424.99381627254076,
+              "y": 476.16016601878846
+            },
+            "upperAngle": -12.98799195777302,
+            "foreAngle": 43.36390992460005,
+            "handState": "grip",
+            "handAngle": 7.336536539496436,
+            "alpha": 1
+          },
+          "weapon": {
+            "held": true,
+            "landed": false,
+            "x": 865.9478795240518,
+            "y": 459.9353503651171,
+            "angle": 7.336536539496365,
+            "width": 246,
+            "height": 30.599999999999998,
+            "originX": 0.7975609756097561,
+            "originY": 0.5490196078431373,
+            "alpha": 1,
+            "visible": true
+          }
+        },
+        {
+          "phase": "crouch",
+          "beforeSample": 29,
+          "afterSample": 29,
+          "reactionAgeMS": 263.3333333333333,
+          "sampleOffsetMS": 0.0,
+          "body": {
+            "x": 970,
+            "y": 574,
+            "width": 691.1999999999999,
+            "height": 460.79999999999995
+          },
+          "arm": {
+            "shoulder": {
+              "x": 396,
+              "y": 415
+            },
+            "elbow": {
+              "x": 432.4831667104425,
+              "y": 468.7957112303394
+            },
+            "wrist": {
+              "x": 372.5740740740741,
+              "y": 513.9166666666666
+            },
+            "upperAngle": -34.144329112912274,
+            "foreAngle": 53.01451089219469,
+            "handState": "grip",
+            "handAngle": 16.987137507091077,
+            "alpha": 1
+          },
+          "weapon": {
+            "held": true,
+            "landed": false,
+            "x": 832.29929071583,
+            "y": 480.13325781810886,
+            "angle": 16.98713750709112,
+            "width": 246,
+            "height": 30.599999999999998,
+            "originX": 0.7975609756097561,
+            "originY": 0.5490196078431373,
+            "alpha": 1,
+            "visible": true
+          }
+        }
+      ]
+    },
+    "sweep": {
+      "pairs": [
+        {
+          "phase": "low-stagger",
+          "beforeSample": 21,
+          "afterSample": 21,
+          "reactionAgeMS": 157.99999999999997,
+          "sampleOffsetMS": 0.0,
+          "body": {
+            "x": 970,
+            "y": 574,
+            "width": 691.1999999999999,
+            "height": 460.79999999999995
+          },
+          "arm": {
+            "shoulder": {
+              "x": 462.53700780870776,
+              "y": 354.55075266438706
+            },
+            "elbow": {
+              "x": 500.5660515287659,
+              "y": 407.2649996355608
+            },
+            "wrist": {
+              "x": 443.6755296194073,
+              "y": 456.1369600717945
+            },
+            "upperAngle": -35.80738506031403,
+            "foreAngle": 49.33568171001508,
+            "handState": "grip",
+            "handAngle": 13.308308324911465,
+            "alpha": 1
+          },
+          "weapon": {
+            "held": true,
+            "landed": false,
+            "x": 875.7484584568915,
+            "y": 446.44500219176507,
+            "angle": 13.308308324911422,
+            "width": 246,
+            "height": 30.599999999999998,
+            "originX": 0.7975609756097561,
+            "originY": 0.5490196078431373,
+            "alpha": 1,
+            "visible": true
+          }
+        },
+        {
+          "phase": "buckle",
+          "beforeSample": 22,
+          "afterSample": 22,
+          "reactionAgeMS": 189.99999999999997,
+          "sampleOffsetMS": 0.0,
+          "body": {
+            "x": 970,
+            "y": 574,
+            "width": 691.1999999999999,
+            "height": 460.79999999999995
+          },
+          "arm": {
+            "shoulder": {
+              "x": 461.8825,
+              "y": 358.2975
+            },
+            "elbow": {
+              "x": 499.9305701729219,
+              "y": 410.9980157101561
+            },
+            "wrist": {
+              "x": 442.01865160349854,
+              "y": 458.6552259475219
+            },
+            "upperAngle": -35.82806784531736,
+            "foreAngle": 50.54815527616955,
+            "handState": "grip",
+            "handAngle": 14.520781891065937,
+            "alpha": 1
+          },
+          "weapon": {
+            "held": true,
+            "landed": false,
+            "x": 874.4875957135941,
+            "y": 447.63873184829816,
+            "angle": 14.520781891066008,
+            "width": 246,
+            "height": 30.599999999999998,
+            "originX": 0.7975609756097561,
+            "originY": 0.5490196078431373,
+            "alpha": 1,
+            "visible": true
+          }
+        },
+        {
+          "phase": "crouch",
+          "beforeSample": 24,
+          "afterSample": 24,
+          "reactionAgeMS": 253.99999999999994,
+          "sampleOffsetMS": 0.0,
+          "body": {
+            "x": 970,
+            "y": 574,
+            "width": 691.1999999999999,
+            "height": 460.79999999999995
+          },
+          "arm": {
+            "shoulder": {
+              "x": 396,
+              "y": 415
+            },
+            "elbow": {
+              "x": 435.21040296529213,
+              "y": 466.841530641942
+            },
+            "wrist": {
+              "x": 375.574475,
+              "y": 512.3229125
+            },
+            "upperAngle": -37.10208192387653,
+            "foreAngle": 52.66902012874172,
+            "handState": "grip",
+            "handAngle": 16.641646743638105,
+            "alpha": 1
+          },
+          "weapon": {
+            "held": true,
+            "landed": false,
+            "x": 834.1708677427649,
+            "y": 479.2711300415471,
+            "angle": 16.641646743638148,
+            "width": 246,
+            "height": 30.599999999999998,
+            "originX": 0.7975609756097561,
+            "originY": 0.5490196078431373,
+            "alpha": 1,
+            "visible": true
+          }
+        }
+      ]
+    }
+  }
+}

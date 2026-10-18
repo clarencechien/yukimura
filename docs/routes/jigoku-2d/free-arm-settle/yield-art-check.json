@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "samples": 1001,
+  "torsoCapMaximumY": 689.0731460964219,
+  "torsoCapXRange": [
+    316.0434169140442,
+    674.5032414254399
+  ],
+  "nearHandSha256": "a3ecefc2758a344fbc97b82b9871841ee9e73f048918c5ffe11e3cfbd67d6f7f",
+  "newTextureBytes": 0,
+  "checks": [
+    "Existing open hand unchanged",
+    "1001 actual torso/cap transforms: visible alpha > 16 pixels stay above Y=690 and inside review panel",
+    "Parameters match runtime export; previous prototypes and game unchanged"
+  ],
+  "limits": "Checks torso/cap projected pixels, not full-character collisions, anatomy or weight transfer. Existing waist overlap and hand-image switch remain visible limitations."
+}

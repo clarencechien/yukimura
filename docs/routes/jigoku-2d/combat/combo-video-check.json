@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "video": {
+    "width": 1200,
+    "height": 750,
+    "avg_frame_rate": "30/1",
+    "duration": "3.000000",
+    "nb_read_frames": "90"
+  },
+  "source": "90 actual Phaser screenshots with controlled 33/33/34 ms clock; not a device FPS benchmark",
+  "sweep": "32 simulation frames through six timing phases, using the same rigid body/arms and weapon as thrust; no body texture swap",
+  "gif": "30/30/40 ms timings, decoded pixels checked against palette frames",
+  "residentTextureChecks": "Every captured sweep phase reuses hero-lower plus the same limb parts and spear; old sweep/boundary textures are no longer loaded"
+}

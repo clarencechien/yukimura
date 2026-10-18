@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "three original images loaded",
+    "512 selector loads 512 source",
+    "stage locks resolution to 1024",
+    "390px mobile has no page overflow including native view",
+    "160px display size matches selection",
+    "no page errors or failing HTTP responses"
+  ],
+  "note": "Static review page only; no game or device performance tests."
+}

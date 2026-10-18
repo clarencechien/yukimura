@@ -1,0 +1,100 @@
+import {assertEnemyBody} from './enemy_body_browser_assertions.mjs';
+import {assertHeroWeapon} from './shared_hero_browser_assertions.mjs';
+import {chromium} from '@playwright/test';
+import http from 'node:http';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+const root=process.cwd(),out='docs/routes/jigoku-2d/combat',tmp='.tmp/combat-check';await fs.mkdir(tmp,{recursive:true});
+const server=http.createServer(async(req,res)=>{try{const file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname);if(!file.startsWith(root+'/'))throw Error('path');const stat=await fs.stat(file);const resolved=stat.isDirectory()?path.join(file,'index.html'):file;res.setHeader('Content-Type',({'.html':'text/html','.mjs':'text/javascript','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp'})[path.extname(resolved)]||'application/octet-stream');res.end(await fs.readFile(resolved));}catch{res.statusCode=404;res.end('not found');}});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});const errors=[],failed=[],checks=[];
+const guardRig=JSON.parse(await fs.readFile(`${out}/guard-rig.json`));
+const url=`http://127.0.0.1:${server.address().port}/${out}/`;
+async function ready(page){page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)failed.push(r.url());});await page.goto(url);await page.waitForFunction(()=>window.yariCombat?.snapshot().ready);}
+const state=p=>p.evaluate(()=>window.yariCombat.snapshot());
+const click=(p,id)=>p.locator(id).evaluate(el=>el.click());
+// A 40 ms authored pose can fall between two 30 Hz screenshots due to RAF
+// quantization. Verify phase/frame visibility every <=10 ms, without adding or
+// interpolating video frames; retain the same 33/33/34 ms capture cadence.
+async function observeFatalClock(page,ms,observations){
+ for(let remaining=ms;remaining>0;){const step=Math.min(10,remaining);remaining-=step;await page.clock.runFor(step);
+  const r=await page.evaluate(()=>{const s=window.yariCombat.snapshot();return {phase:s.enemy.phase,pose:s.enemy.pose,age:s.enemyAge,frame:s.enemyFrame,shared:!!s.enemyBodyPose,visible:s.legacyBodyVisible};});
+  assert.equal(r.frame,r.shared?0:r.pose>=12?r.pose-12:r.pose);assert.equal(r.visible,!r.shared);
+  if(observations.at(-1)?.phase!==r.phase)observations.push(r);
+ }
+}
+
+try{
+ const p=await browser.newPage({viewport:{width:1280,height:1100}});
+ // Install before Phaser starts: swapping Date afterward corrupts TweenManager's epoch.
+ await p.clock.install();await ready(p);assert.equal((await state(p)).engine,'3.90.0');assert.equal((await state(p)).hd,true);
+ // Allow protocol/renderer latency before the pause deadline; 100 ms can already be past on loaded CI.
+ await p.clock.pauseAt(new Date(await p.evaluate(()=>Date.now())+2000));await p.clock.runFor(100);await p.locator('#target').selectOption('seal');await click(p,'#reset');
+ await p.screenshot({path:`${out}/desktop.jpg`,fullPage:true});
+ await click(p,'#attack');assert.equal(await p.locator('#attack').isDisabled(),true);await click(p,'#attack');await p.clock.runFor(600);assert.equal((await state(p)).hp,2);assert.equal((await state(p)).swings,1);assert.ok((await state(p)).particles<=80);await p.clock.runFor(300);assert.ok((await state(p)).frame>=24);assert.equal((await state(p)).texture,'hero-lower');assertHeroWeapon(await state(p),guardRig);await p.clock.runFor(700);assert.equal((await state(p)).phase,'idle');assert.equal((await state(p)).flashAlpha,0);
+ checks.push('HD near hit; one damage per strike; no button spam; recovery unlocks');
+ for(let i=0;i<2;i++){await click(p,'#attack');await p.clock.runFor(1500);}assert.equal((await state(p)).hp,0);assert.equal(await p.locator('#attack').isDisabled(),true);assert.match(await p.locator('#message').textContent(),/封印已破/);checks.push('Three distinct strikes break seal; dead target cannot be hit again');
+ await p.locator('#range').selectOption('far');await p.keyboard.press('Tab');await p.evaluate(()=>document.activeElement.blur());await p.keyboard.press('j');await p.clock.runFor(1500);assert.equal((await state(p)).swings,1);assert.equal((await state(p)).hp,3);assert.match(await p.locator('#message').textContent(),/刺空/);checks.push('Keyboard J works; far target misses without damage');
+ await click(p,'#pause');const before=await state(p);await p.clock.runFor(700);assert.equal((await state(p)).frame,before.frame);assert.equal((await state(p)).paused,true);await click(p,'#pause');checks.push('Pause freezes pose and input; hit flash expires after recovery');
+ await p.locator('#range').selectOption('near');await p.locator('#feedback').uncheck();await click(p,'#attack');await p.clock.runFor(600);assert.equal((await state(p)).hp,2);assert.equal((await state(p)).particles,0);await p.clock.runFor(900);checks.push('Visual feedback off preserves actual hit rules');
+ await p.locator('#feedback').check();await click(p,'#reset');await p.locator('#debug').check();await click(p,'#attack');await p.clock.runFor(500);await p.screenshot({path:`${out}/hit-check.jpg`,fullPage:true});assert.equal((await state(p)).hp,2);await p.clock.runFor(1000);await p.locator('#debug').uncheck();
+ await p.locator('#target').selectOption('warrior');await click(p,'#reset');await p.clock.runFor(33);await p.screenshot({path:`${out}/desktop.jpg`,fullPage:true});
+ await click(p,'#attack');await p.clock.runFor(600);assert.equal((await state(p)).enemy.phase,'flinch');assert.equal((await state(p)).enemyFrame,0);assertEnemyBody(await state(p));assert.ok((await state(p)).enemy.bodyReaction);
+ await p.screenshot({path:`${out}/enemy-hit.jpg`,fullPage:true});await p.locator('#debug').check();await p.clock.runFor(33);await p.screenshot({path:`${out}/arm-debug.jpg`,fullPage:true});await p.locator('#debug').uncheck();await click(p,'#pause');const enemyAge=(await state(p)).enemyAge;await p.clock.runFor(500);assert.equal((await state(p)).enemyAge,enemyAge);await click(p,'#pause');await p.clock.runFor(900);assert.equal((await state(p)).enemy.phase,'guard');
+ await click(p,'#attack');await p.clock.runFor(1500);assert.equal((await state(p)).hp,1);
+ checks.push('Nonfatal thrust hurt uses shared rigid chest and planted lower body; pause freezes reaction; guard recovers');
+ await fs.mkdir(`${tmp}/frames`,{recursive:true});
+ const fatalPhases=[],lowPhases=[],capture=[],weaponWidth=(await state(p)).weapon.width,clip=await p.locator('#battle').boundingBox();
+ for(let i=0;i<78;i++){if(i===6)await click(p,'#attack');await observeFatalClock(p,i%3===2?34:33,fatalPhases);const time=await p.evaluate(()=>Date.now());const before=await state(p);assertHeroWeapon(before,guardRig);assertEnemyBody(before);assert.equal(before.enemyFrame,before.enemyBodyPose?0:before.enemy.pose,'Visible shared rig or authored reaction');assert.equal(before.enemyAngle,0);assert.equal(before.body.x,before.target.x);assert.equal(before.body.y,574);assert.ok(Math.abs(before.body.width-691.2)<1e-6);assert.ok(Math.abs(before.body.height-460.8)<1e-6);for(const name of ['shoulder','elbow']){const actual=before.renderedArm[name],local=before.arm[name];assert.ok(Math.abs(actual.x-(before.target.x+(local.x-576)*.6))<1e-6);assert.ok(Math.abs(actual.y-(574+(local.y-690)*.6))<1e-6);}assert.equal(before.weapon.width,weaponWidth,'Blade size stays constant');assert.equal(before.hand.visible,true);assert.equal(before.hand.texture,before.hand.state==='grip'?'enemyGrip':'enemy-'+before.hand.state);if(!before.weapon.held)assert.equal(before.hand.state,'open');for(const [a,b,length] of [[before.arm.shoulder,before.arm.elbow,65],[before.arm.elbow,before.arm.wrist,75]])assert.ok(Math.abs(Math.hypot(a.x-b.x,a.y-b.y)-length)<1e-6,'Rigid arm segment length');assert.equal(before.weapon.alpha,before.enemy.alpha);await p.screenshot({clip,path:`${tmp}/frames/${String(i).padStart(3,'0')}.png`});assert.equal(await p.evaluate(()=>Date.now()),time,'Screenshot must not advance simulation');assert.equal((await state(p)).frame,before.frame);capture.push({sample:i,time,enemyAge:before.enemyAge,enemyFootShadows:before.enemyFootShadows,enemyBodyPose:before.enemyBodyPose,enemyBodyParts:before.enemyBodyParts,legacyBodyVisible:before.legacyBodyVisible,target:before.target,heroArt:before.heroArt,heroParts:before.heroParts,heroWeapon:before.heroWeapon,phase:before.phase,frame:before.frame,hp:before.hp,enemy:before.enemy,body:before.body,renderedArm:before.renderedArm,weapon:before.weapon,hand:before.hand,arm:before.arm});}
+ await fs.writeFile(`${out}/capture-timing.json`,JSON.stringify(capture,null,2)+'\n');assert.deepEqual([...new Set(capture.map(r=>r.hand.state))],['grip','relax','open']);checks.push('Body root and scale fixed; actual upper/forearm sprites follow current shoulder/elbow anchors');checks.push('All captured arm segments retain 65/75 px length; closed, half-open and open hand textures actually render');
+ assert.deepEqual(fatalPhases.map(r=>r.phase),['guard','flinch','hurt','buckle','crouch','kneel','brace','yield','sink','lower','settle','fallen','dissolve','gone']);assert.equal((await state(p)).enemyAlpha,0);assert.equal((await state(p)).weapon.landed,true);assert.equal((await state(p)).weapon.alpha,0);assert.equal((await state(p)).hand.state,'open');assert.equal((await state(p)).flashAlpha,0);
+ checks.push('Fatal reaction: flinch → recoil → buckle → crouch → kneel → brace → yield → sink → lower → settle → fallen → dissolve → gone; 78 captured frames with fixed timing');
+ await click(p,'#reset');await p.clock.runFor(33);assert.equal((await state(p)).enemy.phase,'guard');assert.equal((await state(p)).hp,3);assert.equal((await state(p)).weapon.held,true);assert.equal((await state(p)).hand.visible,true);checks.push('One fixed-size katana across all poses; hand relaxes then opens on release; dropped sword lands, fades and resets');
+ // Actual rendered combo capture; the six sweep poses are held on a 30 Hz timeline.
+ await fs.mkdir(`${tmp}/combo-frames`,{recursive:true});
+ const combo=[],sweepTrack=JSON.parse(await fs.readFile(`${out}/shared-sweep-track.json`));let queued=false;
+ for(let i=0;i<90;i++){
+  if(i===2)await click(p,'#attack');
+  const prior=await state(p);
+  if(prior.canQueueSweep&&!queued){assert.equal(await p.locator('#sweep').isDisabled(),false);await p.evaluate(()=>document.activeElement.blur());await p.keyboard.press('k');assert.equal((await state(p)).queuedAttack,'sweep');assert.equal(await p.locator('#sweep').isDisabled(),true);queued=true;}
+  await p.clock.runFor(i%3===2?34:33);const row=await state(p),time=await p.evaluate(()=>Date.now());assertHeroWeapon(row,guardRig);assertEnemyBody(row);
+  if(row.phase==='attack'&&row.attackKind==='sweep'){assert.equal(row.texture,'hero-lower');assert.equal(row.heroArt.action,'sweep');assert.equal(row.sweepPose,sweepTrack.poseFrames[row.frame]);}
+  if(row.enemy.reaction==='sweep'){assert.equal(row.enemyTexture,'warrior');assert.equal(row.enemyFrame,0);assert.equal(row.enemy.bodyReaction.kind,'sweep');assert.equal(row.body.x,row.target.x);assert.equal(row.body.y,574);assert.equal(row.enemyAngle,0);assert.equal(row.weapon.held,true);assert.equal(row.weapon.width,weaponWidth);assert.equal(row.hand.state,'grip');for(const [a,b,len] of [[row.arm.shoulder,row.arm.elbow,65],[row.arm.elbow,row.arm.wrist,75]])assert.ok(Math.abs(Math.hypot(a.x-b.x,a.y-b.y)-len)<1e-6);}
+  await p.screenshot({clip,path:`${tmp}/combo-frames/${String(i).padStart(3,'0')}.png`});assert.equal(await p.evaluate(()=>Date.now()),time);
+  combo.push({sample:i,time,enemyFootShadows:row.enemyFootShadows,enemyBodyPose:row.enemyBodyPose,enemyBodyParts:row.enemyBodyParts,target:row.target,targetKind:row.targetKind,legacyBodyVisible:row.legacyBodyVisible,heroArt:row.heroArt,heroParts:row.heroParts,heroWeapon:row.heroWeapon,phase:row.phase,attackKind:row.attackKind,frame:row.frame,heroFrame:row.heroFrame,sweepPose:row.sweepPose,texture:row.texture,hp:row.hp,queuedAttack:row.queuedAttack,tip:row.tip,collisionTip:row.collisionTip,hurtbox:row.hurtbox,enemy:row.enemy,enemyTexture:row.enemyTexture,enemyFrame:row.enemyFrame,enemyAge:row.enemyAge,body:row.body,renderedArm:row.renderedArm,arm:row.arm,weapon:row.weapon,hand:row.hand});
+ }
+ assert.ok(combo.some(r=>r.enemy.phase==='leg-flinch'&&r.enemyTexture==='warrior'&&r.enemyBodyPose));assert.ok(combo.some(r=>r.enemy.phase==='low-stagger'&&r.enemyTexture==='warrior'&&r.enemyBodyPose));assert.ok(combo.some(r=>r.enemy.phase==='leg-rise'&&r.enemyTexture==='warrior'&&r.enemyBodyPose));assert.ok(combo.some(r=>r.enemy.phase==='guard-settle'&&r.enemyTexture==='warrior'&&r.enemyBodyPose));
+ assert.ok(combo.some(r=>r.enemy.reaction==='sweep'&&r.enemyBodyPose.root.y>17));assert.ok(combo.some(r=>r.hp===1&&r.enemy.phase==='guard'&&r.enemyBodyPose.root.y===0));
+ assert.ok(queued);assert.equal((await state(p)).swings,2);assert.equal((await state(p)).hits,2);assert.equal((await state(p)).hp,1);assert.equal((await state(p)).phase,'idle');
+ assert.deepEqual([...new Set(combo.filter(r=>r.sweepPose!==null).map(r=>r.sweepPose))],[0,1,2,3,4,5]);
+ await fs.writeFile(`${out}/combo-capture.json`,JSON.stringify(combo,null,2)+'\n');
+ checks.push('Keyboard K queues one recovery sweep; shared body/arms/spear stay visible through six timing phases; two attacks deal two hits; 90 actual browser frames');
+ // The combo leaves one HP: record the fatal low hit through shared death/release.
+ await fs.mkdir(`${tmp}/low-frames`,{recursive:true});const low=[];
+ for(let i=0;i<78;i++){
+  if(i===6)await click(p,'#sweep');await observeFatalClock(p,i%3===2?34:33,lowPhases);const row=await state(p),time=await p.evaluate(()=>Date.now());assertHeroWeapon(row,guardRig);assertEnemyBody(row);
+  assert.equal(row.enemyTexture,row.enemyBodyPose?'warrior':row.enemy.pose>=12?'enemyLow':'warrior');assert.equal(row.enemyFrame,row.enemyBodyPose?0:row.enemy.pose>=12?row.enemy.pose-12:row.enemy.pose);assert.equal(row.enemyAngle,0);
+  assert.equal(row.body.x,row.target.x);assert.equal(row.body.y,574);assert.equal(row.weapon.width,weaponWidth);
+  for(const [a,b,len] of [[row.arm.shoulder,row.arm.elbow,65],[row.arm.elbow,row.arm.wrist,75]])assert.ok(Math.abs(Math.hypot(a.x-b.x,a.y-b.y)-len)<1e-6);
+  assert.equal(row.hand.texture,row.hand.state==='grip'?'enemyGrip':'enemy-'+row.hand.state);
+  if(!row.weapon.held)assert.equal(row.hand.state,'open');
+  await p.screenshot({clip,path:`${tmp}/low-frames/${String(i).padStart(3,'0')}.png`});assert.equal(await p.evaluate(()=>Date.now()),time);
+  low.push({sample:i,time,enemyFootShadows:row.enemyFootShadows,enemyBodyPose:row.enemyBodyPose,enemyBodyParts:row.enemyBodyParts,legacyBodyVisible:row.legacyBodyVisible,target:row.target,renderedArm:row.renderedArm,enemyAge:row.enemyAge,enemy:row.enemy,enemyTexture:row.enemyTexture,enemyFrame:row.enemyFrame,body:row.body,weapon:row.weapon,hand:row.hand,arm:row.arm,hp:row.hp});
+ }
+ assert.deepEqual(lowPhases.map(r=>r.phase),['guard','leg-flinch','low-stagger','buckle','crouch','kneel','brace','yield','sink','lower','settle','fallen','dissolve','gone']);
+ assert.equal((await state(p)).hp,0);assert.equal((await state(p)).weapon.landed,true);assert.equal((await state(p)).enemyAlpha,0);
+ await fs.writeFile(`${out}/low-capture.json`,JSON.stringify(low,null,2)+'\n');
+ checks.push('Nonfatal sweep: same eight rigid parts through planted-foot pelvis loading and continuous recovery; fatal sweep: interrupted shared rig for 180 ms, then authored buckle, crouch, kneel, release and fade; actual body/arm/weapon checked in 78 screenshots');
+ await p.locator('#range').selectOption('far');await click(p,'#sweep');await p.clock.runFor(1500);assert.equal((await state(p)).hits,0);checks.push('Standalone sweep misses out-of-range warrior');
+ const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,reducedMotion:'reduce'});
+ await mobile.clock.install();await ready(mobile);await mobile.clock.pauseAt(new Date(await mobile.evaluate(()=>Date.now())+2000));await mobile.clock.runFor(100);
+ assert.equal((await state(mobile)).hd,false);assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ await mobile.locator('#attack').tap();await mobile.clock.runFor(1500);assert.equal((await state(mobile)).hp,2);assert.equal((await state(mobile)).phase,'idle');await mobile.screenshot({path:`${out}/mobile.jpg`,fullPage:true});
+ await mobile.locator('#sweep').tap();let loaded;
+ for(let i=0;i<65;i++){await mobile.clock.runFor(10);loaded=await state(mobile);if(loaded.hp===1&&loaded.enemyBodyPose?.root.y>12)break;}
+ assert.equal(loaded.hp,1);assert.ok(loaded.enemyBodyPose.root.y>12);assert.equal(loaded.texture,'hero-lower');assert.equal(loaded.heroArt.action,'sweep');assertHeroWeapon(loaded,guardRig);assert.equal(loaded.enemy.reaction,'sweep');assert.equal(loaded.enemyTexture,'warrior');
+ await click(mobile,'#pause');loaded=await state(mobile);assertEnemyBody(loaded);await mobile.clock.runFor(150);assert.deepEqual((await state(mobile)).enemyBodyParts,loaded.enemyBodyParts);await mobile.screenshot({path:`${out}/mobile-sweep.jpg`,fullPage:true});await click(mobile,'#pause');await mobile.clock.runFor(1200);assert.equal((await state(mobile)).phase,'idle');
+ checks.push('Mobile touch sweep verifies shared hero joints and enemy hip/knee/ankle attachments, planted feet, paused pelvis load, and one hit on a controlled clock');checks.push('Mobile touch attack; 512px atlas; no horizontal overflow; reduced motion');
+ assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);await fs.writeFile(`${out}/browser-check.json`,JSON.stringify({passed:true,engine:'Phaser 3.90.0',fatalPhaseObservations:{thrust:fatalPhases,sweep:lowPhases},checks,pageErrors:errors,failedRequests:failed,scope:'Headless desktop/mobile correctness; not a physical phone FPS benchmark.'},null,2)+'\n');console.log('Combat browser checks passed.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}

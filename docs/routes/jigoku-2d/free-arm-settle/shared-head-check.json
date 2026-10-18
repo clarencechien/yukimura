@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "sourcePixelsPreserved": true,
+  "newTexturesRGBA8MiB": 1.2678909301757812,
+  "headSamples": 1601,
+  "maximumHeadPixelCellY": 677.0770023372736,
+  "activation": {
+    "meanRGBDelta": 0.002715151515151515,
+    "pixelsOver8": 53
+  },
+  "handoffs": [
+    {
+      "time": 1200,
+      "baked": {
+        "bodyAlphaIoU": 0.7956557986525765,
+        "meanRGBDelta": 6.7284585858585855
+      },
+      "shared": {
+        "bodyAlphaIoU": 0.858645341643371,
+        "meanRGBDelta": 5.067651515151515
+      },
+      "headMatrixMaxDelta": 0.0005126953201397555,
+      "headLayerMaxPremultipliedDelta": 1.9843137254902103,
+      "headPixelsOver3": 0
+    },
+    {
+      "time": 1240,
+      "baked": {
+        "bodyAlphaIoU": 0.8173585673585674,
+        "meanRGBDelta": 4.88200303030303
+      },
+      "shared": {
+        "bodyAlphaIoU": 0.9114252961406191,
+        "meanRGBDelta": 3.6247
+      },
+      "headMatrixMaxDelta": 0.0008300781373691279,
+      "headLayerMaxPremultipliedDelta": 8.0,
+      "headPixelsOver3": 2
+    },
+    {
+      "time": 1320,
+      "baked": {
+        "bodyAlphaIoU": 0.8224097129334293,
+        "meanRGBDelta": 5.204780808080808
+      },
+      "shared": {
+        "bodyAlphaIoU": 0.8493661634617808,
+        "meanRGBDelta": 4.288993939393939
+      },
+      "headMatrixMaxDelta": 0.00019531250291038305,
+      "headLayerMaxPremultipliedDelta": 1.9843137254902103,
+      "headPixelsOver3": 0
+    },
+    {
+      "time": 1440,
+      "baked": {
+        "bodyAlphaIoU": 0.8750100109453002,
+        "meanRGBDelta": 4.704990909090909
+      },
+      "shared": {
+        "bodyAlphaIoU": 0.9055393112410657,
+        "meanRGBDelta": 3.759710101010101
+      },
+      "headMatrixMaxDelta": 0.00017089844004658516,
+      "headLayerMaxPremultipliedDelta": 1.9843137254902103,
+      "headPixelsOver3": 0
+    }
+  ],
+  "limits": "Head layer and its rigid transform are continuous; shoulder occlusion and body drawings still switch. Neck overlap is a manually authored 2D cut, not anatomical deformation or contact physics. Source split activation has small filtering differences. Protected game and original body assets unchanged."
+}

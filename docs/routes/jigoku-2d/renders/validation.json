@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "source_unchanged": true,
+  "render_files_checked": 9,
+  "image_checks": [
+    {
+      "file": "ready-sprite-1024.png",
+      "alpha_bounds": [
+        91,
+        169,
+        912,
+        849
+      ],
+      "bytes": 766802
+    },
+    {
+      "file": "ready-sprite-512.png",
+      "alpha_bounds": [
+        46,
+        84,
+        456,
+        425
+      ],
+      "bytes": 208614
+    },
+    {
+      "file": "ready-stage-1024.png",
+      "alpha_bounds": [
+        86,
+        67,
+        983,
+        905
+      ],
+      "bytes": 1113564
+    },
+    {
+      "file": "windup-sprite-1024.png",
+      "alpha_bounds": [
+        93,
+        203,
+        944,
+        845
+      ],
+      "bytes": 759227
+    },
+    {
+      "file": "windup-sprite-512.png",
+      "alpha_bounds": [
+        47,
+        101,
+        472,
+        423
+      ],
+      "bytes": 206631
+    },
+    {
+      "file": "windup-stage-1024.png",
+      "alpha_bounds": [
+        86,
+        67,
+        983,
+        905
+      ],
+      "bytes": 1110213
+    },
+    {
+      "file": "strike-sprite-1024.png",
+      "alpha_bounds": [
+        72,
+        223,
+        953,
+        855
+      ],
+      "bytes": 755478
+    },
+    {
+      "file": "strike-sprite-512.png",
+      "alpha_bounds": [
+        35,
+        111,
+        477,
+        428
+      ],
+      "bytes": 206317
+    },
+    {
+      "file": "strike-stage-1024.png",
+      "alpha_bounds": [
+        86,
+        67,
+        983,
+        905
+      ],
+      "bytes": 1107912
+    }
+  ],
+  "total_render_seconds": 112.47,
+  "note": "Pixel bounds, hashes, fixed projection and distinct poses; not anatomical or performance certification."
+}

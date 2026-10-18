@@ -1,0 +1,256 @@
+{
+  "passed": true,
+  "scope": "12 body silhouettes in both atlases, alpha > 16, at near-range root (970,574) in 1200x750 viewport. Excludes separate arm/weapon layers; not a foot-slip or anatomy test.",
+  "manualSoleCenterStepsWorld": [
+    [
+      9.501720488943068,
+      30.680006620761958
+    ],
+    [
+      4.071604874002419,
+      1.7101585452817152
+    ]
+  ],
+  "checks": [
+    {
+      "atlas": "-hd",
+      "pose": "guard",
+      "worldBounds": [
+        821.8,
+        233.2,
+        1102.6,
+        577.6
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "flinch",
+      "worldBounds": [
+        823.0,
+        247.0,
+        1110.4,
+        578.2
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "hurt",
+      "worldBounds": [
+        878.2,
+        241.0,
+        1112.2,
+        581.8
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "buckle",
+      "worldBounds": [
+        859.6,
+        289.6,
+        1096.6,
+        577.0
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "crouch",
+      "worldBounds": [
+        826.0,
+        331.0,
+        1088.2,
+        577.6
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "kneel",
+      "worldBounds": [
+        848.2,
+        365.20000000000005,
+        1117.6,
+        581.8
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "brace",
+      "worldBounds": [
+        839.2,
+        380.20000000000005,
+        1124.8,
+        585.4
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "lower",
+      "worldBounds": [
+        769.0,
+        410.8,
+        1117.6,
+        578.8
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "settle",
+      "worldBounds": [
+        779.8,
+        421.6,
+        1165.6,
+        589.6
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "fallen",
+      "worldBounds": [
+        782.2,
+        434.20000000000005,
+        1159.6,
+        579.4
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "yield",
+      "worldBounds": [
+        805.6,
+        397.6,
+        1178.8,
+        578.8
+      ]
+    },
+    {
+      "atlas": "-hd",
+      "pose": "sink",
+      "worldBounds": [
+        791.8,
+        412.0,
+        1193.2,
+        578.8
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "guard",
+      "worldBounds": [
+        821.5,
+        232.90000000000003,
+        1103.2,
+        577.6
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "flinch",
+      "worldBounds": [
+        823.3,
+        246.40000000000003,
+        1110.4,
+        578.5
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "hurt",
+      "worldBounds": [
+        878.2,
+        241.0,
+        1112.2,
+        582.1
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "buckle",
+      "worldBounds": [
+        859.3,
+        289.6,
+        1096.9,
+        577.6
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "crouch",
+      "worldBounds": [
+        826.0,
+        331.0,
+        1087.9,
+        577.6
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "kneel",
+      "worldBounds": [
+        847.6,
+        365.20000000000005,
+        1117.6,
+        582.1
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "brace",
+      "worldBounds": [
+        838.6,
+        379.6,
+        1124.8,
+        585.7
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "lower",
+      "worldBounds": [
+        769.3,
+        410.20000000000005,
+        1117.6,
+        579.4
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "settle",
+      "worldBounds": [
+        779.2,
+        421.0,
+        1165.3,
+        590.2
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "fallen",
+      "worldBounds": [
+        781.9,
+        434.5,
+        1159.9,
+        579.4
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "yield",
+      "worldBounds": [
+        805.3,
+        397.6,
+        1178.8,
+        579.4
+      ]
+    },
+    {
+      "atlas": "mobile",
+      "pose": "sink",
+      "worldBounds": [
+        791.8,
+        412.0,
+        1193.2,
+        579.4
+      ]
+    }
+  ]
+}

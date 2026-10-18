@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "framesChecked": 432,
+  "fps": 30,
+  "framesPerClip": 36,
+  "video": {
+    "avg_frame_rate": "30/1",
+    "duration": "1.200000",
+    "nb_frames": "36"
+  },
+  "allFramesUncropped": true,
+  "matchingAlphaAcrossLightsAt512": true,
+  "lighting": [
+    {
+      "preset": "neutral",
+      "source_alpha_exact": true,
+      "mean_RGB_difference_from_source": 0.4094438310291381,
+      "max_RGB_difference": 1
+    },
+    {
+      "preset": "warm-left",
+      "source_alpha_exact": true,
+      "mean_RGB_difference_from_source": 13.077891648393802,
+      "max_RGB_difference": 74
+    },
+    {
+      "preset": "cool-right",
+      "source_alpha_exact": true,
+      "mean_RGB_difference_from_source": 7.683453856481553,
+      "max_RGB_difference": 74
+    }
+  ],
+  "clips": [
+    {
+      "clip": "thrust",
+      "light": "neutral",
+      "frameCount": 36,
+      "distinctFrames": 35,
+      "closed_loop": true,
+      "visible_motion": true,
+      "webp_lossless_foreground": true
+    },
+    {
+      "clip": "idle",
+      "light": "neutral",
+      "frameCount": 36,
+      "distinctFrames": 34,
+      "closed_loop": true,
+      "visible_motion": true,
+      "webp_lossless_foreground": true
+    },
+    {
+      "clip": "thrust",
+      "light": "warm-left",
+      "frameCount": 36,
+      "distinctFrames": 35,
+      "closed_loop": true,
+      "visible_motion": true,
+      "webp_lossless_foreground": true
+    },
+    {
+      "clip": "idle",
+      "light": "warm-left",
+      "frameCount": 36,
+      "distinctFrames": 34,
+      "closed_loop": true,
+      "visible_motion": true,
+      "webp_lossless_foreground": true
+    },
+    {
+      "clip": "thrust",
+      "light": "cool-right",
+      "frameCount": 36,
+      "distinctFrames": 35,
+      "closed_loop": true,
+      "visible_motion": true,
+      "webp_lossless_foreground": true
+    },
+    {
+      "clip": "idle",
+      "light": "cool-right",
+      "frameCount": 36,
+      "distinctFrames": 34,
+      "closed_loop": true,
+      "visible_motion": true,
+      "webp_lossless_foreground": true
+    }
+  ],
+  "minTriangleAreaRatio": 0.18088140652363904,
+  "maxGripTranslationErrorSourcePixels": 0.0,
+  "maxFootAnchorDriftSourcePixels": 0.0,
+  "desktopAtlasesLosslessForeground": true,
+  "scope": "Image-cage consistency checks, not human anatomy, sword/spear technique or game-performance validation."
+}

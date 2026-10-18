@@ -1,0 +1,544 @@
+{
+  "parts": {
+    "katana": {
+      "size": [
+        410,
+        51
+      ],
+      "pivot": [
+        327.0,
+        28.0
+      ],
+      "sourceBox": [
+        0,
+        100,
+        2048,
+        355
+      ],
+      "uniformScale": 0.2
+    },
+    "grip": {
+      "size": [
+        66,
+        57
+      ],
+      "pivot": [
+        46.4,
+        8.8
+      ],
+      "sourceBox": [
+        1530,
+        365,
+        1940,
+        720
+      ],
+      "uniformScale": 0.16,
+      "gripPoint": [
+        27.2,
+        35.2
+      ],
+      "axisDegrees": 126.02737338510362
+    },
+    "upper": {
+      "size": [
+        62,
+        88
+      ],
+      "pivot": [
+        29.354838709677416,
+        9.784946236559138
+      ],
+      "sourceBox": [
+        260,
+        0,
+        700,
+        630
+      ],
+      "uniformScale": 0.13978494623655913,
+      "axisDegrees": 90
+    },
+    "fore": {
+      "size": [
+        69,
+        94
+      ],
+      "pivot": [
+        33.0,
+        12.0
+      ],
+      "sourceBox": [
+        860,
+        0,
+        1320,
+        630
+      ],
+      "uniformScale": 0.15,
+      "axisDegrees": 90
+    },
+    "relax": {
+      "size": [
+        62,
+        67
+      ],
+      "pivot": [
+        32.0,
+        7.2
+      ],
+      "sourceBox": [
+        260,
+        580,
+        650,
+        1000
+      ],
+      "uniformScale": 0.16,
+      "axisDegrees": 90
+    },
+    "open": {
+      "size": [
+        61,
+        71
+      ],
+      "pivot": [
+        29.6,
+        7.2
+      ],
+      "sourceBox": [
+        910,
+        580,
+        1290,
+        1024
+      ],
+      "uniformScale": 0.16,
+      "axisDegrees": 90
+    }
+  },
+  "bindings": [
+    {
+      "pose": "guard",
+      "wrist": [
+        484,
+        380
+      ],
+      "shoulder": [
+        481,
+        270
+      ],
+      "sourceWrist": [
+        388,
+        260
+      ],
+      "sourceShoulder": [
+        385,
+        150
+      ]
+    },
+    {
+      "pose": "flinch",
+      "wrist": [
+        412,
+        420
+      ],
+      "shoulder": [
+        456,
+        285
+      ],
+      "sourceWrist": [
+        316,
+        285
+      ],
+      "sourceShoulder": [
+        360,
+        150
+      ]
+    },
+    {
+      "pose": "hurt",
+      "wrist": [
+        447,
+        402
+      ],
+      "shoulder": [
+        484,
+        284
+      ],
+      "sourceWrist": [
+        1051,
+        282
+      ],
+      "sourceShoulder": [
+        1088,
+        164
+      ],
+      "footContacts": [
+        [
+          461,
+          688
+        ],
+        [
+          681,
+          665
+        ]
+      ]
+    },
+    {
+      "pose": "buckle",
+      "wrist": [
+        441.78249999999997,
+        455.4475
+      ],
+      "shoulder": [
+        461.8825,
+        358.2975
+      ],
+      "sourceWrist": null,
+      "sourceShoulder": [
+        553,
+        319
+      ],
+      "footContacts": [
+        [
+          445.29999999999995,
+          685.9275
+        ],
+        [
+          726.6999999999999,
+          687.9375
+        ]
+      ],
+      "registrationNote": "Shoulder and soles manually inspected on new body; detached far arm is absent, so local wrist reach retains the prior authored offset, not a new anatomical landmark."
+    },
+    {
+      "pose": "crouch",
+      "wrist": [
+        327.79999999999995,
+        546.1
+      ],
+      "shoulder": [
+        392.79999999999995,
+        425.1
+      ],
+      "sourceWrist": null,
+      "sourceShoulder": [
+        520,
+        390
+      ],
+      "footContacts": [
+        [
+          447.19,
+          679.41
+        ],
+        [
+          728.9399999999999,
+          689.7
+        ]
+      ],
+      "registrationNote": "Manually inspected far shoulder and sole centers. Far sword arm is absent from artwork; previous local wrist target is retained, not measured on the new image."
+    },
+    {
+      "pose": "kneel",
+      "wrist": [
+        391,
+        563
+      ],
+      "shoulder": [
+        426,
+        470
+      ],
+      "sourceWrist": [
+        300,
+        828
+      ],
+      "sourceShoulder": [
+        335,
+        735
+      ]
+    },
+    {
+      "pose": "brace",
+      "wrist": [
+        362,
+        593
+      ],
+      "shoulder": [
+        411,
+        483
+      ],
+      "sourceWrist": [
+        286,
+        858
+      ],
+      "sourceShoulder": [
+        335,
+        748
+      ],
+      "supportContact": [
+        460,
+        700
+      ],
+      "sourceSupportContact": [
+        384,
+        965
+      ]
+    },
+    {
+      "pose": "lower",
+      "wrist": [
+        342.6666666666667,
+        633.3333333333334
+      ],
+      "shoulder": [
+        289.33333333333337,
+        543.3333333333334
+      ],
+      "sourceWrist": [
+        1430,
+        575
+      ],
+      "sourceShoulder": [
+        1350,
+        440
+      ],
+      "supportContact": [
+        430.0,
+        690.0
+      ],
+      "sourceSupportContact": [
+        1561,
+        660
+      ]
+    },
+    {
+      "pose": "settle",
+      "wrist": [
+        361,
+        630
+      ],
+      "shoulder": [
+        296,
+        545
+      ],
+      "sourceWrist": [
+        965,
+        895
+      ],
+      "sourceShoulder": [
+        900,
+        810
+      ]
+    },
+    {
+      "pose": "fallen",
+      "wrist": [
+        376,
+        635
+      ],
+      "shoulder": [
+        326,
+        550
+      ],
+      "sourceWrist": [
+        980,
+        900
+      ],
+      "sourceShoulder": [
+        930,
+        815
+      ]
+    },
+    {
+      "pose": "yield",
+      "wrist": [
+        352.34000000000003,
+        629.1
+      ],
+      "shoulder": [
+        376.70000000000005,
+        524.7
+      ],
+      "sourceWrist": [
+        272,
+        580
+      ],
+      "sourceShoulder": [
+        300,
+        460
+      ],
+      "supportContact": [
+        455.00000000000006,
+        690.0
+      ],
+      "sourceSupportContact": [
+        390,
+        650
+      ]
+    },
+    {
+      "pose": "sink",
+      "wrist": [
+        341.76,
+        637.92
+      ],
+      "shoulder": [
+        334.2,
+        538.8
+      ],
+      "sourceWrist": [
+        1389,
+        588
+      ],
+      "sourceShoulder": [
+        1380,
+        470
+      ],
+      "supportContact": [
+        435.0,
+        690.0
+      ],
+      "sourceSupportContact": [
+        1500,
+        650
+      ]
+    },
+    {
+      "pose": "leg-flinch",
+      "shoulder": [
+        437.76,
+        295.52
+      ],
+      "wrist": [
+        420.6,
+        401.6
+      ],
+      "sourceShoulder": [
+        292,
+        284
+      ],
+      "sourceWrist": [
+        270,
+        420
+      ],
+      "footContacts": [
+        [
+          437.76,
+          677.72
+        ],
+        [
+          740.4,
+          686.3000000000001
+        ]
+      ]
+    },
+    {
+      "pose": "low-stagger",
+      "shoulder": [
+        365.84000000000003,
+        354.8
+      ],
+      "wrist": [
+        346.34000000000003,
+        460.1
+      ],
+      "sourceShoulder": [
+        1165,
+        360
+      ],
+      "sourceWrist": [
+        1140,
+        495
+      ],
+      "footContacts": [
+        [
+          416.54,
+          677.72
+        ],
+        [
+          740.24,
+          686.3000000000001
+        ]
+      ]
+    },
+    {
+      "pose": "leg-rise",
+      "shoulder": [
+        440.2,
+        337.9
+      ],
+      "wrist": [
+        423.79999999999995,
+        448.59999999999997
+      ],
+      "sourceShoulder": [
+        510,
+        245
+      ],
+      "sourceWrist": [
+        490,
+        380
+      ],
+      "footContacts": [
+        [
+          374.59999999999997,
+          686.4
+        ],
+        [
+          739.5,
+          686.4
+        ]
+      ]
+    },
+    {
+      "pose": "guard-settle",
+      "shoulder": [
+        463.52,
+        279.2
+      ],
+      "wrist": [
+        454.72,
+        393.6
+      ],
+      "sourceShoulder": [
+        1415,
+        215
+      ],
+      "sourceWrist": [
+        1405,
+        345
+      ],
+      "footContacts": [
+        [
+          357.91999999999996,
+          679.6
+        ],
+        [
+          749.52,
+          679.6
+        ]
+      ]
+    }
+  ],
+  "armLengths": [
+    65,
+    75
+  ],
+  "relaxAge": 430,
+  "releaseAge": 500,
+  "flightMs": 280,
+  "groundY": 690,
+  "worldScale": 0.6,
+  "bodyOrigin": [
+    576,
+    690
+  ],
+  "source": "assets/source/jigoku-2d/ghost-rig/katana-hand.png",
+  "sha256": "6780cc3b5095e1f3a050eb2e2173c9042010a002ebb3eb070ac804b1e6aef8e5",
+  "generatedFile": "exec-4eb8eba6-b48f-4afd-b737-7a200ae630a3.png",
+  "armSource": "assets/source/jigoku-2d/ghost-rig/arm-parts.png",
+  "armSha256": "e43d6dbd831681df0198dd6f81b2487317dac32f6a85dc1f0b44db1e31a687a2",
+  "armGeneratedFile": "exec-0c203020-19d7-4f8a-84da-60cc3ae54737.png",
+  "bulkArmSource": "assets/source/jigoku-2d/ghost-rig/arm-parts-stocky.png",
+  "bulkArmSha256": "210bebe28d3e5225007eff5ba52e13468f43fdc1171dd5d436ae7eab2525669e",
+  "bulkArmGeneratedFile": "exec-9c05eb10-612f-4f45-8ed8-b9d578b85253.png",
+  "method": "Image_gen separate arm segments and half/open hands, plus reused katana and closed grip. A thicker arm redraw supplies the upper/forearm only; original half/open hands retained. Redraw joint anchors remeasured and uniformly rescaled to the same 65/75 lengths. Fixed 65/75 px segments, manual shoulder anchors, interpolated local reach targets and two-bone IK. Shoulder anchors still switch with twelve body images, including two additional torso transitions. No continuous torso animation or physical finger simulation. Scripted blade release from the last held transform to a flat plane.",
+  "extraRGBA8Bytes": 180396,
+  "lowHitSource": "enemy-low-art.json"
+}

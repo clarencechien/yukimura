@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "adopted": false,
+  "checks": [
+    "Default and opt-in candidate retain identical head, arms, shoulder cap, calf, weapon and rig poses",
+    "Three uniformly scaled body sprites pivot rigidly at the existing shoulder; actual alpha hull support stays at ground y=687, behind helmet and arms",
+    "Outside the interval all body records, render order and Canvas pixels are identical",
+    "Actual 2x Canvas crops, step controls, speed selection, replay, pause, 390 px layout and delayed texture readiness",
+    "90 quarter-speed and 30 normal-speed actual browser frames at controlled 30 fps"
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "limits": "Browser comparison, not physical phone performance or anatomy validation."
+}

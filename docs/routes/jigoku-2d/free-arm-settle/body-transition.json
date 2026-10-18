@@ -1,0 +1,97 @@
+{
+  "adopted": false,
+  "query": "body=paint",
+  "baselineCommit": "e2ae328281df070e0e6cc58fa59b9dd48a8ab61a",
+  "source": "assets/source/jigoku-2d/ghost-rig/body-transition-folded.png",
+  "sourceSHA256": "96bf73e197bf4dd2f836680ea491d1ebb26e13d9f3e8f2cfeed24ca8684a39cb",
+  "generatedFile": "exec-89c595a1-b373-4f06-bad0-93b8a21a1051.png",
+  "sourceSize": [
+    1536,
+    1024
+  ],
+  "alphaCutoff": 16,
+  "part": {
+    "url": "body-transition.webp",
+    "box": [
+      419,
+      480,
+      710,
+      687
+    ]
+  },
+  "registration": {
+    "scale": 0.26,
+    "angle": -3,
+    "sourceShoulder": [
+      520,
+      390
+    ],
+    "targetShoulder": [
+      494,
+      541
+    ],
+    "inverseAffine": [
+      3.84088282597913,
+      -0.20129213939593782,
+      -1268.4970686204879,
+      0.20129213939593782,
+      3.84088282597913,
+      -1787.3559257163029
+    ]
+  },
+  "interval": {
+    "after": 1200,
+    "through": 1240
+  },
+  "references": [
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/body-transition-reference-before.png",
+      "sha256": "ee5b173caab710839c88c303438db66c5ce2e4dffd50c95d8378a6843abea6ec",
+      "age": 1199.999
+    },
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/body-transition-reference-after.png",
+      "sha256": "dbf8e706876d2d346df213ab1cf15f4219d6b43375db8d8c10dd9fae25f1eefc",
+      "age": 1240.001
+    }
+  ],
+  "referenceCapture": {
+    "sourceCanvasRect": [
+      850,
+      350,
+      300,
+      200
+    ],
+    "outputSize": [
+      600,
+      400
+    ],
+    "includedBodyLayers": [
+      "torso",
+      "lower",
+      "waist",
+      "restore"
+    ]
+  },
+  "method": "One generated chest/pelvis/thigh/knee assembly. Uniform scale and rigid rotation, no body morph or crossfade. Replace bridge torso AND lower body with one transparent sprite; retain shared head, arms, cap, rear calf and sword. Manual projected shoulder registration, not anatomical validation.",
+  "textureRGBA8MiB": 0.22978591918945312,
+  "earlierStudy": {
+    "path": "assets/source/jigoku-2d/ghost-rig/body-transition-study.png",
+    "sha256": "0388fda6378d31a2ec9dd6b7ab17ca46f447a428a32ee8f1d25a4765875f7f82",
+    "generatedFile": "exec-3ba8f6fe-2092-4a3a-bc29-bbb85bbab158.png",
+    "reason": "Raised neck collar protruded above the shared helmet; not used at runtime."
+  },
+  "revisionReferences": [
+    {
+      "path": "assets/source/jigoku-2d/ghost-rig/body-transition-study.png",
+      "sha256": "0388fda6378d31a2ec9dd6b7ab17ca46f447a428a32ee8f1d25a4765875f7f82",
+      "generatedFile": "exec-3ba8f6fe-2092-4a3a-bc29-bbb85bbab158.png",
+      "reason": "Raised neck collar protruded above the shared helmet; not used at runtime."
+    },
+    {
+      "path": "docs/routes/jigoku-2d/free-arm-settle/handoffs/body-baseline/1200-after.png",
+      "sha256": "22535cf7d8261aebb5df56e5dd28126bfb7946662f9dd0219f8b15d6fbad941a",
+      "note": "Existing assembled pose used to show that the shared helmet lies lower-left of the chest."
+    }
+  ]
+}

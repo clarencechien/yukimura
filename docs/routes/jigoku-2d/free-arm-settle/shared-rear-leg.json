@@ -1,0 +1,287 @@
+{
+  "baselineCommit": "54fabf5e0860f13403d25f1d801b19b527bcc156",
+  "start": 1200,
+  "end": 1500,
+  "groundY": 690,
+  "contactY": 681,
+  "leg": {
+    "url": "shared-rear-leg.webp",
+    "box": [
+      626,
+      595,
+      800,
+      681
+    ],
+    "pivot": [
+      660,
+      630
+    ],
+    "source": "fall-rest-lower.webp",
+    "sourceSHA256": "07157af09db74f96d50e6c945e99bf8a3ae5b9fa4e6c160f7b8eb58316bdacd9",
+    "overlapPixels": 12,
+    "cropY": [
+      595,
+      681
+    ],
+    "alphaCutoff": 16,
+    "hull": [
+      [
+        -34,
+        50
+      ],
+      [
+        -17,
+        -35
+      ],
+      [
+        3,
+        -35
+      ],
+      [
+        87,
+        -18
+      ],
+      [
+        91,
+        -17
+      ],
+      [
+        124,
+        -2
+      ],
+      [
+        126,
+        -1
+      ],
+      [
+        130,
+        2
+      ],
+      [
+        134,
+        6
+      ],
+      [
+        136,
+        9
+      ],
+      [
+        138,
+        13
+      ],
+      [
+        139,
+        16
+      ],
+      [
+        140,
+        21
+      ],
+      [
+        140,
+        29
+      ],
+      [
+        139,
+        34
+      ],
+      [
+        135,
+        42
+      ],
+      [
+        131,
+        46
+      ],
+      [
+        128,
+        48
+      ],
+      [
+        124,
+        50
+      ],
+      [
+        120,
+        51
+      ],
+      [
+        -34,
+        51
+      ]
+    ]
+  },
+  "lowers": {
+    "bridge": {
+      "url": "legless-bridge.webp",
+      "box": [
+        480,
+        487,
+        772,
+        688
+      ],
+      "source": "fall-bridge-lower.webp",
+      "sourceSHA256": "e03ba4da06edcf445f5226314f997f273412cf9ea28179ba7e91e59f2bb16d98",
+      "seam": [
+        [
+          654,
+          580
+        ],
+        [
+          674,
+          603
+        ],
+        [
+          682,
+          625
+        ],
+        [
+          681,
+          649
+        ],
+        [
+          665,
+          668
+        ],
+        [
+          645,
+          685
+        ]
+      ]
+    },
+    "roll": {
+      "url": "legless-roll.webp",
+      "box": [
+        483,
+        496,
+        765,
+        693
+      ],
+      "source": "fall-roll-lower.webp",
+      "sourceSHA256": "3a1ed5a7f2ae102f7b17b2540d103cd793bfa1af6c0ef38f692cf8ec81c9a488",
+      "seam": [
+        [
+          653,
+          585
+        ],
+        [
+          671,
+          610
+        ],
+        [
+          676,
+          636
+        ],
+        [
+          670,
+          658
+        ],
+        [
+          651,
+          676
+        ]
+      ]
+    },
+    "side": {
+      "url": "legless-side.webp",
+      "box": [
+        500,
+        517,
+        808,
+        691
+      ],
+      "source": "fall-side-lower.webp",
+      "sourceSHA256": "4e205e19fb2d69beb6ed72ec4c3ea5443948271c60787cdb359ef1e6ea3100c7",
+      "seam": [
+        [
+          646,
+          583
+        ],
+        [
+          664,
+          605
+        ],
+        [
+          670,
+          629
+        ],
+        [
+          667,
+          650
+        ],
+        [
+          650,
+          669
+        ],
+        [
+          630,
+          681
+        ]
+      ]
+    },
+    "rest": {
+      "url": "legless-rest.webp",
+      "box": [
+        512,
+        532,
+        802,
+        692
+      ],
+      "source": "fall-rest-lower.webp",
+      "sourceSHA256": "07157af09db74f96d50e6c945e99bf8a3ae5b9fa4e6c160f7b8eb58316bdacd9",
+      "seam": [
+        [
+          645,
+          580
+        ],
+        [
+          659,
+          601
+        ],
+        [
+          669,
+          622
+        ],
+        [
+          668,
+          646
+        ],
+        [
+          658,
+          663
+        ],
+        [
+          638,
+          680
+        ]
+      ],
+      "cropY": [
+        595,
+        681
+      ]
+    }
+  },
+  "keys": [
+    {
+      "time": 1200,
+      "x": -37,
+      "angle": 0
+    },
+    {
+      "time": 1260,
+      "x": -32,
+      "angle": 0
+    },
+    {
+      "time": 1380,
+      "x": -7,
+      "angle": 0
+    },
+    {
+      "time": 1500,
+      "x": 0,
+      "angle": 0
+    }
+  ],
+  "method": "Existing rest shin and boot, rigid horizontal translation with zero rotation behind four trimmed thigh drawings. Contact height derives from final sprite alpha hull, not 3D ground or knee biomechanics. No new art or image blending."
+}

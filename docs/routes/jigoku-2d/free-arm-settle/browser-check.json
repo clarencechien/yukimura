@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checks": [
+    "Original calf lowers at rigid actual Canvas scale behind the thigh during 1000–1200 ms; then switches to the unchanged shared leg",
+    "Shared rear leg uses a rigid actual Canvas transform behind the trimmed thigh, keeping one texture across four body cuts",
+    "Early original cap rotation has a rigid actual Canvas transform, is drawn above the upper arm, and preserves the existing skeleton",
+    "Shared shoulder uses the original bridge cap at rigid scale and the actual collar mount; drawn between upper arm and forearm",
+    "Shared-head texture, actual Canvas pivot/matrix, rigid scale and depth ordering verified across desktop/mobile playback",
+    "Handoff comparison loads four images for all six time/version choices; reports measured overlap and fits 390 px layout",
+    "Far shoulder, elbow, wrist and actual fist-to-katana Canvas attachment; rigid texture scale, panel bounds, render order and independent visibility toggle",
+    "Four side-fall body keys visited; baseline query retains three original keys and final sword matrices; actual shared-arm shoulder/elbow/wrist matrices, torso/cap registration and fixed lower images checked",
+    "Yielded shoulder/arm joints, fixed palm heel during roll, open-hand wrist after lift, resting blade matrix unchanged while both arms move",
+    "Actual Canvas arm, knee-to-ankle and ankle-to-shoe joints; hinged torso/cap shoulder alignment",
+    "Shared lower-body URLs persist across 400 ms; actual right-panel pixels checked at 399.999/400.001 ms; fixed planted hand",
+    "Held, released, contact and settled phases plus three hand states captured; katana stays above alpha-hull ground and hand separates; whole sequence captured; controls and x-ray shows occluded leg with identical transforms and alpha 1",
+    "390 px touch key stepping and stacked layout without overflow"
+  ],
+  "boundaryChangedPixels": 304,
+  "maxBoundaryChannelDelta": 1,
+  "pageErrors": [],
+  "failedRequests": [],
+  "scope": "Independent shared-arm side-fall breakdown review, not installed into combat; no physical phone FPS measurement."
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "baselineCommit": "75a55debb368c2627a299800c3d6cec74dd5717e",
+  "checks": [
+    "Body/palm source hashes and declared uniform registration",
+    "Torso/lower/cap preserve source pixels under declared masks",
+    "Torso/lower union covers all source pixels with alpha > 1; 24 px waist overlap",
+    "Palm wrist/heel source coordinates map to packed sprite",
+    "Existing arm kit and production combat/src/public unchanged"
+  ],
+  "omittedAlpha1Pixels": 18,
+  "newLoadedRGBA8MiB": 0.9241218566894531,
+  "scope": "Excludes reused arm textures and canvas buffers; body.webp is an inspection source and is not loaded by review. No anatomy or force validation."
+}

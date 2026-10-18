@@ -1,0 +1,10 @@
+{
+  "package": "phaser",
+  "version": "3.90.0",
+  "registry": "https://registry.npmjs.org/phaser",
+  "tarballIntegrity": "sha512-/cziz/5ZIn02uDkC9RzN8VF9x3Gs3XdFFf9nkiMEQT3p7hQlWuyjy4QWosU802qqno2YSLn2BfqwOKLv/sSVfQ==",
+  "files": {
+    "PHASER-LICENSE.md": "080f3d5539e766bb556df5b8e86c4f5d581ece35c692b80956ca352b84d29134",
+    "phaser-3.90.0.min.js": "e92ddef111ba42e92d316979c732311757093688ea1810591cb7aa2858eba7a7"
+  }
+}

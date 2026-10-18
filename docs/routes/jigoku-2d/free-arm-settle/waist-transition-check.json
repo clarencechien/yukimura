@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "adopted": false,
+  "reason": "Both adjacent full-color handoff deltas are essentially unchanged and slightly higher; preserve the current default. Local armor repaint does not solve pose and occlusion continuity.",
+  "additionalRGBA8MiB": 0.6285552978515625,
+  "replacedPixels": {
+    "waist-transition-bridge.webp": 8758,
+    "waist-transition-headless.webp": 4885,
+    "waist-transition-shoulderless.webp": 4885
+  },
+  "waistRegionInCapture": [
+    380,
+    340,
+    505,
+    455
+  ],
+  "handoffs": [
+    {
+      "time": 1200,
+      "previous": {
+        "fullRGBMeanDelta": 4.4055060606060605,
+        "waistRegionRGBMeanDelta": 50.025275362318844,
+        "SHA256": {
+          "before": "c0ef8d4118c084baec9affeddd4d0c547514feaa3dc333449fab78fdf36cc601",
+          "after": "22535cf7d8261aebb5df56e5dd28126bfb7946662f9dd0219f8b15d6fbad941a"
+        }
+      },
+      "candidate": {
+        "fullRGBMeanDelta": 4.408693939393939,
+        "waistRegionRGBMeanDelta": 50.09845797101449,
+        "SHA256": {
+          "before": "c0ef8d4118c084baec9affeddd4d0c547514feaa3dc333449fab78fdf36cc601",
+          "after": "f0ab8137a7117a12c5679a3fa28a24a863a75908ce308e31c7afba3264c214fd"
+        }
+      }
+    },
+    {
+      "time": 1220,
+      "previous": {
+        "fullRGBMeanDelta": 0.00958989898989899,
+        "waistRegionRGBMeanDelta": 0.05817971014492754,
+        "SHA256": {
+          "before": "6734929835dd4df2b7f85e30ae3b446ab257142f3522cb4dc9024aa85f474178",
+          "after": "c957aed67c731622c447c27b9b18be8dbf12ff94f61b4f7f6bc0566586f6c3d1"
+        }
+      },
+      "candidate": {
+        "fullRGBMeanDelta": 0.00958989898989899,
+        "waistRegionRGBMeanDelta": 0.05817971014492754,
+        "SHA256": {
+          "before": "edaaac3b00392879a4cec5bca22fd266878affdef4d10cf15a68d9669c168e9a",
+          "after": "204bcb73f162015759ecf78e9c60151e39cf6ba6b654a528457ab682702de44e"
+        }
+      }
+    },
+    {
+      "time": 1240,
+      "previous": {
+        "fullRGBMeanDelta": 2.289608080808081,
+        "waistRegionRGBMeanDelta": 35.34736231884058,
+        "SHA256": {
+          "before": "cbce2f4b4e384005935d158969df1d493da63b5a1eafd3facb45e34e74a7d4a6",
+          "after": "788a46f81de544a35b4258a2d3051efb83b910ad3ac5c24630e264d2afcedc05"
+        }
+      },
+      "candidate": {
+        "fullRGBMeanDelta": 2.2932808080808083,
+        "waistRegionRGBMeanDelta": 35.43167536231884,
+        "SHA256": {
+          "before": "a85e2099cd0eb41dbc220f94891b1aea3a1ee1c9fb83e1d1ba88fe5ec7b94727",
+          "after": "788a46f81de544a35b4258a2d3051efb83b910ad3ac5c24630e264d2afcedc05"
+        }
+      }
+    },
+    {
+      "time": 1320,
+      "previous": {
+        "fullRGBMeanDelta": 2.5910161616161616,
+        "waistRegionRGBMeanDelta": 38.04273623188406,
+        "SHA256": {
+          "before": "0e1ac53c605c2686cfa8a2e76503e4a530356cfd348d57efbfbeae711428af02",
+          "after": "1848655507765a3e587420fde89d4f302394bbc229dad89b3e0726bba8465db2"
+        }
+      },
+      "candidate": {
+        "fullRGBMeanDelta": 2.5910161616161616,
+        "waistRegionRGBMeanDelta": 38.04273623188406,
+        "SHA256": {
+          "before": "0e1ac53c605c2686cfa8a2e76503e4a530356cfd348d57efbfbeae711428af02",
+          "after": "1848655507765a3e587420fde89d4f302394bbc229dad89b3e0726bba8465db2"
+        }
+      }
+    }
+  ],
+  "checks": [
+    "Generated source and original crop hashes verified; one uniform resize with recorded registration",
+    "All three crop alphas and all visible pixels outside the opaque local mask remain exact originals",
+    "Actual body-layer alpha matches previous version at all captured boundaries; pixels outside candidate interval unchanged"
+  ],
+  "limits": "New waist design is an opt-in study; no full-body anatomical interpolation, physics, new rig, or production game replacement. Source images are generated, animation footage is actual Canvas playback."
+}

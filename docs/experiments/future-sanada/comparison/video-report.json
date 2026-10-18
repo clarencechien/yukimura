@@ -1,0 +1,59 @@
+{
+  "renderer": "Babylon.js / Chromium SwiftShader, actual GLB geometry",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 900,
+  "durationSeconds": 30,
+  "elapsedSeconds": 970.217,
+  "codec": "h264",
+  "pixelFormat": "yuv420p",
+  "bytes": 10007986,
+  "sha256": "85b2840f3718f7bf3e694c901060b13212742cdbb7b2e13f43d3a796f53133c1",
+  "encoding": "libx264 slow CRF21, maxrate6M, yuv420p, faststart",
+  "models": [
+    {
+      "name": "trellis1/future-sanada.glb",
+      "sha256": "309d958058890464b1dc2040aaab226a017f64e2687f646d5c264f5c5ec4d813"
+    },
+    {
+      "name": "future-sanada.glb",
+      "sha256": "06694cadc764e3081fae64e14a51805e315384099e5ca0d7f42b890a93863f3b"
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "chapters": [
+    {
+      "start": 0,
+      "end": 12,
+      "title": "360 turntable"
+    },
+    {
+      "start": 12,
+      "end": 17,
+      "title": "helmet and mask"
+    },
+    {
+      "start": 17,
+      "end": 22,
+      "title": "armor and materials"
+    },
+    {
+      "start": 22,
+      "end": 27,
+      "title": "wrist and fingers"
+    },
+    {
+      "start": 27,
+      "end": 30,
+      "title": "full comparison"
+    }
+  ],
+  "limitations": [
+    "No rig or character animation; synchronized camera motion only",
+    "Same normalized height, lighting and camera; first-generation display metallic=0",
+    "Different complete pipelines, not an encoder-only benchmark",
+    "CPU software WebGL offline render, not a mobile performance benchmark"
+  ]
+}

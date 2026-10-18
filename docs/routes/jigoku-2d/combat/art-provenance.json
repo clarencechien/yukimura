@@ -1,0 +1,14 @@
+{
+  "arenaSource": "assets/source/jigoku-2d/combat-arena.png",
+  "sourceSHA256": "316b7852eb66e4a6095cbca5236829a0f187ea060cd94b84e8bd6248cc058c3a",
+  "method": "One image_gen environment illustration referencing art/01-battlefield-concept.png. Requested empty stone arena, warm left and cool right. No characters. No reproducible generator seed supplied.",
+  "generatedFile": "exec-2ed2eaef-9d04-40fa-bc11-0de4abfb2d01.png",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "runtimeCopy": "arena.webp",
+  "runtimeSHA256": "812e482b29182ce4508746ae05ce53408672cad2bf0ebe132f8634595bec9f8d",
+  "character": "Existing Blender rigid body animation, warm-left atlases, no new render or image generation.",
+  "seal": "Procedural Phaser vector graphic and particles, not a humanoid enemy."
+}

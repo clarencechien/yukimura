@@ -1,0 +1,82 @@
+{
+  "baselineCommit": "5d33b8ca302ec51822f83b5e2e8470782843223c",
+  "changedCharacterTextureFiles": [],
+  "source": "Committed baseline MP4 vs actual current Phaser screenshots. No generated/interpolated frames.",
+  "limits": "Only impact and first 180 ms use shared body. At 180 ms shoulder/arm/weapon agree, but authored buckle silhouette, knees, feet and empty arm still differ. Later collapse remains authored.",
+  "attacks": {
+    "thrust": {
+      "pairs": [
+        {
+          "beforeSample": 20,
+          "afterSample": 20,
+          "reactionAgeMS": 0,
+          "relativeHitSampleOffsetMS": 0,
+          "sharedBody": true
+        },
+        {
+          "beforeSample": 26,
+          "afterSample": 26,
+          "reactionAgeMS": 167.33333333333331,
+          "relativeHitSampleOffsetMS": 0,
+          "sharedBody": true
+        },
+        {
+          "beforeSample": 27,
+          "afterSample": 27,
+          "reactionAgeMS": 199.33333333333331,
+          "relativeHitSampleOffsetMS": 0,
+          "sharedBody": false
+        }
+      ],
+      "impactJumpWorldPX": {
+        "before": {
+          "shoulder": 17.4928556845359,
+          "elbow": 17.4928556845359,
+          "wrist": 17.4928556845359
+        },
+        "after": {
+          "shoulder": 0.0,
+          "elbow": 0.0,
+          "wrist": 0.0
+        }
+      }
+    },
+    "sweep": {
+      "pairs": [
+        {
+          "beforeSample": 15,
+          "afterSample": 14,
+          "reactionAgeMS": 0,
+          "relativeHitSampleOffsetMS": 0,
+          "sharedBody": true
+        },
+        {
+          "beforeSample": 22,
+          "afterSample": 21,
+          "reactionAgeMS": 157.99999999999997,
+          "relativeHitSampleOffsetMS": 0,
+          "sharedBody": true
+        },
+        {
+          "beforeSample": 23,
+          "afterSample": 22,
+          "reactionAgeMS": 189.99999999999997,
+          "relativeHitSampleOffsetMS": -1,
+          "sharedBody": false
+        }
+      ],
+      "impactJumpWorldPX": {
+        "before": {
+          "shoulder": 30.1255453062679,
+          "elbow": 36.104275448454764,
+          "wrist": 40.187102408608645
+        },
+        "after": {
+          "shoulder": 0.0,
+          "elbow": 0.0,
+          "wrist": 0.0
+        }
+      }
+    }
+  }
+}

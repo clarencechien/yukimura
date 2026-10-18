@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "adopted": false,
+  "registration": "All three use one scale and angle; source hashes, cutout margins, inverse transforms, visible RGBA and exact alpha-cell convex hulls reproduced.",
+  "textureRGBA8MiB": 0.6244888305664062,
+  "measurements": [
+    {
+      "time": 1200,
+      "default": {
+        "meanRGBDifference": 4.4055060606060605,
+        "bodyMaskXorPixels": 7607,
+        "bodyMaskIoU": 0.8239283399685214
+      },
+      "candidate": {
+        "meanRGBDifference": 4.928609090909091,
+        "bodyMaskXorPixels": 8700,
+        "bodyMaskIoU": 0.7964055040718899
+      }
+    },
+    {
+      "time": 1220,
+      "default": {
+        "meanRGBDifference": 0.00958989898989899,
+        "bodyMaskXorPixels": 0,
+        "bodyMaskIoU": 1.0
+      },
+      "candidate": {
+        "meanRGBDifference": 9.797979797979798e-05,
+        "bodyMaskXorPixels": 0,
+        "bodyMaskIoU": 1.0
+      }
+    },
+    {
+      "time": 1240,
+      "default": {
+        "meanRGBDifference": 2.289608080808081,
+        "bodyMaskXorPixels": 1899,
+        "bodyMaskIoU": 0.948532401008212
+      },
+      "candidate": {
+        "meanRGBDifference": 2.7291858585858586,
+        "bodyMaskXorPixels": 4142,
+        "bodyMaskIoU": 0.882259302424742
+      }
+    },
+    {
+      "time": 1320,
+      "default": {
+        "meanRGBDifference": 2.5910161616161616,
+        "bodyMaskXorPixels": 3310,
+        "bodyMaskIoU": 0.9103976611353239
+      },
+      "candidate": {
+        "meanRGBDifference": 2.611560606060606,
+        "bodyMaskXorPixels": 3174,
+        "bodyMaskIoU": 0.9048133153396312
+      }
+    },
+    {
+      "time": 1440,
+      "default": {
+        "meanRGBDifference": 1.9961888888888888,
+        "bodyMaskXorPixels": 1263,
+        "bodyMaskIoU": 0.9642027095969616
+      },
+      "candidate": {
+        "meanRGBDifference": 2.446971717171717,
+        "bodyMaskXorPixels": 3394,
+        "bodyMaskIoU": 0.9026893743907334
+      }
+    }
+  ],
+  "limits": "Projected rigid support constraint, not anatomical knee simulation. RGB and silhouette changes measure cuts, not art quality. All four body cuts remain worse than default; candidate only."
+}

@@ -1,0 +1,41 @@
+{
+  "file": "future-sanada.glb",
+  "sha256": "309d958058890464b1dc2040aaab226a017f64e2687f646d5c264f5c5ec4d813",
+  "bytes": 7822076,
+  "vertices": 93993,
+  "triangles": 149998,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.2333037555217743,
+      -0.499843031167984,
+      -0.14459940791130066
+    ],
+    [
+      0.23273949325084686,
+      0.4956226646900177,
+      0.14980646967887878
+    ]
+  ],
+  "extent": [
+    0.46604323387145996,
+    0.9954656958580017,
+    0.29440587759017944
+  ],
+  "materials": [
+    {
+      "name": null,
+      "baseColorTexture": {
+        "index": 0
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 1,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "basecolor",
+  "primitives_without_normals": 1
+}

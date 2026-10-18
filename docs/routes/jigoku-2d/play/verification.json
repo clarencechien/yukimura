@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "engine": "Phaser 3.90.0",
+  "checks": [
+    "desktop movement / attack / dash / command / musou",
+    "pause / blur / resume",
+    "escort and boss HUD (seeded stages)",
+    "victory / defeat / retry / next cycle (seeded outcomes)",
+    "simultaneous two-finger movement and attack",
+    "portrait and landscape layout",
+    "standalone HTML: embedded assets, movement after network disconnected"
+  ],
+  "viewports": [
+    "1366x900",
+    "390x844",
+    "844x390"
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "fileSchemeCheck": "Blocked by managed Chromium policy; verified the same standalone HTML over HTTP and then disconnected networking.",
+  "limitation": "Chromium touch emulation, not physical-device performance or human difficulty validation"
+}

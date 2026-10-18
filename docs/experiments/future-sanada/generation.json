@@ -1,0 +1,22 @@
+{
+  "trellis_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "model": "microsoft/TRELLIS.2-4B",
+  "seed": 1615,
+  "pipeline": "1024_cascade",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "torch": "2.6.0+cu124",
+  "input_sha256": "c84b28641b60b6593a85922881c030840b72fbf6584ea298c697bd002ad106a8",
+  "status": "completed",
+  "background_removal": "provided alpha; RMBG-2.0 not loaded",
+  "load_seconds": 91.24370676800001,
+  "inference_seconds": 163.533886124,
+  "source_vertices": 2672279,
+  "source_triangles": 5931928,
+  "export_seconds": 21.30556125000004,
+  "elapsed_seconds": 276.08321860999996,
+  "export_bytes": 19521392,
+  "export_sha256": "06694cadc764e3081fae64e14a51805e315384099e5ca0d7f42b890a93863f3b",
+  "texture_size": 2048,
+  "decimation_target": 150000,
+  "peak_gpu_gib": 3.6191415786743164
+}

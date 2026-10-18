@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "torsoAlphaPreserved": true,
+  "sourceRGBOutsideCoveredPlatePreserved": true,
+  "newTexturesRGBA8MiB": 0.8370208740234375,
+  "capSamples": 1001,
+  "maximumCapPixelCellY": 635.5257944214048,
+  "activationComparedWithSameTimePrevious": {
+    "meanRGBDelta": 0.009765656565656566,
+    "pixelsOver8": 76
+  },
+  "handoffs": [
+    {
+      "time": 1000,
+      "previous": {
+        "bodyAlphaIoU": 1.0,
+        "meanRGBDelta": 0.2048818181818182
+      },
+      "earlyDrop": {
+        "bodyAlphaIoU": 1.0,
+        "meanRGBDelta": 0.21459090909090908
+      },
+      "previousScreenshotSHA256": {
+        "before": "209452286283740202270e3904e5c3ec3f2cd7e78817f5468448fb1c54b1a93d",
+        "after": "c37c0797513a4c840315d9e59e012561edfc548c008f7e4f49d3fa6022559ceb"
+      }
+    },
+    {
+      "time": 1180,
+      "previous": {
+        "bodyAlphaIoU": 0.999953388645474,
+        "meanRGBDelta": 0.002715151515151515
+      },
+      "earlyDrop": {
+        "bodyAlphaIoU": 0.9999533875591395,
+        "meanRGBDelta": 0.0016666666666666668
+      },
+      "previousScreenshotSHA256": {
+        "before": "72dd09f1437629d298593d4c9c3f6630ea1350e4d2d883f6bd698a1b6cf23873",
+        "after": "02ef946240ac07fd31a115a92a4e433fd897e1729e4cc59dccaf60f1622f9495"
+      }
+    },
+    {
+      "time": 1200,
+      "previous": {
+        "bodyAlphaIoU": 0.858645341643371,
+        "meanRGBDelta": 5.067651515151515
+      },
+      "earlyDrop": {
+        "bodyAlphaIoU": 0.8586650168419605,
+        "meanRGBDelta": 4.4481505050505055
+      },
+      "previousScreenshotSHA256": {
+        "before": "29eb869708132e129eccc4d72d12d35355e998a5337f696c6fde1801a13a5a40",
+        "after": "ffb81c8bc9eea166a9dab6985bc40241fe1c62f9be6e39a71a7a3daccf9e487a"
+      }
+    },
+    {
+      "time": 1220,
+      "previous": {
+        "bodyAlphaIoU": 1.0,
+        "meanRGBDelta": 0.00958989898989899
+      },
+      "earlyDrop": {
+        "bodyAlphaIoU": 1.0,
+        "meanRGBDelta": 0.00958989898989899
+      },
+      "previousScreenshotSHA256": {
+        "before": "41bb31c3982d887285e4c53dfbc461bc62ffe20d769e8c7efe1dc2514d961015",
+        "after": "3cbea2618fac96707bec742461e4bc60f5e76e26e3a7a0f017b383ec3f55428e"
+      }
+    },
+    {
+      "time": 1240,
+      "previous": {
+        "bodyAlphaIoU": 0.911807413068399,
+        "meanRGBDelta": 3.0280343434343435
+      },
+      "earlyDrop": {
+        "bodyAlphaIoU": 0.911807413068399,
+        "meanRGBDelta": 3.0280343434343435
+      },
+      "previousScreenshotSHA256": {
+        "before": "6bf6aa6e81ba6b9970f97b5dcc7d53b25e5a0f5c62d6fc8d5f55fe3ed8398c4d",
+        "after": "7e3dad158afb26a1a190f5c45f632dca0865601bd6ba5b39fb2b211b719d716c"
+      }
+    }
+  ],
+  "limits": "Plate projection uses an authored rotation and mounting offset; not anatomy or a gravity simulation. Existing collar is registered inside the old plate footprint only. 1200 ms still switches body and cap artwork; subsequent poses remain the previous version. No game integration or physical phone performance measurement."
+}

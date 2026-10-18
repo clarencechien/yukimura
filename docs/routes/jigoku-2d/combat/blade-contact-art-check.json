@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "source": "enemy-katana.webp",
+  "sha256": "5e91dcb37d058dc13f6f85f648eb99287e1c990ce300090a2ce3aa5f4cc37c76",
+  "size": [
+    410,
+    51
+  ],
+  "contactPolyline": [
+    [
+      14,
+      10
+    ],
+    [
+      40,
+      18
+    ],
+    [
+      100,
+      30
+    ],
+    [
+      170,
+      34
+    ]
+  ],
+  "sampledPoints": 303,
+  "minimumAlpha": 249,
+  "method": "Manually marked visible steel polyline. 303 pixel samples verify opacity, not material recognition or a 3D collision surface."
+}

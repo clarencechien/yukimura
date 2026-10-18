@@ -1,0 +1,27 @@
+{
+  "description": "Manually authored broad surface relief in image coordinates; not AI-estimated depth or a reconstructed body.",
+  "uv_origin": "top-left",
+  "canvas_world_width": 2.0,
+  "grid_columns": 160,
+  "surfaces": [
+    {"name":"helmet","center":[0.526,0.163],"radius":[0.105,0.064],"height":0.12},
+    {"name":"menpo","center":[0.532,0.219],"radius":[0.076,0.051],"height":0.10},
+    {"name":"nose","center":[0.540,0.207],"radius":[0.025,0.023],"height":0.045},
+    {"name":"cuirass","center":[0.535,0.341],"radius":[0.141,0.111],"height":0.16},
+    {"name":"left shoulder image-space","center":[0.331,0.311],"radius":[0.105,0.085],"height":0.11},
+    {"name":"right shoulder image-space","center":[0.682,0.323],"radius":[0.061,0.083],"height":0.09},
+    {"name":"left forearm","center":[0.284,0.464],"radius":[0.057,0.088],"height":0.10},
+    {"name":"right forearm","center":[0.718,0.480],"radius":[0.045,0.066],"height":0.08},
+    {"name":"left hand","center":[0.287,0.556],"radius":[0.053,0.040],"height":0.065},
+    {"name":"right hand","center":[0.741,0.557],"radius":[0.043,0.041],"height":0.06},
+    {"name":"left hip plates","center":[0.386,0.556],"radius":[0.10,0.083],"height":0.12},
+    {"name":"central hip plates","center":[0.548,0.552],"radius":[0.080,0.077],"height":0.11},
+    {"name":"right hip plates","center":[0.683,0.578],"radius":[0.052,0.074],"height":0.075},
+    {"name":"left hakama","center":[0.398,0.683],"radius":[0.131,0.072],"height":0.10},
+    {"name":"right hakama","center":[0.620,0.689],"radius":[0.103,0.080],"height":0.10},
+    {"name":"left shin","center":[0.332,0.820],"radius":[0.058,0.083],"height":0.075},
+    {"name":"right shin","center":[0.621,0.824],"radius":[0.060,0.082],"height":0.075},
+    {"name":"left foot","center":[0.281,0.944],"radius":[0.078,0.037],"height":0.07},
+    {"name":"right foot","center":[0.669,0.932],"radius":[0.101,0.035],"height":0.07}
+  ]
+}

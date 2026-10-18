@@ -1,0 +1,218 @@
+{
+  "source": "assets/optimized/commanders/yukimura-grip-study.blend",
+  "source_sha256": "1664bedfa960bbe750959c317d8afbb24a977a0c2038adbb3bd361fc62bc1d00",
+  "blender": "4.3.2",
+  "engine": "Cycles",
+  "device": "CPU",
+  "threads": 4,
+  "samples": 128,
+  "denoising": false,
+  "draft": false,
+  "camera": {
+    "type": "ORTHO",
+    "location": [
+      5.373580455780029,
+      -6.4575581550598145,
+      7.168861389160156
+    ],
+    "rotation": [
+      0.9553165435791016,
+      -6.959331955158632e-08,
+      0.7853983044624329
+    ],
+    "scale": 3.479799747467041,
+    "stage_location": [
+      6.0,
+      -6.0,
+      7.0
+    ],
+    "stage_scale": 6.8,
+    "elevation_degrees": 35.264389682754654
+  },
+  "mesh_vertices": 69491,
+  "triangles": 87087,
+  "bones": 92,
+  "poses": [
+    {
+      "name": "ready",
+      "clip": "idle",
+      "source_frame": 0,
+      "normalized_bounds": [
+        0.08954383432865143,
+        0.16596269607543945,
+        0.8894191980361938,
+        0.828358381986618
+      ]
+    },
+    {
+      "name": "windup",
+      "clip": "thrust",
+      "source_frame": 20,
+      "normalized_bounds": [
+        0.0903879702091217,
+        0.19927561283111572,
+        0.9205998778343201,
+        0.8240059316158295
+      ]
+    },
+    {
+      "name": "strike",
+      "clip": "thrust",
+      "source_frame": 40,
+      "normalized_bounds": [
+        0.06999998539686203,
+        0.21810108423233032,
+        0.9300000071525574,
+        0.8340373486280441
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "ready-sprite-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "pose": "ready",
+      "mode": "sprite",
+      "camera_scale": 3.479799747467041,
+      "camera_location": [
+        5.373580455780029,
+        -6.4575581550598145,
+        7.168861389160156
+      ],
+      "seconds": 10.325,
+      "sha256": "8bf5ca6e3a9969a2968c074fc1eb6e55da13233ceaf30c0abf89de2deb875ce7"
+    },
+    {
+      "path": "ready-sprite-512.png",
+      "width": 512,
+      "height": 512,
+      "pose": "ready",
+      "mode": "sprite",
+      "camera_scale": 3.479799747467041,
+      "camera_location": [
+        5.373580455780029,
+        -6.4575581550598145,
+        7.168861389160156
+      ],
+      "seconds": 2.843,
+      "sha256": "e89f0cfb6ffa63146f5ec154ebf84c3947a99faca5270b1d2f794d6cb27bc212"
+    },
+    {
+      "path": "ready-stage-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "pose": "ready",
+      "mode": "stage",
+      "camera_scale": 6.800000190734863,
+      "camera_location": [
+        6.0,
+        -6.0,
+        7.0
+      ],
+      "seconds": 24.548,
+      "sha256": "35881ce6d2e255c71288ec7b05ad847b4177c2d88a12bec4ebec7b346449da72"
+    },
+    {
+      "path": "windup-sprite-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "pose": "windup",
+      "mode": "sprite",
+      "camera_scale": 3.479799747467041,
+      "camera_location": [
+        5.373580455780029,
+        -6.4575581550598145,
+        7.168861389160156
+      ],
+      "seconds": 10.725,
+      "sha256": "3a24d77a9dca1f2589eba2358c0f9cb018ea1199dc6e8dea43ba423e5dc47e71"
+    },
+    {
+      "path": "windup-sprite-512.png",
+      "width": 512,
+      "height": 512,
+      "pose": "windup",
+      "mode": "sprite",
+      "camera_scale": 3.479799747467041,
+      "camera_location": [
+        5.373580455780029,
+        -6.4575581550598145,
+        7.168861389160156
+      ],
+      "seconds": 3.068,
+      "sha256": "f4521036c9e2a47b79249f00220dd1a142c38ec4dae8adc3a819299efd9e462b"
+    },
+    {
+      "path": "windup-stage-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "pose": "windup",
+      "mode": "stage",
+      "camera_scale": 6.800000190734863,
+      "camera_location": [
+        6.0,
+        -6.0,
+        7.0
+      ],
+      "seconds": 24.251,
+      "sha256": "a24c637a1dffc3f84bbf90b65fde9e89eccfb32d9f82939ae1463a47bf6d7b83"
+    },
+    {
+      "path": "strike-sprite-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "pose": "strike",
+      "mode": "sprite",
+      "camera_scale": 3.479799747467041,
+      "camera_location": [
+        5.373580455780029,
+        -6.4575581550598145,
+        7.168861389160156
+      ],
+      "seconds": 10.377,
+      "sha256": "fd9223c0486e703e796c0af855fbcedaad553422275b95fc494071e04e801bbd"
+    },
+    {
+      "path": "strike-sprite-512.png",
+      "width": 512,
+      "height": 512,
+      "pose": "strike",
+      "mode": "sprite",
+      "camera_scale": 3.479799747467041,
+      "camera_location": [
+        5.373580455780029,
+        -6.4575581550598145,
+        7.168861389160156
+      ],
+      "seconds": 2.835,
+      "sha256": "94682b62934f6ef239fec71a0c95282504ac9d59a445a40195e8f20a7cf50dbb"
+    },
+    {
+      "path": "strike-stage-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "pose": "strike",
+      "mode": "stage",
+      "camera_scale": 6.800000190734863,
+      "camera_location": [
+        6.0,
+        -6.0,
+        7.0
+      ],
+      "seconds": 23.498,
+      "sha256": "b2ec228dda41b3a7359ba8dd493b67d71f45bb30039688417e56478cb35f2f73"
+    }
+  ],
+  "limitations": [
+    "Existing v22 geometry/pose reused; no new high-poly character sculpt.",
+    "Three sampled key poses are not a completed animation.",
+    "The isolated sprite hides stage geometry; stage shadows are not exported as a separate layer in this proof."
+  ],
+  "pivot_normalized_top_left": [
+    0.5000001788139343,
+    0.7346388697624207
+  ],
+  "editable_scene": "assets/optimized/jigoku-2d/yukimura-sprite-study.blend",
+  "editable_scene_sha256": "070bd48241d7e66776f4c267ad2c6382d2b931324c3023e405f85e26940de225"
+}

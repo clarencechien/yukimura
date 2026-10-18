@@ -1,0 +1,833 @@
+{
+  "method": "one illustration, continuous 2D deformation cage, rigid shared grip/shaft translation; cached Blender lighting plates",
+  "not_anatomical_ik": true,
+  "device": "CPU",
+  "blender": "4.3.2",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "frame_size": [
+    512,
+    320
+  ],
+  "fps": 30,
+  "frames_per_clip": 36,
+  "duration_ms": 1200,
+  "retiming": "Original 20 fps key times multiplied by 1.5; re-evaluated and rendered, not repeated frames or faster playback.",
+  "clips": {
+    "thrust": [
+      1,
+      36
+    ],
+    "idle": [
+      37,
+      72
+    ]
+  },
+  "source": "assets/source/jigoku-2d/yukimura-yari-ready.png",
+  "source_sha256": "29be91e9db5fbd09e3e07eb4399a90a05ee2604ddd9a0e1f3d50639e76a9c29a",
+  "frames": [
+    {
+      "frame": 1,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.0,
+        "Cloth": 0.0
+      },
+      "min_triangle_area_ratio": 1.0,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 2,
+      "values": {
+        "Thrust": -0.017037037760019302,
+        "Breath": 0.0,
+        "Cloth": -0.0030579851008951664
+      },
+      "min_triangle_area_ratio": 0.9786915871517904,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 3,
+      "values": {
+        "Thrust": -0.060740746557712555,
+        "Breath": 0.0,
+        "Cloth": -0.011402656324207783
+      },
+      "min_triangle_area_ratio": 0.9240308718809047,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 4,
+      "values": {
+        "Thrust": -0.12000000476837158,
+        "Breath": 0.0,
+        "Cloth": -0.023790087550878525
+      },
+      "min_triangle_area_ratio": 0.8499146577350627,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 5,
+      "values": {
+        "Thrust": -0.1837037205696106,
+        "Breath": 0.0,
+        "Cloth": -0.03897635266184807
+      },
+      "min_triangle_area_ratio": 0.7702397109879578,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 6,
+      "values": {
+        "Thrust": -0.24074074625968933,
+        "Breath": 0.0,
+        "Cloth": -0.05571752414107323
+      },
+      "min_triangle_area_ratio": 0.698902867802075,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 7,
+      "values": {
+        "Thrust": -0.2800000011920929,
+        "Breath": 0.0,
+        "Cloth": -0.07276967912912369
+      },
+      "min_triangle_area_ratio": 0.649800880473256,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 8,
+      "values": {
+        "Thrust": -0.3011797070503235,
+        "Breath": 0.0,
+        "Cloth": -0.08888889849185944
+      },
+      "min_triangle_area_ratio": 0.6233111865024984,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 9,
+      "values": {
+        "Thrust": -0.3131412863731384,
+        "Breath": 0.0,
+        "Cloth": -0.10283123701810837
+      },
+      "min_triangle_area_ratio": 0.6083507060412074,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 10,
+      "values": {
+        "Thrust": -0.3185185194015503,
+        "Breath": 0.0,
+        "Cloth": -0.11335279047489166
+      },
+      "min_triangle_area_ratio": 0.6016253408125272,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 11,
+      "values": {
+        "Thrust": -0.31994515657424927,
+        "Breath": 0.0,
+        "Cloth": -0.11920958757400513
+      },
+      "min_triangle_area_ratio": 0.5998410298138575,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 12,
+      "values": {
+        "Thrust": -0.2222222089767456,
+        "Breath": 0.0,
+        "Cloth": -0.11944444477558136
+      },
+      "min_triangle_area_ratio": 0.7220642086013559,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 13,
+      "values": {
+        "Thrust": 0.3399999737739563,
+        "Breath": 0.0,
+        "Cloth": -0.10499999672174454
+      },
+      "min_triangle_area_ratio": 0.7214996997002793,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 14,
+      "values": {
+        "Thrust": 0.9022222757339478,
+        "Breath": 0.0,
+        "Cloth": -0.05055556446313858
+      },
+      "min_triangle_area_ratio": 0.260972958497773,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 15,
+      "values": {
+        "Thrust": 1.0,
+        "Breath": 0.0,
+        "Cloth": 0.08170095086097717
+      },
+      "min_triangle_area_ratio": 0.18088140652363904,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 16,
+      "values": {
+        "Thrust": 1.0,
+        "Breath": 0.0,
+        "Cloth": 0.33925923705101013
+      },
+      "min_triangle_area_ratio": 0.18088140652363904,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 17,
+      "values": {
+        "Thrust": 0.9745101928710938,
+        "Breath": 0.0,
+        "Cloth": 0.642249584197998
+      },
+      "min_triangle_area_ratio": 0.2017605814870604,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 18,
+      "values": {
+        "Thrust": 0.9074189066886902,
+        "Breath": 0.0,
+        "Cloth": 0.8945403695106506
+      },
+      "min_triangle_area_ratio": 0.2567163014593064,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 19,
+      "values": {
+        "Thrust": 0.8127933144569397,
+        "Breath": 0.0,
+        "Cloth": 1.0
+      },
+      "min_triangle_area_ratio": 0.3342258834750526,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 20,
+      "values": {
+        "Thrust": 0.7047005891799927,
+        "Breath": 0.0,
+        "Cloth": 0.9392592906951904
+      },
+      "min_triangle_area_ratio": 0.42276664456892443,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 21,
+      "values": {
+        "Thrust": 0.5969269871711731,
+        "Breath": 0.0,
+        "Cloth": 0.7807406783103943
+      },
+      "min_triangle_area_ratio": 0.511046005860278,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 22,
+      "values": {
+        "Thrust": 0.49679863452911377,
+        "Breath": 0.0,
+        "Cloth": 0.5600000023841858
+      },
+      "min_triangle_area_ratio": 0.5930630012435412,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 23,
+      "values": {
+        "Thrust": 0.4051818251609802,
+        "Breath": 0.0,
+        "Cloth": 0.312592476606369
+      },
+      "min_triangle_area_ratio": 0.6681080332719591,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 24,
+      "values": {
+        "Thrust": 0.32266169786453247,
+        "Breath": 0.0,
+        "Cloth": 0.07407408952713013
+      },
+      "min_triangle_area_ratio": 0.7357018038765063,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 25,
+      "values": {
+        "Thrust": 0.24982348084449768,
+        "Breath": 0.0,
+        "Cloth": -0.12000000476837158
+      },
+      "min_triangle_area_ratio": 0.7953649417532931,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 26,
+      "values": {
+        "Thrust": 0.18725243210792542,
+        "Breath": 0.0,
+        "Cloth": -0.23407411575317383
+      },
+      "min_triangle_area_ratio": 0.8466180511867286,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 27,
+      "values": {
+        "Thrust": 0.13549664616584778,
+        "Breath": 0.0,
+        "Cloth": -0.24777092039585114
+      },
+      "min_triangle_area_ratio": 0.8890121777718757,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 28,
+      "values": {
+        "Thrust": 0.0942491814494133,
+        "Breath": 0.0,
+        "Cloth": -0.23148147761821747
+      },
+      "min_triangle_area_ratio": 0.9227987430548606,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 29,
+      "values": {
+        "Thrust": 0.062348153442144394,
+        "Breath": 0.0,
+        "Cloth": -0.20284636318683624
+      },
+      "min_triangle_area_ratio": 0.948929468246628,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 30,
+      "values": {
+        "Thrust": 0.03859449923038483,
+        "Breath": 0.0,
+        "Cloth": -0.16598080098628998
+      },
+      "min_triangle_area_ratio": 0.9594871000933388,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 31,
+      "values": {
+        "Thrust": 0.021789120510220528,
+        "Breath": 0.0,
+        "Cloth": -0.125
+      },
+      "min_triangle_area_ratio": 0.9692418045373191,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 32,
+      "values": {
+        "Thrust": 0.010732963681221008,
+        "Breath": 0.0,
+        "Cloth": -0.08401919156312943
+      },
+      "min_triangle_area_ratio": 0.9791849155883007,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 33,
+      "values": {
+        "Thrust": 0.004226945340633392,
+        "Breath": 0.0,
+        "Cloth": -0.04715365171432495
+      },
+      "min_triangle_area_ratio": 0.9882488921886696,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 34,
+      "values": {
+        "Thrust": 0.0010720789432525635,
+        "Breath": 0.0,
+        "Cloth": -0.018518507480621338
+      },
+      "min_triangle_area_ratio": 0.9953608164551795,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 35,
+      "values": {
+        "Thrust": 6.914883852005005e-05,
+        "Breath": 0.0,
+        "Cloth": -0.0022290945053100586
+      },
+      "min_triangle_area_ratio": 0.9994389706304181,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 36,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.0,
+        "Cloth": 0.0
+      },
+      "min_triangle_area_ratio": 1.0,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 37,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.0,
+        "Cloth": 0.0
+      },
+      "min_triangle_area_ratio": 1.0,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 38,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.03429355472326279,
+        "Cloth": 0.005144033115357161
+      },
+      "min_triangle_area_ratio": 0.9990974527641738,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 39,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.12620027363300323,
+        "Cloth": 0.018930042162537575
+      },
+      "min_triangle_area_ratio": 0.9966747937217338,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 40,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.25925928354263306,
+        "Cloth": 0.03888889402151108
+      },
+      "min_triangle_area_ratio": 0.9931574712112786,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 41,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.4170095920562744,
+        "Cloth": 0.06255143880844116
+      },
+      "min_triangle_area_ratio": 0.9889722942902062,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 42,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.5829904079437256,
+        "Cloth": 0.08744857460260391
+      },
+      "min_triangle_area_ratio": 0.9845510011898958,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 43,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.7407408356666565,
+        "Cloth": 0.111111119389534
+      },
+      "min_triangle_area_ratio": 0.9803320785228086,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 44,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.8737996816635132,
+        "Cloth": 0.13106994330883026
+      },
+      "min_triangle_area_ratio": 0.976760726193459,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 45,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.965706467628479,
+        "Cloth": 0.14485596120357513
+      },
+      "min_triangle_area_ratio": 0.9742870795241422,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 46,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 1.0,
+        "Cloth": 0.15000000596046448
+      },
+      "min_triangle_area_ratio": 0.9733626445323719,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 47,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.9821673631668091,
+        "Cloth": 0.14732509851455688
+      },
+      "min_triangle_area_ratio": 0.9738434487642621,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 48,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.9314128756523132,
+        "Cloth": 0.13971194624900818
+      },
+      "min_triangle_area_ratio": 0.9752107292453115,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 49,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.8518518209457397,
+        "Cloth": 0.12777778506278992
+      },
+      "min_triangle_area_ratio": 0.9773506161426609,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 50,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.7475994229316711,
+        "Cloth": 0.11213992536067963
+      },
+      "min_triangle_area_ratio": 0.9801482727818916,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 51,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.6227709054946899,
+        "Cloth": 0.09341563284397125
+      },
+      "min_triangle_area_ratio": 0.983488653610035,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 52,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.4814814329147339,
+        "Cloth": 0.07222221791744232
+      },
+      "min_triangle_area_ratio": 0.9872570966461399,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 53,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.32784637808799744,
+        "Cloth": 0.04917696490883827
+      },
+      "min_triangle_area_ratio": 0.9913398477265624,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 54,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.16598078608512878,
+        "Cloth": 0.024897124618291855
+      },
+      "min_triangle_area_ratio": 0.9956244481744306,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 55,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.0,
+        "Cloth": 0.0
+      },
+      "min_triangle_area_ratio": 1.0,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 56,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.16598080098628998,
+        "Cloth": -0.024897119030356407
+      },
+      "min_triangle_area_ratio": 0.9913409788315126,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 57,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.32784637808799744,
+        "Cloth": -0.04917695373296738
+      },
+      "min_triangle_area_ratio": 0.9829214264150214,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 58,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.48148149251937866,
+        "Cloth": -0.07222222536802292
+      },
+      "min_triangle_area_ratio": 0.9749526220979927,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 59,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.6227709650993347,
+        "Cloth": -0.09341564029455185
+      },
+      "min_triangle_area_ratio": 0.9676436284351076,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 60,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.7475994825363159,
+        "Cloth": -0.11213993281126022
+      },
+      "min_triangle_area_ratio": 0.9612016785964604,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 61,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.8518518209457397,
+        "Cloth": -0.12777778506278992
+      },
+      "min_triangle_area_ratio": 0.9558327468911597,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 62,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.931412935256958,
+        "Cloth": -0.13971194624900818
+      },
+      "min_triangle_area_ratio": 0.9517422294791501,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 63,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.9821673631668091,
+        "Cloth": -0.14732509851455688
+      },
+      "min_triangle_area_ratio": 0.9491358561785487,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 64,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -1.0,
+        "Cloth": -0.15000000596046448
+      },
+      "min_triangle_area_ratio": 0.9482206705568299,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 65,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.9514073729515076,
+        "Cloth": -0.1427111178636551
+      },
+      "min_triangle_area_ratio": 0.9507151726629268,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 66,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.8245925903320312,
+        "Cloth": -0.12368889153003693
+      },
+      "min_triangle_area_ratio": 0.9572356026208382,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 67,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.6480000019073486,
+        "Cloth": -0.09720000624656677
+      },
+      "min_triangle_area_ratio": 0.96634047345076,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 68,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.4500739872455597,
+        "Cloth": -0.06751110404729843
+      },
+      "min_triangle_area_ratio": 0.9765798843835685,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 69,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.2592591643333435,
+        "Cloth": -0.03888888657093048
+      },
+      "min_triangle_area_ratio": 0.9864860475531714,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 70,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.10399997234344482,
+        "Cloth": -0.015599995851516724
+      },
+      "min_triangle_area_ratio": 0.9945714345663775,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 71,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": -0.012740850448608398,
+        "Cloth": -0.0019111037254333496
+      },
+      "min_triangle_area_ratio": 0.9993344192006766,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    },
+    {
+      "frame": 72,
+      "values": {
+        "Thrust": 0.0,
+        "Breath": 0.0,
+        "Cloth": 0.0
+      },
+      "min_triangle_area_ratio": 1.0,
+      "weapon_hand_translation_error_source_px": 0.0,
+      "foot_anchor_drift_source_px": 0.0
+    }
+  ],
+  "limits": [
+    "One fixed source view; no reconstructed back side.",
+    "Small planar thrust only; no skeletal IK, independent fingers, sliding grip or large shoulder rotation.",
+    "Lighting baked in source pose, not recalculated on a 3D animated body.",
+    "Painted original shadows remain. The source view is shallow three-quarter, not a calibrated isometric camera."
+  ],
+  "render_seconds": 287.923,
+  "scene": "assets/optimized/jigoku-2d/yari-motion.blend",
+  "scene_sha256": "ce4998f66a86202da21c7741c1de544d629d535366b83688628cf12239ca3c9e"
+}

@@ -1,0 +1,115 @@
+{
+  "status": "downloaded_and_verified",
+  "reference_sha256": "c84b28641b60b6593a85922881c030840b72fbf6584ea298c697bd002ad106a8",
+  "reference_size": [
+    1024,
+    1536
+  ],
+  "reference_mode": "RGBA",
+  "trellis_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "modal_authentication": "passed with system trust and TLS verification",
+  "gpu_inference_started": true,
+  "model_produced": true,
+  "blocker": null,
+  "required_domains": [
+    "e29e5794c3a8abd52b1549c7703408b1.r2.cloudflarestorage.com",
+    "modal-blobs.s3-accelerate.amazonaws.com",
+    "input-plane.us-east.modal.com"
+  ],
+  "environment_draft_saved": true,
+  "draft_applied": null,
+  "image_build": "completed",
+  "planned_settings": {
+    "gpu": "H100",
+    "pipeline": "1024_cascade",
+    "seed": 1615,
+    "texture_size": 2048,
+    "decimation_target": 150000
+  },
+  "validation": {
+    "reference_alpha": "passed",
+    "python_syntax": "passed",
+    "viewer_javascript_syntax": "passed",
+    "blender_render_helper": "passed on actual TRELLIS.2 GLB: 5 views, Cycles CPU, 1000x1000, 32 samples",
+    "modal_authentication": "passed",
+    "modal_blob_upload": "passed: actual 2192353-byte reference uploaded",
+    "trellis_inference": "passed: H100 1024_cascade",
+    "new_model_viewer": "passed: Chromium 1280x900 and 390x844; local HTTP then offline controls",
+    "trellis_native_image_build": "passed",
+    "h100_gpu_environment": "passed",
+    "modal_dispatch": "passed: H100 worker started",
+    "credential_preflight": "passed: named Secret and authorized CPU config/weight access",
+    "alpha_preprocessing": "passed: pinned upstream method processed actual RGBA input to 1010x1010 RGB with rembg_model=None",
+    "alpha_pipeline_load": "passed end-to-end",
+    "updated_modal_build_only": "passed: CPU preflight image built; both Modal functions registered; inference skipped",
+    "sha256": "passed against downloaded generation.json",
+    "geometry": "finite 3D mesh, UV, normals and two embedded textures; 5 near-zero-area triangles require cleanup"
+  },
+  "image_id": "im-CWPfod9BzDeCjqD07JU8Ui",
+  "build_run": "https://modal.com/apps/clarence-chien/main/ap-kjWiE0TfzsHTOjb0R09Blg",
+  "gpu_environment_check": {
+    "passed": true,
+    "device": "NVIDIA H100 80GB HBM3",
+    "checks": [
+      "TRELLIS.2 imports",
+      "CuMesh triangle initialization",
+      "nvdiffrast CUDA rasterization"
+    ],
+    "image_step_seconds": 74.51,
+    "note": "Environment test only; did not load generation weights or generate the character"
+  },
+  "updated_at": "2026-10-18T11:07:24.078737+00:00",
+  "inference_attempt_run": "https://modal.com/apps/clarence-chien/main/ap-nHdcCT6DN389ycIcEm9qKW",
+  "proxy_check": {
+    "https_proxy_present": true,
+    "sdk_uses_proxy": true,
+    "tls_verification_enabled": true,
+    "no_proxy_bypass": false,
+    "api_connect": "accepted",
+    "blob_hosts_connect": "accepted",
+    "input_plane_connect": "accepted",
+    "draft_saved_with_input_plane": true,
+    "note": "Dispatch verified on H100; network access blocker resolved."
+  },
+  "gpu_worker_started": true,
+  "runtime_tasks": 0,
+  "huggingface_access": {
+    "model": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+    "modal_secret_present": true,
+    "required_modal_secret": "trellis-huggingface",
+    "required_key": "HF_TOKEN",
+    "cpu_config_and_weights_preflight": "passed",
+    "background_removal": "provided alpha; complete modified loader verified, RMBG-2.0 not loaded"
+  },
+  "preflight_build_run": "https://modal.com/apps/clarence-chien/main/ap-AOvojzEVcHHi5sLQmAUrQw",
+  "official_demo_fallback": {
+    "space": "microsoft/TRELLIS.2",
+    "client": "gradio_client 2.0.3",
+    "session": "passed",
+    "upload_and_preprocessing": "passed",
+    "image_to_3d": "AppError: upstream exception with verbose error reporting disabled",
+    "model_produced": false
+  },
+  "alternative_route": {
+    "engine": "TRELLIS first generation with DINOv2",
+    "status": "downloaded_and_verified",
+    "details": "trellis1/status.json",
+    "dinov3_required": false,
+    "model_produced_on_modal": true,
+    "model_downloaded": true
+  },
+  "model_downloaded": true,
+  "local_renders_produced": true,
+  "inference_run": "https://modal.com/apps/clarence-chien/main/ap-YwgcT6SN8yjPADqOnS0g8B",
+  "download_run": "https://modal.com/apps/clarence-chien/main/ap-Kp2aCksY9D70pWrGVwsbSs",
+  "result": {
+    "vertices": 138656,
+    "triangles": 148107,
+    "source_triangles": 5931928,
+    "bytes": 19521392,
+    "sha256": "06694cadc764e3081fae64e14a51805e315384099e5ca0d7f42b890a93863f3b",
+    "rigged": false,
+    "animated": false
+  },
+  "recovery": "Remote generation and Volume commit succeeded; TorchVersion return deserialization failed locally. Download-only recovered and hash-verified both artifacts without regenerating. Future report casts torch version to str."
+}

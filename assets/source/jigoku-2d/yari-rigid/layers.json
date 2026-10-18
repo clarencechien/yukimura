@@ -1,0 +1,204 @@
+{
+  "canvas": [
+    1536,
+    1024
+  ],
+  "layers": {
+    "rear_upper": {
+      "box": [
+        267,
+        301,
+        468,
+        414
+      ],
+      "files": {
+        "neutral": "rear_upper-neutral.png",
+        "warm-left": "rear_upper-warm-left.png",
+        "cool-right": "rear_upper-cool-right.png"
+      }
+    },
+    "rear_forearm": {
+      "box": [
+        267,
+        350,
+        352,
+        504
+      ],
+      "files": {
+        "neutral": "rear_forearm-neutral.png",
+        "warm-left": "rear_forearm-warm-left.png",
+        "cool-right": "rear_forearm-cool-right.png"
+      }
+    },
+    "rear_hand": {
+      "box": [
+        280,
+        462,
+        373,
+        553
+      ],
+      "files": {
+        "neutral": "rear_hand-neutral.png",
+        "warm-left": "rear_hand-warm-left.png",
+        "cool-right": "rear_hand-cool-right.png"
+      }
+    },
+    "front_upper": {
+      "box": [
+        648,
+        343,
+        776,
+        452
+      ],
+      "files": {
+        "neutral": "front_upper-neutral.png",
+        "warm-left": "front_upper-warm-left.png",
+        "cool-right": "front_upper-cool-right.png"
+      }
+    },
+    "front_forearm": {
+      "box": [
+        699,
+        398,
+        853,
+        488
+      ],
+      "files": {
+        "neutral": "front_forearm-neutral.png",
+        "warm-left": "front_forearm-warm-left.png",
+        "cool-right": "front_forearm-cool-right.png"
+      }
+    },
+    "front_hand": {
+      "box": [
+        820,
+        423,
+        901,
+        497
+      ],
+      "files": {
+        "neutral": "front_hand-neutral.png",
+        "warm-left": "front_hand-warm-left.png",
+        "cool-right": "front_hand-cool-right.png"
+      }
+    },
+    "weapon": {
+      "box": [
+        14,
+        187,
+        1528,
+        585
+      ],
+      "files": {
+        "neutral": "weapon-neutral.png",
+        "warm-left": "weapon-warm-left.png",
+        "cool-right": "weapon-cool-right.png"
+      }
+    },
+    "torso": {
+      "box": [
+        298,
+        0,
+        816,
+        489
+      ],
+      "files": {
+        "neutral": "torso-neutral.png",
+        "warm-left": "torso-warm-left.png",
+        "cool-right": "torso-cool-right.png"
+      }
+    },
+    "pelvis": {
+      "box": [
+        239,
+        472,
+        823,
+        828
+      ],
+      "files": {
+        "neutral": "pelvis-neutral.png",
+        "warm-left": "pelvis-warm-left.png",
+        "cool-right": "pelvis-cool-right.png"
+      }
+    },
+    "rear_thigh": {
+      "box": [
+        260,
+        569,
+        515,
+        812
+      ],
+      "files": {
+        "neutral": "rear_thigh-neutral.png",
+        "warm-left": "rear_thigh-warm-left.png",
+        "cool-right": "rear_thigh-cool-right.png"
+      }
+    },
+    "rear_shin": {
+      "box": [
+        185,
+        729,
+        372,
+        932
+      ],
+      "files": {
+        "neutral": "rear_shin-neutral.png",
+        "warm-left": "rear_shin-warm-left.png",
+        "cool-right": "rear_shin-cool-right.png"
+      }
+    },
+    "rear_foot": {
+      "box": [
+        145,
+        883,
+        269,
+        1012
+      ],
+      "files": {
+        "neutral": "rear_foot-neutral.png",
+        "warm-left": "rear_foot-warm-left.png",
+        "cool-right": "rear_foot-cool-right.png"
+      }
+    },
+    "front_thigh": {
+      "box": [
+        619,
+        571,
+        866,
+        777
+      ],
+      "files": {
+        "neutral": "front_thigh-neutral.png",
+        "warm-left": "front_thigh-warm-left.png",
+        "cool-right": "front_thigh-cool-right.png"
+      }
+    },
+    "front_shin": {
+      "box": [
+        765,
+        661,
+        957,
+        886
+      ],
+      "files": {
+        "neutral": "front_shin-neutral.png",
+        "warm-left": "front_shin-warm-left.png",
+        "cool-right": "front_shin-cool-right.png"
+      }
+    },
+    "front_foot": {
+      "box": [
+        843,
+        822,
+        1031,
+        926
+      ],
+      "files": {
+        "neutral": "front_foot-neutral.png",
+        "warm-left": "front_foot-warm-left.png",
+        "cool-right": "front_foot-cool-right.png"
+      }
+    }
+  },
+  "method": "Rigid alpha cutouts; clean body prepared once by image_gen, original limbs/weapon retained."
+}

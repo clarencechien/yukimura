@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>空手承重・骨架試算</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Noto Sans TC",sans-serif;background:#11191d;color:#e8deca}body{max-width:1320px;margin:auto;padding:24px}h1{font-weight:500;letter-spacing:.08em;margin-bottom:8px}p{line-height:1.7;color:#b9c4c5}a{color:#ddbb7e}canvas{width:100%;height:auto;background:#19252c;border:1px solid #36454c;border-radius:8px;display:block}fieldset{border:1px solid #36454c;border-radius:8px;display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin:18px 0;padding:15px}button,select{padding:10px 16px;border:1px solid #617177;background:#26383f;color:#f3e5ce;border-radius:5px;font:inherit}input[type=range]{width:min(450px,65vw)}.note{background:#243139;padding:16px;border-left:3px solid #d9b574}table{border-collapse:collapse;width:100%;margin:18px 0}td,th{padding:10px;text-align:left;border-bottom:1px solid #36454c}small{color:#a9b8bb}@media(max-width:650px){body{padding:12px}h1{font-size:24px}table{font-size:13px}td,th{padding:7px}}
+</style></head><body>
+<a href="../COMBAT_STUDY.md">← 製作紀錄</a><h1>空手承重・骨架試算</h1>
+<p>屈膝 → 蹲低 → 跪下。先確認肩、腕距離能否由同一副手臂接起來，再決定補圖的位置。</p>
+<p class="note"><strong>這是製作檢視頁，尚未替換遊戲動作。</strong>淡色人物保留原畫；綠線只表示需要重畫的肩部位置，沒有移動人物像素。試修稿仍未採用。</p>
+<fieldset id="controls" disabled><button id="play" type="button">播放試算 ×¼</button><label>時間 <input id="time" type="range" min="180" max="420" value="330" step="1"> <output id="age">330 ms</output></label><label>跪地來源 <select id="source"><option value="original">現行原畫</option><option value="candidate">未採用試修稿</option></select></label></fieldset>
+<canvas id="view" width="1320" height="560" aria-label="原畫人工標記、固定臂長可達性與降肩目標三欄比較"></canvas>
+<p id="status" role="status">載入素材…</p>
+<table><thead><tr><th>階段</th><th>肩到腕</th><th>超出 175 px</th><th>預留 5 px 後需降肩</th></tr></thead><tbody id="measurements"></tbody></table>
+<small>單位為 1152×768 原畫座標，遊戲顯示乘 0.6。85／90 px 是本次候選臂長，不是人體標準；持刀側原本的 65／75 px 骨架不受影響。關節位於鎧甲內，標記是人工估計，每個端點約有 ±8 px 不確定性。這個平面試算不能證明三維解剖、關節活動範圍或受力正確。</small>
+<script type="module" src="review.mjs"></script></body></html>

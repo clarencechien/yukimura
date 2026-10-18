@@ -1,0 +1,216 @@
+{
+  "baselineCommit": "510560461411fba4ed6c0fd7161cc9df4ff2abf5",
+  "armSource": {
+    "path": "assets/source/jigoku-2d/ghost-rig/arm-parts-stocky.png",
+    "sha256": "210bebe28d3e5225007eff5ba52e13468f43fdc1171dd5d436ae7eab2525669e"
+  },
+  "parts": {
+    "upper": {
+      "box": [
+        260,
+        0,
+        700,
+        630
+      ],
+      "scale": 0.1827956989247312,
+      "size": [
+        80,
+        115
+      ],
+      "displaySize": [
+        80.43010752688173,
+        115.16129032258065
+      ],
+      "pivot": [
+        38.38709677419355,
+        12.795698924731184
+      ],
+      "end": [
+        38.38709677419355,
+        97.79569892473118
+      ],
+      "axisDegrees": 90
+    },
+    "fore": {
+      "box": [
+        860,
+        0,
+        1320,
+        630
+      ],
+      "scale": 0.18,
+      "size": [
+        83,
+        113
+      ],
+      "displaySize": [
+        82.8,
+        113.39999999999999
+      ],
+      "pivot": [
+        39.6,
+        14.399999999999999
+      ],
+      "end": [
+        39.6,
+        104.39999999999999
+      ],
+      "axisDegrees": 90
+    },
+    "relax": {
+      "box": [
+        260,
+        630,
+        650,
+        1024
+      ],
+      "scale": 0.16,
+      "size": [
+        62,
+        63
+      ],
+      "displaySize": [
+        62.4,
+        63.04
+      ],
+      "pivot": [
+        32.8,
+        9.6
+      ],
+      "end": null,
+      "axisDegrees": 90
+    },
+    "open": {
+      "box": [
+        910,
+        630,
+        1290,
+        1024
+      ],
+      "scale": 0.16,
+      "size": [
+        61,
+        63
+      ],
+      "displaySize": [
+        60.800000000000004,
+        63.04
+      ],
+      "pivot": [
+        30.400000000000002,
+        9.6
+      ],
+      "end": null,
+      "axisDegrees": 90
+    }
+  },
+  "body": {
+    "source": "assets/source/jigoku-2d/ghost-rig/crouch-arm-clean.png",
+    "sha256": "1413b348a80d488795c7468ef44c69b06565e1748e39581bb3bee9261a764a32",
+    "generatedFile": "exec-f616386a-1a7b-469c-9fd7-0d2976ab0b50.png",
+    "scale": 0.42,
+    "offset": [
+      201,
+      285
+    ],
+    "shoulderSource": [
+      750,
+      260
+    ],
+    "shoulder": [
+      516.0,
+      394.2
+    ],
+    "soleSources": [
+      [
+        586,
+        934
+      ],
+      [
+        1255,
+        954
+      ]
+    ],
+    "soles": [
+      [
+        447.12,
+        677.28
+      ],
+      [
+        728.1,
+        685.6800000000001
+      ]
+    ]
+  },
+  "cap": {
+    "box": [
+      465,
+      344,
+      560,
+      441
+    ],
+    "polygonSource": [
+      [
+        640,
+        190
+      ],
+      [
+        700,
+        148
+      ],
+      [
+        780,
+        165
+      ],
+      [
+        823,
+        245
+      ],
+      [
+        850,
+        335
+      ],
+      [
+        718,
+        364
+      ],
+      [
+        671,
+        297
+      ]
+    ],
+    "polygon": [
+      [
+        469.8,
+        364.8
+      ],
+      [
+        495.0,
+        347.15999999999997
+      ],
+      [
+        528.5999999999999,
+        354.3
+      ],
+      [
+        546.66,
+        387.9
+      ],
+      [
+        558.0,
+        425.7
+      ],
+      [
+        502.56,
+        437.88
+      ],
+      [
+        482.82,
+        409.74
+      ]
+    ]
+  },
+  "method": "Upper/forearm and two hand states reused from existing stocky parts sheet, cropped and uniformly resampled. One image_gen near-arm removal and occlusion restoration of crouch-consistent.png; generated body framing/design drift remains. Fixed crouch fitting only, shoulder stays stationary; no full kneel or support contact. Cap is a masked mechanical source crop, not independently painted.",
+  "runtimeChanged": false,
+  "reviewRGBA8Bytes": 3681116
+}

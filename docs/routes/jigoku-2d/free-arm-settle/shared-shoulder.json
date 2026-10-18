@@ -1,0 +1,271 @@
+{
+  "baselineCommit": "3eb80f3a439bd0552cc0178e39d789876d073577",
+  "start": 1220,
+  "end": 1500,
+  "cap": {
+    "url": "fall-bridge-cap.webp",
+    "box": [
+      448,
+      522,
+      551,
+      632
+    ],
+    "polygon": [
+      [
+        448.5,
+        524.6
+      ],
+      [
+        494.0,
+        522.5
+      ],
+      [
+        541.6,
+        575.0
+      ],
+      [
+        550.0,
+        608.5999999999999
+      ],
+      [
+        516.4,
+        631.0
+      ],
+      [
+        469.5,
+        601.5999999999999
+      ]
+    ],
+    "pivot": [
+      494.0,
+      541.0
+    ]
+  },
+  "torsos": {
+    "bridge": {
+      "url": "shoulderless-bridge.webp",
+      "box": [
+        342,
+        482,
+        614,
+        677
+      ],
+      "source": "headless-bridge.webp",
+      "sourceSHA256": "61cdd605484573a665bac6e569a077a54c751d9708c9daf288553c0d61d27026",
+      "cap": {
+        "url": "fall-bridge-cap.webp",
+        "box": [
+          448,
+          522,
+          551,
+          632
+        ],
+        "polygon": [
+          [
+            448.5,
+            524.6
+          ],
+          [
+            494.0,
+            522.5
+          ],
+          [
+            541.6,
+            575.0
+          ],
+          [
+            550.0,
+            608.5999999999999
+          ],
+          [
+            516.4,
+            631.0
+          ],
+          [
+            469.5,
+            601.5999999999999
+          ]
+        ]
+      },
+      "maskExpansionPixels": 1
+    },
+    "roll": {
+      "url": "shoulderless-roll.webp",
+      "box": [
+        345,
+        477,
+        614,
+        675
+      ],
+      "source": "headless-roll.webp",
+      "sourceSHA256": "054c2772ffc4f5403e87ddb9482a1f2742383df994991d41c6ce609f39ced3f4",
+      "cap": {
+        "url": "fall-roll-cap.webp",
+        "box": [
+          455,
+          516,
+          541,
+          620
+        ],
+        "polygon": [
+          [
+            455.5,
+            516.5
+          ],
+          [
+            500.29999999999995,
+            520.0
+          ],
+          [
+            530.4,
+            562.7
+          ],
+          [
+            540.2,
+            603.3
+          ],
+          [
+            491.2,
+            619.4
+          ],
+          [
+            466.0,
+            604.0
+          ]
+        ]
+      },
+      "maskExpansionPixels": 1
+    },
+    "side": {
+      "url": "shoulderless-side.webp",
+      "box": [
+        315,
+        502,
+        576,
+        679
+      ],
+      "source": "headless-side.webp",
+      "sourceSHA256": "f3862b3549c11d0cb2899f4d87e218f91ea1af7222237e961aa9d924b1fc1d5e",
+      "cap": {
+        "url": "fall-side-cap.webp",
+        "box": [
+          410,
+          530,
+          505,
+          628
+        ],
+        "polygon": [
+          [
+            410.3,
+            534.1
+          ],
+          [
+            450.9,
+            530.6
+          ],
+          [
+            491.5,
+            574.0
+          ],
+          [
+            504.1,
+            603.4
+          ],
+          [
+            450.2,
+            627.2
+          ],
+          [
+            422.9,
+            588.7
+          ]
+        ]
+      },
+      "maskExpansionPixels": 1
+    },
+    "rest": {
+      "url": "shoulderless-rest.webp",
+      "box": [
+        306,
+        515,
+        561,
+        691
+      ],
+      "source": "headless-rest.webp",
+      "sourceSHA256": "9fc028fe33237dd8311724b50b6455c994377825f8d0948abcf7c76d93401c7b",
+      "cap": {
+        "url": "fall-rest-cap.webp",
+        "box": [
+          413,
+          528,
+          519,
+          627
+        ],
+        "polygon": [
+          [
+            413.9,
+            541.5
+          ],
+          [
+            466.4,
+            528.2
+          ],
+          [
+            498.6,
+            567.4
+          ],
+          [
+            518.2,
+            605.2
+          ],
+          [
+            472.7,
+            626.2
+          ],
+          [
+            438.4,
+            594.0
+          ]
+        ]
+      },
+      "maskExpansionPixels": 1
+    }
+  },
+  "lining": {
+    "source": "headless-bridge.webp",
+    "sourceSHA256": "61cdd605484573a665bac6e569a077a54c751d9708c9daf288553c0d61d27026",
+    "box": [
+      182,
+      52,
+      202,
+      66
+    ]
+  },
+  "keys": [
+    {
+      "time": 1260,
+      "angle": 2,
+      "offset": [
+        0,
+        -6
+      ]
+    },
+    {
+      "time": 1380,
+      "angle": 10,
+      "offset": [
+        -10,
+        -12
+      ]
+    },
+    {
+      "time": 1500,
+      "angle": 14,
+      "offset": [
+        0,
+        -20
+      ]
+    }
+  ],
+  "method": "Reuse existing fall-bridge-cap.webp at fixed size. Plate mount follows the shoulder with an authored collar offset. Four torso variants retain their alpha and replace the old plate footprint with native-scale tiled existing quilted lining. One-pixel mask expansion. Authored rotation, not shoulder biomechanics."
+}

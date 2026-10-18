@@ -1,0 +1,112 @@
+{
+  "scope": "Manually inspected projected sole centers, not optical flow or a physical foot-lock measurement. Shoulder coordinates are actual runtime layer origins.",
+  "previousCommit": "80c217c6c57c7aecd039604428f99afca13bb4f4",
+  "previousSoleCentersHD": [
+    [
+      [
+        461,
+        688
+      ],
+      [
+        681,
+        665
+      ]
+    ],
+    [
+      [
+        350,
+        678
+      ],
+      [
+        765,
+        677
+      ]
+    ],
+    [
+      [
+        448,
+        684
+      ],
+      [
+        729,
+        686
+      ]
+    ]
+  ],
+  "previousFootStepsWorld": [
+    [
+      66.86972409095165,
+      50.91168824543142
+    ],
+    [
+      58.91010100144117,
+      22.264770378335367
+    ]
+  ],
+  "currentFootStepsWorld": [
+    [
+      9.634111271933701,
+      30.35396619883471
+    ],
+    [
+      2.401686907155043,
+      1.749532508986355
+    ]
+  ],
+  "samples": [
+    {
+      "phase": "hurt",
+      "sample": 25,
+      "shoulder": {
+        "x": 914.8,
+        "y": 330.4
+      },
+      "soleCentersHD": [
+        [
+          461,
+          688
+        ],
+        [
+          681,
+          665
+        ]
+      ]
+    },
+    {
+      "phase": "buckle",
+      "sample": 27,
+      "shoulder": {
+        "x": 901.45,
+        "y": 375.01
+      },
+      "soleCentersHD": [
+        [
+          445.0,
+          686.65
+        ],
+        [
+          726.4,
+          687.32
+        ]
+      ]
+    },
+    {
+      "phase": "crouch",
+      "sample": 29,
+      "shoulder": {
+        "x": 862,
+        "y": 409
+      },
+      "soleCentersHD": [
+        [
+          448,
+          684
+        ],
+        [
+          729,
+          686
+        ]
+      ]
+    }
+  ]
+}
