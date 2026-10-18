@@ -1,6 +1,17 @@
 {
-  "iteration": 5,
-  "socket_vertices_recessed": 1389,
+  "iteration": 12,
+  "removed_generated_skin_faces": 9171,
+  "human_eyes": {
+    "source": "public/review/candidates/rocketbox.glb",
+    "source_sha256": "142e74c396085ae990391803f28d178b2f41266e153f454d23ebebfe7f51e6e7",
+    "license": "MIT",
+    "brow_down": 0.85,
+    "blink": 0.08,
+    "source_patch_faces": 866,
+    "method": "Source orbital skin and eye geometry, UV and normal map; static expression bake",
+    "limitations": "No independent gaze controls, no complete anatomical eyeball reconstruction"
+  },
+  "socket_vertices_recessed": 0,
   "source": "docs/experiments/future-sanada/head-study/head-high.glb",
   "normalization_scale": 2.0057056132613726,
   "generated_source_preserved": true,
@@ -13,7 +24,7 @@
     "Dark visor underside": 2532
   },
   "visor_vertices_adjusted": 4898,
-  "crest_vertices_recessed": 14690,
+  "crest_vertices_recessed": 14149,
   "removed_near_zero_faces": 16,
   "coin_objects": [
     "Six coins / row 1 coin 1",
@@ -24,37 +35,19 @@
     "Six coins / row 2 coin 3"
   ],
   "coin_count": 6,
-  "eye_landmarks": [
-    {
-      "side": -1,
-      "center_x": -0.16,
-      "center_z": 0.747,
-      "half_width": 0.068,
-      "half_height": 0.016,
-      "iris_radius": 0.034,
-      "pupil_radius": 0.011
-    },
-    {
-      "side": 1,
-      "center_x": 0.16,
-      "center_z": 0.747,
-      "half_width": 0.068,
-      "half_height": 0.016,
-      "iris_radius": 0.034,
-      "pupil_radius": 0.011
-    }
-  ],
+  "eye_landmarks": [],
   "changes": [
-    "Raised only front visor by up to 0.06 normalized units",
+    "Raised only front visor by up to 0.02 normalized units",
     "Recessed incorrect four-coin relief and rebuilt six separate square-hole coins",
-    "Added independent sclera, clipped brown iris, pupil, eyelid and brow geometry",
+    "Replaced procedural eye caps with licensed Rocketbox orbital skin and eye geometry",
     "Separated lacquer, gold, cloth and skin material response",
     "Baked independent crest lacquer and brass textures in Blender",
-    "Reduced iris and pupil specular reflection after close-up inspection"
+    "Rebuilt thin six coins with raised outer rims, recessed faces and square-hole lips; flush helmet backing",
+    "Projected original helmet lacquer onto repair and baked coin micro-normal texture"
   ],
   "limitations": [
     "Artist-directed procedural edits, not hand-sculpted anatomical retopology",
-    "Eye surfaces are convex caps, not complete anatomical eyeballs",
+    "Eye appearance and anatomy inherited from Rocketbox; no independent gaze controls",
     "Mask ventilation remains generated and is not certified as a separate hollow mask",
     "No skeleton, weights or facial animation"
   ]

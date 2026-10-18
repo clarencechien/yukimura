@@ -5,7 +5,7 @@ from pathlib import Path
 import argparse,json,math,time
 import bpy
 from mathutils import Vector
-p=argparse.ArgumentParser();p.add_argument('--model',default='docs/experiments/future-sanada/future-sanada.glb');p.add_argument('--output',default='docs/experiments/future-sanada');p.add_argument('--size',type=int,default=1000);p.add_argument('--samples',type=int,default=32);p.add_argument('--basecolor-only',action='store_true',help='Display baked-color assets with metallic=0; leave source GLB unchanged');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--model',default='docs/experiments/future-sanada/future-sanada.glb');p.add_argument('--output',default='docs/experiments/future-sanada');p.add_argument('--size',type=int,default=1000);p.add_argument('--samples',type=int,default=32);p.add_argument('--basecolor-only',action='store_true',help='Display baked-color assets with metallic=0; leave source GLB unchanged');p.add_argument('--skip-scene',action='store_true',help='Write inspection images without duplicating the GLB as a Blender scene');a=p.parse_args()
 out=Path(a.output).resolve();out.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.ops.import_scene.gltf(filepath=str(Path(a.model).resolve()))
@@ -46,5 +46,5 @@ for name,degrees in [('front',0),('three-quarter',35),('side',90),('back',180),(
  angle=math.radians(degrees);camera.location=(math.sin(angle)*5,-math.cos(angle)*5,1.5);aim(camera,(0,0,1.03));scene.render.filepath=str(out/f'{name}.png');started=time.monotonic();bpy.ops.render.render(write_still=True);report['views'].append({'name':name,'degrees':degrees,'seconds':round(time.monotonic()-started,2)})
 for o in meshes:
  for i,m in enumerate(original_materials[o.name]):o.data.materials[i]=m
-bpy.ops.wm.save_as_mainfile(filepath=str(out/'future-sanada-studio.blend'))
+if not a.skip_scene:bpy.ops.wm.save_as_mainfile(filepath=str(out/'future-sanada-studio.blend'))
 (out/'render-report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

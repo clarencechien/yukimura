@@ -4,45 +4,79 @@
     {
       "file": "refined/head-refined.glb",
       "coins": [
-        "Six coins / row 1 coin 1",
-        "Six coins / row 1 coin 2",
-        "Six coins / row 1 coin 3",
-        "Six coins / row 2 coin 1",
-        "Six coins / row 2 coin 2",
-        "Six coins / row 2 coin 3"
+        {
+          "name": "Six coins / row 1 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        }
       ],
-      "pupils": [
-        "Pupil -1",
-        "Pupil 1"
-      ],
-      "irises": [
-        "Iris -1",
-        "Iris 1"
-      ],
-      "skins": 0,
-      "animations": 0
+      "orbital_patch": "Human eyes and orbital skin / Rocketbox",
+      "skin_color_and_normal_textures": true,
+      "procedural_eye_caps_removed": true
     },
     {
       "file": "refined/head-preview.glb",
       "coins": [
-        "Six coins / row 1 coin 1",
-        "Six coins / row 1 coin 2",
-        "Six coins / row 1 coin 3",
-        "Six coins / row 2 coin 1",
-        "Six coins / row 2 coin 2",
-        "Six coins / row 2 coin 3"
+        {
+          "name": "Six coins / row 1 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        }
       ],
-      "pupils": [
-        "Pupil -1",
-        "Pupil 1"
-      ],
-      "irises": [
-        "Iris -1",
-        "Iris 1"
-      ],
-      "skins": 0,
-      "animations": 0
+      "orbital_patch": "Human eyes and orbital skin / Rocketbox",
+      "skin_color_and_normal_textures": true,
+      "procedural_eye_caps_removed": true
     }
   ],
-  "scope": "Actual exported named parts; does not certify anatomy, watertightness or rig readiness"
+  "scope": "Coin closure/center opening and exported human-eye patch. Does not certify full-head topology, likeness, rig or performance."
 }

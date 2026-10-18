@@ -8,9 +8,9 @@
       },
       "loaded": {
         "loaded": true,
-        "triangles": 190729,
-        "meshes": 41,
-        "materials": 41
+        "triangles": 168931,
+        "meshes": 27,
+        "materials": 27
       },
       "controls": "front/side/back/clay/wireframe/autorotate toggles work offline",
       "noHorizontalOverflow": true
@@ -22,9 +22,9 @@
       },
       "loaded": {
         "loaded": true,
-        "triangles": 190729,
-        "meshes": 41,
-        "materials": 41
+        "triangles": 168931,
+        "meshes": 27,
+        "materials": 27
       },
       "controls": "front/side/back/clay/wireframe/autorotate toggles work offline",
       "noHorizontalOverflow": true

@@ -34,5 +34,6 @@ const html=`<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name
 await fs.mkdir(viewerDirectory,{recursive:true});await fs.writeFile(`${viewerDirectory}/index.html`,html);
 await fs.copyFile('node_modules/@babylonjs/core/license.md',`${viewerDirectory}/BABYLON-LICENSE.md`);
 await fs.copyFile(`${directory}/${headStudy?'../':''}TRELLIS-LICENSE.txt`,`${viewerDirectory}/TRELLIS-LICENSE.txt`);
+if(headStudy)await fs.copyFile(`${directory}/ROCKETBOX-LICENSE.txt`,`${viewerDirectory}/ROCKETBOX-LICENSE.txt`);
 execFileSync('python3',['-c','import zipfile,sys,pathlib\nwith zipfile.ZipFile(sys.argv[2],"w",zipfile.ZIP_DEFLATED) as z:\n for f in sorted(pathlib.Path(sys.argv[1]).iterdir()):z.write(f,f.name)',viewerDirectory,`${directory}/viewer.zip`]);
 console.log(JSON.stringify({htmlBytes:Buffer.byteLength(html),modelBytes:model.length,zip:`${directory}/viewer.zip`}));

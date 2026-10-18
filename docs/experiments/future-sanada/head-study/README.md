@@ -2,6 +2,19 @@
 
 本次先處理頭部，不以整個人物增加面數代替修形。這是沿用原設計的頭部重製試作，新的頭部參考有細節改寫，並非原圖的精確幾何還原。
 
+## 最新：眼神與六文錢再調整
+
+上一版的程序式眼睛太平、虹膜像分段圓盤，六文錢則像厚按鈕貼在額牌上。這輪改用專案已有的 **Microsoft Rocketbox／MIT 人臉眼眶區域**，保留眼皮形體、原 UV、虹膜色彩與皮膚法線；烘焙皺眉形變並壓低內眉，清除穿過新臉的舊表面。眼眶與面罩間另加內縮的暗色襯層，遮住側面接合空隙；邊緣尚未重拓樸焊接。這是靜態表情，尚未提供獨立視線或眨眼控制。
+
+| 上次交付（第五輪） | 本次修整 |
+| --- | --- |
+| ![上一版眼神](iterations/pass5/eyes.png) | ![目前眼神](refined/eyes.png) |
+| ![上一版錢紋](iterations/pass5/crest.png) | ![目前六文錢](refined/crest.png) |
+
+六文錢改為較大、間距較緊的薄浮雕，加入外緣、內凹錢面、方孔唇邊與微凹凸法線。方孔是穿透錢體的實際幾何，孔後有深色凹座，**不穿透整個頭盔**。去除厚額牌，修補面沿頭盔曲面接合，再從原模型投射烘焙漆色及磨損；原四枚錢紋的顏色在投射前遮除。
+
+本輪重用既有高版，只做本機 Blender CPU 修整、烘焙與渲染，沒有重新開 Modal GPU。模型、檢視器與下方的身體接合圖均同步更新；線上遊戲未替換。
+
 ## 檢查順序
 
 1. **眼部**：雙眼是否真的存在；瞳孔、眼白、眼皮是否能辨認；是否被盔沿遮住；正面與斜側面是否合理。
@@ -29,7 +42,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 
 使用 TRELLIS.2＋DINOv3，單獨給頭部整張輸入，`1536_cascade`、seed 1615。實際解析度也是 1536，原網格 **34,550,544 三角面**。這是空間表示與網格數量，並不是 1536p 影片，也不代表正確的解剖結構。
 
-| 生成後、未局部修整 | Blender 局部修整第五輪 |
+| 生成後、未局部修整 | Blender 目前修整版 |
 | --- | --- |
 | ![生成頭部](high/front.png) | ![精修頭部](refined/front.png) |
 | ![生成眼部](high/eyes.png) | ![精修眼部](refined/eyes.png) |
@@ -45,9 +58,9 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 
 ## 04：實際修整與未通過項目
 
-- **六文錢**：壓回錯誤的四枚浮雕，重建六個分離物件、三乘二排列，每枚有真正的方孔與厚度。方孔後方仍有紅漆底板，不是穿透整個頭盔。
-- **眼睛**：清出原來失真的眼部表面，加入獨立眼白、棕色虹膜、瞳孔、眼瞼邊緣與眉線；局部抬高前盔沿，降低瞳孔反射。這些是凸面眼部試作，**還不是完整眼球、眼眶及可動畫的眼皮拓樸**。
-- **材質**：拆分漆甲、金屬、布與皮膚反應；六文錢和底板使用 Blender 烘焙的獨立 512² 舊化色彩貼圖。局部新增表面仍比生成甲殼規整，需要後續融合。
+- **六文錢**：六個分離物件、三乘二排列；薄浮雕、外緣、內凹面、方孔及深色凹座，配合頭盔曲率。
+- **眼睛**：改用 Rocketbox 的眼眶／眼皮／眼部網格、皮膚法線及原 UV；作者指定皺眉、內眉下壓，移除舊程序式眼白與虹膜零件。沿用來源素材的眼部高光，尚未製作獨立角膜與視線控制。
+- **材質**：拆分漆甲、金屬、布與皮膚；額頭修補面投射烘焙原盔漆色，錢紋增加 512² 色彩與法線貼圖。局部仍需更多不規則磨損與邊緣修整。
 - **清理**：精修高版檢查未見近零面積三角形；此檢查不等於無自相交、全封閉或動畫合格。
 
 第一輪眼皮太亮、像貼上去；第二輪嘗試借用原 UV，造成錢紋拉花。已棄用這兩個結果，留存失敗近拍便於追蹤：
@@ -56,7 +69,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 | --- | --- |
 | ![第一輪問題](iterations/pass1/eyes.png) | ![第二輪問題](iterations/pass2/crest.png) |
 
-**仍需細修**：近拍眼睛的皮膚銜接及虹膜仍偏人工；面罩有破碎邊緣、漆面高光不連續；嘴部開口比參考圖更大。不能把這些誤稱為完成的戰損。後腦與遮蔽區域是單圖推測，沒有背面真值；面罩尚未重建成乾淨、獨立、有壁厚的零件。
+**仍需細修**：眼部已有來源人臉結構，但皮膚與生成面罩的交界仍不夠平整，來源眼部的烘焙高光也不是完整的物理角膜；面罩有破碎邊緣、漆面高光不連續；嘴部開口比參考圖更大。不能把這些誤稱為完成的戰損。後腦與遮蔽區域是單圖推測，沒有背面真值；面罩尚未重建成乾淨、獨立、有壁厚的零件。
 
 | 精修斜側 | 側面 | 背面 |
 | --- | --- | --- |
@@ -68,9 +81,9 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 | --- | --- |
 | ![靜態接合正面](fitting/front.png) | ![靜態接合斜側](fitting/three-quarter.png) |
 
-移除身體上原頭部區域，以縮放 0.26 的新頭部接入。**這是獨立靜態組裝，尚未焊接頸部、綁骨架或驗證動態穿插。** 護頸與肩甲附近仍有重疊接縫，不能當作可直接套動畫的角色。原身體材質、手指和甲片仍有舊缺陷。沒有替換線上遊戲。
+移除身體上原頭部區域，以縮放 0.26 的新頭部接入。**這是獨立靜態組裝，尚未焊接頸部、綁骨架或驗證動態穿插。** 護頸與肩甲附近仍有重疊接縫，不能當作可直接套動畫的角色。原身體材質、手指和甲片仍有舊缺陷，接合檢查保留原身體的 5 個近零面積三角形；頭部高版與檢視版則為 0。沒有替換線上遊戲。
 
-下一輪順序：先重做眼眶／皮膚銜接與面罩碎邊，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
+下一輪順序：先修平眼眶／面罩交界與面罩碎邊，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
 
 ## 下載與檢查
 
@@ -78,8 +91,8 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 | --- | --- | ---: | --- |
 | [生成高版 GLB](head-high.glb) | 保留生成結果，66.29 MB | 494,558 | 4096² |
 | [生成輕版 GLB](head-light.glb) | 減面比較，19.46 MB | 148,229 | 2048² |
-| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 536,910 | 原 4096²＋新增 512² |
-| [精修檢視版 GLB](refined/head-preview.glb) | 約 24.6 MB、保留獨立眼與錢紋 | 190,729 | 2048²＋512² |
+| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 508,691 | 原 4096²＋眼眶素材＋新增 512² |
+| [精修檢視版 GLB](refined/head-preview.glb) | 約 27.8 MB、保留人臉眼眶與獨立錢紋 | 168,931 | 2048²＋眼眶素材＋512² |
 | [Blender 原檔](refined/head-refined.blend) | 已內嵌材質，物件可分別編輯 | 高版 | 內嵌 |
 | [互動檢視器 ZIP](viewer.zip) | 解壓後開啟 index.html、旋轉／白模／線框 | 檢視版 | 內嵌 |
 | [接合 GLB](fitting/static-fit.glb) | 僅供靜態比例檢查 | 見檢查報告 | 內嵌 |
@@ -102,10 +115,14 @@ GitHub 檔案頁請按 **Download raw file**。本頁圖片可直接在 GitHub �
 /workspace/yukimura-tools/render-env/bin/python tools/refine_trellis_head.py
 /workspace/yukimura-tools/render-env/bin/python tools/package_head_study.py
 /workspace/yukimura-tools/render-env/bin/python tools/head_study_render.py --model docs/experiments/future-sanada/head-study/refined/head-refined.glb --output docs/experiments/future-sanada/head-study/refined --samples 20 --size 1000
+/workspace/yukimura-tools/render-env/bin/python tools/render_trellis_study.py --model docs/experiments/future-sanada/head-study/fitting/static-fit.glb --output docs/experiments/future-sanada/head-study/fitting --size 1000 --samples 16 --skip-scene
 node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/head-study --head-study
+python3 tools/verify_trellis_head_parts.py
 node tools/check_trellis_head_viewer.mjs
 ```
 
 `tools/trellis_head_modal.py` 使用本帳號已建好的 Modal image `im-CWPfod9BzDeCjqD07JU8Ui`，固定 TRELLIS.2 程式提交 `75fbf0183001ed9876c8dbb35de6b68552ee08bd`。其他帳號需先依原流程建立相同環境並替換 image ID。省略 `--download-only` 會重新使用 GPU 生成；`--export-only` 可從已快取原資料補匯出，仍需要 GPU。原資料在任何簡化之前保存；每次下載驗證 SHA-256。
 
 來源授權沿用[上層說明](../README.md#來源與授權)；新增參考圖由 image gen 產生，不是歷史文物掃描。
+
+眼眶來源：[Microsoft Rocketbox](https://github.com/microsoft/Microsoft-Rocketbox)，Male Adult 10，固定提交 `0943055db6ec570bcef9f2c8b41c9e5467c808f9`，沿用 repo 已有且經 SHA-256 驗證的 `public/review/candidates/rocketbox.glb`。[MIT 授權副本](ROCKETBOX-LICENSE.txt)也已放入下載檢視器。修改包括裁切眼眶區域、非等比配適、表情形變、膚色材質調整與一次細分插值；不是新增的人臉掃描，也不代表新增了高頻幾何細節。

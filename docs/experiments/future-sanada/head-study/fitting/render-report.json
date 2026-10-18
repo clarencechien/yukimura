@@ -6,13 +6,27 @@
     1000,
     1000
   ],
-  "geometry_objects": 23,
-  "vertices": 355933,
-  "triangles": 323692,
-  "material_count": 29,
+  "geometry_objects": 17,
+  "vertices": 358606,
+  "triangles": 301894,
+  "material_count": 12,
   "images": [
     {
+      "name": "Bitmaptexture",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
       "name": "crest-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-brass-normal",
       "size": [
         512,
         512
@@ -52,33 +66,47 @@
         2048,
         2048
       ]
+    },
+    {
+      "name": "Map #4",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Map #6",
+      "size": [
+        1024,
+        1024
+      ]
     }
   ],
   "views": [
     {
       "name": "front",
       "degrees": 0,
-      "seconds": 46.7
+      "seconds": 31.07
     },
     {
       "name": "three-quarter",
       "degrees": 35,
-      "seconds": 46.9
+      "seconds": 35.15
     },
     {
       "name": "side",
       "degrees": 90,
-      "seconds": 31.05
+      "seconds": 36.39
     },
     {
       "name": "back",
       "degrees": 180,
-      "seconds": 32.0
+      "seconds": 34.38
     },
     {
       "name": "clay",
       "degrees": 0,
-      "seconds": 34.8
+      "seconds": 37.14
     }
   ],
   "display_override": null

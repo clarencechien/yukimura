@@ -1,9 +1,9 @@
 {
   "file": "head-refined.glb",
-  "sha256": "c18b1a09b9e498c4e36dd12a2aa903f7a7302fc49350bc28612cd34f6d19785d",
-  "bytes": 69233508,
-  "vertices": 512193,
-  "triangles": 536910,
+  "sha256": "f43908c52922f51cb5f0898b67d5ce5df005cdf15768a48a5a809134dae202a5",
+  "bytes": 72233188,
+  "vertices": 509791,
+  "triangles": 508691,
   "degenerate_triangles": 0,
   "bounds": [
     [
@@ -82,73 +82,13 @@
     {
       "name": "Crest aged brass",
       "baseColorTexture": {
-        "index": 7
+        "index": 8
       },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
     },
     {
-      "name": "Matte eyelid skin",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Warm sclera",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/0",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/1",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/2",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/3",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/4",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/5",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/6",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber -1/7",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Pupil",
+      "name": "Coin raised edge / aged gold",
       "baseColorTexture": null,
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
@@ -160,55 +100,15 @@
       "alphaMode": "OPAQUE"
     },
     {
-      "name": "Iris fiber 1/0",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber 1/1",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber 1/2",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber 1/3",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber 1/4",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber 1/5",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber 1/6",
-      "baseColorTexture": null,
-      "metallicRoughnessTexture": null,
-      "alphaMode": "OPAQUE"
-    },
-    {
-      "name": "Iris fiber 1/7",
-      "baseColorTexture": null,
+      "name": "Human orbital skin and eyes / Rocketbox",
+      "baseColorTexture": {
+        "index": 11
+      },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
     }
   ],
-  "embedded_images": 4,
+  "embedded_images": 8,
   "skins": 0,
   "animations": 0,
   "validated": true,

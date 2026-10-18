@@ -1,8 +1,8 @@
 [
   {
     "file": "fitting/static-fit.glb",
-    "bytes": 43447796,
-    "sha256": "33d009a353330b13bf25960828ed7fdc8b12e3e8e3037c336b4a11f52584101f"
+    "bytes": 46673684,
+    "sha256": "3f1f1e7e8f33edd5addc2c0fbcc4b1d2f3e83fb9540b059783df67bb3d2f52d2"
   },
   {
     "file": "head-high.glb",
@@ -16,22 +16,22 @@
   },
   {
     "file": "refined/head-preview.glb",
-    "bytes": 24551460,
-    "sha256": "84c68605c211ca5ce1dc536ae9a1fbbc6f80a2429b112f6eb26ac9d333bcff90"
+    "bytes": 27765132,
+    "sha256": "ecd64e11e4b3fb202509b0afdb1c52abef9b0b42b3ed02e8d575f99c5502748a"
   },
   {
     "file": "refined/head-refined.blend",
-    "bytes": 71102594,
-    "sha256": "a83f74280620574cc3eef775d2d2309e76578dea51b39bcdf955b91d3634e496"
+    "bytes": 77560786,
+    "sha256": "4add84b128d4c2a42e94848fa634fe8d2f84053a70eedf89ad7ab0f76a67e7d4"
   },
   {
     "file": "refined/head-refined.glb",
-    "bytes": 69233508,
-    "sha256": "c18b1a09b9e498c4e36dd12a2aa903f7a7302fc49350bc28612cd34f6d19785d"
+    "bytes": 72233188,
+    "sha256": "f43908c52922f51cb5f0898b67d5ce5df005cdf15768a48a5a809134dae202a5"
   },
   {
     "file": "viewer.zip",
-    "bytes": 26915405,
-    "sha256": "7e5bdbdd14e1bfacdc50a5aa2995a50b38c457c1a6bdb34798d247e1465f6e56"
+    "bytes": 29841638,
+    "sha256": "54d5b1c81e0ac186f04c9686d99117aacec0f4a3e224e8362bb09ac591fba739"
   }
 ]
