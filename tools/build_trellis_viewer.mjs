@@ -1,0 +1,30 @@
+import fs from 'node:fs/promises';
+import {build} from 'esbuild';
+import {execFileSync} from 'node:child_process';
+const directory='docs/experiments/future-sanada';
+const model=await fs.readFile(`${directory}/future-sanada.glb`);
+const source=`
+import {Engine,Scene,ArcRotateCamera,Vector3,Color3,Color4,HemisphericLight,DirectionalLight,SceneLoader,PBRMaterial,StandardMaterial} from '@babylonjs/core';
+import '@babylonjs/loaders/glTF';
+import {winterReflections} from './src/lighting.ts';
+const canvas=document.querySelector('canvas'),engine=new Engine(canvas,true,{preserveDrawingBuffer:true}),scene=new Scene(engine);
+scene.clearColor=new Color4(.035,.045,.06,1);winterReflections(scene);scene.environmentIntensity=.9;scene.imageProcessingConfiguration.exposure=1.2;
+const camera=new ArcRotateCamera('camera',Math.PI/2,1.45,2.1,new Vector3(0,0,0),scene);camera.attachControl(canvas,true);camera.wheelDeltaPercentage=.01;camera.pinchDeltaPercentage=.01;camera.lowerRadiusLimit=.25;camera.upperRadiusLimit=5;camera.minZ=.001;
+const ambient=new HemisphericLight('fill',new Vector3(0,1,0),scene);ambient.intensity=.45;
+for(const [name,direction,intensity,color] of [['key',[-1,-1,-1],2,[1,.91,.8]],['cool',[1,-.4,.5],1,[.75,.86,1]],['rim',[-.3,-1,1],1.1,[1,.93,.85]]]){const l=new DirectionalLight(name,new Vector3(...direction),scene);l.intensity=intensity;l.diffuse=new Color3(...color);}
+let root,meshes=[],original=[],spin=false,clay=false,wire=false;
+const neutral=new PBRMaterial('neutral clay',scene);neutral.albedoColor=new Color3(.55,.57,.6);neutral.metallic=0;neutral.roughness=.8;
+function mode(){meshes.forEach((m,i)=>{m.material=clay?neutral:original[i];if(m.material)m.material.wireframe=wire;});}
+document.querySelector('#clay').onclick=e=>{clay=!clay;mode();e.target.textContent=clay?'恢復材質':'白模檢查';};document.querySelector('#wire').onclick=e=>{wire=!wire;mode();e.target.textContent=wire?'隱藏網格':'顯示網格';};document.querySelector('#spin').onclick=e=>{spin=!spin;e.target.textContent=spin?'停止旋轉':'自動旋轉';};
+document.querySelectorAll('[data-angle]').forEach(b=>b.onclick=()=>{spin=false;camera.alpha=Number(b.dataset.angle)*Math.PI/180;camera.beta=1.45;camera.radius=2.1;document.querySelector('#spin').textContent='自動旋轉';});
+const bytes=Uint8Array.from(atob(window.MODEL_DATA),c=>c.charCodeAt(0)),url=URL.createObjectURL(new Blob([bytes],{type:'model/gltf-binary'}));
+SceneLoader.ImportMeshAsync('', '', url, scene,undefined,'.glb').then(result=>{URL.revokeObjectURL(url);root=result.meshes[0];meshes=result.meshes.filter(m=>m.getTotalVertices()>0);original=meshes.map(m=>m.material);const bounds=root.getHierarchyBoundingVectors();camera.target=bounds.min.add(bounds.max).scale(.5);const triangles=meshes.reduce((n,m)=>n+m.getTotalIndices()/3,0);document.querySelector('#status').textContent=triangles.toLocaleString()+' 三角面 · PBR 材質 · 未綁定骨架';window.modelStudy={loaded:true,triangles,meshes:meshes.length,materials:original.length};}).catch(error=>{document.querySelector('#status').textContent='載入失敗：'+error.message;window.modelStudy={error:error.message};});
+engine.runRenderLoop(()=>{if(spin)camera.alpha+=engine.getDeltaTime()*.0003;scene.render();});addEventListener('resize',()=>engine.resize());
+`;
+const result=await build({stdin:{contents:source,resolveDir:process.cwd(),sourcefile:'trellis-viewer.mjs',loader:'js'},bundle:true,format:'iife',minify:true,write:false,target:'es2022'});
+const html=`<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>未來赤備 · 真田幸村 3D 試作</title><style>*{box-sizing:border-box}body{margin:0;background:#0d131a;color:#e4ddcf;font:14px system-ui}canvas{width:100vw;height:100vh;display:block;touch-action:none}header{position:absolute;top:20px;left:24px;pointer-events:none}h1{font:28px serif;letter-spacing:.12em;margin:0 0 8px}p{color:#aeb5bd;font-size:12px}nav{position:absolute;bottom:22px;left:20px;right:20px;display:flex;gap:8px;flex-wrap:wrap}button{padding:11px 15px;color:#e4ddcf;background:#18232ded;border:1px solid #776446;border-radius:4px;cursor:pointer}button:hover{background:#683b35}details{position:absolute;right:20px;top:20px;max-width:26vw;background:#111923db;padding:10px}details img{display:block;width:100%;max-height:60vh;object-fit:contain}summary{cursor:pointer;color:#c2a475}@media(max-width:600px){header{top:16px;left:16px}h1{font-size:22px}nav{gap:5px;bottom:12px;left:12px}button{padding:9px 10px;font-size:12px}details{top:100px;right:12px;max-width:35vw}}</style><canvas></canvas><header><h1>未來赤備</h1><p>真田幸村 · TRELLIS.2 圖片轉 3D 試作</p><p id="status">載入模型…</p><p>拖曳旋轉 · 滾輪或雙指縮放</p></header><details><summary>查看輸入原圖</summary><img alt="未來幸村生成參考圖" src="data:image/png;base64,${(await fs.readFile(`${directory}/reference.png`)).toString('base64')}"></details><nav><button data-angle="90">正面</button><button data-angle="0">側面</button><button data-angle="270">背面</button><button id="spin">自動旋轉</button><button id="clay">白模檢查</button><button id="wire">顯示網格</button></nav><script>window.MODEL_DATA='${model.toString('base64')}';${result.outputFiles[0].text.replace(/<\/script/gi,'<\\/script')}</script></html>`;
+await fs.mkdir('.tmp/future-sanada-viewer',{recursive:true});await fs.writeFile('.tmp/future-sanada-viewer/index.html',html);
+await fs.copyFile('node_modules/@babylonjs/core/license.md','.tmp/future-sanada-viewer/BABYLON-LICENSE.md');
+await fs.copyFile(`${directory}/TRELLIS-LICENSE.txt`,'.tmp/future-sanada-viewer/TRELLIS-LICENSE.txt');
+execFileSync('python3',['-c','import zipfile,sys,pathlib\nwith zipfile.ZipFile(sys.argv[2],"w",zipfile.ZIP_DEFLATED) as z:\n for f in sorted(pathlib.Path(sys.argv[1]).iterdir()):z.write(f,f.name)','.tmp/future-sanada-viewer',`${directory}/viewer.zip`]);
+console.log(JSON.stringify({htmlBytes:Buffer.byteLength(html),modelBytes:model.length,zip:`${directory}/viewer.zip`}));

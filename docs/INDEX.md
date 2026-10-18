@@ -69,3 +69,5 @@
 - [赤槍初動：插畫持槍待機、短刺與補光圖集](routes/jigoku-2d/YARI_MOTION.md)（30 fps／36 幀，兩動作、三光照、手機／桌機解析度，未接入正式遊戲）。
 
 - [短刺修正：固定肢段與肩肘腕連動](routes/jigoku-2d/YARI_RIGID_MOTION.md)（取代整圖拉伸，30 fps 前後對照，未接入正式遊戲）。
+
+- [未來赤備：幸村 × TRELLIS.2](experiments/future-sanada/README.md)（單圖轉 3D 試作；參考圖完成，尚未產出模型）。

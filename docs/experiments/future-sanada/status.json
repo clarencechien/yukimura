@@ -1,0 +1,54 @@
+{
+  "status": "blocked_before_inference",
+  "reference_sha256": "c84b28641b60b6593a85922881c030840b72fbf6584ea298c697bd002ad106a8",
+  "reference_size": [
+    1024,
+    1536
+  ],
+  "reference_mode": "RGBA",
+  "trellis_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "modal_authentication": "passed with system trust and TLS verification",
+  "gpu_inference_started": false,
+  "model_produced": false,
+  "blocker": "Reference upload: configured network proxy returns 403 for Modal blob storage",
+  "required_domains": [
+    "e29e5794c3a8abd52b1549c7703408b1.r2.cloudflarestorage.com",
+    "modal-blobs.s3-accelerate.amazonaws.com"
+  ],
+  "environment_draft_saved": true,
+  "draft_applied": false,
+  "image_build": "completed",
+  "planned_settings": {
+    "gpu": "H100",
+    "pipeline": "1024_cascade",
+    "seed": 1615,
+    "texture_size": 2048,
+    "decimation_target": 150000
+  },
+  "validation": {
+    "reference_alpha": "passed",
+    "python_syntax": "passed",
+    "viewer_javascript_syntax": "passed",
+    "blender_render_helper": "passed on existing v22 model, 128px / 1 sample / 5 views; not a TRELLIS result",
+    "modal_authentication": "passed",
+    "modal_blob_upload": "403 Forbidden",
+    "trellis_inference": "not run",
+    "new_model_viewer": "not run",
+    "trellis_native_image_build": "passed",
+    "h100_gpu_environment": "passed"
+  },
+  "image_id": "im-CWPfod9BzDeCjqD07JU8Ui",
+  "build_run": "https://modal.com/apps/clarence-chien/main/ap-kjWiE0TfzsHTOjb0R09Blg",
+  "gpu_environment_check": {
+    "passed": true,
+    "device": "NVIDIA H100 80GB HBM3",
+    "checks": [
+      "TRELLIS.2 imports",
+      "CuMesh triangle initialization",
+      "nvdiffrast CUDA rasterization"
+    ],
+    "image_step_seconds": 74.51,
+    "note": "Environment test only; did not load generation weights or generate the character"
+  },
+  "updated_at": "2026-10-18T05:56:30.899166+00:00"
+}
