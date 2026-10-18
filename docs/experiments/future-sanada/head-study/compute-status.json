@@ -3,5 +3,13 @@
   "generation_app": "ap-D1J926hs9YHaA0uc5hIuwh",
   "state": "stopped",
   "tasks": 0,
-  "local_render_device": "CPU"
+  "local_render_device": "CPU",
+  "local_refinement": {
+    "iteration": 22,
+    "modeling": "Blender bpy / CPU",
+    "texture_baking": "Cycles / CPU",
+    "inspection_renders": "Cycles / CPU",
+    "modal_calls_this_revision": 0,
+    "note": "Historical generation app status above was not re-polled during this local refinement."
+  }
 }

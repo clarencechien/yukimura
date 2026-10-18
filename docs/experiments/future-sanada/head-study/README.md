@@ -2,7 +2,22 @@
 
 本次先處理頭部，不以整個人物增加面數代替修形。這是沿用原設計的頭部重製試作，新的頭部參考有細節改寫，並非原圖的精確幾何還原。
 
-## 最新：眼眶上緣與鼻樑收邊
+## 最新：鼻翼、鼻孔與上唇修補
+
+上一輪保留的鼻翼與鼻下仍有裂片、白色破面和不連續反光。本輪依原模型正側面的輪廓位置重建鼻殼及上唇，清除對應舊面，將鼻孔做成實際穿過鼻殼的開口，後方另外放置內縮的暗色襯底。鼻殼與上唇為獨立可編輯零件；這是由程式依指定輪廓參數重建的局部模型，不是再次 image-to-3D 生成。
+
+| 修補前 | 修補後 |
+| --- | --- |
+| ![先前鼻翼與鼻下破面](iterations/pass16/mask.png) | ![鼻殼與上唇修補](refined/mask.png) |
+| ![先前側面](iterations/pass16/side.png) | ![目前側面](refined/side.png) |
+
+鼻殼與上唇共用一張完整烘焙的 512² 漆色貼圖。鼻孔切割與倒角後另外清除細碎面，並以接回身體的縮放、位移及 float32 精度檢查；新增零件縮小後沒有近零面積三角形。檢查包括兩個新零件的封閉／連通狀態、鼻孔中心射線、嘴部與側面通氣位置未被新零件遮住，以及共用貼圖沒有未烘焙的黑色區域。這些檢查只涵蓋新增零件，**不代表整個面罩已經封閉或可直接套動畫**。
+
+本輪模型修整、貼圖烘焙及 Cycles 檢查圖均使用本機 **CPU**；原始頭部的 TRELLIS.2 生成才使用 Modal H100 GPU。本輪沒有啟動新的 Modal GPU 作業。GPU 可加快渲染／推論，造型配適、接縫和拓樸仍需逐項修正。
+
+**仍需處理**：鼻殼與頰甲仍是局部搭接，兩側通氣框、下巴及盔沿保留原生成缺陷；新增漆面也比舊甲片乾淨，磨損與粗糙度尚未完全一致。
+
+## 前一階段：眼眶上緣與鼻樑收邊
 
 上一輪真人眼眶已放入模型，但面罩的三角形截斷留下鋸齒和黑色尖刺。這輪沿連續曲線裁切原網格，交點內插原 UV，並移除舊金邊所在的窄帶，重建有厚度的漆甲折邊與細黃銅捲邊。鼻樑到兩側眼眶共用同一條輪廓，內襯同步調整；新增零件可以在 Blender 中獨立編輯。裁切過程共修整 758 個跨邊界面，產生 1,516 個邊界交點；數字描述局部裁切，不代表全頭重拓樸。
 
@@ -11,7 +26,7 @@
 | ![先前眼眶鋸齒](iterations/pass12/eyes.png) | ![連續面罩上緣](refined/eyes.png) |
 | ![先前側面](iterations/pass12/side.png) | ![目前側面](refined/side.png) |
 
-這次修的是**面罩上緣局部**。鼻翼、下半面罩及盔沿仍有生成的破碎表面；新折邊目前使用實色 PBR 漆甲／黃銅材質，尚未補上磨損貼圖；新舊漆面接合也尚未完成整體重拓樸。眼眶仍沿用上一輪的 Rocketbox 靜態表情，六文錢保留六枚薄浮雕與實際方孔。沒有宣稱整個頭部已經封閉或可直接套動畫。
+這次修的是**面罩上緣局部**。該階段保留鼻翼、下半面罩及盔沿的生成破面；鼻翼／上唇已於本輪局部重建；新折邊目前使用實色 PBR 漆甲／黃銅材質，尚未補上磨損貼圖；新舊漆面接合也尚未完成整體重拓樸。眼眶仍沿用上一輪的 Rocketbox 靜態表情，六文錢保留六枚薄浮雕與實際方孔。沒有宣稱整個頭部已經封閉或可直接套動畫。
 
 ## 前一階段：眼神與六文錢再調整
 
@@ -73,6 +88,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 - **眼睛**：改用 Rocketbox 的眼眶／眼皮／眼部網格、皮膚法線及原 UV；作者指定皺眉、內眉下壓，移除舊程序式眼白與虹膜零件。沿用來源素材的眼部高光，尚未製作獨立角膜與視線控制。
 - **材質**：拆分漆甲、金屬、布與皮膚；額頭修補面投射烘焙原盔漆色，錢紋增加 512² 色彩與法線貼圖。局部仍需更多不規則磨損與邊緣修整。
 - **面罩上緣**：曲線裁切與 UV 內插，另建連續漆甲折邊、黃銅唇邊和內襯；匯出後檢查新增折邊是單一連通且封閉的零件，不代表原下半面罩也封閉。
+- **鼻殼／上唇**：重建有厚度的鼻殼與漸薄上唇，鼻孔實際穿透鼻殼，凹腔襯底是另外的零件；尚未焊接到舊頰甲。
 - **清理**：精修高版檢查未見近零面積三角形；此檢查不等於無自相交、全封閉或動畫合格。
 
 第一輪眼皮太亮、像貼上去；第二輪嘗試借用原 UV，造成錢紋拉花。已棄用這兩個結果，留存失敗近拍便於追蹤：
@@ -95,7 +111,7 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 
 移除身體上原頭部區域，以縮放 0.26 的新頭部接入。**這是獨立靜態組裝，尚未焊接頸部、綁骨架或驗證動態穿插。** 護頸與肩甲附近仍有重疊接縫，不能當作可直接套動畫的角色。原身體材質、手指和甲片仍有舊缺陷，接合檢查保留原身體的 5 個近零面積三角形；頭部高版與檢視版則為 0。沒有替換線上遊戲。
 
-下一輪順序：接著修鼻翼、下半面罩破面與盔沿，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
+下一輪順序：接著修兩側通氣框、下巴破面與盔沿，再處理頸部、肩甲及材質一致性；造型穩定後才進行骨架、權重與實機 LOD。
 
 ## 下載與檢查
 
@@ -103,15 +119,15 @@ image gen 以原本角色為參考，產生單獨頭部、1254 × 1254 RGBA 透�
 | --- | --- | ---: | --- |
 | [生成高版 GLB](head-high.glb) | 保留生成結果，66.29 MB | 494,558 | 4096² |
 | [生成輕版 GLB](head-light.glb) | 減面比較，19.46 MB | 148,229 | 2048² |
-| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 506,947 | 原 4096²＋眼眶素材＋新增 512² |
-| [精修檢視版 GLB](refined/head-preview.glb) | 約 27.8 MB、保留人臉眼眶與獨立錢紋 | 170,566 | 2048²＋眼眶素材＋512² |
+| [精修高版 GLB](refined/head-refined.glb) | 後續修整基底 | 528,160 | 原 4096²＋眼眶素材＋新增 512² |
+| [精修檢視版 GLB](refined/head-preview.glb) | 約 28.6 MB、保留人臉眼眶與獨立錢紋 | 195,549 | 2048²＋眼眶素材＋512² |
 | [Blender 原檔](refined/head-refined.blend) | 已內嵌材質，物件可分別編輯 | 高版 | 內嵌 |
 | [互動檢視器 ZIP](viewer.zip) | 解壓後開啟 index.html、旋轉／白模／線框 | 檢視版 | 內嵌 |
 | [接合 GLB](fitting/static-fit.glb) | 僅供靜態比例檢查 | 見檢查報告 | 內嵌 |
 
 GitHub 檔案頁請按 **Download raw file**。本頁圖片可直接在 GitHub 文件查看；這次成果不在 Pages 遊戲內，也沒有把研究頁部署成網站。檢視器程式與模型均內嵌，測試詳見 [瀏覽器報告](viewer-verification.json)；手機尺寸模擬不代表實機效能。檢視版仍偏重，不是已驗證的手機 LOD。
 
-[高版幾何檢查](high-inspection.json) · [輕版幾何檢查](light-inspection.json) · [精修幾何檢查](refined/mesh-inspection.json) · [檢視版檢查](refined/preview-inspection.json) · [匯出零件數驗證](part-verification.json) · [修整參數](refined/refinement-report.json) · [接合參數](fitting/fit-report.json) · [接合幾何檢查](fitting/mesh-inspection.json) · [生成紀錄](generation.json) · [下載大小及 SHA-256](downloads.json) · [運算停止狀態](compute-status.json)
+[高版幾何檢查](high-inspection.json) · [輕版幾何檢查](light-inspection.json) · [精修幾何檢查](refined/mesh-inspection.json) · [檢視版檢查](refined/preview-inspection.json) · [匯出零件數驗證](part-verification.json) · [鼻殼／上唇檢查](refined/nasal-verification.json) · [檢視版鼻殼檢查](refined/nasal-preview-verification.json) · [修整參數](refined/refinement-report.json) · [接合參數](fitting/fit-report.json) · [接合幾何檢查](fitting/mesh-inspection.json) · [生成紀錄](generation.json) · [下載大小及 SHA-256](downloads.json) · [運算停止狀態](compute-status.json)
 
 ## 計算與重現
 
@@ -130,6 +146,8 @@ GitHub 檔案頁請按 **Download raw file**。本頁圖片可直接在 GitHub �
 /workspace/yukimura-tools/render-env/bin/python tools/render_trellis_study.py --model docs/experiments/future-sanada/head-study/fitting/static-fit.glb --output docs/experiments/future-sanada/head-study/fitting --size 1000 --samples 16 --skip-scene
 node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/head-study --head-study
 python3 tools/verify_trellis_head_parts.py
+python3 tools/verify_trellis_nasal.py --model docs/experiments/future-sanada/head-study/refined/head-refined.glb --report docs/experiments/future-sanada/head-study/refined/nasal-verification.json
+python3 tools/verify_trellis_nasal.py --model docs/experiments/future-sanada/head-study/refined/head-preview.glb --report docs/experiments/future-sanada/head-study/refined/nasal-preview-verification.json
 node tools/check_trellis_head_viewer.mjs
 ```
 

@@ -1,5 +1,44 @@
 {
-  "iteration": 16,
+  "iteration": 22,
+  "nasal_repair": {
+    "nose_object": "Menpo reconstructed nasal shell",
+    "lip_object": "Menpo reconstructed upper lip",
+    "nostrils": [
+      {
+        "center_xz": [
+          -0.074,
+          0.55
+        ],
+        "radii_xz": [
+          0.02,
+          0.008
+        ],
+        "slope": -0.4,
+        "backing_y": -0.44
+      },
+      {
+        "center_xz": [
+          0.074,
+          0.55
+        ],
+        "radii_xz": [
+          0.02,
+          0.008
+        ],
+        "slope": 0.4,
+        "backing_y": -0.44
+      }
+    ],
+    "plate_thickness": 0.006,
+    "cleanup_vertices": 2750,
+    "material": "Menpo repaired lacquer",
+    "limits": [
+      "Local overlapping repair, not welded to cheeks",
+      "Original cheek vents and lower jaw remain generated",
+      "Static model; no rig or collision certification"
+    ],
+    "removed_source_faces": 5335
+  },
   "mask_trim": {
     "removed_faces": 15139,
     "clipped_faces": 758,
@@ -48,6 +87,7 @@
   "coin_count": 6,
   "eye_landmarks": [],
   "changes": [
+    "Rebuilt nasal shell with two through-cut nostrils and recessed backing; replaced broken upper-lip band",
     "Clipped eye-opening triangles at a continuous contour with UV interpolation; rebuilt rolled menpo rim and return",
     "Raised only front visor by up to 0.02 normalized units",
     "Recessed incorrect four-coin relief and rebuilt six separate square-hole coins",
@@ -60,7 +100,7 @@
   "limitations": [
     "Artist-directed procedural edits, not hand-sculpted anatomical retopology",
     "Eye appearance and anatomy inherited from Rocketbox; no independent gaze controls",
-    "Mask ventilation remains generated and is not certified as a separate hollow mask",
+    "Cheek vents and lower jaw remain generated; nasal repair is not welded into the full mask",
     "No skeleton, weights or facial animation"
   ]
 }

@@ -6,10 +6,10 @@
     1000,
     1000
   ],
-  "geometry_objects": 18,
-  "vertices": 359066,
-  "triangles": 303529,
-  "material_count": 14,
+  "geometry_objects": 22,
+  "vertices": 370885,
+  "triangles": 328512,
+  "material_count": 16,
   "images": [
     {
       "name": "Bitmaptexture",
@@ -80,33 +80,40 @@
         1024,
         1024
       ]
+    },
+    {
+      "name": "menpo-lacquer",
+      "size": [
+        512,
+        512
+      ]
     }
   ],
   "views": [
     {
       "name": "front",
       "degrees": 0,
-      "seconds": 21.21
+      "seconds": 20.55
     },
     {
       "name": "three-quarter",
       "degrees": 35,
-      "seconds": 22.97
+      "seconds": 20.28
     },
     {
       "name": "side",
       "degrees": 90,
-      "seconds": 20.31
+      "seconds": 18.03
     },
     {
       "name": "back",
       "degrees": 180,
-      "seconds": 21.82
+      "seconds": 19.18
     },
     {
       "name": "clay",
       "degrees": 0,
-      "seconds": 19.33
+      "seconds": 14.28
     }
   ],
   "display_override": null

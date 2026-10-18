@@ -1,0 +1,23 @@
+{
+  "model": "docs/experiments/future-sanada/head-study/refined/head-preview.glb",
+  "passed": true,
+  "checks": [
+    {
+      "object": "Menpo reconstructed nasal shell",
+      "closed_after_logical_weld": true,
+      "single_connected_component": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_and_cheek_test_rays_clear": true
+    },
+    {
+      "object": "Menpo reconstructed upper lip",
+      "closed_after_logical_weld": true,
+      "single_connected_component": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_and_cheek_test_rays_clear": true
+    }
+  ],
+  "nostril_center_rays_clear": true,
+  "shared_finish_tile_fully_painted": true,
+  "scope": "New repair shells only; dark nostril backings excluded. Not full-head manifold/animation certification."
+}

@@ -1,9 +1,9 @@
 {
   "file": "head-preview.glb",
-  "sha256": "a90d0263d789ccfe1e6a9ebad43152d42239699bf2e8d2a436d6302f0ff25ac2",
-  "bytes": 27770016,
-  "vertices": 233872,
-  "triangles": 170566,
+  "sha256": "60e65debd1f82fe22f0313c22896d54eb4bac21b03bef2a847890d5ed90877fa",
+  "bytes": 28565184,
+  "vertices": 245691,
+  "triangles": 195549,
   "degenerate_triangles": 0,
   "bounds": [
     [
@@ -84,7 +84,7 @@
       "alphaMode": "OPAQUE"
     },
     {
-      "name": "Crest oxblood lacquer",
+      "name": "Menpo repaired lacquer",
       "baseColorTexture": {
         "index": 6
       },
@@ -92,9 +92,23 @@
       "alphaMode": "OPAQUE"
     },
     {
+      "name": "Nostril recessed interior",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Crest oxblood lacquer",
+      "baseColorTexture": {
+        "index": 7
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
       "name": "Crest aged brass",
       "baseColorTexture": {
-        "index": 8
+        "index": 9
       },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
@@ -114,13 +128,13 @@
     {
       "name": "Human orbital skin and eyes / Rocketbox",
       "baseColorTexture": {
-        "index": 11
+        "index": 12
       },
       "metallicRoughnessTexture": null,
       "alphaMode": "OPAQUE"
     }
   ],
-  "embedded_images": 8,
+  "embedded_images": 9,
   "skins": 0,
   "animations": 0,
   "validated": true,
