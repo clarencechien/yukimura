@@ -102,3 +102,45 @@
 - **開放曲面的小洞**：開放版在薄甲片上有針孔狀破洞（白模上的黑色裂紋），封閉版沒有，因此全部改用封閉版。
 
 GLB 每件約 20–28 MB，未放入 Git，可由 Modal Volume 重新下載：`python tools/run_trellis.py --parts-study --names helmet,… --seeds 1615 --download-only`。去背後的輸入圖可由 `cutout.py` 重建，也不放入 Git。
+
+## 第 4 階段：組裝與綁定（第一版）
+
+**身體與骨架（[build_body.py](../../../../tools/part_pipeline/build_body.py)）**：直接用遊戲中幸村的 92 關節骨架與 8 個戰鬥動作（`public/models/yukimura.glb`）。MPFB CC0 人體先左右鏡像（遊戲骨架的 `.L` 在 −X，MPFB 在 +X），再逐段對到遊戲骨架：四肢以「關節到下一個關節」為一段，轉向、拉長到遊戲長度；軀幹共用一個最小平方仿射，避免鎖骨與髖部撕裂。遊戲骨架的 `body.*` 骨尾一律朝上，只能當樞軸用，所以不用它的方向。
+
+**甲片擺放（[orient_parts.py](../../../../tools/part_pipeline/orient_parts.py)、[assemble.py](../../../../tools/part_pipeline/assemble.py)、[parts-layout.json](../../../../tools/part_pipeline/parts-layout.json)）**
+- 以鏡像對稱自動求每件的朝向：TRELLIS 輸出已是正面朝前（−Y）、對稱面在 x=0，不必再轉。
+- 每件依版面設定錨定在骨頭上（頭盔→頭、胴→胸、袖→肩、籠手→肘與腕之間、膝、脛、足），依最大尺寸縮放；四肢件以主成分軸對齊骨段。左右件只生成一邊，另一邊鏡像。
+- 胴前只保留前半、胴後只保留後半，在身體中線附近切開。
+- 被甲片完全取代的身體部位（腳掌、手）直接刪除，避免穿出。
+- 綁定：甲片逐件 100% 綁單一骨，與現行武將相同；草摺上緣綁骨盆、往下漸漸交給大腿（最多 50–70%）；袖從肩骨漸漸交給上臂（65%）。
+
+![](stage4/stage4-turnaround.jpg)
+
+左起：正面、斜側、側面、背面、白模正面、白模側面。
+
+**動作測試**（遊戲原有的斬、跑、刺，各取一格）：所有甲片跟著身體走，無脫離。
+
+![](stage4/stage4-poses.jpg)
+
+**和設定圖比較**（設定圖正面、模型正面、設定圖側面、模型側面）：
+
+![](stage4/stage4-vs-concept.jpg)
+
+**這一版還差的地方**
+- **體型太瘦**：MPFB 預設體型比設定圖的武將細，腿顯得長而細，甲片之間露出太多黑色身體。下一步要把身體加寬加厚（或依設定圖比例縮放甲片間距）。
+- **草摺太短、太小**：設定圖的草摺垂到大腿中段、片數多；現在 6 片、30 cm 不夠。
+- **上臂甲缺**：上臂目前是黑色緊身衣；需補程式生成的上臂甲片。
+- **繩與結**：頸前繩結、腰繩、流蘇還沒加（可沿用 body v2 的物理繩工具）。
+- **黑色緊身衣材質**：目前是單色亮黑，需要布紋或機械紋理貼圖。
+- **手甲方向**：手背與掌心方向還要再對；手指目前不動。
+- **面數**：預覽版每件 1.5–4 萬面，總計約 50 萬面；遊戲版還沒減面與烘焙。
+
+重建（Blender 4.3 bpy，零件 GLB 由 Modal 下載到 `.tmp/parts`）：
+
+```sh
+python tools/part_pipeline/build_body.py --output .tmp/stage4/body.blend
+python tools/part_pipeline/orient_parts.py --parts .tmp/parts --output .tmp/stage4/parts-orient.json
+python tools/part_pipeline/kusazuri_panel.py --output .tmp/parts/kusazuri-proc/seed-0/kusazuri-proc-high.glb
+python tools/part_pipeline/assemble.py --body .tmp/stage4/body.blend --layout tools/part_pipeline/parts-layout.json --output .tmp/stage4/assembled.blend
+python tools/part_pipeline/render_assembly.py --blend .tmp/stage4/assembled.blend --output .tmp/stage4/final --pose slash:0.45 --views three-quarter
+```
