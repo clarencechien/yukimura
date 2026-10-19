@@ -1,0 +1,55 @@
+{
+  "free_icp_scale": 0.2497045654031182,
+  "antler_check": {
+    "note": "span measured on the z > 1.85 slice of each placed mesh",
+    "body_top_z": 2.0,
+    "head_top_z": 1.9512977396659634,
+    "body_antler_span_x": 0.3947804226978001,
+    "head_antler_span_x": 0.3968318398115543
+  },
+  "body": ".tmp/body-v2/seed-7/body-high.glb",
+  "head": "docs/experiments/future-sanada/head-study/refined/head-preview.glb",
+  "method": "symmetric trimmed ICP (85% inliers each way); optional fixed scale, translation refit",
+  "iterations": 34,
+  "scale": 0.24944031064792432,
+  "translation": [
+    0.0010888345463185521,
+    0.025966501973847457,
+    1.4514512590425397
+  ],
+  "rms_inlier": 0.018061512685939335,
+  "head_to_body_p50": 0.013320186604717114,
+  "head_to_body_p90": 0.03825720726351981,
+  "body_to_head_p50": 0.013319654258138431,
+  "body_to_head_p90": 0.08311541543125983,
+  "head_bounds": [
+    [
+      -0.21147724092559936,
+      -0.14267554028698592,
+      1.4521544687586254
+    ],
+    [
+      0.21467266596383153,
+      0.19515687275000854,
+      1.9512977396659634
+    ]
+  ],
+  "remove_rules": {
+    "antler_band_z_min": 1.74,
+    "core_z_min": 1.56,
+    "core_abs_x_max": 0.2,
+    "near_head_z_min": 1.44,
+    "near_head_distance": 0.012
+  },
+  "transferred_from": {
+    "fit": ".tmp/fit-high.json",
+    "scale": 0.2497045654031182,
+    "translation": [
+      0.0011910045793598416,
+      0.02627358120658159,
+      1.4521906258952804
+    ],
+    "source_report": ".tmp/v2-try2/refinement-report.json",
+    "target_report": ".tmp/v2-try3/refinement-report.json"
+  }
+}

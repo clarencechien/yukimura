@@ -3,13 +3,14 @@ import {build} from 'esbuild';
 import {execFileSync} from 'node:child_process';
 const directory=process.argv[2]||'docs/experiments/future-sanada';
 const headStudy=process.argv.includes('--head-study');
+const bodyV2=process.argv.includes('--body-v2');
 const generation=JSON.parse(await fs.readFile(`${directory}/generation.json`));
 const legacy=generation.engine==='TRELLIS first generation';
-const engineLabel=headStudy?'TRELLIS.2＋Blender 頭部修整':legacy?'TRELLIS 第一代':'TRELLIS.2';
+const engineLabel=bodyV2?'TRELLIS.2 全身＋頭部精修':headStudy?'TRELLIS.2＋Blender 頭部修整':legacy?'TRELLIS 第一代':'TRELLIS.2';
 const materialLabel=legacy?'烘焙色彩貼圖':'PBR 材質';
-const viewerDirectory=headStudy?'.tmp/future-sanada-head-viewer':legacy?'.tmp/future-sanada-trellis1-viewer':'.tmp/future-sanada-viewer';
-const reference=await fs.readFile(legacy?`${directory}/../reference.png`:`${directory}/reference.png`);
-const model=await fs.readFile(`${directory}/${headStudy?'refined/head-preview.glb':'future-sanada.glb'}`);
+const viewerDirectory=bodyV2?'.tmp/future-sanada-body-v2-viewer':headStudy?'.tmp/future-sanada-head-viewer':legacy?'.tmp/future-sanada-trellis1-viewer':'.tmp/future-sanada-viewer';
+const reference=await fs.readFile(legacy||bodyV2?`${directory}/../reference.png`:`${directory}/reference.png`);
+const model=await fs.readFile(`${directory}/${bodyV2?'refined/body-v2-preview.glb':headStudy?'refined/head-preview.glb':'future-sanada.glb'}`);
 const source=`
 import {Engine,Scene,ArcRotateCamera,Vector3,Color3,Color4,HemisphericLight,DirectionalLight,SceneLoader,PBRMaterial,StandardMaterial} from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
@@ -33,7 +34,7 @@ const result=await build({stdin:{contents:source,resolveDir:process.cwd(),source
 const html=`<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>未來赤備 · 真田幸村 3D 試作</title><style>*{box-sizing:border-box}body{margin:0;background:#0d131a;color:#e4ddcf;font:14px system-ui}canvas{width:100vw;height:100vh;display:block;touch-action:none}header{position:absolute;top:20px;left:24px;pointer-events:none}h1{font:28px serif;letter-spacing:.12em;margin:0 0 8px}p{color:#aeb5bd;font-size:12px}nav{position:absolute;bottom:22px;left:20px;right:20px;display:flex;gap:8px;flex-wrap:wrap}button{padding:11px 15px;color:#e4ddcf;background:#18232ded;border:1px solid #776446;border-radius:4px;cursor:pointer}button:hover{background:#683b35}details{position:absolute;right:20px;top:20px;max-width:26vw;background:#111923db;padding:10px}details img{display:block;width:100%;max-height:60vh;object-fit:contain}summary{cursor:pointer;color:#c2a475}@media(max-width:600px){header{top:16px;left:16px}h1{font-size:22px}nav{gap:5px;bottom:12px;left:12px}button{padding:9px 10px;font-size:12px}details{top:100px;right:12px;max-width:35vw}}</style><canvas></canvas><header><h1>未來赤備</h1><p>真田幸村 · ${engineLabel} 圖片轉 3D 試作</p><p id="status">載入模型…</p><p>拖曳旋轉 · 滾輪或雙指縮放</p></header><details><summary>查看輸入原圖</summary><img alt="未來幸村生成參考圖" src="data:image/png;base64,${reference.toString('base64')}"></details><nav><button data-angle="90">正面</button><button data-angle="0">側面</button><button data-angle="270">背面</button><button id="spin">自動旋轉</button><button id="clay">白模檢查</button><button id="wire">顯示網格</button></nav><script>window.MODEL_DATA='${model.toString('base64')}';${result.outputFiles[0].text.replace(/<\/script/gi,'<\\/script')}</script></html>`;
 await fs.mkdir(viewerDirectory,{recursive:true});await fs.writeFile(`${viewerDirectory}/index.html`,html);
 await fs.copyFile('node_modules/@babylonjs/core/license.md',`${viewerDirectory}/BABYLON-LICENSE.md`);
-await fs.copyFile(`${directory}/${headStudy?'../':''}TRELLIS-LICENSE.txt`,`${viewerDirectory}/TRELLIS-LICENSE.txt`);
-if(headStudy)await fs.copyFile(`${directory}/ROCKETBOX-LICENSE.txt`,`${viewerDirectory}/ROCKETBOX-LICENSE.txt`);
+await fs.copyFile(`${directory}/${headStudy||bodyV2?'../':''}TRELLIS-LICENSE.txt`,`${viewerDirectory}/TRELLIS-LICENSE.txt`);
+if(headStudy||bodyV2)await fs.copyFile(`${directory}/${bodyV2?'../head-study/':''}ROCKETBOX-LICENSE.txt`,`${viewerDirectory}/ROCKETBOX-LICENSE.txt`);
 execFileSync('python3',['-c','import zipfile,sys,pathlib\nwith zipfile.ZipFile(sys.argv[2],"w",zipfile.ZIP_DEFLATED) as z:\n for f in sorted(pathlib.Path(sys.argv[1]).iterdir()):z.write(f,f.name)',viewerDirectory,`${directory}/viewer.zip`]);
 console.log(JSON.stringify({htmlBytes:Buffer.byteLength(html),modelBytes:model.length,zip:`${directory}/viewer.zip`}));

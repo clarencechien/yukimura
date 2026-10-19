@@ -1,0 +1,54 @@
+{
+  "body_source": ".tmp/body-v2/seed-7/body-remesh.glb",
+  "normalization": {
+    "scale": 1.999979496212402,
+    "original_low": [
+      -0.21962785720825195,
+      -0.17136439681053162,
+      -0.5003332495689392
+    ],
+    "original_high": [
+      0.2208213210105896,
+      0.17195314168930054,
+      0.49967700242996216
+    ]
+  },
+  "cleanup": {
+    "faces_before": 571463,
+    "islands": 0,
+    "fragment_faces_removed": 0,
+    "faces_after": 566543
+  },
+  "materials": {
+    "gilt_panels_to_lacquer_fraction": 0.005767583381384611,
+    "panel_opening_radius_texels": 16,
+    "red_fraction": 0.5190648436546326,
+    "gold_fraction": 0.05979384109377861,
+    "dark_fraction": 0.1652560979127884,
+    "mean_metallic_before": 0.5122822523117065,
+    "mean_metallic_after": 0.1252409815788269,
+    "red_metallic_before": 0.5125265717506409,
+    "red_metallic_after": 0.015836669132113457
+  },
+  "removed_generated_head_vertices": 34637,
+  "head_removal_rules": {
+    "antler_band_z_min": 1.74,
+    "core_z_min": 1.56,
+    "core_abs_x_max": 0.2,
+    "near_head_z_min": 1.44,
+    "near_head_distance": 0.012
+  },
+  "head": {
+    "source": "docs/experiments/future-sanada/head-study/refined/head-preview.glb",
+    "scale": 0.24944031064792432,
+    "translation": [
+      0.0010888345463185521,
+      0.025966501973847457,
+      1.4514512590425397
+    ],
+    "meshes": 37
+  },
+  "triangles": 718116,
+  "meshes": 38,
+  "seconds": 55.37360115000001
+}

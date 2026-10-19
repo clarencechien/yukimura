@@ -2,12 +2,13 @@ import {chromium} from '@playwright/test';
 import http from 'node:http';
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-const out='docs/experiments/future-sanada/head-study';
-const html=await fs.readFile('.tmp/future-sanada-head-viewer/index.html');
+const bodyV2=process.argv.includes('--body-v2');
+const out=bodyV2?'docs/experiments/future-sanada/body-v2':'docs/experiments/future-sanada/head-study';
+const html=await fs.readFile(bodyV2?'.tmp/future-sanada-body-v2-viewer/index.html':'.tmp/future-sanada-head-viewer/index.html');
 const expected=JSON.parse(await fs.readFile(`${out}/refined/preview-inspection.json`));
 const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/html');res.end(html);});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
-const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const errors=[],external=[],checks=[];
 try{
  for(const viewport of [{width:1280,height:900},{width:390,height:844}]){
