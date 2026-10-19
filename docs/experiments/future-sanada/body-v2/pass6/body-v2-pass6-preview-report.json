@@ -2,8 +2,8 @@
   "decimate_ratio": 0.45,
   "joined": true,
   "body_triangles": null,
-  "total_triangles": 591785,
+  "total_triangles": 594251,
   "meshes": 1,
   "max_texture": 2048,
-  "bytes": 72062156
+  "bytes": 72138160
 }

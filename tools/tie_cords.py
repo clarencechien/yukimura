@@ -77,13 +77,13 @@ for side, sgn, anchor in (('A', -1, NECK_ANCHORS[0]), ('B', 1, NECK_ANCHORS[1]))
     pts = resample(catmull([top, mid1, mid2, entry], 8), 1.4 * NECK_R)
     ropes[f'neck {side}'] = S.add_rope(pts, 1, NECK_R, bend=.5, pin_first=True, pin_last=True, slack=1.03)
     exit_pt = Kn + NECK_BALL * (sgn * .32 * un - .62 * vn)
-    tail = resample(np.array([exit_pt, exit_pt + np.array([sgn * .004, -.004, -.03])]), 1.4 * NECK_R)
+    tail = resample(np.array([exit_pt, exit_pt + np.array([sgn * .004, -.006, -.055])]), 1.4 * NECK_R)   # visible cord into the head
     ropes[f'neck tail {side}'] = S.add_rope(tail, 1, NECK_R, bend=.5, pin_first=True)
     S.set_mass(ropes[f'neck tail {side}'][-1], 6, .0085)
 # Shoulder cords: short braid from the fitting to a tassel head.
 for i, anchor in enumerate(SHOULDER_ANCHORS):
     top, _ = front(*anchor, 1.4 * SHOULDER_R)
-    pts = resample(np.array([top, top + np.array([0, -.004, -.045])]), 1.4 * SHOULDER_R)
+    pts = resample(np.array([top, top + np.array([0, -.004, -.052])]), 1.4 * SHOULDER_R)
     ropes[f'shoulder {i}'] = S.add_rope(pts, 1, SHOULDER_R, bend=.5, pin_first=True)
     S.set_mass(ropes[f'shoulder {i}'][-1], 6, .0075)
 # Waist: knot, the band around the body (one cord: tail B - knot B - band - knot A - tail A),
@@ -109,7 +109,7 @@ for t, q in sorted(band, key=lambda b: (np.arctan2(b[1][1], b[1][0]) - angB) % (
     if .08 < ang < ((angA - angB) % (2 * np.pi)) - .08: pts.append(q)
 pts.append(entryA)
 ropes['waist band'] = S.add_rope(resample(catmull(pts, 4), 1.5 * WAIST_R), 1, WAIST_R, bend=.6, pin_first=True, pin_last=True, slack=1.01)
-for side, sgn, length in (('A', -1, .028), ('B', 1, .036)):
+for side, sgn, length in (('A', -1, .05), ('B', 1, .06)):
     e = Kw + WAIST_BALL * (sgn * .34 * uw - .6 * vw + .3 * ww)      # front of the ball: hang clear of the skirt
     ropes[f'waist tail {side}'] = S.add_rope(resample(np.array([e, e + np.array([0, -.008, -length])]), 1.4 * WAIST_R), 1, WAIST_R, bend=.6, pin_first=True)
     S.set_mass(ropes[f'waist tail {side}'][-1], 8, .011)
@@ -124,6 +124,7 @@ paths = {k: X[v] for k, v in ropes.items()}
 TASSELS = {'neck A': ('neck tail A', .011, .05), 'neck B': ('neck tail B', .011, .05),
            'shoulder 0': ('shoulder 0', .009, .07), 'shoulder 1': ('shoulder 1', .009, .07),
            'waist A': ('waist tail A', .013, .075), 'waist B': ('waist tail B', .013, .075)}
+CORD_RADIUS = {'neck': NECK_R, 'shoulder': SHOULDER_R, 'waist': WAIST_R}
 profile = lambda u: 1 + .8 * np.sin(np.minimum(u * 2.2, 1) * np.pi / 2) - .35 * u ** 2   # x binding radius
 F = RopeSystem()
 for name, idx in ropes.items():                                      # settled cords as obstacles
@@ -162,7 +163,7 @@ mats = [material('Braided silk cord / lacquer red', (.2, .01, .009), .72),
         material('Tassel binding / aged brass', (.42, .26, .08), .38, metal=1.),
         material('Tassel core / dark red', (.06, .004, .004), .8)]
 
-tex_dir = Path(a.output).parent; bcol, bnrm = braid_textures(tex_dir)
+tex_dir = Path(a.output).parent; tex_dir.mkdir(parents=True, exist_ok=True); bcol, bnrm = braid_textures(tex_dir)
 bm_ = mats[0]; nt = bm_.node_tree; bs = nt.nodes['Principled BSDF']
 ct = nt.nodes.new('ShaderNodeTexImage'); ct.image = bpy.data.images.load(str(bcol.resolve())); ct.image.pack()
 nt_img = nt.nodes.new('ShaderNodeTexImage'); nt_img.image = bpy.data.images.load(str(bnrm.resolve())); nt_img.image.colorspace_settings.name = 'Non-Color'; nt_img.image.pack()
@@ -197,6 +198,12 @@ tri['cords'] = build('Cords / kumihimo braid', cords, 0)
 def tassel_threads(bm):
     rng = np.random.default_rng(1615)
     for name, (H, axis, e1, e2, rh, bind, rb, length) in heads.items():
+        # The head grows out of the cord: threads start on the cord surface (not at a point) and a
+        # few wraps of thread bind the cord where it enters the head.
+        cord_r = CORD_RADIUS[name.split()[0]]
+        t0 = np.arcsin(min(1.1 * cord_r / rh, .9))
+        top = H - axis * rh * 1.02 * np.cos(t0)
+        coil(bm, top, axis, e1, e2, lambda u: cord_r + .0007, -.0055, .0008, 5, .0007, sides=4)
         line = XF[centre_lines[name]]
         line = resample(catmull(list(line), 4), length / 14)
         T, N, B = frames(line)
@@ -207,7 +214,7 @@ def tassel_threads(bm):
         for j in range(120):
             phi = rng.uniform(0, 2 * np.pi); rho = np.sqrt(rng.uniform(.3, 1)); end = rng.uniform(.9, 1.)
             radial = np.cos(phi) * e1 + np.sin(phi) * e2
-            dome = [H - axis * rh * 1.02 * np.cos(t) + radial * rh * np.sin(t) for t in np.linspace(.18, np.pi * .62, 6)]
+            dome = [H - axis * rh * 1.02 * np.cos(t) + radial * rh * np.sin(t) for t in np.linspace(t0, np.pi * .62, 7)]
             ang = phi - rot
             wob = rng.normal(0, .12, 2)
             fr = line + (rho * r)[:, None] * ((np.cos(ang) + wob[0] * u)[:, None] * N + (np.sin(ang) + wob[1] * u)[:, None] * B)

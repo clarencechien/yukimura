@@ -1,9 +1,9 @@
 {
   "file": "body-v2-pass6-preview.glb",
-  "sha256": "7272f3ee9921b5546d3dd6eb0bf1c47cfeefe35ecd3499914dff7af829285cfe",
-  "bytes": 72062156,
-  "vertices": 646380,
-  "triangles": 591785,
+  "sha256": "847dd0b79c023a551111bab048b7ec572d01fe405789964f42cf3a1e07cfd2f6",
+  "bytes": 72138160,
+  "vertices": 647655,
+  "triangles": 594251,
   "degenerate_triangles": 0,
   "bounds": [
     [

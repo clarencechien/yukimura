@@ -7,8 +7,8 @@
     1000
   ],
   "geometry_objects": 1,
-  "vertices": 835131,
-  "triangles": 860000,
+  "vertices": 836406,
+  "triangles": 862466,
   "material_count": 29,
   "images": [
     {
@@ -155,7 +155,7 @@
         1.455
       ],
       "span": 0.12,
-      "seconds": 41.35
+      "seconds": 45.19
     },
     {
       "name": "neck-front",
@@ -166,7 +166,7 @@
         1.52
       ],
       "span": 0.42,
-      "seconds": 39.85
+      "seconds": 41.03
     },
     {
       "name": "knot-waist",
@@ -177,7 +177,7 @@
         1.07
       ],
       "span": 0.16,
-      "seconds": 40.08
+      "seconds": 41.68
     },
     {
       "name": "knot-waist-side",
@@ -188,7 +188,7 @@
         1.07
       ],
       "span": 0.16,
-      "seconds": 40.23
+      "seconds": 42.32
     },
     {
       "name": "audit-waist",
@@ -199,7 +199,7 @@
         1.08
       ],
       "span": 0.4,
-      "seconds": 38.74
+      "seconds": 41.16
     },
     {
       "name": "tassel-shoulder",
@@ -210,7 +210,7 @@
         1.41
       ],
       "span": 0.13,
-      "seconds": 34.79
+      "seconds": 36.24
     },
     {
       "name": "front",
@@ -221,7 +221,7 @@
         1.03
       ],
       "span": 2.35,
-      "seconds": 22.88
+      "seconds": 25.25
     },
     {
       "name": "three-quarter",
@@ -232,7 +232,7 @@
         1.03
       ],
       "span": 2.35,
-      "seconds": 23.67
+      "seconds": 24.4
     },
     {
       "name": "side",
@@ -243,7 +243,7 @@
         1.03
       ],
       "span": 2.35,
-      "seconds": 24.78
+      "seconds": 28.34
     },
     {
       "name": "back",
@@ -254,7 +254,7 @@
         1.03
       ],
       "span": 2.35,
-      "seconds": 24.64
+      "seconds": 24.96
     },
     {
       "name": "clay",
@@ -265,7 +265,7 @@
         1.03
       ],
       "span": 2.35,
-      "seconds": 22.22
+      "seconds": 22.98
     }
   ]
 }

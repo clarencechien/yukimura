@@ -58,13 +58,13 @@
     "Energy seam / shin left": 88,
     "Neck lining / dark quilted cloth": 1152,
     "Collar core / dark quilted cloth": 1200,
-    "Cords / kumihimo braid": 23520,
-    "Tassels / silk threads": 85242,
+    "Cords / kumihimo braid": 24360,
+    "Tassels / silk threads": 86868,
     "Tassels / brass binding": 6456,
     "Tassels / core": 1728
   },
   "materials": 29,
-  "triangles": 860000,
+  "triangles": 862466,
   "seam_audit": [
     {
       "label": "neck interior (head/body junction)",

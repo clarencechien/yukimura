@@ -37,13 +37,17 @@
    - 流蘇整束當作一條有厚度的物理繩：從束口下方垂直落下，有彎曲剛性，碰到盔甲會順著貼上。
    - 每個流蘇 120 條細線依中心線排成先鼓後收的形狀，並往上翻過圓頭，再以黃銅細繩纏 4.5 圈束起。
    - 一開始逐條模擬線束，結果亂成拖把狀，因此改為整束模擬。
-6. **清除舊繩**
+6. **流蘇接回繩子**（依回饋修正：流蘇「像憑空冒出來」）
+   - 原因是結到流蘇的短繩太短，大部分藏在球結或流蘇頭裡；頭部的線又從一個點開始，看起來像黏上去的。
+   - 短繩加長：頸 3 → 5.5 cm、腰 2.8/3.6 → 5/6 cm，可以看到繩子從結延伸進流蘇。
+   - 頭部的線改從繩子表面開始往外鋪開，接口再用 5 圈細線纏住。
+7. **清除舊繩**
    - 原本長在胸甲上的槳狀板、腰部舊結與流蘇，壓平前先在曲面上做 Tutte 鬆弛，展開被壓扁而互相重疊的三角形，以免留下碎片。
    - 壓平後的區域改用周圍盔甲貼圖的中位色。
    - 鬆弛後退化的面會被消除（頸部 40 面、腰部 209 面）。
 
 **檢查**
-- 完整版 860,000 面，檢視版 591,785 面，都是單一物件；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass6/mesh-inspection.json)、[檢視版](pass6/preview-inspection.json)）。
+- 完整版 862,466 面，檢視版 594,251 面，都是單一物件；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass6/mesh-inspection.json)、[檢視版](pass6/preview-inspection.json)）。
 - 頭身縫隙重新用射線檢查：能穿透看到背景的為 0（[報告](pass6/merge-report.json)）。
 - 模擬參數與結果見[繩結報告](pass6/tie-report.json)，清除紀錄見[頸部](pass6/neck-clear-report.json)、[腰部](pass6/waist-clear-report.json)。
 - 完整版為了壓在 GitHub 100 MB 限制內，沒有存切線；依 glTF 規範，閱讀器會自行以 MikkTSpace 計算。檢視版則有存切線。
@@ -300,7 +304,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（67 MB） | 已改用 pass 6 模型；解壓後開啟 index.html | 591,785 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（67 MB） | 已改用 pass 6 模型；解壓後開啟 index.html | 594,251 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 
