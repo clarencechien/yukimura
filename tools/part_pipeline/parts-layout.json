@@ -137,7 +137,7 @@
     0.55,
     "body.lowerleg01.{S}"
    ],
-   "size": 0.36,
+   "size": 0.42,
    "offset": [
     0.01,
     -0.08,
@@ -155,7 +155,7 @@
    "anchor": [
     "body.lowerleg01.{S}"
    ],
-   "size": 0.21,
+   "size": 0.25,
    "offset": [
     0,
     -0.075,
@@ -179,7 +179,7 @@
     "body.foot.{S}",
     "body.lowerleg01.{S}"
    ],
-   "size": 0.4,
+   "size": 0.44,
    "offset": [
     0,
     -0.05,
@@ -202,7 +202,7 @@
    "anchor": [
     "body.foot.{S}"
    ],
-   "size": 0.38,
+   "size": 0.4,
    "offset": [
     0,
     -0.09,
@@ -220,11 +220,11 @@
    "anchor": [
     "body.spine05"
    ],
-   "size": 0.3,
+   "size": 0.44,
    "offset": [
-    0.085,
-    -0.16,
-    -0.17
+    0.1,
+    -0.19,
+    -0.2
    ],
    "sides": [
     "R",
@@ -241,16 +241,16 @@
    "anchor": [
     "body.spine05"
    ],
-   "size": 0.3,
+   "size": 0.44,
    "rotate": [
     0,
     0,
     80
    ],
    "offset": [
-    0.2,
+    0.24,
     -0.01,
-    -0.17
+    -0.2
    ],
    "sides": [
     "R",
@@ -267,7 +267,7 @@
    "anchor": [
     "body.spine05"
    ],
-   "size": 0.3,
+   "size": 0.44,
    "rotate": [
     0,
     0,
@@ -275,8 +275,8 @@
    ],
    "offset": [
     0.085,
-    0.15,
-    -0.17
+    0.18,
+    -0.2
    ],
    "sides": [
     "R",
@@ -286,6 +286,29 @@
     "bone": "body.upperleg01.{S}",
     "max": 0.5
    }
+  },
+  "kote-upper": {
+   "file": ".tmp/parts/kote-upper-proc/seed-0/kote-upper-proc-high.glb",
+   "bone": "body.upperarm02.{S}",
+   "anchor": [
+    "body.upperarm01.{S}",
+    0.6,
+    "body.lowerarm01.{S}"
+   ],
+   "align": [
+    "body.lowerarm01.{S}",
+    "body.upperarm01.{S}"
+   ],
+   "rotate": [
+    0,
+    0,
+    60
+   ],
+   "size": 0.2,
+   "sides": [
+    "R",
+    "L"
+   ]
   }
  }
 }

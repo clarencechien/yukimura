@@ -144,3 +144,23 @@ python tools/part_pipeline/kusazuri_panel.py --output .tmp/parts/kusazuri-proc/s
 python tools/part_pipeline/assemble.py --body .tmp/stage4/body.blend --layout tools/part_pipeline/parts-layout.json --output .tmp/stage4/assembled.blend
 python tools/part_pipeline/render_assembly.py --blend .tmp/stage4/assembled.blend --output .tmp/stage4/final --pose slash:0.45 --views three-quarter
 ```
+
+### 第二版：體型、草摺、上臂甲
+
+- **體型**（[build_body.py](../../../../tools/part_pipeline/build_body.py) `BULK`）：四肢沿骨頭的橫向加粗（大腿 1.45 倍、小腿 1.35、上臂 1.3、前臂 1.2），軀幹以自身中軸左右 1.12、前後 1.2 倍。關節位置不變，仍對齊遊戲骨架。
+- **草摺**：長度由 30 cm 加到 44 cm，上緣接在胴下緣、下緣到大腿中段；前、側、後各兩片，往外擴。佩楯、膝、脛、足甲也依設定圖加大。
+- **上臂甲**（[curved_plate.py](../../../../tools/part_pipeline/curved_plate.py)）：TRELLIS 兩次都把上臂甲生成成背心，改用程式生成的 210° 弧形甲片，貼圖取自手臂單件圖的上臂甲區域，上下金邊；從上臂到肘之間，綁上臂第二段骨。
+
+![](stage4/stage4b-turnaround.jpg)
+
+![](stage4/stage4b-vs-concept.jpg)
+
+動作測試仍然全部跟著身體走：
+
+![](stage4/stage4b-poses.jpg)
+
+**還差的地方**
+- 胴比設定圖窄，正面草摺像一整片平板（兩片前草摺並排、沒有分片的層次）。
+- 頸前繩結、腰繩與流蘇還沒加。
+- 黑色部位在設定圖是有紋理的機械護甲與布，目前是單色亮黑。
+- 手甲方向、手指不動；遊戲版減面與烘焙未做。
