@@ -1,0 +1,28 @@
+[
+  {
+    "file": "ab-front-gemini-3-pro-image.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Character model sheet of exactly this armoured samurai, redrawn as a clean reference for 3D modelling.\nView: strict FRONT view, orthographic (no perspective), camera at chest height, the whole body from the antler tips to the soles fully in frame with margin.\nPose: neutral A-pose, standing straight and perfectly symmetric, feet shoulder-width apart pointing forward, arms straight and angled about 45 degrees down away from the body, hands open and relaxed, palms facing the thighs, head looking straight at the viewer.\nKeep every design detail identical to the reference: red lacquered lamellar plates in level horizontal rows laced with black cord and trimmed in gold, the helmet with six gold coins (rokumonsen) and gold deer antlers, the red menpo face mask, the red braided cords and tassels at the neck and the waist knot, the layered shoulder guards (sode), the skirt plates (kusazuri) with gold wave engraving on the lowest row, the black mechanical joints with small glowing orange energy lines on forearms and shins, knee guards, greaves and armoured boots.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light so the true colours read; no rim light, no bloom, no dramatic shadows.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.139744,
+    "seconds": 32.0,
+    "text_reply": ""
+  },
+  {
+    "file": "ab-front-gpt-image-2.5-flare.png",
+    "model": "openai/gpt-image-2.5-flare",
+    "prompt": "Character model sheet of exactly this armoured samurai, redrawn as a clean reference for 3D modelling.\nView: strict FRONT view, orthographic (no perspective), camera at chest height, the whole body from the antler tips to the soles fully in frame with margin.\nPose: neutral A-pose, standing straight and perfectly symmetric, feet shoulder-width apart pointing forward, arms straight and angled about 45 degrees down away from the body, hands open and relaxed, palms facing the thighs, head looking straight at the viewer.\nKeep every design detail identical to the reference: red lacquered lamellar plates in level horizontal rows laced with black cord and trimmed in gold, the helmet with six gold coins (rokumonsen) and gold deer antlers, the red menpo face mask, the red braided cords and tassels at the neck and the waist knot, the layered shoulder guards (sode), the skirt plates (kusazuri) with gold wave engraving on the lowest row, the black mechanical joints with small glowing orange energy lines on forearms and shins, knee guards, greaves and armoured boots.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light so the true colours read; no rim light, no bloom, no dramatic shadows.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.054983,
+    "seconds": 24.2,
+    "text_reply": ""
+  }
+]
