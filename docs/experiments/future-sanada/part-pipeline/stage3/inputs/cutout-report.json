@@ -1,0 +1,183 @@
+{
+  "helmet": {
+    "size": [
+      1321,
+      1994
+    ],
+    "object_fraction": 0.233,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": null
+  },
+  "do-front": {
+    "size": [
+      1341,
+      1603
+    ],
+    "object_fraction": 0.33,
+    "pocket_pixels": 17422,
+    "components": 1,
+    "polygon": null
+  },
+  "do-back": {
+    "size": [
+      1401,
+      1772
+    ],
+    "object_fraction": 0.384,
+    "pocket_pixels": 9825,
+    "components": 1,
+    "polygon": null
+  },
+  "sode": {
+    "size": [
+      1342,
+      1522
+    ],
+    "object_fraction": 0.277,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": null
+  },
+  "kusazuri": {
+    "size": [
+      987,
+      1332
+    ],
+    "object_fraction": 0.209,
+    "pocket_pixels": 72056,
+    "components": 1,
+    "polygon": [
+      [
+        0.362,
+        0.255
+      ],
+      [
+        0.708,
+        0.255
+      ],
+      [
+        0.762,
+        0.835
+      ],
+      [
+        0.352,
+        0.835
+      ]
+    ]
+  },
+  "kote": {
+    "size": [
+      1045,
+      2375
+    ],
+    "object_fraction": 0.269,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": null
+  },
+  "gauntlet": {
+    "size": [
+      1379,
+      1770
+    ],
+    "object_fraction": 0.271,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": null
+  },
+  "haidate": {
+    "size": [
+      1844,
+      1742
+    ],
+    "object_fraction": 0.419,
+    "pocket_pixels": 0,
+    "components": 2,
+    "polygon": null
+  },
+  "knee": {
+    "size": [
+      1113,
+      1519
+    ],
+    "object_fraction": 0.232,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": null
+  },
+  "suneate": {
+    "size": [
+      864,
+      1979
+    ],
+    "object_fraction": 0.199,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": null
+  },
+  "boot": {
+    "size": [
+      1183,
+      2000
+    ],
+    "object_fraction": 0.249,
+    "pocket_pixels": 0,
+    "components": 4,
+    "polygon": null
+  },
+  "kote-forearm": {
+    "size": [
+      964,
+      1358
+    ],
+    "object_fraction": 0.126,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": [
+      [
+        0.2,
+        0.455
+      ],
+      [
+        0.72,
+        0.455
+      ],
+      [
+        0.72,
+        0.93
+      ],
+      [
+        0.2,
+        0.93
+      ]
+    ]
+  },
+  "kote-upper": {
+    "size": [
+      918,
+      700
+    ],
+    "object_fraction": 0.072,
+    "pocket_pixels": 0,
+    "components": 1,
+    "polygon": [
+      [
+        0.25,
+        0.265
+      ],
+      [
+        0.72,
+        0.265
+      ],
+      [
+        0.72,
+        0.462
+      ],
+      [
+        0.25,
+        0.462
+      ]
+    ]
+  }
+}

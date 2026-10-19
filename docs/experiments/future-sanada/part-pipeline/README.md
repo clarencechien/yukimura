@@ -69,3 +69,36 @@
 | 足甲 | 紅金甲片、黑色機械靴、厚胎紋鞋底 |
 
 第一輪有三件重畫（各 0.14 美元）：袖的下面多畫了一雙靴子；草摺畫成整圈裙；膝甲畫得像頭盔。
+
+## 第 3 階段：逐件 3D
+
+每件單件圖先以色鍵去背（灰底很平，不需要去背網路；[cutout.py](../../../../tools/part_pipeline/cutout.py)），再在 Modal H100 以 TRELLIS.2 1536 cascade 一件一件生成（[trellis_parts_modal.py](../../../../tools/part_pipeline/trellis_parts_modal.py)，`python tools/run_trellis.py --parts-study --names … --seeds 1615`）。每件約 4–9 分鐘，原資料先存進 Modal Volume `yukimura-trellis2-cache/results/future-sanada-parts/`，再匯出兩種：開放曲面（`high`）與重網格封閉版（`closed`），各約 30 萬面、2048 貼圖。
+
+**選用的結果**（左起：輸入、上色 30°、上色 210°、白模 30°、白模 210°；全部用封閉版）：
+
+![](stage3/stage3-parts.jpg)
+
+| 部件 | 結果 |
+| --- | --- |
+| 頭盔 | 鹿角、六文錢、吹返、面具、錏都成形，背面護頸也合理 |
+| 胴（前） | 6 段水平甲片與綴繩是真的幾何；背面是 TRELLIS 推測的平板，組裝時只用前半 |
+| 胴（後） | 總角結與流蘇有立體幾何；組裝時只用後半 |
+| 袖 | 5 段甲片、綴繩、上緣金具 |
+| 草摺 | **改用程式生成**（見下）：5 段水平甲片，貼圖取自單件圖 |
+| 籠手 | 只取肘到腕（見下）；肘甲與前臂甲成形 |
+| 手甲 | 五指分開、指甲片清楚，可再綁指骨 |
+| 佩楯、膝、脛、足 | 皆成形；膝與脛的背面為推測 |
+
+**和 body v2 同部位比較**（上：body v2 pass 8／9，下：本階段單件）：
+
+![](stage3/stage3-vs-body-v2.jpg)
+
+**失敗與對策**
+
+![](stage3/stage3-failed.jpg)
+
+- **草摺**：正面平視的平板沒有深度線索，TRELLIS 生成碎片。改寫 [kusazuri_panel.py](../../../../tools/part_pipeline/kusazuri_panel.py)：5 段弧形甲片（外傾、上緣塞入上一片、金色捲邊），每個頂點透過圖中面板的梯形取樣單件圖，背面為深色漆。約 1 萬面。
+- **整條手臂**：肩口的圓洞被當成脖子，生成出一件有手臂的上衣。改在肘部切開：肘到腕（`kote-forearm`）成功；上臂甲（`kote-upper`）兩個 seed 都變成背心，第 4 階段改用程式生成的弧形甲片。
+- **開放曲面的小洞**：開放版在薄甲片上有針孔狀破洞（白模上的黑色裂紋），封閉版沒有，因此全部改用封閉版。
+
+GLB 每件約 20–28 MB，未放入 Git，可由 Modal Volume 重新下載：`python tools/run_trellis.py --parts-study --names helmet,… --seeds 1615 --download-only`。去背後的輸入圖可由 `cutout.py` 重建，也不放入 Git。
