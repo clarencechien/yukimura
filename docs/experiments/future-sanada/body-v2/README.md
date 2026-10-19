@@ -2,6 +2,22 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
+## 狀態：停在 pass 9（2026-10-19）
+
+body v2 的精修到 **pass 9 為止**，後續暫停。pass 9 是最終版本，已提交於分支 `ccr-d06e025a-l8vnqo`（commit `44841d9`）：
+
+| 部分 | 檔案 | 大小 | 三角面 |
+| --- | --- | ---: | ---: |
+| 頭 | [body-v2-pass9-head.glb](pass9/body-v2-pass9-head.glb) | 30.3 MB | 227,742 |
+| 身體 | [body-v2-pass9-body.glb](pass9/body-v2-pass9-body.glb) | 61.0 MB | 491,356 |
+| 甲片 | [body-v2-pass9-plates.glb](pass9/body-v2-pass9-plates.glb) | 4.8 MB | 131,600 |
+| 繩子 | [body-v2-pass9-cords.glb](pass9/body-v2-pass9-cords.glb) | 2.7 MB | 115,866 |
+| 合併檢視版 | [body-v2-pass9-preview.glb](pass9/body-v2-pass9-preview.glb) | 76.6 MB | 698,349 |
+
+四件使用同一座標系，一起載入即為完整角色（[manifest](pass9/body-v2-pass9-manifest.json)）。可直接用於 Blender 影片或靜態算圖；尚未綁骨，也還沒有遊戲版減面（遊戲武將上限 9 萬面、7 MB）。
+
+之後試過的另一條路線（Gemini 設計圖＋逐件 TRELLIS 生成＋組到遊戲骨架）在分支 `future-sanada-part-pipeline`，也已暫停；那邊保留了設計圖與單件 3D。
+
 ## 最新：側面草摺、背甲、肩部與頸前流蘇（pass 9）
 
 處理 pass 8 留下的四項：側面草摺、背甲接縫、肩上的舊碎片、頸前流蘇。上排是 pass 8，下排是本輪（1000²、24 samples）。
