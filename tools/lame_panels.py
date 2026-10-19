@@ -1,4 +1,4 @@
-"""Rebuild the lamellar plates (dō front, kusazuri, sode) as level, regular lames.
+"""Rebuild the lamellar plates (dō front and back, kusazuri, sode) as level, regular lames.
 
 Every panel is defined in a view frame (angle around Z as in render_body_v2.py): s = screen
 horizontal, z = height, d = depth along the view. Rays from the view give the plate surface; a
@@ -40,10 +40,12 @@ def chest_v(k, u): c = CHEST_CURVES[k]; return c[0] * (u - 460) ** 2 + c[1] * (u
 # the tassels, so it reuses the second lame's rows.
 SKIRT_ROWS = [(754, 790), (754, 790), (790, 830), (830, 872), (872, 946)]
 SKIRT_U = (390, 512)
-ATLAS = {'chest': {'heights': [1] * 6}, 'skirt': {'heights': [36, 36, 40, 42, 74]}}
+ATLAS = {'chest': {'heights': [1] * 6}, 'chest-back': {'heights': [1] * 6}, 'skirt': {'heights': [36, 36, 40, 42, 74]}}
 def ref_uv(atlas, k, fs, t):
     """Reference pixel for lame k at horizontal fraction fs (0 left .. 1 right), height fraction t
     (0 lower edge .. 1 the gap above; > 1 is the tucked part, hidden)."""
+    if atlas == 'chest-back':                                         # no painted tassels on the back
+        atlas, k = 'chest', max(k, 1)
     if atlas == 'chest':
         u0, u1 = CHEST_U[k]; u = u0 + fs * (u1 - u0)
         vb, vt = chest_v(k + 1, u), chest_v(k, u)
@@ -54,7 +56,12 @@ def ref_uv(atlas, k, fs, t):
 # ---------------------------------------------------------------- panels
 # view: degrees (0 front, 180 back, 90 from +x, -90 from -x); s, z: extents in the view frame.
 PANELS = [
-    {'name': 'do front', 'view': 0, 's': (-.19, .07), 'z': (1.165, 1.455), 'atlas': 'chest', 'wrap': .012},
+    # The top lames reach further toward the left shoulder (covers the flattened generated paddle).
+    {'name': 'do front', 'view': 0, 's': (-.2, .07), 'z': (1.165, 1.455), 'atlas': 'chest', 'wrap': .012,
+     'extend': {'s1': .135, 'z_min': 1.355}},
+    {'name': 'do back', 'view': 180, 's': (-.15, .15), 'z': (1.16, 1.45), 'atlas': 'chest-back', 'wrap': .012},
+    {'wrap': .006, 'name': 'kusazuri left side', 'view': 90, 's': (-.03, .12), 'z': (.73, .98), 'atlas': 'skirt'},
+    {'wrap': .006, 'name': 'kusazuri right side', 'view': -90, 's': (-.12, .03), 'z': (.72, .95), 'atlas': 'skirt'},
     {'wrap': .006, 'name': 'kusazuri front right', 'view': 0, 's': (-.195, -.005), 'z': (.70, 1.07), 'atlas': 'skirt'},
     {'wrap': .006, 'name': 'kusazuri front left', 'view': 45, 's': (-.08, .07), 'z': (.775, 1.07), 'atlas': 'skirt'},
     {'wrap': .006, 'name': 'kusazuri back centre', 'view': 180, 's': (-.037, .153), 'z': (.70, 1.0), 'atlas': 'skirt'},
@@ -75,6 +82,9 @@ for o in list(bpy.context.scene.objects):
 for o in list(bpy.context.scene.objects):
     if o.type != 'MESH': bpy.data.objects.remove(o)
 body = next(o for o in bpy.context.scene.objects if o.data.materials and o.data.materials[0].name.startswith('Body v2'))
+# The pass-2 back plate shell is replaced by real lames ('do back'): remove it first.
+for o in [o for o in bpy.context.scene.objects if o.name.startswith('Back plate shell')]:
+    if any(q['name'] == 'do back' for q in PANELS): bpy.data.objects.remove(o)
 bm0 = bmesh.new(); bm0.from_mesh(body.data); tree = BVHTree.FromBMesh(bm0); bm0.free()
 co = np.empty(len(body.data.vertices) * 3, np.float32); body.data.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
 
@@ -107,7 +117,7 @@ for P in PANELS:
     r, f = frame(P['view']); zh = np.array([0, 0, 1.])
     (s0, s1), (zb, zt) = P['s'], P['z']
     step = .003
-    gs = np.arange(s0 - .01, s1 + .0101, step); gz = np.arange(zb - .01, zt + .0101, step)
+    gs = np.arange(s0 - .01, (P['extend']['s1'] if 'extend' in P else s1) + .0101, step); gz = np.arange(zb - .01, zt + .0101, step)
     D = np.full((len(gz), len(gs)), np.nan)
     for j, z in enumerate(gz):
         for i, s in enumerate(gs):
@@ -130,12 +140,14 @@ for P in PANELS:
 
     # push the generated surface under the panel behind the lames
     vs, vz, vd = co @ r, co[:, 2], co @ f
-    inside = (vs > s0 - .004) & (vs < s1 + .004) & (vz > zb - .004) & (vz < zt + .004)
+    ext = P.get('extend')
+    def s_hi(z): return np.where(np.asarray(z) >= ext['z_min'], ext['s1'], s1) if ext else np.full(np.shape(z), s1)
+    inside = (vs > s0 - .004) & (vs < s_hi(vz) + .004) & (vz > zb - .004) & (vz < zt + .004)
     fd = depth(vs[inside], vz[inside])
     idx = np.where(inside)[0]
     win = (vd[idx] > fd - .035) & (vd[idx] < fd + .0015)
     wrap = P.get('wrap', 0.)                                          # plate ends curve back around the body
-    vfs = np.clip((vs[inside] - s0) / (s1 - s0), 0, 1)
+    vfs = np.clip((vs[inside] - s0) / (s_hi(vz[inside]) - s0), 0, 1)
     idx = idx[win]; target = fd[win] + .0015 + wrap * (2 * vfs[win] - 1) ** 4
     co[idx] += ((target - vd[idx]))[:, None] * f
 
@@ -145,14 +157,15 @@ for P in PANELS:
     nx, nt = 40, 9
     for k in range(n):
         top, bot = edges[k], edges[k + 1]
-        ss = np.linspace(s0, s1, nx); ts = np.linspace(0, 1 + TUCK / (top - bot), nt)
+        s1k = float(s_hi(bot))
+        ss = np.linspace(s0, s1k, nx); ts = np.linspace(0, 1 + TUCK / (top - bot), nt)
         Sg, Tg = np.meshgrid(ss, ts); Zg = bot + Tg * (top - bot)
         lean = LEAN * np.clip(1 - Tg, 0, 1) ** 1.4
-        Df = depth(Sg, Zg) - BASE - lean + wrap * (2 * (Sg - s0) / (s1 - s0) - 1) ** 4
+        Df = depth(Sg, Zg) - BASE - lean + wrap * (2 * (Sg - s0) / (s1k - s0) - 1) ** 4
         Fw = world(Sg, Zg, Df); Bw = world(Sg, Zg, Df + THICK)
         front = [[lame_bm.verts.new(Fw[j, i]) for i in range(nx)] for j in range(nt)]
         back = [[lame_bm.verts.new(Bw[j, i]) for i in range(nx)] for j in range(nt)]
-        fs = (Sg - s0) / (s1 - s0)                                      # screen-left is texture-left
+        fs = (Sg - s0) / (s1k - s0)                                     # screen-left is texture-left
         U, V = ref_uv(at, k, fs, Tg)
         UV = np.stack([U / W_REF, 1 - V / H_REF], -1)
         for j in range(nt - 1):

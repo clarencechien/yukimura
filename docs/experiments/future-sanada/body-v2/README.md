@@ -2,7 +2,70 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
-## 最新：全身板甲改為水平規則、拆檔（pass 8）
+## 最新：側面草摺、背甲、肩部與頸前流蘇（pass 9）
+
+處理 pass 8 留下的四項：側面草摺、背甲接縫、肩上的舊碎片、頸前流蘇。上排是 pass 8，下排是本輪（1000²、24 samples）。
+
+| | 左腰側 | 右腰側 | 背甲 | 背甲側緣 | 肩前（畫面右） | 肩前（畫面左） | 頸前流蘇 | 頸前流蘇側面 | 肩流蘇 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pass 8 | ![](pass9/before/hip-l.png) | ![](pass9/before/hip-r.png) | ![](pass9/before/back-upper.png) | ![](pass9/before/seam-back-l.png) | ![](pass9/before/patch-l.png) | ![](pass9/before/patch-r.png) | ![](pass9/before/tassel-neck.png) | ![](pass9/before/tassel-neck-side.png) | ![](pass9/before/tassel-shoulder.png) |
+| 本輪 | ![](pass9/renders/hip-l.png) | ![](pass9/renders/hip-r.png) | ![](pass9/renders/back-upper.png) | ![](pass9/renders/seam-back-l.png) | ![](pass9/renders/patch-l.png) | ![](pass9/renders/patch-r.png) | ![](pass9/renders/tassel-neck.png) | ![](pass9/renders/tassel-neck-side.png) | ![](pass9/renders/tassel-shoulder.png) |
+
+| 正面 | 斜側 | 側面 | 背面 | 白模 |
+| --- | --- | --- | --- | --- |
+| ![](pass9/renders/front.png) | ![](pass9/renders/three-quarter.png) | ![](pass9/renders/side.png) | ![](pass9/renders/back.png) | ![](pass9/renders/clay.png) |
+
+**做法**
+
+1. **側面草摺（[lame_panels.py](../../../../tools/lame_panels.py)、[報告](pass9/lame-panels-report.json)）**
+   - 左右腰側各加一片草摺，從正側面取表面，與前後草摺同樣是 5 枚、等高等距的水平甲片。
+   - 手臂垂在側面擋住草摺，所以甲片建在手臂後方、貼著腰。打到手臂的射線離擬合面太遠，會被穩健擬合當成離群值剔除，只留下腰側的表面。
+2. **背甲改為甲片**
+   - pass 2 的背甲外殼整個移除，改以和胸甲相同的做法，建 6 片水平背甲（z 1.16–1.45 m）。
+   - 背面原圖沒有畫，因此背甲貼圖沿用胸甲的拉直條。胸甲第一條畫有頸前流蘇，背甲第一片改用第二條，避免背上出現畫上去的流蘇。
+   - 外殼與新甲片的接縫因此不存在了。
+3. **肩上的舊碎片**
+   - 槳狀板被壓平的那塊在畫面右側（角色左肩前）。胸甲最上面兩片在這一側延長 6.5 cm，蓋住那塊；下面四片維持原寬，避免伸進手臂。
+4. **流蘇（[tie_cords.py](../../../../tools/tie_cords.py)、[報告](pass9/tie-report.json)）**
+   - **頸前流蘇：** pass 8 的流蘇頭剛好落在第一片胸甲的金邊上，線束一開始就卡在金邊裡，被推成水平、往前翻。這次把兩條尾繩從 5.5 cm 加長到 8.5 cm，讓流蘇頭垂到金邊下方。
+   - **線束：** 上半部仍是束緊的硬束，只在繫結處樞轉；下半部改成較軟的絲線，碰到甲片的捲邊時會順著垂下，不再像棍子一樣搭在上面。
+   - **線的方向：** 每條線改用流蘇頭固定的放射方向，投影到中心線的垂直面上。沿中心線傳遞的座標框在彎處會扭轉，使線束散開，這次已修正。中心線在撞擊時的細小抖動，在鋪線前先平滑掉，線不再呈鋸齒狀。
+   - **肩流蘇：** 錨點再外移 2 cm，離開新甲片的捲邊，流蘇可以自由垂下。
+
+**檔案（完整版，四個一起載入）**
+
+| 部分 | 檔案 | 大小 | 三角面 |
+| --- | --- | ---: | ---: |
+| 頭 | [body-v2-pass9-head.glb](pass9/body-v2-pass9-head.glb) | 30.3 MB | 227,742 |
+| 身體 | [body-v2-pass9-body.glb](pass9/body-v2-pass9-body.glb) | 61.0 MB | 491,356 |
+| 甲片 | [body-v2-pass9-plates.glb](pass9/body-v2-pass9-plates.glb) | 4.8 MB | 131,600 |
+| 繩子 | [body-v2-pass9-cords.glb](pass9/body-v2-pass9-cords.glb) | 2.7 MB | 115,866 |
+| 合併檢視版 | [body-v2-pass9-preview.glb](pass9/body-v2-pass9-preview.glb) | 76.6 MB | 698,349 |
+
+身體的面數比 pass 8 少，因為背甲外殼移除了；甲片的面數增加，因為多了背甲與兩片側草摺。
+
+**檢查**
+- 四個部分與檢視版都沒有近零面積三角形，所有 primitive 都有法線（`pass9/inspection-*.json`、[檢視版](pass9/preview-inspection.json)）。
+- 射線檢查無穿透縫（[報告](pass9/merge-report.json)）。
+- [互動檢視器 ZIP](viewer.zip) 已改用本輪模型，並通過離線瀏覽器檢查。
+
+**仍待處理**
+- **側面草摺的上緣：** 兩側最上面兩片在部分光線下偏亮，而且邊緣被手臂與前草摺切成斜的。正側面看不到，斜看才會注意到。
+- **頸前流蘇側面：** 胸甲外傾，流蘇順著甲面斜靠，側面看約 30–40°。這是物理結果，若要更貼身，需要讓流蘇頭再往後收。
+- **背甲貼圖：** 背面原圖沒有畫，現在借用胸甲的貼圖，綴繩與金扣的位置是推測的。
+
+```sh
+python tools/lame_panels.py --model .tmp/cleared.glb --output .tmp/plates.glb
+python tools/clean_limb_texture.py --model .tmp/plates.glb --output .tmp/clean.glb
+python tools/tie_cords.py --model .tmp/clean.glb --output .tmp/tied.glb
+python tools/merge_character.py --model .tmp/tied.glb --output docs/experiments/future-sanada/body-v2/pass9/body-v2-pass9.glb --split
+python tools/package_body_v2.py --model .tmp/tied.glb --directory docs/experiments/future-sanada/body-v2/pass9 --name body-v2-pass9-preview --join
+node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --body-v2 --pass9
+```
+
+（`.tmp/cleared.glb` 與 pass 8 相同，由 pass 6 的 `neck_cords.py --clear-only` 與 `waist_cord.py --clear-only` 產生。）
+
+## 前一階段：全身板甲改為水平規則、拆檔（pass 8）
 
 依回饋：胸甲應該是**水平的橫片**，不該斜得不規則；其餘的甲也一起修，並把檔案拆開。上排是 pass 7，下排是本輪（1000²、24 samples）。
 
@@ -49,9 +112,9 @@
 **檢查**
 - 四個部分與檢視版都沒有近零面積三角形，所有 primitive 都有法線（`pass8/inspection-*.json`、[檢視版](pass8/preview-inspection.json)）。
 - 射線檢查無穿透縫（[報告](pass8/merge-report.json)）。
-- [互動檢視器 ZIP](viewer.zip) 已改用本輪模型，並通過離線瀏覽器檢查。
+- [互動檢視器 ZIP](viewer.zip) 曾改用本輪模型，現已改用 pass 9。
 
-**仍待處理**
+**仍待處理（已在 pass 9 處理）**
 - **側面草摺：** 左右側的草摺被垂下的手臂擋住，這次沒有重建。
 - **背甲與甲片的接合：** 背甲外殼（pass 2）和新甲片的交界，近看還有接縫。
 - **肩上的舊碎片：** 右肩槳狀板壓平處的陰影仍在。
@@ -420,7 +483,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（71 MB） | 已改用 pass 8 模型；解壓後開啟 index.html | 689,247 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（70 MB） | 已改用 pass 9 模型；解壓後開啟 index.html | 698,349 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 

@@ -1,0 +1,37 @@
+{
+  "parts": [
+    {
+      "part": "head",
+      "file": "body-v2-pass9-head.glb",
+      "bytes": 30275948,
+      "sha256": "d5ec22d356dac7db517da9454e3e1cea8cbb949294a77b479a94a8668cd39f9f",
+      "triangles": 227742,
+      "materials": 16
+    },
+    {
+      "part": "body",
+      "file": "body-v2-pass9-body.glb",
+      "bytes": 61045292,
+      "sha256": "08475e8183e6c544377e4a40438efd535d75dcb5b00db7b2792e72bbfdd150b2",
+      "triangles": 491356,
+      "materials": 8
+    },
+    {
+      "part": "plates",
+      "file": "body-v2-pass9-plates.glb",
+      "bytes": 4786776,
+      "sha256": "db51336bd46dcc898a160fcab7a6dbc209fd5be9987ffbb1ba1cee5108f225f0",
+      "triangles": 131600,
+      "materials": 4
+    },
+    {
+      "part": "cords",
+      "file": "body-v2-pass9-cords.glb",
+      "bytes": 2728836,
+      "sha256": "f53d282426989c34b09a2e94454cd85b93939b9d588a216289ad854487d65e5a",
+      "triangles": 115866,
+      "materials": 4
+    }
+  ],
+  "note": "Load all parts into one scene; they share the same coordinate frame."
+}

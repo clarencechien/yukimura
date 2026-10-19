@@ -77,12 +77,14 @@ for side, sgn, anchor in (('A', -1, NECK_ANCHORS[0]), ('B', 1, NECK_ANCHORS[1]))
     pts = resample(catmull([top, mid1, mid2, entry], 8), 1.4 * NECK_R)
     ropes[f'neck {side}'] = S.add_rope(pts, 1, NECK_R, bend=.5, pin_first=True, pin_last=True, slack=1.03)
     exit_pt = Kn + NECK_BALL * (sgn * .32 * un - .62 * vn)
-    tail = resample(np.array([exit_pt, exit_pt + np.array([sgn * .004, -.006, -.055])]), 1.4 * NECK_R)   # visible cord into the head
+    # Long enough that the heads hang below the top lame's gold lip: a head on the lip pins the
+    # fringe inside it and the bundle is pushed out level instead of hanging.
+    tail = resample(np.array([exit_pt, exit_pt + np.array([sgn * .004, -.012, -.085])]), 1.4 * NECK_R)
     ropes[f'neck tail {side}'] = S.add_rope(tail, 1, NECK_R, bend=.5, pin_first=True)
     S.set_mass(ropes[f'neck tail {side}'][-1], 6, .0085)
 # Shoulder cords: short braid from the fitting to a tassel head.
 for i, anchor in enumerate(SHOULDER_ANCHORS):
-    top, _ = front(*anchor, 1.4 * SHOULDER_R + .011)                # clear of the rebuilt lames' rolled top edge
+    top, _ = front(*anchor, 1.4 * SHOULDER_R + .02)                 # clear of the rebuilt lames' rolled top edge
     pts = resample(np.array([top, top + np.array([0, -.004, -.052])]), 1.4 * SHOULDER_R)
     ropes[f'shoulder {i}'] = S.add_rope(pts, 1, SHOULDER_R, bend=.5, pin_first=True)
     S.set_mass(ropes[f'shoulder {i}'][-1], 6, .0075)
@@ -125,7 +127,7 @@ TASSELS = {'neck A': ('neck tail A', .011, .05), 'neck B': ('neck tail B', .011,
            'shoulder 0': ('shoulder 0', .009, .07), 'shoulder 1': ('shoulder 1', .009, .07),
            'waist A': ('waist tail A', .013, .075), 'waist B': ('waist tail B', .013, .075)}
 CORD_RADIUS = {'neck': NECK_R, 'shoulder': SHOULDER_R, 'waist': WAIST_R}
-profile = lambda u: 1 + .8 * np.sin(np.minimum(u * 2.2, 1) * np.pi / 2) - .35 * u ** 2   # x binding radius
+profile = lambda u: 1 + .55 * np.sin(np.minimum(u * 3, 1) * np.pi / 2) - .3 * u ** 2   # x binding radius
 F = RopeSystem()
 for name, idx in ropes.items():                                      # settled cords as obstacles
     q = F.add_rope(X[idx], 1, S.r[idx[0]])
@@ -145,8 +147,11 @@ for name, (rope, rh, length) in TASSELS.items():
     down = np.array([0, -.25, -1.]); down /= np.linalg.norm(down)
     line = np.array([bind + down * length * u for u in u_lv])
     idx = F.add_rope(line, 1, rb * 1.4, bend=.8, pin_first=True)   # weighted silk: hangs as a bundle
-    F.pin(idx[1])                                                     # leaves the binding along its axis
-    for k in range(len(idx) - 3): F.link(idx[k], idx[k + 3], stiffness=.6)   # longer-range bending stiffness
+    # Only the binding is pinned. The packed upper half is stiff (pivots, does not fold under the
+    # binding); the loose lower half is soft silk, so a tassel caught on a lame lip drapes over it
+    # and hangs down instead of resting on the ledge like a stick.
+    for k in range(len(idx) - 3): F.link(idx[k], idx[k + 3], stiffness=.6 if k < 4 else .15)
+    for k in range(min(len(idx) - 6, 2)): F.link(idx[k], idx[k + 6], stiffness=.9)
     centre_lines[name] = idx
 log(f'stage 3: {len(F.x)} particles')
 rep3 = F.simulate(collider, seconds=1.5, dt=1 / 300, iterations=20, damping=.97, friction=.4, max_speed=1.5, log=log)
@@ -204,20 +209,23 @@ def tassel_threads(bm):
         t0 = np.arcsin(min(1.1 * cord_r / rh, .9))
         top = H - axis * rh * 1.02 * np.cos(t0)
         coil(bm, top, axis, e1, e2, lambda u: cord_r + .0007, -.0055, .0008, 5, .0007, sides=4)
-        line = XF[centre_lines[name]]
+        line = XF[centre_lines[name]].copy()
+        for _ in range(4): line[1:-1] = .5 * line[1:-1] + .25 * (line[:-2] + line[2:])   # contact jitter would zigzag the fringe
         line = resample(catmull(list(line), 4), length / 14)
-        T, N, B = frames(line)
         u = np.linspace(0, 1, len(line)); r = rb * profile(u)
-        # Thread frames follow the draped centreline; align N with the head's e1 so the dome and
-        # fringe angles match.
-        rot = np.arctan2(np.dot(N[0], e2), np.dot(N[0], e1))
+        # Thread offsets use the head's fixed radial directions, projected perpendicular to the
+        # local centreline tangent: transported frames twist where the bundle bends over a lame
+        # edge and fanned the fringe out.
+        Tn = np.gradient(line, axis=0); Tn /= np.linalg.norm(Tn, axis=1, keepdims=True)
         for j in range(120):
             phi = rng.uniform(0, 2 * np.pi); rho = np.sqrt(rng.uniform(.3, 1)); end = rng.uniform(.9, 1.)
             radial = np.cos(phi) * e1 + np.sin(phi) * e2
             dome = [H - axis * rh * 1.02 * np.cos(t) + radial * rh * np.sin(t) for t in np.linspace(t0, np.pi * .62, 7)]
-            ang = phi - rot
-            wob = rng.normal(0, .12, 2)
-            fr = line + (rho * r)[:, None] * ((np.cos(ang) + wob[0] * u)[:, None] * N + (np.sin(ang) + wob[1] * u)[:, None] * B)
+            wob = rng.normal(0, .08, 3)
+            rad_l = radial[None] + wob[None] * u[:, None]
+            rad_l = rad_l - (rad_l * Tn).sum(1, keepdims=True) * Tn
+            rad_l /= np.maximum(np.linalg.norm(rad_l, axis=1, keepdims=True), 1e-9)
+            fr = line + (rho * r)[:, None] * rad_l
             fr = fr[: max(int(len(fr) * end), 3)]
             path = resample(catmull(dome + [bind + radial * rb * 1.05] + list(fr[1:]), 3), rb * .6)
             rr = np.full(len(path), rb * .09); rr[-4:] *= np.linspace(1, .5, 4)

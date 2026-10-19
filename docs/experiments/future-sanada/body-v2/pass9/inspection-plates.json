@@ -1,0 +1,59 @@
+{
+  "file": "body-v2-pass9-plates.glb",
+  "sha256": "db51336bd46dcc898a160fcab7a6dbc209fd5be9987ffbb1ba1cee5108f225f0",
+  "bytes": 4786776,
+  "vertices": 71500,
+  "triangles": 131600,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.3850346803665161,
+      0.6973999738693237,
+      -0.2980945110321045
+    ],
+    [
+      0.416111022233963,
+      1.5360000133514404,
+      0.2553761303424835
+    ]
+  ],
+  "extent": [
+    0.8011456727981567,
+    0.8386000394821167,
+    0.5534706115722656
+  ],
+  "materials": [
+    {
+      "name": "Plates / reference lacquer",
+      "baseColorTexture": {
+        "index": 0
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Plates / underside lacquer",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Plates / rolled edge lacquer",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Plates / gold edging",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 1,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "basecolor",
+  "primitives_without_normals": 0
+}
