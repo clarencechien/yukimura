@@ -60,7 +60,16 @@ obj = bpy.data.objects.new('Kusazuri / lames', mesh); bpy.context.collection.obj
 mod = obj.modifiers.new('thickness', 'SOLIDIFY'); mod.thickness = THICK; mod.offset = -1; mod.use_even_offset = True
 mat = bpy.data.materials.new('Kusazuri lacquer'); mat.use_nodes = True; nt = mat.node_tree; bsdf = nt.nodes['Principled BSDF']
 tex = nt.nodes.new('ShaderNodeTexImage'); tex.image = bpy.data.images.load(a.image); tex.extension = 'EXTEND'
-nt.links.new(tex.outputs['Color'], bsdf.inputs['Base Color']); bsdf.inputs['Roughness'].default_value = .38; bsdf.inputs['Coat Weight'].default_value = .5
+# The drawing has studio highlights painted into the lacquer (washed-out pink bands once lit
+# again in 3D): pull low-saturation bright pixels back to the lacquer red; gold (saturated
+# yellow) and the dark lacing are untouched.
+px = np.array(tex.image.pixels[:], dtype=np.float32).reshape(-1, 4); rgb = px[:, :3]
+mx, mn = rgb.max(1), rgb.min(1); sat = np.where(mx > 0, (mx - mn) / np.maximum(mx, 1e-6), 0)
+hot = np.clip((mx - .45) / .3, 0, 1) * np.clip((.55 - sat) / .3, 0, 1)
+red = np.array([.36, .045, .04], np.float32)
+rgb[:] = rgb * (1 - hot[:, None] * .8) + red * hot[:, None] * .8
+tex.image.pixels[:] = px.ravel(); tex.image.pack()
+nt.links.new(tex.outputs['Color'], bsdf.inputs['Base Color']); bsdf.inputs['Roughness'].default_value = .45; bsdf.inputs['Coat Weight'].default_value = .15
 obj.data.materials.append(mat)
 back = bpy.data.materials.new('Kusazuri back'); back.use_nodes = True; b = back.node_tree.nodes['Principled BSDF']
 b.inputs['Base Color'].default_value = (.035, .022, .02, 1); b.inputs['Roughness'].default_value = .7

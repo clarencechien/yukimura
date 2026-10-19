@@ -53,8 +53,8 @@ def chain_child(n):
 
 # The commander under the armour is heavier than the MPFB default: limbs are thickened across
 # their bones (joints stay on the game rig) and the torso is widened about its own axis.
-BULK = {'upperleg': 1.45, 'lowerleg': 1.35, 'upperarm': 1.3, 'lowerarm': 1.2}
-TORSO_BULK = (1.12, 1.2)
+BULK = {'upperleg': 1.4, 'lowerleg': 1.5, 'upperarm': 1.75, 'lowerarm': 1.5}
+TORSO_BULK = (1.3, 1.35)
 def bulk(n): return next((k for p, k in BULK.items() if n.startswith(p)), 1.0)
 
 def frame_scale(ds, dg, k=1.0):
@@ -71,8 +71,13 @@ X = np.array([[*src_head[n], 1] for n in torso]); Y = np.array([list(game_head['
 sol = np.linalg.lstsq(X, Y, rcond=None)[0].T
 A = Matrix([list(sol[i]) for i in range(3)] + [[0, 0, 0, 1]])
 axis = Vector((0, float(np.mean([game_head['body.' + n].y for n in torso])), 0))
+A_plain = A
 A = Matrix.Translation(axis) @ Matrix.Diagonal(Vector((*TORSO_BULK, 1, 1))) @ Matrix.Translation(-axis) @ A
-maps = {n: Matrix.Translation(game_head['body.' + n] - A @ src_head[n]) @ A for n in torso}
+# Neck and head keep the plain fit: a bulked head pushes the face out through the menpo.
+# Hips get a lighter bulk than the chest so the seat does not bulge out behind the kusazuri.
+A_hips = Matrix.Translation(axis) @ Matrix.Diagonal(Vector((1.12, 1.0, 1, 1))) @ Matrix.Translation(-axis) @ A_plain
+def torso_map(n): return A_plain if n.startswith(('neck', 'head')) else A_hips if n.startswith(('root', 'pelvis', 'spine04', 'spine05')) else A
+maps = {n: Matrix.Translation(game_head['body.' + n] - torso_map(n) @ src_head[n]) @ torso_map(n) for n in torso}
 def depth(n): return 0 if not parent[n] else 1 + depth(parent[n])
 for n in sorted(kept, key=depth):                                  # parents first: leaves reuse their parent's map
     if n in maps: continue

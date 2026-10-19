@@ -6,6 +6,11 @@
   "body.metacarpal",
   "body.wrist"
  ],
+ "grade": [
+  0.9,
+  0.78,
+  0.8
+ ],
  "parts": {
   "helmet": {
    "file": ".tmp/parts/helmet/seed-1615/helmet-closed.glb",
@@ -13,11 +18,11 @@
    "anchor": [
     "body.head"
    ],
-   "size": 0.62,
+   "size": 0.66,
    "offset": [
     0,
     0.0,
-    0.18
+    0.19
    ],
    "decimate": 40000
   },
@@ -37,7 +42,12 @@
     "keep": "front",
     "y": -0.02
    },
-   "decimate": 40000
+   "decimate": 40000,
+   "scale_xyz": [
+    1.18,
+    1.05,
+    1.0
+   ]
   },
   "do-back": {
    "file": ".tmp/parts/do-back/seed-1615/do-back-closed.glb",
@@ -54,13 +64,18 @@
    "offset": [
     0,
     -0.02,
-    0.1
+    0.085
    ],
    "clip": {
     "keep": "back",
     "y": -0.05
    },
-   "decimate": 40000
+   "decimate": 40000,
+   "scale_xyz": [
+    1.24,
+    1.08,
+    1.1
+   ]
   },
   "sode": {
    "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
@@ -68,16 +83,16 @@
    "anchor": [
     "body.upperarm01.{S}"
    ],
-   "size": 0.34,
+   "size": 0.42,
    "rotate": [
     0,
     0,
     70
    ],
    "offset": [
-    0.035,
+    0.04,
     -0.01,
-    -0.1
+    -0.02
    ],
    "sides": [
     "R",
@@ -102,7 +117,7 @@
     "body.lowerarm01.{S}"
    ],
    "pca": true,
-   "size": 0.3,
+   "size": 0.34,
    "sides": [
     "R",
     "L"
@@ -122,7 +137,7 @@
     "body.wrist.{S}"
    ],
    "pca": true,
-   "size": 0.27,
+   "size": 0.3,
    "sides": [
     "R",
     "L"
@@ -134,13 +149,13 @@
    "bone": "body.upperleg01.{S}",
    "anchor": [
     "body.upperleg01.{S}",
-    0.55,
+    0.78,
     "body.lowerleg01.{S}"
    ],
    "size": 0.42,
    "offset": [
-    0.01,
-    -0.08,
+    0.02,
+    -0.05,
     0.0
    ],
    "sides": [
@@ -155,11 +170,11 @@
    "anchor": [
     "body.lowerleg01.{S}"
    ],
-   "size": 0.25,
+   "size": 0.3,
    "offset": [
     0,
-    -0.075,
-    0.0
+    -0.08,
+    0.04
    ],
    "sides": [
     "R",
@@ -215,16 +230,16 @@
    "decimate": 20000
   },
   "kusazuri-front": {
-   "file": ".tmp/parts/kusazuri-proc/seed-0/kusazuri-proc-high.glb",
+   "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
    "bone": "body.spine05",
    "anchor": [
     "body.spine05"
    ],
-   "size": 0.44,
+   "size": 0.4,
    "offset": [
     0.1,
-    -0.19,
-    -0.2
+    -0.175,
+    -0.21
    ],
    "sides": [
     "R",
@@ -233,24 +248,25 @@
    "blend": {
     "bone": "body.upperleg01.{S}",
     "max": 0.6
-   }
+   },
+   "decimate": 15000
   },
   "kusazuri-side": {
-   "file": ".tmp/parts/kusazuri-proc/seed-0/kusazuri-proc-high.glb",
+   "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
    "bone": "body.spine05",
    "anchor": [
     "body.spine05"
    ],
-   "size": 0.44,
+   "size": 0.4,
    "rotate": [
     0,
     0,
     80
    ],
    "offset": [
-    0.24,
-    -0.01,
-    -0.2
+    0.205,
+    0.0,
+    -0.21
    ],
    "sides": [
     "R",
@@ -259,24 +275,25 @@
    "blend": {
     "bone": "body.upperleg01.{S}",
     "max": 0.7
-   }
+   },
+   "decimate": 15000
   },
   "kusazuri-back": {
-   "file": ".tmp/parts/kusazuri-proc/seed-0/kusazuri-proc-high.glb",
+   "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
    "bone": "body.spine05",
    "anchor": [
     "body.spine05"
    ],
-   "size": 0.44,
+   "size": 0.4,
    "rotate": [
     0,
     0,
     180
    ],
    "offset": [
-    0.085,
-    0.18,
-    -0.2
+    0.1,
+    0.17,
+    -0.21
    ],
    "sides": [
     "R",
@@ -285,7 +302,8 @@
    "blend": {
     "bone": "body.upperleg01.{S}",
     "max": 0.5
-   }
+   },
+   "decimate": 15000
   },
   "kote-upper": {
    "file": ".tmp/parts/kote-upper-proc/seed-0/kote-upper-proc-high.glb",
@@ -304,11 +322,20 @@
     0,
     60
    ],
-   "size": 0.2,
+   "size": 0.24,
    "sides": [
     "R",
     "L"
    ]
+  },
+  "waist-cord": {
+   "file": ".tmp/parts/waist-cord/seed-0/waist-cord-high.glb",
+   "world": true,
+   "bone": "body.spine05",
+   "anchor": [
+    "body.spine05"
+   ],
+   "size": 1
   }
  }
 }

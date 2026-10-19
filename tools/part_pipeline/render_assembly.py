@@ -11,7 +11,7 @@ from mathutils import Vector
 p = argparse.ArgumentParser(); p.add_argument('--blend', required=True); p.add_argument('--output', required=True)
 p.add_argument('--pose', default='rest', help='rest, or clip:fraction'); p.add_argument('--views', default='front,three-quarter,side,back')
 p.add_argument('--clay', action='store_true'); p.add_argument('--size', type=int, default=800); p.add_argument('--samples', type=int, default=16)
-p.add_argument('--prefix', default='')
+p.add_argument('--prefix', default=''); p.add_argument('--transparent', action='store_true', help='RGBA output, to composite on the concept sheets\' grey')
 a = p.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:])
 bpy.ops.wm.open_mainfile(filepath=str(Path(a.blend).resolve()))
 scene = bpy.context.scene
@@ -32,7 +32,7 @@ for o in meshes:
 lo = Vector([min(v[i] for v in pts) for i in range(3)]); hi = Vector([max(v[i] for v in pts) for i in range(3)])
 centre = (lo + hi) / 2; span = max(hi - lo) * 1.08
 scene.render.engine = 'CYCLES'; scene.cycles.device = 'CPU'; scene.cycles.samples = a.samples; scene.cycles.use_denoising = True
-scene.render.resolution_x = scene.render.resolution_y = a.size; scene.view_settings.view_transform = 'AgX'; scene.view_settings.look = 'AgX - Medium High Contrast'
+scene.render.resolution_x = scene.render.resolution_y = a.size; scene.render.film_transparent = a.transparent; scene.render.image_settings.color_mode = 'RGBA'; scene.view_settings.view_transform = 'AgX'; scene.view_settings.look = 'AgX - Medium High Contrast'
 scene.world = bpy.data.worlds.new('w'); scene.world.use_nodes = True
 scene.world.node_tree.nodes['Background'].inputs['Color'].default_value = (.10, .12, .15, 1); scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value = .35
 def aim(obj, target): obj.rotation_euler = (Vector(target) - obj.location).to_track_quat('-Z', 'Y').to_euler()

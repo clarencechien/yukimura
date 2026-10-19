@@ -40,12 +40,30 @@ def point_on(spec, side):
     return head[name].lerp(end, spec[1])
 
 def body_material():
-    m = bpy.data.materials.new('Undersuit black mech fabric'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
-    b.inputs['Base Color'].default_value = (.022, .02, .022, 1); b.inputs['Roughness'].default_value = .55
-    b.inputs['Metallic'].default_value = .25
+    # Matte, slightly warm charcoal with a fine woven bump: reads as padded cloth / mech suit,
+    # not as glossy black bone between the plates.
+    m = bpy.data.materials.new('Undersuit charcoal mech fabric'); m.use_nodes = True; nt = m.node_tree; b = nt.nodes['Principled BSDF']
+    b.inputs['Base Color'].default_value = (.055, .048, .045, 1); b.inputs['Roughness'].default_value = .78
+    tex = nt.nodes.new('ShaderNodeTexWave'); tex.inputs['Scale'].default_value = 180; tex.wave_type = 'BANDS'
+    noise = nt.nodes.new('ShaderNodeTexNoise'); noise.inputs['Scale'].default_value = 60
+    mix = nt.nodes.new('ShaderNodeMath'); mix.operation = 'ADD'
+    bump = nt.nodes.new('ShaderNodeBump'); bump.inputs['Strength'].default_value = .25
+    nt.links.new(tex.outputs['Fac'], mix.inputs[0]); nt.links.new(noise.outputs['Fac'], mix.inputs[1])
+    nt.links.new(mix.outputs['Value'], bump.inputs['Height']); nt.links.new(bump.outputs['Normal'], b.inputs['Normal'])
+    return m
+def skin_material():
+    m = bpy.data.materials.new('Face skin'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
+    b.inputs['Base Color'].default_value = (.42, .26, .19, 1); b.inputs['Roughness'].default_value = .5
+    b.inputs['Subsurface Weight'].default_value = .15
     return m
 body = next(o for o in scene.objects if o.type == 'MESH')
-body.data.materials.clear(); body.data.materials.append(body_material())
+body.data.materials.clear(); body.data.materials.append(body_material()); body.data.materials.append(skin_material())
+# The face behind the menpo reads as an empty skull when it is black: the head gets skin.
+hg = body.vertex_groups.get('body.head')
+if hg:
+    head_v = {v.index for v in body.data.vertices if any(g.group == hg.index and g.weight > .5 for g in v.groups)}
+    for poly in body.data.polygons:
+        if all(i in head_v for i in poly.vertices): poly.material_index = 1
 # Body regions the armour replaces outright (feet inside boots, hands inside gauntlets) are cut
 # away so they cannot poke through.
 hide = tuple(layout.get('hide_body', []))
@@ -71,14 +89,25 @@ for name, spec in layout['parts'].items():
     bpy.context.view_layer.objects.active = meshes[0]
     if len(meshes) > 1: bpy.ops.object.join()
     src = bpy.context.view_layer.objects.active; src.name = f'Part / {name}'
+    grade = layout.get('grade')
+    if grade:
+        # Colour grade the generated textures towards the concept's deep crimson (once per image).
+        import numpy as np
+        for mat in src.data.materials:
+            for node in (mat.node_tree.nodes if mat and mat.use_nodes else []):
+                im = getattr(node, 'image', None)
+                if im is None or im.get('graded') or im.colorspace_settings.name != 'sRGB': continue
+                px = np.array(im.pixels[:], dtype=np.float32).reshape(-1, 4)
+                px[:, :3] *= np.array(grade, np.float32); im.pixels[:] = px.ravel(); im['graded'] = 1; im.pack()
     if spec.get('decimate'):
         tris = sum(len(f.vertices) - 2 for f in src.data.polygons)
         if tris > spec['decimate']:
             d = src.modifiers.new('budget', 'DECIMATE'); d.ratio = spec['decimate'] / tris; bpy.ops.object.modifier_apply(modifier=d.name)
+    world = spec.get('world', False)            # built in body space already (cords): bind only, no placement
     # Normalise: bbox centre at the origin, largest dimension = 1.
     vs = [v.co for v in src.data.vertices]
     lo = Vector([min(v[i] for v in vs) for i in range(3)]); hi = Vector([max(v[i] for v in vs) for i in range(3)])
-    src.data.transform(Matrix.Scale(1 / max(hi - lo), 4) @ Matrix.Translation(-(lo + hi) / 2))
+    if not world: src.data.transform(Matrix.Scale(1 / max(hi - lo), 4) @ Matrix.Translation(-(lo + hi) / 2))
     if spec.get('pca'):
         # Long principal axis onto +Z, keeping it pointing the way the part's +Z already leaned.
         import numpy as np
@@ -91,7 +120,8 @@ for name, spec in layout['parts'].items():
         src.data.transform(Matrix.Scale(1 / max(hi - lo), 4) @ Matrix.Translation(-(lo + hi) / 2))
     rot = Matrix.Rotation(0, 4, 'Z')
     for axis, deg in zip('XYZ', spec.get('rotate', [0, 0, 0])): rot = Matrix.Rotation(math.radians(deg), 4, axis) @ rot
-    src.data.transform(Matrix.Scale(spec['size'], 4) @ rot)
+    sx, sy, sz = spec.get('scale_xyz', [1, 1, 1])                       # non-uniform tweak in the part frame
+    if not world: src.data.transform(Matrix.Scale(spec['size'], 4) @ rot @ Matrix.Diagonal(Vector((sx, sy, sz, 1))))
     copies = []; base = src.data.copy()
     for k, side in enumerate(spec.get('sides', ['R'])):
         ob = src if k == 0 else src.copy()
@@ -108,7 +138,7 @@ for name, spec in layout['parts'].items():
         if side == 'L':
             ob.data.transform(Matrix.Diagonal(Vector((-1, 1, 1, 1))))     # mirror to the other side
             ob.data.flip_normals(); off.x = -off.x
-        ob.data.transform(Matrix.Translation(point_on(spec['anchor'], side) + off) @ M)
+        if not world: ob.data.transform(Matrix.Translation(point_on(spec['anchor'], side) + off) @ M)
         if spec.get('clip'):
             bm = bmesh.new(); bm.from_mesh(ob.data)
             keep_front = spec['clip']['keep'] == 'front'
