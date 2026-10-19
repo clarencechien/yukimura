@@ -2,7 +2,44 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
-## 最新：手甲、手套、腿甲與能量槽（pass 3）
+## 最新：頸部清理（pass 4）
+
+移除生成的頭部時，連帶截斷了頸部的繩子，留下兩段**懸在半空的流蘇尖**；舊頭部的頸口也空著，背後的頸甲（しころ）與衣領之間露出一道**黑縫**。上排是 pass 3，下排是本輪（1000²、24 samples）。
+
+| | 正面 | 側面 | 背面 | 背面白模 |
+| --- | --- | --- | --- | --- |
+| pass 3 | ![](pass4/before/neck-front.png) | ![](pass4/before/neck-side.png) | ![](pass4/before/neck-back.png) | ![](pass4/before/clay-neck-back.png) |
+| 本輪 | ![](pass4/renders/neck-front.png) | ![](pass4/renders/neck-side.png) | ![](pass4/renders/neck-back.png) | ![](pass4/renders/clay-neck-back.png) |
+
+| 正面 | 斜側 | 側面 | 背面 | 白模 |
+| --- | --- | --- | --- | --- |
+| ![](pass4/renders/front.png) | ![](pass4/renders/three-quarter.png) | ![](pass4/renders/side.png) | ![](pass4/renders/back.png) | ![](pass4/renders/clay.png) |
+
+**做法（[工具](../../../../tools/neck_cleanup.py)、[報告](pass4/neck-report.json)）**
+
+1. **移除懸空碎片。** 生成的網格本來就有許多獨立零件，例如鉚釘、流蘇、繩結。因此不以「是否相連」判斷，而是看每塊與其他所有表面的最近距離：
+   - 距離超過 6 mm 的視為懸空，共移除 13 塊、936 個頂點。
+   - 其中包括兩段流蘇尖（分別離最近表面 6.5 cm 與 4.5 cm），以及頭盔內看不到的殘片。
+2. **頸部內襯。** 在頭盔下方加一段深色布質內襯，形狀是從頸部中心向外量出來的：
+   - 每個角度、每個高度各發一條射線，找到頸甲、衣領或面罩的內側，內襯就放在內側往內 4 mm 處，再平滑。
+   - 原本試過固定橢圓，但後頸開口最寬，橢圓放太深擋不住，因此改用量測。
+
+**檢查**：完整版 742,910 面，檢視版 474,114 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass4/mesh-inspection.json)、[檢視版](pass4/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip)（58 MB）已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+
+**下載**：[body-v2-pass4.glb](pass4/body-v2-pass4.glb)（93 MB，完整版）· [body-v2-pass4-preview.glb](pass4/body-v2-pass4-preview.glb)（59 MB）
+
+**仍待處理**
+
+- **頭與身體尚未焊接。** 兩者仍是分開的零件，目前只是靠內襯擋住縫隙。
+- **還不能進遊戲。** 骨架、權重、動作與 LOD 都還沒做。
+
+```sh
+python tools/neck_cleanup.py --model docs/experiments/future-sanada/body-v2/pass3/body-v2-pass3.glb --output docs/experiments/future-sanada/body-v2/pass4/body-v2-pass4.glb
+python tools/package_body_v2.py --model docs/experiments/future-sanada/body-v2/pass4/body-v2-pass4.glb --directory docs/experiments/future-sanada/body-v2/pass4 --name body-v2-pass4-preview
+node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --body-v2 --pass4
+```
+
+## 前一階段：手甲、手套、腿甲與能量槽（pass 3）
 
 背甲與裙甲完成後，接著處理四肢。上排是 pass 2，下排是本輪；鏡位與燈光相同（1000²、24 samples）。第三欄是**去掉燈光的原色**：金屬金在暗攝影棚只反射暗環境，有燈光的圖會讓金色指節看起來偏暗。
 
@@ -24,7 +61,7 @@
    - 以光流反推，再從正面射線投到身體表面，鋪上圓頂狀的發光條，下方加一道暗色槽（[工具](../../../../tools/energy_seam_strips.py)、[報告](pass3/energy-seam-report.json)）。
    - 發光以 glTF emissive＋`KHR_materials_emissive_strength` 匯出。
 
-**檢查**：完整版 743,438 面，檢視版 473,718 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass3/mesh-inspection.json)、[檢視版](pass3/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip) 已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+**檢查**：完整版 743,438 面，檢視版 473,718 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass3/mesh-inspection.json)、[檢視版](pass3/preview-inspection.json)）。互動檢視器隨後改用 pass 4 模型。
 
 **下載**：[body-v2-pass3.glb](pass3/body-v2-pass3.glb)（93 MB，完整版）· [body-v2-pass3-preview.glb](pass3/body-v2-pass3-preview.glb)（59 MB）
 
@@ -146,7 +183,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（58 MB） | 已改用 pass 3 模型；解壓後開啟 index.html | 473,718 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（58 MB） | 已改用 pass 4 模型；解壓後開啟 index.html | 474,114 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 
