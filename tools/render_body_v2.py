@@ -45,9 +45,11 @@ VIEWS={'front':(0,1.5,(0,0,1.03),2.35),'three-quarter':(35,1.5,(0,0,1.03),2.35),
  'audit-waist':(0,1.1,(0,0,1.08),.4),'audit-skirt-r':(-90,.85,(-.15,0,.82),.5),'audit-skirt-l':(90,.85,(.15,0,.82),.5),'audit-boots':(15,.15,(0,0,.1),.6),'audit-boot-side':(90,.15,(.12,0,.1),.35),
  'audit-helmet-side':(90,1.75,(0,0,1.72),.45),'audit-helmet-back':(150,1.75,(0,0,1.72),.45),'audit-high':(35,2.6,(0,0,1.1),1.6),
  'knot-neck':(0,1.47,(-.006,-.08,1.455),.12),'knot-neck-side':(55,1.47,(-.006,-.08,1.455),.12),'knot-waist':(0,1.08,(-.07,-.15,1.07),.16),'knot-waist-side':(-50,1.08,(-.07,-.15,1.07),.16),'tassel-shoulder':(-20,1.42,(-.177,-.02,1.41),.13),
+ 'plate-chest':(0,1.3,(0,0,1.28),.42),'plate-sode-r':(-40,1.4,(-.25,0,1.38),.36),'plate-sode-l':(40,1.4,(.25,0,1.38),.36),'plate-skirt':(15,.85,(0,0,.85),.6),'plate-thigh':(10,.7,(0,0,.68),.55),'plate-shin':(10,.35,(0,0,.33),.55),
+ 'clay-plate-chest':(0,1.3,(0,0,1.28),.42),'clay-plate-sode-r':(-40,1.4,(-.25,0,1.38),.36),'clay-plate-skirt':(15,.85,(0,0,.85),.6),'clay-plate-shin':(10,.35,(0,0,.33),.55),
  'clay-hand-r-front':(0,.95,(-.39,.16,.88),.34),'clay-hand-l-out':(70,.95,(.376,-.16,.89),.34),
  'clay-back-upper':(180,1.45,(0,0,1.35),.62),'clay-back-lower':(180,1.1,(0,0,1.05),.62),'clay-skirt-front':(0,.95,(0,0,.82),.7),'clay-skirt-back':(180,.95,(0,0,.82),.7)}
-clay_views={'clay-patch-r','clay-patch-l','clay-neck-front','clay-neck-side','clay-neck-back','clay-hand-r-front','clay-hand-l-out','clay','clay-torso','clay-back-upper','clay-back-lower','clay-skirt-front','clay-skirt-back'}
+clay_views={'clay-plate-chest','clay-plate-sode-r','clay-plate-skirt','clay-plate-shin','clay-patch-r','clay-patch-l','clay-neck-front','clay-neck-side','clay-neck-back','clay-hand-r-front','clay-hand-l-out','clay','clay-torso','clay-back-upper','clay-back-lower','clay-skirt-front','clay-skirt-back'}
 for name in a.views.split(','):
  degrees,height,target,span=VIEWS[name]
  for o in meshes:

@@ -1,0 +1,115 @@
+{
+  "parts_joined": 64,
+  "part_faces": {
+    "Generated body v2 / corrected lacquer": 487660,
+    "Generated shell with local corrections": 137652,
+    "Menpo continuous eye rim and return": 3084,
+    "Menpo reconstructed nasal shell": 21994,
+    "Nostril recessed backing -1": 94,
+    "Nostril recessed backing 1": 94,
+    "Menpo reconstructed upper lip": 4416,
+    "Menpo cheek vent frame -1": 1792,
+    "Menpo recessed cheek cloth -1": 128,
+    "Menpo cheek vent frame 1": 1792,
+    "Menpo recessed cheek cloth 1": 128,
+    "Menpo reconstructed chin shield": 5184,
+    "Menpo chin brass inlay": 4032,
+    "Menpo continuous cheek plate -1": 5504,
+    "Menpo continuous cheek plate 1": 5504,
+    "Menpo continuous jaw plate -1": 5504,
+    "Menpo jaw rivet -1 0": 336,
+    "Menpo jaw rivet -1 1": 336,
+    "Menpo jaw rivet -1 2": 336,
+    "Menpo continuous jaw plate 1": 5504,
+    "Menpo jaw rivet 1 0": 336,
+    "Menpo jaw rivet 1 1": 336,
+    "Menpo jaw rivet 1 2": 336,
+    "Flush lacquer crest repair": 3968,
+    "Six coins / row 1 coin 1": 2304,
+    "Coin hole recessed dark seat 0/0": 2,
+    "Six coins / row 1 coin 2": 2304,
+    "Coin hole recessed dark seat 0/1": 2,
+    "Six coins / row 1 coin 3": 2304,
+    "Coin hole recessed dark seat 0/2": 2,
+    "Six coins / row 2 coin 1": 2304,
+    "Coin hole recessed dark seat 1/0": 2,
+    "Six coins / row 2 coin 2": 2304,
+    "Coin hole recessed dark seat 1/1": 2,
+    "Six coins / row 2 coin 3": 2304,
+    "Coin hole recessed dark seat 1/2": 2,
+    "Human eyes and orbital skin / Rocketbox": 5196,
+    "Recessed mask eye-opening lining": 320,
+    "Back plate shell / reference lames": 23956,
+    "Energy seam slot / forearm right outer": 88,
+    "Energy seam / forearm right outer": 88,
+    "Energy seam slot / forearm left inner": 72,
+    "Energy seam / forearm left inner": 72,
+    "Energy seam slot / forearm left outer": 88,
+    "Energy seam / forearm left outer": 88,
+    "Energy seam slot / chest left side": 88,
+    "Energy seam / chest left side": 88,
+    "Energy seam slot / knee left lens": 88,
+    "Energy seam / knee left lens": 88,
+    "Energy seam slot / knee right lens": 72,
+    "Energy seam / knee right lens": 72,
+    "Energy seam slot / shin right": 88,
+    "Energy seam / shin right": 88,
+    "Energy seam slot / shin left": 88,
+    "Energy seam / shin left": 88,
+    "Neck lining / dark quilted cloth": 1152,
+    "Collar core / dark quilted cloth": 1200,
+    "Chest lames / okegawa-do": 20136,
+    "Chest lames / rolled edges": 8888,
+    "Chest lames / gold edging": 6660,
+    "Cords / kumihimo braid": 23968,
+    "Tassels / silk threads": 91194,
+    "Tassels / brass binding": 6456,
+    "Tassels / core": 1728
+  },
+  "materials": 32,
+  "triangles": 902084,
+  "seam_audit": [
+    {
+      "label": "neck interior (head/body junction)",
+      "rays": 3000,
+      "reached_unobstructed": 0,
+      "see_through_to_background": 0,
+      "examples": []
+    },
+    {
+      "label": "inside the torso along the collar line",
+      "rays": 3000,
+      "reached_unobstructed": 2,
+      "see_through_to_background": 0,
+      "examples": [
+        {
+          "target": [
+            -0.16,
+            0.1243,
+            1.5
+          ],
+          "from": [
+            0.673,
+            0.679,
+            0.294
+          ],
+          "see_through_to_background": false
+        },
+        {
+          "target": [
+            -0.16,
+            0.1243,
+            1.5
+          ],
+          "from": [
+            0.857,
+            0.504,
+            0.112
+          ],
+          "see_through_to_background": false
+        }
+      ]
+    }
+  ],
+  "note": "Rigid shells joined into one object; the helmet is not vertex-welded to the body, by design."
+}

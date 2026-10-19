@@ -1,0 +1,205 @@
+{
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "samples": 24,
+  "image_size": [
+    1000,
+    1000
+  ],
+  "geometry_objects": 1,
+  "vertices": 836406,
+  "triangles": 862466,
+  "material_count": 29,
+  "images": [
+    {
+      "name": "back-plate-color",
+      "size": [
+        484,
+        516
+      ]
+    },
+    {
+      "name": "back-plate-metal-rough",
+      "size": [
+        484,
+        516
+      ]
+    },
+    {
+      "name": "Bitmaptexture",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 corrected base color",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "Body v2 lacquer coat",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 lacquer-aware metallic roughness",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "braid-color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "braid-normal",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-brass-normal",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Map #4",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Map #6",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "menpo-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-brass-roughness",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer-roughness",
+      "size": [
+        512,
+        512
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "plate-chest",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.28
+      ],
+      "span": 0.42,
+      "seconds": 37.6
+    },
+    {
+      "name": "clay-plate-chest",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.28
+      ],
+      "span": 0.42,
+      "seconds": 33.61
+    },
+    {
+      "name": "torso",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.2
+      ],
+      "span": 0.8,
+      "seconds": 37.24
+    },
+    {
+      "name": "knot-neck",
+      "degrees": 0,
+      "target": [
+        -0.006,
+        -0.08,
+        1.455
+      ],
+      "span": 0.12,
+      "seconds": 40.09
+    },
+    {
+      "name": "neck-front",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.52
+      ],
+      "span": 0.42,
+      "seconds": 40.19
+    }
+  ]
+}

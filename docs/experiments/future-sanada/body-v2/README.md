@@ -2,7 +2,57 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
-## 最新：以物理重做繩結、繩子與流蘇（pass 6）
+## 最新：板甲第一步：胸甲重建（pass 7）
+
+開始修板甲。全身檢查結果：
+- **胸甲：** 表面凹凸、邊緣波浪，綴繩結成團。TRELLIS 還把原圖的兩片甲合成一片。
+- **袖甲：** 像融化一樣。
+- **腿甲：** 一團一團，原圖則是俐落的機械板加金邊。
+
+問題在形狀而不是顏色（顏色先前的投影已經修正）。所以這一輪的做法是依原圖重建乾淨的板片，先從最顯眼的胸甲開始。上排是 pass 6，下排是本輪（1000²、24 samples）。
+
+| 原圖：胸甲 |
+| --- |
+| ![](pass7/reference-chest.png) |
+
+| | 胸甲 | 胸甲白模 | 上半身 | 頸結 | 頸部 |
+| --- | --- | --- | --- | --- | --- |
+| pass 6 | ![](pass7/before/plate-chest.png) | ![](pass7/before/clay-plate-chest.png) | ![](pass7/before/torso.png) | ![](pass7/before/knot-neck.png) | ![](pass7/before/neck-front.png) |
+| 本輪 | ![](pass7/renders/plate-chest.png) | ![](pass7/renders/clay-plate-chest.png) | ![](pass7/renders/torso.png) | ![](pass7/renders/knot-neck.png) | ![](pass7/renders/neck-front.png) |
+
+[正面](pass7/renders/front.png) · [斜側](pass7/renders/three-quarter.png) · [側面](pass7/renders/side.png) · [白模](pass7/renders/clay.png)
+
+**做法（[chest_lames.py](../../../../tools/chest_lames.py)、[報告](pass7/chest-lames-report.json)）**
+
+1. **在原圖上描甲片：** 沿 50 個欄位追蹤深色縫隙線，再以二次曲線擬合，得到頂片上緣、5 條縫、下緣共 7 條弧線，與原圖的弧度一致。
+2. **轉到模型上：** 透過剪影對齊與光流的反向映射，把弧線換算到模型座標。光流在公分尺度有雜訊，會讓甲片邊緣出現折角，所以幾何改用擬合過的平滑三次映射。
+3. **建出甲片**（頂片加 5 片）：
+   - 建在平滑化的胸甲曲面上，每片往下緣外傾 5.5 mm，上緣塞進上一片下面，厚 2.5 mm。
+   - 下緣加上捲邊與金色邊條。
+   - 原本凹凸的表面往後推，成為縫隙中的暗色內層。
+4. **貼圖：** UV 直接用原圖像素，所以原圖畫的縫、綴繩與金扣，天生就和甲片邊緣對齊。第一次試算是先定幾何再投影貼圖，結果畫的縫和實際邊緣錯開，已改掉。
+5. **繩子重綁：** 胸甲重建後重新跑繩子物理，頸流蘇改為垂在新的甲片階梯上。
+
+**檢查**：完整版 902,084 面、97 MB，檢視版 633,869 面；兩者都沒有近零面積三角形，射線檢查無穿透縫（[完整版](pass7/mesh-inspection.json)、[檢視版](pass7/preview-inspection.json)、[合併](pass7/merge-report.json)）。[互動檢視器 ZIP](viewer.zip)（69 MB）已改用本輪模型，並通過離線瀏覽器檢查。
+
+**下載**：[body-v2-pass7.glb](pass7/body-v2-pass7.glb)（97 MB）· [body-v2-pass7-preview.glb](pass7/body-v2-pass7-preview.glb)（74 MB）
+
+**接下來**
+- **其他甲：** 用同一套方法處理袖甲、裙甲和腿甲。
+- **檔案大小：** 完整版已接近 GitHub 單檔 100 MB 上限，再加板甲前要先縮減，例如壓縮身體貼圖或拆檔。
+- **右肩：** 舊槳狀板壓平處的陰影仍待處理。
+
+```sh
+python tools/neck_cords.py --model docs/experiments/future-sanada/body-v2/pass4/body-v2-pass4.glb --output .tmp/clear-neck.glb --clear-only
+python tools/waist_cord.py --model .tmp/clear-neck.glb --output .tmp/cleared.glb --clear-only
+python tools/chest_lames.py --model .tmp/cleared.glb --output .tmp/chest.glb
+python tools/tie_cords.py --model .tmp/chest.glb --output .tmp/tied.glb
+python tools/merge_character.py --model .tmp/tied.glb --output docs/experiments/future-sanada/body-v2/pass7/body-v2-pass7.glb
+python tools/package_body_v2.py --model .tmp/tied.glb --directory docs/experiments/future-sanada/body-v2/pass7 --name body-v2-pass7-preview --join
+node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --body-v2 --pass7
+```
+
+## 前一階段：以物理重做繩結、繩子與流蘇（pass 6）
 
 上一版的回饋是腰結太死板、頸結遠看可以但近看不行。近拍檢查找到三個原因：結是一疊圓盤、流蘇是幾片平板，繩子是規則的三股扭繩。原圖則是編繩自己打成的結，流蘇是很多細線折過圓頭、用細繩束起後自然垂下。上排是 pass 5，下排是本輪（1000²、24 samples）。
 
@@ -51,7 +101,7 @@
 - 頭身縫隙重新用射線檢查：能穿透看到背景的為 0（[報告](pass6/merge-report.json)）。
 - 模擬參數與結果見[繩結報告](pass6/tie-report.json)，清除紀錄見[頸部](pass6/neck-clear-report.json)、[腰部](pass6/waist-clear-report.json)。
 - 完整版為了壓在 GitHub 100 MB 限制內，沒有存切線；依 glTF 規範，閱讀器會自行以 MikkTSpace 計算。檢視版則有存切線。
-- [互動檢視器 ZIP](viewer.zip)（67 MB）已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+- 互動檢視器隨後改用 pass 7 模型。
 
 **下載**：[body-v2-pass6.glb](pass6/body-v2-pass6.glb)（95.5 MB，完整版）· [body-v2-pass6-preview.glb](pass6/body-v2-pass6-preview.glb)（72 MB）
 
@@ -304,7 +354,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（67 MB） | 已改用 pass 6 模型；解壓後開啟 index.html | 594,251 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（69 MB） | 已改用 pass 7 模型；解壓後開啟 index.html | 633,869 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 
