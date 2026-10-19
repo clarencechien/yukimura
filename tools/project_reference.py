@@ -55,6 +55,8 @@ def in_regions(co):
 # 1. Close small holes in the dō / skirt (torn generated shells). New loops copy neighbour UVs.
 print('filling holes', flush=True)
 bm = bmesh.new(); bm.from_mesh(body.data); uv = bm.loops.layers.uv.active
+# glTF import splits vertices on UV seams; weld (UVs live on loops) so only real holes are boundaries.
+bmesh.ops.remove_doubles(bm, verts=bm.verts[:], dist=1e-6); bm.edges.index_update()
 boundary = [e for e in bm.edges if e.is_boundary]
 filled = 0
 if a.fill_holes:
@@ -70,7 +72,7 @@ if a.fill_holes:
         loops.append(group)
     for group in loops:
         centre = np.mean([np.array(v.co) for e in group for v in e.verts], 0)
-        if len(group) <= a.fill_holes and in_regions(centre[None])[0]:
+        if 3 <= len(group) <= a.fill_holes and in_regions(centre[None])[0]:
             new = bmesh.ops.holes_fill(bm, edges=group, sides=len(group))['faces']
             for f in new:
                 for loop in f.loops:
