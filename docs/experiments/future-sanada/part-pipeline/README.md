@@ -193,3 +193,12 @@ python tools/part_pipeline/render_assembly.py --blend .tmp/stage4/assembled.blen
 ![](stage4/stage4c-poses.jpg)
 
 **還差的地方**：頸前繩結與流蘇；腰繩正面是直的（沒有貼著胴的弧度往下垂）；側面草摺在背面會略微外翻；手甲方向；遊戲版減面與烘焙。
+
+## 暫停（2026-10-19）
+
+這條路線先暫停：拆件生成的單件品質可用，但組到遊戲骨架上缺乏一體感，整體效果不夠。保留：
+
+- **Gemini（Nano Banana Pro）設計圖**：[images/](images/)。三視圖（[正面](images/ab-front-gemini-3-pro-image.png)、[側面](images/sheet-side.png)、[背面總角結版](images/sheet-back-knotA2.png)）、背面繩結的其他版本、11 張單件圖（`part-*.png`），提示與費用記錄在 [prompts.json](images/prompts.json)。
+- **單件 3D**：[parts/](parts/)。10 件 TRELLIS.2 封閉版 GLB（頭盔、胴前、胴後、袖、前臂甲、手甲、佩楯、膝、脛、足）與各自的生成記錄，加上程式生成的草摺與上臂甲。座標：正面 −Y、上 +Z、置於單位方塊內。清單與 SHA-256 見 [manifest.json](parts/manifest.json)。TRELLIS 原始體素資料仍在 Modal Volume `yukimura-trellis2-cache/results/future-sanada-parts/`。
+
+其餘（body v2 各 pass、組裝工具與渲染）也都保留在分支上，未刪除。
