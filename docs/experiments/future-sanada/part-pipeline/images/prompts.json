@@ -24,5 +24,33 @@
     "cost_usd": 0.054983,
     "seconds": 24.2,
     "text_reply": ""
+  },
+  {
+    "file": "sheet-side.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Draw the exact LEFT SIDE view (profile): the character turned 90 degrees so that it faces the left edge of the image. Only the character's left side is visible; arms hang in the same A-pose, seen edge-on. Show how the lamellar plates of the chest and back curve around the body, the depth of the shoulder guards (sode), the skirt plates (kusazuri) hanging around the hips, the side of the helmet with its neck guard (shikoro) and the antlers in profile, the side of the menpo mask, the knee guards, greaves and boots in profile.\nSame character, same armour, same proportions, same colours and same A-pose as the FRONT model sheet in the first image (the second image is the original concept art for extra detail). This is one panel of an orthographic turnaround for 3D modelling: orthographic camera (no perspective), camera at chest height, whole body from the antler tips to the soles fully in frame with margin, the figure the same height and scale as in the front sheet.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light, no rim light, no bloom.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.140348,
+    "seconds": 31.8,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-back.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Draw the exact BACK view: the character turned 180 degrees, seen from directly behind, same A-pose. Design the back so it matches the front: the back plate (ushiro-do) made of the same level horizontal red lacquered lames laced with black cord and gold trim, the agemaki bow knot of red cord on the upper back, the back of the shoulder guards, the back skirt plates, the back of the helmet with its flared neck guard (shikoro) and the antlers seen from behind, the black mechanical joints and the backs of the legs, calves and boots.\nSame character, same armour, same proportions, same colours and same A-pose as the FRONT model sheet in the first image (the second image is the original concept art for extra detail). This is one panel of an orthographic turnaround for 3D modelling: orthographic camera (no perspective), camera at chest height, whole body from the antler tips to the soles fully in frame with margin, the figure the same height and scale as in the front sheet.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light, no rim light, no bloom.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.14173,
+    "seconds": 56.5,
+    "text_reply": ""
   }
 ]
