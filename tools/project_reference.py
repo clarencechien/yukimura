@@ -260,12 +260,13 @@ write_scaled(mr, None, {1: rough, 2: metal})
 write_scaled(coat, None, {0: red * .1, 1: red * .1, 2: red * .1})
 # Glow: the reference's orange energy seams (gauntlets, knees, shins) become real emission.
 hf, sf, vf = rgb_to_hsv(front_px[:, :3])
-glow = smoothstep(10, 16, hf) * (1 - smoothstep(42, 50, hf)) * smoothstep(.55, .7, sf) * smoothstep(.72, .85, vf) * np.clip(wf, 0, 1)
-EMIT = 1024
+# Glow cores are near-white yellow (low saturation), the halo orange: accept both.
+glow = smoothstep(6, 12, hf) * (1 - smoothstep(44, 52, hf)) * smoothstep(.38, .5, sf) * smoothstep(.58, .72, vf) * np.clip(wf, 0, 1)
+EMIT = 2048
 emit = np.zeros((EMIT, EMIT, 4), np.float32); emit[..., 3] = 1
 ey, ex = idx[0] * EMIT // size, idx[1] * EMIT // size
 np.maximum.at(emit[..., 0], (ey, ex), front_px[:, 0] * glow); np.maximum.at(emit[..., 1], (ey, ex), front_px[:, 1] * glow); np.maximum.at(emit[..., 2], (ey, ex), front_px[:, 2] * glow)
-emit[..., :3] = np.clip(ndimage.grey_dilation(emit[..., :3], size=(2, 2, 1)), 0, 1)
+emit[..., :3] = np.clip(ndimage.grey_dilation(emit[..., :3], size=(3, 3, 1)), 0, 1)
 emit_img = bpy.data.images.new('Body v2 energy seams (reference)', EMIT, EMIT, alpha=True); emit_img.pixels.foreach_set(emit.ravel()); emit_img.pack()
 emit_node = nodes.new('ShaderNodeTexImage'); emit_node.image = emit_img
 uv_src = color_node.inputs['Vector'].links[0].from_node if color_node.inputs['Vector'].links else None
