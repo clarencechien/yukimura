@@ -1,0 +1,83 @@
+{
+  "model": "docs/experiments/future-sanada/body-v2/refined/body-v2.glb",
+  "holes": {
+    "boundary_edges_before": 7489,
+    "loops_filled": 379
+  },
+  "rasterize_seconds": 13.156851583000389,
+  "texels_covered": 7318245,
+  "flow": {
+    "median_px": 19.7343692779541,
+    "p90_px": 34.19613418579102,
+    "smoothing_sigma_px": 6
+  },
+  "projection": {
+    "texels_front": 691295,
+    "texels_back": 117908,
+    "texels_skirt_back_cleaned": 288453,
+    "cord_texels_kept": 28415,
+    "skirt_back_bilateral": {
+      "d": 9,
+      "sigma_color": 0.12,
+      "sigma_space": 4
+    },
+    "albedo_gain": [
+      0.8627123236656189,
+      0.9128838777542114,
+      0.8464379906654358
+    ],
+    "visibility_eps": 0.012
+  },
+  "sheen": {
+    "nonmetal_roughness_floor": 0.52,
+    "coat_scale": 0.66
+  },
+  "triangles": 718138,
+  "regions": {
+    "do": {
+      "abs_x": [
+        0,
+        0.185
+      ],
+      "z": [
+        1.04,
+        1.47
+      ],
+      "back": true
+    },
+    "skirt": {
+      "abs_x": [
+        0,
+        0.27
+      ],
+      "z": [
+        0.56,
+        1.12
+      ],
+      "back": true
+    },
+    "arms": {
+      "abs_x": [
+        0.17,
+        0.47
+      ],
+      "z": [
+        0.74,
+        1.47
+      ],
+      "back": false
+    },
+    "legs": {
+      "abs_x": [
+        0,
+        0.26
+      ],
+      "z": [
+        0,
+        0.62
+      ],
+      "back": false
+    }
+  },
+  "seconds": 214.29584635399988
+}

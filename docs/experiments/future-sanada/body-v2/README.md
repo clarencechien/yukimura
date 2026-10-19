@@ -2,7 +2,48 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
-## 最新：背甲與裙甲精修（pass 2）
+## 最新：手甲、手套、腿甲與能量槽（pass 3）
+
+背甲與裙甲完成後，接著處理四肢。上排是 pass 2，下排是本輪；鏡位與燈光相同（1000²、24 samples）。第三欄是**去掉燈光的原色**：金屬金在暗攝影棚只反射暗環境，有燈光的圖會讓金色指節看起來偏暗。
+
+| | 右手 | 左手 | 左手原色 | 左前臂 | 膝甲 | 左脛甲近拍 |
+| --- | --- | --- | --- | --- | --- | --- |
+| pass 2 | ![](pass3/before/hand-r-front.png) | ![](pass3/before/hand-l-front.png) | ![](pass3/before/albedo-hand-l.png) | ![](pass3/before/forearm-l.png) | ![](pass3/before/knees.png) | ![](pass3/before/seam-shin-l.png) |
+| 本輪 | ![](pass3/renders/hand-r-front.png) | ![](pass3/renders/hand-l-front.png) | ![](pass3/renders/albedo-hand-l.png) | ![](pass3/renders/forearm-l.png) | ![](pass3/renders/knees.png) | ![](pass3/renders/seam-shin-l.png) |
+
+[正面](pass3/renders/front.png) · [斜側](pass3/renders/three-quarter.png) · [背面](pass3/renders/back.png) · [右手原色](pass3/renders/albedo-hand-r.png) · [左手白模](pass3/renders/clay-hand-l-out.png)
+
+**做法**
+
+1. **四肢套用原圖投影。** 胸甲與前裙甲用的投影，延伸到袖甲、手甲、手套、膝甲、脛甲與靴子。各區只投正面，因為只有軀幹有背面來源圖。
+   - 手套有了原圖的金色指節、紅色手背甲與金框，以及機械質感的黑色手套紋理。
+   - 手指形狀沿用 TRELLIS 生成，白模可見五指與放鬆姿勢都還算完整，本輪沒有更動幾何。
+2. **能量槽改成實體發光條。** 原圖的橘色能量槽只有 1–3 px 寬，比投影對齊的誤差（光流中位數約 20 px）還細。
+   - 直接把發光畫進貼圖時，會把金邊和漆面高光誤判成光，變成到處散落的光點；這個試算已棄用。
+   - 改為在原圖找出 8 條槽的中心線（[座標](pass3/energy-seams.json)、[尋找工具](../../../../tools/find_energy_seams.py)）：左右前臂、左胸側、兩個膝甲鏡片、兩條脛甲。
+   - 以光流反推，再從正面射線投到身體表面，鋪上圓頂狀的發光條，下方加一道暗色槽（[工具](../../../../tools/energy_seam_strips.py)、[報告](pass3/energy-seam-report.json)）。
+   - 發光以 glTF emissive＋`KHR_materials_emissive_strength` 匯出。
+
+**檢查**：完整版 743,438 面，檢視版 473,718 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass3/mesh-inspection.json)、[檢視版](pass3/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip) 已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+
+**下載**：[body-v2-pass3.glb](pass3/body-v2-pass3.glb)（93 MB，完整版）· [body-v2-pass3-preview.glb](pass3/body-v2-pass3-preview.glb)（59 MB）
+
+**仍待處理**
+
+- **能量槽偏白。** 在 Cycles／AgX 下，發光強度 ≥ 3 都會顯示成接近白色的核心；原圖本身也是白芯，只是外圍的橘色光暈沒有後製泛光。
+- **手部背面沒有原圖。** 手掌與手背後側仍是生成貼圖。
+- **頸部與骨架尚未處理。** 頸部還沒焊接，也還沒綁骨架。
+
+```sh
+python tools/project_reference.py --output docs/experiments/future-sanada/body-v2/pass3 --output-glb .tmp/v4/projected.glb
+python tools/back_plate_shell.py --model .tmp/v4/projected.glb --output docs/experiments/future-sanada/body-v2/pass3 --name body-v2-shell.glb
+python tools/find_energy_seams.py
+python tools/energy_seam_strips.py --model <上一步的 body-v2-shell.glb> --output docs/experiments/future-sanada/body-v2/pass3/body-v2-pass3.glb
+python tools/render_albedo.py --model docs/experiments/future-sanada/body-v2/pass3/body-v2-pass3.glb --output hand.png --target 0.376,-0.16,0.89 --span .35
+node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --body-v2 --pass3
+```
+
+## 前一階段：背甲與裙甲精修（pass 2）
 
 背甲上下與前後裙甲仍有問題，本輪改為針對這兩處修整。上排是前一版，下排是本輪；鏡位與燈光相同（1000²、24 samples）。
 
@@ -34,7 +75,7 @@
    - 在胸甲與裙甲範圍補上 313 個小破洞（3–48 條邊）。
    - 非金屬部分的粗糙度至少 0.52，清漆減為原來的 0.66 倍，減少漆面泛白。
 
-**檢查**：完整版 742,091 面，檢視版 472,372 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass2/mesh-inspection.json)、[檢視版](pass2/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip) 已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。參數見[投影報告](pass2/projection-report.json)、[背甲外殼報告](pass2/back-plate-report.json)、[對齊參數](pass2/alignment.json)。
+**檢查**：完整版 742,091 面，檢視版 472,372 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass2/mesh-inspection.json)、[檢視版](pass2/preview-inspection.json)）。互動檢視器隨後改用 pass 3 模型。參數見[投影報告](pass2/projection-report.json)、[背甲外殼報告](pass2/back-plate-report.json)、[對齊參數](pass2/alignment.json)。
 
 **下載**：[body-v2-pass2.glb](pass2/body-v2-pass2.glb)（92 MB，完整版）· [body-v2-pass2-preview.glb](pass2/body-v2-pass2-preview.glb)（58 MB，身體減面 45%）
 
@@ -105,7 +146,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（58 MB） | 已改用 pass 2 模型；解壓後開啟 index.html | 472,372 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（56 MB） | 已改用 pass 3 模型；解壓後開啟 index.html | 473,718 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 

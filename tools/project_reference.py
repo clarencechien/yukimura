@@ -26,6 +26,7 @@ p.add_argument('--back-reference', default='docs/experiments/future-sanada/body-
 p.add_argument('--alignment', default='docs/experiments/future-sanada/body-v2/pass2/alignment.json')
 p.add_argument('--output', default='docs/experiments/future-sanada/body-v2/pass2')
 p.add_argument('--output-glb', default='.tmp/v3/projected.glb', help='Intermediate; back_plate_shell.py writes the final pass-2 GLB')
+p.add_argument('--flow-cache', default='.tmp/v3/flow.npz', help='Smoothed render->reference flow, reused by energy_seam_strips.py')
 p.add_argument('--fill-holes', type=int, default=48, help='Fill boundary loops up to this many edges inside the dō / skirt')
 a = p.parse_args()
 out = Path(a.output); out.mkdir(parents=True, exist_ok=True)
@@ -173,6 +174,8 @@ sigma = 6
 wsum = ndimage.gaussian_filter(valid.astype(np.float32), sigma)
 flow_s = np.stack([ndimage.gaussian_filter(flow[..., i] * valid, sigma) / np.maximum(wsum, 1e-3) for i in range(2)], -1)
 print('flow done', flush=True)
+Path(a.flow_cache).parent.mkdir(parents=True, exist_ok=True)
+np.savez_compressed(a.flow_cache, flow=flow_s.astype(np.float32), pixels_per_unit=s, u0=u0, v0=v0)
 report['flow'] = {'median_px': float(np.median(mag[valid])), 'p90_px': float(np.quantile(mag[valid], .9)), 'smoothing_sigma_px': sigma}
 
 # 4. Visibility from front and back via z-buffers of the texel positions (body only).
@@ -258,21 +261,8 @@ def write_scaled(img_arr, values, channels):
         cur = img_arr[yy, xx, c]; img_arr[yy, xx, c] = cur * (1 - w) + val_ * w
 write_scaled(mr, None, {1: rough, 2: metal})
 write_scaled(coat, None, {0: red * .1, 1: red * .1, 2: red * .1})
-# Glow: the reference's orange energy seams (gauntlets, knees, shins) become real emission.
-hf, sf, vf = rgb_to_hsv(front_px[:, :3])
-# Glow cores are near-white yellow (low saturation), the halo orange: accept both.
-glow = smoothstep(6, 12, hf) * (1 - smoothstep(44, 52, hf)) * smoothstep(.38, .5, sf) * smoothstep(.58, .72, vf) * np.clip(wf, 0, 1)
-EMIT = 2048
-emit = np.zeros((EMIT, EMIT, 4), np.float32); emit[..., 3] = 1
-ey, ex = idx[0] * EMIT // size, idx[1] * EMIT // size
-np.maximum.at(emit[..., 0], (ey, ex), front_px[:, 0] * glow); np.maximum.at(emit[..., 1], (ey, ex), front_px[:, 1] * glow); np.maximum.at(emit[..., 2], (ey, ex), front_px[:, 2] * glow)
-emit[..., :3] = np.clip(ndimage.grey_dilation(emit[..., :3], size=(3, 3, 1)), 0, 1)
-emit_img = bpy.data.images.new('Body v2 energy seams (reference)', EMIT, EMIT, alpha=True); emit_img.pixels.foreach_set(emit.ravel()); emit_img.pack()
-emit_node = nodes.new('ShaderNodeTexImage'); emit_node.image = emit_img
-uv_src = color_node.inputs['Vector'].links[0].from_node if color_node.inputs['Vector'].links else None
-if uv_src: material.node_tree.links.new(uv_src.outputs[0], emit_node.inputs['Vector'])
-material.node_tree.links.new(emit_node.outputs['Color'], bsdf.inputs['Emission Color']); bsdf.inputs['Emission Strength'].default_value = 4.0
-report['emission'] = {'glow_texels': int((glow > .5).sum()), 'texture': EMIT, 'strength': 4.0}
+# Energy seams are 1-3 px slits in the reference, finer than the alignment error; they are
+# built as surface strips by energy_seam_strips.py instead of painted here.
 # Pass-2 sheen: the lacquer read as a pale pink wash under the studio rim light. Raise the
 # roughness floor of non-metal texels everywhere and thin the coat.
 nonmetal = mr[..., 2] < .3

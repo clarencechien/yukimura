@@ -22,6 +22,7 @@ p.add_argument('--model', default='.tmp/v3/projected.glb')
 p.add_argument('--back-reference', default='docs/experiments/future-sanada/body-v2/pass2/back-reference.png')
 p.add_argument('--alignment', default='docs/experiments/future-sanada/body-v2/pass2/alignment.json')
 p.add_argument('--output', default='docs/experiments/future-sanada/body-v2/pass2')
+p.add_argument('--name', default='body-v2-pass2.glb')
 p.add_argument('--half-width', type=float, default=.13, help='Plate edge, where the dark under-armour starts')
 p.add_argument('--z-range', type=float, nargs=2, default=(1.16, 1.44), help='Bottom = end of the gold wave band (back-reference row 636)')
 p.add_argument('--gap-rows', type=float, nargs='+', default=[379, 416, 453, 490, 526, 563, 600], help='Painted lame gaps (back-reference pixels)')
@@ -134,7 +135,7 @@ bsdf.inputs['Coat Weight'].default_value = .08; bsdf.inputs['Coat Roughness'].de
 mesh.materials.append(mat)
 
 bpy.ops.object.select_all(action='SELECT')
-bpy.ops.export_scene.gltf(filepath=str((out / 'body-v2-pass2.glb').resolve()), export_format='GLB', use_selection=True)
+bpy.ops.export_scene.gltf(filepath=str((out / a.name).resolve()), export_format='GLB', use_selection=True)
 report = {'half_width': hw, 'z_range': [z0, z1], 'grid_step': step, 'cells': list(field.shape), 'ray_hits': int(hits.sum()), 'kept_cells': int(known.sum()), 'fit': f'ray-cast surface; robust degree-{DEG} polynomial only in tunnels',
           'gap_rows_px': a.gap_rows, 'gap_z': [float(g) for g in gaps_z], 'relief_max': .0055, 'offset_inside': .002, 'border_sink': -.005, 'tunnel_cells': int((~keep).sum()),
           'shell_triangles': len(mesh.polygons), 'crop_px': [cu0, cv0, cu1, cv1],

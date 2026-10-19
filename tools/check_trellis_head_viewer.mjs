@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const bodyV2=process.argv.includes('--body-v2');
 const out=bodyV2?'docs/experiments/future-sanada/body-v2':'docs/experiments/future-sanada/head-study';
 const html=await fs.readFile(bodyV2?'.tmp/future-sanada-body-v2-viewer/index.html':'.tmp/future-sanada-head-viewer/index.html');
-const expected=JSON.parse(await fs.readFile(`${out}/${process.argv.includes('--pass2')?'pass2':'refined'}/preview-inspection.json`));
+const expected=JSON.parse(await fs.readFile(`${out}/${process.argv.includes('--pass3')?'pass3':process.argv.includes('--pass2')?'pass2':'refined'}/preview-inspection.json`));
 const server=http.createServer((req,res)=>{res.setHeader('Content-Type','text/html');res.end(html);});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});

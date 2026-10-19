@@ -1,0 +1,104 @@
+{
+  "seams": [
+    {
+      "name": "forearm right outer",
+      "samples_kept": 12,
+      "length": 0.06098030621575106,
+      "width": 0.005869829808478425,
+      "centre": [
+        -0.3517,
+        0.1492,
+        1.0864
+      ],
+      "status": "built"
+    },
+    {
+      "name": "forearm left inner",
+      "samples_kept": 10,
+      "length": 0.0732264768642238,
+      "width": 0.006303373311997504,
+      "centre": [
+        0.334,
+        -0.1302,
+        1.0916
+      ],
+      "status": "built"
+    },
+    {
+      "name": "forearm left outer",
+      "samples_kept": 12,
+      "length": 0.030767416805409863,
+      "width": 0.0038894273878881786,
+      "centre": [
+        0.4031,
+        -0.1383,
+        1.0424
+      ],
+      "status": "built"
+    },
+    {
+      "name": "chest left side",
+      "samples_kept": 12,
+      "length": 0.021896059275542015,
+      "width": 0.008113827468007014,
+      "centre": [
+        0.094,
+        -0.1233,
+        1.3078
+      ],
+      "status": "built"
+    },
+    {
+      "name": "knee left lens",
+      "samples_kept": 12,
+      "length": 0.02200460334669032,
+      "width": 0.0035394465093059237,
+      "centre": [
+        0.1005,
+        -0.2008,
+        0.5565
+      ],
+      "status": "built"
+    },
+    {
+      "name": "knee right lens",
+      "samples_kept": 10,
+      "length": 0.03623150078693039,
+      "width": 0.005344969147327174,
+      "centre": [
+        -0.1474,
+        0.0239,
+        0.5455
+      ],
+      "status": "built"
+    },
+    {
+      "name": "shin right",
+      "samples_kept": 12,
+      "length": 0.07443085681544831,
+      "width": 0.0032164020422142726,
+      "centre": [
+        -0.22,
+        0.1379,
+        0.3022
+      ],
+      "status": "built"
+    },
+    {
+      "name": "shin left",
+      "samples_kept": 12,
+      "length": 0.07870987768429555,
+      "width": 0.0035832478532486444,
+      "centre": [
+        0.2396,
+        -0.1577,
+        0.2707
+      ],
+      "status": "built"
+    }
+  ],
+  "emission_strength": 6,
+  "slot_width_factor": 2.6,
+  "slot_lift": 0.0018,
+  "strip_lift": 0.0024
+}
