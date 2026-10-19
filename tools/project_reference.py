@@ -25,6 +25,7 @@ p.add_argument('--reference', default='docs/experiments/future-sanada/reference.
 p.add_argument('--back-reference', default='docs/experiments/future-sanada/body-v2/pass2/back-reference.png')
 p.add_argument('--alignment', default='docs/experiments/future-sanada/body-v2/pass2/alignment.json')
 p.add_argument('--output', default='docs/experiments/future-sanada/body-v2/pass2')
+p.add_argument('--output-glb', default='.tmp/v3/projected.glb', help='Intermediate; back_plate_shell.py writes the final pass-2 GLB')
 p.add_argument('--fill-holes', type=int, default=48, help='Fill boundary loops up to this many edges inside the dō / skirt')
 a = p.parse_args()
 out = Path(a.output); out.mkdir(parents=True, exist_ok=True)
@@ -214,13 +215,25 @@ color = pixels(color_node.image)
 mr_small = mr_node.image; mr = pixels(mr_small)
 coat_small = coat_node.image; coat = pixels(coat_small)
 old = color[idx][:, :3]
-new_rgb = (front_px[:, :3] * wf[:, None] + back_px[:, :3] * wb[:, None]) / np.maximum(wf + wb, 1e-6)[:, None]
+# Back skirt: the generated lacing bumps sit at different heights than the front panels the
+# back source borrows, so painting its lacing doubles the pattern. Take only the source's
+# low-frequency colour there and keep the generated high-frequency detail (aligned with geometry).
+LOW_SIGMA = 6  # texels / reference pixels
+old_low = np.stack([ndimage.gaussian_filter(color[..., c], LOW_SIGMA) for c in range(3)], -1)[idx]
+back_low = sample(np.stack([ndimage.gaussian_filter(back_ref[..., c], LOW_SIGMA) for c in range(3)], -1), uu, vv)
+skirt_back = 1 - smoothstep(1.04, 1.08, pz)
+back_rgb = back_px[:, :3] * (1 - skirt_back[:, None]) + np.clip(back_low + (old - old_low), 0, 1) * skirt_back[:, None]
+# Front: keep the bright red cords and tassels; their 3D position differs from the painted ones.
+ho, so, vo = rgb_to_hsv(old)
+cord = (1 - smoothstep(8, 14, np.abs(((ho + 180) % 360) - 180))) * smoothstep(.65, .75, so) * smoothstep(.38, .48, vo)
+wf *= 1 - cord
+new_rgb = (front_px[:, :3] * wf[:, None] + back_rgb * wb[:, None]) / np.maximum(wf + wb, 1e-6)[:, None]
 w = np.clip(wf + wb, 0, 1)
 # The reference carries painted key light; match its mean level to the generated albedo here.
 gain = np.clip(old[w > .5].mean(0) / np.maximum(new_rgb[w > .5].mean(0), 1e-4), .6, 1.2)
 new_rgb = np.clip(new_rgb * gain, 0, 1)
 color[idx[0], idx[1], :3] = old * (1 - w[:, None]) + new_rgb * w[:, None]
-report['projection'] = {'texels_front': int((wf > .5).sum()), 'texels_back': int((wb > .5).sum()), 'albedo_gain': gain.tolist(), 'visibility_eps': eps}
+report['projection'] = {'texels_front': int((wf > .5).sum()), 'texels_back': int((wb > .5).sum()), 'texels_skirt_back_lowpass': int(((wb > .5) & (skirt_back > .5)).sum()), 'cord_texels_kept': int((cord > .5).sum()), 'low_sigma': LOW_SIGMA, 'albedo_gain': gain.tolist(), 'visibility_eps': eps}
 
 # 5. Re-derive metallic / roughness / coat for projected texels from the new colour.
 h, sat, val = rgb_to_hsv(new_rgb)
@@ -245,7 +258,7 @@ for o in head: o.hide_render = False
 bpy.data.objects.remove(cam)
 bpy.ops.object.select_all(action='DESELECT')
 for o in [body] + head: o.select_set(True)
-bpy.ops.export_scene.gltf(filepath=str((out / 'body-v2-pass2.glb').resolve()), export_format='GLB', use_selection=True)
+bpy.ops.export_scene.gltf(filepath=str(Path(a.output_glb).resolve()), export_format='GLB', use_selection=True)
 report['triangles'] = sum(len(f.vertices) - 2 for o in [body] + head for f in o.data.polygons)
 report['regions'] = REGIONS; report['seconds'] = time.monotonic() - started
 (out / 'projection-report.json').write_text(json.dumps(report, indent=2) + '\n'); print(json.dumps(report))

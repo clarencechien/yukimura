@@ -1,0 +1,42 @@
+{
+  "model": "docs/experiments/future-sanada/body-v2/refined/body-v2.glb",
+  "holes": {
+    "boundary_edges_before": 7489,
+    "loops_filled": 313
+  },
+  "rasterize_seconds": 12.939880452999205,
+  "texels_covered": 7318245,
+  "flow": {
+    "median_px": 19.7343692779541,
+    "p90_px": 34.19613418579102,
+    "smoothing_sigma_px": 6
+  },
+  "projection": {
+    "texels_front": 413321,
+    "texels_back": 399710,
+    "albedo_gain": [
+      0.8528167605400085,
+      0.9170675873756409,
+      0.8884409070014954
+    ],
+    "visibility_eps": 0.012
+  },
+  "triangles": 718135,
+  "regions": {
+    "do": {
+      "abs_x": 0.185,
+      "z": [
+        1.04,
+        1.47
+      ]
+    },
+    "skirt": {
+      "abs_x": 0.27,
+      "z": [
+        0.56,
+        1.12
+      ]
+    }
+  },
+  "seconds": 173.3293390630006
+}
