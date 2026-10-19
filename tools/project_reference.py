@@ -215,14 +215,15 @@ color = pixels(color_node.image)
 mr_small = mr_node.image; mr = pixels(mr_small)
 coat_small = coat_node.image; coat = pixels(coat_small)
 old = color[idx][:, :3]
-# Back skirt: the generated lacing bumps sit at different heights than the front panels the
-# back source borrows, so painting its lacing doubles the pattern. Take only the source's
-# low-frequency colour there and keep the generated high-frequency detail (aligned with geometry).
-LOW_SIGMA = 6  # texels / reference pixels
-old_low = np.stack([ndimage.gaussian_filter(color[..., c], LOW_SIGMA) for c in range(3)], -1)[idx]
-back_low = sample(np.stack([ndimage.gaussian_filter(back_ref[..., c], LOW_SIGMA) for c in range(3)], -1), uu, vv)
+# Back skirt: no source to project. Its generated albedo is clean red panels with gold edging
+# (the pale look in renders is rim light on lacquer); painting borrowed front panels doubled the
+# lacing and smeared a side cord across it. Keep it, only smooth TRELLIS's blotches with an
+# edge-preserving filter so lacing and gold edges stay.
 skirt_back = 1 - smoothstep(1.04, 1.08, pz)
-back_rgb = back_px[:, :3] * (1 - skirt_back[:, None]) + np.clip(back_low + (old - old_low), 0, 1) * skirt_back[:, None]
+wb *= 1 - skirt_back
+clean = cv2.bilateralFilter(np.ascontiguousarray(color[..., :3]), 9, .12, 4)[idx]
+cleanup = vis_back[idx] * face_back[idx] * skirt_back * border
+back_rgb = back_px[:, :3]
 # Front: keep the bright red cords and tassels; their 3D position differs from the painted ones.
 ho, so, vo = rgb_to_hsv(old)
 cord = (1 - smoothstep(8, 14, np.abs(((ho + 180) % 360) - 180))) * smoothstep(.65, .75, so) * smoothstep(.38, .48, vo)
@@ -233,7 +234,9 @@ w = np.clip(wf + wb, 0, 1)
 gain = np.clip(old[w > .5].mean(0) / np.maximum(new_rgb[w > .5].mean(0), 1e-4), .6, 1.2)
 new_rgb = np.clip(new_rgb * gain, 0, 1)
 color[idx[0], idx[1], :3] = old * (1 - w[:, None]) + new_rgb * w[:, None]
-report['projection'] = {'texels_front': int((wf > .5).sum()), 'texels_back': int((wb > .5).sum()), 'texels_skirt_back_lowpass': int(((wb > .5) & (skirt_back > .5)).sum()), 'cord_texels_kept': int((cord > .5).sum()), 'low_sigma': LOW_SIGMA, 'albedo_gain': gain.tolist(), 'visibility_eps': eps}
+cb = np.clip(cleanup, 0, 1)[:, None]
+color[idx[0], idx[1], :3] = color[idx[0], idx[1], :3] * (1 - cb) + clean * cb
+report['projection'] = {'texels_front': int((wf > .5).sum()), 'texels_back': int((wb > .5).sum()), 'texels_skirt_back_cleaned': int((cleanup > .5).sum()), 'cord_texels_kept': int((cord > .5).sum()), 'skirt_back_bilateral': {'d': 9, 'sigma_color': .12, 'sigma_space': 4}, 'albedo_gain': gain.tolist(), 'visibility_eps': eps}
 
 # 5. Re-derive metallic / roughness / coat for projected texels from the new colour.
 h, sat, val = rgb_to_hsv(new_rgb)

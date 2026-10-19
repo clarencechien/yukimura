@@ -22,8 +22,8 @@ p.add_argument('--model', default='.tmp/v3/projected.glb')
 p.add_argument('--back-reference', default='docs/experiments/future-sanada/body-v2/pass2/back-reference.png')
 p.add_argument('--alignment', default='docs/experiments/future-sanada/body-v2/pass2/alignment.json')
 p.add_argument('--output', default='docs/experiments/future-sanada/body-v2/pass2')
-p.add_argument('--half-width', type=float, default=.145)
-p.add_argument('--z-range', type=float, nargs=2, default=(1.135, 1.455))
+p.add_argument('--half-width', type=float, default=.13, help='Plate edge, where the dark under-armour starts')
+p.add_argument('--z-range', type=float, nargs=2, default=(1.16, 1.44), help='Bottom = end of the gold wave band (back-reference row 636)')
 p.add_argument('--gap-rows', type=float, nargs='+', default=[379, 416, 453, 490, 526, 563, 600], help='Painted lame gaps (back-reference pixels)')
 a = p.parse_args()
 out = Path(a.output)
@@ -65,9 +65,16 @@ for _ in range(8):
     coef, *_ = np.linalg.lstsq(A[keep], field[keep], rcond=None)
     smooth = A @ coef
     keep = hits & (field > smooth - .004)
-residual = np.where(keep, field - smooth, 0)
-# Keep gentle shape the polynomial misses (|residual| < 3 mm, blurred), never the tunnels.
-field = smooth + ndimage.gaussian_filter(np.clip(residual, -.003, .003), 3)
+# Hug the real surface where the ray hit the plate; use the fit only inside tunnels / misses,
+# blended over a few cells so the patch has no step. A free polynomial alone floats off the
+# plate's actual curvature and leaves a card with visible edges.
+filled = np.where(hits, field, np.nanmedian(field))
+keep = hits & (filled > ndimage.median_filter(filled, size=15) - .006)   # tunnels: well below neighbours
+tunnel = ndimage.binary_dilation(~keep, iterations=2)
+blend = ndimage.gaussian_filter(tunnel.astype(np.float32), 1.5)
+surface = ndimage.median_filter(np.where(keep, field, smooth), size=3)
+field = surface * (1 - blend) + smooth * blend
+field = ndimage.gaussian_filter(field, 1.0)
 known = keep
 
 # Lame relief: each lame leans out toward its lower edge, the next one starts tucked under it.
@@ -81,8 +88,8 @@ def relief(z):
         r = np.where(inside, .0055 * t ** 1.5, r)
     return r
 X, Z = np.meshgrid(xs, zs)
-edge = np.minimum.reduce([smoothstep(0, .02, hw - np.abs(X)), smoothstep(0, .02, Z - z0), smoothstep(0, .02, z1 - Z)])
-Y = field + (-.006 + edge * (.009 + relief(Z)))                         # borders sink below the body
+edge = np.minimum.reduce([smoothstep(-.01, .02, hw - np.abs(X)), smoothstep(-.01, .02, Z - z0), smoothstep(-.01, .02, z1 - Z)])
+Y = field + (-.005 + edge * (.007 + relief(Z)))                         # +2 mm inside, borders sink 5 mm
 
 # Build the grid mesh with planar UVs into a crop of the back source.
 src = Image.open(a.back_reference).convert('RGBA')
@@ -128,8 +135,8 @@ mesh.materials.append(mat)
 
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.export_scene.gltf(filepath=str((out / 'body-v2-pass2.glb').resolve()), export_format='GLB', use_selection=True)
-report = {'half_width': hw, 'z_range': [z0, z1], 'grid_step': step, 'cells': list(field.shape), 'ray_hits': int(hits.sum()), 'kept_cells': int(known.sum()), 'fit': f'robust degree-{DEG} polynomial + clipped residual',
-          'gap_rows_px': a.gap_rows, 'gap_z': [float(g) for g in gaps_z], 'relief_max': .0055, 'offset_inside': .003, 'border_sink': -.006,
+report = {'half_width': hw, 'z_range': [z0, z1], 'grid_step': step, 'cells': list(field.shape), 'ray_hits': int(hits.sum()), 'kept_cells': int(known.sum()), 'fit': f'ray-cast surface; robust degree-{DEG} polynomial only in tunnels',
+          'gap_rows_px': a.gap_rows, 'gap_z': [float(g) for g in gaps_z], 'relief_max': .0055, 'offset_inside': .002, 'border_sink': -.005, 'tunnel_cells': int((~keep).sum()),
           'shell_triangles': len(mesh.polygons), 'crop_px': [cu0, cv0, cu1, cv1],
           'triangles': sum(len(f.vertices) - 2 for o in bpy.context.scene.objects if o.type == 'MESH' for f in o.data.polygons)}
 (out / 'back-plate-report.json').write_text(json.dumps(report, indent=2) + '\n'); print(json.dumps(report))
