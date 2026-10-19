@@ -1,0 +1,155 @@
+{
+  "file": "head-preview.glb",
+  "sha256": "607c7faa20e3c4bc97da395e8f7abc4cc105d704703090fa562fe8ec5153e535",
+  "bytes": 29865144,
+  "vertices": 258356,
+  "triangles": 227742,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.8555764555931091,
+      -0.0007933122687973082,
+      -0.6773030757904053
+    ],
+    [
+      0.8551594018936157,
+      2.001591920852661,
+      0.677243173122406
+    ]
+  ],
+  "extent": [
+    1.71073579788208,
+    2.002385139465332,
+    1.354546308517456
+  ],
+  "materials": [
+    {
+      "name": "Material_0",
+      "baseColorTexture": {
+        "index": 0
+      },
+      "metallicRoughnessTexture": {
+        "index": 1
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Red lacquer / nonmetal coat",
+      "baseColorTexture": {
+        "index": 2
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Worn gilding",
+      "baseColorTexture": {
+        "index": 3
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Dark cloth and cord",
+      "baseColorTexture": {
+        "index": 4
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Skin beneath helmet",
+      "baseColorTexture": {
+        "index": 5
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Dark visor underside",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo repaired lacquer",
+      "baseColorTexture": {
+        "index": 6
+      },
+      "metallicRoughnessTexture": {
+        "index": 7
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo rolled lip / muted brass",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Nostril recessed interior",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo aged brass shared finish",
+      "baseColorTexture": {
+        "index": 8
+      },
+      "metallicRoughnessTexture": {
+        "index": 9
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Vent recessed cloth lining",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Crest oxblood lacquer",
+      "baseColorTexture": {
+        "index": 10
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Crest aged brass",
+      "baseColorTexture": {
+        "index": 12
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Coin raised edge / aged gold",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Lid edge and brow",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Human orbital skin and eyes / Rocketbox",
+      "baseColorTexture": {
+        "index": 15
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 12,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "pbr",
+  "primitives_without_normals": 0
+}

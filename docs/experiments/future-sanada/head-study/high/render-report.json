@@ -1,0 +1,112 @@
+{
+  "model": ".tmp/head-study/early/head-high.glb",
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "size": 1000,
+  "samples": 20,
+  "normalization": {
+    "scale": 2.0057056132613726,
+    "original_low": [
+      -0.4264847934246063,
+      -0.3408147096633911,
+      -0.49964141845703125
+    ],
+    "original_high": [
+      0.4264286756515503,
+      0.3341757655143738,
+      0.49751389026641846
+    ]
+  },
+  "geometry_vertices": 422891,
+  "geometry_triangles": 494558,
+  "views": [
+    {
+      "name": "front",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 18.150192359003995
+    },
+    {
+      "name": "eyes",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.74
+      ],
+      "span": 0.83,
+      "seconds": 26.23016699499567
+    },
+    {
+      "name": "crest",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.1
+      ],
+      "span": 0.9,
+      "seconds": 20.359073367995734
+    },
+    {
+      "name": "mask",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.43
+      ],
+      "span": 0.85,
+      "seconds": 27.27138431899948
+    },
+    {
+      "name": "three-quarter",
+      "angle": 0.4886921905584123,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 13.143742244006717
+    },
+    {
+      "name": "side",
+      "angle": 1.5707963267948966,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 11.293190472999413
+    },
+    {
+      "name": "back",
+      "angle": 3.141592653589793,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 12.377078994999465
+    },
+    {
+      "name": "clay",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1
+      ],
+      "span": 2.22,
+      "seconds": 12.857858891999058
+    }
+  ]
+}

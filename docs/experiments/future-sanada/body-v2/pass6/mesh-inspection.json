@@ -1,0 +1,243 @@
+{
+  "file": "body-v2-pass6.glb",
+  "sha256": "4b2c4d954c0b00c7b47a959a2c9a90ea1424f14664d806955d374f328372d93b",
+  "bytes": 95570996,
+  "vertices": 836406,
+  "triangles": 862466,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.440444678068161,
+      0.0,
+      -0.3433140218257904
+    ],
+    [
+      0.4404446482658386,
+      1.9507290124893188,
+      0.3433140218257904
+    ]
+  ],
+  "extent": [
+    0.8808892965316772,
+    1.9507290124893188,
+    0.6866280436515808
+  ],
+  "materials": [
+    {
+      "name": "Body v2 lacquer / gilding / under-armour",
+      "baseColorTexture": {
+        "index": 1
+      },
+      "metallicRoughnessTexture": {
+        "index": 2
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Chest lacquer under the cords / right paddle tassel",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Chest lacquer under the cords / left paddle tassel",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Waist band / dark cloth under the cord",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Skirt lacquer under the tassels",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Material_0",
+      "baseColorTexture": {
+        "index": 3
+      },
+      "metallicRoughnessTexture": {
+        "index": 4
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Red lacquer / nonmetal coat",
+      "baseColorTexture": {
+        "index": 5
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Worn gilding",
+      "baseColorTexture": {
+        "index": 6
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Dark cloth and cord",
+      "baseColorTexture": {
+        "index": 7
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Skin beneath helmet",
+      "baseColorTexture": {
+        "index": 8
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Dark visor underside",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo repaired lacquer",
+      "baseColorTexture": {
+        "index": 9
+      },
+      "metallicRoughnessTexture": {
+        "index": 10
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo rolled lip / muted brass",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Nostril recessed interior",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo aged brass shared finish",
+      "baseColorTexture": {
+        "index": 11
+      },
+      "metallicRoughnessTexture": {
+        "index": 12
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Vent recessed cloth lining",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Crest oxblood lacquer",
+      "baseColorTexture": {
+        "index": 13
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Crest aged brass",
+      "baseColorTexture": {
+        "index": 15
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Coin raised edge / aged gold",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Lid edge and brow",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Human orbital skin and eyes / Rocketbox",
+      "baseColorTexture": {
+        "index": 18
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Back plate lacquer / reference",
+      "baseColorTexture": {
+        "index": 19
+      },
+      "metallicRoughnessTexture": {
+        "index": 20
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam slot / dark recess",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam / orange glow",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Neck lining / dark quilted cloth",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Braided silk cord / lacquer red",
+      "baseColorTexture": {
+        "index": 22
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Tassel thread / silk red",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Tassel binding / aged brass",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Tassel core / dark red",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 19,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "pbr",
+  "primitives_without_normals": 0
+}

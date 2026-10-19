@@ -1,0 +1,26 @@
+{
+  "flattened_vertices": 4154,
+  "dark_band_faces": 4104,
+  "ring_points": 1340,
+  "path_samples": 66,
+  "cord_radius": 0.013,
+  "cord_z": 1.122,
+  "knot": [
+    -0.0777,
+    -0.1658,
+    1.1128
+  ],
+  "tassels": [
+    [
+      -0.1062,
+      -0.1607,
+      1.0532
+    ],
+    [
+      -0.0479,
+      -0.1847,
+      1.0535
+    ]
+  ],
+  "triangles": 31302
+}

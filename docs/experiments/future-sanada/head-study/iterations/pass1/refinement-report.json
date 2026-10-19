@@ -1,0 +1,56 @@
+{
+  "source": "docs/experiments/future-sanada/head-study/head-high.glb",
+  "normalization_scale": 2.0057056132613726,
+  "generated_source_preserved": true,
+  "material_face_counts": {
+    "Material_0": 8584,
+    "Red lacquer / nonmetal coat": 135876,
+    "Worn gilding": 68743,
+    "Dark cloth and cord": 278584,
+    "Skin beneath helmet": 2771
+  },
+  "visor_vertices_adjusted": 4898,
+  "crest_vertices_recessed": 14690,
+  "removed_near_zero_faces": 16,
+  "coin_objects": [
+    "Six coins / row 1 coin 1",
+    "Six coins / row 1 coin 2",
+    "Six coins / row 1 coin 3",
+    "Six coins / row 2 coin 1",
+    "Six coins / row 2 coin 2",
+    "Six coins / row 2 coin 3"
+  ],
+  "coin_count": 6,
+  "eye_landmarks": [
+    {
+      "side": -1,
+      "center_x": -0.16,
+      "center_z": 0.75,
+      "half_width": 0.087,
+      "half_height": 0.023,
+      "iris_radius": 0.028,
+      "pupil_radius": 0.01
+    },
+    {
+      "side": 1,
+      "center_x": 0.16,
+      "center_z": 0.75,
+      "half_width": 0.087,
+      "half_height": 0.023,
+      "iris_radius": 0.028,
+      "pupil_radius": 0.01
+    }
+  ],
+  "changes": [
+    "Raised only front visor by up to 0.06 normalized units",
+    "Recessed incorrect four-coin relief and rebuilt six separate square-hole coins",
+    "Added independent sclera, clipped brown iris, pupil, eyelid and brow geometry",
+    "Separated lacquer, gold, cloth and skin material response"
+  ],
+  "limitations": [
+    "Artist-directed procedural edits, not hand-sculpted anatomical retopology",
+    "Eye surfaces are convex caps, not complete anatomical eyeballs",
+    "Mask ventilation remains generated and is not certified as a separate hollow mask",
+    "No skeleton, weights or facial animation"
+  ]
+}

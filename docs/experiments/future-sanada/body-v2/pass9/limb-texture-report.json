@@ -1,0 +1,12 @@
+{
+  "texels_in_region": 3190655,
+  "red": 0.4248232841491699,
+  "gold": 0.053537849336862564,
+  "dark": 0.2506028413772583,
+  "filters": {
+    "lacquer": "bilateral d15 c60 s9 x3",
+    "dark": "bilateral d11 c40 s6 x2",
+    "gilt": "bilateral d5 c30 s3",
+    "mix_back_original": 0.1
+  }
+}

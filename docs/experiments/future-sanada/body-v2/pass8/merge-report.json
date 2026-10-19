@@ -1,0 +1,67 @@
+{
+  "split": true,
+  "parts": [
+    {
+      "part": "head",
+      "file": "body-v2-pass8-head.glb",
+      "bytes": 30275948,
+      "sha256": "d5ec22d356dac7db517da9454e3e1cea8cbb949294a77b479a94a8668cd39f9f",
+      "triangles": 227742,
+      "materials": 16
+    },
+    {
+      "part": "body",
+      "file": "body-v2-pass8-body.glb",
+      "bytes": 62038756,
+      "sha256": "c454027f7920fd349a8227071db3865a9a901b469766c1c2b2d2c5c688971498",
+      "triangles": 515312,
+      "materials": 9
+    },
+    {
+      "part": "plates",
+      "file": "body-v2-pass8-plates.glb",
+      "bytes": 3913468,
+      "sha256": "10e9d4c7d47a0efadc39723aca3d56175b5dad35ee4ce495fd4a5bf43bbe4fb8",
+      "triangles": 94232,
+      "materials": 4
+    },
+    {
+      "part": "cords",
+      "file": "body-v2-pass8-cords.glb",
+      "bytes": 2823432,
+      "sha256": "422b2a2b9f8664fd78dc93f34e6905042eb4d0dc4c2d580f13277de85ebdd575",
+      "triangles": 120176,
+      "materials": 4
+    }
+  ],
+  "seam_audit": [
+    {
+      "label": "neck interior (head/body junction)",
+      "rays": 3000,
+      "reached_unobstructed": 0,
+      "see_through_to_background": 0,
+      "examples": []
+    },
+    {
+      "label": "inside the torso along the collar line",
+      "rays": 3000,
+      "reached_unobstructed": 1,
+      "see_through_to_background": 0,
+      "examples": [
+        {
+          "target": [
+            -0.16,
+            0.1278,
+            1.5
+          ],
+          "from": [
+            0.673,
+            0.679,
+            0.294
+          ],
+          "see_through_to_background": false
+        }
+      ]
+    }
+  ]
+}

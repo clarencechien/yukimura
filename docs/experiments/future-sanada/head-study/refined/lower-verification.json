@@ -1,0 +1,110 @@
+{
+  "model": "docs/experiments/future-sanada/head-study/refined/head-refined.glb",
+  "sha256": "b90a796c7186dd1f6c5354905029aebd318c6fc7da81ff8a23c61f759f8b5e8a",
+  "passed": true,
+  "checks": [
+    {
+      "object": "Menpo cheek vent frame -1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo cheek vent frame 1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo reconstructed chin shield",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo chin brass inlay",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo continuous cheek plate -1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo continuous cheek plate 1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo continuous jaw plate -1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo continuous jaw plate 1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo jaw rivet -1 0",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo jaw rivet -1 1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo jaw rivet -1 2",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo jaw rivet 1 0",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo jaw rivet 1 1",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    },
+    {
+      "object": "Menpo jaw rivet 1 2",
+      "closed_connected": true,
+      "near_zero_triangles_at_fit_scale": 0,
+      "mouth_clear": true
+    }
+  ],
+  "vent_aperture_test_rays_clear": true,
+  "eye_nostril_test_rays_clear": true,
+  "cheek_jaw_plates": 4,
+  "jaw_rivets": 6,
+  "shared_finish": [
+    {
+      "material": "Menpo repaired lacquer",
+      "roughness_min": 0.47058823529411764,
+      "roughness_max": 0.5294117647058824,
+      "embedded": true
+    },
+    {
+      "material": "Menpo aged brass shared finish",
+      "roughness_min": 0.4,
+      "roughness_max": 0.47843137254901963,
+      "embedded": true
+    }
+  ],
+  "scope": "New repair pieces only; recessed cloth backings are separate. Does not certify the entire generated head or animation."
+}

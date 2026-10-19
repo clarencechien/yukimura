@@ -1,0 +1,193 @@
+{
+  "file": "body-v2-pass4-preview.glb",
+  "sha256": "85f7d2dbbe36aefbd2559de8ae1bd6df46287cbbe3937d0c29aa53724bbc3cb5",
+  "bytes": 58623188,
+  "vertices": 573987,
+  "triangles": 474114,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.4405336380004883,
+      -0.0005452476907521486,
+      -0.34305480122566223
+    ],
+    [
+      0.44071853160858154,
+      1.9507290124893188,
+      0.3433140218257904
+    ]
+  ],
+  "extent": [
+    0.8812521696090698,
+    1.9512742757797241,
+    0.6863688230514526
+  ],
+  "materials": [
+    {
+      "name": "Body v2 lacquer / gilding / under-armour",
+      "baseColorTexture": {
+        "index": 1
+      },
+      "metallicRoughnessTexture": {
+        "index": 2
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Material_0",
+      "baseColorTexture": {
+        "index": 3
+      },
+      "metallicRoughnessTexture": {
+        "index": 4
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Red lacquer / nonmetal coat",
+      "baseColorTexture": {
+        "index": 5
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Worn gilding",
+      "baseColorTexture": {
+        "index": 6
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Dark cloth and cord",
+      "baseColorTexture": {
+        "index": 7
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Skin beneath helmet",
+      "baseColorTexture": {
+        "index": 8
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Dark visor underside",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo repaired lacquer",
+      "baseColorTexture": {
+        "index": 9
+      },
+      "metallicRoughnessTexture": {
+        "index": 10
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo rolled lip / muted brass",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Nostril recessed interior",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Menpo aged brass shared finish",
+      "baseColorTexture": {
+        "index": 11
+      },
+      "metallicRoughnessTexture": {
+        "index": 12
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Vent recessed cloth lining",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Crest oxblood lacquer",
+      "baseColorTexture": {
+        "index": 13
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Crest aged brass",
+      "baseColorTexture": {
+        "index": 15
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Coin raised edge / aged gold",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Lid edge and brow",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Human orbital skin and eyes / Rocketbox",
+      "baseColorTexture": {
+        "index": 18
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Back plate lacquer / reference",
+      "baseColorTexture": {
+        "index": 19
+      },
+      "metallicRoughnessTexture": {
+        "index": 20
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam slot / dark recess",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam / orange glow",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Neck lining / dark quilted cloth",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 17,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "pbr",
+  "primitives_without_normals": 0
+}

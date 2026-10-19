@@ -1,0 +1,43 @@
+{
+  "file": "head-high.glb",
+  "sha256": "9a62698d4253bbb434a3295caa7a111a57d0ccb056e69e8bfcd2c995ed76c4f2",
+  "bytes": 66285192,
+  "vertices": 422891,
+  "triangles": 494558,
+  "degenerate_triangles": 21,
+  "bounds": [
+    [
+      -0.4264847934246063,
+      -0.49964141845703125,
+      -0.3341757655143738
+    ],
+    [
+      0.4264286756515503,
+      0.49751389026641846,
+      0.3408147096633911
+    ]
+  ],
+  "extent": [
+    0.852913498878479,
+    0.9971553087234497,
+    0.6749904751777649
+  ],
+  "materials": [
+    {
+      "name": null,
+      "baseColorTexture": {
+        "index": 0
+      },
+      "metallicRoughnessTexture": {
+        "index": 1
+      },
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 2,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "pbr",
+  "primitives_without_normals": 0
+}

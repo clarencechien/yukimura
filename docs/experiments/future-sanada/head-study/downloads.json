@@ -1,0 +1,37 @@
+[
+  {
+    "file": "fitting/static-fit.glb",
+    "bytes": 48773704,
+    "sha256": "e9f74cc539777db22a6c43f60196eefd2d24c338d7da4c3e154360b3e55f1177"
+  },
+  {
+    "file": "head-high.glb",
+    "bytes": 66285192,
+    "sha256": "9a62698d4253bbb434a3295caa7a111a57d0ccb056e69e8bfcd2c995ed76c4f2"
+  },
+  {
+    "file": "head-light.glb",
+    "bytes": 19464540,
+    "sha256": "72de4d28eb8747bc91ab880b34f9805102a8092ac9d0b0271411eef985d84cff"
+  },
+  {
+    "file": "refined/head-preview.glb",
+    "bytes": 29865144,
+    "sha256": "607c7faa20e3c4bc97da395e8f7abc4cc105d704703090fa562fe8ec5153e535"
+  },
+  {
+    "file": "refined/head-refined.blend",
+    "bytes": 78491843,
+    "sha256": "d2628a18eea6a8349fbb8b49f48e651b683a28cbb2250f9867535c1e07842b6b"
+  },
+  {
+    "file": "refined/head-refined.glb",
+    "bytes": 73623156,
+    "sha256": "b90a796c7186dd1f6c5354905029aebd318c6fc7da81ff8a23c61f759f8b5e8a"
+  },
+  {
+    "file": "viewer.zip",
+    "bytes": 31552154,
+    "sha256": "a7ca77daf2d30723560e0610f45a8d1bb85e0687e985fb63ddbcfd9d94b496d3"
+  }
+]

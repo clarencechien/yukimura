@@ -1,0 +1,85 @@
+{
+  "file": "body-v2-pass9-body.glb",
+  "sha256": "08475e8183e6c544377e4a40438efd535d75dcb5b00db7b2792e72bbfdd150b2",
+  "bytes": 61045292,
+  "vertices": 489938,
+  "triangles": 491356,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.440444678068161,
+      0.0,
+      -0.3433140218257904
+    ],
+    [
+      0.4404446482658386,
+      1.5878305435180664,
+      0.3433140218257904
+    ]
+  ],
+  "extent": [
+    0.8808892965316772,
+    1.5878305435180664,
+    0.6866280436515808
+  ],
+  "materials": [
+    {
+      "name": "Body v2 lacquer / gilding / under-armour",
+      "baseColorTexture": {
+        "index": 1
+      },
+      "metallicRoughnessTexture": {
+        "index": 2
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Chest lacquer under the cords / right paddle tassel",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Chest lacquer under the cords / left paddle tassel",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Waist band / dark cloth under the cord",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Skirt lacquer under the tassels",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam slot / dark recess",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam / orange glow",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Neck lining / dark quilted cloth",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 3,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "pbr",
+  "primitives_without_normals": 0
+}

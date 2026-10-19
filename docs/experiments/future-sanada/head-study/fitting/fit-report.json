@@ -1,0 +1,17 @@
+{
+  "head_preview_triangles": 227742,
+  "head_scale": 0.26,
+  "head_translation": [
+    0,
+    -0.005,
+    1.44
+  ],
+  "body_normalized_height_before_fit": 2,
+  "removed_old_head_vertices": 13991,
+  "limitations": [
+    "Static overlapping assembly, not welded or skinned",
+    "No neck deformation or shoulder collision certification",
+    "Body materials and anatomy still need refinement",
+    "Inspection preview is not a validated mobile LOD"
+  ]
+}

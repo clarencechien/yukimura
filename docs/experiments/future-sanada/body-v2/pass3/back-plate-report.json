@@ -1,0 +1,45 @@
+{
+  "half_width": 0.13,
+  "z_range": [
+    1.16,
+    1.44
+  ],
+  "grid_step": 0.003,
+  "cells": [
+    114,
+    107
+  ],
+  "ray_hits": 12183,
+  "kept_cells": 11427,
+  "fit": "ray-cast surface; robust degree-4 polynomial only in tunnels",
+  "gap_rows_px": [
+    379,
+    416,
+    453,
+    490,
+    526,
+    563,
+    600
+  ],
+  "gap_z": [
+    1.5050081222527614,
+    1.4554219241019581,
+    1.4058357259511547,
+    1.3562495278003515,
+    1.3080034971671373,
+    1.258417299016334,
+    1.2088311008655306
+  ],
+  "relief_max": 0.0055,
+  "offset_inside": 0.002,
+  "border_sink": -0.005,
+  "tunnel_cells": 771,
+  "shell_triangles": 23956,
+  "crop_px": [
+    386,
+    403,
+    628,
+    661
+  ],
+  "triangles": 742094
+}

@@ -1,0 +1,57 @@
+{
+  "model": ".tmp/head-study/source/front-region.npz",
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "size": 900,
+  "samples": 12,
+  "normalization": {
+    "scale": 2.0057056132613726,
+    "original_low": [
+      -0.4264847934246063,
+      -0.3408147096633911,
+      -0.49964141845703125
+    ],
+    "original_high": [
+      0.4264286756515503,
+      0.3341757655143738,
+      0.49751389026641846
+    ]
+  },
+  "geometry_vertices": 4013729,
+  "geometry_triangles": 8083931,
+  "views": [
+    {
+      "name": "eyes",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.74
+      ],
+      "span": 0.83,
+      "seconds": 14.453287196993188
+    },
+    {
+      "name": "crest",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.1
+      ],
+      "span": 0.9,
+      "seconds": 16.098560218000785
+    },
+    {
+      "name": "mask",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.43
+      ],
+      "span": 0.85,
+      "seconds": 23.25854022400017
+    }
+  ]
+}

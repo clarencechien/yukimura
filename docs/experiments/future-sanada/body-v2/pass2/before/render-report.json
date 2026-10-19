@@ -1,0 +1,188 @@
+{
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "samples": 24,
+  "image_size": [
+    1000,
+    1000
+  ],
+  "geometry_objects": 38,
+  "vertices": 752727,
+  "triangles": 718116,
+  "material_count": 17,
+  "images": [
+    {
+      "name": "Bitmaptexture",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 corrected base color",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "Body v2 lacquer coat",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 lacquer-aware metallic roughness",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "crest-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-brass-normal",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Map #4",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Map #6",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "menpo-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-brass-roughness",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer-roughness",
+      "size": [
+        512,
+        512
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "back-upper",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.35
+      ],
+      "span": 0.62,
+      "seconds": 30.77
+    },
+    {
+      "name": "back-lower",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.05
+      ],
+      "span": 0.62,
+      "seconds": 31.53
+    },
+    {
+      "name": "skirt-front",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        0.82
+      ],
+      "span": 0.7,
+      "seconds": 31.39
+    },
+    {
+      "name": "skirt-back",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        0.82
+      ],
+      "span": 0.7,
+      "seconds": 30.2
+    },
+    {
+      "name": "clay-back-upper",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.35
+      ],
+      "span": 0.62,
+      "seconds": 28.86
+    },
+    {
+      "name": "clay-back-lower",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.05
+      ],
+      "span": 0.62,
+      "seconds": 29.56
+    }
+  ]
+}

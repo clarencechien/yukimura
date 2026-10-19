@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "file": "refined/head-refined.glb",
+      "coins": [
+        {
+          "name": "Six coins / row 1 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        }
+      ],
+      "orbital_patch": "Human eyes and orbital skin / Rocketbox",
+      "menpo_rim_closed_and_connected": true,
+      "skin_color_and_normal_textures": true,
+      "procedural_eye_caps_removed": true
+    },
+    {
+      "file": "refined/head-preview.glb",
+      "coins": [
+        {
+          "name": "Six coins / row 1 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 1 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 1",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 2",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        },
+        {
+          "name": "Six coins / row 2 coin 3",
+          "closed_after_logical_weld": true,
+          "center_hole_open": true
+        }
+      ],
+      "orbital_patch": "Human eyes and orbital skin / Rocketbox",
+      "menpo_rim_closed_and_connected": true,
+      "skin_color_and_normal_textures": true,
+      "procedural_eye_caps_removed": true
+    }
+  ],
+  "scope": "Coin closure/center opening, connected closed menpo rim and exported human-eye patch. Does not certify full-head topology, likeness, rig or performance."
+}

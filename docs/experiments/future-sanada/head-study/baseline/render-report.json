@@ -1,0 +1,57 @@
+{
+  "model": "docs/experiments/future-sanada/future-sanada.glb",
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "size": 900,
+  "samples": 16,
+  "normalization": {
+    "scale": 1.9978373810840924,
+    "original_low": [
+      -0.23068316280841827,
+      -0.11189267039299011,
+      -0.5006803870201111
+    ],
+    "original_high": [
+      0.23117205500602722,
+      0.11197417974472046,
+      0.5004020929336548
+    ]
+  },
+  "geometry_vertices": 138656,
+  "geometry_triangles": 148107,
+  "views": [
+    {
+      "name": "front",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.73
+      ],
+      "span": 0.66,
+      "seconds": 9.933379985995998
+    },
+    {
+      "name": "eyes",
+      "angle": 0.0,
+      "target": [
+        0,
+        -0.03,
+        1.675
+      ],
+      "span": 0.25,
+      "seconds": 14.603950678007095
+    },
+    {
+      "name": "clay",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.73
+      ],
+      "span": 0.66,
+      "seconds": 9.338935024999955
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "trellis_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "part": "haidate",
+  "input_sha256": "862ad7248aac989fd07db239d7546cc073b4fb3269c031ddb989e45d3f7737e2",
+  "pipeline": "1536_cascade",
+  "seed": 1615,
+  "max_num_tokens": 65536,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "status": "completed",
+  "load_seconds": 71.43015327300009,
+  "actual_resolution": 1536,
+  "inference_seconds": 102.20305909700005,
+  "source_vertices": 21335479,
+  "source_triangles": 44159534,
+  "source_files": [
+    {
+      "name": "source-geometry.npz",
+      "bytes": 357487357,
+      "sha256": "eac80fa9b12c15ca73ee66b8de986f4a9eefd7ffcfeb2385de6f980baa4c266a"
+    },
+    {
+      "name": "source-attributes.npz",
+      "bytes": 486132690,
+      "sha256": "43424f5745cf1c81b045c968c3024960e644552b843ac49c219afa4b7f1ebea5"
+    },
+    {
+      "name": "source-metadata.json",
+      "bytes": 276,
+      "sha256": "aff94bc68f03bd02ade05096173cabd97f28df0030533563f89b44dd5b39032f"
+    }
+  ],
+  "exports": [
+    {
+      "name": "haidate-high.glb",
+      "bytes": 25436684,
+      "sha256": "fd7aa4421923952967059f2e18f35e3a748d4c6c1247f9fe9aa098f7214b690b",
+      "target_triangles": 300000,
+      "texture_size": 2048,
+      "remesh": false,
+      "export_seconds": 46.326144263999936
+    },
+    {
+      "name": "haidate-closed.glb",
+      "bytes": 25982024,
+      "sha256": "f6fc902985364904afdcb0f1e3076266b094b1da823e93951c658f3a94154ad1",
+      "target_triangles": 300000,
+      "texture_size": 2048,
+      "remesh": true,
+      "export_seconds": 58.315547038999995
+    }
+  ],
+  "invocation_seconds": 72.43185468799999,
+  "peak_pytorch_allocated_gib": 26.667300701141357
+}

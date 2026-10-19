@@ -1,0 +1,291 @@
+{
+  "lean": 0.0055,
+  "tuck": 0.006,
+  "thickness": 0.0025,
+  "texture": "reference.png x albedo gain, straightened per lame",
+  "wrap": "depth += wrap * (2 s_frac - 1)^4",
+  "panels": [
+    {
+      "panel": "do front",
+      "view": 0,
+      "s": [
+        -0.2,
+        0.07
+      ],
+      "z": [
+        1.165,
+        1.455
+      ],
+      "atlas": "chest",
+      "lames": 6,
+      "level_edges_z": [
+        1.455,
+        1.4067,
+        1.3583,
+        1.31,
+        1.2617,
+        1.2133,
+        1.165
+      ],
+      "rays_hit": 12131,
+      "rays_kept": 9101,
+      "generated_vertices_pushed_back": 3235
+    },
+    {
+      "panel": "do back",
+      "view": 180,
+      "s": [
+        -0.15,
+        0.15
+      ],
+      "z": [
+        1.16,
+        1.45
+      ],
+      "atlas": "chest-back",
+      "lames": 6,
+      "level_edges_z": [
+        1.45,
+        1.4017,
+        1.3533,
+        1.305,
+        1.2567,
+        1.2083,
+        1.16
+      ],
+      "rays_hit": 11114,
+      "rays_kept": 8445,
+      "generated_vertices_pushed_back": 1630
+    },
+    {
+      "panel": "kusazuri left side",
+      "view": 90,
+      "s": [
+        -0.03,
+        0.12
+      ],
+      "z": [
+        0.73,
+        0.98
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        0.98,
+        0.9405,
+        0.9011,
+        0.8572,
+        0.8111,
+        0.73
+      ],
+      "rays_hit": 5187,
+      "rays_kept": 2600,
+      "generated_vertices_pushed_back": 4555
+    },
+    {
+      "panel": "kusazuri right side",
+      "view": -90,
+      "s": [
+        -0.12,
+        0.03
+      ],
+      "z": [
+        0.72,
+        0.95
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        0.95,
+        0.9137,
+        0.8774,
+        0.837,
+        0.7946,
+        0.72
+      ],
+      "rays_hit": 4788,
+      "rays_kept": 2790,
+      "generated_vertices_pushed_back": 2502
+    },
+    {
+      "panel": "kusazuri front right",
+      "view": 0,
+      "s": [
+        -0.195,
+        -0.005
+      ],
+      "z": [
+        0.7,
+        1.07
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        1.07,
+        1.0116,
+        0.9532,
+        0.8882,
+        0.8201,
+        0.7
+      ],
+      "rays_hit": 9240,
+      "rays_kept": 4905,
+      "generated_vertices_pushed_back": 10867
+    },
+    {
+      "panel": "kusazuri front left",
+      "view": 45,
+      "s": [
+        -0.08,
+        0.07
+      ],
+      "z": [
+        0.775,
+        1.07
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        1.07,
+        1.0234,
+        0.9768,
+        0.9251,
+        0.8707,
+        0.775
+      ],
+      "rays_hit": 6042,
+      "rays_kept": 3253,
+      "generated_vertices_pushed_back": 3308
+    },
+    {
+      "panel": "kusazuri back centre",
+      "view": 180,
+      "s": [
+        -0.037,
+        0.153
+      ],
+      "z": [
+        0.7,
+        1.0
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        1.0,
+        0.9526,
+        0.9053,
+        0.8526,
+        0.7974,
+        0.7
+      ],
+      "rays_hit": 7564,
+      "rays_kept": 5766,
+      "generated_vertices_pushed_back": 2530
+    },
+    {
+      "panel": "kusazuri back left",
+      "view": 180,
+      "s": [
+        -0.213,
+        -0.08
+      ],
+      "z": [
+        0.735,
+        1.01
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        1.01,
+        0.9666,
+        0.9232,
+        0.8749,
+        0.8243,
+        0.735
+      ],
+      "rays_hit": 5095,
+      "rays_kept": 2712,
+      "generated_vertices_pushed_back": 2691
+    },
+    {
+      "panel": "kusazuri back right",
+      "view": -140,
+      "s": [
+        0.01,
+        0.25
+      ],
+      "z": [
+        0.72,
+        0.99
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        0.99,
+        0.9474,
+        0.9047,
+        0.8574,
+        0.8076,
+        0.72
+      ],
+      "rays_hit": 8112,
+      "rays_kept": 3305,
+      "generated_vertices_pushed_back": 3801
+    },
+    {
+      "panel": "sode left",
+      "view": 90,
+      "s": [
+        -0.085,
+        0.09
+      ],
+      "z": [
+        1.345,
+        1.52
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        1.52,
+        1.4924,
+        1.4647,
+        1.434,
+        1.4018,
+        1.345
+      ],
+      "rays_hit": 4329,
+      "rays_kept": 3121,
+      "generated_vertices_pushed_back": 2742
+    },
+    {
+      "panel": "sode right",
+      "view": -135,
+      "s": [
+        -0.08,
+        0.14
+      ],
+      "z": [
+        1.29,
+        1.53
+      ],
+      "atlas": "skirt",
+      "lames": 5,
+      "level_edges_z": [
+        1.53,
+        1.4921,
+        1.4542,
+        1.4121,
+        1.3679,
+        1.29
+      ],
+      "rays_hit": 6783,
+      "rays_kept": 3438,
+      "generated_vertices_pushed_back": 4292
+    }
+  ],
+  "triangles": {
+    "lames": 81852,
+    "rolled edges": 27156,
+    "gold edging": 22592
+  }
+}

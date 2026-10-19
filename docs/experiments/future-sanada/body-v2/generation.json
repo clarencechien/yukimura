@@ -1,0 +1,66 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "trellis_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "study": "full body v2",
+  "input_sha256": "c84b28641b60b6593a85922881c030840b72fbf6584ea298c697bd002ad106a8",
+  "pipeline": "1536_cascade",
+  "seed": 7,
+  "max_num_tokens": 65536,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "torch": "2.6.0+cu124",
+  "status": "completed",
+  "load_seconds": 88.44177837,
+  "inference_seconds": 153.93002612200002,
+  "actual_resolution": 1536,
+  "source_vertices": 5900731,
+  "source_triangles": 12224520,
+  "source_files": [
+    {
+      "name": "source-geometry.npz",
+      "bytes": 99460258,
+      "sha256": "95b98c81676edae0c9cbdd8c65095061cc89316592fa29c815e1c33aa1d4d0ac"
+    },
+    {
+      "name": "source-attributes.npz",
+      "bytes": 137479969,
+      "sha256": "0166cdcf6fda71b3bef916bb7c6bf9d80c50b2e907d7e0e40b2ff1d0c3f9004e"
+    },
+    {
+      "name": "source-metadata.json",
+      "bytes": 276,
+      "sha256": "aff94bc68f03bd02ade05096173cabd97f28df0030533563f89b44dd5b39032f"
+    }
+  ],
+  "source_save_seconds": 41.422963840999984,
+  "exports": [
+    {
+      "name": "body-high.glb",
+      "bytes": 70683532,
+      "sha256": "7a145e79191b18e875dfea9e40d228c663f809c1c1c73327fef497c8da13aa88",
+      "target_triangles": 600000,
+      "texture_size": 4096,
+      "remesh": false,
+      "export_seconds": 68.83513184899999
+    },
+    {
+      "name": "body-light.glb",
+      "bytes": 22358100,
+      "sha256": "2204f89dc15a307d2780d25c57a594a46249212d3c27cfb2d5d6aa1f7983fe52",
+      "target_triangles": 200000,
+      "texture_size": 2048,
+      "remesh": false,
+      "export_seconds": 21.755662115000007
+    },
+    {
+      "name": "body-remesh.glb",
+      "bytes": 73496596,
+      "sha256": "ba5ff092f952f68db849982d79cf851986dc97e7a06d333a5e2f7b82a583ba07",
+      "target_triangles": 600000,
+      "texture_size": 4096,
+      "remesh": true,
+      "export_seconds": 57.32349176900001
+    }
+  ],
+  "invocation_seconds": 66.299511718,
+  "peak_pytorch_allocated_gib": 7.442283630371094
+}

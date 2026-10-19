@@ -1,0 +1,263 @@
+[
+  {
+    "file": "ab-front-gemini-3-pro-image.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Character model sheet of exactly this armoured samurai, redrawn as a clean reference for 3D modelling.\nView: strict FRONT view, orthographic (no perspective), camera at chest height, the whole body from the antler tips to the soles fully in frame with margin.\nPose: neutral A-pose, standing straight and perfectly symmetric, feet shoulder-width apart pointing forward, arms straight and angled about 45 degrees down away from the body, hands open and relaxed, palms facing the thighs, head looking straight at the viewer.\nKeep every design detail identical to the reference: red lacquered lamellar plates in level horizontal rows laced with black cord and trimmed in gold, the helmet with six gold coins (rokumonsen) and gold deer antlers, the red menpo face mask, the red braided cords and tassels at the neck and the waist knot, the layered shoulder guards (sode), the skirt plates (kusazuri) with gold wave engraving on the lowest row, the black mechanical joints with small glowing orange energy lines on forearms and shins, knee guards, greaves and armoured boots.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light so the true colours read; no rim light, no bloom, no dramatic shadows.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.139744,
+    "seconds": 32.0,
+    "text_reply": ""
+  },
+  {
+    "file": "ab-front-gpt-image-2.5-flare.png",
+    "model": "openai/gpt-image-2.5-flare",
+    "prompt": "Character model sheet of exactly this armoured samurai, redrawn as a clean reference for 3D modelling.\nView: strict FRONT view, orthographic (no perspective), camera at chest height, the whole body from the antler tips to the soles fully in frame with margin.\nPose: neutral A-pose, standing straight and perfectly symmetric, feet shoulder-width apart pointing forward, arms straight and angled about 45 degrees down away from the body, hands open and relaxed, palms facing the thighs, head looking straight at the viewer.\nKeep every design detail identical to the reference: red lacquered lamellar plates in level horizontal rows laced with black cord and trimmed in gold, the helmet with six gold coins (rokumonsen) and gold deer antlers, the red menpo face mask, the red braided cords and tassels at the neck and the waist knot, the layered shoulder guards (sode), the skirt plates (kusazuri) with gold wave engraving on the lowest row, the black mechanical joints with small glowing orange energy lines on forearms and shins, knee guards, greaves and armoured boots.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light so the true colours read; no rim light, no bloom, no dramatic shadows.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.054983,
+    "seconds": 24.2,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-side.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Draw the exact LEFT SIDE view (profile): the character turned 90 degrees so that it faces the left edge of the image. Only the character's left side is visible; arms hang in the same A-pose, seen edge-on. Show how the lamellar plates of the chest and back curve around the body, the depth of the shoulder guards (sode), the skirt plates (kusazuri) hanging around the hips, the side of the helmet with its neck guard (shikoro) and the antlers in profile, the side of the menpo mask, the knee guards, greaves and boots in profile.\nSame character, same armour, same proportions, same colours and same A-pose as the FRONT model sheet in the first image (the second image is the original concept art for extra detail). This is one panel of an orthographic turnaround for 3D modelling: orthographic camera (no perspective), camera at chest height, whole body from the antler tips to the soles fully in frame with margin, the figure the same height and scale as in the front sheet.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light, no rim light, no bloom.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.140348,
+    "seconds": 31.8,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-back.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Draw the exact BACK view: the character turned 180 degrees, seen from directly behind, same A-pose. Design the back so it matches the front: the back plate (ushiro-do) made of the same level horizontal red lacquered lames laced with black cord and gold trim, the agemaki bow knot of red cord on the upper back, the back of the shoulder guards, the back skirt plates, the back of the helmet with its flared neck guard (shikoro) and the antlers seen from behind, the black mechanical joints and the backs of the legs, calves and boots.\nSame character, same armour, same proportions, same colours and same A-pose as the FRONT model sheet in the first image (the second image is the original concept art for extra detail). This is one panel of an orthographic turnaround for 3D modelling: orthographic camera (no perspective), camera at chest height, whole body from the antler tips to the soles fully in frame with margin, the figure the same height and scale as in the front sheet.\nBackground: plain flat light grey (#BFBFBF), no glow, no vignette, no floor shadow. Lighting: even, soft, neutral studio light, no rim light, no bloom.\nNo text, no labels, no extra figures, no weapons.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "reference.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.14173,
+    "seconds": 56.5,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-back-knotB.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Edit the first image (the BACK view of this armoured samurai). Keep everything else exactly the same: same pose, framing, scale, lighting, grey background, helmet, shoulder guards, back plates, skirt plates, arms and legs. Change ONLY the big flat red cord bow on the upper back, which currently looks like a gift ribbon painted onto the plates. The second image is the front view, for matching the cord style (the same thick red braided cord and tassels as the neck and waist cords).\nReplace it with a compact futuristic version of the agemaki: a round gold metal fitting engraved with the six-coin (rokumonsen) crest, mounted at the centre of the back plate between the shoulder blades, with a short, tight, three-dimensional agemaki knot of thick red braided cord tied through it and two red tassels with gold bands hanging just below it. Small, neat and clearly attached, about the width of one lame, with real depth and a soft contact shadow. No cords running to the shoulders.\nNo text, no labels.",
+    "references": [
+      "sheet-back.png",
+      "ab-front-gemini-3-pro-image.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.14114,
+    "seconds": 36.6,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-back-knotA.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Edit the first image (the BACK view of this armoured samurai). Keep everything else exactly the same: same pose, framing, scale, lighting, grey background, helmet, shoulder guards, back plates, skirt plates, arms and legs. Change ONLY the big flat red cord bow on the upper back, which currently looks like a gift ribbon painted onto the plates. The second image is the front view, for matching the cord style (the same thick red braided cord and tassels as the neck and waist cords).\nReplace it with a traditional agemaki knot as on real Japanese armour: a small gold ring fitting (kan) riveted to the back plate at about the third lame from the top, between the shoulder blades; from it hangs a compact, three-dimensional agemaki knot of thick red braided cord, with the characteristic cross-shaped centre knot, two short rounded loops to the left and right, and two cord tails hanging down about a hand's length, each ending in a bound red tassel with a gold band. The knot stands off the plates with real depth and casts a soft contact shadow. Two thinner red cords run from the knot up and outward to the backs of the shoulder guards (sode), as if they tie the sode to the back.\nNo text, no labels.",
+    "references": [
+      "sheet-back.png",
+      "ab-front-gemini-3-pro-image.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.141188,
+    "seconds": 39.3,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-back-knotA2.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Edit the first image (the BACK view of this armoured samurai). Keep everything else exactly the same: same pose, framing, scale, lighting, grey background, helmet, shoulder guards, back plates, skirt plates, arms and legs. Change ONLY the big flat red cord bow on the upper back, which currently looks like a gift ribbon painted onto the plates. The second image is the front view, for matching the cord style (the same thick red braided cord and tassels as the neck and waist cords).\nReplace it with a traditional agemaki knot as on real Japanese armour: a small gold ring fitting (kan) riveted to the back plate at about the third lame from the top, between the shoulder blades; from it hangs a SMALL agemaki knot (overall about 15 cm wide, no wider than one third of the back plate) of red braided cord of the same thickness as the neck cords, with the characteristic cross-shaped centre knot, two short rounded loops to the left and right, and two short cord tails hanging down past two lames, each ending in a bound red tassel with a gold band. The knot stands off the plates with real depth and casts a soft contact shadow. Two thin red cords run from the knot up and outward to the backs of the shoulder guards (sode); they lie flat against the plates. The knot must stay above the waist cord; the skirt plates stay fully visible.\nNo text, no labels.",
+    "references": [
+      "sheet-back.png",
+      "ab-front-gemini-3-pro-image.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.141276,
+    "seconds": 45.3,
+    "text_reply": ""
+  },
+  {
+    "file": "part-do-front.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the cuirass front (mae-do): the chest armour made of level horizontal red lacquered lames laced with black cord and gold trim, the gold lacing fittings, the small glowing orange energy lines at its sides, the upper chest plate and the shoulder straps (watagami) rising over the shoulders. No cords, no knots and no tassels on it. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the front-left, camera at chest height. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.141556,
+    "seconds": 37.3,
+    "text_reply": ""
+  },
+  {
+    "file": "part-helmet.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the helmet (kabuto) with the gold deer antlers, the gold six-coin (rokumonsen) front crest, the brim, the flared laminated neck guard (shikoro) with its turned-back wings (fukigaeshi), and the red menpo face mask with throat guard fixed in place under it; the mask is empty, no face or eyes inside. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the front-left, camera slightly above eye level. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.1417,
+    "seconds": 37.4,
+    "text_reply": ""
+  },
+  {
+    "file": "part-do-back.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the cuirass back (ushiro-do) made of the same level horizontal lames, with the small gold ring near the top and the small red agemaki knot hanging from it with its two tassels, exactly as in the back sheet. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the back-left, camera at chest height. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.141964,
+    "seconds": 39.3,
+    "text_reply": ""
+  },
+  {
+    "file": "part-gauntlet.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the character's LEFT armoured glove: black mechanical glove with articulated red and gold finger plates and the red back-of-hand plate (tekko); open at the wrist. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view of the back of the hand, fingers pointing down and slightly open, camera at hand height. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.141594,
+    "seconds": 35.0,
+    "text_reply": ""
+  },
+  {
+    "file": "part-kote.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the character's LEFT arm armour from shoulder to wrist without the hand: the black mechanical upper-arm sleeve, the red elbow cop, and the red forearm guard with gold trim and the glowing orange energy line; hollow tube openings at both ends. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the outer side, camera at elbow height, the arm pointing straight down. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.14254,
+    "seconds": 40.0,
+    "text_reply": ""
+  },
+  {
+    "file": "part-haidate.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the character's LEFT thigh guard (haidate): the red armoured plates covering the front of the thigh below the skirt, with gold trim, as one curved piece. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: straight front view, very slightly from the left, camera at the same height as the part. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.141548,
+    "seconds": 38.3,
+    "text_reply": ""
+  },
+  {
+    "file": "part-suneate.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the character's LEFT shin guard (suneate) from below the knee to the ankle: red plates with gold trim and the vertical glowing orange energy line, the red cord ties around the calf; hollow at the top and bottom. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the front-left, camera at shin height. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.141614,
+    "seconds": 34.0,
+    "text_reply": ""
+  },
+  {
+    "file": "part-boot.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the character's LEFT armoured boot: red and gold armoured plates over a black mechanical boot with a thick treaded sole and the red cord tie at the ankle; open at the top. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the front-left, camera slightly above. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.141928,
+    "seconds": 35.6,
+    "text_reply": ""
+  },
+  {
+    "file": "part-kusazuri.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: ONE single front skirt panel (kusazuri) on its own, NOT a full skirt or ring: a flat, gently curved rectangular panel about 25 cm wide made of five level lames laced with black cord hanging from a cord at the top, the largest bottom lame with gold wave engraving and gold edging. Only this one panel, nothing else. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: straight front view, very slightly from the left so the curvature reads, camera at the same height as the panel. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.141916,
+    "seconds": 34.6,
+    "text_reply": ""
+  },
+  {
+    "file": "part-knee.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the character's LEFT knee armour as worn on a bent-straight leg, without the leg: the round red knee cop with its gold rim at the front, and behind it the short black mechanical joint housing with the small glowing orange light on its outer side, about 20 cm tall in total, open at the top and bottom where thigh and shin go through. It is a compact knee piece, not a helmet. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the front-left, camera at knee height, the knee seen from outside the leg. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.143026,
+    "seconds": 36.6,
+    "text_reply": ""
+  },
+  {
+    "file": "part-sode.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: the character's LEFT shoulder guard (sode) ONLY, floating on its own: a single rectangular, slightly curved panel of five stacked horizontal lames laced with black cord, with gold edging and the gold wave engraving on the lowest lame, and the top plate with its attachment fittings. Nothing below it: no legs, no feet, no boots, no figure. Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: three-quarter view from the front-left, camera at shoulder height. The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+    "references": [
+      "ab-front-gemini-3-pro-image.png",
+      "sheet-side.png",
+      "sheet-back-knotA2.png"
+    ],
+    "aspect": "1:1",
+    "size": "2K",
+    "cost_usd": 0.142012,
+    "seconds": 41.8,
+    "text_reply": ""
+  }
+]

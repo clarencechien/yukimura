@@ -1,0 +1,59 @@
+{
+  "file": "body-v2-pass9-cords.glb",
+  "sha256": "f53d282426989c34b09a2e94454cd85b93939b9d588a216289ad854487d65e5a",
+  "bytes": 2728836,
+  "vertices": 60915,
+  "triangles": 115866,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.22024260461330414,
+      0.953323245048523,
+      -0.20399726927280426
+    ],
+    [
+      0.17717811465263367,
+      1.5657107830047607,
+      0.21792888641357422
+    ]
+  ],
+  "extent": [
+    0.3974207043647766,
+    0.6123875379562378,
+    0.4219261407852173
+  ],
+  "materials": [
+    {
+      "name": "Braided silk cord / lacquer red",
+      "baseColorTexture": {
+        "index": 1
+      },
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Tassel thread / silk red",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Tassel binding / aged brass",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Tassel core / dark red",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 2,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "basecolor",
+  "primitives_without_normals": 0
+}

@@ -1,0 +1,89 @@
+{
+  "note": "Per-part 3D results of the part pipeline. Front -Y, up +Z, each fitted in a unit box. Raw TRELLIS source (voxels and attributes) stays on the Modal Volume yukimura-trellis2-cache/results/future-sanada-parts.",
+  "parts": [
+    {
+      "file": "boot.glb",
+      "bytes": 22224068,
+      "sha256": "b97cb94fe87b1a2871f988f363217cb0970e8900928c7c13294fe603c4fa17fd",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/boot.png (cutout.py)"
+    },
+    {
+      "file": "do-back.glb",
+      "bytes": 24274908,
+      "sha256": "835ae36144009f2f9c2b5f45df19ea85368d44d274844bce19e28cc4e22941bd",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/do-back.png (cutout.py)"
+    },
+    {
+      "file": "do-front.glb",
+      "bytes": 23411136,
+      "sha256": "02dac6800e11fb130de97144980a1c427ef65d01922e4053e3a7d5504b1ff8bd",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/do-front.png (cutout.py)"
+    },
+    {
+      "file": "gauntlet.glb",
+      "bytes": 22984220,
+      "sha256": "c0adeb901d8c76216f171316d7c6e2aca1ebcab242a70a67a374a0549b962e5e",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/gauntlet.png (cutout.py)"
+    },
+    {
+      "file": "haidate.glb",
+      "bytes": 25982024,
+      "sha256": "f6fc902985364904afdcb0f1e3076266b094b1da823e93951c658f3a94154ad1",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/haidate.png (cutout.py)"
+    },
+    {
+      "file": "helmet.glb",
+      "bytes": 24956936,
+      "sha256": "03cdd47adc9b7d83d60bc1b149f3b73c6fc9db19b3331bbdb292796111b9f44c",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/helmet.png (cutout.py)"
+    },
+    {
+      "file": "knee.glb",
+      "bytes": 24885740,
+      "sha256": "0f812d840ac209e6c94cac1027f04ad3cffabac022262be782f41e1cee0cca00",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/knee.png (cutout.py)"
+    },
+    {
+      "file": "kote-forearm.glb",
+      "bytes": 23638932,
+      "sha256": "5cc4542ef0024705b241993fea6eae6f12de6bd1ae7029cf271de11174111937",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/kote-forearm.png (cutout.py)"
+    },
+    {
+      "file": "kote-upper-procedural.glb",
+      "bytes": 5170176,
+      "sha256": "fbf1ff13aa9bf70001504c5a8e50af0c16b3a0b0db4c33865dcd34ec4afec5d1",
+      "source": "procedural (textured from the stage-2 drawing)",
+      "input": null
+    },
+    {
+      "file": "kusazuri-procedural.glb",
+      "bytes": 5375208,
+      "sha256": "a40d98ba29d61d06a77553c7439fe1dfca8239a71f46bea3ce7e2a64e3942622",
+      "source": "procedural (textured from the stage-2 drawing)",
+      "input": null
+    },
+    {
+      "file": "sode.glb",
+      "bytes": 26220892,
+      "sha256": "15dcd2f3e9487e0812c0df4fa1cec1608616f5f0484e38a49e711369b8e9d375",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/sode.png (cutout.py)"
+    },
+    {
+      "file": "suneate.glb",
+      "bytes": 24173996,
+      "sha256": "89d68c4c6f622149ade8ccfa9b260eba4f791f5ddd9f9d2fa9d54617337b8769",
+      "source": "TRELLIS.2 1536 cascade, seed 1615, closed remesh export",
+      "input": "stage3/inputs/suneate.png (cutout.py)"
+    }
+  ]
+}

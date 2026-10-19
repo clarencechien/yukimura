@@ -1,0 +1,256 @@
+{
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "samples": 24,
+  "image_size": [
+    1000,
+    1000
+  ],
+  "geometry_objects": 64,
+  "vertices": 887999,
+  "triangles": 957462,
+  "material_count": 33,
+  "images": [
+    {
+      "name": "back-plate-color",
+      "size": [
+        484,
+        516
+      ]
+    },
+    {
+      "name": "back-plate-metal-rough",
+      "size": [
+        484,
+        516
+      ]
+    },
+    {
+      "name": "Bitmaptexture",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 corrected base color",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "Body v2 lacquer coat",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 lacquer-aware metallic roughness",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "braid-color",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "braid-normal",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-brass-normal",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Map #4",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Map #6",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "menpo-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-brass-roughness",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer-roughness",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "plates-color",
+      "size": [
+        1024,
+        1536
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "hip-l",
+      "degrees": 90,
+      "target": [
+        0.2,
+        0,
+        0.88
+      ],
+      "span": 0.6,
+      "seconds": 35.29
+    },
+    {
+      "name": "hip-r",
+      "degrees": -90,
+      "target": [
+        -0.2,
+        0,
+        0.88
+      ],
+      "span": 0.6,
+      "seconds": 33.71
+    },
+    {
+      "name": "back-upper",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.35
+      ],
+      "span": 0.62,
+      "seconds": 35.74
+    },
+    {
+      "name": "seam-back-l",
+      "degrees": 130,
+      "target": [
+        0.15,
+        0.05,
+        1.3
+      ],
+      "span": 0.4,
+      "seconds": 37.95
+    },
+    {
+      "name": "patch-l",
+      "degrees": 0,
+      "target": [
+        0.1,
+        0,
+        1.44
+      ],
+      "span": 0.16,
+      "seconds": 36.5
+    },
+    {
+      "name": "patch-r",
+      "degrees": 0,
+      "target": [
+        -0.17,
+        0,
+        1.43
+      ],
+      "span": 0.16,
+      "seconds": 34.14
+    },
+    {
+      "name": "tassel-neck",
+      "degrees": 0,
+      "target": [
+        -0.012,
+        -0.1,
+        1.405
+      ],
+      "span": 0.17,
+      "seconds": 33.03
+    },
+    {
+      "name": "tassel-neck-side",
+      "degrees": 55,
+      "target": [
+        -0.012,
+        -0.1,
+        1.405
+      ],
+      "span": 0.17,
+      "seconds": 32.9
+    },
+    {
+      "name": "tassel-shoulder",
+      "degrees": -20,
+      "target": [
+        -0.177,
+        -0.02,
+        1.41
+      ],
+      "span": 0.13,
+      "seconds": 34.47
+    }
+  ]
+}

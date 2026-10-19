@@ -1,0 +1,164 @@
+{
+  "gap_threshold": 0.006,
+  "removed_pieces": [
+    {
+      "vertices": 289,
+      "gap": 0.012,
+      "centre": [
+        -0.003,
+        0.025,
+        1.54
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 38,
+      "gap": 0.004,
+      "centre": [
+        -0.001,
+        -0.064,
+        1.536
+      ],
+      "reason": "inside helmet"
+    },
+    {
+      "vertices": 219,
+      "gap": 0.0448,
+      "centre": [
+        -0.176,
+        -0.071,
+        1.43
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 26,
+      "gap": 0.0066,
+      "centre": [
+        -0.09,
+        -0.157,
+        1.089
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 44,
+      "gap": 0.0074,
+      "centre": [
+        -0.132,
+        0.076,
+        0.545
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 10,
+      "gap": 0.0075,
+      "centre": [
+        -0.073,
+        -0.158,
+        1.081
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 7,
+      "gap": 0.0065,
+      "centre": [
+        -0.065,
+        -0.136,
+        1.077
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 7,
+      "gap": 0.0047,
+      "centre": [
+        -0.005,
+        -0.063,
+        1.541
+      ],
+      "reason": "inside helmet"
+    },
+    {
+      "vertices": 4,
+      "gap": 0.004,
+      "centre": [
+        -0.005,
+        -0.065,
+        1.529
+      ],
+      "reason": "inside helmet"
+    },
+    {
+      "vertices": 4,
+      "gap": 0.0109,
+      "centre": [
+        0.004,
+        -0.065,
+        1.559
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 3,
+      "gap": 0.003,
+      "centre": [
+        -0.047,
+        0.218,
+        1.531
+      ],
+      "reason": "inside helmet"
+    },
+    {
+      "vertices": 278,
+      "gap": 0.0652,
+      "centre": [
+        0.059,
+        -0.158,
+        1.432
+      ],
+      "reason": "floating"
+    },
+    {
+      "vertices": 7,
+      "gap": 0.0103,
+      "centre": [
+        0.117,
+        -0.104,
+        0.499
+      ],
+      "reason": "floating"
+    }
+  ],
+  "removed_vertices": 936,
+  "linings": {
+    "neck lining": {
+      "z": [
+        1.37,
+        1.57
+      ],
+      "clip": 0.2,
+      "inset_from_hit": 0.004,
+      "top_cap": false,
+      "fitted_radius_min": 0.05006897824794016,
+      "fitted_radius_max": 0.19947537268175924
+    },
+    "collar core": {
+      "z": [
+        1.38,
+        1.52
+      ],
+      "clip": 0.32,
+      "inset_from_hit": 0.006,
+      "top_cap": true,
+      "fitted_radius_min": 0.05308593757807649,
+      "fitted_radius_max": 0.28930149873629263
+    }
+  },
+  "centre": [
+    0.001036807894706726,
+    0.026
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "trellis_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "part": "kote-forearm",
+  "input_sha256": "4ff323a865dbdc530863a783d15a82bb97e342b0b5a6ebec3b4772b5be8fbdd5",
+  "pipeline": "1536_cascade",
+  "seed": 1615,
+  "max_num_tokens": 65536,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "status": "completed",
+  "load_seconds": 89.50367729499999,
+  "actual_resolution": 1536,
+  "inference_seconds": 148.52628600999998,
+  "source_vertices": 9406756,
+  "source_triangles": 19022530,
+  "source_files": [
+    {
+      "name": "source-geometry.npz",
+      "bytes": 155167918,
+      "sha256": "cc0bed3bfd4988f078dd095482245ef841c1f5c61965c904255bd224bb27eb35"
+    },
+    {
+      "name": "source-attributes.npz",
+      "bytes": 213340983,
+      "sha256": "5b24fff8725a280ba1d5035cd146cb7e08c9d82021981d51a3f3f24e727c869c"
+    },
+    {
+      "name": "source-metadata.json",
+      "bytes": 276,
+      "sha256": "aff94bc68f03bd02ade05096173cabd97f28df0030533563f89b44dd5b39032f"
+    }
+  ],
+  "exports": [
+    {
+      "name": "kote-forearm-high.glb",
+      "bytes": 22478036,
+      "sha256": "56de2c4b48e82a56f1adec5aa459955dae6eaa8f39f99b5f1a43fa2ea06a92ac",
+      "target_triangles": 300000,
+      "texture_size": 2048,
+      "remesh": false,
+      "export_seconds": 43.695060481999974
+    },
+    {
+      "name": "kote-forearm-closed.glb",
+      "bytes": 23638932,
+      "sha256": "5cc4542ef0024705b241993fea6eae6f12de6bd1ae7029cf271de11174111937",
+      "target_triangles": 300000,
+      "texture_size": 2048,
+      "remesh": true,
+      "export_seconds": 40.689773772000024
+    }
+  ],
+  "invocation_seconds": 396.63672167699997,
+  "peak_pytorch_allocated_gib": 12.590232372283936
+}

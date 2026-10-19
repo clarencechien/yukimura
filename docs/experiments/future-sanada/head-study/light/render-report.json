@@ -1,0 +1,46 @@
+{
+  "model": "docs/experiments/future-sanada/head-study/head-light.glb",
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "size": 900,
+  "samples": 12,
+  "normalization": {
+    "scale": 2.005778269488867,
+    "original_low": [
+      -0.42625224590301514,
+      -0.34078946709632874,
+      -0.4996728301048279
+    ],
+    "original_high": [
+      0.42626717686653137,
+      0.3341025114059448,
+      0.49744635820388794
+    ]
+  },
+  "geometry_vertices": 132436,
+  "geometry_triangles": 148229,
+  "views": [
+    {
+      "name": "eyes",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        0.74
+      ],
+      "span": 0.83,
+      "seconds": 53.0042081779975
+    },
+    {
+      "name": "crest",
+      "angle": 0.0,
+      "target": [
+        0,
+        0,
+        1.1
+      ],
+      "span": 0.9,
+      "seconds": 38.66568652200658
+    }
+  ]
+}
