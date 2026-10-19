@@ -24,7 +24,7 @@ for image in bpy.data.images:
 bpy.ops.object.select_all(action='SELECT')
 if a.join:                                                             # same single-object layout as merge_character.py
     bpy.context.view_layer.objects.active = body; bpy.ops.object.join(); body.name = 'Sanada / future akazonae (body v2, joined)'
-bpy.ops.export_scene.gltf(filepath=str((out / f'{a.name}.glb').resolve()), export_format='GLB', use_selection=True)
+bpy.ops.export_scene.gltf(filepath=str((out / f'{a.name}.glb').resolve()), export_format='GLB', use_selection=True, export_tangents=True)
 meshes = [o for o in bpy.context.scene.objects if o.type == 'MESH']
 report = {'decimate_ratio': a.ratio, 'joined': a.join, 'body_triangles': None if a.join else sum(len(f.vertices) - 2 for f in body.data.polygons),
           'total_triangles': sum(len(f.vertices) - 2 for o in meshes for f in o.data.polygons), 'meshes': len(meshes),

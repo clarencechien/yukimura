@@ -66,7 +66,7 @@ body = next(o for o in objs if o.data.materials and o.data.materials[0].name.sta
 bpy.context.view_layer.objects.active = body
 bpy.ops.object.join()
 body.name = 'Sanada / future akazonae (body v2, joined)'
-bpy.ops.export_scene.gltf(filepath=str(Path(a.output).resolve()), export_format='GLB', use_selection=True)
+bpy.ops.export_scene.gltf(filepath=str(Path(a.output).resolve()), export_format='GLB', use_selection=True)   # tangents omitted: glTF clients derive MikkTSpace (keeps the file < 100 MB)
 report = {'parts_joined': len(parts), 'part_faces': parts, 'materials': len(body.data.materials),
           'triangles': sum(len(f.vertices) - 2 for f in body.data.polygons), 'seam_audit': audits,
           'note': 'Rigid shells joined into one object; the helmet is not vertex-welded to the body, by design.'}

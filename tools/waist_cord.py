@@ -23,6 +23,7 @@ a = p.parse_args()
 
 FLATTEN = (-.155, .058, .975, 1.128)   # old heart knot + tassels, gridded unlit front render
 CORD_Z = 1.122                          # centre line of the waist band
+BELT_BOTTOM = 1.085                     # lower edge of the dark belt behind the knot (reference)
 R = .013                                # braided waist cord radius (reference: heavy braid)
 KNOT = (-.066, 1.103)                   # (x, z), left of centre as in the reference
 MAX_RADIUS = .245                       # torso only: hits farther out are the forearms
@@ -61,9 +62,12 @@ for _ in range(6):
     keep = np.abs(res - np.median(res[keep])) < 2.5 * np.std(res[keep]) + 1e-4
 co = np.empty(len(body.data.vertices) * 3, np.float32); body.data.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
 inside = (co[:, 0] > x0) & (co[:, 0] < x1) & (co[:, 2] > z0) & (co[:, 2] < z1)
-target = A(co[:, 0], co[:, 2]) @ coef - .0015
-move = inside & (co[:, 1] < target)
-co[move, 1] = target[move]; body.data.vertices.foreach_set('co', co.ravel()); body.data.update()
+from flatten_patch import flatten_relaxed
+fv0 = np.empty(sum(len(f.vertices) for f in body.data.polygons), np.int32); body.data.polygons.foreach_get('vertices', fv0)
+st0 = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('loop_start', st0)
+ct0 = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('loop_total', ct0)
+move = flatten_relaxed(co, fv0, st0, ct0, inside, lambda X, Z: A(X, Z) @ coef - .0015)
+body.data.vertices.foreach_set('co', co.ravel()); body.data.update()
 # The flattened knot keeps its glossy cord-red texture; in the reference this is the dark belt.
 band = bpy.data.materials.new('Waist band / dark cloth under the cord'); band.use_nodes = True
 bb = band.node_tree.nodes['Principled BSDF']; bb.inputs['Base Color'].default_value = (.025, .02, .02, 1); bb.inputs['Roughness'].default_value = .8
@@ -73,13 +77,31 @@ fv = np.empty(sum(len(f.vertices) for f in body.data.polygons), np.int32); body.
 starts = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('loop_start', starts)
 counts = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('loop_total', counts)
 all_moved = np.logical_and.reduceat(moved[fv], starts)
+# Only the belt itself is dark cloth; below it the flattened tassels keep the skirt's red.
+fc = np.empty(len(body.data.polygons) * 3, np.float32); body.data.polygons.foreach_get('center', fc)
+all_moved &= fc.reshape(-1, 3)[:, 2] > BELT_BOTTOM
 mi = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('material_index', mi)
-mi[all_moved] = band_index; body.data.polygons.foreach_set('material_index', mi); body.data.update()
+mi[all_moved] = band_index
+# Below the belt the flattened tassels keep streaks of their glossy cord texture; give them the
+# plain skirt lacquer (new tassels hang in front of this area).
+from flatten_patch import surround_colour
+img = body.data.materials[0].node_tree.nodes['Principled BSDF'].inputs['Base Color'].links[0].from_node.image
+fcc = fc.reshape(-1, 3)
+skirt_ring = (fcc[:, 0] > x0 - .02) & (fcc[:, 0] < x1 + .02) & (fcc[:, 2] > z0 - .02) & (fcc[:, 2] < BELT_BOTTOM) & ~((fcc[:, 0] > x0) & (fcc[:, 0] < x1) & (fcc[:, 2] > z0)) & (fcc[:, 1] < -.05)
+skirt_col = surround_colour(body.data, img, fcc, skirt_ring)
+skirt = bpy.data.materials.new('Skirt lacquer under the tassels'); skirt.use_nodes = True
+sk = skirt.node_tree.nodes['Principled BSDF']; sk.inputs['Base Color'].default_value = (*skirt_col, 1); sk.inputs['Roughness'].default_value = .46
+body.data.materials.append(skirt)
+below = np.logical_and.reduceat(moved[fv], starts) & ~all_moved
+mi[below] = len(body.data.materials) - 1
+body.data.polygons.foreach_set('material_index', mi); body.data.update()
 
 if a.clear_only:
+    from flatten_patch import dissolve_collapsed                      # last: it renumbers vertices
+    collapsed = dissolve_collapsed(body.data, move)
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.export_scene.gltf(filepath=str(Path(a.output).resolve()), export_format='GLB', use_selection=True)
-    rep = {'flattened_vertices': int(move.sum()), 'dark_band_faces': int(all_moved.sum()), 'ring_points': int(len(ring))}
+    rep = {'flattened_vertices': int(move.sum()), 'dark_band_faces': int(all_moved.sum()), 'ring_points': int(len(ring)), 'collapsed_faces_dissolved': collapsed}
     Path(a.output).with_name('waist-clear-report.json').write_text(json.dumps(rep, indent=2) + '\n'); print(json.dumps(rep)); raise SystemExit
 # 2. Waist path: rays from outside toward the axis; step past forearm hits.
 tree = bvh(objs)

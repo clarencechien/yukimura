@@ -82,6 +82,11 @@ for o in objs: bm_all.from_mesh(o.data)
 tree0 = BVHTree.FromBMesh(bm_all); bm_all.free()
 flattened = {}
 co = np.empty(len(body.data.vertices) * 3, np.float32); body.data.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
+moved_all = np.zeros(len(co), bool)
+from flatten_patch import flatten_relaxed
+fv_all = np.empty(sum(len(f.vertices) for f in body.data.polygons), np.int32); body.data.polygons.foreach_get('vertices', fv_all)
+st_all = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('loop_start', st_all)
+ct_all = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('loop_total', ct_all)
 for name, (x0, x1, z0, z1) in FLATTEN.items():
     ring = []
     for x in np.arange(x0 - .012, x1 + .0121, .003):
@@ -97,12 +102,32 @@ for name, (x0, x1, z0, z1) in FLATTEN.items():
         res = ring[:, 1] - A(ring[:, 0], ring[:, 2]) @ coef
         keep = np.abs(res - np.median(res[keep])) < 2.5 * np.std(res[keep]) + 1e-4
     inside = (co[:, 0] > x0) & (co[:, 0] < x1) & (co[:, 2] > z0) & (co[:, 2] < z1)
-    target = A(co[:, 0], co[:, 2]) @ coef - .0015
-    move = inside & (co[:, 1] < target)
-    co[move, 1] = target[move]
+    move = flatten_relaxed(co, fv_all, st_all, ct_all, inside, lambda X, Z, c=coef: A(X, Z) @ c - .0015)
+    moved_all |= move
     flattened[name] = {'vertices_moved': int(move.sum()), 'ring_points': int(len(ring)), 'ring_kept': int(keep.sum())}
 body.data.vertices.foreach_set('co', co.ravel()); body.data.update()
+# The flattened paddles keep their glossy cord texture (ghost paddles): give each patch the
+# median colour of the chest around it so no outline shows.
+from flatten_patch import surround_colour
+img = body.data.materials[0].node_tree.nodes['Principled BSDF'].inputs['Base Color'].links[0].from_node.image
+fc = np.empty(len(body.data.polygons) * 3, np.float32); body.data.polygons.foreach_get('center', fc); fc = fc.reshape(-1, 3)
+fv = np.empty(sum(len(f.vertices) for f in body.data.polygons), np.int32); body.data.polygons.foreach_get('vertices', fv)
+starts = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('loop_start', starts)
+mi = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('material_index', mi)
+patch_faces = np.logical_and.reduceat(moved_all[fv], starts)
+for name, (x0, x1, z0, z1) in FLATTEN.items():
+    box = (fc[:, 0] > x0) & (fc[:, 0] < x1) & (fc[:, 2] > z0) & (fc[:, 2] < z1)
+    ring = (fc[:, 0] > x0 - .02) & (fc[:, 0] < x1 + .02) & (fc[:, 2] > z0 - .02) & (fc[:, 2] < z1 + .02) & ~box & (fc[:, 1] < .05)
+    col = surround_colour(body.data, img, fc, ring)
+    lac = bpy.data.materials.new(f'Chest lacquer under the cords / {name}'); lac.use_nodes = True
+    lb = lac.node_tree.nodes['Principled BSDF']; lb.inputs['Base Color'].default_value = (*col, 1); lb.inputs['Roughness'].default_value = .46
+    body.data.materials.append(lac)
+    mi[patch_faces & box] = len(body.data.materials) - 1
+    flattened[name]['patch_colour'] = [round(float(c), 4) for c in col]
+body.data.polygons.foreach_set('material_index', mi); body.data.update()
 if a.clear_only:
+    from flatten_patch import dissolve_collapsed                      # last: it renumbers vertices
+    removed['collapsed faces dissolved'] = {'faces': dissolve_collapsed(body.data, moved_all)}
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.export_scene.gltf(filepath=str(Path(a.output).resolve()), export_format='GLB', use_selection=True)
     Path(a.output).with_name('neck-clear-report.json').write_text(json.dumps({'removed': removed, 'flattened': flattened}, indent=2) + '\n')

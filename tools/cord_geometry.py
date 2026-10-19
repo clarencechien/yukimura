@@ -5,6 +5,7 @@ arrays in normalized body space.
 """
 import numpy as np
 import bmesh
+from pathlib import Path
 from mathutils import Vector
 
 
@@ -78,34 +79,45 @@ def resample(path, spacing):
     return np.stack([np.interp(t, s, path[:, k]) for k in range(3)], 1)
 
 
-def kumihimo(bm, path, R, pitch=None, strands=8, sides=6):
+def kumihimo(bm, path, R, pitch=None, strands=12, sides=5):
     """Round kumihimo braid: half the strands spiral each way and alternate over/under where
-    they cross (radius modulated at four times the twist rate; opposite sign per direction)."""
+    they cross (radius modulated at four times the twist rate; opposite sign per direction),
+    over a solid core so the braid reads as one cord."""
     path = resample(catmull(list(path), 4) if len(path) > 3 else path, R * .3)
-    pitch = pitch or 7 * R
+    pitch = pitch or 6 * R
     T, N, B = frames(path); s = np.concatenate([[0], np.cumsum(np.linalg.norm(np.diff(path, axis=0), axis=1))])
     w = 2 * np.pi / pitch; half = strands // 2
+    tube(bm, path, R * .62, sides=8)
     for k in range(strands):
         sgn = 1 if k < half else -1
         base = 2 * np.pi * (k % half) / half + (0 if sgn > 0 else np.pi / half)
         ang = base + sgn * w * s
-        rr = R * .5 + sgn * R * .26 * np.sin(4 * w * s)
+        rr = R * .7 + sgn * R * .1 * np.sin(half * w * s)
         strand = path + rr[:, None] * (np.cos(ang)[:, None] * N + np.sin(ang)[:, None] * B)
-        tube(bm, strand, R * .31, sides=sides)
+        tube(bm, strand, R * .24, sides=sides)
 
 
-def reef_knot_design(entry_y=7., exit_y=-6.5, half_width=1.5):
-    """Two interlaced bights in knot units (cord radius = 1): A enters upper-left, makes its bight
-    on the right and leaves lower-left; B mirrors it. Arms interleave (A at y 3/-1, B at 1/-3) so
-    each bend crosses one arm of the other cord; w (toward viewer) alternates over/under."""
-    c = half_width
-    A = [(-8, entry_y, 0), (-6, 3, -.3), (-2, 3, -.4), (c, 3, .2)]
-    A += [(c + 2 * np.sin(t), 1 + 2 * np.cos(t), 1.15 * np.sin(t) ** 2) for t in np.linspace(.3, np.pi - .3, 7)]
-    A += [(c, -1, -.2), (-2, -1, -.6), (-4.5, -1, -1.15), (-5.5, -2.5, -.4), (-2.6, exit_y, 0)]
-    B = [(8, entry_y, 0), (6, 1, .3), (2, 1, -1.15), (-c, 1, -.4)]
-    B += [(-c - 2 * np.sin(t), -1 + 2 * np.cos(t), .5 + .65 * np.sin(t) ** 2) for t in np.linspace(.3, np.pi - .3, 7)]
-    B += [(-c, -3, .2), (2, -3, .3), (5, -3, .1), (5.5, -4.5, .1), (2.6, exit_y - .4, 0)]
-    return np.array(A, float), np.array(B, float)
+def monkey_fist(bm, centre, u, v, w, R, wraps=3, core=2.6, flat=.78, roll=np.pi / 4, cord=None):
+    """Decorative ball knot (monkey's fist): two sets of braided wraps around crossing axes.
+    Set A circles the u axis, set B the v axis (both rolled about w by `roll`, so the front shows
+    diagonal crossings as in the reference). Wrap radii alternate by one cord radius so the sets
+    weave over/under at every crossing; the ball is flattened toward the armour (w scale)."""
+    cord = cord or kumihimo
+    c, s = np.cos(roll), np.sin(roll)
+    U, V = c * u + s * v, -s * u + c * v
+    spacing = 2 * R; offs = (np.arange(wraps) - (wraps - 1) / 2) * spacing
+    t = np.linspace(0, 2 * np.pi, 49)
+    for i, o in enumerate(offs):                                      # set A: circles in the V-w plane
+        along = np.cos(t) * core * R                                  # position along V
+        r = core * R + R * np.cos(np.pi * along / spacing + i * np.pi)
+        path = centre + o * U + (np.cos(t) * r)[:, None] * V + (np.sin(t) * r * flat)[:, None] * w
+        cord(bm, path, R)
+    for j, o in enumerate(offs):                                      # set B: circles in the U-w plane
+        along = np.cos(t) * core * R
+        r = core * R - R * np.cos(np.pi * along / spacing + j * np.pi)
+        path = centre + o * V + (np.cos(t) * r)[:, None] * U + (np.sin(t) * r * flat)[:, None] * w
+        cord(bm, path, R)
+    return (core + 1.5) * R                                           # outer radius
 
 
 def coil(bm, centre, axis, e1, e2, radius_fn, z0, z1, turns, R, sides=5):
@@ -113,3 +125,46 @@ def coil(bm, centre, axis, e1, e2, radius_fn, z0, z1, turns, R, sides=5):
     t = np.linspace(0, 1, int(turns * 24))
     pts = np.array([centre + axis * (z0 + (z1 - z0) * u) + radius_fn(u) * (np.cos(2 * np.pi * turns * u) * e1 + np.sin(2 * np.pi * turns * u) * e2) for u in t])
     tube(bm, pts, R, sides=sides)
+
+
+def braid_textures(out_dir, size=512, strands=8, colour=(.2, .01, .009)):
+    """Tileable kongo-gumi braid: strands spiral both ways and the top one alternates in a
+    checkerboard, giving the chevron of a round kumihimo. Writes a tangent-space normal map
+    (U = around the cord, V = along it, one pitch per tile) and a colour map darkened in the
+    grooves. Returns (colour_path, normal_path)."""
+    from PIL import Image
+    y, x = np.mgrid[0:size, 0:size] / size
+    a1 = x * strands + y * 4; a2 = x * strands - y * 4
+    f1, f2 = a1 % 1, a2 % 1
+    prof = lambda f: np.sqrt(np.clip(1 - (2 * f - 1) ** 2, 0, 1))
+    fibre = lambda f: .9 + .1 * np.cos(2 * np.pi * 3 * f)
+    h1, h2 = prof(f1) * fibre(f2), prof(f2) * fibre(f1)
+    top = (np.floor(a1) + np.floor(a2)) % 2 == 0
+    h = np.where(top, np.maximum(h1, .55 * h2), np.maximum(h2, .55 * h1))
+    gx = (np.roll(h, -1, 1) - np.roll(h, 1, 1)) * size / 2 / 28; gy = (np.roll(h, -1, 0) - np.roll(h, 1, 0)) * size / 2 / 28
+    n = np.stack([-gx, gy, np.ones_like(h)], -1); n /= np.linalg.norm(n, axis=-1, keepdims=True)
+    normal = ((n * .5 + .5) * 255).astype(np.uint8)
+    shade = (.4 + .6 * h)[..., None]
+    lin = np.array(colour) * shade
+    srgb = np.where(lin <= .0031308, lin * 12.92, 1.055 * np.power(np.clip(lin, 1e-9, 1), 1 / 2.4) - .055)
+    cp, np_ = Path(out_dir) / 'braid-color.png', Path(out_dir) / 'braid-normal.png'
+    Image.fromarray((np.clip(srgb, 0, 1) * 255).astype(np.uint8)).save(cp); Image.fromarray(normal).save(np_)
+    return cp, np_
+
+
+def braid_tube(bm, path, R, pitch=None, sides=14, cap=True):
+    """Smooth cord with UVs for the braid textures (U around, V = length / pitch)."""
+    uvl = bm.loops.layers.uv.verify()
+    path = resample(catmull(list(path), 4) if len(path) > 3 else path, R * .5)
+    pitch = pitch or 4 * R
+    T, N, B = frames(path); s = np.concatenate([[0], np.cumsum(np.linalg.norm(np.diff(path, axis=0), axis=1))])
+    rings = [[bm.verts.new(Vector(c + R * (np.cos(t) * n + np.sin(t) * b))) for t in np.linspace(0, 2 * np.pi, sides + 1)[:-1]] for c, n, b in zip(path, N, B)]
+    for i in range(len(rings) - 1):
+        for k in range(sides):
+            f = bm.faces.new((rings[i][k], rings[i][(k + 1) % sides], rings[i + 1][(k + 1) % sides], rings[i + 1][k]))
+            for loop, (du, di) in zip(f.loops, [(0, 0), (1, 0), (1, 1), (0, 1)]):
+                loop[uvl].uv = ((k + du) / sides, s[i + di] / pitch)
+    if cap:
+        for ring in (rings[0][::-1], rings[-1]):
+            f = bm.faces.new(ring)
+            for loop in f.loops: loop[uvl].uv = (.5, 0)

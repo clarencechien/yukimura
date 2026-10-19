@@ -2,7 +2,71 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
-## 最新：依原圖重做頸繩與腰繩、頭身合併（pass 5）
+## 最新：以物理重做繩結、繩子與流蘇（pass 6）
+
+上一版的回饋是腰結太死板、頸結遠看可以但近看不行。近拍檢查找到三個原因：結是一疊圓盤、流蘇是幾片平板，繩子是規則的三股扭繩。原圖則是編繩自己打成的結，流蘇是很多細線折過圓頭、用細繩束起後自然垂下。上排是 pass 5，下排是本輪（1000²、24 samples）。
+
+| 原圖：頸結 | 原圖：腰結 |
+| --- | --- |
+| ![](pass6/reference-neck-knot.png) | ![](pass6/reference-waist-knot.png) |
+
+| | 頸結近拍 | 頸部 | 腰結近拍 | 腰結斜側 | 腰部 | 肩繩流蘇 |
+| --- | --- | --- | --- | --- | --- | --- |
+| pass 5 | ![](pass6/before/knot-neck.png) | ![](pass6/before/neck-front.png) | ![](pass6/before/knot-waist.png) | ![](pass6/before/knot-waist-side.png) | ![](pass6/before/audit-waist.png) | ![](pass6/before/tassel-shoulder.png) |
+| 本輪 | ![](pass6/renders/knot-neck.png) | ![](pass6/renders/neck-front.png) | ![](pass6/renders/knot-waist.png) | ![](pass6/renders/knot-waist-side.png) | ![](pass6/renders/audit-waist.png) | ![](pass6/renders/tassel-shoulder.png) |
+
+| 正面 | 斜側 | 側面 | 背面 | 白模 |
+| --- | --- | --- | --- | --- |
+| ![](pass6/renders/front.png) | ![](pass6/renders/three-quarter.png) | ![](pass6/renders/side.png) | ![](pass6/renders/back.png) | ![](pass6/renders/clay.png) |
+
+**做法**
+
+1. **物理模擬（[cord_physics.py](../../../../tools/cord_physics.py)，position-based dynamics）**
+   - 繩子以粒子鏈表示，含拉伸與彎曲約束、重力與阻尼。
+   - 與盔甲表面碰撞時帶摩擦，繩與繩之間互相推開。
+   - 單次推出距離設上限，避免粒子在單層薄殼上被推到另一側而彈跳。
+2. **繩子掛法（[tie_cords.py](../../../../tools/tie_cords.py)）**
+   - 頸繩從面罩兩側下來，靠重力垂墜、貼著盔甲到喉前的結。
+   - 肩繩從金具垂下；腰繩繞腰一圈，自然貼合身體。
+   - 結下的短繩把較重的流蘇頭垂下。
+3. **結**：改成原圖那種圓球狀的裝飾結（monkey's fist）。兩組各三圈的編繩互相交錯、一上一下，旋轉 45° 讓正面看到斜向交叉。腰結旁的繩圈拿掉，比較接近原圖。
+4. **編繩質感**
+   - 繩子改成平滑圓管，加上可重複的 kongo-gumi 編紋法線貼圖與顏色貼圖（[braid-normal](pass6/braid-normal.png)、[braid-color](pass6/braid-color.png)）。近看可見人字編紋。
+   - 輪廓乾淨，繩子三角面從約 9.6 萬降到 2.4 萬。
+5. **流蘇**
+   - 流蘇整束當作一條有厚度的物理繩：從束口下方垂直落下，有彎曲剛性，碰到盔甲會順著貼上。
+   - 每個流蘇 120 條細線依中心線排成先鼓後收的形狀，並往上翻過圓頭，再以黃銅細繩纏 4.5 圈束起。
+   - 一開始逐條模擬線束，結果亂成拖把狀，因此改為整束模擬。
+6. **清除舊繩**
+   - 原本長在胸甲上的槳狀板、腰部舊結與流蘇，壓平前先在曲面上做 Tutte 鬆弛，展開被壓扁而互相重疊的三角形，以免留下碎片。
+   - 壓平後的區域改用周圍盔甲貼圖的中位色。
+   - 鬆弛後退化的面會被消除（頸部 40 面、腰部 209 面）。
+
+**檢查**
+- 完整版 860,000 面，檢視版 591,785 面，都是單一物件；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass6/mesh-inspection.json)、[檢視版](pass6/preview-inspection.json)）。
+- 頭身縫隙重新用射線檢查：能穿透看到背景的為 0（[報告](pass6/merge-report.json)）。
+- 模擬參數與結果見[繩結報告](pass6/tie-report.json)，清除紀錄見[頸部](pass6/neck-clear-report.json)、[腰部](pass6/waist-clear-report.json)。
+- 完整版為了壓在 GitHub 100 MB 限制內，沒有存切線；依 glTF 規範，閱讀器會自行以 MikkTSpace 計算。檢視版則有存切線。
+- [互動檢視器 ZIP](viewer.zip)（67 MB）已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+
+**下載**：[body-v2-pass6.glb](pass6/body-v2-pass6.glb)（95.5 MB，完整版）· [body-v2-pass6-preview.glb](pass6/body-v2-pass6-preview.glb)（72 MB）
+
+**仍待處理**
+
+- **右肩槳狀板壓平處仍不乾淨。** 壓平後仍有暗色起皺的陰影，平常被肩流蘇擋住，從側面近看才看得到。
+- **流蘇線數很多。** 6 個流蘇共約 8.5 萬面，遊戲版需要改成卡片式或做 LOD。
+- **還沒做骨架。** 骨架與動作依指示，等細節確認後再進行。
+
+```sh
+python tools/neck_cords.py --model docs/experiments/future-sanada/body-v2/pass4/body-v2-pass4.glb --output .tmp/clear-neck.glb --clear-only
+python tools/waist_cord.py --model .tmp/clear-neck.glb --output .tmp/cleared.glb --clear-only
+python tools/tie_cords.py --model .tmp/cleared.glb --output .tmp/tied.glb
+python tools/merge_character.py --model .tmp/tied.glb --output docs/experiments/future-sanada/body-v2/pass6/body-v2-pass6.glb
+python tools/package_body_v2.py --model .tmp/tied.glb --directory docs/experiments/future-sanada/body-v2/pass6 --name body-v2-pass6-preview --join
+node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --body-v2 --pass6
+```
+
+## 前一階段：依原圖重做頸繩與腰繩、頭身合併（pass 5）
 
 對照原插圖：頸部是一條**粗編繩**，從面罩兩側繞到喉前打結，下面**並排垂兩個流蘇**；兩肩金具也各垂一條編繩與長流蘇。腰部是**更粗的編繩**，結旁有兩個繩圈，下面垂兩個流蘇。TRELLIS 生成的版本卻是一個歪的圓錐、兩片「槳狀」紅板，以及一個光滑的心形結。上排是 pass 4，下排是本輪（1000²、24 samples）。
 
@@ -36,7 +100,7 @@
      - 衣領一帶第一輪找到 8 處可以直接看到的縫，位置在肩上、頸甲外擴處。
      - 因此在頸部內襯外再加一圈貼合軀幹內側、頂部封閉的深色內層。之後頸內射線全部被擋住；衣領一帶只剩 2 條能從頸甲下方的正常開口看進去，**能穿過去看到背景的為 0**。
 
-**檢查**：完整版 808,090 面（新繩約 6.3 萬面），檢視版 539,763 面，都是單一物件；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass5/mesh-inspection.json)、[檢視版](pass5/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip)（59 MB）已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+**檢查**：完整版 808,090 面（新繩約 6.3 萬面），檢視版 539,763 面，都是單一物件；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass5/mesh-inspection.json)、[檢視版](pass5/preview-inspection.json)）。互動檢視器隨後改用 pass 6 模型。
 
 **下載**：[body-v2-pass5.glb](pass5/body-v2-pass5.glb)（94 MB，完整版）· [body-v2-pass5-preview.glb](pass5/body-v2-pass5-preview.glb)（60 MB）
 
@@ -236,7 +300,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（59 MB） | 已改用 pass 5 模型；解壓後開啟 index.html | 539,763 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（67 MB） | 已改用 pass 6 模型；解壓後開啟 index.html | 591,785 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 

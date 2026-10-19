@@ -28,22 +28,25 @@ class Collider:
             loc = np.array(loc); n = np.array(n)
             depth = np.dot(p[i] - loc, n)
             if depth < radius[i]:
-                p[i] += n * (radius[i] - depth); contact[i] = True; normal[i] = n
+                # Cap the push: on thin single-sided shells the nearest normal flips across the
+                # sheet, and an uncapped push throws the particle through to the far side.
+                p[i] += n * min(radius[i] - depth, 3 * radius[i]); contact[i] = True; normal[i] = n
         return contact, normal
 
 
 class RopeSystem:
     def __init__(self):
-        self.x = []; self.invm = []; self.r = []; self.rope = []; self.edges = []; self.bends = []
+        self.x = []; self.invm = []; self.r = []; self.rope = []; self.group = []; self.edges = []; self.bends = []
         self.n_ropes = 0
 
-    def add_rope(self, points, mass, radius, stretch=1., bend=.0, pin_first=False, pin_last=False, slack=1.):
-        """Chain through `points`; rest lengths = initial spacing x slack. Returns particle indices."""
+    def add_rope(self, points, mass, radius, stretch=1., bend=.0, pin_first=False, pin_last=False, slack=1., group=None):
+        """Chain through `points`; rest lengths = initial spacing x slack. Ropes sharing a `group`
+        (e.g. the thread clumps of one tassel) do not repel each other. Returns particle indices."""
         start = len(self.x); n = len(points); rid = self.n_ropes; self.n_ropes += 1
         for k, q in enumerate(points):
             pinned = (k == 0 and pin_first) or (k == n - 1 and pin_last)
             self.x.append(np.asarray(q, float)); self.invm.append(0. if pinned else 1. / mass)
-            self.r.append(radius); self.rope.append(rid)
+            self.r.append(radius); self.rope.append(rid); self.group.append(('g', group) if group is not None else ('r', rid))
         for k in range(n - 1):
             self.edges.append((start + k, start + k + 1, np.linalg.norm(np.subtract(points[k + 1], points[k])) * slack, stretch))
         for k in range(n - 2):
@@ -75,9 +78,9 @@ class RopeSystem:
         p += 1.5 * acc / np.maximum(cnt, 1)[:, None]
 
     def simulate(self, collider, seconds=2.5, dt=1 / 240, iterations=24, damping=.985, friction=.6,
-                 self_collide=True, collide_every=6, gravity=True, log=None):
+                 self_collide=True, collide_every=6, gravity=True, max_speed=None, log=None):
         x = np.array(self.x); v = np.zeros_like(x); invm = np.array(self.invm); r = np.array(self.r)
-        rope = np.array(self.rope); free = invm > 0
+        gid = {g: k for k, g in enumerate(dict.fromkeys(self.group))}; rope = np.array([gid[g] for g in self.group]); free = invm > 0
         E = np.array(self.edges, dtype=object)
         cons = (np.array([e[0] for e in self.edges], int), np.array([e[1] for e in self.edges], int),
                 np.array([e[2] for e in self.edges]), np.array([e[3] for e in self.edges])) if len(E) else ()
@@ -114,6 +117,8 @@ class RopeSystem:
             if contact.any():                                          # friction on the surface
                 n = normal[contact]; vn = (newv[contact] * n).sum(1, keepdims=True) * n
                 newv[contact] = vn * 0 + (newv[contact] - vn) * (1 - friction)
+            if max_speed:                                              # quasi-static drape: no ballistic jumps
+                sp = np.linalg.norm(newv, axis=1, keepdims=True); newv = newv * np.minimum(1, max_speed / np.maximum(sp, 1e-9))
             v = np.where(free[:, None], newv, 0); x = np.where(free[:, None], p, x)
             contact_total = int(contact.sum())
             if log and step % 120 == 0: log(f'step {step}/{steps} contacts {contact_total} max speed {np.linalg.norm(v, axis=1).max():.3f}')
