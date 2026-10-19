@@ -32,9 +32,12 @@ out = Path(a.output); out.mkdir(parents=True, exist_ok=True)
 started = time.monotonic(); report = {'model': a.model}
 
 # Regions in normalized body space (height 2, front = -Y). Torso / skirt only, as reviewed.
+# abs_x: (min, max) band; back: whether the composed back source applies (only the dō has one).
 REGIONS = {
-    'do': {'abs_x': .185, 'z': (1.04, 1.47)},       # front chest / back plate incl. waist band
-    'skirt': {'abs_x': .27, 'z': (.56, 1.12)},      # kusazuri front and back (overlaps the dō: no seam dip)
+    'do': {'abs_x': (0, .185), 'z': (1.04, 1.47), 'back': True},       # front chest / back plate incl. waist band
+    'skirt': {'abs_x': (0, .27), 'z': (.56, 1.12), 'back': True},      # kusazuri (overlaps the dō: no seam dip)
+    'arms': {'abs_x': (.17, .47), 'z': (.74, 1.47), 'back': False},    # sode, gauntlets, gloves
+    'legs': {'abs_x': (0, .26), 'z': (0, .62), 'back': False},         # knees, shins, boots
 }
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -50,7 +53,7 @@ head = [o for o in bpy.context.scene.objects if o.type == 'MESH' and o.name != b
 def in_regions(co):
     keep = np.zeros(len(co), bool)
     for r in REGIONS.values():
-        keep |= (np.abs(co[:, 0]) < r['abs_x']) & (co[:, 2] > r['z'][0]) & (co[:, 2] < r['z'][1])
+        keep |= (np.abs(co[:, 0]) >= r['abs_x'][0]) & (np.abs(co[:, 0]) < r['abs_x'][1]) & (co[:, 2] > r['z'][0]) & (co[:, 2] < r['z'][1])
     return keep
 
 # 1. Close small holes in the dō / skirt (torn generated shells). New loops copy neighbour UVs.
@@ -202,11 +205,13 @@ wf *= sample(alpha_edge[..., None], uu + fl[:, 0], vv + fl[:, 1])[:, 0]
 wb *= sample(ndimage.binary_erosion(back_ref[..., 3] > .9, iterations=3).astype(np.float32)[..., None], uu, vv)[:, 0]
 # Soften the region borders in 3D so the projection fades into the generated texture.
 pz = P[idx][:, 2]; px = np.abs(P[idx][:, 0])
-border = np.zeros_like(pz)
+border = np.zeros_like(pz); back_border = np.zeros_like(pz)
 for r in REGIONS.values():
-    fade = np.minimum.reduce([smoothstep(0, .02, r['abs_x'] - px), smoothstep(0, .02, pz - r['z'][0]), smoothstep(0, .02, r['z'][1] - pz)])
+    lo_fade = smoothstep(0, .02, px - r['abs_x'][0]) if r['abs_x'][0] > 0 else np.ones_like(px)
+    fade = np.minimum.reduce([lo_fade, smoothstep(0, .02, r['abs_x'][1] - px), smoothstep(0, .02, pz - r['z'][0]), smoothstep(0, .02, r['z'][1] - pz)])
     border = np.maximum(border, fade)
-wf *= border; wb *= border
+    if r['back']: back_border = np.maximum(back_border, fade)
+wf *= border; wb *= back_border
 
 def pixels(image):
     arr = np.empty(image.size[0] * image.size[1] * 4, np.float32); image.pixels.foreach_get(arr)
@@ -219,7 +224,7 @@ old = color[idx][:, :3]
 # (the pale look in renders is rim light on lacquer); painting borrowed front panels doubled the
 # lacing and smeared a side cord across it. Keep it, only smooth TRELLIS's blotches with an
 # edge-preserving filter so lacing and gold edges stay.
-skirt_back = 1 - smoothstep(1.04, 1.08, pz)
+skirt_back = (1 - smoothstep(1.04, 1.08, pz)) * smoothstep(.56, .60, pz) * (1 - smoothstep(.25, .27, px))
 wb *= 1 - skirt_back
 clean = cv2.bilateralFilter(np.ascontiguousarray(color[..., :3]), 9, .12, 4)[idx]
 cleanup = vis_back[idx] * face_back[idx] * skirt_back * border
@@ -253,6 +258,20 @@ def write_scaled(img_arr, values, channels):
         cur = img_arr[yy, xx, c]; img_arr[yy, xx, c] = cur * (1 - w) + val_ * w
 write_scaled(mr, None, {1: rough, 2: metal})
 write_scaled(coat, None, {0: red * .1, 1: red * .1, 2: red * .1})
+# Glow: the reference's orange energy seams (gauntlets, knees, shins) become real emission.
+hf, sf, vf = rgb_to_hsv(front_px[:, :3])
+glow = smoothstep(10, 16, hf) * (1 - smoothstep(42, 50, hf)) * smoothstep(.55, .7, sf) * smoothstep(.72, .85, vf) * np.clip(wf, 0, 1)
+EMIT = 1024
+emit = np.zeros((EMIT, EMIT, 4), np.float32); emit[..., 3] = 1
+ey, ex = idx[0] * EMIT // size, idx[1] * EMIT // size
+np.maximum.at(emit[..., 0], (ey, ex), front_px[:, 0] * glow); np.maximum.at(emit[..., 1], (ey, ex), front_px[:, 1] * glow); np.maximum.at(emit[..., 2], (ey, ex), front_px[:, 2] * glow)
+emit[..., :3] = np.clip(ndimage.grey_dilation(emit[..., :3], size=(2, 2, 1)), 0, 1)
+emit_img = bpy.data.images.new('Body v2 energy seams (reference)', EMIT, EMIT, alpha=True); emit_img.pixels.foreach_set(emit.ravel()); emit_img.pack()
+emit_node = nodes.new('ShaderNodeTexImage'); emit_node.image = emit_img
+uv_src = color_node.inputs['Vector'].links[0].from_node if color_node.inputs['Vector'].links else None
+if uv_src: material.node_tree.links.new(uv_src.outputs[0], emit_node.inputs['Vector'])
+material.node_tree.links.new(emit_node.outputs['Color'], bsdf.inputs['Emission Color']); bsdf.inputs['Emission Strength'].default_value = 4.0
+report['emission'] = {'glow_texels': int((glow > .5).sum()), 'texture': EMIT, 'strength': 4.0}
 # Pass-2 sheen: the lacquer read as a pale pink wash under the studio rim light. Raise the
 # roughness floor of non-metal texels everywhere and thin the coat.
 nonmetal = mr[..., 2] < .3
@@ -268,5 +287,5 @@ bpy.ops.object.select_all(action='DESELECT')
 for o in [body] + head: o.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(Path(a.output_glb).resolve()), export_format='GLB', use_selection=True)
 report['triangles'] = sum(len(f.vertices) - 2 for o in [body] + head for f in o.data.polygons)
-report['regions'] = REGIONS; report['seconds'] = time.monotonic() - started
+report['regions'] = {k: {**v, 'abs_x': list(v['abs_x']), 'z': list(v['z'])} for k, v in REGIONS.items()}; report['seconds'] = time.monotonic() - started
 (out / 'projection-report.json').write_text(json.dumps(report, indent=2) + '\n'); print(json.dumps(report))

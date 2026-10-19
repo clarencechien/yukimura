@@ -35,8 +35,11 @@ clay=bpy.data.materials.new('Geometry inspection clay');clay.use_nodes=True;clay
 VIEWS={'front':(0,1.5,(0,0,1.03),2.35),'three-quarter':(35,1.5,(0,0,1.03),2.35),'side':(90,1.5,(0,0,1.03),2.35),'back':(180,1.5,(0,0,1.03),2.35),'clay':(0,1.5,(0,0,1.03),2.35),
  'neck':(25,1.62,(0,0,1.55),.75),'torso':(0,1.25,(0,0,1.2),.8),'hands':(30,.95,(0,0,.98),1.0),'legs':(15,.45,(0,0,.4),.95),'back-detail':(160,1.25,(0,0,1.25),1.0),'clay-torso':(0,1.25,(0,0,1.2),.8),
  'back-upper':(180,1.45,(0,0,1.35),.62),'back-lower':(180,1.1,(0,0,1.05),.62),'skirt-front':(0,.95,(0,0,.82),.7),'skirt-back':(180,.95,(0,0,.82),.7),
+ 'hand-r-front':(0,.95,(-.39,.16,.88),.34),'hand-l-front':(0,.95,(.376,-.16,.89),.34),'hand-r-out':(-70,.95,(-.39,.16,.88),.34),'hand-l-out':(70,.95,(.376,-.16,.89),.34),
+ 'forearm-r':(-20,1.1,(-.37,.1,1.05),.5),'forearm-l':(20,1.1,(.36,-.1,1.05),.5),'knees':(0,.5,(0,0,.5),.7),'shins':(0,.3,(0,0,.3),.7),
+ 'clay-hand-r-front':(0,.95,(-.39,.16,.88),.34),'clay-hand-l-out':(70,.95,(.376,-.16,.89),.34),
  'clay-back-upper':(180,1.45,(0,0,1.35),.62),'clay-back-lower':(180,1.1,(0,0,1.05),.62),'clay-skirt-front':(0,.95,(0,0,.82),.7),'clay-skirt-back':(180,.95,(0,0,.82),.7)}
-clay_views={'clay','clay-torso','clay-back-upper','clay-back-lower','clay-skirt-front','clay-skirt-back'}
+clay_views={'clay-hand-r-front','clay-hand-l-out','clay','clay-torso','clay-back-upper','clay-back-lower','clay-skirt-front','clay-skirt-back'}
 for name in a.views.split(','):
  degrees,height,target,span=VIEWS[name]
  for o in meshes:
