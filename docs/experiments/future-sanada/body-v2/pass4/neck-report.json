@@ -133,17 +133,32 @@
     }
   ],
   "removed_vertices": 936,
-  "lining": {
-    "z": [
-      1.37,
-      1.57
-    ],
-    "centre": [
-      0.001036807894706726,
-      0.026
-    ],
-    "fitted_radius_min": 0.05006897824794016,
-    "fitted_radius_max": 0.19947537268175924,
-    "inset_from_hit": 0.004
-  }
+  "linings": {
+    "neck lining": {
+      "z": [
+        1.37,
+        1.57
+      ],
+      "clip": 0.2,
+      "inset_from_hit": 0.004,
+      "top_cap": false,
+      "fitted_radius_min": 0.05006897824794016,
+      "fitted_radius_max": 0.19947537268175924
+    },
+    "collar core": {
+      "z": [
+        1.38,
+        1.52
+      ],
+      "clip": 0.32,
+      "inset_from_hit": 0.006,
+      "top_cap": true,
+      "fitted_radius_min": 0.05308593757807649,
+      "fitted_radius_max": 0.28930149873629263
+    }
+  },
+  "centre": [
+    0.001036807894706726,
+    0.026
+  ]
 }

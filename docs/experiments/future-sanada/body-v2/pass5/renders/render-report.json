@@ -1,0 +1,246 @@
+{
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "samples": 24,
+  "image_size": [
+    1000,
+    1000
+  ],
+  "geometry_objects": 1,
+  "vertices": 800525,
+  "triangles": 808090,
+  "material_count": 23,
+  "images": [
+    {
+      "name": "back-plate-color",
+      "size": [
+        484,
+        516
+      ]
+    },
+    {
+      "name": "back-plate-metal-rough",
+      "size": [
+        484,
+        516
+      ]
+    },
+    {
+      "name": "Bitmaptexture",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 corrected base color",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "Body v2 lacquer coat",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Body v2 lacquer-aware metallic roughness",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "crest-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-brass-normal",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "crest-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Map #4",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Map #6",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "menpo-brass",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-brass-roughness",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "name": "menpo-lacquer-roughness",
+      "size": [
+        512,
+        512
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "front",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 24.1
+    },
+    {
+      "name": "three-quarter",
+      "degrees": 35,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 21.82
+    },
+    {
+      "name": "side",
+      "degrees": 90,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 25.05
+    },
+    {
+      "name": "back",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 24.51
+    },
+    {
+      "name": "clay",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 20.72
+    },
+    {
+      "name": "neck-front",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.52
+      ],
+      "span": 0.42,
+      "seconds": 38.36
+    },
+    {
+      "name": "neck-low",
+      "degrees": 20,
+      "target": [
+        0,
+        -0.05,
+        1.5
+      ],
+      "span": 0.4,
+      "seconds": 39.37
+    },
+    {
+      "name": "audit-waist",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.08
+      ],
+      "span": 0.4,
+      "seconds": 36.45
+    },
+    {
+      "name": "torso",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.2
+      ],
+      "span": 0.8,
+      "seconds": 35.76
+    },
+    {
+      "name": "back-lower",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.05
+      ],
+      "span": 0.62,
+      "seconds": 36.28
+    }
+  ]
+}

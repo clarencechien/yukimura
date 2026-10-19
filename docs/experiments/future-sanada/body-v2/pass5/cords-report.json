@@ -1,0 +1,60 @@
+{
+  "removed": {
+    "centre cone tassel": {
+      "faces": 583,
+      "chest_y": -0.09219362400472164
+    },
+    "chin coil (cord-red faces)": {
+      "faces": 271
+    }
+  },
+  "flattened": {
+    "right paddle tassel": {
+      "vertices_moved": 990,
+      "ring_points": 627,
+      "ring_kept": 511
+    },
+    "left paddle tassel": {
+      "vertices_moved": 255,
+      "ring_points": 519,
+      "ring_kept": 487
+    }
+  },
+  "built": {
+    "chin": {
+      "knot": [
+        -0.0059,
+        -0.0804,
+        1.4757
+      ],
+      "tassels": 2
+    },
+    "right shoulder cord": {
+      "top": [
+        -0.1788,
+        0.0302,
+        1.4971
+      ],
+      "knot": [
+        -0.1785,
+        -0.0167,
+        1.4524
+      ]
+    },
+    "left shoulder cord": {
+      "top": [
+        0.1047,
+        -0.085,
+        1.4925
+      ],
+      "knot": [
+        0.1061,
+        -0.1159,
+        1.4471
+      ]
+    }
+  },
+  "cord_triangles": 33532,
+  "cord_radius": 0.0075,
+  "shoulder_cord_radius": 0.006
+}

@@ -75,42 +75,53 @@ rx, ryf, ryb = a.lining_radius; z0, z1 = a.lining_z
 bm_all = bmesh.new()
 for o in objs: bm_all.from_mesh(o.data)
 tree_all = BVHTree.FromBMesh(bm_all); bm_all.free()
-seg, rings = 48, 12
-radius = np.zeros((rings + 1, seg))
-for r in range(rings + 1):
-    z = z0 + (z1 - z0) * r / rings
-    for s_ in range(seg):
-        t = 2 * np.pi * s_ / seg; d = Vector((np.sin(t), np.cos(t), 0))
-        hit = tree_all.ray_cast(Vector((cx, cy, z)), d, .25)
-        base = np.hypot(rx * np.sin(t), (ryb if np.cos(t) > 0 else ryf) * np.cos(t))
-        radius[r, s_] = (hit[3] - .004) if hit[0] is not None else base
-radius = np.clip(radius, .05, .2)
-from scipy import ndimage as _nd
-radius = _nd.median_filter(radius, size=(3, 5), mode='wrap'); radius = _nd.gaussian_filter(radius, (.8, 1.2), mode='wrap')
-mesh = bpy.data.meshes.new('Neck lining'); bm = bmesh.new(); uv = bm.loops.layers.uv.new('UVMap')
-grid = []
-for r in range(rings + 1):
-    z = z0 + (z1 - z0) * r / rings
-    grid.append([bm.verts.new((cx + radius[r, s_] * np.sin(2 * np.pi * s_ / seg), cy + radius[r, s_] * np.cos(2 * np.pi * s_ / seg), z)) for s_ in range(seg)])
-for r in range(rings):
-    for s_ in range(seg):
-        f = bm.faces.new((grid[r][s_], grid[r][(s_ + 1) % seg], grid[r + 1][(s_ + 1) % seg], grid[r + 1][s_]))
-        for loop, (du, dv) in zip(f.loops, [(0, 0), (1, 0), (1, 1), (0, 1)]):
-            loop[uv].uv = ((s_ + du) / seg * 6, (r + dv) / rings * 2)
-bm.normal_update()
-if np.mean([(Vector(f.calc_center_median()) - Vector((cx, cy, f.calc_center_median().z))).dot(f.normal) for f in bm.faces]) < 0:
-    bmesh.ops.reverse_faces(bm, faces=bm.faces[:])
-bm.to_mesh(mesh); bm.free()
-for poly in mesh.polygons: poly.use_smooth = True
 mat = bpy.data.materials.new('Neck lining / dark quilted cloth'); mat.use_nodes = True
 nodes = mat.node_tree.nodes; b = nodes['Principled BSDF']
 b.inputs['Base Color'].default_value = (.03, .025, .025, 1); b.inputs['Roughness'].default_value = .85
-mesh.materials.append(mat)
-lining = bpy.data.objects.new('Neck lining / dark quilted cloth', mesh); bpy.context.collection.objects.link(lining)
+from scipy import ndimage as _nd
+
+def band(name, z0, z1, clip, inset, reach, rings=12, seg=48, cap=False):
+    """Dark tube fitted by outward rays to sit `inset` inside the surrounding surfaces."""
+    radius = np.zeros((rings + 1, seg))
+    for r in range(rings + 1):
+        z = z0 + (z1 - z0) * r / rings
+        for s_ in range(seg):
+            t = 2 * np.pi * s_ / seg; d = Vector((np.sin(t), np.cos(t), 0))
+            hit = tree_all.ray_cast(Vector((cx, cy, z)), d, reach)
+            base = np.hypot(rx * np.sin(t), (ryb if np.cos(t) > 0 else ryf) * np.cos(t))
+            radius[r, s_] = (hit[3] - inset) if hit[0] is not None else base
+    radius = np.clip(radius, .05, clip)
+    radius = _nd.median_filter(radius, size=(3, 5), mode='wrap'); radius = _nd.gaussian_filter(radius, (.8, 1.2), mode='wrap')
+    mesh = bpy.data.meshes.new(name); bm = bmesh.new(); uv = bm.loops.layers.uv.new('UVMap')
+    grid = []
+    for r in range(rings + 1):
+        z = z0 + (z1 - z0) * r / rings
+        grid.append([bm.verts.new((cx + radius[r, s_] * np.sin(2 * np.pi * s_ / seg), cy + radius[r, s_] * np.cos(2 * np.pi * s_ / seg), z)) for s_ in range(seg)])
+    for r in range(rings):
+        for s_ in range(seg):
+            f = bm.faces.new((grid[r][s_], grid[r][(s_ + 1) % seg], grid[r + 1][(s_ + 1) % seg], grid[r + 1][s_]))
+            for loop, (du, dv) in zip(f.loops, [(0, 0), (1, 0), (1, 1), (0, 1)]):
+                loop[uv].uv = ((s_ + du) / seg * 6, (r + dv) / rings * 2)
+    bm.normal_update()
+    if np.mean([(Vector(f.calc_center_median()) - Vector((cx, cy, f.calc_center_median().z))).dot(f.normal) for f in bm.faces]) < 0:
+        bmesh.ops.reverse_faces(bm, faces=bm.faces[:])
+    if cap:                                                            # close the top: steep rays from above
+        centre = bm.verts.new((cx, cy, z1))
+        for s_ in range(seg): bm.faces.new((grid[-1][s_], grid[-1][(s_ + 1) % seg], centre))
+    bm.to_mesh(mesh); bm.free()
+    for poly in mesh.polygons: poly.use_smooth = True
+    mesh.materials.append(mat)
+    bpy.context.collection.objects.link(bpy.data.objects.new(f'{name} / dark quilted cloth', mesh))
+    return {'z': [z0, z1], 'clip': clip, 'inset_from_hit': inset, 'top_cap': cap, 'fitted_radius_min': float(radius.min()), 'fitted_radius_max': float(radius.max())}
+
+linings = {'neck lining': band('Neck lining', z0, z1, .2, .004, .25),
+           # Below the shikoro the torso is wider than the neck lining reaches; a seam audit found
+           # rays slipping past the shikoro flare at the shoulders. A second band closes that.
+           'collar core': band('Collar core', 1.38, 1.52, .32, .006, .35, cap=True)}
 
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.export_scene.gltf(filepath=str(Path(a.output).resolve()), export_format='GLB', use_selection=True)
 report = {'gap_threshold': a.gap, 'removed_pieces': removed, 'removed_vertices': len(drop),
-          'lining': {'z': [z0, z1], 'centre': [cx, cy], 'fitted_radius_min': float(radius.min()), 'fitted_radius_max': float(radius.max()), 'inset_from_hit': .004}}
+          'linings': linings, 'centre': [cx, cy]}
 Path(a.output).with_name('neck-report.json').write_text(json.dumps(report, indent=2) + '\n')
 print(json.dumps({k: v for k, v in report.items() if k != 'removed_pieces'}), len(removed))

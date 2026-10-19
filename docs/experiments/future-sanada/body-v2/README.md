@@ -2,7 +2,60 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
-## 最新：頸部清理（pass 4）
+## 最新：依原圖重做頸繩與腰繩、頭身合併（pass 5）
+
+對照原插圖：頸部是一條**粗編繩**，從面罩兩側繞到喉前打結，下面**並排垂兩個流蘇**；兩肩金具也各垂一條編繩與長流蘇。腰部是**更粗的編繩**，結旁有兩個繩圈，下面垂兩個流蘇。TRELLIS 生成的版本卻是一個歪的圓錐、兩片「槳狀」紅板，以及一個光滑的心形結。上排是 pass 4，下排是本輪（1000²、24 samples）。
+
+| 原圖：頸部 | 原圖：腰部 |
+| --- | --- |
+| ![](pass5/reference-neck.png) | ![](pass5/reference-waist.png) |
+
+| | 頸部正面 | 頸部斜側 | 腰結 | 胸前 | 背後腰帶 |
+| --- | --- | --- | --- | --- | --- |
+| pass 4 | ![](pass5/before/neck-front.png) | ![](pass5/before/neck-low.png) | ![](pass5/before/audit-waist.png) | ![](pass5/before/torso.png) | ![](pass5/before/back-lower.png) |
+| 本輪 | ![](pass5/renders/neck-front.png) | ![](pass5/renders/neck-low.png) | ![](pass5/renders/audit-waist.png) | ![](pass5/renders/torso.png) | ![](pass5/renders/back-lower.png) |
+
+| 正面 | 斜側 | 側面 | 背面 | 白模 |
+| --- | --- | --- | --- | --- |
+| ![](pass5/renders/front.png) | ![](pass5/renders/three-quarter.png) | ![](pass5/renders/side.png) | ![](pass5/renders/back.png) | ![](pass5/renders/clay.png) |
+
+**做法**
+
+1. **頸繩（[工具](../../../../tools/neck_cords.py)、[報告](pass5/cords-report.json)）**
+   - 移除歪掉的圓錐流蘇，以及圍在下巴、凹凸不平的舊繩圈；舊繩圈依繩子的紅色貼圖判斷。
+   - 兩片「槳狀」板和胸甲長在一起，直接刪會撕出破洞（第一次試算就是如此）。改為以周圍胸甲擬合曲面，把它們壓平貼回胸甲。
+   - 新繩依原圖重建：三股編繩，從面罩兩側繞到喉前打結，下面垂兩個流蘇；兩肩各一條編繩加長流蘇。位置都由正面射線放到表面上。
+2. **腰繩（[工具](../../../../tools/waist_cord.py)、[報告](pass5/waist-report.json)）**
+   - 舊心形結與流蘇同樣壓平，原本的光亮紅貼圖改成深色布帶，對應原圖結後方的黑色腰帶。
+   - 新編繩比頸繩更粗，以射線沿腰部繞一圈，避開垂下的前臂。結偏左，旁邊兩個繩圈，下面兩個流蘇。
+   - 繩子、結、流蘇共用一套程式（[cord_geometry.py](../../../../tools/cord_geometry.py)）。
+3. **頭身合併（[工具](../../../../tools/merge_character.py)、[報告](pass5/merge-report.json)）**
+   - 頭盔、身體、繩子、內襯等 59 個零件合成**單一物件**，保留 23 個材質。
+   - 頭盔之後會跟著頭部骨骼一起動，所以沒有把頂點硬焊到身體上。
+   - 改用射線檢查縫隙：從四周與上方各打 3000 條射線，射向頸內與衣領內側的目標點，目標點都在軀幹內部。
+     - 衣領一帶第一輪找到 8 處可以直接看到的縫，位置在肩上、頸甲外擴處。
+     - 因此在頸部內襯外再加一圈貼合軀幹內側、頂部封閉的深色內層。之後頸內射線全部被擋住；衣領一帶只剩 2 條能從頸甲下方的正常開口看進去，**能穿過去看到背景的為 0**。
+
+**檢查**：完整版 808,090 面（新繩約 6.3 萬面），檢視版 539,763 面，都是單一物件；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass5/mesh-inspection.json)、[檢視版](pass5/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip)（59 MB）已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+
+**下載**：[body-v2-pass5.glb](pass5/body-v2-pass5.glb)（94 MB，完整版）· [body-v2-pass5-preview.glb](pass5/body-v2-pass5-preview.glb)（60 MB）
+
+**仍待處理**
+
+- **繩子是程式產生的。** 編繩、結與流蘇的形狀依原圖重建，但沒有手工雕刻的細部。
+- **繩子底下的胸甲是推測的。** 壓平後的胸甲表面沿用生成貼圖。
+- **還沒做骨架。** 骨架、權重與 LOD 依你的指示，等細節確認後再進行。
+
+```sh
+python tools/neck_cleanup.py --model docs/experiments/future-sanada/body-v2/pass3/body-v2-pass3.glb --output docs/experiments/future-sanada/body-v2/pass4/body-v2-pass4.glb
+python tools/neck_cords.py --model docs/experiments/future-sanada/body-v2/pass4/body-v2-pass4.glb --output .tmp/cords.glb
+python tools/waist_cord.py --model .tmp/cords.glb --output .tmp/cords-waist.glb
+python tools/merge_character.py --model .tmp/cords-waist.glb --output docs/experiments/future-sanada/body-v2/pass5/body-v2-pass5.glb
+python tools/package_body_v2.py --model .tmp/cords-waist.glb --directory docs/experiments/future-sanada/body-v2/pass5 --name body-v2-pass5-preview --join
+node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --body-v2 --pass5
+```
+
+## 前一階段：頸部清理（pass 4）
 
 移除生成的頭部時，連帶截斷了頸部的繩子，留下兩段**懸在半空的流蘇尖**；舊頭部的頸口也空著，背後的頸甲（しころ）與衣領之間露出一道**黑縫**。上排是 pass 3，下排是本輪（1000²、24 samples）。
 
@@ -24,7 +77,7 @@
    - 每個角度、每個高度各發一條射線，找到頸甲、衣領或面罩的內側，內襯就放在內側往內 4 mm 處，再平滑。
    - 原本試過固定橢圓，但後頸開口最寬，橢圓放太深擋不住，因此改用量測。
 
-**檢查**：完整版 742,910 面，檢視版 474,114 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass4/mesh-inspection.json)、[檢視版](pass4/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip)（58 MB）已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。
+**檢查**：完整版 742,910 面，檢視版 474,114 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass4/mesh-inspection.json)、[檢視版](pass4/preview-inspection.json)）。互動檢視器隨後改用 pass 5 模型。
 
 **下載**：[body-v2-pass4.glb](pass4/body-v2-pass4.glb)（93 MB，完整版）· [body-v2-pass4-preview.glb](pass4/body-v2-pass4-preview.glb)（59 MB）
 
@@ -183,7 +236,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（58 MB） | 已改用 pass 4 模型；解壓後開啟 index.html | 474,114 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（59 MB） | 已改用 pass 5 模型；解壓後開啟 index.html | 539,763 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 
