@@ -2,7 +2,60 @@
 
 頭部沿用已完成的[頭部逐項精修](../head-study/README.md)，本輪只處理身體。前一版程序式重建的甲片過於方塊化，已撤回；這次改回原始的 image gen 參考圖，以 **TRELLIS.2 1536 重新生成全身**，再做材質修正與頭部接合。**沒有用幾何原件取代生成的甲冑。**
 
-## 先看全身
+## 最新：背甲與裙甲精修（pass 2）
+
+背甲上下與前後裙甲仍有問題，本輪改為針對這兩處修整。上排是前一版，下排是本輪；鏡位與燈光相同（1000²、24 samples）。
+
+| | 背甲上半 | 背甲下半／腰帶 | 前裙甲 | 後裙甲 |
+| --- | --- | --- | --- | --- |
+| 前一版 | ![](pass2/before/back-upper.png) | ![](pass2/before/back-lower.png) | ![](pass2/before/skirt-front.png) | ![](pass2/before/skirt-back.png) |
+| 本輪 | ![](pass2/renders/back-upper.png) | ![](pass2/renders/back-lower.png) | ![](pass2/renders/skirt-front.png) | ![](pass2/renders/skirt-back.png) |
+
+| 背甲白模：前一版 | 背甲白模：本輪 | 本輪正面 | 本輪背面 |
+| --- | --- | --- | --- |
+| ![](pass2/before/clay-back-upper.png) | ![](pass2/renders/clay-back-upper.png) | ![](pass2/renders/front.png) | ![](pass2/renders/back.png) |
+
+**做法**
+
+1. **把原圖投影回模型（前面）。** TRELLIS 的貼圖原本就是從同一張插畫生成，只是較糊。先以輪廓對齊原圖（重疊度 IoU 0.856），再用光流修正局部偏移（中位數約 20 px）。可見性以 z-buffer 判斷，再把原圖直接投到胸甲、腰帶與前裙甲（[投影工具](../../../../tools/project_reference.py)）。
+   - 前裙甲因此有了原圖的金色波紋、黑色綴繩與鱗狀內襯。
+   - 立體繩結與流蘇的位置和畫面不同，所以保留原本的紅色，不投影。
+2. **背面來源圖。** 原圖沒有背面，因此用正面乾淨的部位組成[背面來源圖](pass2/back-reference.png)（[產生工具](../../../../tools/build_back_reference.py)）：
+   - 背甲：取避開流蘇的五片胸前橫片，左右鏡像、依片距 37 px 往上延伸。
+   - 中央裙板：繩結改以同一塊裙板的橫片補上。
+3. **背甲外殼（[工具](../../../../tools/back_plate_shell.py)）。** 生成的背甲是封閉網格，但薄殼上有貫穿的洞，補洞處理不到。
+   - 改在背甲表面加一層外殼：形狀由每格一條射線量出的實際表面決定，只有洞裡改用穩健多項式補平。
+   - 依背面來源圖的橫片縫隙做出逐片重疊的高低差，邊緣沉入身體 5 mm，不會看到方框。
+   - 貼圖直接用清晰的來源圖。生成的背甲仍保留在下面，沒有刪除。
+4. **後裙甲不投影。** 試過兩種投影：直接投會讓綴繩重複一層，只取低頻色會變得髒亂並拖出金色條紋。
+   - 去掉燈光檢查原色後，發現生成的後裙甲其實是乾淨的紅板加金邊，偏白是背光照在漆面造成的。
+   - 因此只用保邊的雙邊濾波去除斑點。
+5. **其他。**
+   - 在胸甲與裙甲範圍補上 313 個小破洞（3–48 條邊）。
+   - 非金屬部分的粗糙度至少 0.52，清漆減為原來的 0.66 倍，減少漆面泛白。
+
+**檢查**：完整版 742,091 面，檢視版 472,372 面；兩者都沒有近零面積三角形，所有 primitive 都有法線（[完整版](pass2/mesh-inspection.json)、[檢視版](pass2/preview-inspection.json)）。[互動檢視器 ZIP](viewer.zip) 已改用本輪模型，並通過桌面與手機尺寸的離線瀏覽器檢查（[報告](viewer-verification.json)）。參數見[投影報告](pass2/projection-report.json)、[背甲外殼報告](pass2/back-plate-report.json)、[對齊參數](pass2/alignment.json)。
+
+**下載**：[body-v2-pass2.glb](pass2/body-v2-pass2.glb)（92 MB，完整版）· [body-v2-pass2-preview.glb](pass2/body-v2-pass2-preview.glb)（58 MB，身體減面 45%）
+
+**仍待處理**
+
+- **後裙甲仍偏亮。** 這是漆面在背光下的反光，原色沒有問題。
+- **背面是推測。** 背甲的橫片沿用胸前的設計。
+- **立體細節不一定對位。** 前裙甲投上的綴繩，未必每一列都對準模型上的凸起。
+- **手部與頸部尚未處理。** 手部還沒精修，頸部也還沒焊接。
+
+```sh
+# 在 repo 根目錄，Blender 4.3 bpy＋NumPy＋SciPy＋OpenCV 4.10（CPU）
+python tools/fit_reference_silhouette.py --vertices <生成身體頂點.npy>
+python tools/build_back_reference.py
+python tools/project_reference.py
+python tools/back_plate_shell.py
+python tools/package_body_v2.py --model docs/experiments/future-sanada/body-v2/pass2/body-v2-pass2.glb --directory docs/experiments/future-sanada/body-v2/pass2 --name body-v2-pass2-preview
+node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --body-v2 --pass2
+```
+
+## 先看全身（第一版）
 
 | 修整前：既有頭部＋原 1024 生成身體 | 本輪：1536 重新生成＋漆金材質＋同一顆頭 |
 | --- | --- |
@@ -52,7 +105,7 @@
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（54 MB） | 解壓後開啟 index.html；正／側／背、白模、網格、自轉 | 448,280 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（58 MB） | 已改用 pass 2 模型；解壓後開啟 index.html | 472,372 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 

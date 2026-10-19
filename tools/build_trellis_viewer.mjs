@@ -4,13 +4,14 @@ import {execFileSync} from 'node:child_process';
 const directory=process.argv[2]||'docs/experiments/future-sanada';
 const headStudy=process.argv.includes('--head-study');
 const bodyV2=process.argv.includes('--body-v2');
+const pass2=process.argv.includes('--pass2');
 const generation=JSON.parse(await fs.readFile(`${directory}/generation.json`));
 const legacy=generation.engine==='TRELLIS first generation';
 const engineLabel=bodyV2?'TRELLIS.2 全身＋頭部精修':headStudy?'TRELLIS.2＋Blender 頭部修整':legacy?'TRELLIS 第一代':'TRELLIS.2';
 const materialLabel=legacy?'烘焙色彩貼圖':'PBR 材質';
 const viewerDirectory=bodyV2?'.tmp/future-sanada-body-v2-viewer':headStudy?'.tmp/future-sanada-head-viewer':legacy?'.tmp/future-sanada-trellis1-viewer':'.tmp/future-sanada-viewer';
 const reference=await fs.readFile(legacy||bodyV2?`${directory}/../reference.png`:`${directory}/reference.png`);
-const model=await fs.readFile(`${directory}/${bodyV2?'refined/body-v2-preview.glb':headStudy?'refined/head-preview.glb':'future-sanada.glb'}`);
+const model=await fs.readFile(`${directory}/${bodyV2?(pass2?'pass2/body-v2-pass2-preview.glb':'refined/body-v2-preview.glb'):headStudy?'refined/head-preview.glb':'future-sanada.glb'}`);
 const source=`
 import {Engine,Scene,ArcRotateCamera,Vector3,Color3,Color4,HemisphericLight,DirectionalLight,SceneLoader,PBRMaterial,StandardMaterial} from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';

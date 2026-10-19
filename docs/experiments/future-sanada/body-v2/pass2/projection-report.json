@@ -4,7 +4,7 @@
     "boundary_edges_before": 7489,
     "loops_filled": 313
   },
-  "rasterize_seconds": 12.939880452999205,
+  "rasterize_seconds": 13.390293537999241,
   "texels_covered": 7318245,
   "flow": {
     "median_px": 19.7343692779541,
@@ -12,14 +12,25 @@
     "smoothing_sigma_px": 6
   },
   "projection": {
-    "texels_front": 413321,
-    "texels_back": 399710,
+    "texels_front": 397864,
+    "texels_back": 115747,
+    "texels_skirt_back_cleaned": 292231,
+    "cord_texels_kept": 22192,
+    "skirt_back_bilateral": {
+      "d": 9,
+      "sigma_color": 0.12,
+      "sigma_space": 4
+    },
     "albedo_gain": [
-      0.8528167605400085,
-      0.9170675873756409,
-      0.8884409070014954
+      0.8448636531829834,
+      0.960420548915863,
+      0.8907961249351501
     ],
     "visibility_eps": 0.012
+  },
+  "sheen": {
+    "nonmetal_roughness_floor": 0.52,
+    "coat_scale": 0.66
   },
   "triangles": 718135,
   "regions": {
@@ -38,5 +49,5 @@
       ]
     }
   },
-  "seconds": 173.3293390630006
+  "seconds": 180.3055751890006
 }
