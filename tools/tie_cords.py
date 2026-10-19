@@ -82,7 +82,7 @@ for side, sgn, anchor in (('A', -1, NECK_ANCHORS[0]), ('B', 1, NECK_ANCHORS[1]))
     S.set_mass(ropes[f'neck tail {side}'][-1], 6, .0085)
 # Shoulder cords: short braid from the fitting to a tassel head.
 for i, anchor in enumerate(SHOULDER_ANCHORS):
-    top, _ = front(*anchor, 1.4 * SHOULDER_R)
+    top, _ = front(*anchor, 1.4 * SHOULDER_R + .011)                # clear of the rebuilt lames' rolled top edge
     pts = resample(np.array([top, top + np.array([0, -.004, -.052])]), 1.4 * SHOULDER_R)
     ropes[f'shoulder {i}'] = S.add_rope(pts, 1, SHOULDER_R, bend=.5, pin_first=True)
     S.set_mass(ropes[f'shoulder {i}'][-1], 6, .0075)

@@ -17,6 +17,7 @@ p = argparse.ArgumentParser()
 p.add_argument('--model', required=True)
 p.add_argument('--output', required=True)
 p.add_argument('--rays', type=int, default=3000)
+p.add_argument('--split', action='store_true', help='Write one GLB per part (head, body, plates, cords) plus a manifest instead of one file')
 a = p.parse_args()
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -58,6 +59,34 @@ for x in np.linspace(-.16, .16, 17):
         if f[0] is not None and b[0] is not None and b[0].y - f[0].y > .05: collar.append([x, (f[0].y + b[0].y) / 2, z])
 collar = np.array(collar)
 audits = [audit(neck, 'neck interior (head/body junction)'), audit(collar, 'inside the torso along the collar line')]
+
+PARTS = {'body': ('Generated body v2', 'Back plate shell', 'Neck lining', 'Collar core', 'Energy seam'),
+         'plates': ('Plates /',), 'cords': ('Cords /', 'Tassels /')}
+def part_of(name):
+    return next((k for k, pre in PARTS.items() if name.startswith(pre)), 'head')
+if a.split:
+    # GitHub refuses files over 100 MB: one GLB per part, each joined to one object, plus a manifest.
+    import hashlib
+    manifest = {'parts': [], 'note': 'Load all parts into one scene; they share the same coordinate frame.'}
+    stem = Path(a.output).with_suffix('')
+    for part in ('head', 'body', 'plates', 'cords'):
+        group = [o for o in bpy.context.scene.objects if o.type == 'MESH' and part_of(o.name) == part]
+        if not group: continue
+        bpy.ops.object.select_all(action='DESELECT')
+        for o in group: o.select_set(True)
+        bpy.context.view_layer.objects.active = group[0]
+        if len(group) > 1: bpy.ops.object.join()
+        obj = bpy.context.view_layer.objects.active; obj.name = f'Sanada / {part}'
+        path = Path(f'{stem}-{part}.glb')
+        bpy.ops.export_scene.gltf(filepath=str(path.resolve()), export_format='GLB', use_selection=True)
+        manifest['parts'].append({'part': part, 'file': path.name, 'bytes': path.stat().st_size,
+                                  'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                                  'triangles': sum(len(f.vertices) - 2 for f in obj.data.polygons), 'materials': len(obj.data.materials)})
+    Path(f'{stem}-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+    report = {'split': True, 'parts': manifest['parts'], 'seam_audit': audits}
+    Path(a.output).with_name('merge-report.json').write_text(json.dumps(report, indent=2) + '\n')
+    print(json.dumps({'parts': [(q['part'], q['bytes'], q['triangles']) for q in manifest['parts']], 'see_through': [x['see_through_to_background'] for x in audits]}))
+    raise SystemExit
 
 # Join everything into one object (material slots preserved).
 bpy.ops.object.select_all(action='DESELECT')

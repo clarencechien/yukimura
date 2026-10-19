@@ -1,0 +1,95 @@
+{
+  "file": "body-v2-pass8-body.glb",
+  "sha256": "c454027f7920fd349a8227071db3865a9a901b469766c1c2b2d2c5c688971498",
+  "bytes": 62038756,
+  "vertices": 502136,
+  "triangles": 515312,
+  "degenerate_triangles": 0,
+  "bounds": [
+    [
+      -0.440444678068161,
+      0.0,
+      -0.3433140218257904
+    ],
+    [
+      0.4404446482658386,
+      1.5878305435180664,
+      0.3433140218257904
+    ]
+  ],
+  "extent": [
+    0.8808892965316772,
+    1.5878305435180664,
+    0.6866280436515808
+  ],
+  "materials": [
+    {
+      "name": "Body v2 lacquer / gilding / under-armour",
+      "baseColorTexture": {
+        "index": 1
+      },
+      "metallicRoughnessTexture": {
+        "index": 2
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Chest lacquer under the cords / right paddle tassel",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Chest lacquer under the cords / left paddle tassel",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Waist band / dark cloth under the cord",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Skirt lacquer under the tassels",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Back plate lacquer / reference",
+      "baseColorTexture": {
+        "index": 3
+      },
+      "metallicRoughnessTexture": {
+        "index": 4
+      },
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam slot / dark recess",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Energy seam / orange glow",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Neck lining / dark quilted cloth",
+      "baseColorTexture": null,
+      "metallicRoughnessTexture": null,
+      "alphaMode": "OPAQUE"
+    }
+  ],
+  "embedded_images": 5,
+  "skins": 0,
+  "animations": 0,
+  "validated": true,
+  "material_profile": "pbr",
+  "primitives_without_normals": 0
+}
