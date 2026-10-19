@@ -242,14 +242,19 @@ gold = smoothstep(24, 32, h) * (1 - smoothstep(60, 70, h)) * smoothstep(.25, .4,
 red = (1 - smoothstep(14, 24, hue_red)) * smoothstep(.3, .45, sat) * smoothstep(.06, .12, val) * (1 - gold)
 dark = (1 - smoothstep(.1, .2, val)) * (1 - red) * (1 - gold)
 rest = np.clip(1 - red - gold - dark, 0, 1)
-metal = gold + dark * .12 + rest * .2; rough = red * .44 + gold * .32 + dark * .6 + rest * .55
+metal = gold + dark * .12 + rest * .2; rough = red * .52 + gold * .32 + dark * .6 + rest * .55
 # MR / coat images may be smaller than the colour texture; write through scaled indices.
 def write_scaled(img_arr, values, channels):
     sh = img_arr.shape[0]; yy = (idx[0] * sh // size); xx = (idx[1] * sh // size)
     for c, val_ in channels.items():
         cur = img_arr[yy, xx, c]; img_arr[yy, xx, c] = cur * (1 - w) + val_ * w
 write_scaled(mr, None, {1: rough, 2: metal})
-write_scaled(coat, None, {0: red * .15, 1: red * .15, 2: red * .15})
+write_scaled(coat, None, {0: red * .1, 1: red * .1, 2: red * .1})
+# Pass-2 sheen: the lacquer read as a pale pink wash under the studio rim light. Raise the
+# roughness floor of non-metal texels everywhere and thin the coat.
+nonmetal = mr[..., 2] < .3
+mr[..., 1] = np.where(nonmetal, np.maximum(mr[..., 1], .52), mr[..., 1]); coat[..., :3] *= .66
+report['sheen'] = {'nonmetal_roughness_floor': .52, 'coat_scale': .66}
 color_node.image.pixels.foreach_set(color.ravel()); color_node.image.pack()
 mr_small.pixels.foreach_set(mr.ravel()); mr_small.pack(); coat_small.pixels.foreach_set(coat.ravel()); coat_small.pack()
 

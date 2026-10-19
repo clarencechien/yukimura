@@ -40,20 +40,35 @@ body = next(o for o in bpy.context.scene.objects if o.data.materials and o.data.
 co = np.empty(len(body.data.vertices) * 3, np.float32); body.data.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
 nm = np.empty(len(body.data.vertices) * 3, np.float32); body.data.vertices.foreach_get('normal', nm); nm = nm.reshape(-1, 3)
 
-# Height field y(x, z) of the outermost back surface (back = +Y).
+# Height field y(x, z) of the outermost back surface (back = +Y): one ray per cell from behind.
+# (The remeshed plate is flat with large triangles, so vertex sampling misses the outer shell.)
+from mathutils.bvhtree import BVHTree
+from mathutils import Vector
 hw, (z0, z1) = a.half_width, a.z_range
 margin = .03; step = .003
 xs = np.arange(-hw - margin, hw + margin + 1e-9, step); zs = np.arange(z0 - margin, z1 + margin + 1e-9, step)
-sel = (np.abs(co[:, 0]) < hw + margin + .01) & (co[:, 2] > z0 - margin - .01) & (co[:, 2] < z1 + margin + .01) & (nm[:, 1] > .2)
-ix = np.clip(np.round((co[sel, 0] - xs[0]) / step).astype(int), 0, len(xs) - 1)
-iz = np.clip(np.round((co[sel, 2] - zs[0]) / step).astype(int), 0, len(zs) - 1)
-field = np.full((len(zs), len(xs)), -np.inf); np.maximum.at(field, (iz, ix), co[sel, 1])
-known = np.isfinite(field)
-# Holes / empty cells: nearest known value, then a robust median and a light blur.
-nearest = ndimage.distance_transform_edt(~known, return_distances=False, return_indices=True)
-field = field[tuple(nearest)]
-field = ndimage.median_filter(field, size=7)
-field = ndimage.gaussian_filter(field, 2.5)
+bm_ = bmesh.new(); bm_.from_mesh(body.data); tree = BVHTree.FromBMesh(bm_); bm_.free()
+field = np.full((len(zs), len(xs)), np.nan)
+for j, z in enumerate(zs):
+    for i, x in enumerate(xs):
+        hit = tree.ray_cast(Vector((x, 1.0, z)), Vector((0, -1, 0)), 2.0)
+        if hit[0] is not None: field[j, i] = hit[0].y
+hits = np.isfinite(field)
+# A plate is smooth: robust bivariate polynomial fit. Rays through the plate's tunnels hit deeper
+# surfaces and are rejected iteratively (one-sided: only cells below the fit by > 4 mm).
+X0, Z0 = np.meshgrid((xs - xs.mean()) / (xs.ptp() / 2), (zs - zs.mean()) / (zs.ptp() / 2))
+DEG = 4
+terms = [(i, j) for i in range(DEG + 1) for j in range(DEG + 1 - i)]
+A = np.stack([X0 ** i * Z0 ** j for i, j in terms], -1)
+keep = hits.copy()
+for _ in range(8):
+    coef, *_ = np.linalg.lstsq(A[keep], field[keep], rcond=None)
+    smooth = A @ coef
+    keep = hits & (field > smooth - .004)
+residual = np.where(keep, field - smooth, 0)
+# Keep gentle shape the polynomial misses (|residual| < 3 mm, blurred), never the tunnels.
+field = smooth + ndimage.gaussian_filter(np.clip(residual, -.003, .003), 3)
+known = keep
 
 # Lame relief: each lame leans out toward its lower edge, the next one starts tucked under it.
 gaps_z = sorted((v0 - np.array(a.gap_rows)) / s, reverse=True)       # top to bottom
@@ -74,13 +89,16 @@ src = Image.open(a.back_reference).convert('RGBA')
 cu0, cu1 = int(u0 + s * xs[0]) - 2, int(u0 + s * xs[-1]) + 3
 cv0, cv1 = int(v0 - s * zs[-1]) - 2, int(v0 - s * zs[0]) + 3
 crop = src.crop((cu0, cv0, cu1, cv1)).resize(((cu1 - cu0) * 2, (cv1 - cv0) * 2), Image.LANCZOS)
-crop_path = out / 'back-plate-color.png'; crop.convert('RGB').save(crop_path)
+gain = np.array(json.loads((out / 'projection-report.json').read_text())['projection']['albedo_gain'], np.float32)
+crop_rgb = np.clip(np.asarray(crop.convert('RGB'), np.float32) / 255 * gain, 0, 1)
+crop = Image.fromarray((crop_rgb * 255 + .5).astype(np.uint8))
+crop_path = out / 'back-plate-color.png'; crop.save(crop_path)
 rgb = np.asarray(crop.convert('RGB'), np.float32) / 255
 h, sat, val = rgb_to_hsv(rgb)
 gold = smoothstep(24, 32, h) * (1 - smoothstep(60, 70, h)) * smoothstep(.25, .4, sat) * smoothstep(.28, .4, val)
 red = (1 - smoothstep(14, 24, np.abs(((h + 180) % 360) - 180))) * smoothstep(.3, .45, sat) * (1 - gold)
 mr = np.zeros(rgb.shape, np.float32)
-mr[..., 1] = red * .44 + gold * .32 + (1 - red - gold).clip(0) * .6
+mr[..., 1] = red * .52 + gold * .32 + (1 - red - gold).clip(0) * .6
 mr[..., 2] = gold + (1 - red - gold).clip(0) * .12
 mr_path = out / 'back-plate-metal-rough.png'; Image.fromarray((mr * 255).astype(np.uint8)).save(mr_path)
 
@@ -105,12 +123,12 @@ tm = nodes.new('ShaderNodeTexImage'); tm.image = bpy.data.images.load(str(mr_pat
 sep = nodes.new('ShaderNodeSeparateColor')
 links.new(tc.outputs['Color'], bsdf.inputs['Base Color']); links.new(tm.outputs['Color'], sep.inputs['Color'])
 links.new(sep.outputs['Green'], bsdf.inputs['Roughness']); links.new(sep.outputs['Blue'], bsdf.inputs['Metallic'])
-bsdf.inputs['Coat Weight'].default_value = .12; bsdf.inputs['Coat Roughness'].default_value = .2
+bsdf.inputs['Coat Weight'].default_value = .08; bsdf.inputs['Coat Roughness'].default_value = .2
 mesh.materials.append(mat)
 
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.export_scene.gltf(filepath=str((out / 'body-v2-pass2.glb').resolve()), export_format='GLB', use_selection=True)
-report = {'half_width': hw, 'z_range': [z0, z1], 'grid_step': step, 'cells': list(field.shape), 'known_cells': int(known.sum()),
+report = {'half_width': hw, 'z_range': [z0, z1], 'grid_step': step, 'cells': list(field.shape), 'ray_hits': int(hits.sum()), 'kept_cells': int(known.sum()), 'fit': f'robust degree-{DEG} polynomial + clipped residual',
           'gap_rows_px': a.gap_rows, 'gap_z': [float(g) for g in gaps_z], 'relief_max': .0055, 'offset_inside': .003, 'border_sink': -.006,
           'shell_triangles': len(mesh.polygons), 'crop_px': [cu0, cv0, cu1, cv1],
           'triangles': sum(len(f.vertices) - 2 for o in bpy.context.scene.objects if o.type == 'MESH' for f in o.data.polygons)}
