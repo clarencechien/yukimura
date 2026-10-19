@@ -1,0 +1,24 @@
+{
+  "source": "docs/experiments/future-sanada/reference.png",
+  "lames_box": [
+    395,
+    535,
+    440,
+    636
+  ],
+  "plate_box": [
+    367,
+    647,
+    372,
+    636
+  ],
+  "lame_pitch_px": 37,
+  "centre_px": 507,
+  "knot_box": [
+    378,
+    532,
+    660,
+    762
+  ],
+  "knot_shift_px": 100
+}
