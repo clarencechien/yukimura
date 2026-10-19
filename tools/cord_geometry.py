@@ -68,3 +68,48 @@ def loop(bm, centre, R, width, height, tilt, side):
     c, s = np.cos(tilt), np.sin(tilt)
     ring = ring @ np.array([[c, 0, -s], [0, 1, 0], [s, 0, c]]).T + centre
     braided_cord(bm, ring, R)
+
+
+def resample(path, spacing):
+    """Uniform arc-length resampling of a polyline (linear between input points)."""
+    path = np.asarray(path, float)
+    seg = np.linalg.norm(np.diff(path, axis=0), axis=1); s = np.concatenate([[0], np.cumsum(seg)])
+    n = max(int(s[-1] / spacing), 2) + 1; t = np.linspace(0, s[-1], n)
+    return np.stack([np.interp(t, s, path[:, k]) for k in range(3)], 1)
+
+
+def kumihimo(bm, path, R, pitch=None, strands=8, sides=6):
+    """Round kumihimo braid: half the strands spiral each way and alternate over/under where
+    they cross (radius modulated at four times the twist rate; opposite sign per direction)."""
+    path = resample(catmull(list(path), 4) if len(path) > 3 else path, R * .3)
+    pitch = pitch or 7 * R
+    T, N, B = frames(path); s = np.concatenate([[0], np.cumsum(np.linalg.norm(np.diff(path, axis=0), axis=1))])
+    w = 2 * np.pi / pitch; half = strands // 2
+    for k in range(strands):
+        sgn = 1 if k < half else -1
+        base = 2 * np.pi * (k % half) / half + (0 if sgn > 0 else np.pi / half)
+        ang = base + sgn * w * s
+        rr = R * .5 + sgn * R * .26 * np.sin(4 * w * s)
+        strand = path + rr[:, None] * (np.cos(ang)[:, None] * N + np.sin(ang)[:, None] * B)
+        tube(bm, strand, R * .31, sides=sides)
+
+
+def reef_knot_design(entry_y=7., exit_y=-6.5, half_width=1.5):
+    """Two interlaced bights in knot units (cord radius = 1): A enters upper-left, makes its bight
+    on the right and leaves lower-left; B mirrors it. Arms interleave (A at y 3/-1, B at 1/-3) so
+    each bend crosses one arm of the other cord; w (toward viewer) alternates over/under."""
+    c = half_width
+    A = [(-8, entry_y, 0), (-6, 3, -.3), (-2, 3, -.4), (c, 3, .2)]
+    A += [(c + 2 * np.sin(t), 1 + 2 * np.cos(t), 1.15 * np.sin(t) ** 2) for t in np.linspace(.3, np.pi - .3, 7)]
+    A += [(c, -1, -.2), (-2, -1, -.6), (-4.5, -1, -1.15), (-5.5, -2.5, -.4), (-2.6, exit_y, 0)]
+    B = [(8, entry_y, 0), (6, 1, .3), (2, 1, -1.15), (-c, 1, -.4)]
+    B += [(-c - 2 * np.sin(t), -1 + 2 * np.cos(t), .5 + .65 * np.sin(t) ** 2) for t in np.linspace(.3, np.pi - .3, 7)]
+    B += [(-c, -3, .2), (2, -3, .3), (5, -3, .1), (5.5, -4.5, .1), (2.6, exit_y - .4, 0)]
+    return np.array(A, float), np.array(B, float)
+
+
+def coil(bm, centre, axis, e1, e2, radius_fn, z0, z1, turns, R, sides=5):
+    """Wrapping of thin cord around an axis: radius_fn(t) gives the wrap radius at t in [0, 1]."""
+    t = np.linspace(0, 1, int(turns * 24))
+    pts = np.array([centre + axis * (z0 + (z1 - z0) * u) + radius_fn(u) * (np.cos(2 * np.pi * turns * u) * e1 + np.sin(2 * np.pi * turns * u) * e2) for u in t])
+    tube(bm, pts, R, sides=sides)

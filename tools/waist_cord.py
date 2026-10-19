@@ -18,6 +18,7 @@ from cord_geometry import catmull, braided_cord, knot, fringe, loop
 p = argparse.ArgumentParser()
 p.add_argument('--model', required=True)
 p.add_argument('--output', required=True)
+p.add_argument('--clear-only', action='store_true', help='Flatten the generated knot only; tie_cords.py builds the new cord')
 a = p.parse_args()
 
 FLATTEN = (-.155, .058, .975, 1.128)   # old heart knot + tassels, gridded unlit front render
@@ -75,6 +76,11 @@ all_moved = np.logical_and.reduceat(moved[fv], starts)
 mi = np.empty(len(body.data.polygons), np.int32); body.data.polygons.foreach_get('material_index', mi)
 mi[all_moved] = band_index; body.data.polygons.foreach_set('material_index', mi); body.data.update()
 
+if a.clear_only:
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.export_scene.gltf(filepath=str(Path(a.output).resolve()), export_format='GLB', use_selection=True)
+    rep = {'flattened_vertices': int(move.sum()), 'dark_band_faces': int(all_moved.sum()), 'ring_points': int(len(ring))}
+    Path(a.output).with_name('waist-clear-report.json').write_text(json.dumps(rep, indent=2) + '\n'); print(json.dumps(rep)); raise SystemExit
 # 2. Waist path: rays from outside toward the axis; step past forearm hits.
 tree = bvh(objs)
 path = []

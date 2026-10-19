@@ -22,6 +22,7 @@ p.add_argument('--model', required=True)
 p.add_argument('--output', required=True)
 p.add_argument('--reference', default='docs/experiments/future-sanada/reference.png')
 p.add_argument('--flow-cache', default='.tmp/v3/flow.npz')
+p.add_argument('--clear-only', action='store_true', help='Remove / flatten the generated cords only; tie_cords.py builds the new ones')
 a = p.parse_args()
 
 # Boxes (x0, x1, z0, z1) measured on a gridded unlit front render (front = -Y).
@@ -101,6 +102,11 @@ for name, (x0, x1, z0, z1) in FLATTEN.items():
     co[move, 1] = target[move]
     flattened[name] = {'vertices_moved': int(move.sum()), 'ring_points': int(len(ring)), 'ring_kept': int(keep.sum())}
 body.data.vertices.foreach_set('co', co.ravel()); body.data.update()
+if a.clear_only:
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.export_scene.gltf(filepath=str(Path(a.output).resolve()), export_format='GLB', use_selection=True)
+    Path(a.output).with_name('neck-clear-report.json').write_text(json.dumps({'removed': removed, 'flattened': flattened}, indent=2) + '\n')
+    print(json.dumps({'removed': removed, 'flattened': flattened})); raise SystemExit
 bm_all = bmesh.new()
 for o in objs: bm_all.from_mesh(o.data)
 tree = BVHTree.FromBMesh(bm_all); bm_all.free()
