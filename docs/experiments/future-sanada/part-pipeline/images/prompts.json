@@ -52,5 +52,47 @@
     "cost_usd": 0.14173,
     "seconds": 56.5,
     "text_reply": ""
+  },
+  {
+    "file": "sheet-back-knotB.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Edit the first image (the BACK view of this armoured samurai). Keep everything else exactly the same: same pose, framing, scale, lighting, grey background, helmet, shoulder guards, back plates, skirt plates, arms and legs. Change ONLY the big flat red cord bow on the upper back, which currently looks like a gift ribbon painted onto the plates. The second image is the front view, for matching the cord style (the same thick red braided cord and tassels as the neck and waist cords).\nReplace it with a compact futuristic version of the agemaki: a round gold metal fitting engraved with the six-coin (rokumonsen) crest, mounted at the centre of the back plate between the shoulder blades, with a short, tight, three-dimensional agemaki knot of thick red braided cord tied through it and two red tassels with gold bands hanging just below it. Small, neat and clearly attached, about the width of one lame, with real depth and a soft contact shadow. No cords running to the shoulders.\nNo text, no labels.",
+    "references": [
+      "sheet-back.png",
+      "ab-front-gemini-3-pro-image.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.14114,
+    "seconds": 36.6,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-back-knotA.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Edit the first image (the BACK view of this armoured samurai). Keep everything else exactly the same: same pose, framing, scale, lighting, grey background, helmet, shoulder guards, back plates, skirt plates, arms and legs. Change ONLY the big flat red cord bow on the upper back, which currently looks like a gift ribbon painted onto the plates. The second image is the front view, for matching the cord style (the same thick red braided cord and tassels as the neck and waist cords).\nReplace it with a traditional agemaki knot as on real Japanese armour: a small gold ring fitting (kan) riveted to the back plate at about the third lame from the top, between the shoulder blades; from it hangs a compact, three-dimensional agemaki knot of thick red braided cord, with the characteristic cross-shaped centre knot, two short rounded loops to the left and right, and two cord tails hanging down about a hand's length, each ending in a bound red tassel with a gold band. The knot stands off the plates with real depth and casts a soft contact shadow. Two thinner red cords run from the knot up and outward to the backs of the shoulder guards (sode), as if they tie the sode to the back.\nNo text, no labels.",
+    "references": [
+      "sheet-back.png",
+      "ab-front-gemini-3-pro-image.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.141188,
+    "seconds": 39.3,
+    "text_reply": ""
+  },
+  {
+    "file": "sheet-back-knotA2.png",
+    "model": "google/gemini-3-pro-image",
+    "prompt": "Edit the first image (the BACK view of this armoured samurai). Keep everything else exactly the same: same pose, framing, scale, lighting, grey background, helmet, shoulder guards, back plates, skirt plates, arms and legs. Change ONLY the big flat red cord bow on the upper back, which currently looks like a gift ribbon painted onto the plates. The second image is the front view, for matching the cord style (the same thick red braided cord and tassels as the neck and waist cords).\nReplace it with a traditional agemaki knot as on real Japanese armour: a small gold ring fitting (kan) riveted to the back plate at about the third lame from the top, between the shoulder blades; from it hangs a SMALL agemaki knot (overall about 15 cm wide, no wider than one third of the back plate) of red braided cord of the same thickness as the neck cords, with the characteristic cross-shaped centre knot, two short rounded loops to the left and right, and two short cord tails hanging down past two lames, each ending in a bound red tassel with a gold band. The knot stands off the plates with real depth and casts a soft contact shadow. Two thin red cords run from the knot up and outward to the backs of the shoulder guards (sode); they lie flat against the plates. The knot must stay above the waist cord; the skirt plates stay fully visible.\nNo text, no labels.",
+    "references": [
+      "sheet-back.png",
+      "ab-front-gemini-3-pro-image.png"
+    ],
+    "aspect": "2:3",
+    "size": "2K",
+    "cost_usd": 0.141276,
+    "seconds": 45.3,
+    "text_reply": ""
   }
 ]
