@@ -146,7 +146,7 @@ node tools/build_trellis_viewer.mjs docs/experiments/future-sanada/body-v2 --bod
 | --- | --- | ---: | --- |
 | [body-v2.glb](refined/body-v2.glb)（91 MB） | 完整版，後續修整基底 | 718,116 | 身體 4096² 色彩、2048² 金屬／粗糙、1024² 清漆遮罩 |
 | [body-v2-preview.glb](refined/body-v2-preview.glb)（57 MB） | 身體減面 45%，檢視器使用 | 448,280 | ≤ 2048² |
-| [互動檢視器 ZIP](viewer.zip)（56 MB） | 已改用 pass 3 模型；解壓後開啟 index.html | 473,718 | 內嵌 |
+| [互動檢視器 ZIP](viewer.zip)（58 MB） | 已改用 pass 3 模型；解壓後開啟 index.html | 473,718 | 內嵌 |
 
 GitHub 檔案頁按 **Download raw file**。Blender 可直接匯入 GLB；`.blend` 太大，未放入 Git，可依下方指令重建。
 
