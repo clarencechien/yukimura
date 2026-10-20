@@ -1,0 +1,43 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "pipeline": "1536_cascade",
+  "mode": "multi",
+  "seed": 7,
+  "views": [
+    "front",
+    "back",
+    "left",
+    "right"
+  ],
+  "temperature": 2.0,
+  "mirror_right": true,
+  "inputs_sha256": {
+    "front": "57ddeed4e7d0aa0a21058fea1c5151d5505b33913dc54ec635d3f6975ff56413",
+    "back": "0da1ea671a6f6c87f44a6ccfc816525422a47c93ac98d1cc7fa0ffb52b98b95b",
+    "left": "987e5b8d28079d0ac6f2c711890588d089a31028f5cf345786ba69a4b46baa56"
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "actual_resolution": 1536,
+  "inference_seconds": 181.8,
+  "sparse_extent_xyz": [
+    [
+      15,
+      7,
+      31
+    ],
+    [
+      15,
+      7,
+      31
+    ],
+    [
+      15,
+      7,
+      31
+    ]
+  ],
+  "export_seconds": 72.2,
+  "source_triangles": 13589288,
+  "invocation_seconds": 346.5,
+  "status": "completed"
+}
