@@ -1,0 +1,204 @@
+# 未來赤備：拆件生成＋既有骨架組裝
+
+計劃見 [PLAN.md](PLAN.md)。每個階段的對照圖放在這裡，通過後才進下一階段。
+
+## 第 0 階段：圖像模型 A/B
+
+同一張原圖、同一段提示（正面、正交、A 姿勢、灰底、平光，保留全部造型細節，[提示全文](images/prompts.json)），請兩個模型各畫一張。工具：[gen_image.py](../../../../tools/part_pipeline/gen_image.py)。
+
+![](stage0-ab.jpg)
+
+左：原圖。中：`google/gemini-3-pro-image`（Nano Banana Pro）。右：`openai/gpt-image-2.5-flare`。
+
+| | Nano Banana Pro | GPT Image 2.5 Flare |
+| --- | --- | --- |
+| 與原圖造型一致 | 較高：體型厚實、袖與膝甲的形狀接近原圖 | 較瘦，部分甲片重新設計（袖變長、膝甲變小） |
+| A 姿勢、對稱 | 手臂角度較小（約 25°），對稱良好 | 標準 A 姿勢、最對稱 |
+| 解析度 | 1696 × 2528 | 1024 × 1536 |
+| 費用 | 0.140 美元 | 0.055 美元 |
+
+兩張都已去掉原圖的光暈與暗背景，水平甲片、六文錢、鹿角、能量槽都保留。
+
+**建議：用 Nano Banana Pro。** 它最忠於原圖，解析度也高，而且據評測多參考圖（之後畫側面、背面、單件都要以正面為參考）較穩。缺點是單價較高：以剩餘約 7.8 美元計，約可畫 55 張，本計劃預估需要 20–25 張。
+
+[原圖檔](images/)：`ab-front-gemini-3-pro-image.png`、`ab-front-gpt-image-2.5-flare.png`。
+
+## 第 1 階段：三視圖
+
+選定 Nano Banana Pro。以第 0 階段的正面圖為主參考、原圖為輔，畫左側與背面（各 0.14 美元，[提示全文](images/prompts.json)）。
+
+![](stage1-turnaround.jpg)
+
+[正面](images/ab-front-gemini-3-pro-image.png)、[左側](images/sheet-side.png)、[背面](images/sheet-back.png)，各 1696 × 2528。
+
+- 三張的身高、比例、A 姿勢一致，可以直接當建模的正交參考。
+- **背面是新設計的**：原圖沒有背面，這次補上同樣水平排列的背甲、背上的總角結（紅繩蝴蝶結）、後草摺，以及頭盔後方張開的錏（護頸）。
+- 側面看得出胴甲包覆身體的弧度、袖的厚度、草摺垂掛的位置，以及膝、脛、靴的側面輪廓。
+- 小差異：側面的袖比正面略方，背面的手甲比正面略簡化。單件圖會以正面為準，統一這些細節。
+
+### 背面紅繩結：改設計
+
+依回饋，原本背上的大蝴蝶結像禮物緞帶貼在甲片上。以背面圖為底、只改繩結，畫了三版（各 0.14 美元）：
+
+![](stage1-back-knot.jpg)
+
+左：原版。中：**傳統總角結**：背甲上方一個金環，掛一個小總角結，兩條尾繩加流蘇垂到腰繩，另有兩條細繩往上連到兩邊袖的背面。右：**六文錢金具**：背甲中央一枚刻六文錢的圓金具，下面一個緊湊的小結與流蘇，沒有連到袖的繩。
+
+（第一次畫傳統版時繩結過大、繩粗如船纜，已重畫成中間這版：[過大版](images/sheet-back-knotA.png)。）
+
+背面定為 **A：傳統總角結**（[背面正式版](images/sheet-back-knotA2.png)）。
+
+## 第 2 階段：單件圖
+
+每件以三張設定圖（正面、左側、背面總角結版）為參考，單獨畫在灰底上，3/4 視角，沒有身體、內側中空。部件與提示在 [parts.json](../../../../tools/part_pipeline/parts.json)，工具 [gen_parts.py](../../../../tools/part_pipeline/gen_parts.py)。左右對稱的件只畫左邊，3D 時鏡像。
+
+![](stage2-parts.jpg)
+
+| 部件 | 結果 |
+| --- | --- |
+| 頭盔 | 鹿角、六文錢、錏、吹返、面具一體；面具內是空的 |
+| 胴（前） | 6 段水平甲片、綿嚙（肩帶）、兩側能量槽；不含繩結 |
+| 胴（後） | 同樣的水平甲片，金環掛總角結與兩條流蘇 |
+| 袖 | 5 段甲片、底段金波紋 |
+| 草摺 | 畫成中央一片加左右兩片掛在繩上；建模時只取中央那片 |
+| 籠手 | 上臂機械袖、肘甲、前臂甲與能量槽，兩端中空 |
+| 手甲 | 黑色機械手套、紅金指甲片、手背板 |
+| 佩楯 | 畫成左右兩片大腿甲 |
+| 膝甲 | 圓形膝蓋板、黑色關節殼與橘燈 |
+| 脛當 | 紅金甲片、垂直能量槽、小腿紅繩 |
+| 足甲 | 紅金甲片、黑色機械靴、厚胎紋鞋底 |
+
+第一輪有三件重畫（各 0.14 美元）：袖的下面多畫了一雙靴子；草摺畫成整圈裙；膝甲畫得像頭盔。
+
+## 第 3 階段：逐件 3D
+
+每件單件圖先以色鍵去背（灰底很平，不需要去背網路；[cutout.py](../../../../tools/part_pipeline/cutout.py)），再在 Modal H100 以 TRELLIS.2 1536 cascade 一件一件生成（[trellis_parts_modal.py](../../../../tools/part_pipeline/trellis_parts_modal.py)，`python tools/run_trellis.py --parts-study --names … --seeds 1615`）。每件約 4–9 分鐘，原資料先存進 Modal Volume `yukimura-trellis2-cache/results/future-sanada-parts/`，再匯出兩種：開放曲面（`high`）與重網格封閉版（`closed`），各約 30 萬面、2048 貼圖。
+
+**選用的結果**（左起：輸入、上色 30°、上色 210°、白模 30°、白模 210°；全部用封閉版）：
+
+![](stage3/stage3-parts.jpg)
+
+| 部件 | 結果 |
+| --- | --- |
+| 頭盔 | 鹿角、六文錢、吹返、面具、錏都成形，背面護頸也合理 |
+| 胴（前） | 6 段水平甲片與綴繩是真的幾何；背面是 TRELLIS 推測的平板，組裝時只用前半 |
+| 胴（後） | 總角結與流蘇有立體幾何；組裝時只用後半 |
+| 袖 | 5 段甲片、綴繩、上緣金具 |
+| 草摺 | **改用程式生成**（見下）：5 段水平甲片，貼圖取自單件圖 |
+| 籠手 | 只取肘到腕（見下）；肘甲與前臂甲成形 |
+| 手甲 | 五指分開、指甲片清楚，可再綁指骨 |
+| 佩楯、膝、脛、足 | 皆成形；膝與脛的背面為推測 |
+
+**和 body v2 同部位比較**（上：body v2 pass 8／9，下：本階段單件）：
+
+![](stage3/stage3-vs-body-v2.jpg)
+
+**失敗與對策**
+
+![](stage3/stage3-failed.jpg)
+
+- **草摺**：正面平視的平板沒有深度線索，TRELLIS 生成碎片。改寫 [kusazuri_panel.py](../../../../tools/part_pipeline/kusazuri_panel.py)：5 段弧形甲片（外傾、上緣塞入上一片、金色捲邊），每個頂點透過圖中面板的梯形取樣單件圖，背面為深色漆。約 1 萬面。
+- **整條手臂**：肩口的圓洞被當成脖子，生成出一件有手臂的上衣。改在肘部切開：肘到腕（`kote-forearm`）成功；上臂甲（`kote-upper`）兩個 seed 都變成背心，第 4 階段改用程式生成的弧形甲片。
+- **開放曲面的小洞**：開放版在薄甲片上有針孔狀破洞（白模上的黑色裂紋），封閉版沒有，因此全部改用封閉版。
+
+GLB 每件約 20–28 MB，未放入 Git，可由 Modal Volume 重新下載：`python tools/run_trellis.py --parts-study --names helmet,… --seeds 1615 --download-only`。去背後的輸入圖可由 `cutout.py` 重建，也不放入 Git。
+
+## 第 4 階段：組裝與綁定（第一版）
+
+**身體與骨架（[build_body.py](../../../../tools/part_pipeline/build_body.py)）**：直接用遊戲中幸村的 92 關節骨架與 8 個戰鬥動作（`public/models/yukimura.glb`）。MPFB CC0 人體先左右鏡像（遊戲骨架的 `.L` 在 −X，MPFB 在 +X），再逐段對到遊戲骨架：四肢以「關節到下一個關節」為一段，轉向、拉長到遊戲長度；軀幹共用一個最小平方仿射，避免鎖骨與髖部撕裂。遊戲骨架的 `body.*` 骨尾一律朝上，只能當樞軸用，所以不用它的方向。
+
+**甲片擺放（[orient_parts.py](../../../../tools/part_pipeline/orient_parts.py)、[assemble.py](../../../../tools/part_pipeline/assemble.py)、[parts-layout.json](../../../../tools/part_pipeline/parts-layout.json)）**
+- 以鏡像對稱自動求每件的朝向：TRELLIS 輸出已是正面朝前（−Y）、對稱面在 x=0，不必再轉。
+- 每件依版面設定錨定在骨頭上（頭盔→頭、胴→胸、袖→肩、籠手→肘與腕之間、膝、脛、足），依最大尺寸縮放；四肢件以主成分軸對齊骨段。左右件只生成一邊，另一邊鏡像。
+- 胴前只保留前半、胴後只保留後半，在身體中線附近切開。
+- 被甲片完全取代的身體部位（腳掌、手）直接刪除，避免穿出。
+- 綁定：甲片逐件 100% 綁單一骨，與現行武將相同；草摺上緣綁骨盆、往下漸漸交給大腿（最多 50–70%）；袖從肩骨漸漸交給上臂（65%）。
+
+![](stage4/stage4-turnaround.jpg)
+
+左起：正面、斜側、側面、背面、白模正面、白模側面。
+
+**動作測試**（遊戲原有的斬、跑、刺，各取一格）：所有甲片跟著身體走，無脫離。
+
+![](stage4/stage4-poses.jpg)
+
+**和設定圖比較**（設定圖正面、模型正面、設定圖側面、模型側面）：
+
+![](stage4/stage4-vs-concept.jpg)
+
+**這一版還差的地方**
+- **體型太瘦**：MPFB 預設體型比設定圖的武將細，腿顯得長而細，甲片之間露出太多黑色身體。下一步要把身體加寬加厚（或依設定圖比例縮放甲片間距）。
+- **草摺太短、太小**：設定圖的草摺垂到大腿中段、片數多；現在 6 片、30 cm 不夠。
+- **上臂甲缺**：上臂目前是黑色緊身衣；需補程式生成的上臂甲片。
+- **繩與結**：頸前繩結、腰繩、流蘇還沒加（可沿用 body v2 的物理繩工具）。
+- **黑色緊身衣材質**：目前是單色亮黑，需要布紋或機械紋理貼圖。
+- **手甲方向**：手背與掌心方向還要再對；手指目前不動。
+- **面數**：預覽版每件 1.5–4 萬面，總計約 50 萬面；遊戲版還沒減面與烘焙。
+
+重建（Blender 4.3 bpy，零件 GLB 由 Modal 下載到 `.tmp/parts`）：
+
+```sh
+python tools/part_pipeline/build_body.py --output .tmp/stage4/body.blend
+python tools/part_pipeline/orient_parts.py --parts .tmp/parts --output .tmp/stage4/parts-orient.json
+python tools/part_pipeline/kusazuri_panel.py --output .tmp/parts/kusazuri-proc/seed-0/kusazuri-proc-high.glb
+python tools/part_pipeline/assemble.py --body .tmp/stage4/body.blend --layout tools/part_pipeline/parts-layout.json --output .tmp/stage4/assembled.blend
+python tools/part_pipeline/render_assembly.py --blend .tmp/stage4/assembled.blend --output .tmp/stage4/final --pose slash:0.45 --views three-quarter
+```
+
+### 第二版：體型、草摺、上臂甲
+
+- **體型**（[build_body.py](../../../../tools/part_pipeline/build_body.py) `BULK`）：四肢沿骨頭的橫向加粗（大腿 1.45 倍、小腿 1.35、上臂 1.3、前臂 1.2），軀幹以自身中軸左右 1.12、前後 1.2 倍。關節位置不變，仍對齊遊戲骨架。
+- **草摺**：長度由 30 cm 加到 44 cm，上緣接在胴下緣、下緣到大腿中段；前、側、後各兩片，往外擴。佩楯、膝、脛、足甲也依設定圖加大。
+- **上臂甲**（[curved_plate.py](../../../../tools/part_pipeline/curved_plate.py)）：TRELLIS 兩次都把上臂甲生成成背心，改用程式生成的 210° 弧形甲片，貼圖取自手臂單件圖的上臂甲區域，上下金邊；從上臂到肘之間，綁上臂第二段骨。
+
+![](stage4/stage4b-turnaround.jpg)
+
+![](stage4/stage4b-vs-concept.jpg)
+
+動作測試仍然全部跟著身體走：
+
+![](stage4/stage4b-poses.jpg)
+
+**還差的地方**
+- 胴比設定圖窄，正面草摺像一整片平板（兩片前草摺並排、沒有分片的層次）。
+- 頸前繩結、腰繩與流蘇還沒加。
+- 黑色部位在設定圖是有紋理的機械護甲與布，目前是單色亮黑。
+- 手甲方向、手指不動；遊戲版減面與烘焙未做。
+
+### 第三版：從「骷髏兵」修到正常的武士
+
+回饋：看起來像骷髏兵。原因有四個，逐一處理：
+
+1. **甲片之間露出細黑的四肢與脖子**：身體再加粗（上臂 1.75、前臂 1.5、大腿 1.4、小腿 1.5 倍；胸部左右 1.3、前後 1.35 倍；臀部只加寬 1.12 倍，避免從草摺後面鼓出來）。頭與頸維持原尺寸，否則臉會從面具前面穿出。
+2. **面具後面是黑洞**：頭部改成膚色材質，面具的眼孔後面看得到臉，不再是空的眼窩。
+3. **材質**：緊身衣改成霧面、偏暖的炭黑布料加細布紋凹凸，不再是亮黑；TRELLIS 的漆色往設定圖的深朱紅調整（R×0.9、G×0.78、B×0.8）。
+4. **深色背景吃掉黑色身體**：比較圖改成和設定圖一樣的淺灰底。
+
+另外：
+- **草摺改用袖的網格**：袖本身就是 5 段綴繩甲片、底段金波紋，和草摺同一種構造，而 TRELLIS 生成得很好；前、側、後各兩片，取代程式生成的平板。
+- **胴加寬**（左右 1.18–1.24 倍），背甲加長，**袖往上、往外移**，蓋到肩頂。
+- **佩楯移到草摺後下方**，膝甲加大。
+- **腰繩**（[waist_cord.py](../../../../tools/part_pipeline/waist_cord.py)）：沿胴的腰圍繞兩圈的紅色編繩、正面毬結、兩條尾繩與流蘇，綁在骨盆上。
+
+![](stage4/stage4c-vs-concept.jpg)
+
+![](stage4/stage4c-turnaround.jpg)
+
+前一版與本版（正面）：
+
+![](stage4/stage4c-before-after.jpg)
+
+動作測試：
+
+![](stage4/stage4c-poses.jpg)
+
+**還差的地方**：頸前繩結與流蘇；腰繩正面是直的（沒有貼著胴的弧度往下垂）；側面草摺在背面會略微外翻；手甲方向；遊戲版減面與烘焙。
+
+## 暫停（2026-10-19）
+
+這條路線先暫停：拆件生成的單件品質可用，但組到遊戲骨架上缺乏一體感，整體效果不夠。保留：
+
+- **Gemini（Nano Banana Pro）設計圖**：[images/](images/)。三視圖（[正面](images/ab-front-gemini-3-pro-image.png)、[側面](images/sheet-side.png)、[背面總角結版](images/sheet-back-knotA2.png)）、背面繩結的其他版本、11 張單件圖（`part-*.png`），提示與費用記錄在 [prompts.json](images/prompts.json)。
+- **單件 3D**：[parts/](parts/)。10 件 TRELLIS.2 封閉版 GLB（頭盔、胴前、胴後、袖、前臂甲、手甲、佩楯、膝、脛、足）與各自的生成記錄，加上程式生成的草摺與上臂甲。座標：正面 −Y、上 +Z、置於單位方塊內。清單與 SHA-256 見 [manifest.json](parts/manifest.json)。TRELLIS 原始體素資料仍在 Modal Volume `yukimura-trellis2-cache/results/future-sanada-parts/`。
+
+其餘（body v2 各 pass、組裝工具與渲染）也都保留在分支上，未刪除。

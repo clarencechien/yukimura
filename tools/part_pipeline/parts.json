@@ -1,0 +1,71 @@
+{
+  "common": "The three reference images are the orthographic model sheets of one armoured samurai character (front, left side, back). Draw ONE armour part of this character on its own, as an isolated 3D game asset for image-to-3D modelling: {desc} Match the reference exactly: same shape, proportions, colours, red lacquer with black lacing and gold trim, wear and details. Show the part alone: no body, no mannequin, no head, no other armour parts, nothing attached that is not described. Where the body would be, the part is hollow and its openings show the inner surface and the plate thickness. View: {view} The whole part fills most of the frame with a small margin, nothing cropped. Background: plain flat light grey (#BFBFBF). Lighting: even, soft, neutral studio light, no rim light, no glow, no cast shadow on the background. No text, no labels.",
+  "parts": [
+    {
+      "name": "helmet",
+      "aspect": "1:1",
+      "view": "three-quarter view from the front-left, camera slightly above eye level.",
+      "desc": "the helmet (kabuto) with the gold deer antlers, the gold six-coin (rokumonsen) front crest, the brim, the flared laminated neck guard (shikoro) with its turned-back wings (fukigaeshi), and the red menpo face mask with throat guard fixed in place under it; the mask is empty, no face or eyes inside."
+    },
+    {
+      "name": "do-front",
+      "aspect": "1:1",
+      "view": "three-quarter view from the front-left, camera at chest height.",
+      "desc": "the cuirass front (mae-do): the chest armour made of level horizontal red lacquered lames laced with black cord and gold trim, the gold lacing fittings, the small glowing orange energy lines at its sides, the upper chest plate and the shoulder straps (watagami) rising over the shoulders. No cords, no knots and no tassels on it."
+    },
+    {
+      "name": "do-back",
+      "aspect": "1:1",
+      "view": "three-quarter view from the back-left, camera at chest height.",
+      "desc": "the cuirass back (ushiro-do) made of the same level horizontal lames, with the small gold ring near the top and the small red agemaki knot hanging from it with its two tassels, exactly as in the back sheet."
+    },
+    {
+      "name": "sode",
+      "aspect": "1:1",
+      "view": "three-quarter view from the front-left, camera at shoulder height.",
+      "desc": "the character's LEFT shoulder guard (sode) ONLY, floating on its own: a single rectangular, slightly curved panel of five stacked horizontal lames laced with black cord, with gold edging and the gold wave engraving on the lowest lame, and the top plate with its attachment fittings. Nothing below it: no legs, no feet, no boots, no figure."
+    },
+    {
+      "name": "kusazuri",
+      "aspect": "1:1",
+      "view": "straight front view, very slightly from the left so the curvature reads, camera at the same height as the panel.",
+      "desc": "ONE single front skirt panel (kusazuri) on its own, NOT a full skirt or ring: a flat, gently curved rectangular panel about 25 cm wide made of five level lames laced with black cord hanging from a cord at the top, the largest bottom lame with gold wave engraving and gold edging. Only this one panel, nothing else."
+    },
+    {
+      "name": "kote",
+      "aspect": "2:3",
+      "view": "three-quarter view from the outer side, camera at elbow height, the arm pointing straight down.",
+      "desc": "the character's LEFT arm armour from shoulder to wrist without the hand: the black mechanical upper-arm sleeve, the red elbow cop, and the red forearm guard with gold trim and the glowing orange energy line; hollow tube openings at both ends."
+    },
+    {
+      "name": "gauntlet",
+      "aspect": "1:1",
+      "view": "three-quarter view of the back of the hand, fingers pointing down and slightly open, camera at hand height.",
+      "desc": "the character's LEFT armoured glove: black mechanical glove with articulated red and gold finger plates and the red back-of-hand plate (tekko); open at the wrist."
+    },
+    {
+      "name": "haidate",
+      "aspect": "1:1",
+      "view": "straight front view, very slightly from the left, camera at the same height as the part.",
+      "desc": "the character's LEFT thigh guard (haidate): the red armoured plates covering the front of the thigh below the skirt, with gold trim, as one curved piece."
+    },
+    {
+      "name": "knee",
+      "aspect": "1:1",
+      "view": "three-quarter view from the front-left, camera at knee height, the knee seen from outside the leg.",
+      "desc": "the character's LEFT knee armour as worn on a bent-straight leg, without the leg: the round red knee cop with its gold rim at the front, and behind it the short black mechanical joint housing with the small glowing orange light on its outer side, about 20 cm tall in total, open at the top and bottom where thigh and shin go through. It is a compact knee piece, not a helmet."
+    },
+    {
+      "name": "suneate",
+      "aspect": "2:3",
+      "view": "three-quarter view from the front-left, camera at shin height.",
+      "desc": "the character's LEFT shin guard (suneate) from below the knee to the ankle: red plates with gold trim and the vertical glowing orange energy line, the red cord ties around the calf; hollow at the top and bottom."
+    },
+    {
+      "name": "boot",
+      "aspect": "1:1",
+      "view": "three-quarter view from the front-left, camera slightly above.",
+      "desc": "the character's LEFT armoured boot: red and gold armoured plates over a black mechanical boot with a thick treaded sole and the red cord tie at the ankle; open at the top."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "trellis_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "part": "do-front",
+  "input_sha256": "636e55301f305d52eb449d93e5b9230b2a5b9da10e4c2cb5d14e68c6514ee0a0",
+  "pipeline": "1536_cascade",
+  "seed": 1615,
+  "max_num_tokens": 65536,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "status": "completed",
+  "load_seconds": 94.24119041600001,
+  "actual_resolution": 1536,
+  "inference_seconds": 191.0723025,
+  "source_vertices": 14889558,
+  "source_triangles": 30528334,
+  "source_files": [
+    {
+      "name": "source-geometry.npz",
+      "bytes": 246892633,
+      "sha256": "66c477980e453147e6e48a4ac1373b95851f0ddef890914f187c63ffa8720d4a"
+    },
+    {
+      "name": "source-attributes.npz",
+      "bytes": 338474210,
+      "sha256": "ecacd9dd3f2086e79b6153abf311c90b636e480312881ae83916ca7577bc6e69"
+    },
+    {
+      "name": "source-metadata.json",
+      "bytes": 276,
+      "sha256": "aff94bc68f03bd02ade05096173cabd97f28df0030533563f89b44dd5b39032f"
+    }
+  ],
+  "exports": [
+    {
+      "name": "do-front-high.glb",
+      "bytes": 23148232,
+      "sha256": "f423ba860d4389cd1b07821bf0ee7513ad1051d62454e9ca83d891eab18a72e2",
+      "target_triangles": 300000,
+      "texture_size": 2048,
+      "remesh": false,
+      "export_seconds": 46.376870806
+    },
+    {
+      "name": "do-front-closed.glb",
+      "bytes": 23411136,
+      "sha256": "02dac6800e11fb130de97144980a1c427ef65d01922e4053e3a7d5504b1ff8bd",
+      "target_triangles": 300000,
+      "texture_size": 2048,
+      "remesh": true,
+      "export_seconds": 54.244938828
+    }
+  ],
+  "invocation_seconds": 66.535473035,
+  "peak_pytorch_allocated_gib": 20.087520122528076
+}
