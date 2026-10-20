@@ -70,6 +70,36 @@ tools/turntable_compose.sh .tmp/mv-turntable docs/experiments/future-sanada/mult
 
 生成的 GLB（各約 73 MB）留在 Modal Volume `yukimura-trellis2-cache` 的 `results/future-sanada-multiview/`，沒有放進 Git；生成紀錄在 [generation-single-seed-7.json](generation-single-seed-7.json)、[generation-multi-seed-7.json](generation-multi-seed-7.json)。
 
+## Tripo 多視角對照
+
+同樣的三張去背圖交給 Tripo v3.1 Ultra，與 TRELLIS 一樣比「只用正面」和「三視圖」：
+
+- **只用正面**：`image-to-model`。
+- **三視圖**：`multiview-to-model`，`inputs` 用 `[{front}, {left}, {back}]` 的視角鍵格式；右側沒給，由 Tripo 自己補。
+- **參數**：與 [tripo-compare](../tripo-compare/README.md) 的 ultra 相同（`geometry_quality=detailed`、PBR、`texture_quality=detailed`）。
+- **程式**：[tripo_generate.py](../../../../tools/tripo_generate.py) 新增 `--view NAME=PATH`，以及重新下載既有任務的 `--task`。
+- **費用**：兩種都是 60 點（0.6 美元），三視圖沒有加價；約 2–3 分鐘。任務紀錄在 [tripo/](tripo/)。
+
+四種做法並列（上到下：TRELLIS 只用正面、TRELLIS 三視圖、Tripo 只用正面、Tripo 三視圖）：
+
+![](compare-trellis-tripo.jpg)
+
+背面近看（左起：背面輸入、TRELLIS 只用正面、TRELLIS 三視圖、Tripo 只用正面、Tripo 三視圖）：
+
+![](compare-back-all.jpg)
+
+- **背面**：
+  - Tripo 只用正面時就能編出合理的背甲（水平甲片、綴繩），但沒有繩結。
+  - Tripo 三視圖最接近設計圖：總角結的環、流蘇、背甲排列和草摺都照背面圖。
+  - TRELLIS 三視圖也有繩結，但簡化成一個交叉結。
+- **正面與側面**：Tripo 兩版幾乎一樣，甲片比 TRELLIS 銳利、對稱。
+- **轉台影片**：[turntable-trellis-vs-tripo-multiview-1080p.mp4](turntable-trellis-vs-tripo-multiview-1080p.mp4)，左 TRELLIS 三視圖、右 Tripo 三視圖。
+
+Tripo 的 GLB（各約 70 MB）沒有放進 Git，可用 `--task ultra=<task_id>` 重新下載（task id 在 task-*.json）。
+
 ## 結論
 
-三視圖拼接是開源路線裡便宜又有效的補強：只多約 15% 的推論時間，就能把原圖看不到的背面從「猜」變成「照圖」。它仍然只是按區域分別引導，不是真正的多視角重建，所以各視角必須一致，而細節（例如繩結）會比設計圖簡化。
+兩邊都證明三視圖有用：原圖看不到的地方，從「猜」變成「照圖」。
+
+- **Tripo**：多視角是原生功能，不加價，背面細節最忠於設計圖。
+- **TRELLIS.2**：三視圖拼接是開源路線裡便宜又有效的補強：只多約 15% 的推論時間，就能把原圖看不到的背面從「猜」變成「照圖」。它仍然只是按區域分別引導，不是真正的多視角重建，所以各視角必須一致，而細節（例如繩結）會比設計圖簡化。
