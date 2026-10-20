@@ -1,0 +1,341 @@
+{
+ "note": "Stage 4 layout. Physical +X is the game's '.R' side (the drawn left parts); 'L' copies are mirrored. Sizes are metres of the part's largest dimension.",
+ "hide_body": [
+  "body.foot",
+  "body.finger",
+  "body.metacarpal",
+  "body.wrist"
+ ],
+ "grade": [
+  0.9,
+  0.78,
+  0.8
+ ],
+ "parts": {
+  "helmet": {
+   "file": ".tmp/parts/helmet/seed-1615/helmet-closed.glb",
+   "bone": "body.head",
+   "anchor": [
+    "body.head"
+   ],
+   "size": 0.66,
+   "offset": [
+    0,
+    0.0,
+    0.19
+   ],
+   "decimate": 40000
+  },
+  "do-front": {
+   "file": ".tmp/parts/do-front/seed-1615/do-front-closed.glb",
+   "bone": "body.spine02",
+   "anchor": [
+    "body.spine02"
+   ],
+   "size": 0.6,
+   "offset": [
+    0,
+    -0.02,
+    0.1
+   ],
+   "clip": {
+    "keep": "front",
+    "y": -0.02
+   },
+   "decimate": 40000,
+   "scale_xyz": [
+    1.18,
+    1.05,
+    1.0
+   ]
+  },
+  "do-back": {
+   "file": ".tmp/parts/do-back/seed-1615/do-back-closed.glb",
+   "bone": "body.spine02",
+   "anchor": [
+    "body.spine02"
+   ],
+   "size": 0.6,
+   "rotate": [
+    0,
+    0,
+    180
+   ],
+   "offset": [
+    0,
+    -0.02,
+    0.085
+   ],
+   "clip": {
+    "keep": "back",
+    "y": -0.05
+   },
+   "decimate": 40000,
+   "scale_xyz": [
+    1.24,
+    1.08,
+    1.1
+   ]
+  },
+  "sode": {
+   "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
+   "bone": "body.shoulder01.{S}",
+   "anchor": [
+    "body.upperarm01.{S}"
+   ],
+   "size": 0.42,
+   "rotate": [
+    0,
+    0,
+    70
+   ],
+   "offset": [
+    0.04,
+    -0.01,
+    -0.02
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "decimate": 25000,
+   "blend": {
+    "bone": "body.upperarm01.{S}",
+    "max": 0.65
+   }
+  },
+  "kote-forearm": {
+   "file": ".tmp/parts/kote-forearm/seed-1615/kote-forearm-closed.glb",
+   "bone": "body.lowerarm02.{S}",
+   "anchor": [
+    "body.lowerarm01.{S}",
+    0.5,
+    "body.wrist.{S}"
+   ],
+   "align": [
+    "body.wrist.{S}",
+    "body.lowerarm01.{S}"
+   ],
+   "pca": true,
+   "size": 0.34,
+   "sides": [
+    "R",
+    "L"
+   ],
+   "decimate": 20000
+  },
+  "gauntlet": {
+   "file": ".tmp/parts/gauntlet/seed-1615/gauntlet-closed.glb",
+   "bone": "body.wrist.{S}",
+   "anchor": [
+    "body.wrist.{S}",
+    0.6,
+    "body.finger3-1.{S}"
+   ],
+   "align": [
+    "body.finger3-1.{S}",
+    "body.wrist.{S}"
+   ],
+   "pca": true,
+   "size": 0.3,
+   "sides": [
+    "R",
+    "L"
+   ],
+   "decimate": 20000
+  },
+  "haidate": {
+   "file": ".tmp/parts/haidate/seed-1615/haidate-closed.glb",
+   "bone": "body.upperleg01.{S}",
+   "anchor": [
+    "body.upperleg01.{S}",
+    0.78,
+    "body.lowerleg01.{S}"
+   ],
+   "size": 0.42,
+   "offset": [
+    0.02,
+    -0.05,
+    0.0
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "decimate": 25000
+  },
+  "knee": {
+   "file": ".tmp/parts/knee/seed-1615/knee-closed.glb",
+   "bone": "body.lowerleg01.{S}",
+   "anchor": [
+    "body.lowerleg01.{S}"
+   ],
+   "size": 0.3,
+   "offset": [
+    0,
+    -0.08,
+    0.04
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "decimate": 15000
+  },
+  "suneate": {
+   "file": ".tmp/parts/suneate/seed-1615/suneate-closed.glb",
+   "bone": "body.lowerleg01.{S}",
+   "anchor": [
+    "body.lowerleg01.{S}",
+    0.5,
+    "body.foot.{S}"
+   ],
+   "align": [
+    "body.foot.{S}",
+    "body.lowerleg01.{S}"
+   ],
+   "size": 0.44,
+   "offset": [
+    0,
+    -0.05,
+    0
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "decimate": 20000,
+   "rotate": [
+    0,
+    0,
+    180
+   ]
+  },
+  "boot": {
+   "file": ".tmp/parts/boot/seed-1615/boot-closed.glb",
+   "bone": "body.foot.{S}",
+   "anchor": [
+    "body.foot.{S}"
+   ],
+   "size": 0.4,
+   "offset": [
+    0,
+    -0.09,
+    0.0
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "decimate": 20000
+  },
+  "kusazuri-front": {
+   "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
+   "bone": "body.spine05",
+   "anchor": [
+    "body.spine05"
+   ],
+   "size": 0.4,
+   "offset": [
+    0.1,
+    -0.175,
+    -0.21
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "blend": {
+    "bone": "body.upperleg01.{S}",
+    "max": 0.6
+   },
+   "decimate": 15000
+  },
+  "kusazuri-side": {
+   "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
+   "bone": "body.spine05",
+   "anchor": [
+    "body.spine05"
+   ],
+   "size": 0.4,
+   "rotate": [
+    0,
+    0,
+    80
+   ],
+   "offset": [
+    0.205,
+    0.0,
+    -0.21
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "blend": {
+    "bone": "body.upperleg01.{S}",
+    "max": 0.7
+   },
+   "decimate": 15000
+  },
+  "kusazuri-back": {
+   "file": ".tmp/parts/sode/seed-1615/sode-closed.glb",
+   "bone": "body.spine05",
+   "anchor": [
+    "body.spine05"
+   ],
+   "size": 0.4,
+   "rotate": [
+    0,
+    0,
+    180
+   ],
+   "offset": [
+    0.1,
+    0.17,
+    -0.21
+   ],
+   "sides": [
+    "R",
+    "L"
+   ],
+   "blend": {
+    "bone": "body.upperleg01.{S}",
+    "max": 0.5
+   },
+   "decimate": 15000
+  },
+  "kote-upper": {
+   "file": ".tmp/parts/kote-upper-proc/seed-0/kote-upper-proc-high.glb",
+   "bone": "body.upperarm02.{S}",
+   "anchor": [
+    "body.upperarm01.{S}",
+    0.6,
+    "body.lowerarm01.{S}"
+   ],
+   "align": [
+    "body.lowerarm01.{S}",
+    "body.upperarm01.{S}"
+   ],
+   "rotate": [
+    0,
+    0,
+    60
+   ],
+   "size": 0.24,
+   "sides": [
+    "R",
+    "L"
+   ]
+  },
+  "waist-cord": {
+   "file": ".tmp/parts/waist-cord/seed-0/waist-cord-high.glb",
+   "world": true,
+   "bone": "body.spine05",
+   "anchor": [
+    "body.spine05"
+   ],
+   "size": 1
+  }
+ }
+}
