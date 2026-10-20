@@ -1,0 +1,21 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "pipeline": "1536_cascade",
+  "mode": "single",
+  "seed": 7,
+  "views": [
+    "front"
+  ],
+  "temperature": null,
+  "mirror_right": false,
+  "inputs_sha256": {
+    "front": "57ddeed4e7d0aa0a21058fea1c5151d5505b33913dc54ec635d3f6975ff56413"
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "actual_resolution": 1536,
+  "inference_seconds": 158.0,
+  "export_seconds": 79.4,
+  "source_triangles": 14517686,
+  "invocation_seconds": 318.6,
+  "status": "completed"
+}

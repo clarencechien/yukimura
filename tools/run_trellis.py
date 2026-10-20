@@ -31,6 +31,9 @@ def main():
     if '--turntable' in sys.argv:                      # Blender turntable renders; no TRELLIS weights needed
         sys.argv.remove('--turntable')
         script = 'tools/turntable_modal.py'
+    if '--multiview' in sys.argv:                      # TRELLIS.2 guided by a turnaround (front/back/side)
+        sys.argv.remove('--multiview')
+        script = 'tools/multiview/trellis_multiview_modal.py'
     if '--anim-compare' in sys.argv:                   # Blender rigging-comparison renders
         sys.argv.remove('--anim-compare')
         script = 'tools/anim_compare_modal.py'
