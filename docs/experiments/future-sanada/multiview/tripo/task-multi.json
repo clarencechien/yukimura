@@ -1,0 +1,66 @@
+{
+  "variant": "ultra",
+  "endpoint": "/generation/multiview-to-model",
+  "views": [
+    "back",
+    "front",
+    "left"
+  ],
+  "parameters": {
+    "model": "v3.1-20260211",
+    "geometry_quality": "detailed",
+    "texture": true,
+    "pbr": true,
+    "texture_quality": "detailed"
+  },
+  "task": {
+    "type": "multiview_to_model",
+    "status": "success",
+    "progress": 100,
+    "input": {
+      "pbr": true,
+      "files": [
+        {
+          "object": {
+            "key": "tcli_89c3af40ceb54994ac3f948a868ebdba/20261020/05d33d9a-4e39-4904-bfeb-b69a24e7c36a/file.png",
+            "bucket": "tripo-data"
+          }
+        },
+        {
+          "object": {
+            "key": "tcli_89c3af40ceb54994ac3f948a868ebdba/20261020/b51450df-9687-4b45-bac9-506efd223567/file.png",
+            "bucket": "tripo-data"
+          }
+        },
+        {
+          "object": {
+            "key": "tcli_89c3af40ceb54994ac3f948a868ebdba/20261020/142d3ab7-48f0-409f-ad48-1689b1b519f2/file.png",
+            "bucket": "tripo-data"
+          }
+        },
+        null
+      ],
+      "texture": true,
+      "export_uv": true,
+      "model_version": "v3.1-20260211",
+      "texture_quality": "detailed",
+      "geometry_quality": "detailed"
+    },
+    "task_id": "941462bb-c43a-4807-b0b6-4696b01abcc3",
+    "created_at": "2026-10-20T06:03:18.432866Z",
+    "completed_at": "2026-10-20T06:05:33.530567Z",
+    "credits_consumed": 60.0
+  },
+  "files": [
+    {
+      "key": "model_url",
+      "file": "ultra-model_url.glb",
+      "bytes": 70275468
+    },
+    {
+      "key": "rendered_image_url",
+      "file": "ultra-rendered_image_url.webp",
+      "bytes": 164591
+    }
+  ]
+}

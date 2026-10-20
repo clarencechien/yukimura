@@ -68,8 +68,65 @@ tools/turntable_compose.sh .tmp/mv-turntable docs/experiments/future-sanada/mult
     "TRELLIS.2 front only" "TRELLIS.2 front+back+side"
 ```
 
-生成的 GLB（各約 73 MB）留在 Modal Volume `yukimura-trellis2-cache` 的 `results/future-sanada-multiview/`，沒有放進 Git；生成紀錄在 [generation-single-seed-7.json](generation-single-seed-7.json)、[generation-multi-seed-7.json](generation-multi-seed-7.json)。
+生成的 GLB 壓縮後放在 [models/](models/)（見下方〈模型檔〉）。未壓縮原檔（各約 73 MB）留在 Modal Volume `yukimura-trellis2-cache` 的 `results/future-sanada-multiview/`。生成紀錄在 [generation-single-seed-7.json](generation-single-seed-7.json)、[generation-multi-seed-7.json](generation-multi-seed-7.json)。
+
+## Tripo 多視角對照
+
+同樣的三張去背圖交給 Tripo v3.1 Ultra，與 TRELLIS 一樣比「只用正面」和「三視圖」：
+
+- **只用正面**：`image-to-model`。
+- **三視圖**：`multiview-to-model`，`inputs` 用 `[{front}, {left}, {back}]` 的視角鍵格式；右側沒給，由 Tripo 自己補。
+- **參數**：與 [tripo-compare](../tripo-compare/README.md) 的 ultra 相同（`geometry_quality=detailed`、PBR、`texture_quality=detailed`）。
+- **程式**：[tripo_generate.py](../../../../tools/tripo_generate.py) 新增 `--view NAME=PATH`，以及重新下載既有任務的 `--task`。
+- **費用**：兩種都是 60 點（0.6 美元），三視圖沒有加價；約 2–3 分鐘。任務紀錄在 [tripo/](tripo/)。
+
+四種做法並列（上到下：TRELLIS 只用正面、TRELLIS 三視圖、Tripo 只用正面、Tripo 三視圖）：
+
+![](compare-trellis-tripo.jpg)
+
+背面近看（左起：背面輸入、TRELLIS 只用正面、TRELLIS 三視圖、Tripo 只用正面、Tripo 三視圖）：
+
+![](compare-back-all.jpg)
+
+- **背面**：
+  - Tripo 只用正面時就能編出合理的背甲（水平甲片、綴繩），但沒有繩結。
+  - Tripo 三視圖最接近設計圖：總角結的環、流蘇、背甲排列和草摺都照背面圖。
+  - TRELLIS 三視圖也有繩結，但簡化成一個交叉結。
+- **正面與側面**：Tripo 兩版幾乎一樣，甲片比 TRELLIS 銳利、對稱。
+- **轉台影片**：[turntable-trellis-vs-tripo-multiview-1080p.mp4](turntable-trellis-vs-tripo-multiview-1080p.mp4)，左 TRELLIS 三視圖、右 Tripo 三視圖。
+
+Tripo 的 GLB 壓縮後放在 [models/](models/)；未壓縮原檔（各約 70 MB）可用 `--task ultra=<task_id>` 重新下載（task id 在 task-*.json）。
+
+## 模型檔
+
+四個模型都用 [glb_compress.sh](../../../../tools/glb_compress.sh) 壓縮。幾何不減面、用 Draco 壓縮，貼圖維持 4096 只轉成 WebP，每個從約 70 MB 降到約 8 MB。
+
+驗證：把 Tripo 三視圖版解壓回一般 GLB 再算圖，與原檔的平均像素差為 0.3/255，肉眼看不出差別。
+
+| 檔案 | 內容 | 大小 |
+| --- | --- | ---: |
+| [trellis-front-only.glb](models/trellis-front-only.glb) | TRELLIS.2 1536，只用正面 | 8.2 MB |
+| [trellis-three-views.glb](models/trellis-three-views.glb) | TRELLIS.2 1536，三視圖拼接 | 8.2 MB |
+| [tripo-front-only.glb](models/tripo-front-only.glb) | Tripo v3.1 Ultra，只用正面（已轉成朝 −Y） | 7.6 MB |
+| [tripo-three-views.glb](models/tripo-three-views.glb) | Tripo v3.1 Ultra，三視圖（已轉成朝 −Y） | 7.4 MB |
+
+- **可直接開啟**：需要支援 Draco 與 `EXT_texture_webp` 的檢視器，例如 three.js、Babylon.js、官方 Blender。
+- **不支援 Draco 時**：用 [glb_decode.mjs](../../../../tools/glb_decode.mjs) 轉回一般 GLB。
+
+## seed 的影響
+
+seed 決定生成起點的隨機雜訊：同一張圖、同一個 seed 會得到一模一樣的模型。這裡單張與三視圖都用 seed 7，所以兩者的差別完全來自輸入。
+
+- **換 seed 不改變「像不像輸入圖」**，只會讓輸入沒畫清楚的地方換一種猜法：
+  - 影響最大：背面、側面、遮住的部位，以及小配件的形狀（繩結、流蘇、角飾分叉）。
+  - 其次：甲片的排數、邊緣凹凸、貼圖雜斑。
+  - 幾乎不變：正面輪廓與比例。
+- **給了三視圖後**，背面也有圖可照，seed 之間的差異會變小。
+- **實務做法**：跑 3–4 個 seed 挑最好的。TRELLIS.2 在 Modal 上每個約 5 分鐘（`--seeds 7,11,23,42`）；Tripo 用 `model_seed`，每個 seed 都要付一次額度。
 
 ## 結論
 
-三視圖拼接是開源路線裡便宜又有效的補強：只多約 15% 的推論時間，就能把原圖看不到的背面從「猜」變成「照圖」。它仍然只是按區域分別引導，不是真正的多視角重建，所以各視角必須一致，而細節（例如繩結）會比設計圖簡化。
+兩邊都證明三視圖有用：原圖看不到的地方，從「猜」變成「照圖」。
+
+- **Tripo**：多視角是原生功能，不加價，背面細節最忠於設計圖。
+- **TRELLIS.2**：三視圖拼接是開源路線裡便宜又有效的補強：只多約 15% 的推論時間，就能把原圖看不到的背面從「猜」變成「照圖」。它仍然只是按區域分別引導，不是真正的多視角重建，所以各視角必須一致，而細節（例如繩結）會比設計圖簡化。
