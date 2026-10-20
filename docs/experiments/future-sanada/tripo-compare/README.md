@@ -42,6 +42,19 @@ Tripo 原始輸出在 [tripo/](tripo/)（每種設定一個 GLB、Tripo 的預�
 | 生成時間 | 約 4 分鐘推論＋1.5 分鐘載入（H100） | 2 分鐘 | 2 分鐘 | 1 分鐘 |
 | 費用 | Modal GPU 時間 | 60 點（0.6 美元） | 120 點（1.2 美元） | 40 點（0.4 美元） |
 
+## 360 度轉台影片
+
+[turntable-trellis-vs-tripo-1080p.mp4](turntable-trellis-vs-tripo-1080p.mp4)：1920×1080、30 fps、24 秒。左 TRELLIS.2 1536，右 Tripo v3.1 Ultra；前 12 秒全身轉一圈，後 12 秒上半身近拍轉一圈。兩邊都縮放到 2 m 高、在同一組固定燈光下原地旋轉，所以每個角度的光線完全相同。
+
+在 Modal L4 GPU 上以 Blender 4.3 Cycles 算圖（96 samples、OptiX 降噪，每格約 5 秒，1,440 格分 12 台平行），本機以 ffmpeg 合成。重現：
+
+```sh
+python tools/run_trellis.py --turntable --left .tmp/body-v2/seed-7/body-remesh.glb --right .tmp/tripo-ultra-ny.glb --output .tmp/turntable
+tools/turntable_compose.sh .tmp/turntable docs/experiments/future-sanada/tripo-compare/turntable-trellis-vs-tripo-1080p.mp4 "TRELLIS.2 1536" "Tripo v3.1 Ultra"
+```
+
+（`.tmp/tripo-ultra-ny.glb` 是 Tripo ultra 轉成 −Y 朝前的副本。）
+
 ## 差別
 
 - **甲片幾何**：Tripo 的胴、草摺、袖都是水平、等距、邊緣銳利的甲片，綴繩是立體的；TRELLIS 的甲片邊緣軟、有凹凸，白模上可見表面起伏。這正是 body v2 花了 pass 2–9 想修的部分。
