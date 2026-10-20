@@ -28,6 +28,9 @@ def main():
     if '--parts-study' in sys.argv:
         sys.argv.remove('--parts-study')
         script = 'tools/part_pipeline/trellis_parts_modal.py'
+    if '--turntable' in sys.argv:                      # Blender turntable renders; no TRELLIS weights needed
+        sys.argv.remove('--turntable')
+        script = 'tools/turntable_modal.py'
     sys.argv = ['modal', 'run', script, *sys.argv[1:]]
     runpy.run_module('modal', run_name='__main__')
 
