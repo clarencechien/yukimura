@@ -95,7 +95,7 @@ tools/turntable_compose.sh .tmp/turntable docs/experiments/future-sanada/tripo-c
 在 Modal L4 上以 Cycles 算圖（64 samples），共 944 格；本機以 ffmpeg 合成。重現：
 
 ```sh
-blender-python tools/rig_open.py --mesh .tmp/tripo-game-ny.glb --output .tmp/rig-open/rig-open.glb
+blender-python tools/rig_open.py --mesh .tmp/tripo-game-ny.glb --output .tmp/rig-open/rig-open.glb --weights heat --no-spear --no-match-source
 blender-python tools/rig_tripo_gameclips.py --glb docs/experiments/future-sanada/tripo-compare/rig/tripo/rig-model_url.glb --output .tmp/rig-tripo/tripo-gameclips.glb
 python tools/run_trellis.py --anim-compare --open .tmp/rig-open/rig-open.glb --tripo .tmp/rig-tripo/tripo-gameclips.glb \
     --preset docs/experiments/future-sanada/tripo-compare/rig/tripo/retarget-model_url.glb
@@ -120,3 +120,76 @@ tools/anim_compare_compose.sh .tmp/animcmp docs/experiments/future-sanada/tripo-
 - **可重現性與可控性**：開源線完全在本機、不用額度，關節與權重都看得到也改得了，但關節偵測是針對這種站姿與服裝調的規則，換角色可能要再調。Tripo 線是黑盒，換任何雙足角色都能一鍵完成。
 
 **結論**：要遊戲用，兩條線的品質相近，關節處都需要人工修權重。開源線免費、骨架直接與遊戲相同，比較划算。要影片用或要手指，Tripo 的 65 根骨與自然的預設動作較好，0.65 美元也很便宜。比較實際的做法是混合：用 Tripo 綁骨取得手指與權重，再用 game_retarget.py 套遊戲自己的動作（即本文的 `tripo-gameclips.glb`）。
+
+## 遊戲版 LoD1：剛體甲片＋十文字槍
+
+上面兩條線的關節都像橡膠，因為生成模型的甲片、布料和身體是同一張連續曲面。只做遊戲用的話，改成專業做法裡最關鍵的一步就好：甲片各自整片跟著一根骨頭走，只有關節附近混合。這一版是 [rig_open.py](../../../../tools/rig_open.py) 的預設模式（`--weights rigid`），完全在本機，不花額度。
+
+1. **找甲片**：Tripo game 模型是一整塊（最大的連通塊有 18,441／24,464 個頂點），沒辦法照連通性拆開。改用 Tripo `parts` 的 11 件當標籤：parts 是同一張圖的另一次生成，與 game 模型的距離中位數 0.8 cm、90% 在 2.2 cm 內（以身高 1 計）。每個頂點取最近的 part，再以 16 個鄰近頂點投票兩輪去雜訊。各件依位置命名：頭盔、胴（含草摺）、頸、左右各四件（袖、臂、腿甲、小腿與靴）。
+2. **甲片對骨頭**：
+   - 頭盔→head；胴的腰帶以上→chest。
+   - 草摺→pelvis，越下面、越外側，就越跟大腿走（最多 55%）。
+   - 袖→上臂；臂依最近的骨段分成上臂、前臂、手；小腿與靴分成 shin、foot。
+   - 只在關節前後 6 cm 內混合權重。甲片與它的父甲片相接處，只在子甲片那一側混合。
+3. **撕開只是貼在一起的地方**：垂下的手貼著草摺、腿甲貼著小腿時，熔接的面會在動作時拉成一片「帆」。所以相鄰甲片之間的邊會被切開，只保留真正相連關節 14 cm 內的部分（肩、髖、膝、頸），共切開 429 條邊。
+4. **十文字槍**：網路上找不到可直接免費使用的日本長槍。找到的日本槍模型都要付費（2–16 美元）；CC0 的長槍包都是西式長槍。所以用 [yari.py](../../../../tools/yari.py) 程序生成一把朱漆十文字槍：石突、朱漆槍柄、金色口金、三角斷面的槍身加左右鎌刃，只有 167 個三角面，沒有貼圖。
+   - **位置**：長度、方向與握持位置照現行遊戲模型的槍（3.1 m）。
+   - **右手**：重新定向時 `weapon` 骨跟著右手走，保留原動作中槍對右手的相對位置。
+   - **左手**：用兩節 IK 握回槍上，手肘彎的方向照原動作。
+5. **遊戲預算**：8 個動作齊全，貼圖縮到 1024；整個骨架等比放大 1.094 倍，讓頸部高度和現行英雄一樣（1.75 m），在遊戲裡體型一致。
+
+重現（約 30 秒，只用 CPU）：
+
+```sh
+blender-python tools/rig_open.py --mesh .tmp/tripo-game-ny.glb --output .tmp/rig-lod1/yukimura-lod1.glb \
+    --clips idle,run,slash,reverse,thrust,spin,dash,hurt --texture-size 1024
+```
+
+成品：[rig/lod1/yukimura-lod1.glb](rig/lod1/yukimura-lod1.glb)（報告在 [yukimura-lod1-report.json](rig/lod1/yukimura-lod1-report.json)）。
+
+| | 現行遊戲英雄 | LoD1 |
+| --- | ---: | ---: |
+| 三角面 | 87,087 | 46,592（上限 90,000） |
+| 檔案 | 6.2 MB（另有 7 張共用貼圖 11.4 MB，與其他武將共用） | 4.8 MB（貼圖內含；上限 7 MB） |
+| 骨頭 | 92（18 控制＋74 變形） | 18（同名同階層） |
+| 動作 | 8 | 同樣 8 個（由遊戲原動作轉移） |
+
+**甲片分區**（顏色＝主要骨頭，漸層＝關節混合）
+
+![](rig/lod1/plates.png)
+
+**原本的 bone heat（上）與剛體甲片＋十文字槍（下）**，左起：idle、slash、run、thrust、hurt
+
+![](rig/lod1/heat-vs-rigid.jpg)
+
+### 遊戲內動作示範
+
+[rig/lod1/ingame-motion-current-vs-lod1.mp4](rig/lod1/ingame-motion-current-vs-lod1.mp4)：1920×720、24 fps、20 秒。左邊是現行英雄，右邊是 LoD1，都在實際的 Babylon.js 引擎裡執行。
+
+- **前 12.5 秒**：模型預覽頁依序播放 run、slash、reverse、thrust、spin、dash、hurt、idle，每段 1.5 秒。
+- **後 7.5 秒**：實際戰場，先往前跑，再連續攻擊。
+
+錄製用 [capture-rig-motion.mjs](../../../../tools/capture-rig-motion.mjs)：
+
+- **換模型**：用 Playwright 的 route 換掉英雄模型，repo 裡的檔案不動。
+- **時鐘**：軟體 WebGL 遠慢於即時，所以載入後改用假時鐘，每 1/24 秒推進一格並讀取畫布。
+- **同步**：預覽頁的動作依時間直接擺姿勢，兩邊逐格同步。
+- **注意**：畫面只有 3D 畫布，沒有 HTML 介面（HUD）。
+
+```sh
+npx vite --host 127.0.0.1 --port 5199 &
+node tools/capture-rig-motion.mjs current .tmp/motion/current http://127.0.0.1:5199
+node tools/capture-rig-motion.mjs .tmp/rig-lod1/yukimura-lod1.glb .tmp/motion/lod1 http://127.0.0.1:5199
+```
+
+### 結果
+
+- **甲片**：胴、袖、草摺、腿甲都保持硬的，不再像橡膠一樣彎；只有肩、肘、髖、膝、頸附近混合。
+- **槍與雙手**：槍的角度與現行英雄的動作逐格一致，右手持槍、左手由 IK 握回槍上。
+- **剩下的問題**：
+  - 撕開處的邊緣呈鋸齒，在草摺下緣、腿甲邊最明顯。
+  - 肩膀較寬，少數姿勢槍會穿過身體（原動作本來就有一些）。
+  - 生成模型沒有披風，`cape` 骨沒有用到。
+- **遊戲裡**：俯視距離下這些都不明顯。LoD1 的甲片細節比現行英雄豐富，檔案（4.8 MB，含貼圖）也比現行英雄的模型加貼圖小。
+
+是否要真的換掉 `public/models/yukimura.glb`，留待決定；這裡只放實驗成品，遊戲本身沒有改動。

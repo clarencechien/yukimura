@@ -12,6 +12,8 @@ sys.path.insert(0, str(Path(__file__).parent)); import game_retarget
 p = argparse.ArgumentParser()
 p.add_argument('--glb', required=True); p.add_argument('--output', required=True)
 p.add_argument('--forward', default='-y'); p.add_argument('--frames', type=int, default=4); p.add_argument('--size', type=int, default=360)
+p.add_argument('--no-fit', action='store_true', help='keep the GLB scale (already 2 m tall, e.g. rig_open.py output with its spear)')
+p.add_argument('--pick', default='', help='only these clip:frame pairs, e.g. idle:20,slash:12 (one row)')
 a = p.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:])
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene = bpy.context.scene
@@ -30,7 +32,7 @@ bpy.context.view_layer.update()
 meshes = [o for o in scene.objects if o.type == 'MESH' and o.parent is rig]
 for o in [o for o in scene.objects if o.type == 'MESH' and o not in meshes]: bpy.data.objects.remove(o, do_unlink=True)
 lo, hi = game_retarget.rest_bounds(rig, meshes)
-s = 2.0 / (hi.z - lo.z); root.scale = (s, s, s); root.location.z = -lo.z * s
+s = 1.0 if a.no_fit else 2.0 / (hi.z - lo.z); root.scale = (s, s, s); root.location.z = 0 if a.no_fit else -lo.z * s
 hips = next(b for b in rig.pose.bones if not b.parent)
 scene.render.engine = 'CYCLES'; scene.cycles.samples = 12; scene.cycles.use_denoising = False   # no GL on the render boxes
 sun = bpy.data.objects.new('sun', bpy.data.lights.new('sun', 'SUN')); sun.data.energy = 3; sun.rotation_euler = (.7, 0, -.5); scene.collection.objects.link(sun)
@@ -40,6 +42,9 @@ cam = bpy.data.objects.new('cam', bpy.data.cameras.new('cam')); scene.collection
 cam.data.lens = 85; ang = math.radians(-30); cam.location = (4.4 * math.sin(ang) * -1, -4.4 * math.cos(ang), 1.2)
 cam.rotation_euler = (Vector((0, 0, 1.0)) - cam.location).to_track_quat('-Z', 'Y').to_euler()
 tmp = Path(tempfile.mkdtemp()); tiles = []
+if a.pick:
+    picks = [(c, int(f)) for c, f in (x.split(':') for x in a.pick.split(','))]; a.frames = len(picks)
+    actions = [next(x for x in actions if x.name.split('_')[0] == picks[0][0])]
 for act in actions:
     rig.animation_data.action = act
     f0, f1 = act.frame_range
@@ -49,10 +54,13 @@ for act in actions:
     root.location.x -= c.x; root.location.y -= c.y
     row = []
     for k in range(a.frames):
-        f = f0 + (f1 - f0) * k / max(a.frames - 1, 1)
+        if a.pick:
+            act = next(x for x in bpy.data.actions if x.name.split('_')[0] == picks[k][0]); rig.animation_data.action = act; f = act.frame_range[0] + picks[k][1]
+        else:
+            f = f0 + (f1 - f0) * k / max(a.frames - 1, 1)
         scene.frame_set(int(round(f))); out = tmp / f'{act.name}-{k}.png'
         scene.render.filepath = str(out); bpy.ops.render.render(write_still=True); row.append(out)
-    tiles.append((act.name, row))
+    tiles.append((a.pick.replace(',', '   ') if a.pick else act.name, row))
 from PIL import Image, ImageDraw
 W, Hh = a.size, int(a.size * 1.4)
 sheet = Image.new('RGB', (W * a.frames, Hh * len(tiles)), (30, 30, 30)); d = ImageDraw.Draw(sheet)
