@@ -67,3 +67,56 @@ tools/turntable_compose.sh .tmp/turntable docs/experiments/future-sanada/tripo-c
 - **TRELLIS 的優勢**：開源（MIT）、可自架，沒有額度與使用條款限制；Tripo 是付費服務。
 
 **結論**：同一張圖，Tripo ultra 的原始輸出就已經優於 TRELLIS.2 1536 加上 body v2 九輪精修的結果；遊戲版也只需要縮小貼圖。若要繼續做這個角色，建議改走 Tripo：以 ultra 作為影片版，以 game 作為遊戲版，再用 Tripo 的自動綁骨或拆件結果綁到遊戲骨架。
+
+## 綁骨與動作：Tripo 與開源雙線比較
+
+同一個模型（Tripo game，46,449 面）分兩條線做成可動角色，再套同樣的動作比較。
+
+| | Tripo 線 | 開源線 |
+| --- | --- | --- |
+| 綁骨 | Tripo API `animations/rig`（`v3.0-20260909`、biped、Mixamo 骨名），[tripo_rig.py](../../../../tools/tripo_rig.py) | 只用 Blender，[rig_open.py](../../../../tools/rig_open.py) |
+| 骨架 | 65 根（含手指），Mixamo 命名 | 18 根，與遊戲 `yukimura.glb` 的控制骨同名同階層 |
+| 關節位置 | Tripo 自動判斷 | 從填滿的正面剪影找胯下、腋下、肩、肘、腕、膝、頸；深度取附近頂點的中間值，左右對稱 |
+| 蒙皮 | Tripo 自動 | Blender bone heat。原始網格是很多片開放的殼，直接算時 62,525 個頂點全部失敗；改在 1 cm 體素填實後的封閉代理上算（42,826 頂點，只有 8 個沒解出），再以最近面內插複製回原網格 |
+| 動作 | Tripo 預設動作（`preset:idle/run/slash/hurt`）；遊戲的 8 個動作則由 [rig_tripo_gameclips.py](../../../../tools/rig_tripo_gameclips.py) 轉到它的骨架上 | 遊戲的 8 個動作，由 [game_retarget.py](../../../../tools/game_retarget.py) 依骨頭方向轉移 |
+| 費用與時間 | rig-check 0＋rig 25＋retarget 40（每個動作 10）＝ 65 點（0.65 美元），約 1 分鐘 | 免費，CPU 約 10 秒 |
+
+兩條線都能帶著遊戲的 8 個動作（`idle run slash reverse thrust spin dash hurt`）直接放進遊戲：遊戲只依動作名稱找片段，不看骨頭名稱。下圖是在實際遊戲裡，以 Playwright 把英雄模型換成這兩個 GLB 的截圖（[capture-rig-ingame.mjs](../../../../tools/capture-rig-ingame.mjs)，repo 裡的模型沒有被替換），上排開源、下排 Tripo；左起待機、奔跑、攻擊。兩者都能載入、沒有錯誤，三個動作都正常播放。
+
+![](rig/ingame.jpg)
+
+### 動作比較影片
+
+[rig/anim-open-vs-tripo-1080p.mp4](rig/anim-open-vs-tripo-1080p.mp4)：1920×1080、24 fps、47 秒。
+
+- 前段：同一組遊戲動作（idle、run、slash、hurt），左邊開源、右邊 Tripo，先全身、再上半身近拍。
+- 後段：Tripo 骨架配上 Tripo 自己的預設動作。
+
+在 Modal L4 上以 Cycles 算圖（64 samples），共 944 格；本機以 ffmpeg 合成。重現：
+
+```sh
+blender-python tools/rig_open.py --mesh .tmp/tripo-game-ny.glb --output .tmp/rig-open/rig-open.glb
+blender-python tools/rig_tripo_gameclips.py --glb docs/experiments/future-sanada/tripo-compare/rig/tripo/rig-model_url.glb --output .tmp/rig-tripo/tripo-gameclips.glb
+python tools/run_trellis.py --anim-compare --open .tmp/rig-open/rig-open.glb --tripo .tmp/rig-tripo/tripo-gameclips.glb \
+    --preset docs/experiments/future-sanada/tripo-compare/rig/tripo/retarget-model_url.glb
+tools/anim_compare_compose.sh .tmp/animcmp docs/experiments/future-sanada/tripo-compare/rig/anim-open-vs-tripo-1080p.mp4
+```
+
+**同一動作、不同蒙皮**（上排開源、下排 Tripo；左起：slash 近拍兩格、run、hurt、idle）
+
+![](rig/compare-poses.jpg)
+
+**Tripo 預設動作**（左起：run、slash 兩格、hurt、idle、hurt 倒地）
+
+![](rig/tripo-presets.jpg)
+
+### 差別
+
+- **甲片變形**：兩邊都會在關節處拉扯甲片，沒有一邊做到「甲片保持剛硬、只有關節彎」。開源線在手臂舉高時肩甲（袖）會跟著上臂彎曲；垂在腰側的手甲會被擠扁。Tripo 線的袖比較像一整塊跟著手臂走，但手肘內側的灰色布料會鼓成一個球。
+- **骨架細節**：Tripo 有手指、三節脊椎、頸、鎖骨，做影片或要握武器時比較好用；開源線只有遊戲用的 18 根骨，手是一整塊。
+- **動作來源**：Tripo 預設動作是自然的動態捕捉風格，但跟這個遊戲無關，`slash` 比較像彎腰鞠躬，`hurt` 是坐倒在地。而且每段都帶著一個固定的根骨偏移：`animate_in_place` 只去掉位移，沒有歸零。遊戲要用的仍是自己的 8 個動作，兩條線都能用 game_retarget.py 套上。
+- **轉移的限制**：game_retarget.py 只複製每根骨頭的方向。原遊戲角色雙手握槍；新模型肩膀較寬、手臂比例不同，雙手就對不上同一把槍。若要雙手握持，需要再加手部 IK 或手動修。這對兩條線都一樣。
+- **相容性**：兩者都能直接在遊戲中執行。但兩者都沒有槍：生成的模型本來就沒有，遊戲的 `weapon` 骨在開源線上保留了，Tripo 線沒有。另外檔案都約 16 MB，超過 7 MB 上限，原因同樣是三張 4K 貼圖。
+- **可重現性與可控性**：開源線完全在本機、不用額度，關節與權重都看得到也改得了，但關節偵測是針對這種站姿與服裝調的規則，換角色可能要再調。Tripo 線是黑盒，換任何雙足角色都能一鍵完成。
+
+**結論**：要遊戲用，兩條線的品質相近，關節處都需要人工修權重。開源線免費、骨架直接與遊戲相同，比較划算。要影片用或要手指，Tripo 的 65 根骨與自然的預設動作較好，0.65 美元也很便宜。比較實際的做法是混合：用 Tripo 綁骨取得手指與權重，再用 game_retarget.py 套遊戲自己的動作（即本文的 `tripo-gameclips.glb`）。

@@ -5,9 +5,7 @@
 2. Build the game's 18 control bones (same names and hierarchy as public/models/yukimura.glb)
    at those joints and bind with Blender's automatic (bone heat) weights on a voxel-remeshed proxy,
    copied to the real mesh; vertices still unweighted fall back to inverse-distance weights.
-3. Retarget the game's own clips by bone direction: every frame, each bone gets the world-space
-   rotation the source bone has relative to its rest, applied after aligning the new rest
-   direction to the source rest direction. Pelvis travel is scaled by the leg-length ratio.
+3. Retarget the game's own clips onto it with game_retarget.py.
 
   blender-python tools/rig_open.py --mesh .tmp/tripo-game-ny.glb --output .tmp/rig-open/rig-open.glb \
       --clips idle,run,slash,hurt
@@ -17,6 +15,7 @@ import argparse, json, math, sys
 import bpy
 import numpy as np
 from mathutils import Matrix, Vector
+sys.path.insert(0, str(Path(__file__).parent)); import game_retarget
 
 ROOT = Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
@@ -27,12 +26,9 @@ bpy.ops.wm.read_factory_settings(use_empty=True)
 scene = bpy.context.scene
 
 # ---------------------------------------------------------------- source rig and clips
-bpy.ops.import_scene.gltf(filepath=a.source)
-src = next(o for o in scene.objects if o.type == 'ARMATURE'); src.name = 'source rig'
-for o in [o for o in scene.objects if o.type == 'MESH']: bpy.data.objects.remove(o, do_unlink=True)
+src = game_retarget.load_source(a.source)
 CTRL = [b.name for b in src.data.bones if not b.name.startswith('body.')]
 PARENT = {n: (src.data.bones[n].parent.name if src.data.bones[n].parent else None) for n in CTRL}
-src_rest = {n: src.matrix_world @ src.data.bones[n].matrix_local for n in CTRL}
 
 # ---------------------------------------------------------------- mesh and its joints
 before = set(scene.objects)
@@ -184,46 +180,14 @@ if unweighted:
         for k, wv in zip(top[row], ws): (mesh.vertex_groups.get(deform[k]) or mesh.vertex_groups.new(name=deform[k])).add([i], float(wv), 'REPLACE')
 
 # ---------------------------------------------------------------- retarget
-src_leg = (src_rest['thigh.R'].translation - src_rest['shin.R'].translation).length + (src_rest['shin.R'].translation - src_rest['foot.R'].translation).length
-new_leg = (J['thigh.R'][0] - J['shin.R'][0]).length + (J['shin.R'][0] - J['foot.R'][0]).length
-ratio = new_leg / src_leg
-new_rest = {n: rig.matrix_world @ rig.data.bones[n].matrix_local for n in CTRL}
-align = {n: (new_rest[n].to_3x3() @ Vector((0, 1, 0))).rotation_difference(src_rest[n].to_3x3() @ Vector((0, 1, 0))).to_matrix() for n in CTRL}
-def depth(n): return 0 if not PARENT[n] else 1 + depth(PARENT[n])
-order = sorted(CTRL, key=depth)
-rig.animation_data_create(); src.animation_data_create()
-report = {'clips': {}}
-for clip in a.clips.split(','):
-    act = next(x for x in bpy.data.actions if x.name.split('_')[0] == clip and x.name.endswith('yukimura_Rig'))
-    src.animation_data.action = act
-    f0, f1 = act.frame_range; frames = int(round(f1 - f0)) + 1
-    new = bpy.data.actions.new(clip); rig.animation_data.action = new
-    for f in range(frames):
-        scene.frame_set(int(f0) + f); bpy.context.view_layer.update()
-        for n in order:
-            sp = src.matrix_world @ src.pose.bones[n].matrix
-            delta = sp.to_3x3() @ src_rest[n].to_3x3().inverted()
-            R = delta @ align[n] @ new_rest[n].to_3x3()
-            pb = rig.pose.bones[n]; pb.rotation_mode = 'QUATERNION'
-            if n == 'pelvis':
-                head = new_rest[n].translation + (sp.translation - src_rest[n].translation) * ratio
-            else:
-                head = rig.matrix_world @ pb.head          # where the parent chain already puts it
-            pb.matrix = rig.matrix_world.inverted() @ (Matrix.Translation(head) @ R.to_4x4())
-            bpy.context.view_layer.update()
-            pb.keyframe_insert('rotation_quaternion', frame=f)
-            if n == 'pelvis': pb.keyframe_insert('location', frame=f)
-    track = rig.animation_data.nla_tracks.new(); track.name = clip; track.strips.new(clip, 0, new)
-    rig.animation_data.action = None
-    report['clips'][clip] = frames
-src.animation_data.action = None
+report = {'clips': game_retarget.retarget(src, rig, {n: n for n in ['pelvis'] + [n for n in CTRL if n != 'pelvis']}, a.clips.split(','),
+                                          (('thigh.R', 'shin.R', 'foot.R'),) * 2)}
 bpy.data.objects.remove(src, do_unlink=True)
-for pb in rig.pose.bones: pb.location = (0, 0, 0); pb.rotation_quaternion = (1, 0, 0, 0)
 out = Path(a.output); out.parent.mkdir(parents=True, exist_ok=True)
 bpy.ops.wm.save_as_mainfile(filepath=str(out.with_suffix('.blend').resolve()))
 bpy.ops.object.select_all(action='DESELECT'); mesh.select_set(True); rig.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(out.resolve()), export_format='GLB', use_selection=True, export_animations=True, export_animation_mode='NLA_TRACKS')
 report.update(joints={n: [list(map(lambda x: round(x, 3), J[n][0])), list(map(lambda x: round(x, 3), J[n][1]))] for n in CTRL},
-              crotch=round(crotch, 3), neck=round(float(neck_z), 3), heat_unweighted_vertices=len(unweighted), proxy_vertices=proxy_verts, proxy_unweighted=proxy_unweighted, vertices=len(mesh.data.vertices), leg_ratio=round(ratio, 3))
+              crotch=round(crotch, 3), neck=round(float(neck_z), 3), heat_unweighted_vertices=len(unweighted), proxy_vertices=proxy_verts, proxy_unweighted=proxy_unweighted, vertices=len(mesh.data.vertices))
 out.with_name('rig-open-report.json').write_text(json.dumps(report, indent=2) + '\n')
-print(json.dumps({k: report[k] for k in ('clips', 'crotch', 'neck', 'heat_unweighted_vertices', 'proxy_vertices', 'proxy_unweighted', 'vertices', 'leg_ratio')}))
+print(json.dumps({k: report[k] for k in ('clips', 'crotch', 'neck', 'heat_unweighted_vertices', 'proxy_vertices', 'proxy_unweighted', 'vertices')}))

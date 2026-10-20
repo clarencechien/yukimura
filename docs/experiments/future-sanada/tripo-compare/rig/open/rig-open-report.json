@@ -3,6 +3,10 @@
     "idle": 39,
     "run": 20,
     "slash": 25,
+    "reverse": 25,
+    "thrust": 25,
+    "spin": 30,
+    "dash": 15,
     "hurt": 15
   },
   "joints": {
@@ -228,6 +232,5 @@
   "heat_unweighted_vertices": 0,
   "proxy_vertices": 42826,
   "proxy_unweighted": 8,
-  "vertices": 62525,
-  "leg_ratio": 0.854
+  "vertices": 62525
 }

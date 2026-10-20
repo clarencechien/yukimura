@@ -8,6 +8,7 @@ from pathlib import Path
 import argparse, math, sys, tempfile
 import bpy
 from mathutils import Vector
+sys.path.insert(0, str(Path(__file__).parent)); import game_retarget
 p = argparse.ArgumentParser()
 p.add_argument('--glb', required=True); p.add_argument('--output', required=True)
 p.add_argument('--forward', default='-y'); p.add_argument('--frames', type=int, default=4); p.add_argument('--size', type=int, default=360)
@@ -26,10 +27,11 @@ print('actions', [(x.name, tuple(x.frame_range)) for x in actions])
 rig.animation_data_create(); rig.animation_data.action = None
 for t in list(rig.animation_data.nla_tracks): rig.animation_data.nla_tracks.remove(t)
 bpy.context.view_layer.update()
-meshes = [o for o in scene.objects if o.type == 'MESH']
-pts = [o.matrix_world @ Vector(c) for o in meshes for c in o.bound_box]
-zmin = min(q.z for q in pts); h = max(q.z for q in pts) - zmin
-s = 2.0 / h; root.scale = (s, s, s); root.location.z = -zmin * s
+meshes = [o for o in scene.objects if o.type == 'MESH' and o.parent is rig]
+for o in [o for o in scene.objects if o.type == 'MESH' and o not in meshes]: bpy.data.objects.remove(o, do_unlink=True)
+lo, hi = game_retarget.rest_bounds(rig, meshes)
+s = 2.0 / (hi.z - lo.z); root.scale = (s, s, s); root.location.z = -lo.z * s
+hips = next(b for b in rig.pose.bones if not b.parent)
 scene.render.engine = 'CYCLES'; scene.cycles.samples = 12; scene.cycles.use_denoising = False   # no GL on the render boxes
 sun = bpy.data.objects.new('sun', bpy.data.lights.new('sun', 'SUN')); sun.data.energy = 3; sun.rotation_euler = (.7, 0, -.5); scene.collection.objects.link(sun)
 scene.render.resolution_x = a.size; scene.render.resolution_y = int(a.size * 1.4)
@@ -41,6 +43,10 @@ tmp = Path(tempfile.mkdtemp()); tiles = []
 for act in actions:
     rig.animation_data.action = act
     f0, f1 = act.frame_range
+    # centre each clip on its root's mean ground position (Tripo's in-place presets carry a constant offset)
+    root.location.x = root.location.y = 0; c = Vector()
+    for f in range(int(f0), int(f1) + 1, 4): scene.frame_set(f); c += (rig.matrix_world @ hips.head) / len(range(int(f0), int(f1) + 1, 4))
+    root.location.x -= c.x; root.location.y -= c.y
     row = []
     for k in range(a.frames):
         f = f0 + (f1 - f0) * k / max(a.frames - 1, 1)
