@@ -7,7 +7,7 @@ def main():
     for upper, lower in [('MODAL_TOKEN_ID', 'modal_token_id'), ('MODAL_TOKEN_SECRET', 'modal_token_secret'), ('MODAL_TOKEN_ID', 'modal'), ('MODAL_TOKEN_SECRET', 'modal_secret')]:
         if not os.environ.get(upper) and os.environ.get(lower):
             os.environ[upper] = os.environ[lower]
-    if '--build-only' in sys.argv or '--download-only' in sys.argv:
+    if '--build-only' in sys.argv or '--download-only' in sys.argv or '--turntable' in sys.argv:
         os.environ['TRELLIS_ENVIRONMENT_CHECK_ONLY'] = '1'
     else:
         import modal

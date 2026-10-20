@@ -1,0 +1,47 @@
+{
+  "variant": "game",
+  "parameters": {
+    "model": "P2-20260801",
+    "face_limit": 45000,
+    "texture": true,
+    "pbr": true,
+    "texture_quality": "detailed"
+  },
+  "task": {
+    "type": "image_to_model",
+    "status": "success",
+    "progress": 100,
+    "input": {
+      "pbr": true,
+      "file": {
+        "type": "jpeg",
+        "object": {
+          "key": "tcli_89c3af40ceb54994ac3f948a868ebdba/20261020/be20e3bb-0a3b-481a-b8cf-c3ceb77e1654/image.jpeg",
+          "bucket": "tripo-data"
+        }
+      },
+      "texture": true,
+      "export_uv": true,
+      "face_limit": 45000,
+      "model_version": "P2-20260801",
+      "texture_quality": "detailed",
+      "enable_image_autofix": false
+    },
+    "task_id": "be20e3bb-0a3b-481a-b8cf-c3ceb77e1654",
+    "created_at": "2026-10-20T00:59:27.589951Z",
+    "completed_at": "2026-10-20T01:01:28.951592Z",
+    "credits_consumed": 120.0
+  },
+  "files": [
+    {
+      "key": "model_url",
+      "file": "game-model_url.glb",
+      "bytes": 14977584
+    },
+    {
+      "key": "rendered_image_url",
+      "file": "game-rendered_image_url.webp",
+      "bytes": 156849
+    }
+  ]
+}
