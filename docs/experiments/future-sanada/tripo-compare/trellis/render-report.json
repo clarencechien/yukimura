@@ -1,0 +1,141 @@
+{
+  "renderer": "4.3.0",
+  "device": "CPU",
+  "samples": 20,
+  "image_size": [
+    900,
+    900
+  ],
+  "geometry_objects": 1,
+  "vertices": 572238,
+  "triangles": 571463,
+  "material_count": 1,
+  "images": [
+    {
+      "name": "Image_0",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        4096,
+        4096
+      ]
+    }
+  ],
+  "views": [
+    {
+      "name": "front",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 16.89
+    },
+    {
+      "name": "three-quarter",
+      "degrees": 35,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 12.59
+    },
+    {
+      "name": "side",
+      "degrees": 90,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 12.68
+    },
+    {
+      "name": "back",
+      "degrees": 180,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 12.24
+    },
+    {
+      "name": "clay",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.03
+      ],
+      "span": 2.35,
+      "seconds": 12.59
+    },
+    {
+      "name": "torso",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.2
+      ],
+      "span": 0.8,
+      "seconds": 17.59
+    },
+    {
+      "name": "clay-torso",
+      "degrees": 0,
+      "target": [
+        0,
+        0,
+        1.2
+      ],
+      "span": 0.8,
+      "seconds": 17.73
+    },
+    {
+      "name": "hands",
+      "degrees": 30,
+      "target": [
+        0,
+        0,
+        0.98
+      ],
+      "span": 1.0,
+      "seconds": 12.97
+    },
+    {
+      "name": "legs",
+      "degrees": 15,
+      "target": [
+        0,
+        0,
+        0.4
+      ],
+      "span": 0.95,
+      "seconds": 15.19
+    },
+    {
+      "name": "back-detail",
+      "degrees": 160,
+      "target": [
+        0,
+        0,
+        1.25
+      ],
+      "span": 1.0,
+      "seconds": 13.77
+    }
+  ]
+}
