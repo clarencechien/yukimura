@@ -68,7 +68,7 @@ tools/turntable_compose.sh .tmp/mv-turntable docs/experiments/future-sanada/mult
     "TRELLIS.2 front only" "TRELLIS.2 front+back+side"
 ```
 
-生成的 GLB（各約 73 MB）留在 Modal Volume `yukimura-trellis2-cache` 的 `results/future-sanada-multiview/`，沒有放進 Git；生成紀錄在 [generation-single-seed-7.json](generation-single-seed-7.json)、[generation-multi-seed-7.json](generation-multi-seed-7.json)。
+生成的 GLB 壓縮後放在 [models/](models/)（見下方〈模型檔〉）。未壓縮原檔（各約 73 MB）留在 Modal Volume `yukimura-trellis2-cache` 的 `results/future-sanada-multiview/`。生成紀錄在 [generation-single-seed-7.json](generation-single-seed-7.json)、[generation-multi-seed-7.json](generation-multi-seed-7.json)。
 
 ## Tripo 多視角對照
 
@@ -95,7 +95,23 @@ tools/turntable_compose.sh .tmp/mv-turntable docs/experiments/future-sanada/mult
 - **正面與側面**：Tripo 兩版幾乎一樣，甲片比 TRELLIS 銳利、對稱。
 - **轉台影片**：[turntable-trellis-vs-tripo-multiview-1080p.mp4](turntable-trellis-vs-tripo-multiview-1080p.mp4)，左 TRELLIS 三視圖、右 Tripo 三視圖。
 
-Tripo 的 GLB（各約 70 MB）沒有放進 Git，可用 `--task ultra=<task_id>` 重新下載（task id 在 task-*.json）。
+Tripo 的 GLB 壓縮後放在 [models/](models/)；未壓縮原檔（各約 70 MB）可用 `--task ultra=<task_id>` 重新下載（task id 在 task-*.json）。
+
+## 模型檔
+
+四個模型都用 [glb_compress.sh](../../../../tools/glb_compress.sh) 壓縮。幾何不減面、用 Draco 壓縮，貼圖維持 4096 只轉成 WebP，每個從約 70 MB 降到約 8 MB。
+
+驗證：把 Tripo 三視圖版解壓回一般 GLB 再算圖，與原檔的平均像素差為 0.3/255，肉眼看不出差別。
+
+| 檔案 | 內容 | 大小 |
+| --- | --- | ---: |
+| [trellis-front-only.glb](models/trellis-front-only.glb) | TRELLIS.2 1536，只用正面 | 8.2 MB |
+| [trellis-three-views.glb](models/trellis-three-views.glb) | TRELLIS.2 1536，三視圖拼接 | 8.2 MB |
+| [tripo-front-only.glb](models/tripo-front-only.glb) | Tripo v3.1 Ultra，只用正面（已轉成朝 −Y） | 7.6 MB |
+| [tripo-three-views.glb](models/tripo-three-views.glb) | Tripo v3.1 Ultra，三視圖（已轉成朝 −Y） | 7.4 MB |
+
+- **可直接開啟**：需要支援 Draco 與 `EXT_texture_webp` 的檢視器，例如 three.js、Babylon.js、官方 Blender。
+- **不支援 Draco 時**：用 [glb_decode.mjs](../../../../tools/glb_decode.mjs) 轉回一般 GLB。
 
 ## seed 的影響
 
