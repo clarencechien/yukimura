@@ -2,9 +2,21 @@
 
 **2026-10-18：先取回 TRELLIS 第一代＋DINOv2，再完成 TRELLIS.2＋DINOv3 生成；兩版模型均已下載、驗證與渲染。** 使用同一張透明參考圖及 seed 1615。這是獨立角色試作，不替換目前的 Pages 遊戲。
 
+## 實驗總覽
+
+依時間順序（越下面越新）：
+
+| 實驗 | 內容 | 結論 |
+| --- | --- | --- |
+| [TRELLIS 兩代比較](#直接看成果)、[頭部精修](head-study/README.md)、[body v2](body-v2/README.md) | TRELLIS.2 1536 生成，精修九輪 | 停在 pass 9 |
+| [拆件流程](part-pipeline/README.md) | Nano Banana Pro 三視圖與單件設計圖，逐件生成後組裝 | 效果太差，放棄；保留設計圖與單件 |
+| [Tripo 比較](tripo-compare/README.md) | Tripo v3.1 Ultra／P2／parts 與 TRELLIS.2 1536 比較，含 360° 影片 | Tripo 一次生成就勝過 TRELLIS.2 加九輪精修 |
+| [綁骨與動作](tripo-compare/README.md#綁骨與動作tripo-與開源雙線比較) | Tripo 自動綁骨與開源 Blender 綁骨雙線比較；遊戲版 LoD1（剛體甲片＋十文字槍）在遊戲引擎實錄 | 能進遊戲，但要做到好的可動角色，仍需 3D 工程師 |
+| [三視圖拼接](multiview/README.md) | TRELLIS.2 三視圖拼接（移植 ComfyUI-Trellis2 的做法）與 Tripo `multiview-to-model` | 三視圖讓背面從「猜」變「照圖」；Tripo 最忠於設計圖，且不加價 |
+
 ## 直接看成果
 
-最新 **[全身重新生成與漆金材質（body v2）](body-v2/README.md)**：1536 重新生成身體、封閉重網格、赤漆／鍍金材質拆分，接回已完成的頭部。
+**[全身重新生成與漆金材質（body v2）](body-v2/README.md)**：1536 重新生成身體、封閉重網格、赤漆／鍍金材質拆分，接回已完成的頭部。
 
 新增 **[頭部逐項精修：1536 生成、眼睛／六文錢修整與身體試接](head-study/README.md)**。已確認原網格的四枚錢紋是生成錯誤，使用 Blender 局部重建；最新以 Rocketbox 人臉眼眶取代程序式眼睛，並重做薄浮雕六文錢與頭盔材質接合。提供前後近拍、可編輯原檔及較小的互動檢視版，尚未完成動畫拓樸。
 

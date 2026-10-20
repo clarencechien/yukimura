@@ -97,6 +97,17 @@ tools/turntable_compose.sh .tmp/mv-turntable docs/experiments/future-sanada/mult
 
 Tripo 的 GLB（各約 70 MB）沒有放進 Git，可用 `--task ultra=<task_id>` 重新下載（task id 在 task-*.json）。
 
+## seed 的影響
+
+seed 決定生成起點的隨機雜訊：同一張圖、同一個 seed 會得到一模一樣的模型。這裡單張與三視圖都用 seed 7，所以兩者的差別完全來自輸入。
+
+- **換 seed 不改變「像不像輸入圖」**，只會讓輸入沒畫清楚的地方換一種猜法：
+  - 影響最大：背面、側面、遮住的部位，以及小配件的形狀（繩結、流蘇、角飾分叉）。
+  - 其次：甲片的排數、邊緣凹凸、貼圖雜斑。
+  - 幾乎不變：正面輪廓與比例。
+- **給了三視圖後**，背面也有圖可照，seed 之間的差異會變小。
+- **實務做法**：跑 3–4 個 seed 挑最好的。TRELLIS.2 在 Modal 上每個約 5 分鐘（`--seeds 7,11,23,42`）；Tripo 用 `model_seed`，每個 seed 都要付一次額度。
+
 ## 結論
 
 兩邊都證明三視圖有用：原圖看不到的地方，從「猜」變成「照圖」。
