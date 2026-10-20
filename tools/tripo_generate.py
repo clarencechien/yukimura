@@ -11,7 +11,8 @@ that holds a tsk_ key; it is never printed or written to disk.
 from pathlib import Path
 import argparse, json, os, sys, time, urllib.error, urllib.request, uuid
 
-API = 'https://openapi.tripo3d.com/v3'
+# International accounts (developers.tripo3d.ai, Stripe billing); China mainland is openapi.tripo3d.com.
+API = os.environ.get('TRIPO_API_BASE', 'https://openapi.tripo3d.ai/v3')
 VARIANTS = {
     # Best quality: newest geometry model, Ultra geometry, detailed PBR textures.
     'ultra': {'model': 'v3.1-20260211', 'geometry_quality': 'detailed', 'texture': True, 'pbr': True, 'texture_quality': 'detailed'},
