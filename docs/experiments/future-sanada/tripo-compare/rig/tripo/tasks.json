@@ -1,0 +1,102 @@
+{
+  "rig-check": {
+    "parameters": {
+      "input": "be20e3bb-0a3b-481a-b8cf-c3ceb77e1654"
+    },
+    "task": {
+      "type": "animate_prerigcheck",
+      "status": "success",
+      "progress": 100,
+      "input": {
+        "original_model_id": "be20e3bb-0a3b-481a-b8cf-c3ceb77e1654"
+      },
+      "task_id": "d549d56b-a6e5-422b-8586-21e38c39f7c3",
+      "created_at": "2026-10-20T02:18:03.716287Z",
+      "completed_at": "2026-10-20T02:18:04.648264Z",
+      "credits_consumed": 0.0
+    },
+    "output": {
+      "riggable": true,
+      "rig_type": "biped"
+    },
+    "files": []
+  },
+  "rig": {
+    "parameters": {
+      "input": "be20e3bb-0a3b-481a-b8cf-c3ceb77e1654",
+      "model": "v3.0-20260909",
+      "rig_type": "biped",
+      "spec": "mixamo",
+      "out_format": "glb"
+    },
+    "task": {
+      "type": "animate_rig",
+      "status": "success",
+      "progress": 100,
+      "input": {
+        "spec": "mixamo",
+        "topology": "biped",
+        "out_format": "glb",
+        "original_model_id": "be20e3bb-0a3b-481a-b8cf-c3ceb77e1654"
+      },
+      "task_id": "d63ca008-f18f-4263-9567-5b16776cfae0",
+      "created_at": "2026-10-20T02:18:14.374544Z",
+      "completed_at": "2026-10-20T02:18:29.139768Z",
+      "credits_consumed": 25.0
+    },
+    "output": {},
+    "files": [
+      {
+        "key": "model_url",
+        "file": "rig-model_url.glb",
+        "bytes": 16250936
+      },
+      {
+        "key": "rendered_image_url",
+        "file": "rig-rendered_image_url.webp",
+        "bytes": 156821
+      }
+    ]
+  },
+  "retarget": {
+    "parameters": {
+      "input": "d63ca008-f18f-4263-9567-5b16776cfae0",
+      "animations": [
+        "preset:idle",
+        "preset:run",
+        "preset:slash",
+        "preset:hurt"
+      ],
+      "out_format": "glb",
+      "animate_in_place": true
+    },
+    "task": {
+      "type": "animate_retarget",
+      "status": "success",
+      "progress": 100,
+      "input": {
+        "animations": [
+          "preset:idle",
+          "preset:run",
+          "preset:slash",
+          "preset:hurt"
+        ],
+        "out_format": "glb",
+        "animate_in_place": true,
+        "original_model_id": "d63ca008-f18f-4263-9567-5b16776cfae0"
+      },
+      "task_id": "1f156630-3be9-4c4b-a140-c84e986173b1",
+      "created_at": "2026-10-20T02:18:36.681927Z",
+      "completed_at": "2026-10-20T02:18:48.821440Z",
+      "credits_consumed": 40.0
+    },
+    "output": {},
+    "files": [
+      {
+        "key": "model_url",
+        "file": "retarget-model_url.glb",
+        "bytes": 17296392
+      }
+    ]
+  }
+}
