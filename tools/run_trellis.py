@@ -7,7 +7,7 @@ def main():
     for upper, lower in [('MODAL_TOKEN_ID', 'modal_token_id'), ('MODAL_TOKEN_SECRET', 'modal_token_secret'), ('MODAL_TOKEN_ID', 'modal'), ('MODAL_TOKEN_SECRET', 'modal_secret')]:
         if not os.environ.get(upper) and os.environ.get(lower):
             os.environ[upper] = os.environ[lower]
-    if '--build-only' in sys.argv or '--download-only' in sys.argv or '--turntable' in sys.argv:
+    if '--build-only' in sys.argv or '--download-only' in sys.argv or '--turntable' in sys.argv or '--anim-compare' in sys.argv:
         os.environ['TRELLIS_ENVIRONMENT_CHECK_ONLY'] = '1'
     else:
         import modal
@@ -28,6 +28,12 @@ def main():
     if '--parts-study' in sys.argv:
         sys.argv.remove('--parts-study')
         script = 'tools/part_pipeline/trellis_parts_modal.py'
+    if '--turntable' in sys.argv:                      # Blender turntable renders; no TRELLIS weights needed
+        sys.argv.remove('--turntable')
+        script = 'tools/turntable_modal.py'
+    if '--anim-compare' in sys.argv:                   # Blender rigging-comparison renders
+        sys.argv.remove('--anim-compare')
+        script = 'tools/anim_compare_modal.py'
     sys.argv = ['modal', 'run', script, *sys.argv[1:]]
     runpy.run_module('modal', run_name='__main__')
 
